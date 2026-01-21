@@ -292,7 +292,7 @@ export default function Navigation() {
           backgroundColor: 'var(--vscode-editor-background)',
         }}>
           <a
-            href="https://github.com/yourusername/baukasten"
+            href="https://github.com/typefox/baukasten"
             target="_blank"
             rel="noopener noreferrer"
             style={{

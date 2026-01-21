@@ -113,7 +113,7 @@ export default function Home() {
               padding: 'var(--spacing-5)',
               backgroundColor: 'var(--vscode-editor-background)',
               borderRadius: 'var(--border-radius-md)',
-              border: '2px solid var(--vscode-button-background)',
+              border: '1px solid var(--vscode-button-background)',
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)', marginBottom: 'var(--spacing-2)' }}>
@@ -135,7 +135,7 @@ export default function Home() {
               padding: 'var(--spacing-5)',
               backgroundColor: 'var(--vscode-editor-background)',
               borderRadius: 'var(--border-radius-md)',
-              border: '2px solid var(--vscode-button-background)',
+              border: '1px solid var(--vscode-button-background)',
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)', marginBottom: 'var(--spacing-2)' }}>
@@ -157,7 +157,7 @@ export default function Home() {
               padding: 'var(--spacing-5)',
               backgroundColor: 'var(--vscode-editor-background)',
               borderRadius: 'var(--border-radius-md)',
-              border: '2px solid var(--vscode-button-background)',
+              border: '1px solid var(--vscode-button-background)',
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)', marginBottom: 'var(--spacing-2)' }}>
@@ -201,7 +201,7 @@ export default function Home() {
                 Storybook
               </Button>
             </Link>
-            <a href="https://github.com/yourusername/baukasten" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+            <a href="https://github.com/typefox/baukasten" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
               <Button variant="secondary" size="lg">
                 <Icon name="github" style={{ marginRight: 'var(--spacing-2)' }} />
                 GitHub
