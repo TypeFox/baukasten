@@ -1,0 +1,69 @@
+# Workflow name
+name: Build website and storybook, publish to GitHub Pages
+
+on:
+  # Event for the workflow to run on
+  push:
+    branches:
+      - "main"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# List of jobs
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Job steps
+    steps:
+      # Manual Checkout
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      # Set up Node
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Build all packages (baukasten, website, etc.)
+      - name: Build all packages
+        run: npm run build
+
+      # Build Storybook
+      - name: Build Storybook
+        working-directory: packages/baukasten
+        env:
+          STORYBOOK_BASE_PATH: /baukasten/storybook
+          NODE_PATH: ${{ github.workspace }}/packages/baukasten/node_modules
+        run: npm run build-storybook
+      
+      # Copy Storybook into website output under /storybook path
+      - name: Merge Storybook into website
+        run: |
+          mkdir -p packages/website/out/storybook
+          cp -r packages/baukasten/storybook-static/* packages/website/out/storybook/
+      
+      # Setup GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      # Upload artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'packages/website/out'
+      
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

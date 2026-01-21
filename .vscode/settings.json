@@ -1,0 +1,37 @@
+{
+  // TypeScript settings
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  
+  // Editor settings
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  
+  // File associations
+  "files.associations": {
+    "*.css": "css"
+  },
+  
+  // Search exclusions
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.storybook-static": true
+  },
+  
+  // File watcher exclusions
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true
+  },
+  
+  // NPM scripts
+  "npm.packageManager": "npm",
+  "npm.enableScriptExplorer": true,
+  
+  // Extension recommendations
+  "extensions.ignoreRecommendations": false
+}
+

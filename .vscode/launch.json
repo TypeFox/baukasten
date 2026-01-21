@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach to Web Example (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/packages/examples/web-example",
+      "sourceMaps": true,
+      "preLaunchTask": "npm: dev:web-example"
+    },
+    {
+      "name": "Attach to Storybook (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:6006",
+      "webRoot": "${workspaceFolder}/packages/baukasten",
+      "sourceMaps": true,
+      "preLaunchTask": "npm: storybook"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Launch All Examples",
+      "configurations": [
+        "Attach to Web Example (Chrome)"
+      ],
+      "stopAll": true
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+---
+alwaysApply: true
+---
+
+# Baukasten Quick Reference
+
+Quick patterns and examples for using the Baukasten design system.
+
+## 📍 Token Definitions
+
+**Source of Truth**: All tokens are defined in:
+
+- `packages/Baukasten/src/styles/colors.ts`
+- `packages/Baukasten/src/styles/spacing.ts`
+- `packages/Baukasten/src/styles/typography.ts`
+- `packages/Baukasten/src/styles/effects.ts`
+
+**Visual Documentation**: Run `npm run storybook` → "Design System / Tokens"
+
+## Most Common Tokens
+
+```css
+/* Colors */
+--color-primary
+--color-foreground
+--color-background
+--color-border
+
+/* Spacing */
+--spacing-4        /* 16px */
+--padding-md       /* 6px 14px */
+--gap-sm          /* 6px */
+
+/* Typography */
+--font-size-md    /* 13px */
+--font-weight-medium
+
+/* Effects */
+--radius-md
+--transition-colors
+```
+
+## Component Template
+
+```tsx
+import styled from "styled-components";
+
+export interface MyComponentProps {
+  size?: "sm" | "md" | "lg";
+}
+
+const StyledComponent = styled.div<{ $size: string }>`
+  padding: var(--padding-${(props) => props.$size});
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  border: var(--border-width-1) solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  transition: var(--transition-colors);
+
+  &:hover {
+    background-color: var(--color-hover);
+  }
+`;
+
+export const MyComponent: React.FC<MyComponentProps> = ({
+  size = "md",
+  ...props
+}) => {
+  return <StyledComponent $size={size} {...props} />;
+};
+```
+
+## File Structure
+
+```
+ComponentName/
+├── ComponentName.tsx         # Implementation
+├── ComponentName.stories.tsx # Storybook
+└── index.ts                  # Exports
+```
+
+## Do's and Don'ts
+
+✅ **Use semantic tokens**
+
+```tsx
+color: var(--color-primary);
+padding: var(--padding-md);
+```
+
+❌ **Don't hardcode or use VSCode vars directly**
+
+```tsx
+color: #007acc;  // Never hardcode
+background: var(--vscode-button-background);  // Too specific
+```
+
+## Reference Components
+
+Look at these for examples:
+
+- `packages/Baukasten/src/components/Button/Button.tsx`
+- `packages/Baukasten/src/components/Input/Input.tsx`
+- `packages/Baukasten/src/components/Badge/Badge.tsx`
+
+## Full Details
+
+See `@design-system` cursor rule for complete information and file locations.
+
+# Baukasten Quick Reference
+
+Quick patterns and examples for using the Baukasten design system.
+
+## 📍 Token Definitions
+
+**Source of Truth**: All tokens are defined in:
+
+- `packages/Baukasten/src/styles/colors.ts`
+- `packages/Baukasten/src/styles/spacing.ts`
+- `packages/Baukasten/src/styles/typography.ts`
+- `packages/Baukasten/src/styles/effects.ts`
+
+**Visual Documentation**: Run `npm run storybook` → "Design System / Tokens"
+
+## Most Common Tokens
+
+```css
+/* Colors */
+--color-primary
+--color-foreground
+--color-background
+--color-border
+
+/* Spacing */
+--spacing-4        /* 16px */
+--padding-md       /* 6px 14px */
+--gap-sm          /* 6px */
+
+/* Typography */
+--font-size-md    /* 13px */
+--font-weight-medium
+
+/* Effects */
+--radius-md
+--transition-colors
+```
+
+## Component Template
+
+```tsx
+import styled from "styled-components";
+
+export interface MyComponentProps {
+  size?: "sm" | "md" | "lg";
+}
+
+const StyledComponent = styled.div<{ $size: string }>`
+  padding: var(--padding-${(props) => props.$size});
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  border: var(--border-width-1) solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  transition: var(--transition-colors);
+
+  &:hover {
+    background-color: var(--color-hover);
+  }
+`;
+
+export const MyComponent: React.FC<MyComponentProps> = ({
+  size = "md",
+  ...props
+}) => {
+  return <StyledComponent $size={size} {...props} />;
+};
+```
+
+## File Structure
+
+```
+ComponentName/
+├── ComponentName.tsx         # Implementation
+├── ComponentName.stories.tsx # Storybook
+└── index.ts                  # Exports
+```
+
+## Do's and Don'ts
+
+✅ **Use semantic tokens**
+
+```tsx
+color: var(--color-primary);
+padding: var(--padding-md);
+```
+
+❌ **Don't hardcode or use VSCode vars directly**
+
+```tsx
+color: #007acc;  // Never hardcode
+background: var(--vscode-button-background);  // Too specific
+```
+
+## Reference Components
+
+Look at these for examples:
+
+- `packages/Baukasten/src/components/Button/Button.tsx`
+- `packages/Baukasten/src/components/Input/Input.tsx`
+- `packages/Baukasten/src/components/Badge/Badge.tsx`
+
+## Full Details
+
+See `@design-system` cursor rule for complete information and file locations.

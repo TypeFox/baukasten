@@ -1,0 +1,185 @@
+import { cssVariables } from './css-variables';
+import '@vscode/codicons/dist/codicon.css';
+
+/**
+ * Global styles component that injects all CSS custom properties
+ *
+ * This component must be included once at the root of your application
+ * to enable all Baukasten components to use the design system tokens.
+ *
+ * @example
+ * ```tsx
+ * import { GlobalStyles } from 'baukasten';
+ *
+ * function App() {
+ *   return (
+ *     <>
+ *       <GlobalStyles />
+ *       <YourApp />
+ *     </>
+ *   );
+ * }
+ * ```
+ *
+ * @example
+ * With Storybook:
+ * ```tsx
+ * import { GlobalStyles } from 'baukasten';
+ *
+ * export const decorators = [
+ *   (Story) => (
+ *     <>
+ *       <GlobalStyles />
+ *       <Story />
+ *     </>
+ *   ),
+ * ];
+ * ```
+ */
+export const GlobalStyles = () => {
+  return (
+    <style
+      dangerouslySetInnerHTML={{
+        __html: `
+  ${cssVariables}
+  
+  /* Optional: Add any additional global styles here */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* ========================================================================
+   * SCROLLBAR STYLING (VSCode-style)
+   * Custom scrollbars that match VSCode's native appearance
+   * ======================================================================== */
+
+  /* For Webkit browsers (Chrome, Safari, Edge) */
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    background-color: var(--vscode-scrollbarSlider-background, rgba(121, 121, 121, 0.4));
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: var(--vscode-scrollbarSlider-hoverBackground, rgba(100, 100, 100, 0.7));
+  }
+
+  *::-webkit-scrollbar-thumb:active {
+    background-color: var(--vscode-scrollbarSlider-activeBackground, rgba(191, 191, 191, 0.4));
+  }
+
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--vscode-scrollbarSlider-background, rgba(121, 121, 121, 0.4)) transparent;
+  }
+
+  /* ========================================================================
+   * TYPOGRAPHY UTILITY CLASSES
+   * Quick styling classes for inline text formatting
+   * ======================================================================== */
+  
+  /* Font weights */
+  .text-light { font-weight: var(--font-weight-light); }
+  .text-normal { font-weight: var(--font-weight-normal); }
+  .text-medium { font-weight: var(--font-weight-medium); }
+  .text-semibold { font-weight: var(--font-weight-semibold); }
+  .text-bold { font-weight: var(--font-weight-bold); }
+  
+  /* Font styles */
+  .text-italic { font-style: italic; }
+  .text-normal-style { font-style: normal; }
+  
+  /* Text decoration */
+  .text-underline { text-decoration: underline; }
+  .text-line-through { text-decoration: line-through; }
+  .text-no-underline { text-decoration: none; }
+  
+  /* Text transform */
+  .text-uppercase { text-transform: uppercase; }
+  .text-lowercase { text-transform: lowercase; }
+  .text-capitalize { text-transform: capitalize; }
+  
+  /* Text alignment */
+  .text-left { text-align: left; }
+  .text-center { text-align: center; }
+  .text-right { text-align: right; }
+  .text-justify { text-align: justify; }
+  
+  /* Font families */
+  .font-sans { font-family: var(--font-family-sans); }
+  .font-mono { font-family: var(--font-family-mono); }
+  
+  /* Font sizes */
+  .text-xs { font-size: var(--font-size-xs); }
+  .text-sm { font-size: var(--font-size-sm); }
+  .text-md { font-size: var(--font-size-md); }
+  .text-base { font-size: var(--font-size-base); }
+  .text-lg { font-size: var(--font-size-lg); }
+  .text-xl { font-size: var(--font-size-xl); }
+  .text-2xl { font-size: var(--font-size-2xl); }
+  .text-3xl { font-size: var(--font-size-3xl); }
+  .text-4xl { font-size: var(--font-size-4xl); }
+  .text-5xl { font-size: var(--font-size-5xl); }
+  
+  /* Line heights */
+  .leading-tight { line-height: var(--line-height-tight); }
+  .leading-normal { line-height: var(--line-height-normal); }
+  .leading-relaxed { line-height: var(--line-height-relaxed); }
+  .leading-loose { line-height: var(--line-height-loose); }
+  
+  /* Letter spacing */
+  .tracking-tight { letter-spacing: var(--letter-spacing-tight); }
+  .tracking-normal { letter-spacing: var(--letter-spacing-normal); }
+  .tracking-wide { letter-spacing: var(--letter-spacing-wide); }
+  .tracking-wider { letter-spacing: var(--letter-spacing-wider); }
+  
+  /* Text colors */
+  .text-foreground { color: var(--color-foreground); }
+  .text-muted { color: var(--color-secondary-foreground); }
+  .text-primary { color: var(--color-primary); }
+  .text-success { color: var(--color-success); }
+  .text-warning { color: var(--color-warning); }
+  .text-danger { color: var(--color-danger); }
+  .text-info { color: var(--color-info); }
+  
+  /* Text overflow */
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .text-wrap { white-space: normal; }
+  .text-nowrap { white-space: nowrap; }
+  .text-pre { white-space: pre; }
+  .text-pre-wrap { white-space: pre-wrap; }
+        `,
+      }}
+    />
+  );
+};
+
+export default GlobalStyles;
+
