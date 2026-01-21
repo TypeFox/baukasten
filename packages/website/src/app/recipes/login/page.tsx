@@ -47,7 +47,7 @@ export default function LoginRecipesPage() {
                 }}>
                   <Icon name="account" style={{ color: 'var(--vscode-button-foreground)', fontSize: '28px' }} />
                 </div>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-2)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--spacing-2)', textAlign: 'center' }}>
                   Welcome Back
                 </Heading>
                 <Text style={{ color: 'var(--vscode-descriptionForeground)' }}>
@@ -137,7 +137,7 @@ function LoginPage() {
           }}>
             <Icon name="account" style={{ color: 'var(--vscode-button-foreground)', fontSize: '28px' }} />
           </div>
-          <Heading level={3} style={{ marginBottom: 'var(--spacing-2)' }}>
+          <Heading level={3} style={{ marginBottom: 'var(--spacing-2)', textAlign: 'center' }}>
             Welcome Back
           </Heading>
           <Text style={{ color: 'var(--vscode-descriptionForeground)' }}>
@@ -230,7 +230,7 @@ function LoginPage() {
               <Heading level={2} style={{ marginBottom: 'var(--spacing-3)', color: 'inherit' }}>
                 Baukasten
               </Heading>
-              <Text style={{ textAlign: 'center', maxWidth: '300px', opacity: 0.9 }}>
+              <Text style={{ textAlign: 'center', maxWidth: '300px', opacity: 0.9, color: 'var(--vscode-button-foreground)' }}>
                 Build beautiful applications with Baukasten UI
               </Text>
             </div>
