@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/contexts/ThemeContext';
 
 export const metadata: Metadata = {
   title: 'Baukasten - React UI Toolkit',
-  description: 'A comprehensive React component library for VSCode webviews',
+  description: 'A comprehensive React component library for Web Applications, Eclipse Theia and VSCode webviews',
 };
 
 export default function RootLayout({
