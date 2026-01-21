@@ -57,8 +57,8 @@ export default function ThemingGuidePage() {
                     marginBottom: 'var(--spacing-6)',
                 }}>
                     <div style={{
-                        backgroundColor: 'var(--vscode-sideBar-background)',
-                        border: '1px solid var(--vscode-panel-border)',
+                        backgroundColor: 'var(--color-background-secondary)',
+                        border: '1px solid var(--color-border)',
                         borderRadius: 'var(--border-radius-lg)',
                         padding: 'var(--spacing-6)',
                     }}>
@@ -70,7 +70,7 @@ export default function ThemingGuidePage() {
                             alignItems: 'center',
                         }}>
                             <Icon name="symbol-color" style={{ marginRight: 'var(--spacing-2)' }} />
-                            1. VSCode Theme Variables
+                            1. Theia/VSCode Theme Variables
                         </h3>
                         <p style={{
                             fontSize: 'var(--font-size-base)',
@@ -78,14 +78,14 @@ export default function ThemingGuidePage() {
                             marginBottom: 'var(--spacing-4)',
                             lineHeight: 'var(--line-height-relaxed)',
                         }}>
-                            Base variables that map directly to VSCode's theming system (e.g., <Code>--vscode-button-background</Code>).
-                            These are automatically provided when used in VSCode extensions.
+                            Base variables that map directly to VSCode/Theia's theming system (e.g., <Code>--vscode-button-background</Code>).
+                            These are automatically provided when used as an extension.
                         </p>
                     </div>
 
                     <div style={{
-                        backgroundColor: 'var(--vscode-sideBar-background)',
-                        border: '1px solid var(--vscode-panel-border)',
+                        backgroundColor: 'var(--color-background-secondary)',
+                        border: '1px solid var(--color-border)',
                         borderRadius: 'var(--border-radius-lg)',
                         padding: 'var(--spacing-6)',
                     }}>
@@ -111,8 +111,8 @@ export default function ThemingGuidePage() {
                     </div>
 
                     <div style={{
-                        backgroundColor: 'var(--vscode-sideBar-background)',
-                        border: '1px solid var(--vscode-panel-border)',
+                        backgroundColor: 'var(--color-background-secondary)',
+                        border: '1px solid var(--color-border)',
                         borderRadius: 'var(--border-radius-lg)',
                         padding: 'var(--spacing-6)',
                     }}>
@@ -197,9 +197,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     });
 
     document.body.style.backgroundColor = 
-      theme.variables['--vscode-editor-background'];
+      theme.variables['--color-background'];
     document.body.style.color = 
-      theme.variables['--vscode-editor-foreground'];
+      theme.variables['--color-foreground'];
   }, [themeMode]);
 
   const setTheme = (mode: ThemeMode) => {
@@ -253,9 +253,9 @@ export default function ThemePicker() {
       display: 'flex',
       gap: 'var(--spacing-2)',
       padding: 'var(--spacing-2)',
-      backgroundColor: 'var(--vscode-editor-background)',
+      backgroundColor: 'var(--color-background)',
       borderRadius: 'var(--border-radius-md)',
-      border: '1px solid var(--vscode-panel-border)',
+      border: '1px solid var(--color-border)',
     }}>
       <Button
         variant={themeMode === 'light' ? 'primary' : 'secondary'}
@@ -303,8 +303,8 @@ export default function ThemePicker() {
                     gap: 'var(--spacing-5)',
                 }}>
                     <div style={{
-                        backgroundColor: 'var(--vscode-sideBar-background)',
-                        border: '1px solid var(--vscode-panel-border)',
+                        backgroundColor: 'var(--color-background-secondary)',
+                        border: '1px solid var(--color-border)',
                         borderRadius: 'var(--border-radius-lg)',
                         padding: 'var(--spacing-6)',
                     }}>
@@ -328,8 +328,8 @@ export default function ThemePicker() {
                     </div>
 
                     <div style={{
-                        backgroundColor: 'var(--vscode-sideBar-background)',
-                        border: '1px solid var(--vscode-panel-border)',
+                        backgroundColor: 'var(--color-background-secondary)',
+                        border: '1px solid var(--color-border)',
                         borderRadius: 'var(--border-radius-lg)',
                         padding: 'var(--spacing-6)',
                     }}>
@@ -368,7 +368,8 @@ export default function ThemePicker() {
                     marginBottom: 'var(--spacing-4)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    You can create custom themes by defining your own CSS variables. Here's how to create a custom theme object:
+                    When creating custom themes, define both the underlying VSCode variables and Baukasten's semantic tokens.
+                    This ensures compatibility with VSCode extensions while providing flexibility for web applications:
                 </p>
                 <CodeBlock
                     language="typescript"
@@ -377,34 +378,36 @@ export default function ThemePicker() {
 export const customTheme: Theme = {
   name: 'Custom Theme',
   variables: {
-    // Editor colors
+    // Base VSCode variables
     '--vscode-editor-background': '#1a1a2e',
     '--vscode-editor-foreground': '#e0e0e0',
-    
-    // Button colors
     '--vscode-button-background': '#6c5ce7',
     '--vscode-button-foreground': '#ffffff',
     '--vscode-button-hoverBackground': '#5f4dd1',
-    
-    // Input colors
     '--vscode-input-background': '#16213e',
     '--vscode-input-foreground': '#e0e0e0',
     '--vscode-input-border': '#3e4c5e',
-    
-    // Focus border
     '--vscode-focusBorder': '#6c5ce7',
-    
-    // Sidebar
     '--vscode-sideBar-background': '#0f1419',
     '--vscode-sideBar-foreground': '#e0e0e0',
-    '--vscode-sideBar-border': '#2a2e35',
     
-    // Lists
-    '--vscode-list-hoverBackground': '#1e2730',
-    '--vscode-list-activeSelectionBackground': '#2e3440',
-    '--vscode-list-activeSelectionForeground': '#ffffff',
+    // Baukasten semantic tokens (recommended for customization)
+    '--color-primary': '#6c5ce7',
+    '--color-primary-hover': '#5f4dd1',
+    '--color-primary-foreground': '#ffffff',
+    '--color-success': '#00d4aa',
+    '--color-warning': '#ffb627',
+    '--color-danger': '#ff6b6b',
+    '--color-info': '#4fc3f7',
     
-    // Add more variables as needed...
+    '--color-background': '#1a1a2e',
+    '--color-background-secondary': '#0f1419',
+    '--color-background-elevated': '#252545',
+    '--color-foreground': '#e0e0e0',
+    '--color-foreground-muted': '#9a9ca5',
+    
+    '--color-border': '#3e4c5e',
+    '--color-border-focus': '#6c5ce7',
   }
 };`}
                 />
@@ -424,21 +427,30 @@ export const customTheme: Theme = {
                     marginBottom: 'var(--spacing-4)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    You can override specific theme variables globally in your CSS:
+                    Baukasten provides semantic color tokens that you should override instead of VSCode variables directly.
+                    These tokens are built on top of VSCode variables but provide better abstraction:
                 </p>
                 <CodeBlock
                     language="css"
                     code={`:root {
-  /* Override button colors */
-  --vscode-button-background: #007acc;
-  --vscode-button-hoverBackground: #005a9e;
+  /* Override Baukasten semantic colors */
+  --color-primary: #007acc;
+  --color-primary-hover: #005a9e;
+  --color-success: #16a34a;
+  --color-warning: #eab308;
+  --color-danger: #dc2626;
+  
+  /* Override background colors */
+  --color-background: #1e1e1e;
+  --color-background-secondary: #252526;
+  
+  /* Override text colors */
+  --color-foreground: #cccccc;
+  --color-foreground-muted: #858585;
   
   /* Override borders */
-  --vscode-panel-border: #2a2d3e;
-  
-  /* Override spacing */
-  --spacing-4: 16px;
-  --spacing-6: 24px;
+  --color-border: #3e3e42;
+  --color-border-focus: #007acc;
 }`}
                 />
 
@@ -456,7 +468,7 @@ export const customTheme: Theme = {
                     marginBottom: 'var(--spacing-4)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    For component-specific customization, use inline styles with CSS variables:
+                    For component-specific customization, use inline styles with Baukasten's semantic color tokens:
                 </p>
                 <CodeBlock
                     language="tsx"
@@ -467,9 +479,8 @@ function CustomButton() {
     <Button
       variant="primary"
       style={{
-        backgroundColor: 'var(--vscode-button-background)',
-        '--vscode-button-background': '#ff6b6b',
-        '--vscode-button-hoverBackground': '#ee5a52',
+        '--color-primary': '#ff6b6b',
+        '--color-primary-hover': '#ee5a52',
       } as React.CSSProperties}
     >
       Custom Styled Button
@@ -493,7 +504,7 @@ function CustomButton() {
                     marginBottom: 'var(--spacing-6)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    Here are the most commonly used theme variables in Baukasten:
+                    Here are the most commonly used Baukasten semantic theme variables. These are the tokens you should override for custom theming:
                 </p>
 
                 <div style={{
@@ -508,7 +519,7 @@ function CustomButton() {
                         fontWeight: 'var(--font-weight-semibold)',
                         marginBottom: 'var(--spacing-4)',
                     }}>
-                        Colors
+                        Brand Colors
                     </h3>
                     <div style={{
                         display: 'grid',
@@ -516,16 +527,109 @@ function CustomButton() {
                         gap: 'var(--spacing-3) var(--spacing-6)',
                         fontSize: 'var(--font-size-sm)',
                     }}>
-                        <Code>--vscode-editor-background</Code>
+                        <Code>--color-primary</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Primary brand color</span>
+                        <Code>--color-primary-hover</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Primary hover state</span>
+                        <Code>--color-primary-foreground</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Text on primary background</span>
+                        <Code>--color-secondary</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Secondary brand color</span>
+                    </div>
+                </div>
+
+                <div style={{
+                    backgroundColor: 'var(--vscode-sideBar-background)',
+                    border: '1px solid var(--vscode-panel-border)',
+                    borderRadius: 'var(--border-radius-lg)',
+                    padding: 'var(--spacing-6)',
+                    marginBottom: 'var(--spacing-6)',
+                }}>
+                    <h3 style={{
+                        fontSize: 'var(--font-size-lg)',
+                        fontWeight: 'var(--font-weight-semibold)',
+                        marginBottom: 'var(--spacing-4)',
+                    }}>
+                        Semantic Colors
+                    </h3>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'auto 1fr',
+                        gap: 'var(--spacing-3) var(--spacing-6)',
+                        fontSize: 'var(--font-size-sm)',
+                    }}>
+                        <Code>--color-success</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Success/positive actions</span>
+                        <Code>--color-warning</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Warning/caution messages</span>
+                        <Code>--color-danger</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Error/destructive actions</span>
+                        <Code>--color-info</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Informational messages</span>
+                    </div>
+                </div>
+
+                <div style={{
+                    backgroundColor: 'var(--vscode-sideBar-background)',
+                    border: '1px solid var(--vscode-panel-border)',
+                    borderRadius: 'var(--border-radius-lg)',
+                    padding: 'var(--spacing-6)',
+                    marginBottom: 'var(--spacing-6)',
+                }}>
+                    <h3 style={{
+                        fontSize: 'var(--font-size-lg)',
+                        fontWeight: 'var(--font-weight-semibold)',
+                        marginBottom: 'var(--spacing-4)',
+                    }}>
+                        Background & Foreground
+                    </h3>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'auto 1fr',
+                        gap: 'var(--spacing-3) var(--spacing-6)',
+                        fontSize: 'var(--font-size-sm)',
+                    }}>
+                        <Code>--color-background</Code>
                         <span style={{ color: 'var(--color-text-secondary)' }}>Main background color</span>
-                        <Code>--vscode-editor-foreground</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Main text color</span>
-                        <Code>--vscode-button-background</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Primary button background</span>
-                        <Code>--vscode-focusBorder</Code>
+                        <Code>--color-background-secondary</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Secondary background (e.g., sidebars)</span>
+                        <Code>--color-background-elevated</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Elevated surfaces (e.g., modals)</span>
+                        <Code>--color-foreground</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Primary text color</span>
+                        <Code>--color-foreground-muted</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Secondary/muted text</span>
+                    </div>
+                </div>
+
+                <div style={{
+                    backgroundColor: 'var(--vscode-sideBar-background)',
+                    border: '1px solid var(--vscode-panel-border)',
+                    borderRadius: 'var(--border-radius-lg)',
+                    padding: 'var(--spacing-6)',
+                    marginBottom: 'var(--spacing-6)',
+                }}>
+                    <h3 style={{
+                        fontSize: 'var(--font-size-lg)',
+                        fontWeight: 'var(--font-weight-semibold)',
+                        marginBottom: 'var(--spacing-4)',
+                    }}>
+                        Borders & Interactive States
+                    </h3>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'auto 1fr',
+                        gap: 'var(--spacing-3) var(--spacing-6)',
+                        fontSize: 'var(--font-size-sm)',
+                    }}>
+                        <Code>--color-border</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Default border color</span>
+                        <Code>--color-border-focus</Code>
                         <span style={{ color: 'var(--color-text-secondary)' }}>Focus indicator color</span>
-                        <Code>--vscode-panel-border</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Border color for panels</span>
+                        <Code>--color-hover</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Hover state background</span>
+                        <Code>--color-active</Code>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Active/pressed state background</span>
                     </div>
                 </div>
 
@@ -579,12 +683,12 @@ function CustomButton() {
                         display: 'flex',
                         gap: 'var(--spacing-3)',
                         padding: 'var(--spacing-5)',
-                        backgroundColor: 'var(--vscode-sideBar-background)',
-                        border: '1px solid var(--vscode-panel-border)',
+                        backgroundColor: 'var(--color-background-secondary)',
+                        border: '1px solid var(--color-border)',
                         borderRadius: 'var(--border-radius-md)',
                     }}>
                         <Icon name="check" style={{
-                            color: 'var(--vscode-testing-iconPassed)',
+                            color: 'var(--color-success)',
                             flexShrink: 0,
                             marginTop: '4px',
                         }} />
@@ -605,12 +709,12 @@ function CustomButton() {
                         display: 'flex',
                         gap: 'var(--spacing-3)',
                         padding: 'var(--spacing-5)',
-                        backgroundColor: 'var(--vscode-sideBar-background)',
-                        border: '1px solid var(--vscode-panel-border)',
+                        backgroundColor: 'var(--color-background-secondary)',
+                        border: '1px solid var(--color-border)',
                         borderRadius: 'var(--border-radius-md)',
                     }}>
                         <Icon name="check" style={{
-                            color: 'var(--vscode-testing-iconPassed)',
+                            color: 'var(--color-success)',
                             flexShrink: 0,
                             marginTop: '4px',
                         }} />
@@ -631,24 +735,25 @@ function CustomButton() {
                         display: 'flex',
                         gap: 'var(--spacing-3)',
                         padding: 'var(--spacing-5)',
-                        backgroundColor: 'var(--vscode-sideBar-background)',
-                        border: '1px solid var(--vscode-panel-border)',
+                        backgroundColor: 'var(--color-background-secondary)',
+                        border: '1px solid var(--color-border)',
                         borderRadius: 'var(--border-radius-md)',
                     }}>
                         <Icon name="check" style={{
-                            color: 'var(--vscode-testing-iconPassed)',
+                            color: 'var(--color-success)',
                             flexShrink: 0,
                             marginTop: '4px',
                         }} />
                         <div>
-                            <strong>Use semantic tokens</strong>
+                            <strong>Override Baukasten semantic tokens, not VSCode variables</strong>
                             <p style={{
                                 fontSize: 'var(--font-size-sm)',
                                 color: 'var(--color-text-secondary)',
                                 marginTop: 'var(--spacing-2)',
                                 marginBottom: 0,
                             }}>
-                                Prefer semantic variables like <Code>--color-primary</Code> over specific VSCode variables when building web apps
+                                Always customize themes by overriding <Code>--color-*</Code> tokens (e.g., <Code>--color-primary</Code>)
+                                instead of <Code>--vscode-*</Code> variables directly. This provides better abstraction and maintainability
                             </p>
                         </div>
                     </div>
@@ -657,12 +762,12 @@ function CustomButton() {
                         display: 'flex',
                         gap: 'var(--spacing-3)',
                         padding: 'var(--spacing-5)',
-                        backgroundColor: 'var(--vscode-sideBar-background)',
-                        border: '1px solid var(--vscode-panel-border)',
+                        backgroundColor: 'var(--color-background-secondary)',
+                        border: '1px solid var(--color-border)',
                         borderRadius: 'var(--border-radius-md)',
                     }}>
                         <Icon name="check" style={{
-                            color: 'var(--vscode-testing-iconPassed)',
+                            color: 'var(--color-success)',
                             flexShrink: 0,
                             marginTop: '4px',
                         }} />
