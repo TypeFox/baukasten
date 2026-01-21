@@ -21,8 +21,8 @@ const components = [
 const features: { icon: CodiconName; title: string; description: string }[] = [
   {
     icon: 'symbol-color',
-    title: 'VS Code & Theia Native',
-    description: 'Seamlessly integrates with VS Code or Theia\'s theming system. All components automatically adapt to the user\'s selected color theme, providing a consistent look-and-feel.',
+    title: 'VS Code & Eclipse Theia Native',
+    description: 'Seamlessly integrates with VS Code or Eclipse Theia\'s theming system. All components automatically adapt to the user\'s selected color theme, providing a consistent look-and-feel.',
   },
   {
     icon: 'database',
@@ -127,7 +127,7 @@ export default function Home() {
                 color: 'var(--vscode-descriptionForeground)',
                 lineHeight: 1.6,
               }}>
-                Consistent look-and-feel with VS Code and Theia out of the box
+                Consistent look-and-feel with VS Code and Eclipse Theia out of the box
               </Text>
             </div>
 
@@ -171,7 +171,7 @@ export default function Home() {
                 color: 'var(--vscode-descriptionForeground)',
                 lineHeight: 1.6,
               }}>
-                Built for professional, data-intensive desktop applications
+                Built for professional, data-intensive Desktop & Web Applications
               </Text>
             </div>
           </div>
