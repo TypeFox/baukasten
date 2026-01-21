@@ -189,7 +189,7 @@ export default function Home() {
                 Get Started
               </Button>
             </Link>
-            <Link href="/components/button" style={{ textDecoration: 'none' }}>
+            <Link href="/components/accordion" style={{ textDecoration: 'none' }}>
               <Button variant="secondary" size="lg">
                 <Icon name="library" style={{ marginRight: 'var(--spacing-2)' }} />
                 Components

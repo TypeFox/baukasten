@@ -18,9 +18,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
         if (typeof window !== 'undefined') {
             const stored = localStorage.getItem(THEME_STORAGE_KEY);
-            return (stored === 'light' || stored === 'dark') ? stored : 'dark';
+            return (stored === 'light' || stored === 'dark') ? stored : 'light';
         }
-        return 'dark';
+        return 'light';
     });
 
     // Apply theme whenever it changes
