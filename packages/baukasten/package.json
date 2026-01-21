@@ -72,6 +72,7 @@
     "react-docgen": "^7.1.0",
     "react-dom": "^19.0.0",
     "storybook": "^8.4.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3",
     "vite": "^6.0.0",
     "vite-plugin-dts": "^4.5.4",
