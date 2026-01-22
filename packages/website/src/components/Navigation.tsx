@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Menu, MenuItem, Icon, Badge, Heading, Text, Paragraph } from '@baukasten/ui';
+import { Menu, MenuItem, Icon, Badge, Heading, Text, Paragraph } from 'baukasten';
 import ThemePicker from './ThemePicker';
 
 const components = [

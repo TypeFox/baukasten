@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
-import { Code } from '@baukasten/ui';
+import { Code } from 'baukasten';
 
 interface SpacingToken {
   name: string;
@@ -63,15 +63,15 @@ export default function SpacingPage() {
       description="Consistent spacing scale based on a 4px base unit for padding, margin, gaps, and component sizes."
     >
       <section style={{ marginBottom: 'var(--padding-2xl)' }}>
-        <h2 style={{ 
-          fontSize: 'var(--font-size-xl)', 
+        <h2 style={{
+          fontSize: 'var(--font-size-xl)',
           fontWeight: 'var(--font-weight-semibold)',
           marginBottom: 'var(--padding-md)',
         }}>
           Overview
         </h2>
-        <p style={{ 
-          fontSize: 'var(--font-size-base)', 
+        <p style={{
+          fontSize: 'var(--font-size-base)',
           color: 'var(--color-text-secondary)',
           marginBottom: 'var(--padding-lg)',
           lineHeight: 'var(--line-height-relaxed)',
@@ -98,15 +98,15 @@ function Card({ children }: { children: React.ReactNode }) {
       </section>
 
       <section style={{ marginBottom: 'var(--padding-2xl)' }}>
-        <h2 style={{ 
-          fontSize: 'var(--font-size-xl)', 
+        <h2 style={{
+          fontSize: 'var(--font-size-xl)',
           fontWeight: 'var(--font-weight-semibold)',
           marginBottom: 'var(--padding-sm)',
         }}>
           Spacing Scale
         </h2>
-        <p style={{ 
-          fontSize: 'var(--font-size-base)', 
+        <p style={{
+          fontSize: 'var(--font-size-base)',
           color: 'var(--color-text-secondary)',
           marginBottom: 'var(--padding-lg)',
         }}>
@@ -130,9 +130,9 @@ function Card({ children }: { children: React.ReactNode }) {
               <div style={{ marginBottom: 'var(--spacing-3)' }}>
                 <Code>{token.variable}</Code>
               </div>
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
                 marginBottom: 'var(--spacing-3)',
                 minHeight: '40px',
               }}>
@@ -146,9 +146,9 @@ function Card({ children }: { children: React.ReactNode }) {
                   minHeight: '4px',
                 }} />
               </div>
-              <div style={{ 
-                fontSize: 'var(--font-size-xs)', 
-                color: 'var(--color-text-secondary)' 
+              <div style={{
+                fontSize: 'var(--font-size-xs)',
+                color: 'var(--color-text-secondary)'
               }}>
                 {token.value}
               </div>
@@ -158,15 +158,15 @@ function Card({ children }: { children: React.ReactNode }) {
       </section>
 
       <section style={{ marginBottom: 'var(--padding-2xl)' }}>
-        <h2 style={{ 
-          fontSize: 'var(--font-size-xl)', 
+        <h2 style={{
+          fontSize: 'var(--font-size-xl)',
           fontWeight: 'var(--font-weight-semibold)',
           marginBottom: 'var(--padding-sm)',
         }}>
           Gap Tokens
         </h2>
-        <p style={{ 
-          fontSize: 'var(--font-size-base)', 
+        <p style={{
+          fontSize: 'var(--font-size-base)',
           color: 'var(--color-text-secondary)',
           marginBottom: 'var(--padding-lg)',
         }}>
@@ -190,8 +190,8 @@ function Card({ children }: { children: React.ReactNode }) {
               <div style={{ marginBottom: 'var(--spacing-3)' }}>
                 <Code>{token.variable}</Code>
               </div>
-              <div style={{ 
-                display: 'flex', 
+              <div style={{
+                display: 'flex',
                 gap: `var(${token.variable})`,
                 marginBottom: 'var(--spacing-3)',
               }}>
@@ -217,9 +217,9 @@ function Card({ children }: { children: React.ReactNode }) {
                   flexShrink: 0,
                 }} />
               </div>
-              <div style={{ 
-                fontSize: 'var(--font-size-xs)', 
-                color: 'var(--color-text-secondary)' 
+              <div style={{
+                fontSize: 'var(--font-size-xs)',
+                color: 'var(--color-text-secondary)'
               }}>
                 {token.value} • {token.description}
               </div>
@@ -229,15 +229,15 @@ function Card({ children }: { children: React.ReactNode }) {
       </section>
 
       <section style={{ marginBottom: 'var(--padding-2xl)' }}>
-        <h2 style={{ 
-          fontSize: 'var(--font-size-xl)', 
+        <h2 style={{
+          fontSize: 'var(--font-size-xl)',
           fontWeight: 'var(--font-weight-semibold)',
           marginBottom: 'var(--padding-sm)',
         }}>
           Padding Tokens
         </h2>
-        <p style={{ 
-          fontSize: 'var(--font-size-base)', 
+        <p style={{
+          fontSize: 'var(--font-size-base)',
           color: 'var(--color-text-secondary)',
           marginBottom: 'var(--padding-lg)',
         }}>
@@ -261,7 +261,7 @@ function Card({ children }: { children: React.ReactNode }) {
               <div style={{ marginBottom: 'var(--spacing-3)' }}>
                 <Code>{token.variable}</Code>
               </div>
-              <div style={{ 
+              <div style={{
                 backgroundColor: 'var(--color-background-secondary)',
                 border: '1px solid var(--color-border)',
                 borderRadius: 'var(--border-radius-sm)',
@@ -284,9 +284,9 @@ function Card({ children }: { children: React.ReactNode }) {
                   </div>
                 </div>
               </div>
-              <div style={{ 
-                fontSize: 'var(--font-size-xs)', 
-                color: 'var(--color-text-secondary)' 
+              <div style={{
+                fontSize: 'var(--font-size-xs)',
+                color: 'var(--color-text-secondary)'
               }}>
                 {token.value}
               </div>
@@ -296,15 +296,15 @@ function Card({ children }: { children: React.ReactNode }) {
       </section>
 
       <section>
-        <h2 style={{ 
-          fontSize: 'var(--font-size-xl)', 
+        <h2 style={{
+          fontSize: 'var(--font-size-xl)',
           fontWeight: 'var(--font-weight-semibold)',
           marginBottom: 'var(--padding-sm)',
         }}>
           Component Sizes
         </h2>
-        <p style={{ 
-          fontSize: 'var(--font-size-base)', 
+        <p style={{
+          fontSize: 'var(--font-size-base)',
           color: 'var(--color-text-secondary)',
           marginBottom: 'var(--padding-lg)',
         }}>
@@ -337,8 +337,8 @@ function Card({ children }: { children: React.ReactNode }) {
                   <div style={{ marginBottom: 'var(--spacing-3)' }}>
                     <Code>{token.variable}</Code>
                   </div>
-                  <div style={{ 
-                    display: 'flex', 
+                  <div style={{
+                    display: 'flex',
                     alignItems: 'center',
                     marginBottom: 'var(--spacing-3)',
                   }}>
@@ -356,9 +356,9 @@ function Card({ children }: { children: React.ReactNode }) {
                       {token.name}
                     </div>
                   </div>
-                  <div style={{ 
-                    fontSize: 'var(--font-size-xs)', 
-                    color: 'var(--color-text-secondary)' 
+                  <div style={{
+                    fontSize: 'var(--font-size-xs)',
+                    color: 'var(--color-text-secondary)'
                   }}>
                     {token.value} • {token.description}
                   </div>
@@ -375,8 +375,8 @@ function Card({ children }: { children: React.ReactNode }) {
             }}>
               Circular Sizes
             </h3>
-            <p style={{ 
-              fontSize: 'var(--font-size-sm)', 
+            <p style={{
+              fontSize: 'var(--font-size-sm)',
               color: 'var(--color-text-secondary)',
               marginBottom: 'var(--padding-md)',
             }}>

@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { TextArea, Heading } from '@baukasten/ui';
+import { TextArea, Heading } from 'baukasten';
 
 const textAreaProps: PropDefinition[] = [
     { name: 'size', type: '"xs" | "sm" | "md" | "lg" | "xl"', default: '"md"', description: 'Size of the textarea' },
@@ -26,7 +26,7 @@ export default function TextAreaPage() {
                 preview={
                     <TextArea placeholder="Enter your message here..." />
                 }
-                code={`import { TextArea } from '@baukasten/ui';
+                code={`import { TextArea } from 'baukasten';
 
 function App() {
   return (

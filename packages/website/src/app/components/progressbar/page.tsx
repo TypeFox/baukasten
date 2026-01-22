@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { ProgressBar, Button, Heading, Paragraph } from '@baukasten/ui';
+import { ProgressBar, Button, Heading, Paragraph } from 'baukasten';
 
 const progressBarProps: PropDefinition[] = [
     {
@@ -140,7 +140,7 @@ export default function ProgressBarPage() {
                         <ProgressBar value={100} variant="success" />
                     </div>
                 }
-                code={`import { ProgressBar } from '@baukasten/ui';
+                code={`import { ProgressBar } from 'baukasten';
 
 function App() {
   return (
@@ -362,7 +362,7 @@ function App() {
                 title="File Upload Simulation"
                 description="Real-world example showing simulated file upload progress with state management. Demonstrates progress tracking, variant changes, and animated stripes during upload."
                 preview={<FileUploadExample />}
-                code={`import { ProgressBar, Button } from '@baukasten/ui';
+                code={`import { ProgressBar, Button } from 'baukasten';
 import { useState, useEffect } from 'react';
 
 function FileUpload() {

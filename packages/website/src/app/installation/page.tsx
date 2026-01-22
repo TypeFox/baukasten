@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
-import { Heading } from '@baukasten/ui';
+import { Heading } from 'baukasten';
 
 const Section = ({ children }: { children: React.ReactNode }) => (
   <section style={{ marginBottom: 'var(--padding-2xl)' }}>{children}</section>
@@ -59,7 +59,7 @@ export default function InstallationPage() {
           If you're building a VSCode webview extension, set up your component with GlobalStyles:
         </Paragraph>
         <CodeBlock
-          code={`import { GlobalStyles, Button } from '@baukasten/ui';
+          code={`import { GlobalStyles, Button } from 'baukasten';
 
 function App() {
   return (
@@ -86,8 +86,8 @@ function App() {
           Then wrap your application:
         </Paragraph>
         <CodeBlock
-          code={`import { GlobalStyles, Button } from '@baukasten/ui';
-import { VSCodeThemeWrapper } from '@baukasten/web-wrapper';
+          code={`import { GlobalStyles, Button } from 'baukasten';
+import { VSCodeThemeWrapper } from 'baukasten-web-wrapper';
 
 function App() {
   return (
@@ -111,7 +111,7 @@ function App() {
         <CodeBlock
           code={`/** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@baukasten/ui', '@baukasten/web-wrapper'],
+  transpilePackages: ['baukasten', 'baukasten-web-wrapper'],
 }
 
 module.exports = nextConfig`}
@@ -122,8 +122,8 @@ module.exports = nextConfig`}
         </Paragraph>
         <CodeBlock
           code={`// app/layout.tsx
-import { GlobalStyles } from '@baukasten/ui';
-import { VSCodeThemeWrapper } from '@baukasten/web-wrapper';
+import { GlobalStyles } from 'baukasten';
+import { VSCodeThemeWrapper } from 'baukasten-web-wrapper';
 
 export default function RootLayout({ children }) {
   return (
@@ -147,7 +147,7 @@ export default function RootLayout({ children }) {
           Import individual components as needed:
         </Paragraph>
         <CodeBlock
-          code={`import { Button, Input, Badge } from '@baukasten/ui';
+          code={`import { Button, Input, Badge } from 'baukasten';
 
 function MyComponent() {
   return (

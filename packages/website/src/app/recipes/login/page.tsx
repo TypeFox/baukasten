@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase } from '@/components/ComponentShowcase';
-import { Button, Input, Checkbox, Label, Heading, Text, Icon, Divider } from '@baukasten/ui';
+import { Button, Input, Checkbox, Label, Heading, Text, Icon, Divider } from 'baukasten';
 import { useState } from 'react';
 
 export default function LoginRecipesPage() {
@@ -101,7 +101,7 @@ export default function LoginRecipesPage() {
             </div>
           </div>
         }
-        code={`import { Button, Input, Checkbox, Label, Heading, Text, Icon } from '@baukasten/ui';
+        code={`import { Button, Input, Checkbox, Label, Heading, Text, Icon } from 'baukasten';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -291,7 +291,7 @@ function LoginPage() {
             </div>
           </div>
         }
-        code={`import { Button, Input, Heading, Text, Icon, Divider } from '@baukasten/ui';
+        code={`import { Button, Input, Heading, Text, Icon, Divider } from 'baukasten';
 
 function SplitLoginPage() {
   return (
@@ -406,7 +406,7 @@ function SplitLoginPage() {
             </div>
           </div>
         }
-        code={`import { Button, Input, Heading } from '@baukasten/ui';
+        code={`import { Button, Input, Heading } from 'baukasten';
 
 function CompactLogin() {
   return (

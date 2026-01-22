@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
-import { Code } from '@baukasten/ui';
+import { Code } from 'baukasten';
 
 interface TypeToken {
   name: string;
@@ -55,20 +55,20 @@ export default function TypographyPage() {
       description="Font sizes, weights, line heights, and letter spacing for consistent text styling."
     >
       <section style={{ marginBottom: 'var(--padding-2xl)' }}>
-        <h2 style={{ 
-          fontSize: 'var(--font-size-xl)', 
+        <h2 style={{
+          fontSize: 'var(--font-size-xl)',
           fontWeight: 'var(--font-weight-semibold)',
           marginBottom: 'var(--padding-md)',
         }}>
           Overview
         </h2>
-        <p style={{ 
-          fontSize: 'var(--font-size-base)', 
+        <p style={{
+          fontSize: 'var(--font-size-base)',
           color: 'var(--color-text-secondary)',
           marginBottom: 'var(--padding-lg)',
           lineHeight: 'var(--line-height-relaxed)',
         }}>
-          Typography tokens provide consistent text styling across the design system. 
+          Typography tokens provide consistent text styling across the design system.
           All values are defined as CSS variables and can be customized.
         </p>
         <CodeBlock
@@ -90,15 +90,15 @@ function Heading({ children }: { children: React.ReactNode }) {
       </section>
 
       <section style={{ marginBottom: 'var(--padding-2xl)' }}>
-        <h2 style={{ 
-          fontSize: 'var(--font-size-xl)', 
+        <h2 style={{
+          fontSize: 'var(--font-size-xl)',
           fontWeight: 'var(--font-weight-semibold)',
           marginBottom: 'var(--padding-sm)',
         }}>
           Font Sizes
         </h2>
-        <p style={{ 
-          fontSize: 'var(--font-size-base)', 
+        <p style={{
+          fontSize: 'var(--font-size-base)',
           color: 'var(--color-text-secondary)',
           marginBottom: 'var(--padding-lg)',
         }}>
@@ -117,15 +117,15 @@ function Heading({ children }: { children: React.ReactNode }) {
             >
               <div style={{ marginBottom: 'var(--spacing-3)' }}>
                 <Code>{token.variable}</Code>
-                <span style={{ 
-                  fontSize: 'var(--font-size-xs)', 
+                <span style={{
+                  fontSize: 'var(--font-size-xs)',
                   color: 'var(--color-text-secondary)',
                   marginLeft: 'var(--spacing-2)',
                 }}>
                   {token.value}
                 </span>
               </div>
-              <div style={{ 
+              <div style={{
                 fontSize: `var(${token.variable})`,
                 marginBottom: 'var(--spacing-3)',
                 lineHeight: 'var(--line-height-normal)',
@@ -133,9 +133,9 @@ function Heading({ children }: { children: React.ReactNode }) {
                 The quick brown fox jumps over the lazy dog
               </div>
               {token.description && (
-                <div style={{ 
-                  fontSize: 'var(--font-size-xs)', 
-                  color: 'var(--color-text-secondary)' 
+                <div style={{
+                  fontSize: 'var(--font-size-xs)',
+                  color: 'var(--color-text-secondary)'
                 }}>
                   {token.description}
                 </div>
@@ -146,15 +146,15 @@ function Heading({ children }: { children: React.ReactNode }) {
       </section>
 
       <section style={{ marginBottom: 'var(--padding-2xl)' }}>
-        <h2 style={{ 
-          fontSize: 'var(--font-size-xl)', 
+        <h2 style={{
+          fontSize: 'var(--font-size-xl)',
           fontWeight: 'var(--font-weight-semibold)',
           marginBottom: 'var(--padding-sm)',
         }}>
           Font Weights
         </h2>
-        <p style={{ 
-          fontSize: 'var(--font-size-base)', 
+        <p style={{
+          fontSize: 'var(--font-size-base)',
           color: 'var(--color-text-secondary)',
           marginBottom: 'var(--padding-lg)',
         }}>
@@ -178,16 +178,16 @@ function Heading({ children }: { children: React.ReactNode }) {
               <div style={{ marginBottom: 'var(--spacing-3)' }}>
                 <Code>{token.variable}</Code>
               </div>
-              <div style={{ 
+              <div style={{
                 fontSize: 'var(--font-size-lg)',
                 fontWeight: `var(${token.variable})`,
                 marginBottom: 'var(--spacing-3)',
               }}>
                 The quick brown fox
               </div>
-              <div style={{ 
-                fontSize: 'var(--font-size-xs)', 
-                color: 'var(--color-text-secondary)' 
+              <div style={{
+                fontSize: 'var(--font-size-xs)',
+                color: 'var(--color-text-secondary)'
               }}>
                 {token.value} • {token.name}
               </div>
@@ -197,15 +197,15 @@ function Heading({ children }: { children: React.ReactNode }) {
       </section>
 
       <section style={{ marginBottom: 'var(--padding-2xl)' }}>
-        <h2 style={{ 
-          fontSize: 'var(--font-size-xl)', 
+        <h2 style={{
+          fontSize: 'var(--font-size-xl)',
           fontWeight: 'var(--font-weight-semibold)',
           marginBottom: 'var(--padding-sm)',
         }}>
           Line Heights
         </h2>
-        <p style={{ 
-          fontSize: 'var(--font-size-base)', 
+        <p style={{
+          fontSize: 'var(--font-size-base)',
           color: 'var(--color-text-secondary)',
           marginBottom: 'var(--padding-lg)',
         }}>
@@ -224,27 +224,27 @@ function Heading({ children }: { children: React.ReactNode }) {
             >
               <div style={{ marginBottom: 'var(--spacing-3)' }}>
                 <Code>{token.variable}</Code>
-                <span style={{ 
-                  fontSize: 'var(--font-size-xs)', 
+                <span style={{
+                  fontSize: 'var(--font-size-xs)',
                   color: 'var(--color-text-secondary)',
                   marginLeft: 'var(--spacing-2)',
                 }}>
                   {token.value}
                 </span>
               </div>
-              <div style={{ 
+              <div style={{
                 fontSize: 'var(--font-size-base)',
                 lineHeight: `var(${token.variable})`,
                 marginBottom: 'var(--spacing-3)',
               }}>
-                Typography is the art and technique of arranging type to make written language 
-                legible, readable, and appealing when displayed. The arrangement of type involves 
+                Typography is the art and technique of arranging type to make written language
+                legible, readable, and appealing when displayed. The arrangement of type involves
                 selecting typefaces, point sizes, line lengths, line-spacing, and letter-spacing.
               </div>
               {token.description && (
-                <div style={{ 
-                  fontSize: 'var(--font-size-xs)', 
-                  color: 'var(--color-text-secondary)' 
+                <div style={{
+                  fontSize: 'var(--font-size-xs)',
+                  color: 'var(--color-text-secondary)'
                 }}>
                   {token.description}
                 </div>
@@ -255,15 +255,15 @@ function Heading({ children }: { children: React.ReactNode }) {
       </section>
 
       <section style={{ marginBottom: 'var(--padding-2xl)' }}>
-        <h2 style={{ 
-          fontSize: 'var(--font-size-xl)', 
+        <h2 style={{
+          fontSize: 'var(--font-size-xl)',
           fontWeight: 'var(--font-weight-semibold)',
           marginBottom: 'var(--padding-sm)',
         }}>
           Letter Spacing
         </h2>
-        <p style={{ 
-          fontSize: 'var(--font-size-base)', 
+        <p style={{
+          fontSize: 'var(--font-size-base)',
           color: 'var(--color-text-secondary)',
           marginBottom: 'var(--padding-lg)',
         }}>
@@ -287,16 +287,16 @@ function Heading({ children }: { children: React.ReactNode }) {
               <div style={{ marginBottom: 'var(--spacing-3)' }}>
                 <Code>{token.variable}</Code>
               </div>
-              <div style={{ 
+              <div style={{
                 fontSize: 'var(--font-size-lg)',
                 letterSpacing: `var(${token.variable})`,
                 marginBottom: 'var(--spacing-3)',
               }}>
                 TYPOGRAPHY
               </div>
-              <div style={{ 
-                fontSize: 'var(--font-size-xs)', 
-                color: 'var(--color-text-secondary)' 
+              <div style={{
+                fontSize: 'var(--font-size-xs)',
+                color: 'var(--color-text-secondary)'
               }}>
                 {token.value}
                 {token.description && ` • ${token.description}`}
@@ -307,15 +307,15 @@ function Heading({ children }: { children: React.ReactNode }) {
       </section>
 
       <section>
-        <h2 style={{ 
-          fontSize: 'var(--font-size-xl)', 
+        <h2 style={{
+          fontSize: 'var(--font-size-xl)',
           fontWeight: 'var(--font-weight-semibold)',
           marginBottom: 'var(--padding-sm)',
         }}>
           Font Families
         </h2>
-        <p style={{ 
-          fontSize: 'var(--font-size-base)', 
+        <p style={{
+          fontSize: 'var(--font-size-base)',
           color: 'var(--color-text-secondary)',
           marginBottom: 'var(--padding-lg)',
         }}>
@@ -328,7 +328,7 @@ function Heading({ children }: { children: React.ReactNode }) {
             borderRadius: 'var(--border-radius-md)',
             padding: 'var(--padding-lg)',
           }}>
-            <div style={{ 
+            <div style={{
               fontFamily: 'var(--font-family-sans)',
               fontSize: 'var(--font-size-lg)',
               marginBottom: 'var(--padding-sm)',
@@ -338,8 +338,8 @@ function Heading({ children }: { children: React.ReactNode }) {
             <div style={{ marginBottom: 'var(--padding-xs)' }}>
               <Code>--font-family-sans</Code>
             </div>
-            <div style={{ 
-              fontSize: 'var(--font-size-xs)', 
+            <div style={{
+              fontSize: 'var(--font-size-xs)',
               color: 'var(--color-text-secondary)',
               fontFamily: 'var(--font-family-mono)',
             }}>
@@ -352,7 +352,7 @@ function Heading({ children }: { children: React.ReactNode }) {
             borderRadius: 'var(--border-radius-md)',
             padding: 'var(--padding-lg)',
           }}>
-            <div style={{ 
+            <div style={{
               fontFamily: 'var(--font-family-mono)',
               fontSize: 'var(--font-size-lg)',
               marginBottom: 'var(--padding-sm)',
@@ -362,8 +362,8 @@ function Heading({ children }: { children: React.ReactNode }) {
             <div style={{ marginBottom: 'var(--padding-xs)' }}>
               <Code>--font-family-mono</Code>
             </div>
-            <div style={{ 
-              fontSize: 'var(--font-size-xs)', 
+            <div style={{
+              fontSize: 'var(--font-size-xs)',
               color: 'var(--color-text-secondary)',
               fontFamily: 'var(--font-family-mono)',
             }}>

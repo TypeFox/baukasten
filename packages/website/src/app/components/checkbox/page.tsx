@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Checkbox, Label } from '@baukasten/ui';
+import { Checkbox, Label } from 'baukasten';
 
 const checkboxProps: PropDefinition[] = [
   {
@@ -137,7 +137,7 @@ export default function CheckboxPage() {
             <span>Accept terms and conditions</span>
           </Label>
         }
-        code={`import { Checkbox, Label } from '@baukasten/ui';
+        code={`import { Checkbox, Label } from 'baukasten';
 
 function App() {
   return (
@@ -339,7 +339,7 @@ function App() {
         description="Use React state to control the checkbox. The checkbox updates the label text based on its state."
         preview={<ControlledExample />}
         code={`import { useState } from 'react';
-import { Checkbox, Label } from '@baukasten/ui';
+import { Checkbox, Label } from 'baukasten';
 
 function ControlledExample() {
   const [checked, setChecked] = useState(false);
@@ -361,7 +361,7 @@ function ControlledExample() {
         description="The indeterminate state is useful for 'select all' functionality. When some but not all items are selected, the parent checkbox shows a horizontal line."
         preview={<IndeterminateExample />}
         code={`import { useState } from 'react';
-import { Checkbox, Label } from '@baukasten/ui';
+import { Checkbox, Label } from 'baukasten';
 
 function IndeterminateExample() {
   const [items, setItems] = useState([

@@ -12,7 +12,7 @@ import {
   Table,
   Code,
   Badge
-} from '@baukasten/ui';
+} from 'baukasten';
 
 export interface PropDefinition {
   name: string;

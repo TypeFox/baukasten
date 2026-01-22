@@ -3,7 +3,7 @@
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
 import Link from 'next/link';
-import { Heading, Alert, Icon, Button } from '@baukasten/ui';
+import { Heading, Alert, Icon, Button } from 'baukasten';
 
 const Section = ({ children }: { children: React.ReactNode }) => (
   <section style={{ marginBottom: 'var(--spacing-12)' }}>{children}</section>
@@ -85,7 +85,7 @@ export default function QuickStartPage() {
             Just add GlobalStyles and start using components:
           </Paragraph>
           <CodeBlock
-            code={`import { GlobalStyles, Button, Input, Alert } from '@baukasten/ui';
+            code={`import { GlobalStyles, Button, Input, Alert } from 'baukasten';
 
 function App() {
   return (
@@ -136,8 +136,8 @@ export default App;`}
             language="bash"
           />
           <CodeBlock
-            code={`import { GlobalStyles, Button, Input, Alert } from '@baukasten/ui';
-import { VSCodeThemeWrapper } from '@baukasten/web-wrapper';
+            code={`import { GlobalStyles, Button, Input, Alert } from 'baukasten';
+import { VSCodeThemeWrapper } from 'baukasten-web-wrapper';
 
 function App() {
   return (
@@ -285,7 +285,7 @@ export default App;`}
                     padding: '2px 6px',
                     borderRadius: 'var(--border-radius-sm)',
                     fontSize: '0.9em',
-                  }}>import {`{ Button, Input }`} from '@baukasten/ui'</code>.
+                  }}>import {`{ Button, Input }`} from 'baukasten'</code>.
                   The bundler will automatically exclude unused components, keeping your bundle size small.
                 </Paragraph>
               </div>

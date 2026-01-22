@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
-import { Code } from '@baukasten/ui';
+import { Code } from 'baukasten';
 
 interface EffectToken {
   name: string;

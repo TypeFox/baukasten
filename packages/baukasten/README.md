@@ -24,7 +24,7 @@ npm install @baukasten/ui react react-dom styled-components
 Components automatically use CSS variables provided by VSCode:
 
 ```tsx
-import { Button, Input, Badge } from '@baukasten/ui';
+import { Button, Input, Badge } from 'baukasten';
 
 function App() {
   return (
@@ -46,8 +46,8 @@ npm install @baukasten/web-wrapper
 ```
 
 ```tsx
-import { Button, Input, Badge } from '@baukasten/ui';
-import { VSCodeThemeWrapper } from '@baukasten/web-wrapper';
+import { Button, Input, Badge } from 'baukasten';
+import { VSCodeThemeWrapper } from 'baukasten-web-wrapper';
 
 function App() {
   return (

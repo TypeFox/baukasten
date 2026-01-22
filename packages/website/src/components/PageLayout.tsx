@@ -1,7 +1,7 @@
 'use client';
 
 import Navigation from './Navigation';
-import { Heading, Paragraph } from '@baukasten/ui';
+import { Heading, Paragraph } from 'baukasten';
 
 interface PageLayoutProps {
   children: React.ReactNode;

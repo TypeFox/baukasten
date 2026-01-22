@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
-import { Code, Button, Badge, Icon, Alert } from '@baukasten/ui';
+import { Code, Button, Badge, Icon, Alert } from 'baukasten';
 
 export default function ThemingGuidePage() {
     return (
@@ -173,7 +173,7 @@ export default function ThemingGuidePage() {
                 <CodeBlock
                     language="tsx"
                     code={`import { createContext, useContext, useState, useEffect } from 'react';
-import { lightModern, darkModern } from '@baukasten/web-wrapper';
+import { lightModern, darkModern } from 'baukasten-web-wrapper';
 
 type ThemeMode = 'light' | 'dark';
 
@@ -243,7 +243,7 @@ export function useTheme() {
                 <CodeBlock
                     language="tsx"
                     code={`import { useTheme } from './ThemeContext';
-import { Button, Icon } from '@baukasten/ui';
+import { Button, Icon } from 'baukasten';
 
 export default function ThemePicker() {
   const { themeMode, setTheme } = useTheme();
@@ -373,7 +373,7 @@ export default function ThemePicker() {
                 </p>
                 <CodeBlock
                     language="typescript"
-                    code={`import { Theme } from '@baukasten/web-wrapper';
+                    code={`import { Theme } from 'baukasten-web-wrapper';
 
 export const customTheme: Theme = {
   name: 'Custom Theme',
@@ -472,7 +472,7 @@ export const customTheme: Theme = {
                 </p>
                 <CodeBlock
                     language="tsx"
-                    code={`import { Button } from '@baukasten/ui';
+                    code={`import { Button } from 'baukasten';
 
 function CustomButton() {
   return (

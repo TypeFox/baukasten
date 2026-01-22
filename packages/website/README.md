@@ -68,7 +68,7 @@ Example structure:
 ```tsx
 import PageLayout from '@/components/PageLayout';
 import { Showcase, Variant, VariantGrid } from '@/components/ComponentShowcase';
-import { YourComponent } from '@baukasten/ui';
+import { YourComponent } from 'baukasten';
 
 const props = [
   {

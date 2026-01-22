@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Dropdown, Button, Icon, Badge, Input } from '@baukasten/ui';
-import { Menu, MenuItem, MenuDivider, SubMenu } from '@baukasten/ui';
+import { Dropdown, Button, Icon, Badge, Input } from 'baukasten';
+import { Menu, MenuItem, MenuDivider, SubMenu } from 'baukasten';
 
 const dropdownProps: PropDefinition[] = [
   {
@@ -172,8 +172,8 @@ export default function DropdownPage() {
             </Menu>
           </Dropdown>
         }
-        code={`import { Dropdown, Button, Icon } from '@baukasten/ui';
-import { Menu, MenuItem, MenuDivider } from '@baukasten/ui';
+        code={`import { Dropdown, Button, Icon } from 'baukasten';
+import { Menu, MenuItem, MenuDivider } from 'baukasten';
 
 function App() {
   return (
@@ -441,7 +441,7 @@ function App() {
         description="Dropdown can contain forms. Set closeOnClick={false} to prevent closing when interacting with inputs."
         preview={<FormExample />}
         code={`import { useState } from 'react';
-import { Dropdown, Button, Input } from '@baukasten/ui';
+import { Dropdown, Button, Input } from 'baukasten';
 
 function FormExample() {
   const [email, setEmail] = useState('');
@@ -571,7 +571,7 @@ function FormExample() {
         description="Control dropdown state externally with open and onOpenChange props."
         preview={<ControlledExample />}
         code={`import { useState } from 'react';
-import { Dropdown, Button, Badge } from '@baukasten/ui';
+import { Dropdown, Button, Badge } from 'baukasten';
 
 function ControlledExample() {
   const [open, setOpen] = useState(false);

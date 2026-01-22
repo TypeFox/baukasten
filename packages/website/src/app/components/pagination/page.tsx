@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Pagination, Paragraph, Heading } from '@baukasten/ui';
+import { Pagination, Paragraph, Heading } from 'baukasten';
 
 const paginationProps: PropDefinition[] = [
     {
@@ -193,7 +193,7 @@ export default function PaginationPage() {
                 title="Basic Usage"
                 description="Pagination component requires totalItems, currentPage, pageSize, and onPageChange. It automatically calculates page numbers and displays range information."
                 preview={<BasicExample />}
-                code={`import { Pagination } from '@baukasten/ui';
+                code={`import { Pagination } from 'baukasten';
 import { useState } from 'react';
 
 function App() {
@@ -528,7 +528,7 @@ function App() {
                 title="With Data Table"
                 description="Practical example integrating Pagination with a data table. The component handles page calculations while you manage the data slicing."
                 preview={<DataTableExample />}
-                code={`import { Pagination } from '@baukasten/ui';
+                code={`import { Pagination } from 'baukasten';
 import { useState } from 'react';
 
 function DataTable() {

@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Label, Input, Select, TextArea, Checkbox, Icon, Badge, Button } from '@baukasten/ui';
+import { Label, Input, Select, TextArea, Checkbox, Icon, Badge, Button } from 'baukasten';
 
 const labelProps: PropDefinition[] = [
     {
@@ -61,7 +61,7 @@ export default function LabelPage() {
                         </Label>
                     </div>
                 }
-                code={`import { Label, Input } from '@baukasten/ui';
+                code={`import { Label, Input } from 'baukasten';
 
 function App() {
   return (

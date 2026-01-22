@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import '@baukasten/ui/dist/style.css';
-import { GlobalStyles } from '@baukasten/ui';
+import 'baukasten/dist/style.css';
+import { GlobalStyles } from 'baukasten';
 import ClientThemeWrapper from '@/components/ClientThemeWrapper';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 

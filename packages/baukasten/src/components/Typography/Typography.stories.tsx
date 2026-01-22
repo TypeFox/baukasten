@@ -361,7 +361,7 @@ function example8() { return "line 8"; }`}
 
                         <Heading level={3}>Basic Example</Heading>
                         <Code block>
-                            {`import { Button, Input } from '@baukasten/ui';
+                            {`import { Button, Input } from 'baukasten';
 
 function App() {
   return <Button>Click me</Button>;

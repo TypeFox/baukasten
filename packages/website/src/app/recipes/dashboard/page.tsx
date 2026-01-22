@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase } from '@/components/ComponentShowcase';
-import { Button, Icon, Heading, Text, Badge, Menu, MenuItem, Divider, Avatar, Input, type CodiconName } from '@baukasten/ui';
+import { Button, Icon, Heading, Text, Badge, Menu, MenuItem, Divider, Avatar, Input, type CodiconName } from 'baukasten';
 
 export default function DashboardRecipesPage() {
     return (
@@ -218,7 +218,7 @@ export default function DashboardRecipesPage() {
                         </div>
                     </div>
                 }
-                code={`import { Button, Icon, Heading, Text, Badge, Menu, MenuItem, Avatar } from '@baukasten/ui';
+                code={`import { Button, Icon, Heading, Text, Badge, Menu, MenuItem, Avatar } from 'baukasten';
 
 function Dashboard() {
   return (
@@ -492,7 +492,7 @@ function Dashboard() {
                         </div>
                     </div>
                 }
-                code={`import { Button, Icon, Heading, Text, Badge, Menu, MenuItem, Avatar, Input } from '@baukasten/ui';
+                code={`import { Button, Icon, Heading, Text, Badge, Menu, MenuItem, Avatar, Input } from 'baukasten';
 
 function ModernDashboard() {
   return (
@@ -643,7 +643,7 @@ function ModernDashboard() {
                         </div>
                     </div>
                 }
-                code={`import { Button, Icon, Heading, Text, Menu, MenuItem } from '@baukasten/ui';
+                code={`import { Button, Icon, Heading, Text, Menu, MenuItem } from 'baukasten';
 
 function MinimalDashboard() {
   return (

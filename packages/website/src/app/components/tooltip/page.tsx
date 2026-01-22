@@ -2,8 +2,8 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Tooltip, Button, Icon, Heading } from '@baukasten/ui';
-import type { TooltipPlacement } from '@baukasten/ui';
+import { Tooltip, Button, Icon, Heading } from 'baukasten';
+import type { TooltipPlacement } from 'baukasten';
 
 const tooltipProps: PropDefinition[] = [
     { name: 'content', type: 'React.ReactNode', required: true, description: 'Content to display in the tooltip' },
@@ -46,7 +46,7 @@ export default function TooltipPage() {
                         </Tooltip>
                     </div>
                 }
-                code={`import { Tooltip, Button } from '@baukasten/ui';
+                code={`import { Tooltip, Button } from 'baukasten';
 
 function App() {
   return (

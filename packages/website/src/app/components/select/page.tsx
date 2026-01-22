@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Select, Icon, Heading } from '@baukasten/ui';
-import type { SelectOption } from '@baukasten/ui';
+import { Select, Icon, Heading } from 'baukasten';
+import type { SelectOption } from 'baukasten';
 
 const selectProps: PropDefinition[] = [
     {
@@ -302,8 +302,8 @@ export default function SelectPage() {
                         />
                     </div>
                 }
-                code={`import { Select } from '@baukasten/ui';
-import type { SelectOption } from '@baukasten/ui';
+                code={`import { Select } from 'baukasten';
+import type { SelectOption } from 'baukasten';
 
 const options: SelectOption[] = [
   { value: 'option1', label: 'Option 1' },
@@ -609,7 +609,7 @@ const optionsWithDisabled: SelectOption[] = [
                     </div>
                 }
                 code={`import { useState } from 'react';
-import { Select } from '@baukasten/ui';
+import { Select } from 'baukasten';
 
 function App() {
   const [value, setValue] = useState('ts');
@@ -676,7 +676,7 @@ function App() {
                 description="Example of using multiple Select components in a form with controlled state. Each select updates the form data independently."
                 preview={<FormExample />}
                 code={`import { useState } from 'react';
-import { Select } from '@baukasten/ui';
+import { Select } from 'baukasten';
 
 function DeveloperProfileForm() {
   const [formData, setFormData] = useState({

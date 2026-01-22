@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Hero, Button, Heading } from '@baukasten/ui';
+import { Hero, Button, Heading } from 'baukasten';
 
 const heroProps: PropDefinition[] = [
     { name: 'title', type: 'React.ReactNode', required: true, description: 'Main hero title text' },
@@ -39,7 +39,7 @@ export default function HeroPage() {
                         description="Build beautiful VSCode extensions with React"
                     />
                 }
-                code={`import { Hero } from '@baukasten/ui';
+                code={`import { Hero } from 'baukasten';
 
 function App() {
   return (

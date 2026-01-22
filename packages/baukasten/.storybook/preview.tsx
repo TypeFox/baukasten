@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 import React from 'react';
-import { VSCodeThemeWrapper } from '@baukasten/web-wrapper';
+import { VSCodeThemeWrapper } from 'baukasten-web-wrapper';
 import { GlobalStyles } from '../src/styles';
 
 const preview: Preview = {

@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { ReactNode } from 'react';
 
 const VSCodeThemeWrapper = dynamic(
-    () => import('@baukasten/web-wrapper').then(mod => ({ default: mod.VSCodeThemeWrapper })),
+    () => import('baukasten-web-wrapper').then(mod => ({ default: mod.VSCodeThemeWrapper })),
     { ssr: false }
 );
 

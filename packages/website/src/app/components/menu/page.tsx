@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Menu, MenuItem, MenuDivider, SubMenu, Icon, Badge, Dropdown, Button } from '@baukasten/ui';
+import { Menu, MenuItem, MenuDivider, SubMenu, Icon, Badge, Dropdown, Button } from 'baukasten';
 
 const menuProps: PropDefinition[] = [
     {
@@ -160,7 +160,7 @@ export default function MenuPage() {
                         <MenuItem icon={<Icon name="trash" />}>Delete</MenuItem>
                     </Menu>
                 }
-                code={`import { Menu, MenuItem, MenuDivider, Icon } from '@baukasten/ui';
+                code={`import { Menu, MenuItem, MenuDivider, Icon } from 'baukasten';
 
 function App() {
   return (
@@ -623,7 +623,7 @@ function App() {
                         </Dropdown>
                     </div>
                 }
-                code={`import { Dropdown, Button, Menu, MenuItem, SubMenu } from '@baukasten/ui';
+                code={`import { Dropdown, Button, Menu, MenuItem, SubMenu } from 'baukasten';
 
 // Action menu dropdown
 <Dropdown
@@ -668,7 +668,7 @@ function App() {
                 description="Menu items support onClick handlers for interactive behavior. Use the selected prop to highlight the active item."
                 preview={<InteractiveExample />}
                 code={`import { useState } from 'react';
-import { Menu, MenuItem, MenuDivider, Icon } from '@baukasten/ui';
+import { Menu, MenuItem, MenuDivider, Icon } from 'baukasten';
 
 function InteractiveExample() {
   const [selectedItem, setSelectedItem] = useState('edit');
