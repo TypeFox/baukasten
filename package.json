@@ -1,8 +1,7 @@
 {
-  "name": "baukasten",
+  "name": "baukasten-workspaces",
   "version": "0.1.0",
   "private": true,
-  "description": "VSCode UI Toolkit",
   "workspaces": [
     "packages/*",
     "packages/examples/*"

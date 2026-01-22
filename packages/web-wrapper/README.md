@@ -19,7 +19,7 @@ When building VSCode extensions, components use CSS variables like `--vscode-but
 ### Basic Usage
 
 ```tsx
-import { VSCodeThemeWrapper } from "@baukasten/web-wrapper";
+import { VSCodeThemeWrapper } from "baukasten-web-wrapper";
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
 
 ```tsx
 // .storybook/preview.tsx
-import { VSCodeThemeWrapper } from "@baukasten/web-wrapper";
+import { VSCodeThemeWrapper } from "baukasten-web-wrapper";
 
 export const decorators = [
   (Story) => (

@@ -1,8 +1,19 @@
 {
-  "name": "@baukasten/ui",
+  "name": "baukasten",
   "version": "0.1.0",
+  "description": "A UI toolkit for VSCode",
+  "homepage": "https://typefox.dev/baukasten",
+  "keywords": [
+    "baukasten",
+    "ui",
+    "toolkit",
+    "vscode",
+    "Theia",
+    "react",
+    "components"
+  ],
+  "license": "MIT",
   "type": "module",
-  "description": "A webview UI toolkit for VSCode",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -19,8 +30,10 @@
     "./dist/style.css": "./dist/style.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
+  "sideEffects": false,
   "scripts": {
     "dev": "vite",
     "build": "tsc --project tsconfig.build.json && vite build",
@@ -43,7 +56,7 @@
     "@vscode/codicons": "^0.0.41"
   },
   "devDependencies": {
-    "@baukasten/web-wrapper": "*",
+    "baukasten-web-wrapper": "*",
     "@storybook/addon-essentials": "^8.4.0",
     "@storybook/addon-interactions": "^8.4.0",
     "@storybook/addon-links": "^8.4.0",
@@ -77,5 +90,15 @@
     "vite": "^6.0.0",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^4.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/typefox/baukasten.git",
+    "directory": "packages/baukasten"
+  },
+  "bugs": "https://github.com/typefox/baukasten/issues",
+  "author": {
+    "name": "TypeFox",
+    "url": "https://www.typefox.io"
   }
 }

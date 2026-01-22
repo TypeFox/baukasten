@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@baukasten/ui": "*",
-    "@baukasten/web-wrapper": "*",
+    "baukasten": "*",
+    "baukasten-web-wrapper": "*",
     "next": "^16.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

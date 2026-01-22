@@ -1,8 +1,8 @@
 {
-  "name": "@baukasten/web-wrapper",
+  "name": "baukasten-web-wrapper",
   "version": "0.1.0",
   "type": "module",
-  "description": "VSCode theme wrapper for browser environments",
+  "description": "Theme wrapper for browser environments",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
