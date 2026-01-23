@@ -1,4 +1,4 @@
-# @baukasten/web-wrapper
+# baukasten-web-wrapper
 
 A theme wrapper that provides VSCode CSS variables for browser environments (Storybook, demos, etc.).
 

@@ -50,7 +50,7 @@ export default function InstallationPage() {
         <Paragraph>
           Install Baukasten and its peer dependencies using npm:
         </Paragraph>
-        <CodeBlock code="npm install @baukasten/ui" language="bash" />
+        <CodeBlock code="npm install baukasten" language="bash" />
       </Section>
 
       <Section>
@@ -81,7 +81,7 @@ function App() {
         <Paragraph>
           For web applications or Storybook demos, you'll need the VSCodeThemeWrapper:
         </Paragraph>
-        <CodeBlock code="npm install @baukasten/web-wrapper" language="bash" />
+        <CodeBlock code="npm install baukasten-web-wrapper" language="bash" />
         <Paragraph>
           Then wrap your application:
         </Paragraph>

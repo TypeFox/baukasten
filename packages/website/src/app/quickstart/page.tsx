@@ -56,7 +56,7 @@ export default function QuickStartPage() {
           Install the package using npm, yarn, or pnpm:
         </Paragraph>
         <CodeBlock
-          code="npm install @baukasten/ui"
+          code="npm install baukasten"
           language="bash"
         />
       </Section>
@@ -132,7 +132,7 @@ export default App;`}
             For web apps, you'll need the theme wrapper to simulate VSCode's theme system:
           </Paragraph>
           <CodeBlock
-            code="npm install @baukasten/web-wrapper"
+            code="npm install baukasten-web-wrapper"
             language="bash"
           />
           <CodeBlock

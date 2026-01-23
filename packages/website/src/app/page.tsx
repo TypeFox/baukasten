@@ -229,7 +229,7 @@ export default function Home() {
             Install
           </Text>
           <CodeBlock
-            code="npm install @baukasten/ui"
+            code="npm install baukasten"
             language="bash"
           />
         </div>

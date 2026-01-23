@@ -345,7 +345,7 @@ Line 10`}</Code>
 
                         <Heading level={2}>Getting Started</Heading>
                         <Paragraph>
-                            First, install the package using <Code>npm install @baukasten/ui</Code>. Then import the components you need in your application.
+                            First, install the package using <Code>npm install baukasten</Code>. Then import the components you need in your application.
                         </Paragraph>
 
                         <Heading level={3}>Basic Example</Heading>
@@ -374,7 +374,7 @@ function Article() {
 
       <Heading level={2}>Getting Started</Heading>
       <Paragraph>
-        First, install the package using <Code>npm install @baukasten/ui</Code>.
+        First, install the package using <Code>npm install baukasten</Code>.
       </Paragraph>
 
       <Heading level={3}>Basic Example</Heading>

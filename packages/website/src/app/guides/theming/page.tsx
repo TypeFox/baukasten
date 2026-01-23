@@ -152,7 +152,7 @@ export default function ThemingGuidePage() {
                     marginBottom: 'var(--spacing-6)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    Baukasten provides ready-to-use theme presets for web applications through the <Code>@baukasten/web-wrapper</Code> package.
+                    Baukasten provides ready-to-use theme presets for web applications through the <Code>baukasten-web-wrapper</Code> package.
                 </p>
 
                 <h3 style={{

@@ -94,7 +94,7 @@ export const Basic: Story = {
       </AccordionItem>
       <AccordionItem title="How to install?" defaultOpen>
         <Paragraph>
-          Install via npm: <Code>npm install @baukasten/ui</Code>
+          Install via npm: <Code>npm install baukasten</Code>
         </Paragraph>
       </AccordionItem>
     </Accordion>
@@ -321,7 +321,7 @@ export const RichContent: Story = {
         <Paragraph>Follow these steps to install Baukasten:</Paragraph>
         <ol style={{ paddingLeft: 'var(--spacing-4)', marginBottom: 'var(--spacing-3)' }}>
           <li style={{ marginBottom: 'var(--spacing-1)' }}>
-            <Text>Install the package: <Code>npm install @baukasten/ui</Code></Text>
+            <Text>Install the package: <Code>npm install baukasten</Code></Text>
           </li>
           <li style={{ marginBottom: 'var(--spacing-1)' }}>
             <Text>Import components in your app</Text>
@@ -496,7 +496,7 @@ export const LargeContent: Story = {
         <Paragraph>
           Getting started with Baukasten is simple. First, install the package using npm:
         </Paragraph>
-        <Code>npm install @baukasten/ui</Code>
+        <Code>npm install baukasten</Code>
         <Paragraph>
           Then import the components you need in your React application and don't forget to
           include the GlobalStyles component at the root of your application to ensure proper

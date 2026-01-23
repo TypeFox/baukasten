@@ -85,7 +85,7 @@ export default function AccordionPage() {
               </AccordionItem>
               <AccordionItem title="How to install?">
                 <Paragraph>
-                  Install via npm: <Code>npm install @baukasten/ui</Code>
+                  Install via npm: <Code>npm install baukasten</Code>
                 </Paragraph>
               </AccordionItem>
             </Accordion>
@@ -308,7 +308,7 @@ function App() {
                 <Paragraph>Follow these steps to install Baukasten:</Paragraph>
                 <ol style={{ paddingLeft: 'var(--spacing-4)', marginBottom: 'var(--spacing-3)' }}>
                   <li style={{ marginBottom: 'var(--spacing-1)' }}>
-                    <Text>Install: <Code>npm install @baukasten/ui</Code></Text>
+                    <Text>Install: <Code>npm install baukasten</Code></Text>
                   </li>
                   <li style={{ marginBottom: 'var(--spacing-1)' }}>
                     <Text>Import components in your app</Text>

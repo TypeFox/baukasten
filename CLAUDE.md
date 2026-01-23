@@ -13,7 +13,7 @@ Baukasten is a VSCode webview UI toolkit built with React 19, TypeScript, vanill
 ```
 baukasten/
 ├── packages/
-│   ├── baukasten/           # Main UI component library (@baukasten/ui)
+│   ├── baukasten/           # Main UI component library (baukasten)
 │   ├── web-wrapper/         # VSCode theme wrapper for browser demos
 │   └── examples/
 │       ├── web-example/     # Web application example
@@ -166,7 +166,7 @@ Reference: `packages/baukasten/src/components/Button/Button.stories.tsx`
 
 ## Available Components
 
-Current components (exported from `@baukasten/ui`):
+Current components (exported from `baukasten`):
 - **Button** - Versatile button with variants (primary, secondary, ghost, outline) and sizes
 - **Input** - Text input with label and error state support
 - **Label** - Form label component
@@ -185,7 +185,7 @@ Current components (exported from `@baukasten/ui`):
 - **Storybook 8** - Component documentation
 
 ### Package Exports
-Main package (`@baukasten/ui`) exports:
+Main package (`baukasten`) exports:
 - `.` - All components and types
 - `./styles` - Design token utilities
 

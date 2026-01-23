@@ -355,7 +355,7 @@ function example8() { return "line 8"; }`}
 
                         <Heading level={2}>Getting Started</Heading>
                         <Paragraph>
-                            First, install the package using <Code>npm install @baukasten/ui</Code>. Then
+                            First, install the package using <Code>npm install baukasten</Code>. Then
                             import the components you need in your application.
                         </Paragraph>
 

@@ -107,7 +107,7 @@ npm run build-storybook
 
 ## Packages
 
-### @baukasten/ui
+### baukasten
 
 The main UI component library with VSCode-inspired components. All components use VSCode CSS variables (like `--vscode-button-background`) to match the native VSCode look and feel.
 
@@ -118,7 +118,7 @@ The main UI component library with VSCode-inspired components. All components us
 
 [View Package Documentation](./packages/baukasten/README.md)
 
-### @baukasten/web-wrapper
+### baukasten-web-wrapper
 
 A theme wrapper that provides VSCode CSS variables for browser environments (Storybook, demos, etc.). In real VSCode extensions, these variables are provided by VSCode itself. This package simulates that environment for development and demos.
 

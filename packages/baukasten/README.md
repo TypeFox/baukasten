@@ -1,4 +1,4 @@
-# @baukasten/ui
+# baukasten
 
 A webview UI toolkit for VSCode extensions, built with React and styled-components. Components use VSCode CSS variables to match the native VSCode look and feel.
 
@@ -14,7 +14,7 @@ A webview UI toolkit for VSCode extensions, built with React and styled-componen
 ## Installation
 
 ```bash
-npm install @baukasten/ui react react-dom styled-components
+npm install baukasten react react-dom styled-components
 ```
 
 ## Usage
@@ -39,10 +39,10 @@ function App() {
 
 ### In Browser (Storybook, demos, etc.)
 
-Use `@baukasten/web-wrapper` to simulate VSCode's environment:
+Use `baukasten-web-wrapper` to simulate VSCode's environment:
 
 ```bash
-npm install @baukasten/web-wrapper
+npm install baukasten-web-wrapper
 ```
 
 ```tsx

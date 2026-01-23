@@ -1,6 +1,6 @@
 # @baukasten/examples
 
-Example implementations showcasing the @baukasten/ui component library.
+Example implementations showcasing the baukasten component library.
 
 ## Getting Started
 
