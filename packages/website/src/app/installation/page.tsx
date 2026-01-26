@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
-import { Heading } from 'baukasten';
+import { Heading } from 'baukasten-ui';
 
 const Section = ({ children }: { children: React.ReactNode }) => (
   <section style={{ marginBottom: 'var(--padding-2xl)' }}>{children}</section>
@@ -50,7 +50,7 @@ export default function InstallationPage() {
         <Paragraph>
           Install Baukasten and its peer dependencies using npm:
         </Paragraph>
-        <CodeBlock code="npm install baukasten" language="bash" />
+        <CodeBlock code="npm install baukasten-ui" language="bash" />
       </Section>
 
       <Section>
@@ -59,7 +59,7 @@ export default function InstallationPage() {
           If you're building a VSCode webview extension, set up your component with GlobalStyles:
         </Paragraph>
         <CodeBlock
-          code={`import { GlobalStyles, Button } from 'baukasten';
+          code={`import { GlobalStyles, Button } from 'baukasten-ui';
 
 function App() {
   return (
@@ -81,13 +81,13 @@ function App() {
         <Paragraph>
           For web applications or Storybook demos, you'll need the VSCodeThemeWrapper:
         </Paragraph>
-        <CodeBlock code="npm install baukasten-web-wrapper" language="bash" />
+        <CodeBlock code="npm install baukasten-ui-web-wrapper" language="bash" />
         <Paragraph>
           Then wrap your application:
         </Paragraph>
         <CodeBlock
-          code={`import { GlobalStyles, Button } from 'baukasten';
-import { VSCodeThemeWrapper } from 'baukasten-web-wrapper';
+          code={`import { GlobalStyles, Button } from 'baukasten-ui';
+import { VSCodeThemeWrapper } from 'baukasten-ui-web-wrapper';
 
 function App() {
   return (
@@ -111,7 +111,7 @@ function App() {
         <CodeBlock
           code={`/** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['baukasten', 'baukasten-web-wrapper'],
+  transpilePackages: ['baukasten-ui', 'baukasten-ui-web-wrapper'],
 }
 
 module.exports = nextConfig`}
@@ -122,8 +122,8 @@ module.exports = nextConfig`}
         </Paragraph>
         <CodeBlock
           code={`// app/layout.tsx
-import { GlobalStyles } from 'baukasten';
-import { VSCodeThemeWrapper } from 'baukasten-web-wrapper';
+import { GlobalStyles } from 'baukasten-ui';
+import { VSCodeThemeWrapper } from 'baukasten-ui-web-wrapper';
 
 export default function RootLayout({ children }) {
   return (
@@ -147,7 +147,7 @@ export default function RootLayout({ children }) {
           Import individual components as needed:
         </Paragraph>
         <CodeBlock
-          code={`import { Button, Input, Badge } from 'baukasten';
+          code={`import { Button, Input, Badge } from 'baukasten-ui';
 
 function MyComponent() {
   return (

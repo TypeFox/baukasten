@@ -9,7 +9,7 @@ import '@vscode/codicons/dist/codicon.css';
  *
  * @example
  * ```tsx
- * import { GlobalStyles } from 'baukasten';
+ * import { GlobalStyles } from 'baukasten-ui';
  *
  * function App() {
  *   return (
@@ -24,7 +24,7 @@ import '@vscode/codicons/dist/codicon.css';
  * @example
  * With Storybook:
  * ```tsx
- * import { GlobalStyles } from 'baukasten';
+ * import { GlobalStyles } from 'baukasten-ui';
  *
  * export const decorators = [
  *   (Story) => (

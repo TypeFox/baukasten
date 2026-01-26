@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Divider, Button, Input, FieldLabel } from 'baukasten';
+import { Divider, Button, Input, FieldLabel } from 'baukasten-ui';
 
 const dividerProps: PropDefinition[] = [
   {
@@ -63,7 +63,7 @@ export default function DividerPage() {
             <Paragraph>This is content below the divider.</Paragraph>
           </div>
         }
-        code={`import { Divider } from 'baukasten';
+        code={`import { Divider } from 'baukasten-ui';
 
 function App() {
   return (

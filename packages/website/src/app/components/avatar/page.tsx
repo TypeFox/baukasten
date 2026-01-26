@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, Variant, VariantGrid, PropDefinition } from '@/components/ComponentShowcase';
-import { Avatar } from 'baukasten';
+import { Avatar } from 'baukasten-ui';
 
 const avatarProps: PropDefinition[] = [
     {
@@ -61,7 +61,7 @@ export default function AvatarPage() {
                 preview={
                     <Avatar name="John Doe" />
                 }
-                code={`import { Avatar } from 'baukasten';
+                code={`import { Avatar } from 'baukasten-ui';
 
 function App() {
   return <Avatar name="John Doe" />;

@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, Variant, VariantGrid, PropDefinition } from '@/components/ComponentShowcase';
-import { Slider } from 'baukasten';
+import { Slider } from 'baukasten-ui';
 import { useState } from 'react';
 
 const sliderProps: PropDefinition[] = [
@@ -100,7 +100,7 @@ export default function SliderPage() {
                 title="Basic Usage"
                 description="The default slider with standard configuration."
                 preview={<Slider />}
-                code={`import { Slider } from 'baukasten';
+                code={`import { Slider } from 'baukasten-ui';
 
 function App() {
   return <Slider />;

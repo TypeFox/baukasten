@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Icon, Input, FormGroup, FieldLabel, FormHelper, Heading, Paragraph, Text } from 'baukasten';
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Icon, Input, FormGroup, FieldLabel, FormHelper, Heading, Paragraph, Text } from 'baukasten-ui';
 
 const modalProps: PropDefinition[] = [
     {
@@ -304,7 +304,7 @@ export default function ModalPage() {
                 title="Basic Usage"
                 description="Modal is a composable component using ModalHeader, ModalBody, and ModalFooter. It renders to document.body using React portals and includes backdrop, keyboard navigation, and focus management."
                 preview={<BasicExample />}
-                code={`import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'baukasten';
+                code={`import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'baukasten-ui';
 import { useState } from 'react';
 
 function App() {
@@ -529,7 +529,7 @@ function App() {
                 description="Simple confirmation dialog for destructive actions. Small size works well for confirmations that require user acknowledgment."
                 preview={<ConfirmationExample />}
                 code={`import { useState } from 'react';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'baukasten';
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'baukasten-ui';
 
 function ConfirmationDialog() {
   const [isOpen, setIsOpen] = useState(false);
@@ -573,7 +573,7 @@ function ConfirmationDialog() {
                 description="Modal with form fields and validation. Large size provides enough space for multiple form fields and validation messages."
                 preview={<FormExample />}
                 code={`import { useState } from 'react';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Input, FormGroup, FieldLabel, FormHelper } from 'baukasten';
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Input, FormGroup, FieldLabel, FormHelper } from 'baukasten-ui';
 
 function FormModal() {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,5 +1,5 @@
-import { Badge, Button, Code, GlobalStyles, Heading, Icon, Image, Input, Link, Paragraph, Text } from 'baukasten';
-import { VSCodeThemeWrapper } from 'baukasten-web-wrapper';
+import { Badge, Button, Code, GlobalStyles, Heading, Icon, Image, Input, Link, Paragraph, Text } from 'baukasten-ui';
+import { VSCodeThemeWrapper } from 'baukasten-ui-web-wrapper';
 import React, { useState } from 'react';
 
 function App() {

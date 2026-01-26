@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
-import { Code } from 'baukasten';
+import { Code } from 'baukasten-ui';
 
 interface TypeToken {
   name: string;

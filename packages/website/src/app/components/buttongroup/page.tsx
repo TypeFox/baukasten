@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { ButtonGroup, Button, Icon, Menu, MenuItem, MenuDivider, Heading } from 'baukasten';
+import { ButtonGroup, Button, Icon, Menu, MenuItem, MenuDivider, Heading } from 'baukasten-ui';
 
 const buttonGroupProps: PropDefinition[] = [
     { name: 'fullWidth', type: 'boolean', default: 'false', description: 'Whether the button group should take full width' },
@@ -79,7 +79,7 @@ export default function ButtonGroupPage() {
                         <Button variant="primary">Paste</Button>
                     </ButtonGroup>
                 }
-                code={`import { ButtonGroup, Button } from 'baukasten';
+                code={`import { ButtonGroup, Button } from 'baukasten-ui';
 
 function App() {
   return (
@@ -276,7 +276,7 @@ function App() {
                         </ButtonGroup>
                     </div>
                 }
-                code={`import { ButtonGroup, Button, Icon, Menu, MenuItem } from 'baukasten';
+                code={`import { ButtonGroup, Button, Icon, Menu, MenuItem } from 'baukasten-ui';
 
 // Basic split button
 <ButtonGroup>

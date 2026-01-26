@@ -455,7 +455,7 @@ export const VSCodeLayout: Story = {
                 </SplitPane.Pane>
                 <SplitPane.Pane>
                   <CodeEditor>
-                    <div>{"import { SplitPane } from 'baukasten';"}</div>
+                    <div>{"import { SplitPane } from 'baukasten-ui';"}</div>
                     <div>{""}</div>
                     <div>{"const Layout = () => ("}</div>
                     <div>{"  <SplitPane>"}</div>

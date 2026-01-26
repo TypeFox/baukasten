@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "baukasten": "*",
-    "baukasten-web-wrapper": "*",
+    "baukasten-ui": "*",
+    "baukasten-ui-web-wrapper": "*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

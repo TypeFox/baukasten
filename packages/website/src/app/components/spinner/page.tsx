@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Spinner, Button, Heading } from 'baukasten';
+import { Spinner, Button, Heading } from 'baukasten-ui';
 
 const spinnerProps: PropDefinition[] = [
     {
@@ -122,7 +122,7 @@ export default function SpinnerPage() {
                         <Spinner />
                     </div>
                 }
-                code={`import { Spinner } from 'baukasten';
+                code={`import { Spinner } from 'baukasten-ui';
 
 function App() {
   return <Spinner />;
@@ -374,7 +374,7 @@ function App() {
                 description="Real-world example showing a spinner in a button during data fetching and in a content area as a placeholder."
                 preview={<LoadingSimulation />}
                 code={`import { useState } from 'react';
-import { Spinner, Button } from 'baukasten';
+import { Spinner, Button } from 'baukasten-ui';
 
 function DataFetcher() {
   const [isLoading, setIsLoading] = useState(false);

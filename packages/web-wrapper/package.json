@@ -1,5 +1,5 @@
 {
-  "name": "baukasten-web-wrapper",
+  "name": "baukasten-ui-web-wrapper",
   "version": "0.1.0",
   "type": "module",
   "description": "Theme wrapper for browser environments",

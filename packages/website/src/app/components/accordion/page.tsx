@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, Variant, VariantGrid, PropDefinition } from '@/components/ComponentShowcase';
-import { Accordion, AccordionItem, Icon, Badge, Paragraph, Text, Code } from 'baukasten';
+import { Accordion, AccordionItem, Icon, Badge, Paragraph, Text, Code } from 'baukasten-ui';
 
 const accordionProps: PropDefinition[] = [
   {
@@ -85,13 +85,13 @@ export default function AccordionPage() {
               </AccordionItem>
               <AccordionItem title="How to install?">
                 <Paragraph>
-                  Install via npm: <Code>npm install baukasten</Code>
+                  Install via npm: <Code>npm install baukasten-ui</Code>
                 </Paragraph>
               </AccordionItem>
             </Accordion>
           </div>
         }
-        code={`import { Accordion, AccordionItem } from 'baukasten';
+        code={`import { Accordion, AccordionItem } from 'baukasten-ui';
 
 function App() {
   return (
@@ -308,7 +308,7 @@ function App() {
                 <Paragraph>Follow these steps to install Baukasten:</Paragraph>
                 <ol style={{ paddingLeft: 'var(--spacing-4)', marginBottom: 'var(--spacing-3)' }}>
                   <li style={{ marginBottom: 'var(--spacing-1)' }}>
-                    <Text>Install: <Code>npm install baukasten</Code></Text>
+                    <Text>Install: <Code>npm install baukasten-ui</Code></Text>
                   </li>
                   <li style={{ marginBottom: 'var(--spacing-1)' }}>
                     <Text>Import components in your app</Text>

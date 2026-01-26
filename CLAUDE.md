@@ -131,15 +131,15 @@ The project supports two environments:
 
 **VSCode Webview** (native environment):
 ```tsx
-import { GlobalStyles } from "baukasten";
+import { GlobalStyles } from "baukasten-ui";
 // No wrapper needed - uses native VSCode theme
 <GlobalStyles />
 ```
 
 **Web Application** (browser demos/Storybook):
 ```tsx
-import { GlobalStyles } from "baukasten";
-import { VSCodeThemeWrapper } from "baukasten-web-wrapper";
+import { GlobalStyles } from "baukasten-ui";
+import { VSCodeThemeWrapper } from "baukasten-ui-web-wrapper";
 // Wrapper simulates VSCode theming
 <>
   <GlobalStyles />

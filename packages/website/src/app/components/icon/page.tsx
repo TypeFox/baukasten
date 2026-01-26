@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, Variant, VariantGrid, PropDefinition } from '@/components/ComponentShowcase';
-import { Icon, Button } from 'baukasten';
+import { Icon, Button } from 'baukasten-ui';
 
 const iconProps: PropDefinition[] = [
 	{
@@ -56,7 +56,7 @@ export default function IconPage() {
 						</div>
 					</div>
 				}
-				code={`import { Icon } from 'baukasten';
+				code={`import { Icon } from 'baukasten-ui';
 
 function App() {
   return (

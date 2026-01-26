@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { lightModern, darkModern } from 'baukasten-web-wrapper';
+import { lightModern, darkModern } from 'baukasten-ui-web-wrapper';
 
 type ThemeMode = 'light' | 'dark';
 

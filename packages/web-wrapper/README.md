@@ -1,4 +1,4 @@
-# baukasten-web-wrapper
+# baukasten-ui-web-wrapper
 
 A theme wrapper that provides VSCode CSS variables for browser environments (Storybook, demos, etc.).
 
@@ -19,7 +19,7 @@ When building VSCode extensions, components use CSS variables like `--vscode-but
 ### Basic Usage
 
 ```tsx
-import { VSCodeThemeWrapper } from "baukasten-web-wrapper";
+import { VSCodeThemeWrapper } from "baukasten-ui-web-wrapper";
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
 
 ```tsx
 // .storybook/preview.tsx
-import { VSCodeThemeWrapper } from "baukasten-web-wrapper";
+import { VSCodeThemeWrapper } from "baukasten-ui-web-wrapper";
 
 export const decorators = [
   (Story) => (

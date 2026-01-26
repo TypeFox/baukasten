@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Icon } from 'baukasten';
+import { Button, Icon } from 'baukasten-ui';
 import { useTheme } from '@/contexts/ThemeContext';
 
 export default function ThemePicker() {

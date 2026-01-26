@@ -6,7 +6,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  transpilePackages: ['baukasten', 'baukasten-web-wrapper'],
+  transpilePackages: ['baukasten-ui', 'baukasten-ui-web-wrapper'],
 }
 
 module.exports = nextConfig

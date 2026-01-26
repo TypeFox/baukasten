@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { FileUpload } from 'baukasten';
+import { FileUpload } from 'baukasten-ui';
 import { useState } from 'react';
 
 const fileUploadProps: PropDefinition[] = [
@@ -97,7 +97,7 @@ export default function FileUploadPage() {
                         <FileUpload onChange={(files) => console.log('Files:', files)} />
                     </div>
                 }
-                code={`import { FileUpload } from 'baukasten';
+                code={`import { FileUpload } from 'baukasten-ui';
 
 function App() {
   return (

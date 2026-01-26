@@ -131,7 +131,7 @@ export interface ButtonGroupDropdownProps extends Omit<React.HTMLAttributes<HTML
  * `GlobalStyles` at the root of your app:
  *
  * ```tsx
- * import { GlobalStyles } from 'baukasten';
+ * import { GlobalStyles } from 'baukasten-ui';
  *
  * function App() {
  *   return (

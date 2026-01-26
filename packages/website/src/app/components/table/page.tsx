@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Table, Heading, Badge, Icon, Button } from 'baukasten';
+import { Table, Heading, Badge, Icon, Button } from 'baukasten-ui';
 
 const tableProps: PropDefinition[] = [
     { name: 'variant', type: '"default" | "zebra"', default: '"default"', description: 'Visual variant (zebra adds alternating row colors)' },
@@ -113,7 +113,7 @@ export default function TablePage() {
                         </Table.Body>
                     </Table>
                 }
-                code={`import { Table } from 'baukasten';
+                code={`import { Table } from 'baukasten-ui';
 
 const users = [
   { id: 1, name: 'John Doe', email: 'john@example.com', role: 'Admin' },

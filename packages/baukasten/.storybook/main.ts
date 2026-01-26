@@ -24,7 +24,7 @@ const config: StorybookConfig = {
       resolve: {
         alias: {
           // Use source files directly for HMR instead of built dist
-          "baukasten-web-wrapper": resolve(__dirname, "../../web-wrapper/src"),
+          "baukasten-ui-web-wrapper": resolve(__dirname, "../../web-wrapper/src"),
         },
       },
     });

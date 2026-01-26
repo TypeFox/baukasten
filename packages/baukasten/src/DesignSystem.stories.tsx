@@ -57,7 +57,7 @@ All tokens use CSS variables and are automatically injected when you include \`<
 ## Usage
 
 \`\`\`tsx
-import { GlobalStyles } from 'baukasten';
+import { GlobalStyles } from 'baukasten-ui';
 
 function App() {
   return (

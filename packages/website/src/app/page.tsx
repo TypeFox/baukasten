@@ -3,7 +3,7 @@
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
 import Link from 'next/link';
-import { Button, Heading, Paragraph, Icon, Badge, Text, CodiconName } from 'baukasten';
+import { Button, Heading, Paragraph, Icon, Badge, Text, CodiconName } from 'baukasten-ui';
 
 const components = [
   'Button',
@@ -229,7 +229,7 @@ export default function Home() {
             Install
           </Text>
           <CodeBlock
-            code="npm install baukasten"
+            code="npm install baukasten-ui"
             language="bash"
           />
         </div>
@@ -245,7 +245,7 @@ export default function Home() {
             Import
           </Text>
           <CodeBlock
-            code="import { Button } from 'baukasten'"
+            code="import { Button } from 'baukasten-ui'"
             language="typescript"
           />
         </div>

@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
-import { Code, Button, Badge, Icon, Alert } from 'baukasten';
+import { Code, Button, Badge, Icon, Alert } from 'baukasten-ui';
 
 export default function ThemingGuidePage() {
     return (
@@ -152,7 +152,7 @@ export default function ThemingGuidePage() {
                     marginBottom: 'var(--spacing-6)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    Baukasten provides ready-to-use theme presets for web applications through the <Code>baukasten-web-wrapper</Code> package.
+                    Baukasten provides ready-to-use theme presets for web applications through the <Code>baukasten-ui-web-wrapper</Code> package.
                 </p>
 
                 <h3 style={{
@@ -173,7 +173,7 @@ export default function ThemingGuidePage() {
                 <CodeBlock
                     language="tsx"
                     code={`import { createContext, useContext, useState, useEffect } from 'react';
-import { lightModern, darkModern } from 'baukasten-web-wrapper';
+import { lightModern, darkModern } from 'baukasten-ui-web-wrapper';
 
 type ThemeMode = 'light' | 'dark';
 
@@ -243,7 +243,7 @@ export function useTheme() {
                 <CodeBlock
                     language="tsx"
                     code={`import { useTheme } from './ThemeContext';
-import { Button, Icon } from 'baukasten';
+import { Button, Icon } from 'baukasten-ui';
 
 export default function ThemePicker() {
   const { themeMode, setTheme } = useTheme();
@@ -373,7 +373,7 @@ export default function ThemePicker() {
                 </p>
                 <CodeBlock
                     language="typescript"
-                    code={`import { Theme } from 'baukasten-web-wrapper';
+                    code={`import { Theme } from 'baukasten-ui-web-wrapper';
 
 export const customTheme: Theme = {
   name: 'Custom Theme',
@@ -472,7 +472,7 @@ export const customTheme: Theme = {
                 </p>
                 <CodeBlock
                     language="tsx"
-                    code={`import { Button } from 'baukasten';
+                    code={`import { Button } from 'baukasten-ui';
 
 function CustomButton() {
   return (

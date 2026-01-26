@@ -118,7 +118,7 @@ The main UI component library with VSCode-inspired components. All components us
 
 [View Package Documentation](./packages/baukasten/README.md)
 
-### baukasten-web-wrapper
+### baukasten-ui-web-wrapper
 
 A theme wrapper that provides VSCode CSS variables for browser environments (Storybook, demos, etc.). In real VSCode extensions, these variables are provided by VSCode itself. This package simulates that environment for development and demos.
 

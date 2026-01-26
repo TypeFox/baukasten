@@ -70,7 +70,7 @@ export interface IconProps extends Omit<React.HTMLAttributes<HTMLElement>, 'clas
  * of your app, which automatically imports the Codicon CSS.
  * 
  * ```tsx
- * import { GlobalStyles } from 'baukasten';
+ * import { GlobalStyles } from 'baukasten-ui';
  * 
  * function App() {
  *   return (

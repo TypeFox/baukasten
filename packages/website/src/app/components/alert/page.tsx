@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, Variant, VariantGrid, PropDefinition } from '@/components/ComponentShowcase';
-import { Alert, Icon } from 'baukasten';
+import { Alert, Icon } from 'baukasten-ui';
 
 const alertProps: PropDefinition[] = [
   {
@@ -56,7 +56,7 @@ export default function AlertPage() {
             </Alert>
           </div>
         }
-        code={`import { Alert } from 'baukasten';
+        code={`import { Alert } from 'baukasten-ui';
 
 function App() {
   return (

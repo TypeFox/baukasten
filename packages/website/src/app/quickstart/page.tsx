@@ -3,7 +3,7 @@
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
 import Link from 'next/link';
-import { Heading, Alert, Icon, Button } from 'baukasten';
+import { Heading, Alert, Icon, Button } from 'baukasten-ui';
 
 const Section = ({ children }: { children: React.ReactNode }) => (
   <section style={{ marginBottom: 'var(--spacing-12)' }}>{children}</section>
@@ -56,7 +56,7 @@ export default function QuickStartPage() {
           Install the package using npm, yarn, or pnpm:
         </Paragraph>
         <CodeBlock
-          code="npm install baukasten"
+          code="npm install baukasten-ui"
           language="bash"
         />
       </Section>
@@ -85,7 +85,7 @@ export default function QuickStartPage() {
             Just add GlobalStyles and start using components:
           </Paragraph>
           <CodeBlock
-            code={`import { GlobalStyles, Button, Input, Alert } from 'baukasten';
+            code={`import { GlobalStyles, Button, Input, Alert } from 'baukasten-ui';
 
 function App() {
   return (
@@ -132,12 +132,12 @@ export default App;`}
             For web apps, you'll need the theme wrapper to simulate VSCode's theme system:
           </Paragraph>
           <CodeBlock
-            code="npm install baukasten-web-wrapper"
+            code="npm install baukasten-ui-web-wrapper"
             language="bash"
           />
           <CodeBlock
-            code={`import { GlobalStyles, Button, Input, Alert } from 'baukasten';
-import { VSCodeThemeWrapper } from 'baukasten-web-wrapper';
+            code={`import { GlobalStyles, Button, Input, Alert } from 'baukasten-ui';
+import { VSCodeThemeWrapper } from 'baukasten-ui-web-wrapper';
 
 function App() {
   return (
@@ -285,7 +285,7 @@ export default App;`}
                     padding: '2px 6px',
                     borderRadius: 'var(--border-radius-sm)',
                     fontSize: '0.9em',
-                  }}>import {`{ Button, Input }`} from 'baukasten'</code>.
+                  }}>import {`{ Button, Input }`} from 'baukasten-ui'</code>.
                   The bundler will automatically exclude unused components, keeping your bundle size small.
                 </Paragraph>
               </div>

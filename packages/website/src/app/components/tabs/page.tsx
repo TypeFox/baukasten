@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Tabs, TabList, Tab, TabPanels, TabPanel, Heading, Button, Input, FieldLabel, Checkbox, Label } from 'baukasten';
+import { Tabs, TabList, Tab, TabPanels, TabPanel, Heading, Button, Input, FieldLabel, Checkbox, Label } from 'baukasten-ui';
 
 const tabsProps: PropDefinition[] = [
     { name: 'value', type: 'string', description: 'Currently active tab value (controlled mode)' },
@@ -174,7 +174,7 @@ export default function TabsPage() {
                         </TabPanels>
                     </Tabs>
                 }
-                code={`import { Tabs, TabList, Tab, TabPanels, TabPanel } from 'baukasten';
+                code={`import { Tabs, TabList, Tab, TabPanels, TabPanel } from 'baukasten-ui';
 
 function App() {
   return (

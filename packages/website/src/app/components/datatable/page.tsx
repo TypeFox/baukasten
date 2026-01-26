@@ -3,8 +3,8 @@
 import { useState, useMemo } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { DataTable, createSelectColumn, Badge, Button, Heading } from 'baukasten';
-import type { ColumnDef, SortingState, PaginationState, RowSelectionState } from 'baukasten';
+import { DataTable, createSelectColumn, Badge, Button, Heading } from 'baukasten-ui';
+import type { ColumnDef, SortingState, PaginationState, RowSelectionState } from 'baukasten-ui';
 
 const dataTableProps: PropDefinition[] = [
     { name: 'data', type: 'TData[]', required: true, description: 'Data array to display' },
@@ -195,8 +195,8 @@ export default function DataTablePage() {
                         columns={basicColumns}
                     />
                 }
-                code={`import { DataTable } from 'baukasten';
-import type { ColumnDef } from 'baukasten';
+                code={`import { DataTable } from 'baukasten-ui';
+import type { ColumnDef } from 'baukasten-ui';
 
 interface User {
   id: number;
@@ -272,8 +272,8 @@ function App() {
                 description="Use createSelectColumn() to add a checkbox column for row selection. Track selected rows with rowSelection state."
                 preview={<RowSelectionExample />}
                 code={`import { useState, useMemo } from 'react';
-import { DataTable, createSelectColumn } from 'baukasten';
-import type { RowSelectionState } from 'baukasten';
+import { DataTable, createSelectColumn } from 'baukasten-ui';
+import type { RowSelectionState } from 'baukasten-ui';
 
 function App() {
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
@@ -331,8 +331,8 @@ function App() {
                 description="Control sorting state externally for integration with external state management or URL parameters."
                 preview={<ControlledSortingExample />}
                 code={`import { useState } from 'react';
-import { DataTable } from 'baukasten';
-import type { SortingState } from 'baukasten';
+import { DataTable } from 'baukasten-ui';
+import type { SortingState } from 'baukasten-ui';
 
 function App() {
   const [sorting, setSorting] = useState<SortingState>([]);
