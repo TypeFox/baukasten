@@ -5,7 +5,6 @@ Documentation website for the Baukasten UI component library.
 ## Features
 
 - Built with Next.js 15 and React 19
-- Server-side rendering with styled-components
 - Component showcase with live previews
 - Interactive props documentation
 - Variant and size demonstrations

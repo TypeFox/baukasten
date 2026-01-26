@@ -90,7 +90,7 @@ background-color: var(--vscode-button-background);
 
 1. Check existing token files for available design tokens
 2. Use semantic tokens (never hardcode or use --vscode-\* directly)
-3. Use styled-components for styling
+3. Use vanilla-extract for styling
 4. Export TypeScript types for props
 5. Create Storybook stories for documentation
 

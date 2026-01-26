@@ -1,6 +1,6 @@
-# Baukasten
+# Baukasten UI
 
-A webview UI toolkit for VSCode extensions, built with React, styled-components, and designed to match VSCode's native look and feel.
+A UI toolkit for building native-feel web applicaiton, that runs on browser, Eclipse Theia or VSCode.
 
 ## Project Structure
 
@@ -140,7 +140,6 @@ Example implementations showing how to use the component library in real applica
 
 - **React 19**: UI framework
 - **TypeScript**: Type safety and developer experience
-- **styled-components**: CSS-in-JS styling solution
 - **VSCode CSS Variables**: Native VSCode styling
 - **Vite**: Fast build tool and dev server
 - **Storybook 8**: Component documentation and development

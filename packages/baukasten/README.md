@@ -1,20 +1,11 @@
 # baukasten
 
-A webview UI toolkit for VSCode extensions, built with React and styled-components. Components use VSCode CSS variables to match the native VSCode look and feel.
-
-## Features
-
-- 🎨 Uses VSCode CSS variables (e.g., `--vscode-button-background`)
-- 🧩 Reusable React components
-- 💅 Styled with styled-components
-- 📚 Comprehensive Storybook documentation
-- 📦 Built with Vite for fast development
-- 🔧 Full TypeScript support
+A webview UI toolkit for Eclipse Theia and VSCode extensions, built with React and `vanilla-extract` . Components use Theia/VSCode CSS variables to match the host platform look and feel.
 
 ## Installation
 
 ```bash
-npm install baukasten react react-dom styled-components
+npm install baukasten react react-dom 
 ```
 
 ## Usage
