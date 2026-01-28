@@ -4,10 +4,22 @@ import '@vscode/codicons/dist/codicon.css';
 /**
  * Global styles component that injects all CSS custom properties
  *
- * This component must be included once at the root of your application
- * to enable all Baukasten components to use the design system tokens.
+ * @deprecated This component is deprecated and will be removed in a future version.
+ * Please use the pre-built CSS files instead:
+ * - `baukasten-ui/dist/baukasten-vscode.css` - For VS Code extensions
+ * - `baukasten-ui/dist/baukasten-theia.css` - For Eclipse Theia applications  
+ * - `baukasten-ui/dist/baukasten-web.css` - For standalone web applications
  *
- * @example
+ * The static CSS files provide better performance and simpler setup.
+ *
+ * @example Using pre-built CSS (recommended):
+ * ```tsx
+ * // In your entry file
+ * import 'baukasten-ui/dist/baukasten-base.css';
+ * import 'baukasten-ui/dist/baukasten-vscode.css'; // or baukasten-theia.css or baukasten-web.css
+ * ```
+ *
+ * @example Using GlobalStyles component (legacy, deprecated):
  * ```tsx
  * import { GlobalStyles } from 'baukasten-ui';
  *
@@ -20,23 +32,17 @@ import '@vscode/codicons/dist/codicon.css';
  *   );
  * }
  * ```
- *
- * @example
- * With Storybook:
- * ```tsx
- * import { GlobalStyles } from 'baukasten-ui';
- *
- * export const decorators = [
- *   (Story) => (
- *     <>
- *       <GlobalStyles />
- *       <Story />
- *     </>
- *   ),
- * ];
- * ```
  */
 export const GlobalStyles = () => {
+  // Log deprecation warning in development
+  if (process.env.NODE_ENV === 'development') {
+    console.warn(
+      '[baukasten-ui] GlobalStyles is deprecated. ' +
+      'Please use the pre-built CSS files instead: ' +
+      'baukasten-vscode.css, baukasten-theia.css, or baukasten-web.css'
+    );
+  }
+
   return (
     <style
       dangerouslySetInnerHTML={{
@@ -182,4 +188,3 @@ export const GlobalStyles = () => {
 };
 
 export default GlobalStyles;
-

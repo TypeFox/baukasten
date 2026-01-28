@@ -27,7 +27,10 @@
       "import": "./dist/styles.mjs",
       "require": "./dist/styles.js"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./dist/baukasten-base.css": "./dist/baukasten-base.css",
+    "./dist/baukasten-vscode.css": "./dist/baukasten-vscode.css",
+    "./dist/baukasten-theia.css": "./dist/baukasten-theia.css",
+    "./dist/baukasten-web.css": "./dist/baukasten-web.css"
   },
   "files": [
     "dist",
@@ -36,7 +39,8 @@
   "sideEffects": false,
   "scripts": {
     "dev": "vite",
-    "build": "tsc --project tsconfig.build.json && vite build",
+    "build": "tsc --project tsconfig.build.json && vite build && npm run build:css",
+    "build:css": "npx tsx scripts/generate-css.ts",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
