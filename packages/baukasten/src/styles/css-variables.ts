@@ -1,12 +1,16 @@
 /**
  * CSS custom properties for the design system
  * Combines all design tokens into a single import
+ * 
+ * This module serves as the single source of truth for CSS variables,
+ * used by both the runtime GlobalStyles component and the build-time CSS generation.
  */
 
 import { colorTokens } from './colors';
 import { spacingTokens } from './spacing';
 import { typographyTokens } from './typography';
 import { effectsTokens } from './effects';
+import { globalStylesContent } from './global-styles-content';
 
 /**
  * Global CSS variables for the design system
@@ -33,7 +37,20 @@ export const cssVariables = `
 `;
 
 /**
+ * Complete CSS including variables and global styles
+ * This includes scrollbar styling and utility classes
+ */
+export const cssVariablesWithGlobalStyles = `
+${cssVariables}
+
+${globalStylesContent}
+`;
+
+/**
  * Helper to inject CSS variables into your app
  * Use this in a global style component or at the root of your app
  */
 export default cssVariables;
+
+// Re-export global styles content for convenience
+export { globalStylesContent } from './global-styles-content';

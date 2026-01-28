@@ -19,7 +19,7 @@ export default defineConfig({
       name: "Baukasten",
       formats: ["es", "cjs"],
       fileName: (format) => `index.${format === "es" ? "mjs" : "js"}`,
-      cssFileName: "style",
+      cssFileName: "baukasten-base",
     },
     rollupOptions: {
       external: ["react", "react-dom"],

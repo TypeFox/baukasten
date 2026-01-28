@@ -207,5 +207,14 @@ export type {
 // Style utilities
 export * from "./styles";
 
-// Global styles (re-export for convenience)
+/**
+ * GlobalStyles component for runtime CSS injection
+ *
+ * Use this component OR pre-built CSS files:
+ * - baukasten-ui/dist/baukasten-vscode.css for VS Code
+ * - baukasten-ui/dist/baukasten-theia.css for Eclipse Theia
+ * - baukasten-ui/dist/baukasten-web.css for standalone web apps
+ *
+ * Both approaches use the same token definitions, ensuring consistency.
+ */
 export { GlobalStyles } from "./styles/global-styles";
