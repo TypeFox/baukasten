@@ -11,8 +11,7 @@ export default function ThemingGuidePage() {
             description="Learn how to customize and theme Baukasten components to match your application's design."
         >
             <Alert variant="info" style={{ marginBottom: 'var(--spacing-8)' }}>
-                <Icon name="lightbulb" style={{ marginRight: 'var(--spacing-2)' }} />
-                Baukasten is built with VSCode's theming system in mind, making it automatically compatible with all VSCode color themes.
+                Baukasten is built with VSCode's theming system in mind, making it automatically compatible with all VSCode and Theia color themes.
             </Alert>
 
             <section style={{ marginBottom: 'var(--spacing-12)' }}>
@@ -29,9 +28,9 @@ export default function ThemingGuidePage() {
                     marginBottom: 'var(--spacing-6)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    Baukasten uses CSS variables (custom properties) for theming, which allows for dynamic theme switching
-                    at runtime without recompiling your application. All components reference these CSS variables, making it
-                    easy to create consistent themes across your entire application.
+                    Baukasten uses CSS variables (custom properties) for theming. Simply import the appropriate
+                    platform CSS file for your environment, and optionally override any variables to customize
+                    the appearance.
                 </p>
             </section>
 
@@ -41,7 +40,7 @@ export default function ThemingGuidePage() {
                     fontWeight: 'var(--font-weight-semibold)',
                     marginBottom: 'var(--spacing-4)',
                 }}>
-                    Theme Architecture
+                    Platform CSS Files
                 </h2>
                 <p style={{
                     fontSize: 'var(--font-size-base)',
@@ -49,8 +48,9 @@ export default function ThemingGuidePage() {
                     marginBottom: 'var(--spacing-6)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    Baukasten's theming system is built on three core concepts:
+                    Baukasten provides three platform-specific CSS files. Import the one that matches your target environment:
                 </p>
+
                 <div style={{
                     display: 'grid',
                     gap: 'var(--spacing-5)',
@@ -69,8 +69,8 @@ export default function ThemingGuidePage() {
                             display: 'flex',
                             alignItems: 'center',
                         }}>
-                            <Icon name="symbol-color" style={{ marginRight: 'var(--spacing-2)' }} />
-                            1. Theia/VSCode Theme Variables
+                            <Badge variant="info" style={{ marginRight: 'var(--spacing-2)' }}>VS Code</Badge>
+                            baukasten-vscode.css
                         </h3>
                         <p style={{
                             fontSize: 'var(--font-size-base)',
@@ -78,9 +78,13 @@ export default function ThemingGuidePage() {
                             marginBottom: 'var(--spacing-4)',
                             lineHeight: 'var(--line-height-relaxed)',
                         }}>
-                            Base variables that map directly to VSCode/Theia's theming system (e.g., <Code>--vscode-button-background</Code>).
-                            These are automatically provided when used as an extension.
+                            Uses <Code>--vscode-*</Code> CSS variables. Components automatically adapt to the user's VS Code theme.
                         </p>
+                        <CodeBlock
+                            language="tsx"
+                            code={`import 'baukasten-ui/dist/baukasten-base.css';
+import 'baukasten-ui/dist/baukasten-vscode.css';`}
+                        />
                     </div>
 
                     <div style={{
@@ -96,8 +100,8 @@ export default function ThemingGuidePage() {
                             display: 'flex',
                             alignItems: 'center',
                         }}>
-                            <Icon name="symbol-variable" style={{ marginRight: 'var(--spacing-2)' }} />
-                            2. Semantic Theme Tokens
+                            <Badge variant="warning" style={{ marginRight: 'var(--spacing-2)' }}>Theia</Badge>
+                            baukasten-theia.css
                         </h3>
                         <p style={{
                             fontSize: 'var(--font-size-base)',
@@ -105,9 +109,13 @@ export default function ThemingGuidePage() {
                             marginBottom: 'var(--spacing-4)',
                             lineHeight: 'var(--line-height-relaxed)',
                         }}>
-                            Higher-level semantic tokens that provide meaning (e.g., <Code>--color-primary</Code>, <Code>--color-success</Code>).
-                            These map to VSCode variables but can be overridden for web applications.
+                            Uses <Code>--theia-*</Code> CSS variables. Components automatically adapt to the Eclipse Theia theme.
                         </p>
+                        <CodeBlock
+                            language="tsx"
+                            code={`import 'baukasten-ui/dist/baukasten-base.css';
+import 'baukasten-ui/dist/baukasten-theia.css';`}
+                        />
                     </div>
 
                     <div style={{
@@ -123,8 +131,8 @@ export default function ThemingGuidePage() {
                             display: 'flex',
                             alignItems: 'center',
                         }}>
-                            <Icon name="wrench" style={{ marginRight: 'var(--spacing-2)' }} />
-                            3. Component-Level Customization
+                            <Badge variant="default" style={{ marginRight: 'var(--spacing-2)' }}>Web</Badge>
+                            baukasten-web.css
                         </h3>
                         <p style={{
                             fontSize: 'var(--font-size-base)',
@@ -132,8 +140,13 @@ export default function ThemingGuidePage() {
                             marginBottom: 'var(--spacing-4)',
                             lineHeight: 'var(--line-height-relaxed)',
                         }}>
-                            Individual components can be styled using inline styles or by overriding their specific CSS variables.
+                            Uses default fallback values for standalone web applications. This is the file you'll want to customize.
                         </p>
+                        <CodeBlock
+                            language="tsx"
+                            code={`import 'baukasten-ui/dist/baukasten-base.css';
+import 'baukasten-ui/dist/baukasten-web.css';`}
+                        />
                     </div>
                 </div>
             </section>
@@ -144,7 +157,7 @@ export default function ThemingGuidePage() {
                     fontWeight: 'var(--font-weight-semibold)',
                     marginBottom: 'var(--spacing-4)',
                 }}>
-                    Using Themes in Web Applications
+                    Customizing Themes
                 </h2>
                 <p style={{
                     fontSize: 'var(--font-size-base)',
@@ -152,75 +165,53 @@ export default function ThemingGuidePage() {
                     marginBottom: 'var(--spacing-6)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    Baukasten provides ready-to-use theme presets for web applications through the <Code>baukasten-ui-web-wrapper</Code> package.
+                    After importing the platform CSS file, simply override the CSS variables you want to customize.
+                    You can do this in your own CSS file or in a <Code>&lt;style&gt;</Code> tag:
                 </p>
-
-                <h3 style={{
-                    fontSize: 'var(--font-size-lg)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginBottom: 'var(--spacing-4)',
-                }}>
-                    Setting Up a Theme Provider
-                </h3>
+                <CodeBlock
+                    language="css"
+                    code={`/* your-custom-theme.css */
+:root {
+  /* Override brand colors */
+  --color-primary: #6c5ce7;
+  --color-primary-hover: #5f4dd1;
+  --color-primary-foreground: #ffffff;
+  
+  /* Override semantic colors */
+  --color-success: #00d4aa;
+  --color-warning: #ffb627;
+  --color-danger: #ff6b6b;
+  --color-info: #4fc3f7;
+  
+  /* Override backgrounds */
+  --color-background: #1a1a2e;
+  --color-background-secondary: #0f1419;
+  --color-background-elevated: #252545;
+  
+  /* Override text colors */
+  --color-foreground: #e0e0e0;
+  --color-foreground-muted: #9a9ca5;
+  
+  /* Override borders */
+  --color-border: #3e4c5e;
+  --color-border-focus: #6c5ce7;
+}`}
+                />
                 <p style={{
                     fontSize: 'var(--font-size-base)',
                     color: 'var(--color-text-secondary)',
+                    marginTop: 'var(--spacing-4)',
                     marginBottom: 'var(--spacing-4)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    Create a theme context to manage theme switching in your application:
+                    Then import your custom CSS file after the Baukasten CSS:
                 </p>
                 <CodeBlock
                     language="tsx"
-                    code={`import { createContext, useContext, useState, useEffect } from 'react';
-import { lightModern, darkModern } from 'baukasten-ui-web-wrapper';
-
-type ThemeMode = 'light' | 'dark';
-
-interface ThemeContextType {
-  themeMode: ThemeMode;
-  setTheme: (mode: ThemeMode) => void;
-}
-
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [themeMode, setThemeMode] = useState<ThemeMode>('dark');
-
-  // Apply theme whenever it changes
-  useEffect(() => {
-    const theme = themeMode === 'light' ? lightModern : darkModern;
-    const root = document.documentElement;
-
-    Object.entries(theme.variables).forEach(([key, value]) => {
-      root.style.setProperty(key, value);
-    });
-
-    document.body.style.backgroundColor = 
-      theme.variables['--color-background'];
-    document.body.style.color = 
-      theme.variables['--color-foreground'];
-  }, [themeMode]);
-
-  const setTheme = (mode: ThemeMode) => {
-    setThemeMode(mode);
-    localStorage.setItem('theme-preference', mode);
-  };
-
-  return (
-    <ThemeContext.Provider value={{ themeMode, setTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
-}
-
-export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within ThemeProvider');
-  }
-  return context;
-}`}
+                    code={`// Import order matters - your overrides should come last
+import 'baukasten-ui/dist/baukasten-base.css';
+import 'baukasten-ui/dist/baukasten-web.css';
+import './your-custom-theme.css';`}
                 />
             </section>
 
@@ -230,54 +221,46 @@ export function useTheme() {
                     fontWeight: 'var(--font-weight-semibold)',
                     marginBottom: 'var(--spacing-4)',
                 }}>
-                    Creating a Theme Picker
+                    Dynamic Theme Switching
                 </h2>
                 <p style={{
                     fontSize: 'var(--font-size-base)',
                     color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-4)',
+                    marginBottom: 'var(--spacing-6)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    Build a theme picker component to let users switch between light and dark themes:
+                    For dynamic theme switching (e.g., light/dark mode toggle), you can update CSS variables at runtime using JavaScript:
                 </p>
                 <CodeBlock
                     language="tsx"
-                    code={`import { useTheme } from './ThemeContext';
-import { Button, Icon } from 'baukasten-ui';
+                    code={`const lightTheme = {
+  '--color-background': '#ffffff',
+  '--color-background-secondary': '#f5f5f5',
+  '--color-foreground': '#1e1e1e',
+  '--color-foreground-muted': '#6b6b6b',
+  '--color-border': '#e0e0e0',
+  '--color-primary': '#007acc',
+};
 
-export default function ThemePicker() {
-  const { themeMode, setTheme } = useTheme();
+const darkTheme = {
+  '--color-background': '#1e1e1e',
+  '--color-background-secondary': '#252526',
+  '--color-foreground': '#cccccc',
+  '--color-foreground-muted': '#858585',
+  '--color-border': '#3e3e42',
+  '--color-primary': '#0e639c',
+};
 
-  return (
-    <div style={{
-      display: 'flex',
-      gap: 'var(--spacing-2)',
-      padding: 'var(--spacing-2)',
-      backgroundColor: 'var(--color-background)',
-      borderRadius: 'var(--border-radius-md)',
-      border: '1px solid var(--color-border)',
-    }}>
-      <Button
-        variant={themeMode === 'light' ? 'primary' : 'secondary'}
-        size="sm"
-        onClick={() => setTheme('light')}
-        style={{ flex: 1 }}
-      >
-        <Icon name="circle-outline" />
-        Light
-      </Button>
-      <Button
-        variant={themeMode === 'dark' ? 'primary' : 'secondary'}
-        size="sm"
-        onClick={() => setTheme('dark')}
-        style={{ flex: 1 }}
-      >
-        <Icon name="circle-filled" />
-        Dark
-      </Button>
-    </div>
-  );
-}`}
+function applyTheme(theme: Record<string, string>) {
+  const root = document.documentElement;
+  Object.entries(theme).forEach(([key, value]) => {
+    root.style.setProperty(key, value);
+  });
+}
+
+// Usage
+applyTheme(darkTheme);  // Switch to dark theme
+applyTheme(lightTheme); // Switch to light theme`}
                 />
             </section>
 
@@ -287,7 +270,7 @@ export default function ThemePicker() {
                     fontWeight: 'var(--font-weight-semibold)',
                     marginBottom: 'var(--spacing-4)',
                 }}>
-                    Available Theme Presets
+                    Using baukasten-ui-web-wrapper (Optional)
                 </h2>
                 <p style={{
                     fontSize: 'var(--font-size-base)',
@@ -295,12 +278,28 @@ export default function ThemePicker() {
                     marginBottom: 'var(--spacing-6)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    Baukasten comes with several built-in theme presets that you can use in your web applications:
+                    For convenience, the <Code>baukasten-ui-web-wrapper</Code> package provides pre-built theme presets:
                 </p>
+                <CodeBlock
+                    language="tsx"
+                    code={`import { lightModern, darkModern } from 'baukasten-ui-web-wrapper';
+
+// Apply a theme
+function applyTheme(theme: { variables: Record<string, string> }) {
+  const root = document.documentElement;
+  Object.entries(theme.variables).forEach(([key, value]) => {
+    root.style.setProperty(key, value);
+  });
+}
+
+// Use the pre-built themes
+applyTheme(darkModern);`}
+                />
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                     gap: 'var(--spacing-5)',
+                    marginTop: 'var(--spacing-6)',
                 }}>
                     <div style={{
                         backgroundColor: 'var(--color-background-secondary)',
@@ -360,142 +359,6 @@ export default function ThemePicker() {
                     fontWeight: 'var(--font-weight-semibold)',
                     marginBottom: 'var(--spacing-4)',
                 }}>
-                    Creating Custom Themes
-                </h2>
-                <p style={{
-                    fontSize: 'var(--font-size-base)',
-                    color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-4)',
-                    lineHeight: 'var(--line-height-relaxed)',
-                }}>
-                    When creating custom themes, define both the underlying VSCode variables and Baukasten's semantic tokens.
-                    This ensures compatibility with VSCode extensions while providing flexibility for web applications:
-                </p>
-                <CodeBlock
-                    language="typescript"
-                    code={`import { Theme } from 'baukasten-ui-web-wrapper';
-
-export const customTheme: Theme = {
-  name: 'Custom Theme',
-  variables: {
-    // Base VSCode variables
-    '--vscode-editor-background': '#1a1a2e',
-    '--vscode-editor-foreground': '#e0e0e0',
-    '--vscode-button-background': '#6c5ce7',
-    '--vscode-button-foreground': '#ffffff',
-    '--vscode-button-hoverBackground': '#5f4dd1',
-    '--vscode-input-background': '#16213e',
-    '--vscode-input-foreground': '#e0e0e0',
-    '--vscode-input-border': '#3e4c5e',
-    '--vscode-focusBorder': '#6c5ce7',
-    '--vscode-sideBar-background': '#0f1419',
-    '--vscode-sideBar-foreground': '#e0e0e0',
-    
-    // Baukasten semantic tokens (recommended for customization)
-    '--color-primary': '#6c5ce7',
-    '--color-primary-hover': '#5f4dd1',
-    '--color-primary-foreground': '#ffffff',
-    '--color-success': '#00d4aa',
-    '--color-warning': '#ffb627',
-    '--color-danger': '#ff6b6b',
-    '--color-info': '#4fc3f7',
-    
-    '--color-background': '#1a1a2e',
-    '--color-background-secondary': '#0f1419',
-    '--color-background-elevated': '#252545',
-    '--color-foreground': '#e0e0e0',
-    '--color-foreground-muted': '#9a9ca5',
-    
-    '--color-border': '#3e4c5e',
-    '--color-border-focus': '#6c5ce7',
-  }
-};`}
-                />
-            </section>
-
-            <section style={{ marginBottom: 'var(--spacing-12)' }}>
-                <h2 style={{
-                    fontSize: 'var(--font-size-xl)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginBottom: 'var(--spacing-4)',
-                }}>
-                    Overriding Theme Variables
-                </h2>
-                <p style={{
-                    fontSize: 'var(--font-size-base)',
-                    color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-4)',
-                    lineHeight: 'var(--line-height-relaxed)',
-                }}>
-                    Baukasten provides semantic color tokens that you should override instead of VSCode variables directly.
-                    These tokens are built on top of VSCode variables but provide better abstraction:
-                </p>
-                <CodeBlock
-                    language="css"
-                    code={`:root {
-  /* Override Baukasten semantic colors */
-  --color-primary: #007acc;
-  --color-primary-hover: #005a9e;
-  --color-success: #16a34a;
-  --color-warning: #eab308;
-  --color-danger: #dc2626;
-  
-  /* Override background colors */
-  --color-background: #1e1e1e;
-  --color-background-secondary: #252526;
-  
-  /* Override text colors */
-  --color-foreground: #cccccc;
-  --color-foreground-muted: #858585;
-  
-  /* Override borders */
-  --color-border: #3e3e42;
-  --color-border-focus: #007acc;
-}`}
-                />
-
-                <h3 style={{
-                    fontSize: 'var(--font-size-lg)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginTop: 'var(--spacing-8)',
-                    marginBottom: 'var(--spacing-4)',
-                }}>
-                    Component-Specific Overrides
-                </h3>
-                <p style={{
-                    fontSize: 'var(--font-size-base)',
-                    color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-4)',
-                    lineHeight: 'var(--line-height-relaxed)',
-                }}>
-                    For component-specific customization, use inline styles with Baukasten's semantic color tokens:
-                </p>
-                <CodeBlock
-                    language="tsx"
-                    code={`import { Button } from 'baukasten-ui';
-
-function CustomButton() {
-  return (
-    <Button
-      variant="primary"
-      style={{
-        '--color-primary': '#ff6b6b',
-        '--color-primary-hover': '#ee5a52',
-      } as React.CSSProperties}
-    >
-      Custom Styled Button
-    </Button>
-  );
-}`}
-                />
-            </section>
-
-            <section style={{ marginBottom: 'var(--spacing-12)' }}>
-                <h2 style={{
-                    fontSize: 'var(--font-size-xl)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginBottom: 'var(--spacing-4)',
-                }}>
                     Theme Variables Reference
                 </h2>
                 <p style={{
@@ -504,7 +367,7 @@ function CustomButton() {
                     marginBottom: 'var(--spacing-6)',
                     lineHeight: 'var(--line-height-relaxed)',
                 }}>
-                    Here are the most commonly used Baukasten semantic theme variables. These are the tokens you should override for custom theming:
+                    Here are the most commonly customized CSS variables:
                 </p>
 
                 <div style={{
@@ -666,6 +529,42 @@ function CustomButton() {
                 </div>
             </section>
 
+            <section style={{ marginBottom: 'var(--spacing-12)' }}>
+                <h2 style={{
+                    fontSize: 'var(--font-size-xl)',
+                    fontWeight: 'var(--font-weight-semibold)',
+                    marginBottom: 'var(--spacing-4)',
+                }}>
+                    Component-Specific Overrides
+                </h2>
+                <p style={{
+                    fontSize: 'var(--font-size-base)',
+                    color: 'var(--color-text-secondary)',
+                    marginBottom: 'var(--spacing-4)',
+                    lineHeight: 'var(--line-height-relaxed)',
+                }}>
+                    For component-specific customization, you can use inline styles with CSS variables:
+                </p>
+                <CodeBlock
+                    language="tsx"
+                    code={`import { Button } from 'baukasten-ui';
+
+function CustomButton() {
+  return (
+    <Button
+      variant="primary"
+      style={{
+        '--color-primary': '#ff6b6b',
+        '--color-primary-hover': '#ee5a52',
+      } as React.CSSProperties}
+    >
+      Custom Styled Button
+    </Button>
+  );
+}`}
+                />
+            </section>
+
             <section>
                 <h2 style={{
                     fontSize: 'var(--font-size-xl)',
@@ -693,14 +592,42 @@ function CustomButton() {
                             marginTop: '4px',
                         }} />
                         <div>
-                            <strong>Always use CSS variables</strong>
+                            <strong>Import the right platform CSS</strong>
                             <p style={{
                                 fontSize: 'var(--font-size-sm)',
                                 color: 'var(--color-text-secondary)',
                                 marginTop: 'var(--spacing-2)',
                                 marginBottom: 0,
                             }}>
-                                Use CSS variables instead of hardcoded colors to ensure theme compatibility
+                                Use <Code>baukasten-vscode.css</Code> for VS Code, <Code>baukasten-theia.css</Code> for Theia,
+                                or <Code>baukasten-web.css</Code> for standalone web apps
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style={{
+                        display: 'flex',
+                        gap: 'var(--spacing-3)',
+                        padding: 'var(--spacing-5)',
+                        backgroundColor: 'var(--color-background-secondary)',
+                        border: '1px solid var(--color-border)',
+                        borderRadius: 'var(--border-radius-md)',
+                    }}>
+                        <Icon name="check" style={{
+                            color: 'var(--color-success)',
+                            flexShrink: 0,
+                            marginTop: '4px',
+                        }} />
+                        <div>
+                            <strong>Override semantic tokens, not platform variables</strong>
+                            <p style={{
+                                fontSize: 'var(--font-size-sm)',
+                                color: 'var(--color-text-secondary)',
+                                marginTop: 'var(--spacing-2)',
+                                marginBottom: 0,
+                            }}>
+                                Override <Code>--color-*</Code> tokens (e.g., <Code>--color-primary</Code>)
+                                instead of <Code>--vscode-*</Code> or <Code>--theia-*</Code> variables
                             </p>
                         </div>
                     </div>
@@ -745,41 +672,14 @@ function CustomButton() {
                             marginTop: '4px',
                         }} />
                         <div>
-                            <strong>Override Baukasten semantic tokens, not VSCode variables</strong>
+                            <strong>Import order matters</strong>
                             <p style={{
                                 fontSize: 'var(--font-size-sm)',
                                 color: 'var(--color-text-secondary)',
                                 marginTop: 'var(--spacing-2)',
                                 marginBottom: 0,
                             }}>
-                                Always customize themes by overriding <Code>--color-*</Code> tokens (e.g., <Code>--color-primary</Code>)
-                                instead of <Code>--vscode-*</Code> variables directly. This provides better abstraction and maintainability
-                            </p>
-                        </div>
-                    </div>
-
-                    <div style={{
-                        display: 'flex',
-                        gap: 'var(--spacing-3)',
-                        padding: 'var(--spacing-5)',
-                        backgroundColor: 'var(--color-background-secondary)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--border-radius-md)',
-                    }}>
-                        <Icon name="check" style={{
-                            color: 'var(--color-success)',
-                            flexShrink: 0,
-                            marginTop: '4px',
-                        }} />
-                        <div>
-                            <strong>Provide fallbacks</strong>
-                            <p style={{
-                                fontSize: 'var(--font-size-sm)',
-                                color: 'var(--color-text-secondary)',
-                                marginTop: 'var(--spacing-2)',
-                                marginBottom: 0,
-                            }}>
-                                When using custom variables, provide fallback values: <Code>var(--custom-color, #default)</Code>
+                                Import base CSS first, then platform CSS, then your custom overrides
                             </p>
                         </div>
                     </div>
