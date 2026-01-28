@@ -16,18 +16,18 @@ export default function PageLayout({ children, title, description }: PageLayoutP
       <main style={{
         marginLeft: '280px',
         flex: 1,
-        padding: 'var(--spacing-8)',
+        padding: 'var(--bk-spacing-8)',
         backgroundColor: 'var(--vscode-editor-background)',
       }}>
         {(title || description) && (
           <div style={{
-            marginBottom: 'var(--spacing-8)',
-            paddingBottom: 'var(--spacing-6)',
+            marginBottom: 'var(--bk-spacing-8)',
+            paddingBottom: 'var(--bk-spacing-6)',
             borderBottom: '1px solid var(--vscode-panel-border)'
           }}>
             {title && (
               <Heading level={1} style={{
-                marginBottom: description ? 'var(--spacing-3)' : 0,
+                marginBottom: description ? 'var(--bk-spacing-3)' : 0,
               }}>
                 {title}
               </Heading>

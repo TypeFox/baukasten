@@ -89,8 +89,8 @@ const customColumns: ColumnDef<User, unknown>[] = [
         header: 'User',
         cell: ({ row }) => (
             <div>
-                <div style={{ fontWeight: 'var(--font-weight-medium)' }}>{row.original.name}</div>
-                <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
+                <div style={{ fontWeight: 'var(--bk-font-weight-medium)' }}>{row.original.name}</div>
+                <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
                     {row.original.email}
                 </div>
             </div>
@@ -112,7 +112,7 @@ const customColumns: ColumnDef<User, unknown>[] = [
         header: 'Actions',
         meta: { align: 'right' as const },
         cell: () => (
-            <div style={{ display: 'flex', gap: 'var(--spacing-1)', justifyContent: 'flex-end' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-1)', justifyContent: 'flex-end' }}>
                 <Button size="sm" variant="ghost">Edit</Button>
             </div>
         ),
@@ -126,7 +126,7 @@ function ControlledSortingExample() {
 
     return (
         <div>
-            <div style={{ marginBottom: 'var(--spacing-3)', padding: 'var(--spacing-2)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
+            <div style={{ marginBottom: 'var(--bk-spacing-3)', padding: 'var(--bk-spacing-2)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
                 <strong>Current Sort:</strong> {sorting.length > 0
                     ? `${sorting[0].id} (${sorting[0].desc ? 'desc' : 'asc'})`
                     : 'None'}
@@ -155,14 +155,14 @@ function RowSelectionExample() {
 
     return (
         <div>
-            <div style={{ marginBottom: 'var(--spacing-3)', padding: 'var(--spacing-2)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
+            <div style={{ marginBottom: 'var(--bk-spacing-3)', padding: 'var(--bk-spacing-2)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
                 <strong>Selected:</strong> {selectedCount} row(s)
                 {selectedCount > 0 && (
                     <Button
                         size="sm"
                         variant="ghost"
                         onClick={() => setRowSelection({})}
-                        style={{ marginLeft: 'var(--spacing-2)' }}
+                        style={{ marginLeft: 'var(--bk-spacing-2)' }}
                     >
                         Clear
                     </Button>
@@ -373,10 +373,10 @@ function App() {
     header: 'User',
     cell: ({ row }) => (
       <div>
-        <div style={{ fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ fontWeight: 'var(--bk-font-weight-medium)' }}>
           {row.original.name}
         </div>
-        <div style={{ fontSize: 'var(--font-size-xs)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-xs)' }}>
           {row.original.email}
         </div>
       </div>
@@ -459,9 +459,9 @@ function App() {
                 title="Loading States"
                 description="Show loading indicator while data is being fetched. Choose between line indicator (default) or spinner overlay."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-5)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Line Indicator (Default)
                             </div>
                             <DataTable
@@ -473,7 +473,7 @@ function App() {
                             />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Spinner Overlay
                             </div>
                             <DataTable
@@ -507,9 +507,9 @@ function App() {
                 title="Empty State"
                 description="Customize the empty state message or component when no data is available."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-5)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Custom Empty Text
                             </div>
                             <DataTable
@@ -519,19 +519,19 @@ function App() {
                             />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Custom Empty Component
                             </div>
                             <DataTable
                                 data={[]}
                                 columns={basicColumns}
                                 emptyComponent={
-                                    <div style={{ textAlign: 'center', padding: 'var(--spacing-6)' }}>
-                                        <div style={{ fontSize: 'var(--font-size-3xl)', marginBottom: 'var(--spacing-2)' }}>📭</div>
-                                        <div style={{ fontWeight: 'var(--font-weight-medium)', marginBottom: 'var(--spacing-1)' }}>
+                                    <div style={{ textAlign: 'center', padding: 'var(--bk-spacing-6)' }}>
+                                        <div style={{ fontSize: 'var(--bk-font-size-3xl)', marginBottom: 'var(--bk-spacing-2)' }}>📭</div>
+                                        <div style={{ fontWeight: 'var(--bk-font-weight-medium)', marginBottom: 'var(--bk-spacing-1)' }}>
                                             No Data Found
                                         </div>
-                                        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)', marginBottom: 'var(--spacing-3)' }}>
+                                        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)', marginBottom: 'var(--bk-spacing-3)' }}>
                                             Add some users to get started
                                         </div>
                                         <Button size="sm">Add User</Button>
@@ -571,10 +571,10 @@ function App() {
                 title="Sizes"
                 description="Five size options available: xs, sm, md (default), lg, and xl. Size affects padding and font size of cells."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                         {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map(size => (
                             <div key={size}>
-                                <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                                <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                     {size.toUpperCase()}{size === 'md' ? ' (default)' : ''}
                                 </div>
                                 <DataTable
@@ -594,18 +594,18 @@ function App() {
 <DataTable size="xl" data={users} columns={columns} />`}
             />
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     TanStack Table Integration
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Column definitions:</strong> Use TanStack Table's <code>ColumnDef</code> type for full type safety
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Flexible rendering:</strong> Use <code>cell</code> property to render any React component in cells
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Meta information:</strong> Use <code>meta.align</code> to set column alignment
                     </li>
                     <li>
@@ -614,21 +614,21 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Uses semantic <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> elements
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Sortable columns are keyboard accessible with proper ARIA attributes
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Checkboxes have appropriate <code>aria-label</code> attributes
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Pagination buttons have <code>aria-label</code> attributes for screen readers
                     </li>
                     <li>
@@ -637,27 +637,27 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Simple vs DataTable:</strong> Use basic Table component for simple static data, DataTable for complex features
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Pagination:</strong> Always enable pagination for datasets with more than 20 rows
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Row ID:</strong> Provide <code>getRowId</code> when using row selection to ensure stable row identity
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Server-side:</strong> Use <code>manualPagination</code> with <code>rowCount</code> for server-side pagination
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Column sizing:</strong> Set initial <code>size</code> in column definitions when using column resizing
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Loading states:</strong> Use line indicator for quick loads, spinner overlay for longer operations
                     </li>
                     <li>

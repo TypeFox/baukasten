@@ -14,24 +14,24 @@ export const breadcrumbs = recipe({
   variants: {
     size: {
       xs: {
-        fontSize: 'var(--font-size-xs)',
-        gap: 'var(--gap-xs)',
+        fontSize: 'var(--bk-font-size-xs)',
+        gap: 'var(--bk-gap-xs)',
       },
       sm: {
-        fontSize: 'var(--font-size-sm)',
-        gap: 'var(--gap-sm)',
+        fontSize: 'var(--bk-font-size-sm)',
+        gap: 'var(--bk-gap-sm)',
       },
       md: {
-        fontSize: 'var(--font-size-md)',
-        gap: 'var(--gap-md)',
+        fontSize: 'var(--bk-font-size-md)',
+        gap: 'var(--bk-gap-md)',
       },
       lg: {
-        fontSize: 'var(--font-size-base)',
-        gap: 'var(--gap-md)',
+        fontSize: 'var(--bk-font-size-base)',
+        gap: 'var(--bk-gap-md)',
       },
       xl: {
-        fontSize: 'var(--font-size-lg)',
-        gap: 'var(--gap-lg)',
+        fontSize: 'var(--bk-font-size-lg)',
+        gap: 'var(--bk-gap-lg)',
       },
     },
   },
@@ -66,12 +66,12 @@ export const breadcrumbItem = recipe({
   variants: {
     isLast: {
       true: {
-        color: 'var(--color-foreground)',
-        fontWeight: 'var(--font-weight-medium)',
+        color: 'var(--bk-color-foreground)',
+        fontWeight: 'var(--bk-font-weight-medium)',
       },
       false: {
-        color: 'var(--color-foreground-muted)',
-        fontWeight: 'var(--font-weight-normal)',
+        color: 'var(--bk-color-foreground-muted)',
+        fontWeight: 'var(--bk-font-weight-normal)',
       },
     },
   },
@@ -87,17 +87,17 @@ export const breadcrumbItem = recipe({
  */
 export const breadcrumbLink = recipe({
   base: {
-    color: 'var(--color-link)',
+    color: 'var(--bk-color-link)',
     textDecoration: 'none',
     cursor: 'pointer',
     background: 'none',
     border: 'none',
     padding: 0,
     font: 'inherit',
-    transition: 'var(--transition-colors)',
+    transition: 'var(--bk-transition-colors)',
     display: 'inline-flex',
     alignItems: 'center',
-    gap: 'var(--gap-xs)',
+    gap: 'var(--bk-gap-xs)',
   },
 
   variants: {
@@ -105,30 +105,30 @@ export const breadcrumbLink = recipe({
       default: {
         selectors: {
           '&:hover': {
-            color: 'var(--color-link-hover)',
+            color: 'var(--bk-color-link-hover)',
             textDecoration: 'underline',
           },
           '&:focus-visible': {
-            outline: 'var(--border-width-1) solid var(--color-focus)',
-            outlineOffset: 'var(--spacing-0-5)',
-            borderRadius: 'var(--radius-xs)',
+            outline: 'var(--bk-border-width-1) solid var(--bk-color-focus)',
+            outlineOffset: 'var(--bk-spacing-0-5)',
+            borderRadius: 'var(--bk-radius-xs)',
           },
         },
       },
       pill: {
-        backgroundColor: 'var(--color-secondary)',
-        borderRadius: 'var(--radius-full)',
-        padding: 'var(--spacing-1-5) var(--spacing-3)',
+        backgroundColor: 'var(--bk-color-secondary)',
+        borderRadius: 'var(--bk-radius-full)',
+        padding: 'var(--bk-spacing-1-5) var(--bk-spacing-3)',
         lineHeight: 1,
         selectors: {
           '&:hover': {
-            backgroundColor: 'var(--color-secondary-hover)',
+            backgroundColor: 'var(--bk-color-secondary-hover)',
             textDecoration: 'none',
           },
           '&:focus-visible': {
-            outline: 'var(--border-width-1) solid var(--color-focus)',
-            outlineOffset: 'var(--spacing-0-5)',
-            borderRadius: 'var(--radius-full)',
+            outline: 'var(--bk-border-width-1) solid var(--bk-color-focus)',
+            outlineOffset: 'var(--bk-spacing-0-5)',
+            borderRadius: 'var(--bk-radius-full)',
           },
         },
       },
@@ -147,16 +147,16 @@ export const breadcrumbSpan = recipe({
   base: {
     display: 'inline-flex',
     alignItems: 'center',
-    gap: 'var(--gap-xs)',
+    gap: 'var(--bk-gap-xs)',
   },
 
   variants: {
     variant: {
       default: {},
       pill: {
-        backgroundColor: 'var(--color-secondary)',
-        borderRadius: 'var(--radius-full)',
-        padding: 'var(--spacing-1-5) var(--spacing-3)',
+        backgroundColor: 'var(--bk-color-secondary)',
+        borderRadius: 'var(--bk-radius-full)',
+        padding: 'var(--bk-spacing-1-5) var(--bk-spacing-3)',
         lineHeight: 1,
       },
     },
@@ -184,7 +184,7 @@ globalStyle(`${breadcrumbItem.classNames.base} svg`, {
 export const separator = style({
   display: 'flex',
   alignItems: 'center',
-  color: 'var(--color-foreground-muted)',
+  color: 'var(--bk-color-foreground-muted)',
   userSelect: 'none',
 });
 
@@ -200,7 +200,7 @@ globalStyle(`${separator} svg`, {
  * Ellipsis for collapsed items
  */
 export const ellipsis = style({
-  color: 'var(--color-foreground-muted)',
+  color: 'var(--bk-color-foreground-muted)',
   cursor: 'default',
   userSelect: 'none',
 });

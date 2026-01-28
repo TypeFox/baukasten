@@ -208,7 +208,7 @@ export const CustomTitles: Story = {
     <Accordion style={{ width: '600px' }}>
       <AccordionItem
         title={
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', width: '100%' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)', width: '100%' }}>
             <Icon name="rocket" />
             <Text weight="semibold">New Features</Text>
             <Badge variant="info" size="sm">3</Badge>
@@ -223,7 +223,7 @@ export const CustomTitles: Story = {
       </AccordionItem>
       <AccordionItem
         title={
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', width: '100%' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)', width: '100%' }}>
             <Icon name="bug" />
             <Text>Bug Fixes</Text>
             <Badge variant="success" size="sm">Fixed</Badge>
@@ -237,7 +237,7 @@ export const CustomTitles: Story = {
       </AccordionItem>
       <AccordionItem
         title={
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', width: '100%' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)', width: '100%' }}>
             <Icon name="beaker" />
             <Text>Experimental</Text>
             <Badge variant="warning" size="sm">Beta</Badge>
@@ -251,7 +251,7 @@ export const CustomTitles: Story = {
       </AccordionItem>
       <AccordionItem
         title={
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', width: '100%' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)', width: '100%' }}>
             <Icon name="archive" />
             <Text color="muted">Deprecated</Text>
             <Badge variant="error" size="sm">Old</Badge>
@@ -319,14 +319,14 @@ export const RichContent: Story = {
     <Accordion style={{ width: '600px' }}>
       <AccordionItem title="Installation Guide" defaultOpen>
         <Paragraph>Follow these steps to install Baukasten:</Paragraph>
-        <ol style={{ paddingLeft: 'var(--spacing-4)', marginBottom: 'var(--spacing-3)' }}>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+        <ol style={{ paddingLeft: 'var(--bk-spacing-4)', marginBottom: 'var(--bk-spacing-3)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>Install the package: <Code>npm install baukasten</Code></Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>Import components in your app</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>Add <Code>GlobalStyles</Code> to your root component</Text>
           </li>
         </ol>
@@ -336,17 +336,17 @@ export const RichContent: Story = {
       </AccordionItem>
       <AccordionItem title="API Reference" icon={<Icon name="symbol-method" />}>
         <Heading level={4} marginBottom>Available Props</Heading>
-        <ul style={{ paddingLeft: 'var(--spacing-4)', lineHeight: '1.6' }}>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+        <ul style={{ paddingLeft: 'var(--bk-spacing-4)', lineHeight: '1.6' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text><Text weight="bold">title</Text>: React.ReactNode - The accordion header content</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text><Text weight="bold">defaultOpen</Text>: boolean - Whether the item is open by default</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text><Text weight="bold">disabled</Text>: boolean - Whether the item is disabled</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text><Text weight="bold">icon</Text>: React.ReactNode - Optional icon to display</Text>
           </li>
         </ul>
@@ -392,20 +392,20 @@ export const LargeContent: Story = {
           service for personal, non-commercial transitory viewing only. This is the grant
           of a license, not a transfer of title, and under this license you may not:
         </Paragraph>
-        <ul style={{ paddingLeft: 'var(--spacing-6)', marginBottom: 'var(--spacing-3)' }}>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+        <ul style={{ paddingLeft: 'var(--bk-spacing-6)', marginBottom: 'var(--bk-spacing-3)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>Modify or copy the materials</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>Use the materials for any commercial purpose or public display</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>Attempt to reverse engineer any software contained in the service</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>Remove any copyright or proprietary notations from the materials</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>Transfer the materials to another person or mirror on any other server</Text>
           </li>
         </ul>
@@ -433,7 +433,7 @@ export const LargeContent: Story = {
           or current. We may make changes to the materials at any time without notice.
         </Paragraph>
 
-        <Text size="sm" color="muted" block style={{ marginTop: 'var(--spacing-4)' }}>
+        <Text size="sm" color="muted" block style={{ marginTop: 'var(--bk-spacing-4)' }}>
           Last updated: October 2025
         </Text>
       </AccordionItem>
@@ -456,20 +456,20 @@ export const LargeContent: Story = {
           sign up for our newsletter, respond to a survey or marketing communication, surf
           the website, or use certain other site features in the following ways:
         </Paragraph>
-        <ul style={{ paddingLeft: 'var(--spacing-6)', marginBottom: 'var(--spacing-3)' }}>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+        <ul style={{ paddingLeft: 'var(--bk-spacing-6)', marginBottom: 'var(--bk-spacing-3)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>To personalize your experience and deliver content tailored to your interests</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>To improve our website based on your feedback</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>To provide better customer service and support</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>To process transactions securely and efficiently</Text>
           </li>
-          <li style={{ marginBottom: 'var(--spacing-1)' }}>
+          <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
             <Text>To send periodic emails about updates, products, or services</Text>
           </li>
         </ul>
@@ -535,7 +535,7 @@ export const Nested: Story = {
   render: () => (
     <Accordion style={{ width: '600px' }}>
       <AccordionItem title="Components" icon={<Icon name="symbol-class" />} defaultOpen>
-        <Accordion style={{ marginTop: 'var(--spacing-2)' }}>
+        <Accordion style={{ marginTop: 'var(--bk-spacing-2)' }}>
           <AccordionItem title="Form Components">
             <Paragraph>
               Input, Select, Checkbox, Radio, TextArea, and more form controls.
@@ -554,7 +554,7 @@ export const Nested: Story = {
         </Accordion>
       </AccordionItem>
       <AccordionItem title="Styling" icon={<Icon name="symbol-color" />}>
-        <Accordion style={{ marginTop: 'var(--spacing-2)' }}>
+        <Accordion style={{ marginTop: 'var(--bk-spacing-2)' }}>
           <AccordionItem title="Design Tokens">
             <Paragraph>
               Use semantic design tokens for colors, spacing, typography, and effects.
@@ -586,8 +586,8 @@ export const Showcase: Story = {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      gap: 'var(--spacing-8)',
-      padding: 'var(--spacing-8)',
+      gap: 'var(--bk-spacing-8)',
+      padding: 'var(--bk-spacing-8)',
       maxWidth: '1200px',
       margin: '0 auto'
     }}>
@@ -676,7 +676,7 @@ export const Showcase: Story = {
         <Accordion style={{ width: '600px' }}>
           <AccordionItem
             title={
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', width: '100%' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)', width: '100%' }}>
                 <Icon name="rocket" />
                 <Text weight="semibold">New Features</Text>
                 <Badge variant="info" size="sm">5</Badge>
@@ -690,7 +690,7 @@ export const Showcase: Story = {
           </AccordionItem>
           <AccordionItem
             title={
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', width: '100%' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)', width: '100%' }}>
                 <Icon name="beaker" />
                 <Text>Experimental</Text>
                 <Badge variant="warning" size="sm">Beta</Badge>

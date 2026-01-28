@@ -53,11 +53,11 @@ function LoadingSimulation() {
     return (
         <div style={{ minWidth: '400px' }}>
             <div style={{
-                padding: 'var(--spacing-4)',
+                padding: 'var(--bk-spacing-4)',
                 backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--border-radius-md)',
+                borderRadius: 'var(--bk-radius-md)',
             }}>
-                <Heading level={4} style={{ marginBottom: 'var(--spacing-3)' }}>
+                <Heading level={4} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Data Fetcher
                 </Heading>
 
@@ -65,7 +65,7 @@ function LoadingSimulation() {
                     onClick={handleLoad}
                     disabled={isLoading}
                     variant="primary"
-                    style={{ marginBottom: 'var(--spacing-4)' }}
+                    style={{ marginBottom: 'var(--bk-spacing-4)' }}
                 >
                     {isLoading ? (
                         <>
@@ -82,23 +82,23 @@ function LoadingSimulation() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    border: 'var(--border-width-1) solid var(--vscode-panel-border)',
-                    borderRadius: 'var(--border-radius-sm)',
+                    border: 'var(--bk-border-width-1) solid var(--vscode-panel-border)',
+                    borderRadius: 'var(--bk-radius-sm)',
                     backgroundColor: 'var(--vscode-input-background)',
                 }}>
                     {isLoading ? (
                         <div style={{ textAlign: 'center' }}>
                             <Spinner />
-                            <p style={{ marginTop: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <p style={{ marginTop: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Fetching data...
                             </p>
                         </div>
                     ) : data ? (
-                        <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--vscode-foreground)' }}>
+                        <p style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-foreground)' }}>
                             {data}
                         </p>
                     ) : (
-                        <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+                        <p style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
                             Click the button to load data
                         </p>
                     )}
@@ -118,7 +118,7 @@ export default function SpinnerPage() {
                 title="Basic Usage"
                 description="The Spinner displays a rotating circular animation to indicate loading states. By default, it uses the primary color and medium size."
                 preview={
-                    <div style={{ display: 'flex', justifyContent: 'center', padding: 'var(--spacing-6)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', padding: 'var(--bk-spacing-6)' }}>
                         <Spinner />
                     </div>
                 }
@@ -134,26 +134,26 @@ function App() {
                 title="Sizes"
                 description="Five size options available: xs, sm, md (default), lg, and xl. The spinner automatically adjusts border width for larger sizes."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-8)', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                             <Spinner size="xs" />
-                            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>xs</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>xs</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                             <Spinner size="sm" />
-                            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>sm</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>sm</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                             <Spinner size="md" />
-                            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>md</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>md</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                             <Spinner size="lg" />
-                            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>lg</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>lg</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                             <Spinner size="xl" />
-                            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>xl</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>xl</span>
                         </div>
                     </div>
                 }
@@ -168,50 +168,50 @@ function App() {
                 title="Colors"
                 description="Spinners can use semantic color tokens for consistency or custom hex values for specific use cases. Semantic colors automatically adapt to theme changes."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Semantic Colors
                             </div>
-                            <div style={{ display: 'flex', gap: 'var(--spacing-8)', alignItems: 'center', flexWrap: 'wrap' }}>
-                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                            <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                                     <Spinner color="var(--vscode-charts-blue)" />
-                                    <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>Primary</span>
+                                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>Primary</span>
                                 </div>
-                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                                     <Spinner color="var(--vscode-testing-iconPassed)" />
-                                    <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>Success</span>
+                                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>Success</span>
                                 </div>
-                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                                     <Spinner color="var(--vscode-editorWarning-foreground)" />
-                                    <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>Warning</span>
+                                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>Warning</span>
                                 </div>
-                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                                     <Spinner color="var(--vscode-testing-iconFailed)" />
-                                    <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>Danger</span>
+                                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>Danger</span>
                                 </div>
-                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                                     <Spinner color="var(--vscode-charts-purple)" />
-                                    <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>Info</span>
+                                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>Info</span>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Custom Colors
                             </div>
-                            <div style={{ display: 'flex', gap: 'var(--spacing-8)', alignItems: 'center', flexWrap: 'wrap' }}>
-                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                            <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                                     <Spinner color="#ff6600" />
-                                    <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>#ff6600</span>
+                                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>#ff6600</span>
                                 </div>
-                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                                     <Spinner color="#9333ea" />
-                                    <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>#9333ea</span>
+                                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>#9333ea</span>
                                 </div>
-                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                                     <Spinner color="#06b6d4" />
-                                    <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>#06b6d4</span>
+                                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>#06b6d4</span>
                                 </div>
                             </div>
                         </div>
@@ -233,7 +233,7 @@ function App() {
                 title="In Buttons"
                 description="Spinners work well inside buttons to indicate loading states during async operations. Use xs or sm sizes for buttons and match the color to the button's text color."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
                         <Button variant="primary" disabled>
                             <Spinner size="sm" color="var(--vscode-button-foreground)" />
                             Loading...
@@ -268,38 +268,38 @@ function App() {
                 title="Standalone Loading States"
                 description="Use spinners with text labels to indicate loading states for specific operations."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
                             <Spinner size="sm" />
-                            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Loading data...
                             </span>
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
                             <Spinner size="md" color="var(--vscode-testing-iconPassed)" />
-                            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Syncing...
                             </span>
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
                             <Spinner size="sm" color="var(--vscode-charts-purple)" />
-                            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Connecting to server...
                             </span>
                         </div>
                     </div>
                 }
-                code={`<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+                code={`<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
   <Spinner size="sm" />
   <span>Loading data...</span>
 </div>
 
-<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
   <Spinner size="md" color="var(--vscode-testing-iconPassed)" />
   <span>Syncing...</span>
 </div>
 
-<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
   <Spinner size="sm" color="var(--vscode-charts-purple)" />
   <span>Connecting to server...</span>
 </div>`}
@@ -315,14 +315,14 @@ function App() {
                             alignItems: 'center',
                             justifyContent: 'center',
                             minHeight: '250px',
-                            border: 'var(--border-width-1) solid var(--vscode-panel-border)',
-                            borderRadius: 'var(--border-radius-md)',
+                            border: 'var(--bk-border-width-1) solid var(--vscode-panel-border)',
+                            borderRadius: 'var(--bk-radius-md)',
                             backgroundColor: 'var(--vscode-editor-background)',
                         }}
                     >
                         <div style={{ textAlign: 'center' }}>
                             <Spinner size="lg" />
-                            <p style={{ marginTop: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <p style={{ marginTop: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Loading content...
                             </p>
                         </div>
@@ -336,7 +336,7 @@ function App() {
 }}>
   <div style={{ textAlign: 'center' }}>
     <Spinner size="lg" />
-    <p style={{ marginTop: 'var(--spacing-3)' }}>
+    <p style={{ marginTop: 'var(--bk-spacing-3)' }}>
       Loading content...
     </p>
   </div>
@@ -347,23 +347,23 @@ function App() {
                 title="Inline Loading Indicator"
                 description="Small xs spinners can be placed at the end of lines for subtle loading indicators."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--vscode-foreground)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-foreground)' }}>
                             <span>Please wait while we fetch your data...</span>
                             <Spinner size="xs" />
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--vscode-foreground)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-foreground)' }}>
                             <span>Processing your request...</span>
                             <Spinner size="xs" color="var(--vscode-charts-purple)" />
                         </div>
                     </div>
                 }
-                code={`<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                code={`<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
   <span>Please wait while we fetch your data...</span>
   <Spinner size="xs" />
 </div>
 
-<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
   <span>Processing your request...</span>
   <Spinner size="xs" color="var(--vscode-charts-purple)" />
 </div>`}

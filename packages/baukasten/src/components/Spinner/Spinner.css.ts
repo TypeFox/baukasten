@@ -31,8 +31,8 @@ export const spinnerWrapper = style({
 export const spinner = recipe({
   base: {
     display: 'inline-block',
-    borderRadius: 'var(--radius-full)',
-    border: 'var(--border-width-2) solid var(--color-background-elevated)',
+    borderRadius: 'var(--bk-radius-full)',
+    border: 'var(--bk-border-width-2) solid var(--bk-color-background-elevated)',
     animation: `${spinAnimation} ${SPIN_DURATION} linear infinite`,
     verticalAlign: 'middle',
   },
@@ -40,29 +40,29 @@ export const spinner = recipe({
   variants: {
     size: {
       xs: {
-        width: 'var(--size-circular-xs)',
-        height: 'var(--size-circular-xs)',
-        borderWidth: 'var(--border-width-2)',
+        width: 'var(--bk-size-circular-xs)',
+        height: 'var(--bk-size-circular-xs)',
+        borderWidth: 'var(--bk-border-width-2)',
       },
       sm: {
-        width: 'var(--size-circular-sm)',
-        height: 'var(--size-circular-sm)',
-        borderWidth: 'var(--border-width-2)',
+        width: 'var(--bk-size-circular-sm)',
+        height: 'var(--bk-size-circular-sm)',
+        borderWidth: 'var(--bk-border-width-2)',
       },
       md: {
-        width: 'var(--size-circular-md)',
-        height: 'var(--size-circular-md)',
-        borderWidth: 'var(--border-width-2)',
+        width: 'var(--bk-size-circular-md)',
+        height: 'var(--bk-size-circular-md)',
+        borderWidth: 'var(--bk-border-width-2)',
       },
       lg: {
-        width: 'var(--size-circular-lg)',
-        height: 'var(--size-circular-lg)',
-        borderWidth: 'var(--border-width-2)',
+        width: 'var(--bk-size-circular-lg)',
+        height: 'var(--bk-size-circular-lg)',
+        borderWidth: 'var(--bk-border-width-2)',
       },
       xl: {
-        width: 'var(--size-circular-xl)',
-        height: 'var(--size-circular-xl)',
-        borderWidth: 'var(--border-width-4)',
+        width: 'var(--bk-size-circular-xl)',
+        height: 'var(--bk-size-circular-xl)',
+        borderWidth: 'var(--bk-border-width-4)',
       },
     },
   },

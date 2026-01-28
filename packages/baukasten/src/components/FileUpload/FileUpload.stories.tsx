@@ -84,7 +84,7 @@ export const Default: Story = {
  */
 export const Sizes: Story = {
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', minWidth: '600px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', minWidth: '600px' }}>
             <FileUpload size="xs" label="Extra Small Upload" onChange={(files) => console.log(files)} />
             <FileUpload size="sm" label="Small Upload" onChange={(files) => console.log(files)} />
             <FileUpload size="md" label="Medium Upload" onChange={(files) => console.log(files)} />
@@ -99,7 +99,7 @@ export const Sizes: Story = {
  */
 export const Variants: Story = {
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', minWidth: '600px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', minWidth: '600px' }}>
             <FileUpload variant="default" label="Default Variant" onChange={(files) => console.log(files)} />
             <FileUpload variant="primary" label="Primary Variant" onChange={(files) => console.log(files)} />
             <FileUpload variant="dashed" label="Dashed Variant" onChange={(files) => console.log(files)} />
@@ -208,15 +208,15 @@ export const Controlled: Story = {
                     description={`${files.length} file(s) selected`}
                     onChange={setFiles}
                 />
-                <div style={{ marginTop: 'var(--spacing-4)' }}>
+                <div style={{ marginTop: 'var(--bk-spacing-4)' }}>
                     <button
                         onClick={() => setFiles([])}
                         style={{
-                            padding: 'var(--spacing-2) var(--spacing-4)',
-                            background: 'var(--color-danger)',
-                            color: 'var(--color-danger-foreground)',
+                            padding: 'var(--bk-spacing-2) var(--bk-spacing-4)',
+                            background: 'var(--bk-color-danger)',
+                            color: 'var(--bk-color-danger-foreground)',
                             border: 'none',
-                            borderRadius: 'var(--radius-md)',
+                            borderRadius: 'var(--bk-radius-md)',
                             cursor: 'pointer',
                         }}
                     >
@@ -236,13 +236,13 @@ export const ProfilePictureUpload: Story = {
         <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: 'var(--spacing-4)',
-            padding: 'var(--spacing-6)',
-            background: 'var(--color-background-secondary)',
-            borderRadius: 'var(--radius-lg)',
+            gap: 'var(--bk-spacing-4)',
+            padding: 'var(--bk-spacing-6)',
+            background: 'var(--bk-color-background-secondary)',
+            borderRadius: 'var(--bk-radius-lg)',
             maxWidth: '500px',
         }}>
-            <h3 style={{ margin: 0, fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>
+            <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
                 Upload Profile Picture
             </h3>
             <FileUpload
@@ -267,23 +267,23 @@ export const DocumentUploadForm: Story = {
         <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: 'var(--spacing-6)',
-            padding: 'var(--spacing-6)',
-            background: 'var(--color-background-secondary)',
-            borderRadius: 'var(--radius-lg)',
+            gap: 'var(--bk-spacing-6)',
+            padding: 'var(--bk-spacing-6)',
+            background: 'var(--bk-color-background-secondary)',
+            borderRadius: 'var(--bk-radius-lg)',
             maxWidth: '600px',
         }}>
             <div>
-                <h3 style={{ margin: 0, marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>
+                <h3 style={{ margin: 0, marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
                     Submit Application Documents
                 </h3>
-                <p style={{ margin: 0, fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+                <p style={{ margin: 0, fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
                     Upload all required documents for your application
                 </p>
             </div>
 
             <div>
-                <label style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontWeight: 'var(--font-weight-medium)' }}>
+                <label style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                     Resume / CV *
                 </label>
                 <FileUpload
@@ -296,7 +296,7 @@ export const DocumentUploadForm: Story = {
             </div>
 
             <div>
-                <label style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontWeight: 'var(--font-weight-medium)' }}>
+                <label style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                     Supporting Documents
                 </label>
                 <FileUpload
@@ -311,14 +311,14 @@ export const DocumentUploadForm: Story = {
 
             <button
                 style={{
-                    padding: 'var(--spacing-3) var(--spacing-6)',
-                    background: 'var(--color-accent)',
-                    color: 'var(--color-accent-foreground)',
+                    padding: 'var(--bk-spacing-3) var(--bk-spacing-6)',
+                    background: 'var(--bk-color-accent)',
+                    color: 'var(--bk-color-accent-foreground)',
                     border: 'none',
-                    borderRadius: 'var(--radius-md)',
-                    fontWeight: 'var(--font-weight-medium)',
+                    borderRadius: 'var(--bk-radius-md)',
+                    fontWeight: 'var(--bk-font-weight-medium)',
                     cursor: 'pointer',
-                    transition: 'var(--transition-colors)',
+                    transition: 'var(--bk-transition-colors)',
                 }}
             >
                 Submit Application
@@ -349,13 +349,13 @@ export const Interactive: Story = {
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 'var(--spacing-4)',
-                padding: 'var(--spacing-6)',
-                background: 'var(--color-background-secondary)',
-                borderRadius: 'var(--radius-lg)',
+                gap: 'var(--bk-spacing-4)',
+                padding: 'var(--bk-spacing-6)',
+                background: 'var(--bk-color-background-secondary)',
+                borderRadius: 'var(--bk-radius-lg)',
                 minWidth: '600px',
             }}>
-                <h3 style={{ margin: 0, fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>
+                <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
                     File Upload Manager
                 </h3>
 
@@ -370,18 +370,18 @@ export const Interactive: Story = {
                     disabled={uploadProgress}
                 />
 
-                <div style={{ display: 'flex', gap: 'var(--spacing-3)' }}>
+                <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)' }}>
                     <button
                         onClick={handleUpload}
                         disabled={files.length === 0 || uploadProgress}
                         style={{
                             flex: 1,
-                            padding: 'var(--spacing-3)',
-                            background: files.length > 0 && !uploadProgress ? 'var(--color-accent)' : 'var(--color-background-hover)',
-                            color: files.length > 0 && !uploadProgress ? 'var(--color-accent-foreground)' : 'var(--color-foreground-muted)',
+                            padding: 'var(--bk-spacing-3)',
+                            background: files.length > 0 && !uploadProgress ? 'var(--bk-color-accent)' : 'var(--bk-color-background-hover)',
+                            color: files.length > 0 && !uploadProgress ? 'var(--bk-color-accent-foreground)' : 'var(--bk-color-foreground-muted)',
                             border: 'none',
-                            borderRadius: 'var(--radius-md)',
-                            fontWeight: 'var(--font-weight-medium)',
+                            borderRadius: 'var(--bk-radius-md)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
                             cursor: files.length > 0 && !uploadProgress ? 'pointer' : 'not-allowed',
                         }}
                     >
@@ -391,12 +391,12 @@ export const Interactive: Story = {
                         onClick={() => setFiles([])}
                         disabled={files.length === 0 || uploadProgress}
                         style={{
-                            padding: 'var(--spacing-3) var(--spacing-6)',
+                            padding: 'var(--bk-spacing-3) var(--bk-spacing-6)',
                             background: 'transparent',
-                            color: 'var(--color-foreground)',
-                            border: '1px solid var(--color-border)',
-                            borderRadius: 'var(--radius-md)',
-                            fontWeight: 'var(--font-weight-medium)',
+                            color: 'var(--bk-color-foreground)',
+                            border: '1px solid var(--bk-color-border)',
+                            borderRadius: 'var(--bk-radius-md)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
                             cursor: files.length > 0 && !uploadProgress ? 'pointer' : 'not-allowed',
                         }}
                     >

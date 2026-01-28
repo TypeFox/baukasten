@@ -6,7 +6,7 @@ import { recipe } from '@vanilla-extract/recipes';
 export const radioGroup = recipe({
   base: {
     display: 'flex',
-    gap: 'var(--gap-md)',
+    gap: 'var(--bk-gap-md)',
   },
 
   variants: {

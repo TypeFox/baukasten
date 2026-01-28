@@ -30,7 +30,7 @@ export default function FormsPage() {
                 title="FieldLabel Component"
                 description="A simple, semantic label for form fields. Displays text above or beside form inputs. Shows a red asterisk for required fields."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', maxWidth: '400px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', maxWidth: '400px' }}>
                         <div>
                             <FieldLabel htmlFor="username">Username</FieldLabel>
                             <Input id="username" fullWidth />
@@ -65,7 +65,7 @@ export default function FormsPage() {
                 title="FormHelper Component"
                 description="Displays helper text, hints, or validation messages below form fields. Supports different visual variants for various states."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-5)', maxWidth: '400px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)', maxWidth: '400px' }}>
                         <div>
                             <Input id="username1" fullWidth />
                             <FormHelper>Choose a unique username with 3-20 characters</FormHelper>
@@ -116,7 +116,7 @@ export default function FormsPage() {
                 title="FormGroup Component"
                 description="A flexible container for form fields that supports VSCode-style two-column layout where labels appear on the left and inputs on the right, creating consistent alignment across multiple form fields."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                         <FormGroup>
                             <FieldLabel htmlFor="name" required>Name</FieldLabel>
                             <Input id="name" fullWidth />
@@ -172,9 +172,9 @@ function Form() {
                 title="FormGroup Orientations"
                 description="FormGroup supports horizontal (VSCode-style two-column) and vertical (traditional stacked) layouts."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Horizontal (VSCode-style - Default)
                             </div>
                             <FormGroup orientation="horizontal">
@@ -187,7 +187,7 @@ function Form() {
                             </FormGroup>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Vertical (Stacked)
                             </div>
                             <FormGroup orientation="vertical">
@@ -273,7 +273,7 @@ function Form() {
 
                         <FormGroup>
                             <div></div>
-                            <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
+                            <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
                                 <Button variant="primary">Submit</Button>
                                 <Button variant="secondary">Cancel</Button>
                             </div>
@@ -364,9 +364,9 @@ function RegistrationForm() {
                 title="FormGroup Label Width"
                 description="Customize the label width in horizontal orientation to accommodate different label lengths."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Default Label Width (30%)
                             </div>
                             <FormGroup>
@@ -375,7 +375,7 @@ function RegistrationForm() {
                             </FormGroup>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Wide Label (40%)
                             </div>
                             <FormGroup labelWidth="40%">
@@ -384,7 +384,7 @@ function RegistrationForm() {
                             </FormGroup>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Narrow Label (20%)
                             </div>
                             <FormGroup labelWidth="20%">
@@ -417,9 +417,9 @@ function RegistrationForm() {
                 title="Compact Spacing"
                 description="Use compact prop to reduce spacing between form groups for denser layouts."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-8)' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)' }}>
                         <div style={{ flex: 1 }}>
-                            <div style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Default Spacing
                             </div>
                             <FormGroup>
@@ -436,7 +436,7 @@ function RegistrationForm() {
                             </FormGroup>
                         </div>
                         <div style={{ flex: 1 }}>
-                            <div style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Compact Spacing
                             </div>
                             <FormGroup compact>
@@ -475,18 +475,18 @@ function RegistrationForm() {
 </FormGroup>`}
             />
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Component Relationships
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>FieldLabel:</strong> Semantic <code>&lt;label&gt;</code> that links to form inputs via <code>htmlFor</code>
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>FormHelper:</strong> Helper text displayed below form fields for guidance or validation
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>FormGroup:</strong> Container that arranges FieldLabel and inputs in consistent layout
                     </li>
                     <li>
@@ -495,18 +495,18 @@ function RegistrationForm() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>FieldLabel:</strong> Uses semantic <code>&lt;label&gt;</code> with <code>htmlFor</code> to link to form controls
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Required indicator:</strong> Red asterisk has <code>aria-label="required"</code> for screen readers
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>FormHelper variants:</strong> Error messages are visually distinct with appropriate color coding
                     </li>
                     <li>
@@ -515,27 +515,27 @@ function RegistrationForm() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Always link labels:</strong> Use <code>htmlFor</code> attribute to connect FieldLabel to form inputs
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Required fields:</strong> Mark required fields with the <code>required</code> prop on FieldLabel
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Helper text:</strong> Use FormHelper for hints, validation messages, and additional context
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Error messages:</strong> Use <code>FormHelper variant="error"</code> with input error state for validation feedback
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Layout choice:</strong> Use horizontal for settings-style forms, vertical for traditional forms
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Input width:</strong> Always use <code>fullWidth</code> on inputs within FormGroup for proper alignment
                     </li>
                     <li>

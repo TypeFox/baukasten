@@ -29,19 +29,19 @@ export default function DashboardRecipesPage() {
                         }}>
                             {/* Logo/Header */}
                             <div style={{
-                                padding: 'var(--spacing-5)',
+                                padding: 'var(--bk-spacing-5)',
                                 borderBottom: '1px solid var(--vscode-panel-border)',
                             }}>
                                 <div style={{
                                     display: 'flex',
                                     alignItems: 'center',
-                                    gap: 'var(--spacing-3)',
+                                    gap: 'var(--bk-spacing-3)',
                                 }}>
                                     <div style={{
                                         width: '32px',
                                         height: '32px',
                                         background: 'linear-gradient(135deg, var(--vscode-button-background) 0%, var(--vscode-button-hoverBackground) 100%)',
-                                        borderRadius: 'var(--border-radius-md)',
+                                        borderRadius: 'var(--bk-radius-md)',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
@@ -53,7 +53,7 @@ export default function DashboardRecipesPage() {
                             </div>
 
                             {/* Navigation */}
-                            <div style={{ flex: 1, padding: 'var(--spacing-4)', overflowY: 'auto' }}>
+                            <div style={{ flex: 1, padding: 'var(--bk-spacing-4)', overflowY: 'auto' }}>
                                 <Menu size="md">
                                     <MenuItem icon={<Icon name="home" />} selected>
                                         Overview
@@ -72,15 +72,15 @@ export default function DashboardRecipesPage() {
 
                             {/* User Profile */}
                             <div style={{
-                                padding: 'var(--spacing-4)',
+                                padding: 'var(--bk-spacing-4)',
                                 borderTop: '1px solid var(--vscode-panel-border)',
                             }}>
                                 <div style={{
                                     display: 'flex',
                                     alignItems: 'center',
-                                    gap: 'var(--spacing-3)',
-                                    padding: 'var(--spacing-2)',
-                                    borderRadius: 'var(--border-radius-md)',
+                                    gap: 'var(--bk-spacing-3)',
+                                    padding: 'var(--bk-spacing-2)',
+                                    borderRadius: 'var(--bk-radius-md)',
                                     cursor: 'pointer',
                                     transition: 'background-color 0.15s ease',
                                 }}
@@ -93,10 +93,10 @@ export default function DashboardRecipesPage() {
                                 >
                                     <Avatar size="sm" name="John Doe" />
                                     <div style={{ flex: 1, minWidth: 0 }}>
-                                        <Text style={{ display: 'block', fontWeight: 500, fontSize: 'var(--font-size-sm)' }}>
+                                        <Text style={{ display: 'block', fontWeight: 500, fontSize: 'var(--bk-font-size-sm)' }}>
                                             John Doe
                                         </Text>
-                                        <Text style={{ display: 'block', fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
+                                        <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
                                             john@example.com
                                         </Text>
                                     </div>
@@ -114,7 +114,7 @@ export default function DashboardRecipesPage() {
                         }}>
                             {/* Header/Toolbar */}
                             <div style={{
-                                padding: 'var(--spacing-5)',
+                                padding: 'var(--bk-spacing-5)',
                                 borderBottom: '1px solid var(--vscode-panel-border)',
                                 backgroundColor: 'var(--vscode-sideBar-background)',
                                 display: 'flex',
@@ -122,20 +122,20 @@ export default function DashboardRecipesPage() {
                                 justifyContent: 'space-between',
                             }}>
                                 <div>
-                                    <Heading level={4} style={{ marginBottom: 'var(--spacing-1)' }}>
+                                    <Heading level={4} style={{ marginBottom: 'var(--bk-spacing-1)' }}>
                                         Overview
                                     </Heading>
-                                    <Text style={{ color: 'var(--vscode-descriptionForeground)', fontSize: 'var(--font-size-sm)' }}>
+                                    <Text style={{ color: 'var(--vscode-descriptionForeground)', fontSize: 'var(--bk-font-size-sm)' }}>
                                         Welcome back! Here's what's happening today.
                                     </Text>
                                 </div>
-                                <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
+                                <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
                                     <Button variant="secondary" size="sm">
-                                        <Icon name="sync" style={{ marginRight: 'var(--spacing-2)' }} />
+                                        <Icon name="sync" style={{ marginRight: 'var(--bk-spacing-2)' }} />
                                         Refresh
                                     </Button>
                                     <Button variant="primary" size="sm">
-                                        <Icon name="add" style={{ marginRight: 'var(--spacing-2)' }} />
+                                        <Icon name="add" style={{ marginRight: 'var(--bk-spacing-2)' }} />
                                         New Item
                                     </Button>
                                 </div>
@@ -144,15 +144,15 @@ export default function DashboardRecipesPage() {
                             {/* Content Area */}
                             <div style={{
                                 flex: 1,
-                                padding: 'var(--spacing-6)',
+                                padding: 'var(--bk-spacing-6)',
                                 overflowY: 'auto',
                             }}>
                                 {/* Stats Cards */}
                                 <div style={{
                                     display: 'grid',
                                     gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                                    gap: 'var(--spacing-4)',
-                                    marginBottom: 'var(--spacing-6)',
+                                    gap: 'var(--bk-spacing-4)',
+                                    marginBottom: 'var(--bk-spacing-6)',
                                 }}>
                                     {[
                                         { label: 'Total Users', value: '2,543', icon: 'account' as CodiconName, change: '+12%' },
@@ -163,22 +163,22 @@ export default function DashboardRecipesPage() {
                                         <div
                                             key={index}
                                             style={{
-                                                padding: 'var(--spacing-5)',
+                                                padding: 'var(--bk-spacing-5)',
                                                 backgroundColor: 'var(--vscode-sideBar-background)',
                                                 border: '1px solid var(--vscode-panel-border)',
-                                                borderRadius: 'var(--border-radius-md)',
+                                                borderRadius: 'var(--bk-radius-md)',
                                             }}
                                         >
-                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--spacing-3)' }}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--bk-spacing-3)' }}>
                                                 <Icon name={stat.icon} style={{ fontSize: '20px', color: 'var(--vscode-descriptionForeground)' }} />
                                                 <Badge size="xs" variant={stat.change.startsWith('+') ? 'success' : 'error'}>
                                                     {stat.change}
                                                 </Badge>
                                             </div>
-                                            <Text style={{ display: 'block', fontSize: 'calc(var(--vscode-font-size) * 1.75)', fontWeight: 600, marginBottom: 'var(--spacing-1)' }}>
+                                            <Text style={{ display: 'block', fontSize: 'calc(var(--vscode-font-size) * 1.75)', fontWeight: 600, marginBottom: 'var(--bk-spacing-1)' }}>
                                                 {stat.value}
                                             </Text>
-                                            <Text style={{ display: 'block', fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+                                            <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
                                                 {stat.label}
                                             </Text>
                                         </div>
@@ -187,27 +187,27 @@ export default function DashboardRecipesPage() {
 
                                 {/* Content Section */}
                                 <div style={{
-                                    padding: 'var(--spacing-5)',
+                                    padding: 'var(--bk-spacing-5)',
                                     backgroundColor: 'var(--vscode-sideBar-background)',
                                     border: '1px solid var(--vscode-panel-border)',
-                                    borderRadius: 'var(--border-radius-md)',
+                                    borderRadius: 'var(--bk-radius-md)',
                                 }}>
-                                    <Heading level={5} style={{ marginBottom: 'var(--spacing-4)' }}>
+                                    <Heading level={5} style={{ marginBottom: 'var(--bk-spacing-4)' }}>
                                         Recent Activity
                                     </Heading>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                                         {[1, 2, 3].map((item) => (
                                             <div key={item} style={{
                                                 display: 'flex',
                                                 alignItems: 'center',
-                                                gap: 'var(--spacing-3)',
-                                                padding: 'var(--spacing-3)',
-                                                borderRadius: 'var(--border-radius-sm)',
+                                                gap: 'var(--bk-spacing-3)',
+                                                padding: 'var(--bk-spacing-3)',
+                                                borderRadius: 'var(--bk-radius-sm)',
                                                 backgroundColor: 'var(--vscode-editor-background)',
                                             }}>
                                                 <Icon name="info" style={{ color: 'var(--vscode-descriptionForeground)' }} />
                                                 <Text style={{ flex: 1 }}>Activity item {item} description</Text>
-                                                <Text style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
+                                                <Text style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
                                                     2h ago
                                                 </Text>
                                             </div>
@@ -233,17 +233,17 @@ function Dashboard() {
       }}>
         {/* Logo/Header */}
         <div style={{
-          padding: 'var(--spacing-5)',
+          padding: 'var(--bk-spacing-5)',
           borderBottom: '1px solid var(--vscode-panel-border)',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
             <Icon name="dashboard" style={{ fontSize: '24px' }} />
             <Heading level={5}>Dashboard</Heading>
           </div>
         </div>
 
         {/* Navigation */}
-        <div style={{ flex: 1, padding: 'var(--spacing-4)' }}>
+        <div style={{ flex: 1, padding: 'var(--bk-spacing-4)' }}>
           <Menu size="md">
             <MenuItem icon={<Icon name="home" />} selected>Overview</MenuItem>
             <MenuItem icon={<Icon name="graph" />}>Analytics</MenuItem>
@@ -253,12 +253,12 @@ function Dashboard() {
         </div>
 
         {/* User Profile */}
-        <div style={{ padding: 'var(--spacing-4)', borderTop: '1px solid var(--vscode-panel-border)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+        <div style={{ padding: 'var(--bk-spacing-4)', borderTop: '1px solid var(--vscode-panel-border)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
             <Avatar size="sm" name="John Doe" />
             <div style={{ flex: 1 }}>
               <Text style={{ display: 'block', fontWeight: 500 }}>John Doe</Text>
-              <Text style={{ fontSize: 'var(--font-size-xs)' }}>john@example.com</Text>
+              <Text style={{ fontSize: 'var(--bk-font-size-xs)' }}>john@example.com</Text>
             </div>
           </div>
         </div>
@@ -268,7 +268,7 @@ function Dashboard() {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         {/* Header */}
         <div style={{
-          padding: 'var(--spacing-5)',
+          padding: 'var(--bk-spacing-5)',
           borderBottom: '1px solid var(--vscode-panel-border)',
           display: 'flex',
           justifyContent: 'space-between',
@@ -281,7 +281,7 @@ function Dashboard() {
         </div>
 
         {/* Content */}
-        <div style={{ flex: 1, padding: 'var(--spacing-6)' }}>
+        <div style={{ flex: 1, padding: 'var(--bk-spacing-6)' }}>
           {/* Your content here */}
         </div>
       </div>
@@ -307,20 +307,20 @@ function Dashboard() {
                             borderBottom: '1px solid var(--vscode-panel-border)',
                             display: 'flex',
                             alignItems: 'center',
-                            padding: '0 var(--spacing-6)',
-                            gap: 'var(--spacing-6)',
+                            padding: '0 var(--bk-spacing-6)',
+                            gap: 'var(--bk-spacing-6)',
                         }}>
                             {/* Logo */}
                             <div style={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                gap: 'var(--spacing-3)',
+                                gap: 'var(--bk-spacing-3)',
                             }}>
                                 <div style={{
                                     width: '36px',
                                     height: '36px',
                                     background: 'linear-gradient(135deg, var(--vscode-button-background) 0%, var(--vscode-button-hoverBackground) 100%)',
-                                    borderRadius: 'var(--border-radius-md)',
+                                    borderRadius: 'var(--bk-radius-md)',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
@@ -339,7 +339,7 @@ function Dashboard() {
                             </Menu>
 
                             {/* Right Side */}
-                            <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+                            <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
                                 <Input
                                     type="text"
                                     placeholder="Search..."
@@ -362,11 +362,11 @@ function Dashboard() {
                         }}>
                             {/* Main Content */}
                             <div style={{
-                                padding: 'var(--spacing-6)',
+                                padding: 'var(--bk-spacing-6)',
                                 overflowY: 'auto',
                             }}>
-                                <div style={{ marginBottom: 'var(--spacing-6)' }}>
-                                    <Heading level={3} style={{ marginBottom: 'var(--spacing-2)' }}>
+                                <div style={{ marginBottom: 'var(--bk-spacing-6)' }}>
+                                    <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                                         Welcome back, User!
                                     </Heading>
                                     <Text style={{ color: 'var(--vscode-descriptionForeground)' }}>
@@ -378,8 +378,8 @@ function Dashboard() {
                                 <div style={{
                                     display: 'grid',
                                     gridTemplateColumns: 'repeat(3, 1fr)',
-                                    gap: 'var(--spacing-4)',
-                                    marginBottom: 'var(--spacing-6)',
+                                    gap: 'var(--bk-spacing-4)',
+                                    marginBottom: 'var(--bk-spacing-6)',
                                 }}>
                                     {[
                                         { label: 'Active Projects', value: '12', icon: 'folder' as CodiconName },
@@ -389,17 +389,17 @@ function Dashboard() {
                                         <div
                                             key={index}
                                             style={{
-                                                padding: 'var(--spacing-4)',
+                                                padding: 'var(--bk-spacing-4)',
                                                 backgroundColor: 'var(--vscode-sideBar-background)',
                                                 border: '1px solid var(--vscode-panel-border)',
-                                                borderRadius: 'var(--border-radius-md)',
+                                                borderRadius: 'var(--bk-radius-md)',
                                             }}
                                         >
-                                            <Icon name={stat.icon} style={{ fontSize: '24px', color: 'var(--vscode-descriptionForeground)', marginBottom: 'var(--spacing-2)' }} />
+                                            <Icon name={stat.icon} style={{ fontSize: '24px', color: 'var(--vscode-descriptionForeground)', marginBottom: 'var(--bk-spacing-2)' }} />
                                             <Text style={{ display: 'block', fontSize: 'calc(var(--vscode-font-size) * 1.5)', fontWeight: 600 }}>
                                                 {stat.value}
                                             </Text>
-                                            <Text style={{ display: 'block', fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+                                            <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
                                                 {stat.label}
                                             </Text>
                                         </div>
@@ -408,29 +408,29 @@ function Dashboard() {
 
                                 {/* Projects List */}
                                 <div style={{
-                                    padding: 'var(--spacing-5)',
+                                    padding: 'var(--bk-spacing-5)',
                                     backgroundColor: 'var(--vscode-sideBar-background)',
                                     border: '1px solid var(--vscode-panel-border)',
-                                    borderRadius: 'var(--border-radius-md)',
+                                    borderRadius: 'var(--bk-radius-md)',
                                 }}>
-                                    <Heading level={5} style={{ marginBottom: 'var(--spacing-4)' }}>
+                                    <Heading level={5} style={{ marginBottom: 'var(--bk-spacing-4)' }}>
                                         Recent Projects
                                     </Heading>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                                         {['Project Alpha', 'Project Beta', 'Project Gamma'].map((project, index) => (
                                             <div key={index} style={{
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'space-between',
-                                                padding: 'var(--spacing-3)',
-                                                borderRadius: 'var(--border-radius-sm)',
+                                                padding: 'var(--bk-spacing-3)',
+                                                borderRadius: 'var(--bk-radius-sm)',
                                                 backgroundColor: 'var(--vscode-editor-background)',
                                             }}>
-                                                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
                                                     <Icon name="folder" style={{ color: 'var(--vscode-descriptionForeground)' }} />
                                                     <div>
                                                         <Text style={{ display: 'block', fontWeight: 500 }}>{project}</Text>
-                                                        <Text style={{ display: 'block', fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
+                                                        <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
                                                             Updated 2h ago
                                                         </Text>
                                                     </div>
@@ -444,45 +444,45 @@ function Dashboard() {
 
                             {/* Right Sidebar */}
                             <div style={{
-                                padding: 'var(--spacing-5)',
+                                padding: 'var(--bk-spacing-5)',
                                 backgroundColor: 'var(--vscode-sideBar-background)',
                                 borderLeft: '1px solid var(--vscode-panel-border)',
                                 overflowY: 'auto',
                             }}>
-                                <Heading level={5} style={{ marginBottom: 'var(--spacing-4)' }}>
+                                <Heading level={5} style={{ marginBottom: 'var(--bk-spacing-4)' }}>
                                     Quick Actions
                                 </Heading>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', marginBottom: 'var(--spacing-6)' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', marginBottom: 'var(--bk-spacing-6)' }}>
                                     <Button variant="primary" width="block" size="sm">
-                                        <Icon name="add" style={{ marginRight: 'var(--spacing-2)' }} />
+                                        <Icon name="add" style={{ marginRight: 'var(--bk-spacing-2)' }} />
                                         New Project
                                     </Button>
                                     <Button variant="secondary" width="block" size="sm">
-                                        <Icon name="calendar" style={{ marginRight: 'var(--spacing-2)' }} />
+                                        <Icon name="calendar" style={{ marginRight: 'var(--bk-spacing-2)' }} />
                                         Schedule
                                     </Button>
                                     <Button variant="secondary" width="block" size="sm">
-                                        <Icon name="mail" style={{ marginRight: 'var(--spacing-2)' }} />
+                                        <Icon name="mail" style={{ marginRight: 'var(--bk-spacing-2)' }} />
                                         Messages
                                     </Button>
                                 </div>
 
-                                <Divider style={{ margin: 'var(--spacing-5) 0' }} />
+                                <Divider style={{ margin: 'var(--bk-spacing-5) 0' }} />
 
-                                <Heading level={6} style={{ marginBottom: 'var(--spacing-3)' }}>
+                                <Heading level={6} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                                     Notifications
                                 </Heading>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                                     {[1, 2, 3].map((item) => (
                                         <div key={item} style={{
-                                            padding: 'var(--spacing-3)',
-                                            borderRadius: 'var(--border-radius-sm)',
+                                            padding: 'var(--bk-spacing-3)',
+                                            borderRadius: 'var(--bk-radius-sm)',
                                             backgroundColor: 'var(--vscode-editor-background)',
                                         }}>
-                                            <Text style={{ display: 'block', fontSize: 'var(--font-size-sm)', marginBottom: 'var(--spacing-1)' }}>
+                                            <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-sm)', marginBottom: 'var(--bk-spacing-1)' }}>
                                                 New notification {item}
                                             </Text>
-                                            <Text style={{ display: 'block', fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
+                                            <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
                                                 Just now
                                             </Text>
                                         </div>
@@ -504,8 +504,8 @@ function ModernDashboard() {
         borderBottom: '1px solid var(--vscode-panel-border)',
         display: 'flex',
         alignItems: 'center',
-        padding: '0 var(--spacing-6)',
-        gap: 'var(--spacing-6)',
+        padding: '0 var(--bk-spacing-6)',
+        gap: 'var(--bk-spacing-6)',
       }}>
         <Icon name="rocket" style={{ fontSize: '24px' }} />
         <Heading level={5}>AppName</Heading>
@@ -516,7 +516,7 @@ function ModernDashboard() {
           <MenuItem>Team</MenuItem>
         </Menu>
 
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: 'var(--spacing-3)' }}>
+        <div style={{ marginLeft: 'auto', display: 'flex', gap: 'var(--bk-spacing-3)' }}>
           <Input type="text" placeholder="Search..." size="sm" />
           <Avatar size="sm" name="User" />
         </div>
@@ -524,11 +524,11 @@ function ModernDashboard() {
 
       {/* Content */}
       <div style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 300px' }}>
-        <div style={{ padding: 'var(--spacing-6)' }}>
+        <div style={{ padding: 'var(--bk-spacing-6)' }}>
           {/* Main content */}
         </div>
         <div style={{
-          padding: 'var(--spacing-5)',
+          padding: 'var(--bk-spacing-5)',
           backgroundColor: 'var(--vscode-sideBar-background)',
           borderLeft: '1px solid var(--vscode-panel-border)',
         }}>
@@ -546,21 +546,21 @@ function ModernDashboard() {
                 preview={
                     <div style={{
                         minHeight: '600px',
-                        padding: 'var(--spacing-6)',
+                        padding: 'var(--bk-spacing-6)',
                         backgroundColor: 'var(--vscode-editor-background)',
                     }}>
                         {/* Header */}
-                        <div style={{ marginBottom: 'var(--spacing-8)' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--spacing-2)' }}>
+                        <div style={{ marginBottom: 'var(--bk-spacing-8)' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--bk-spacing-2)' }}>
                                 <div>
-                                    <Heading level={2} style={{ marginBottom: 'var(--spacing-2)' }}>
+                                    <Heading level={2} style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                                         Dashboard
                                     </Heading>
                                     <Text style={{ color: 'var(--vscode-descriptionForeground)' }}>
                                         Monitor your key metrics and performance
                                     </Text>
                                 </div>
-                                <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
+                                <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
                                     <Button variant="secondary" size="sm">
                                         <Icon name="filter" />
                                     </Button>
@@ -575,8 +575,8 @@ function ModernDashboard() {
                         <div style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-                            gap: 'var(--spacing-4)',
-                            marginBottom: 'var(--spacing-6)',
+                            gap: 'var(--bk-spacing-4)',
+                            marginBottom: 'var(--bk-spacing-6)',
                         }}>
                             {[
                                 { label: 'Total Revenue', value: '$128.4K', trend: '+12.5%', icon: 'graph-line' as CodiconName },
@@ -587,25 +587,25 @@ function ModernDashboard() {
                                 <div
                                     key={index}
                                     style={{
-                                        padding: 'var(--spacing-5)',
+                                        padding: 'var(--bk-spacing-5)',
                                         backgroundColor: 'var(--vscode-sideBar-background)',
                                         border: '1px solid var(--vscode-panel-border)',
-                                        borderRadius: 'var(--border-radius-lg)',
+                                        borderRadius: 'var(--bk-radius-lg)',
                                     }}
                                 >
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 'var(--spacing-4)' }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 'var(--bk-spacing-4)' }}>
                                         <Icon name={metric.icon} style={{ fontSize: '20px', color: 'var(--vscode-descriptionForeground)' }} />
                                         <Text style={{
-                                            fontSize: 'var(--font-size-sm)',
+                                            fontSize: 'var(--bk-font-size-sm)',
                                             color: metric.trend.startsWith('+') ? 'var(--vscode-testing-iconPassed)' : 'var(--vscode-testing-iconFailed)',
                                         }}>
                                             {metric.trend}
                                         </Text>
                                     </div>
-                                    <Text style={{ display: 'block', fontSize: 'calc(var(--vscode-font-size) * 2)', fontWeight: 700, marginBottom: 'var(--spacing-1)' }}>
+                                    <Text style={{ display: 'block', fontSize: 'calc(var(--vscode-font-size) * 2)', fontWeight: 700, marginBottom: 'var(--bk-spacing-1)' }}>
                                         {metric.value}
                                     </Text>
-                                    <Text style={{ display: 'block', fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+                                    <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
                                         {metric.label}
                                     </Text>
                                 </div>
@@ -614,12 +614,12 @@ function ModernDashboard() {
 
                         {/* Main Content Card */}
                         <div style={{
-                            padding: 'var(--spacing-6)',
+                            padding: 'var(--bk-spacing-6)',
                             backgroundColor: 'var(--vscode-sideBar-background)',
                             border: '1px solid var(--vscode-panel-border)',
-                            borderRadius: 'var(--border-radius-lg)',
+                            borderRadius: 'var(--bk-radius-lg)',
                         }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-5)' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--bk-spacing-5)' }}>
                                 <Heading level={5}>Activity Overview</Heading>
                                 <Menu direction="horizontal" size="sm">
                                     <MenuItem selected>Week</MenuItem>
@@ -633,7 +633,7 @@ function ModernDashboard() {
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 backgroundColor: 'var(--vscode-editor-background)',
-                                borderRadius: 'var(--border-radius-md)',
+                                borderRadius: 'var(--bk-radius-md)',
                                 border: '1px solid var(--vscode-panel-border)',
                             }}>
                                 <Text style={{ color: 'var(--vscode-descriptionForeground)' }}>
@@ -647,9 +647,9 @@ function ModernDashboard() {
 
 function MinimalDashboard() {
   return (
-    <div style={{ minHeight: '100vh', padding: 'var(--spacing-6)' }}>
+    <div style={{ minHeight: '100vh', padding: 'var(--bk-spacing-6)' }}>
       {/* Header */}
-      <div style={{ marginBottom: 'var(--spacing-8)' }}>
+      <div style={{ marginBottom: 'var(--bk-spacing-8)' }}>
         <Heading level={2}>Dashboard</Heading>
         <Text>Monitor your key metrics and performance</Text>
       </div>
@@ -658,13 +658,13 @@ function MinimalDashboard() {
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-        gap: 'var(--spacing-4)',
+        gap: 'var(--bk-spacing-4)',
       }}>
         {metrics.map((metric) => (
           <div style={{
-            padding: 'var(--spacing-5)',
+            padding: 'var(--bk-spacing-5)',
             backgroundColor: 'var(--vscode-sideBar-background)',
-            borderRadius: 'var(--border-radius-lg)',
+            borderRadius: 'var(--bk-radius-lg)',
           }}>
             <Icon name={metric.icon} />
             <Text style={{ fontSize: '2rem', fontWeight: 700 }}>{metric.value}</Text>
@@ -674,7 +674,7 @@ function MinimalDashboard() {
       </div>
 
       {/* Content */}
-      <div style={{ padding: 'var(--spacing-6)', marginTop: 'var(--spacing-6)' }}>
+      <div style={{ padding: 'var(--bk-spacing-6)', marginTop: 'var(--bk-spacing-6)' }}>
         {/* Your content */}
       </div>
     </div>

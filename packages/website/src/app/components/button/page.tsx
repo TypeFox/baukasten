@@ -192,17 +192,17 @@ function App() {
         title="Width Options"
         description="Control button width with block (100%), wide (minimum width), or auto (default)."
         preview={
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)', width: '100%' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '100%' }}>
             <Button width="block">Block Width (100%)</Button>
-            <div style={{ display: 'flex', gap: 'var(--spacing-3)' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)' }}>
               <Button width="wide">Wide Button</Button>
               <Button>Auto Width</Button>
             </div>
           </div>
         }
-        code={`<div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)', width: '100%' }}>
+        code={`<div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '100%' }}>
   <Button width="block">Block Width (100%)</Button>
-  <div style={{ display: 'flex', gap: 'var(--spacing-3)' }}>
+  <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)' }}>
     <Button width="wide">Wide Button</Button>
     <Button>Auto Width</Button>
   </div>

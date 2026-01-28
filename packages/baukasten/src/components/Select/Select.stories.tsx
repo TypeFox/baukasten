@@ -169,7 +169,7 @@ export const Interactive: Story = {
  */
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', alignItems: 'flex-start', minWidth: '300px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', alignItems: 'flex-start', minWidth: '300px' }}>
       <Select options={basicOptions} size="xs" placeholder="Extra Small" />
       <Select options={basicOptions} size="sm" placeholder="Small" />
       <Select options={basicOptions} size="md" placeholder="Medium (default)" />
@@ -192,9 +192,9 @@ export const Sizes: Story = {
  */
 export const SearchableSelect: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', minWidth: '300px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', minWidth: '300px' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Search by Description
         </h4>
         <Select
@@ -203,13 +203,13 @@ export const SearchableSelect: Story = {
           placeholder="Search programming languages..."
           searchPlaceholder="Try typing 'typed' or 'memory'"
         />
-        <p style={{ marginTop: 'var(--spacing-1)', fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+        <p style={{ marginTop: 'var(--bk-spacing-1)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
           Search matches against descriptions. Hover over options to see descriptions in the panel below.
         </p>
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Search Countries
         </h4>
         <Select
@@ -236,22 +236,22 @@ export const SearchableSelect: Story = {
  */
 export const DescriptionPanel: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', minWidth: '350px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', minWidth: '350px' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           With Description Panel (default)
         </h4>
         <Select
           options={languageOptions}
           placeholder="Select a programming language..."
         />
-        <p style={{ marginTop: 'var(--spacing-1)', fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+        <p style={{ marginTop: 'var(--bk-spacing-1)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
           Hover or use arrow keys to see descriptions below the options
         </p>
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Without Description Panel
         </h4>
         <Select
@@ -259,20 +259,20 @@ export const DescriptionPanel: Story = {
           placeholder="Select a programming language..."
           showDescriptionPanel={false}
         />
-        <p style={{ marginTop: 'var(--spacing-1)', fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+        <p style={{ marginTop: 'var(--bk-spacing-1)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
           Description panel disabled with showDescriptionPanel=false
         </p>
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Options Without Descriptions
         </h4>
         <Select
           options={basicOptions}
           placeholder="Select an option..."
         />
-        <p style={{ marginTop: 'var(--spacing-1)', fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+        <p style={{ marginTop: 'var(--bk-spacing-1)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
           Description panel automatically hidden when no descriptions exist
         </p>
       </div>
@@ -309,9 +309,9 @@ export const DefaultLabels: Story = {
     ];
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', minWidth: '350px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', minWidth: '350px' }}>
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             Browser Selection
           </h4>
           <Select
@@ -319,20 +319,20 @@ export const DefaultLabels: Story = {
             placeholder="Select your browser..."
             defaultValue="chrome"
           />
-          <p style={{ marginTop: 'var(--spacing-1)', fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+          <p style={{ marginTop: 'var(--bk-spacing-1)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
             Default labels appear on the right in muted text
           </p>
         </div>
 
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             Theme with Labels and Descriptions
           </h4>
           <Select
             options={themeOptions}
             placeholder="Select a theme..."
           />
-          <p style={{ marginTop: 'var(--spacing-1)', fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+          <p style={{ marginTop: 'var(--bk-spacing-1)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
             Combines default labels with description panel
           </p>
         </div>
@@ -374,9 +374,9 @@ export const CustomRender: Story = {
     };
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', minWidth: '300px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', minWidth: '300px' }}>
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             With Icons
           </h4>
           <Select
@@ -384,7 +384,7 @@ export const CustomRender: Story = {
             placeholder="Choose a language..."
             defaultValue="ts"
             renderOption={(option) => (
-              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
                 <Icon name={iconMap[option.value] || 'symbol-method'} />
                 {option.label}
               </span>
@@ -393,7 +393,7 @@ export const CustomRender: Story = {
         </div>
 
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             With Colors and Badges
           </h4>
           <Select
@@ -412,7 +412,7 @@ export const CustomRender: Story = {
                 cancelled: '#f44336',
               };
               return (
-                <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
                   <span style={{
                     width: '8px',
                     height: '8px',
@@ -427,20 +427,20 @@ export const CustomRender: Story = {
         </div>
 
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             Custom Display (Different in Trigger vs Options)
           </h4>
           <Select
             options={languagesWithIcons}
             placeholder="Choose a language..."
             renderValue={(option) => (
-              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
                 <Icon name={iconMap[option.value] || 'symbol-method'} />
                 <strong>{option.label}</strong>
               </span>
             )}
             renderOption={(option, isSelected) => (
-              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
                 <Icon name={iconMap[option.value] || 'symbol-method'} />
                 {option.label}
                 {isSelected && <Icon name="check" style={{ marginLeft: 'auto' }} />}
@@ -513,10 +513,10 @@ export const SophisticatedOptions: Story = {
     };
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', minWidth: '400px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', minWidth: '400px' }}>
         {/* User profiles with avatars */}
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             User Profiles with Role
           </h4>
           <Select
@@ -525,19 +525,19 @@ export const SophisticatedOptions: Story = {
             searchable
             searchPlaceholder="Search team members..."
             renderOption={(option) => (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', padding: 'var(--spacing-1) 0' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)', padding: 'var(--bk-spacing-1) 0' }}>
                 {/* Avatar */}
                 <div style={{
                   width: '32px',
                   height: '32px',
                   borderRadius: '50%',
-                  backgroundColor: 'var(--color-primary)',
-                  color: 'var(--color-primary-foreground)',
+                  backgroundColor: 'var(--bk-color-primary)',
+                  color: 'var(--bk-color-primary-foreground)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: 'var(--font-size-sm)',
-                  fontWeight: 'var(--font-weight-semibold)',
+                  fontSize: 'var(--bk-font-size-sm)',
+                  fontWeight: 'var(--bk-font-weight-semibold)',
                   flexShrink: 0,
                 }}>
                   {option.label?.[0]}
@@ -545,7 +545,7 @@ export const SophisticatedOptions: Story = {
                 {/* User info */}
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{
-                    fontWeight: 'var(--font-weight-medium)',
+                    fontWeight: 'var(--bk-font-weight-medium)',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     whiteSpace: 'nowrap',
@@ -553,8 +553,8 @@ export const SophisticatedOptions: Story = {
                     {option.label}
                   </div>
                   <div style={{
-                    fontSize: 'var(--font-size-xs)',
-                    color: 'var(--color-foreground-muted)',
+                    fontSize: 'var(--bk-font-size-xs)',
+                    color: 'var(--bk-color-foreground-muted)',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     whiteSpace: 'nowrap',
@@ -565,18 +565,18 @@ export const SophisticatedOptions: Story = {
               </div>
             )}
             renderValue={(option) => (
-              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
                 <div style={{
                   width: '20px',
                   height: '20px',
                   borderRadius: '50%',
-                  backgroundColor: 'var(--color-primary)',
-                  color: 'var(--color-primary-foreground)',
+                  backgroundColor: 'var(--bk-color-primary)',
+                  color: 'var(--bk-color-primary-foreground)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: 'var(--font-size-xs)',
-                  fontWeight: 'var(--font-weight-semibold)',
+                  fontSize: 'var(--bk-font-size-xs)',
+                  fontWeight: 'var(--bk-font-weight-semibold)',
                 }}>
                   {option.label?.[0]}
                 </div>
@@ -588,7 +588,7 @@ export const SophisticatedOptions: Story = {
 
         {/* Projects with status and progress */}
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             Projects with Status & Progress
           </h4>
           <Select
@@ -598,19 +598,19 @@ export const SophisticatedOptions: Story = {
             renderOption={(option) => {
               const project = option as ProjectOption;
               return (
-                <div style={{ padding: 'var(--spacing-1) 0' }}>
+                <div style={{ padding: 'var(--bk-spacing-1) 0' }}>
                   {/* Header with name and status */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)', marginBottom: 'var(--spacing-1)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)', marginBottom: 'var(--bk-spacing-1)' }}>
                     <span style={{
-                      fontWeight: 'var(--font-weight-medium)',
+                      fontWeight: 'var(--bk-font-weight-medium)',
                       flex: 1,
                     }}>
                       {project.label}
                     </span>
                     <span style={{
-                      fontSize: 'var(--font-size-xs)',
-                      padding: 'var(--spacing-0-5) var(--spacing-1-5)',
-                      borderRadius: 'var(--radius-full)',
+                      fontSize: 'var(--bk-font-size-xs)',
+                      padding: 'var(--bk-spacing-0-5) var(--bk-spacing-1-5)',
+                      borderRadius: 'var(--bk-radius-full)',
                       backgroundColor: getStatusColor(project.status) + '20',
                       color: getStatusColor(project.status),
                       textTransform: 'capitalize',
@@ -620,23 +620,23 @@ export const SophisticatedOptions: Story = {
                   </div>
                   {/* Description */}
                   <div style={{
-                    fontSize: 'var(--font-size-xs)',
-                    color: 'var(--color-foreground-muted)',
-                    marginBottom: 'var(--spacing-1-5)',
+                    fontSize: 'var(--bk-font-size-xs)',
+                    color: 'var(--bk-color-foreground-muted)',
+                    marginBottom: 'var(--bk-spacing-1-5)',
                   }}>
                     {project.description}
                   </div>
                   {/* Progress bar and metadata */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)' }}>
-                    <div style={{ flex: 1, height: '4px', backgroundColor: 'var(--color-secondary)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)' }}>
+                    <div style={{ flex: 1, height: '4px', backgroundColor: 'var(--bk-color-secondary)', borderRadius: 'var(--bk-radius-full)', overflow: 'hidden' }}>
                       <div style={{
                         height: '100%',
                         width: `${project.progress}%`,
                         backgroundColor: getStatusColor(project.status),
-                        transition: 'width var(--transition-base)',
+                        transition: 'width var(--bk-transition-base)',
                       }} />
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)', fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
                       <span>{project.progress}%</span>
                       <span>•</span>
                       <Icon name="person" />
@@ -649,7 +649,7 @@ export const SophisticatedOptions: Story = {
             renderValue={(option) => {
               const project = option as ProjectOption;
               return (
-                <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
                   <span style={{
                     width: '8px',
                     height: '8px',
@@ -657,7 +657,7 @@ export const SophisticatedOptions: Story = {
                     backgroundColor: getStatusColor(project.status),
                   }} />
                   {project.label}
-                  <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+                  <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
                     ({project.progress}%)
                   </span>
                 </span>
@@ -668,7 +668,7 @@ export const SophisticatedOptions: Story = {
 
         {/* Files with icons and metadata */}
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             Recent Files with Metadata
           </h4>
           <Select
@@ -677,11 +677,11 @@ export const SophisticatedOptions: Story = {
             searchable
             searchPlaceholder="Search files..."
             renderOption={(option) => (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', padding: 'var(--spacing-0-5) 0' }}>
-                <Icon name={getFileIcon(option.label || '')} style={{ fontSize: 'var(--font-size-lg)', flexShrink: 0 }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)', padding: 'var(--bk-spacing-0-5) 0' }}>
+                <Icon name={getFileIcon(option.label || '')} style={{ fontSize: 'var(--bk-font-size-lg)', flexShrink: 0 }} />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{
-                    fontFamily: 'var(--font-family-mono)',
+                    fontFamily: 'var(--bk-font-family-mono)',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     whiteSpace: 'nowrap',
@@ -689,8 +689,8 @@ export const SophisticatedOptions: Story = {
                     {option.label}
                   </div>
                   <div style={{
-                    fontSize: 'var(--font-size-xs)',
-                    color: 'var(--color-foreground-muted)',
+                    fontSize: 'var(--bk-font-size-xs)',
+                    color: 'var(--bk-color-foreground-muted)',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     whiteSpace: 'nowrap',
@@ -701,7 +701,7 @@ export const SophisticatedOptions: Story = {
               </div>
             )}
             renderValue={(option) => (
-              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)', fontFamily: 'var(--font-family-mono)' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)', fontFamily: 'var(--bk-font-family-mono)' }}>
                 <Icon name={getFileIcon(option.label || '')} />
                 {option.label}
               </span>
@@ -727,9 +727,9 @@ export const SophisticatedOptions: Story = {
 export const PositionVariants: Story = {
   args: { options: [] },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-12)', minWidth: '300px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-12)', minWidth: '300px' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Auto Position (default)
         </h4>
         <Select
@@ -739,7 +739,7 @@ export const PositionVariants: Story = {
         />
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Bottom Position
         </h4>
         <Select
@@ -749,7 +749,7 @@ export const PositionVariants: Story = {
         />
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Top Position
         </h4>
         <Select
@@ -775,9 +775,9 @@ export const PositionVariants: Story = {
 export const States: Story = {
   args: { options: [] },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', minWidth: '300px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', minWidth: '300px' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Disabled Select
         </h4>
         <Select
@@ -787,7 +787,7 @@ export const States: Story = {
         />
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Error State
         </h4>
         <Select
@@ -797,7 +797,7 @@ export const States: Story = {
         />
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           With Disabled Options
         </h4>
         <Select
@@ -848,7 +848,7 @@ const ControlledSelectStory = () => {
   const [value, setValue] = useState<string>('ts');
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', minWidth: '300px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', minWidth: '300px' }}>
       <Select
         options={languageOptions}
         value={value}
@@ -856,10 +856,10 @@ const ControlledSelectStory = () => {
         placeholder="Choose a language..."
       />
       <div style={{
-        padding: 'var(--padding-md)',
-        backgroundColor: 'var(--color-background-secondary)',
-        borderRadius: 'var(--radius-sm)',
-        fontSize: 'var(--font-size-sm)',
+        padding: 'var(--bk-padding-md)',
+        backgroundColor: 'var(--bk-color-background-secondary)',
+        borderRadius: 'var(--bk-radius-sm)',
+        fontSize: 'var(--bk-font-size-sm)',
       }}>
         Selected value: <strong>{value || 'none'}</strong>
       </div>
@@ -900,22 +900,22 @@ const FormExampleStory = () => {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      gap: 'var(--spacing-4)',
-      padding: 'var(--spacing-4)',
-      backgroundColor: 'var(--color-background-secondary)',
-      borderRadius: 'var(--radius-md)',
+      gap: 'var(--bk-spacing-4)',
+      padding: 'var(--bk-spacing-4)',
+      backgroundColor: 'var(--bk-color-background-secondary)',
+      borderRadius: 'var(--bk-radius-md)',
       minWidth: '400px',
     }}>
-      <h3 style={{ margin: 0, fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+      <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
         Developer Profile
       </h3>
 
       <div>
         <label style={{
           display: 'block',
-          marginBottom: 'var(--spacing-1)',
-          fontSize: 'var(--font-size-sm)',
-          fontWeight: 'var(--font-weight-medium)',
+          marginBottom: 'var(--bk-spacing-1)',
+          fontSize: 'var(--bk-font-size-sm)',
+          fontWeight: 'var(--bk-font-weight-medium)',
         }}>
           Primary Language
         </label>
@@ -932,9 +932,9 @@ const FormExampleStory = () => {
       <div>
         <label style={{
           display: 'block',
-          marginBottom: 'var(--spacing-1)',
-          fontSize: 'var(--font-size-sm)',
-          fontWeight: 'var(--font-weight-medium)',
+          marginBottom: 'var(--bk-spacing-1)',
+          fontSize: 'var(--bk-font-size-sm)',
+          fontWeight: 'var(--bk-font-weight-medium)',
         }}>
           Country
         </label>
@@ -951,9 +951,9 @@ const FormExampleStory = () => {
       <div>
         <label style={{
           display: 'block',
-          marginBottom: 'var(--spacing-1)',
-          fontSize: 'var(--font-size-sm)',
-          fontWeight: 'var(--font-weight-medium)',
+          marginBottom: 'var(--bk-spacing-1)',
+          fontSize: 'var(--bk-font-size-sm)',
+          fontWeight: 'var(--bk-font-weight-medium)',
         }}>
           Experience Level
         </label>
@@ -967,11 +967,11 @@ const FormExampleStory = () => {
       </div>
 
       <div style={{
-        marginTop: 'var(--spacing-2)',
-        padding: 'var(--padding-md)',
-        backgroundColor: 'var(--color-background)',
-        borderRadius: 'var(--radius-sm)',
-        fontSize: 'var(--font-size-sm)',
+        marginTop: 'var(--bk-spacing-2)',
+        padding: 'var(--bk-padding-md)',
+        backgroundColor: 'var(--bk-color-background)',
+        borderRadius: 'var(--bk-radius-sm)',
+        fontSize: 'var(--bk-font-size-sm)',
       }}>
         <div><strong>Language:</strong> {formData.language || 'Not selected'}</div>
         <div><strong>Country:</strong> {formData.country || 'Not selected'}</div>
@@ -1032,13 +1032,13 @@ export const LongList: Story = {
 export const Showcase: Story = {
   args: { options: [] },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', padding: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)' }}>
       {/* Sizes */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Sizes
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', maxWidth: '300px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', maxWidth: '300px' }}>
           <Select options={basicOptions} size="xs" placeholder="Extra Small" />
           <Select options={basicOptions} size="sm" placeholder="Small" />
           <Select options={basicOptions} size="md" placeholder="Medium" />
@@ -1049,10 +1049,10 @@ export const Showcase: Story = {
 
       {/* Custom Render */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Custom Render
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', maxWidth: '300px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', maxWidth: '300px' }}>
           <Select
             options={languageOptions}
             placeholder="Choose a programming language..."
@@ -1065,7 +1065,7 @@ export const Showcase: Story = {
             ]}
             placeholder="With custom styling..."
             renderOption={(option) => (
-              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
                 <span style={{
                   width: '8px',
                   height: '8px',
@@ -1081,7 +1081,7 @@ export const Showcase: Story = {
 
       {/* Searchable */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Searchable
         </h3>
         <div style={{ maxWidth: '300px' }}>
@@ -1096,10 +1096,10 @@ export const Showcase: Story = {
 
       {/* States */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           States
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', maxWidth: '300px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', maxWidth: '300px' }}>
           <Select
             options={basicOptions}
             placeholder="Normal state"
@@ -1123,7 +1123,7 @@ export const Showcase: Story = {
 
       {/* Full Width */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Full Width
         </h3>
         <Select
@@ -1136,20 +1136,20 @@ export const Showcase: Story = {
 
       {/* Position Variants */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Position Variants
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-lg)', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-lg)', flexWrap: 'wrap' }}>
           <div style={{ minWidth: '250px' }}>
-            <div style={{ marginBottom: 'var(--spacing-1)', fontSize: 'var(--font-size-xs)' }}>Auto Position</div>
+            <div style={{ marginBottom: 'var(--bk-spacing-1)', fontSize: 'var(--bk-font-size-xs)' }}>Auto Position</div>
             <Select options={basicOptions} position="auto" placeholder="Auto" />
           </div>
           <div style={{ minWidth: '250px' }}>
-            <div style={{ marginBottom: 'var(--spacing-1)', fontSize: 'var(--font-size-xs)' }}>Bottom Position</div>
+            <div style={{ marginBottom: 'var(--bk-spacing-1)', fontSize: 'var(--bk-font-size-xs)' }}>Bottom Position</div>
             <Select options={basicOptions} position="bottom" placeholder="Bottom" />
           </div>
           <div style={{ minWidth: '250px' }}>
-            <div style={{ marginBottom: 'var(--spacing-1)', fontSize: 'var(--font-size-xs)' }}>Top Position</div>
+            <div style={{ marginBottom: 'var(--bk-spacing-1)', fontSize: 'var(--bk-font-size-xs)' }}>Top Position</div>
             <Select options={basicOptions} position="top" placeholder="Top" />
           </div>
         </div>

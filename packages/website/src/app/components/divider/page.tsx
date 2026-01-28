@@ -31,7 +31,7 @@ const dividerProps: PropDefinition[] = [
   {
     name: 'spacing',
     type: 'string',
-    default: '"var(--spacing-4)"',
+    default: '"var(--bk-spacing-4)"',
     description: 'Vertical spacing for horizontal or horizontal spacing for vertical dividers',
   },
   {
@@ -42,7 +42,7 @@ const dividerProps: PropDefinition[] = [
 ];
 
 const Paragraph = ({ children, ...props }: { children: React.ReactNode;[key: string]: any }) => (
-  <p style={{ margin: 0, fontSize: 'var(--font-size-md)', color: 'var(--vscode-foreground)', ...props.style }}>
+  <p style={{ margin: 0, fontSize: 'var(--bk-font-size-md)', color: 'var(--vscode-foreground)', ...props.style }}>
     {children}
   </p>
 );
@@ -97,23 +97,23 @@ function App() {
         title="Label Alignment"
         description="Labels can be aligned left, center (default), or right within the divider."
         preview={
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', maxWidth: '600px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', maxWidth: '600px' }}>
             <div>
-              <Paragraph style={{ marginBottom: 'var(--spacing-2)' }}>Content before section</Paragraph>
+              <Paragraph style={{ marginBottom: 'var(--bk-spacing-2)' }}>Content before section</Paragraph>
               <Divider label="Getting Started" labelAlign="left" />
-              <Paragraph style={{ marginTop: 'var(--spacing-2)' }}>Follow these steps to begin.</Paragraph>
+              <Paragraph style={{ marginTop: 'var(--bk-spacing-2)' }}>Follow these steps to begin.</Paragraph>
             </div>
 
             <div>
-              <Paragraph style={{ marginBottom: 'var(--spacing-2)' }}>This is the main content.</Paragraph>
+              <Paragraph style={{ marginBottom: 'var(--bk-spacing-2)' }}>This is the main content.</Paragraph>
               <Divider label="Section Break" labelAlign="center" />
-              <Paragraph style={{ marginTop: 'var(--spacing-2)' }}>More content after centered divider.</Paragraph>
+              <Paragraph style={{ marginTop: 'var(--bk-spacing-2)' }}>More content after centered divider.</Paragraph>
             </div>
 
             <div>
-              <Paragraph style={{ marginBottom: 'var(--spacing-2)' }}>Content continues here.</Paragraph>
+              <Paragraph style={{ marginBottom: 'var(--bk-spacing-2)' }}>Content continues here.</Paragraph>
               <Divider label="End" labelAlign="right" />
-              <Paragraph style={{ marginTop: 'var(--spacing-2)' }}>This is the final section.</Paragraph>
+              <Paragraph style={{ marginTop: 'var(--bk-spacing-2)' }}>This is the final section.</Paragraph>
             </div>
           </div>
         }
@@ -126,9 +126,9 @@ function App() {
         title="Border Styles"
         description="Three border styles available: solid (default), dashed, and dotted."
         preview={
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', maxWidth: '600px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', maxWidth: '600px' }}>
             <div>
-              <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 600 }}>
+              <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
                 Solid (default)
               </div>
               <Paragraph>Content above solid divider</Paragraph>
@@ -137,7 +137,7 @@ function App() {
             </div>
 
             <div>
-              <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 600 }}>
+              <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
                 Dashed
               </div>
               <Paragraph>Content above dashed divider</Paragraph>
@@ -146,7 +146,7 @@ function App() {
             </div>
 
             <div>
-              <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 600 }}>
+              <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
                 Dotted
               </div>
               <Paragraph>Content above dotted divider</Paragraph>
@@ -164,8 +164,8 @@ function App() {
         title="Vertical Orientation"
         description="Vertical dividers separate content horizontally. Best used in flex containers with a defined height."
         preview={
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', height: '100px', gap: 'var(--spacing-4)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', height: '100px', gap: 'var(--bk-spacing-4)' }}>
               <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Paragraph>Left content</Paragraph>
               </div>
@@ -175,11 +175,11 @@ function App() {
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', height: '40px', gap: 'var(--spacing-3)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', height: '40px', gap: 'var(--bk-spacing-3)' }}>
               <Button variant="primary">Button 1</Button>
-              <Divider orientation="vertical" spacing="var(--spacing-2)" />
+              <Divider orientation="vertical" spacing="var(--bk-spacing-2)" />
               <Button variant="secondary">Button 2</Button>
-              <Divider orientation="vertical" spacing="var(--spacing-2)" />
+              <Divider orientation="vertical" spacing="var(--bk-spacing-2)" />
               <Button variant="ghost">Button 3</Button>
             </div>
           </div>
@@ -194,45 +194,45 @@ function App() {
 // Between buttons (requires height on parent)
 <div style={{ display: 'flex', height: '40px' }}>
   <Button>Button 1</Button>
-  <Divider orientation="vertical" spacing="var(--spacing-2)" />
+  <Divider orientation="vertical" spacing="var(--bk-spacing-2)" />
   <Button>Button 2</Button>
 </div>`}
       />
 
       <Showcase
         title="Custom Spacing"
-        description="Control the spacing around dividers using the spacing prop. Default is var(--spacing-4)."
+        description="Control the spacing around dividers using the spacing prop. Default is var(--bk-spacing-4)."
         preview={
           <div style={{ maxWidth: '600px' }}>
             <div>
               <Paragraph>Content with minimal spacing</Paragraph>
-              <Divider spacing="var(--spacing-1)" />
+              <Divider spacing="var(--bk-spacing-1)" />
               <Paragraph>Very tight spacing (spacing-1)</Paragraph>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)' }}>
               <Paragraph>Content with default spacing</Paragraph>
-              <Divider spacing="var(--spacing-4)" />
+              <Divider spacing="var(--bk-spacing-4)" />
               <Paragraph>Default spacing (spacing-4)</Paragraph>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)' }}>
               <Paragraph>Content with generous spacing</Paragraph>
-              <Divider spacing="var(--spacing-8)" />
+              <Divider spacing="var(--bk-spacing-8)" />
               <Paragraph>Large spacing (spacing-8)</Paragraph>
             </div>
           </div>
         }
-        code={`<Divider spacing="var(--spacing-1)" />
-<Divider spacing="var(--spacing-4)" />
-<Divider spacing="var(--spacing-8)" />`}
+        code={`<Divider spacing="var(--bk-spacing-1)" />
+<Divider spacing="var(--bk-spacing-4)" />
+<Divider spacing="var(--bk-spacing-8)" />`}
       />
 
       <Showcase
         title="Custom Colors"
         description="Customize divider color using the color prop with any valid CSS color or design token."
         preview={
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', maxWidth: '600px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', maxWidth: '600px' }}>
             <div>
               <Paragraph>Default border color</Paragraph>
               <Divider />
@@ -276,22 +276,22 @@ function App() {
         preview={
           <div style={{
             maxWidth: '400px',
-            padding: 'var(--spacing-6)',
+            padding: 'var(--bk-spacing-6)',
             backgroundColor: 'var(--vscode-sideBar-background)',
             border: '1px solid var(--vscode-panel-border)',
-            borderRadius: 'var(--border-radius-md)',
+            borderRadius: 'var(--bk-radius-md)',
           }}>
-            <h2 style={{ marginTop: 0, marginBottom: 'var(--spacing-4)', fontSize: 'var(--font-size-xl)', fontWeight: 600 }}>
+            <h2 style={{ marginTop: 0, marginBottom: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-xl)', fontWeight: 600 }}>
               Sign In
             </h2>
 
-            <div style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginBottom: 'var(--bk-spacing-3)' }}>
               <Button variant="primary" width="block">
                 Sign in with Google
               </Button>
             </div>
 
-            <div style={{ marginBottom: 'var(--spacing-4)' }}>
+            <div style={{ marginBottom: 'var(--bk-spacing-4)' }}>
               <Button variant="secondary" width="block">
                 Sign in with GitHub
               </Button>
@@ -299,8 +299,8 @@ function App() {
 
             <Divider label="OR" />
 
-            <div style={{ marginBottom: 'var(--spacing-3)' }}>
-              <FieldLabel style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>
+            <div style={{ marginBottom: 'var(--bk-spacing-3)' }}>
+              <FieldLabel style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>
                 Email
               </FieldLabel>
               <Input
@@ -309,8 +309,8 @@ function App() {
               />
             </div>
 
-            <div style={{ marginBottom: 'var(--spacing-4)' }}>
-              <FieldLabel style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>
+            <div style={{ marginBottom: 'var(--bk-spacing-4)' }}>
+              <FieldLabel style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>
                 Password
               </FieldLabel>
               <Input
@@ -354,32 +354,32 @@ function App() {
         description="Using left-aligned labeled dividers to organize documentation or long-form content into clear sections."
         preview={
           <div style={{ maxWidth: '700px' }}>
-            <h1 style={{ fontSize: 'var(--font-size-2xl)', fontWeight: 700, marginTop: 0, marginBottom: 'var(--spacing-3)' }}>
+            <h1 style={{ fontSize: 'var(--bk-font-size-2xl)', fontWeight: 700, marginTop: 0, marginBottom: 'var(--bk-spacing-3)' }}>
               Documentation
             </h1>
 
-            <Paragraph style={{ marginBottom: 'var(--spacing-4)' }}>
+            <Paragraph style={{ marginBottom: 'var(--bk-spacing-4)' }}>
               Welcome to our comprehensive documentation. This guide will help you understand
               all the features and capabilities of our platform.
             </Paragraph>
 
             <Divider label="Introduction" labelAlign="left" />
 
-            <Paragraph style={{ marginBottom: 'var(--spacing-4)' }}>
+            <Paragraph style={{ marginBottom: 'var(--bk-spacing-4)' }}>
               Our platform provides a complete solution for building modern web applications.
               It includes everything you need to get started quickly and scale efficiently.
             </Paragraph>
 
             <Divider label="Getting Started" labelAlign="left" />
 
-            <Paragraph style={{ marginBottom: 'var(--spacing-4)' }}>
+            <Paragraph style={{ marginBottom: 'var(--bk-spacing-4)' }}>
               To begin, install the package using your preferred package manager. Follow the
               installation guide and you'll be up and running in minutes.
             </Paragraph>
 
             <Divider label="Key Features" labelAlign="left" />
 
-            <Paragraph style={{ marginBottom: 'var(--spacing-4)' }}>
+            <Paragraph style={{ marginBottom: 'var(--bk-spacing-4)' }}>
               The platform offers numerous features including real-time collaboration,
               advanced analytics, seamless integrations, and enterprise-grade security.
             </Paragraph>

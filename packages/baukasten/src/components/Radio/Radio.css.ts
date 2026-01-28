@@ -23,7 +23,7 @@ export const radioWrapper = style({
   selectors: {
     '&:has(input:disabled)': {
       cursor: 'not-allowed',
-      opacity: 'var(--opacity-disabled)',
+      opacity: 'var(--bk-opacity-disabled)',
     },
   },
 });
@@ -35,29 +35,29 @@ const radioSizeBase = style({});
 
 export const radioIndicatorSize = styleVariants({
   xs: [radioSizeBase, {
-    width: 'var(--spacing-3)',
-    height: 'var(--spacing-3)',
-    minWidth: 'var(--spacing-3)',
+    width: 'var(--bk-spacing-3)',
+    height: 'var(--bk-spacing-3)',
+    minWidth: 'var(--bk-spacing-3)',
   }],
   sm: [radioSizeBase, {
-    width: 'var(--spacing-3-5)',
-    height: 'var(--spacing-3-5)',
-    minWidth: 'var(--spacing-3-5)',
+    width: 'var(--bk-spacing-3-5)',
+    height: 'var(--bk-spacing-3-5)',
+    minWidth: 'var(--bk-spacing-3-5)',
   }],
   md: [radioSizeBase, {
-    width: 'var(--spacing-4)',
-    height: 'var(--spacing-4)',
-    minWidth: 'var(--spacing-4)',
+    width: 'var(--bk-spacing-4)',
+    height: 'var(--bk-spacing-4)',
+    minWidth: 'var(--bk-spacing-4)',
   }],
   lg: [radioSizeBase, {
-    width: 'var(--spacing-5)',
-    height: 'var(--spacing-5)',
-    minWidth: 'var(--spacing-5)',
+    width: 'var(--bk-spacing-5)',
+    height: 'var(--bk-spacing-5)',
+    minWidth: 'var(--bk-spacing-5)',
   }],
   xl: [radioSizeBase, {
-    width: 'var(--spacing-6)',
-    height: 'var(--spacing-6)',
-    minWidth: 'var(--spacing-6)',
+    width: 'var(--bk-spacing-6)',
+    height: 'var(--bk-spacing-6)',
+    minWidth: 'var(--bk-spacing-6)',
   }],
 });
 
@@ -71,32 +71,32 @@ export const radioIndicator = recipe({
     alignItems: 'center',
     justifyContent: 'center',
     flexShrink: 0,
-    backgroundColor: 'var(--color-checkbox-background)',
-    border: 'var(--border-width-1) solid var(--color-checkbox-border)',
-    borderRadius: 'var(--radius-full)',
-    transition: 'var(--transition-colors)',
-    marginTop: 'var(--spacing-0-5)',
+    backgroundColor: 'var(--bk-color-checkbox-background)',
+    border: 'var(--bk-border-width-1) solid var(--bk-color-checkbox-border)',
+    borderRadius: 'var(--bk-radius-full)',
+    transition: 'var(--bk-transition-colors)',
+    marginTop: 'var(--bk-spacing-0-5)',
 
     selectors: {
       // Hover state
       [`${hiddenInput}:hover:not(:disabled) ~ &`]: {
-        borderColor: 'var(--color-border-hover)',
+        borderColor: 'var(--bk-color-border-hover)',
       },
 
       // Focus state
       [`${hiddenInput}:focus-visible ~ &`]: {
-        outline: 'var(--border-width-1) solid var(--color-focus)',
-        outlineOffset: 'var(--spacing-0-5)',
+        outline: 'var(--bk-border-width-1) solid var(--bk-color-focus)',
+        outlineOffset: 'var(--bk-spacing-0-5)',
       },
 
       // Checked state
       [`${hiddenInput}:checked ~ &`]: {
-        borderColor: 'var(--color-checkbox-checked-border)',
+        borderColor: 'var(--bk-color-checkbox-checked-border)',
       },
 
       // Disabled state
       [`${hiddenInput}:disabled ~ &`]: {
-        opacity: 'var(--opacity-disabled)',
+        opacity: 'var(--bk-opacity-disabled)',
       },
     },
   },
@@ -123,24 +123,24 @@ const radioDotSizeBase = style({});
 
 export const radioDotSize = styleVariants({
   xs: [radioDotSizeBase, {
-    width: 'var(--spacing-1-5)',
-    height: 'var(--spacing-1-5)',
+    width: 'var(--bk-spacing-1-5)',
+    height: 'var(--bk-spacing-1-5)',
   }],
   sm: [radioDotSizeBase, {
-    width: 'var(--spacing-2)',
-    height: 'var(--spacing-2)',
+    width: 'var(--bk-spacing-2)',
+    height: 'var(--bk-spacing-2)',
   }],
   md: [radioDotSizeBase, {
-    width: 'var(--spacing-2)',
-    height: 'var(--spacing-2)',
+    width: 'var(--bk-spacing-2)',
+    height: 'var(--bk-spacing-2)',
   }],
   lg: [radioDotSizeBase, {
-    width: 'var(--spacing-2-5)',
-    height: 'var(--spacing-2-5)',
+    width: 'var(--bk-spacing-2-5)',
+    height: 'var(--bk-spacing-2-5)',
   }],
   xl: [radioDotSizeBase, {
-    width: 'var(--spacing-3)',
-    height: 'var(--spacing-3)',
+    width: 'var(--bk-spacing-3)',
+    height: 'var(--bk-spacing-3)',
   }],
 });
 
@@ -149,11 +149,11 @@ export const radioDotSize = styleVariants({
  */
 export const radioDot = recipe({
   base: {
-    backgroundColor: 'var(--color-checkbox-foreground)',
-    borderRadius: 'var(--radius-full)',
+    backgroundColor: 'var(--bk-color-checkbox-foreground)',
+    borderRadius: 'var(--bk-radius-full)',
     opacity: 0,
     transform: 'scale(0)',
-    transition: 'opacity var(--transition-fast), transform var(--transition-fast)',
+    transition: 'opacity var(--bk-transition-fast), transform var(--bk-transition-fast)',
 
     selectors: {
       [`${hiddenInput}:checked ~ ${radioIndicator.classNames.base} &`]: {

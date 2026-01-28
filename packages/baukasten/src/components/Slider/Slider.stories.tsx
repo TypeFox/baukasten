@@ -170,33 +170,33 @@ export const WithFormatter: Story = {
  */
 export const Sizes: Story = {
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', width: '400px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', width: '400px' }}>
             <div>
-                <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                     Extra Small (xs)
                 </h4>
                 <Slider size="xs" defaultValue={25} showValue showMinMax marks={25} />
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                     Small (sm)
                 </h4>
                 <Slider size="sm" defaultValue={35} showValue showMinMax marks={25} />
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                     Medium (md) - Default
                 </h4>
                 <Slider size="md" defaultValue={50} showValue showMinMax marks={25} />
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                     Large (lg)
                 </h4>
                 <Slider size="lg" defaultValue={65} showValue showMinMax marks={25} />
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                     Extra Large (xl)
                 </h4>
                 <Slider size="xl" defaultValue={85} showValue showMinMax marks={25} />
@@ -217,9 +217,9 @@ export const Sizes: Story = {
  */
 export const CustomRanges: Story = {
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', width: '400px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', width: '400px' }}>
             <div>
-                <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                     Volume Control (0-100)
                 </h4>
                 <Slider
@@ -233,7 +233,7 @@ export const CustomRanges: Story = {
                 />
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                     Temperature (-10 to 40°C)
                 </h4>
                 <Slider
@@ -247,7 +247,7 @@ export const CustomRanges: Story = {
                 />
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                     Price Range ($0-$1000)
                 </h4>
                 <Slider
@@ -261,7 +261,7 @@ export const CustomRanges: Story = {
                 />
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                     Rating (0-5 stars)
                 </h4>
                 <Slider
@@ -286,7 +286,7 @@ export const Controlled: Story = {
         const [value, setValue] = useState(50);
 
         return (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', width: '400px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '400px' }}>
                 <Slider
                     value={value}
                     onChange={setValue}
@@ -294,24 +294,24 @@ export const Controlled: Story = {
                     showMinMax
                 />
                 <div style={{
-                    padding: 'var(--spacing-3)',
-                    backgroundColor: 'var(--color-secondary)',
-                    borderRadius: 'var(--radius-md)',
-                    fontSize: 'var(--font-size-sm)',
+                    padding: 'var(--bk-spacing-3)',
+                    backgroundColor: 'var(--bk-color-secondary)',
+                    borderRadius: 'var(--bk-radius-md)',
+                    fontSize: 'var(--bk-font-size-sm)',
                 }}>
                     Current value: <strong>{value}</strong>
                 </div>
-                <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
+                <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
                     <button
                         onClick={() => setValue(0)}
                         style={{
-                            padding: 'var(--spacing-2) var(--spacing-3)',
-                            backgroundColor: 'var(--color-secondary)',
-                            color: 'var(--color-secondary-foreground)',
+                            padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+                            backgroundColor: 'var(--bk-color-secondary)',
+                            color: 'var(--bk-color-secondary-foreground)',
                             border: 'none',
-                            borderRadius: 'var(--radius-sm)',
+                            borderRadius: 'var(--bk-radius-sm)',
                             cursor: 'pointer',
-                            fontSize: 'var(--font-size-sm)',
+                            fontSize: 'var(--bk-font-size-sm)',
                         }}
                     >
                         Min
@@ -319,13 +319,13 @@ export const Controlled: Story = {
                     <button
                         onClick={() => setValue(50)}
                         style={{
-                            padding: 'var(--spacing-2) var(--spacing-3)',
-                            backgroundColor: 'var(--color-secondary)',
-                            color: 'var(--color-secondary-foreground)',
+                            padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+                            backgroundColor: 'var(--bk-color-secondary)',
+                            color: 'var(--bk-color-secondary-foreground)',
                             border: 'none',
-                            borderRadius: 'var(--radius-sm)',
+                            borderRadius: 'var(--bk-radius-sm)',
                             cursor: 'pointer',
-                            fontSize: 'var(--font-size-sm)',
+                            fontSize: 'var(--bk-font-size-sm)',
                         }}
                     >
                         Middle
@@ -333,13 +333,13 @@ export const Controlled: Story = {
                     <button
                         onClick={() => setValue(100)}
                         style={{
-                            padding: 'var(--spacing-2) var(--spacing-3)',
-                            backgroundColor: 'var(--color-secondary)',
-                            color: 'var(--color-secondary-foreground)',
+                            padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+                            backgroundColor: 'var(--bk-color-secondary)',
+                            color: 'var(--bk-color-secondary-foreground)',
                             border: 'none',
-                            borderRadius: 'var(--radius-sm)',
+                            borderRadius: 'var(--bk-radius-sm)',
                             cursor: 'pointer',
-                            fontSize: 'var(--font-size-sm)',
+                            fontSize: 'var(--bk-font-size-sm)',
                         }}
                     >
                         Max
@@ -355,7 +355,7 @@ export const Controlled: Story = {
  */
 export const FullWidth: Story = {
     render: () => (
-        <div style={{ width: '600px', padding: 'var(--spacing-4)' }}>
+        <div style={{ width: '600px', padding: 'var(--bk-spacing-4)' }}>
             <Slider fullWidth showValue showMinMax defaultValue={60} />
         </div>
     ),
@@ -454,16 +454,16 @@ export const VolumeWithMarks: Story = {
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 'var(--spacing-4)',
+                gap: 'var(--bk-spacing-4)',
                 width: '500px',
-                padding: 'var(--spacing-4)',
-                backgroundColor: 'var(--color-secondary)',
-                borderRadius: 'var(--radius-lg)',
+                padding: 'var(--bk-spacing-4)',
+                backgroundColor: 'var(--bk-color-secondary)',
+                borderRadius: 'var(--bk-radius-lg)',
             }}>
                 <h3 style={{
                     margin: 0,
-                    fontSize: 'var(--font-size-lg)',
-                    fontWeight: 'var(--font-weight-semibold)',
+                    fontSize: 'var(--bk-font-size-lg)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
                 }}>
                     Volume Control
                 </h3>
@@ -502,16 +502,16 @@ export const TemperatureWithMarks: Story = {
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 'var(--spacing-4)',
+                gap: 'var(--bk-spacing-4)',
                 width: '500px',
-                padding: 'var(--spacing-4)',
-                backgroundColor: 'var(--color-secondary)',
-                borderRadius: 'var(--radius-lg)',
+                padding: 'var(--bk-spacing-4)',
+                backgroundColor: 'var(--bk-color-secondary)',
+                borderRadius: 'var(--bk-radius-lg)',
             }}>
                 <h3 style={{
                     margin: 0,
-                    fontSize: 'var(--font-size-lg)',
-                    fontWeight: 'var(--font-weight-semibold)',
+                    fontSize: 'var(--bk-font-size-lg)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
                 }}>
                     Thermostat
                 </h3>
@@ -534,10 +534,10 @@ export const TemperatureWithMarks: Story = {
                     size="lg"
                 />
                 <div style={{
-                    padding: 'var(--spacing-3)',
-                    backgroundColor: 'var(--color-info)',
-                    borderRadius: 'var(--radius-md)',
-                    fontSize: 'var(--font-size-sm)',
+                    padding: 'var(--bk-spacing-3)',
+                    backgroundColor: 'var(--bk-color-info)',
+                    borderRadius: 'var(--bk-radius-md)',
+                    fontSize: 'var(--bk-font-size-sm)',
                     textAlign: 'center',
                 }}>
                     Current Temperature: <strong>{temp}°C</strong>
@@ -568,16 +568,16 @@ export const AudioMixer: Story = {
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 'var(--spacing-4)',
+                gap: 'var(--bk-spacing-4)',
                 width: '500px',
-                padding: 'var(--spacing-4)',
-                backgroundColor: 'var(--color-secondary)',
-                borderRadius: 'var(--radius-lg)',
+                padding: 'var(--bk-spacing-4)',
+                backgroundColor: 'var(--bk-color-secondary)',
+                borderRadius: 'var(--bk-radius-lg)',
             }}>
                 <h3 style={{
                     margin: 0,
-                    fontSize: 'var(--font-size-lg)',
-                    fontWeight: 'var(--font-weight-semibold)',
+                    fontSize: 'var(--bk-font-size-lg)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
                 }}>
                     Audio Mixer
                 </h3>
@@ -585,9 +585,9 @@ export const AudioMixer: Story = {
                 <div>
                     <label style={{
                         display: 'block',
-                        marginBottom: 'var(--spacing-2)',
-                        fontSize: 'var(--font-size-sm)',
-                        fontWeight: 'var(--font-weight-medium)',
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
                     }}>
                         Master Volume
                     </label>
@@ -603,9 +603,9 @@ export const AudioMixer: Story = {
                 <div>
                     <label style={{
                         display: 'block',
-                        marginBottom: 'var(--spacing-2)',
-                        fontSize: 'var(--font-size-sm)',
-                        fontWeight: 'var(--font-weight-medium)',
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
                     }}>
                         Music
                     </label>
@@ -621,9 +621,9 @@ export const AudioMixer: Story = {
                 <div>
                     <label style={{
                         display: 'block',
-                        marginBottom: 'var(--spacing-2)',
-                        fontSize: 'var(--font-size-sm)',
-                        fontWeight: 'var(--font-weight-medium)',
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
                     }}>
                         Sound Effects
                     </label>
@@ -639,9 +639,9 @@ export const AudioMixer: Story = {
                 <div>
                     <label style={{
                         display: 'block',
-                        marginBottom: 'var(--spacing-2)',
-                        fontSize: 'var(--font-size-sm)',
-                        fontWeight: 'var(--font-weight-medium)',
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
                     }}>
                         Voice
                     </label>
@@ -671,16 +671,16 @@ export const SettingsPanel: Story = {
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 'var(--spacing-5)',
+                gap: 'var(--bk-spacing-5)',
                 width: '450px',
-                padding: 'var(--spacing-6)',
-                backgroundColor: 'var(--color-secondary)',
-                borderRadius: 'var(--radius-lg)',
+                padding: 'var(--bk-spacing-6)',
+                backgroundColor: 'var(--bk-color-secondary)',
+                borderRadius: 'var(--bk-radius-lg)',
             }}>
                 <h3 style={{
                     margin: 0,
-                    fontSize: 'var(--font-size-lg)',
-                    fontWeight: 'var(--font-weight-semibold)',
+                    fontSize: 'var(--bk-font-size-lg)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
                 }}>
                     Display Settings
                 </h3>
@@ -690,17 +690,17 @@ export const SettingsPanel: Story = {
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        marginBottom: 'var(--spacing-2)',
+                        marginBottom: 'var(--bk-spacing-2)',
                     }}>
                         <label style={{
-                            fontSize: 'var(--font-size-sm)',
-                            fontWeight: 'var(--font-weight-medium)',
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
                         }}>
                             Brightness
                         </label>
                         <span style={{
-                            fontSize: 'var(--font-size-sm)',
-                            color: 'var(--color-descriptionForeground)',
+                            fontSize: 'var(--bk-font-size-sm)',
+                            color: 'var(--bk-color-descriptionForeground)',
                         }}>
                             {brightness}%
                         </span>
@@ -720,17 +720,17 @@ export const SettingsPanel: Story = {
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        marginBottom: 'var(--spacing-2)',
+                        marginBottom: 'var(--bk-spacing-2)',
                     }}>
                         <label style={{
-                            fontSize: 'var(--font-size-sm)',
-                            fontWeight: 'var(--font-weight-medium)',
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
                         }}>
                             Contrast
                         </label>
                         <span style={{
-                            fontSize: 'var(--font-size-sm)',
-                            color: 'var(--color-descriptionForeground)',
+                            fontSize: 'var(--bk-font-size-sm)',
+                            color: 'var(--bk-color-descriptionForeground)',
                         }}>
                             {contrast}%
                         </span>
@@ -750,17 +750,17 @@ export const SettingsPanel: Story = {
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        marginBottom: 'var(--spacing-2)',
+                        marginBottom: 'var(--bk-spacing-2)',
                     }}>
                         <label style={{
-                            fontSize: 'var(--font-size-sm)',
-                            fontWeight: 'var(--font-weight-medium)',
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
                         }}>
                             Saturation
                         </label>
                         <span style={{
-                            fontSize: 'var(--font-size-sm)',
-                            color: 'var(--color-descriptionForeground)',
+                            fontSize: 'var(--bk-font-size-sm)',
+                            color: 'var(--bk-color-descriptionForeground)',
                         }}>
                             {saturation}%
                         </span>
@@ -782,15 +782,15 @@ export const SettingsPanel: Story = {
                         setSaturation(100);
                     }}
                     style={{
-                        padding: 'var(--spacing-2-5) var(--spacing-4)',
-                        backgroundColor: 'var(--color-primary)',
-                        color: 'var(--color-primary-foreground)',
+                        padding: 'var(--bk-spacing-2-5) var(--bk-spacing-4)',
+                        backgroundColor: 'var(--bk-color-primary)',
+                        color: 'var(--bk-color-primary-foreground)',
                         border: 'none',
-                        borderRadius: 'var(--radius-sm)',
+                        borderRadius: 'var(--bk-radius-sm)',
                         cursor: 'pointer',
-                        fontSize: 'var(--font-size-sm)',
-                        fontWeight: 'var(--font-weight-medium)',
-                        marginTop: 'var(--spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                        marginTop: 'var(--bk-spacing-2)',
                     }}
                 >
                     Reset to Defaults
@@ -811,23 +811,23 @@ export const PerformanceOptimized: Story = {
         const [commitCount, setCommitCount] = useState(0);
 
         return (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', width: '500px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '500px' }}>
                 <div style={{
-                    padding: 'var(--spacing-4)',
-                    backgroundColor: 'var(--color-secondary)',
-                    borderRadius: 'var(--radius-lg)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--bk-color-secondary)',
+                    borderRadius: 'var(--bk-radius-lg)',
                 }}>
                     <h3 style={{
-                        margin: '0 0 var(--spacing-3) 0',
-                        fontSize: 'var(--font-size-lg)',
-                        fontWeight: 'var(--font-weight-semibold)',
+                        margin: '0 0 var(--bk-spacing-3) 0',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
                     }}>
                         Performance Demo
                     </h3>
                     <p style={{
-                        margin: '0 0 var(--spacing-4) 0',
-                        fontSize: 'var(--font-size-sm)',
-                        color: 'var(--color-descriptionForeground)',
+                        margin: '0 0 var(--bk-spacing-4) 0',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        color: 'var(--bk-color-descriptionForeground)',
                     }}>
                         Use <code>onChange</code> for real-time UI updates and <code>onChangeCommitted</code> for expensive operations (API calls, heavy computations, etc.)
                     </p>
@@ -851,57 +851,57 @@ export const PerformanceOptimized: Story = {
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: '1fr 1fr',
-                    gap: 'var(--spacing-3)',
+                    gap: 'var(--bk-spacing-3)',
                 }}>
                     <div style={{
-                        padding: 'var(--spacing-3)',
-                        backgroundColor: 'var(--color-info)',
-                        borderRadius: 'var(--radius-md)',
+                        padding: 'var(--bk-spacing-3)',
+                        backgroundColor: 'var(--bk-color-info)',
+                        borderRadius: 'var(--bk-radius-md)',
                     }}>
                         <div style={{
-                            fontSize: 'var(--font-size-xs)',
-                            fontWeight: 'var(--font-weight-medium)',
-                            marginBottom: 'var(--spacing-1)',
+                            fontSize: 'var(--bk-font-size-xs)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                            marginBottom: 'var(--bk-spacing-1)',
                         }}>
                             onChange (Real-time)
                         </div>
                         <div style={{
-                            fontSize: 'var(--font-size-2xl)',
-                            fontWeight: 'var(--font-weight-bold)',
+                            fontSize: 'var(--bk-font-size-2xl)',
+                            fontWeight: 'var(--bk-font-weight-bold)',
                         }}>
                             {value}
                         </div>
                         <div style={{
-                            fontSize: 'var(--font-size-xs)',
-                            color: 'var(--color-descriptionForeground)',
-                            marginTop: 'var(--spacing-1)',
+                            fontSize: 'var(--bk-font-size-xs)',
+                            color: 'var(--bk-color-descriptionForeground)',
+                            marginTop: 'var(--bk-spacing-1)',
                         }}>
                             Updates: {updateCount}
                         </div>
                     </div>
 
                     <div style={{
-                        padding: 'var(--spacing-3)',
-                        backgroundColor: 'var(--color-success)',
-                        borderRadius: 'var(--radius-md)',
+                        padding: 'var(--bk-spacing-3)',
+                        backgroundColor: 'var(--bk-color-success)',
+                        borderRadius: 'var(--bk-radius-md)',
                     }}>
                         <div style={{
-                            fontSize: 'var(--font-size-xs)',
-                            fontWeight: 'var(--font-weight-medium)',
-                            marginBottom: 'var(--spacing-1)',
+                            fontSize: 'var(--bk-font-size-xs)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                            marginBottom: 'var(--bk-spacing-1)',
                         }}>
                             onChangeCommitted (On release)
                         </div>
                         <div style={{
-                            fontSize: 'var(--font-size-2xl)',
-                            fontWeight: 'var(--font-weight-bold)',
+                            fontSize: 'var(--bk-font-size-2xl)',
+                            fontWeight: 'var(--bk-font-weight-bold)',
                         }}>
                             {committedValue}
                         </div>
                         <div style={{
-                            fontSize: 'var(--font-size-xs)',
-                            color: 'var(--color-descriptionForeground)',
-                            marginTop: 'var(--spacing-1)',
+                            fontSize: 'var(--bk-font-size-xs)',
+                            color: 'var(--bk-color-descriptionForeground)',
+                            marginTop: 'var(--bk-spacing-1)',
                         }}>
                             Commits: {commitCount}
                         </div>
@@ -931,23 +931,23 @@ export const Showcase: Story = {
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 'var(--spacing-8)',
-                padding: 'var(--spacing-8)',
+                gap: 'var(--bk-spacing-8)',
+                padding: 'var(--bk-spacing-8)',
                 maxWidth: '1200px',
                 margin: '0 auto',
             }}>
                 <div>
                     <h2 style={{
-                        margin: '0 0 var(--spacing-2) 0',
-                        fontSize: 'var(--font-size-2xl)',
-                        fontWeight: 'var(--font-weight-bold)',
+                        margin: '0 0 var(--bk-spacing-2) 0',
+                        fontSize: 'var(--bk-font-size-2xl)',
+                        fontWeight: 'var(--bk-font-weight-bold)',
                     }}>
                         Slider Component Showcase
                     </h2>
                     <p style={{
                         margin: 0,
-                        color: 'var(--color-descriptionForeground)',
-                        fontSize: 'var(--font-size-md)',
+                        color: 'var(--bk-color-descriptionForeground)',
+                        fontSize: 'var(--bk-font-size-md)',
                     }}>
                         A comprehensive overview of the Slider component with all its features and variants
                     </p>
@@ -955,38 +955,38 @@ export const Showcase: Story = {
 
                 <section>
                     <h3 style={{
-                        margin: '0 0 var(--spacing-4) 0',
-                        fontSize: 'var(--font-size-xl)',
-                        fontWeight: 'var(--font-weight-semibold)',
+                        margin: '0 0 var(--bk-spacing-4) 0',
+                        fontSize: 'var(--bk-font-size-xl)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
                     }}>
                         Sizes
                     </h3>
                     <p style={{
-                        margin: '0 0 var(--spacing-4) 0',
-                        fontSize: 'var(--font-size-sm)',
-                        color: 'var(--color-descriptionForeground)',
+                        margin: '0 0 var(--bk-spacing-4) 0',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        color: 'var(--bk-color-descriptionForeground)',
                     }}>
                         Notice how spacing between labels, track, and tick marks scales automatically
                     </p>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', maxWidth: '500px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', maxWidth: '500px' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>Extra Small</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>Extra Small</div>
                             <Slider size="xs" defaultValue={20} showValue showMinMax marks={25} fullWidth />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>Small</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>Small</div>
                             <Slider size="sm" defaultValue={35} showValue showMinMax marks={25} fullWidth />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>Medium (Default)</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>Medium (Default)</div>
                             <Slider size="md" defaultValue={50} showValue showMinMax marks={25} fullWidth />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>Large</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>Large</div>
                             <Slider size="lg" defaultValue={65} showValue showMinMax marks={25} fullWidth />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>Extra Large</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>Extra Large</div>
                             <Slider size="xl" defaultValue={80} showValue showMinMax marks={25} fullWidth />
                         </div>
                     </div>
@@ -994,27 +994,27 @@ export const Showcase: Story = {
 
                 <section>
                     <h3 style={{
-                        margin: '0 0 var(--spacing-4) 0',
-                        fontSize: 'var(--font-size-xl)',
-                        fontWeight: 'var(--font-weight-semibold)',
+                        margin: '0 0 var(--bk-spacing-4) 0',
+                        fontSize: 'var(--bk-font-size-xl)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
                     }}>
                         Label Options
                     </h3>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', maxWidth: '500px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', maxWidth: '500px' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>No Labels</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>No Labels</div>
                             <Slider defaultValue={40} fullWidth />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>With Value</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>With Value</div>
                             <Slider defaultValue={50} showValue fullWidth />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>With Min/Max</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>With Min/Max</div>
                             <Slider defaultValue={60} showMinMax fullWidth />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>All Labels</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>All Labels</div>
                             <Slider defaultValue={70} showValue showMinMax fullWidth />
                         </div>
                     </div>
@@ -1022,23 +1022,23 @@ export const Showcase: Story = {
 
                 <section>
                     <h3 style={{
-                        margin: '0 0 var(--spacing-4) 0',
-                        fontSize: 'var(--font-size-xl)',
-                        fontWeight: 'var(--font-weight-semibold)',
+                        margin: '0 0 var(--bk-spacing-4) 0',
+                        fontSize: 'var(--bk-font-size-xl)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
                     }}>
                         States
                     </h3>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', maxWidth: '500px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', maxWidth: '500px' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>Default</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>Default</div>
                             <Slider defaultValue={50} showValue fullWidth />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>With Marks</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>With Marks</div>
                             <Slider defaultValue={50} showValue marks={10} step={5} fullWidth />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>Disabled</div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>Disabled</div>
                             <Slider defaultValue={50} showValue disabled fullWidth />
                         </div>
                     </div>
@@ -1046,22 +1046,22 @@ export const Showcase: Story = {
 
                 <section>
                     <h3 style={{
-                        margin: '0 0 var(--spacing-4) 0',
-                        fontSize: 'var(--font-size-xl)',
-                        fontWeight: 'var(--font-weight-semibold)',
+                        margin: '0 0 var(--bk-spacing-4) 0',
+                        fontSize: 'var(--bk-font-size-xl)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
                     }}>
                         Real-world Examples
                     </h3>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--spacing-6)' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--bk-spacing-6)' }}>
                         <div style={{
-                            padding: 'var(--spacing-4)',
-                            backgroundColor: 'var(--color-secondary)',
-                            borderRadius: 'var(--radius-lg)',
+                            padding: 'var(--bk-spacing-4)',
+                            backgroundColor: 'var(--bk-color-secondary)',
+                            borderRadius: 'var(--bk-radius-lg)',
                         }}>
                             <h4 style={{
-                                margin: '0 0 var(--spacing-3) 0',
-                                fontSize: 'var(--font-size-md)',
-                                fontWeight: 'var(--font-weight-semibold)',
+                                margin: '0 0 var(--bk-spacing-3) 0',
+                                fontSize: 'var(--bk-font-size-md)',
+                                fontWeight: 'var(--bk-font-weight-semibold)',
                             }}>
                                 Volume Control
                             </h4>
@@ -1075,14 +1075,14 @@ export const Showcase: Story = {
                         </div>
 
                         <div style={{
-                            padding: 'var(--spacing-4)',
-                            backgroundColor: 'var(--color-secondary)',
-                            borderRadius: 'var(--radius-lg)',
+                            padding: 'var(--bk-spacing-4)',
+                            backgroundColor: 'var(--bk-color-secondary)',
+                            borderRadius: 'var(--bk-radius-lg)',
                         }}>
                             <h4 style={{
-                                margin: '0 0 var(--spacing-3) 0',
-                                fontSize: 'var(--font-size-md)',
-                                fontWeight: 'var(--font-weight-semibold)',
+                                margin: '0 0 var(--bk-spacing-3) 0',
+                                fontSize: 'var(--bk-font-size-md)',
+                                fontWeight: 'var(--bk-font-weight-semibold)',
                             }}>
                                 Brightness
                             </h4>
@@ -1096,14 +1096,14 @@ export const Showcase: Story = {
                         </div>
 
                         <div style={{
-                            padding: 'var(--spacing-4)',
-                            backgroundColor: 'var(--color-secondary)',
-                            borderRadius: 'var(--radius-lg)',
+                            padding: 'var(--bk-spacing-4)',
+                            backgroundColor: 'var(--bk-color-secondary)',
+                            borderRadius: 'var(--bk-radius-lg)',
                         }}>
                             <h4 style={{
-                                margin: '0 0 var(--spacing-3) 0',
-                                fontSize: 'var(--font-size-md)',
-                                fontWeight: 'var(--font-weight-semibold)',
+                                margin: '0 0 var(--bk-spacing-3) 0',
+                                fontSize: 'var(--bk-font-size-md)',
+                                fontWeight: 'var(--bk-font-weight-semibold)',
                             }}>
                                 Temperature
                             </h4>

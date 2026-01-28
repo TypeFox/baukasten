@@ -11,55 +11,55 @@ export const typographyTokens = `
     /* ========================================================================
      * FONT SIZES
      * ======================================================================== */
-    --font-size-xs: 0.6875rem;  /* 11px */
-    --font-size-sm: 0.75rem;    /* 12px */
-    --font-size-md: 0.8125rem;  /* 13px */
-    --font-size-base: 0.875rem; /* 14px */
-    --font-size-lg: 1rem;       /* 16px */
-    --font-size-xl: 1.125rem;   /* 18px */
-    --font-size-2xl: 1.25rem;   /* 20px */
-    --font-size-3xl: 1.5rem;    /* 24px */
-    --font-size-4xl: 1.875rem;  /* 30px */
-    --font-size-5xl: 2.25rem;   /* 36px */
+    --bk-font-size-xs: 0.6875rem;  /* 11px */
+    --bk-font-size-sm: 0.75rem;    /* 12px */
+    --bk-font-size-md: 0.8125rem;  /* 13px */
+    --bk-font-size-base: 0.875rem; /* 14px */
+    --bk-font-size-lg: 1rem;       /* 16px */
+    --bk-font-size-xl: 1.125rem;   /* 18px */
+    --bk-font-size-2xl: 1.25rem;   /* 20px */
+    --bk-font-size-3xl: 1.5rem;    /* 24px */
+    --bk-font-size-4xl: 1.875rem;  /* 30px */
+    --bk-font-size-5xl: 2.25rem;   /* 36px */
 
     /* Hero typography - for large, impactful headers */
-    --font-size-hero: 3.5rem;         /* 56px */
-    --font-size-hero-description: 1.25rem; /* 20px */
+    --bk-font-size-hero: 3.5rem;         /* 56px */
+    --bk-font-size-hero-description: 1.25rem; /* 20px */
 
     /* ========================================================================
      * LINE HEIGHTS
      * ======================================================================== */
-    --line-height-hero: 1.1;        /* Extra tight for large hero text */
-    --line-height-tight: 1.25;
-    --line-height-normal: 1.5;
-    --line-height-relaxed: 1.75;
-    --line-height-loose: 2;
+    --bk-line-height-hero: 1.1;        /* Extra tight for large hero text */
+    --bk-line-height-tight: 1.25;
+    --bk-line-height-normal: 1.5;
+    --bk-line-height-relaxed: 1.75;
+    --bk-line-height-loose: 2;
 
     /* ========================================================================
      * FONT WEIGHTS
      * ======================================================================== */
-    --font-weight-light: 300;
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
+    --bk-font-weight-light: 300;
+    --bk-font-weight-normal: 400;
+    --bk-font-weight-medium: 500;
+    --bk-font-weight-semibold: 600;
+    --bk-font-weight-bold: 700;
 
     /* ========================================================================
      * LETTER SPACING
      * ======================================================================== */
-    --letter-spacing-hero: -0.04em;   /* Extra tight for large hero text */
-    --letter-spacing-tight: -0.025em;
-    --letter-spacing-normal: 0;
-    --letter-spacing-wide: 0.025em;
-    --letter-spacing-wider: 0.05em;
+    --bk-letter-spacing-hero: -0.04em;   /* Extra tight for large hero text */
+    --bk-letter-spacing-tight: -0.025em;
+    --bk-letter-spacing-normal: 0;
+    --bk-letter-spacing-wide: 0.025em;
+    --bk-letter-spacing-wider: 0.05em;
 
     /* ========================================================================
      * FONT FAMILIES
      * Note: These can be overridden to match your application's fonts
      * ======================================================================== */
-    --font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    --bk-font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas,
+    --bk-font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas,
       'Courier New', monospace;
   }
 `;
@@ -90,7 +90,7 @@ export type FontFamily = 'sans' | 'mono';
  * ```
  */
 export const getFontSize = (size: FontSize): string => {
-  return `var(--font-size-${size})`;
+  return `var(--bk-font-size-${size})`;
 };
 
 /**
@@ -99,7 +99,7 @@ export const getFontSize = (size: FontSize): string => {
  * @returns CSS variable reference string
  */
 export const getLineHeight = (height: LineHeight): string => {
-  return `var(--line-height-${height})`;
+  return `var(--bk-line-height-${height})`;
 };
 
 /**
@@ -108,7 +108,7 @@ export const getLineHeight = (height: LineHeight): string => {
  * @returns CSS variable reference string
  */
 export const getFontWeight = (weight: FontWeight): string => {
-  return `var(--font-weight-${weight})`;
+  return `var(--bk-font-weight-${weight})`;
 };
 
 /**
@@ -117,7 +117,7 @@ export const getFontWeight = (weight: FontWeight): string => {
  * @returns CSS variable reference string
  */
 export const getLetterSpacing = (spacing: LetterSpacing): string => {
-  return `var(--letter-spacing-${spacing})`;
+  return `var(--bk-letter-spacing-${spacing})`;
 };
 
 /**
@@ -126,7 +126,7 @@ export const getLetterSpacing = (spacing: LetterSpacing): string => {
  * @returns CSS variable reference string
  */
 export const getFontFamily = (family: FontFamily): string => {
-  return `var(--font-family-${family})`;
+  return `var(--bk-font-family-${family})`;
 };
 
 export default typographyTokens;

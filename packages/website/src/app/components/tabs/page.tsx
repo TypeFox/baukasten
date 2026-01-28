@@ -45,7 +45,7 @@ function ClosableTabsExample() {
 
     if (tabs.length === 0) {
         return (
-            <div style={{ padding: 'var(--spacing-8)', textAlign: 'center', color: 'var(--vscode-descriptionForeground)' }}>
+            <div style={{ padding: 'var(--bk-spacing-8)', textAlign: 'center', color: 'var(--vscode-descriptionForeground)' }}>
                 All tabs closed. Refresh to reset.
             </div>
         );
@@ -69,7 +69,7 @@ function ClosableTabsExample() {
             <TabPanels>
                 {tabs.map(tab => (
                     <TabPanel key={tab.value} value={tab.value}>
-                        <h3 style={{ marginBottom: 'var(--spacing-2)' }}>{tab.label}</h3>
+                        <h3 style={{ marginBottom: 'var(--bk-spacing-2)' }}>{tab.label}</h3>
                         <p>Content for {tab.label}. Click the close button (×) to remove this tab.</p>
                     </TabPanel>
                 ))}
@@ -100,8 +100,8 @@ function ControlledExample() {
 
     return (
         <div>
-            <div style={{ marginBottom: 'var(--spacing-3)', display: 'flex', gap: 'var(--spacing-2)', alignItems: 'center' }}>
-                <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+            <div style={{ marginBottom: 'var(--bk-spacing-3)', display: 'flex', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
+                <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
                     External controls:
                 </span>
                 <Button size="sm" onClick={goToPreviousStep} disabled={activeTab === 'step1'}>
@@ -121,7 +121,7 @@ function ControlledExample() {
                     <TabPanel value="step1">
                         <h3>Step 1: Basic Information</h3>
                         <p>Enter your basic information to get started.</p>
-                        <div style={{ marginTop: 'var(--spacing-3)' }}>
+                        <div style={{ marginTop: 'var(--bk-spacing-3)' }}>
                             <FieldLabel htmlFor="full-name">Full Name</FieldLabel>
                             <Input id="full-name" placeholder="John Doe" fullWidth />
                         </div>
@@ -129,7 +129,7 @@ function ControlledExample() {
                     <TabPanel value="step2">
                         <h3>Step 2: Contact Details</h3>
                         <p>Provide your contact information.</p>
-                        <div style={{ marginTop: 'var(--spacing-3)' }}>
+                        <div style={{ marginTop: 'var(--bk-spacing-3)' }}>
                             <FieldLabel htmlFor="email">Email</FieldLabel>
                             <Input id="email" type="email" placeholder="john@example.com" fullWidth />
                         </div>
@@ -137,7 +137,7 @@ function ControlledExample() {
                     <TabPanel value="step3">
                         <h3>Step 3: Complete</h3>
                         <p>Review and submit your information.</p>
-                        <Button variant="primary" style={{ marginTop: 'var(--spacing-3)' }}>Submit</Button>
+                        <Button variant="primary" style={{ marginTop: 'var(--bk-spacing-3)' }}>Submit</Button>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
@@ -205,9 +205,9 @@ function App() {
                 title="Variants"
                 description="Three visual variants available: line (VSCode-style with indicator line), lifted (classic tabbed interface with borders), and pills (modern filled pills)."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-5)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Line (Default) - VSCode Style
                             </div>
                             <Tabs defaultValue="tab1" variant="line">
@@ -224,7 +224,7 @@ function App() {
                             </Tabs>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Lifted - Classic Tabbed Interface
                             </div>
                             <Tabs defaultValue="tab1" variant="lifted">
@@ -241,7 +241,7 @@ function App() {
                             </Tabs>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Pills - Modern Tag Style
                             </div>
                             <Tabs defaultValue="tab1" variant="pills">
@@ -279,9 +279,9 @@ function App() {
                 title="Orientations"
                 description="Tabs support both horizontal (default) and vertical orientations. Horizontal tabs are common for content sections, while vertical tabs work well for navigation menus."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-5)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Horizontal (Default)
                             </div>
                             <Tabs defaultValue="home" orientation="horizontal">
@@ -307,7 +307,7 @@ function App() {
                             </Tabs>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Vertical
                             </div>
                             <Tabs defaultValue="dashboard" orientation="vertical" style={{ height: '300px' }}>
@@ -362,10 +362,10 @@ function App() {
                 title="Sizes"
                 description="Five size options available: xs, sm, md (default), lg, and xl. Sizes affect padding, font size, and min-height."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                         {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map(size => (
                             <div key={size}>
-                                <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                                <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                     {size.toUpperCase()}{size === 'md' ? ' (default)' : ''}
                                 </div>
                                 <Tabs defaultValue="tab1" size={size}>
@@ -404,14 +404,14 @@ function App() {
                         </TabList>
                         <TabPanels>
                             <TabPanel value="file1">
-                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--font-size-sm)' }}>
+                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
                                     <div style={{ color: 'var(--vscode-descriptionForeground)' }}>// index.tsx</div>
                                     <div>import React from 'react';</div>
                                     <div>import {'{'} App {'}'} from './App';</div>
                                 </div>
                             </TabPanel>
                             <TabPanel value="file2">
-                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--font-size-sm)' }}>
+                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
                                     <div style={{ color: 'var(--vscode-descriptionForeground)' }}>/* styles.css */</div>
                                     <div>.container {'{'}</div>
                                     <div>  padding: 20px;</div>
@@ -419,7 +419,7 @@ function App() {
                                 </div>
                             </TabPanel>
                             <TabPanel value="file3">
-                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--font-size-sm)' }}>
+                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
                                     <div>{'{'}</div>
                                     <div>  "name": "my-app",</div>
                                     <div>  "version": "1.0.0"</div>
@@ -427,7 +427,7 @@ function App() {
                                 </div>
                             </TabPanel>
                             <TabPanel value="file4">
-                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--font-size-sm)' }}>
+                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
                                     <div style={{ color: 'var(--vscode-descriptionForeground)' }}>// utils.ts</div>
                                     <div>export const formatDate = (date: Date) =&gt; {'{'}</div>
                                     <div>  return date.toISOString();</div>
@@ -545,9 +545,9 @@ function App() {
                 title="Indicator Position"
                 description="Control where the active indicator appears: start (top for horizontal, left for vertical) or end (bottom for horizontal, right for vertical). Works with all variants."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-5)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Horizontal - Indicator at End (Bottom - Default)
                             </div>
                             <Tabs defaultValue="tab1" orientation="horizontal" indicatorPosition="end">
@@ -564,7 +564,7 @@ function App() {
                             </Tabs>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Horizontal - Indicator at Start (Top)
                             </div>
                             <Tabs defaultValue="tab1" orientation="horizontal" indicatorPosition="start">
@@ -642,8 +642,8 @@ function App() {
                         </TabList>
                         <TabPanels>
                             <TabPanel value="general">
-                                <h3 style={{ marginBottom: 'var(--spacing-3)' }}>General Settings</h3>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+                                <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>General Settings</h3>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                                     <Label variant="checkbox">
                                         <Checkbox />
                                         <span>Enable auto-save</span>
@@ -659,8 +659,8 @@ function App() {
                                 </div>
                             </TabPanel>
                             <TabPanel value="appearance">
-                                <h3 style={{ marginBottom: 'var(--spacing-3)' }}>Appearance</h3>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+                                <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>Appearance</h3>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                                     <div>
                                         <FieldLabel htmlFor="font-family">Font Family</FieldLabel>
                                         <Input id="font-family" defaultValue="Consolas, Monaco, monospace" fullWidth />
@@ -672,8 +672,8 @@ function App() {
                                 </div>
                             </TabPanel>
                             <TabPanel value="editor">
-                                <h3 style={{ marginBottom: 'var(--spacing-3)' }}>Editor Settings</h3>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+                                <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>Editor Settings</h3>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                                     <Label variant="checkbox">
                                         <Checkbox defaultChecked />
                                         <span>Show line numbers</span>
@@ -711,18 +711,18 @@ function App() {
 </Tabs>`}
             />
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Behavior & Implementation
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Controlled vs Uncontrolled:</strong> Use <code>defaultValue</code> for uncontrolled mode (component manages state) or <code>value</code> + <code>onChange</code> for controlled mode (you manage state)
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Tab Selection:</strong> Only the panel matching the active tab value is rendered. Use the same value for Tab and TabPanel to link them
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Close Behavior:</strong> When implementing closable tabs, handle the <code>onClose</code> callback to update your tabs array and manage active tab switching
                     </li>
                     <li>
@@ -731,21 +731,21 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         TabList has <code>role="tablist"</code> and appropriate <code>aria-orientation</code>
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Each Tab has <code>role="tab"</code> with <code>aria-selected</code> indicating active state
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Each TabPanel has <code>role="tabpanel"</code> with <code>aria-hidden</code> for inactive panels
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Active tabs have <code>tabIndex={0}</code>, inactive tabs have <code>tabIndex={-1}</code>
                     </li>
                     <li>
@@ -754,24 +754,24 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Variants:</strong> Use line variant for professional interfaces, lifted for classic tabs, pills for modern designs
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Orientation:</strong> Use horizontal for content sections and vertical for navigation sidebars
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Icons:</strong> Add icons to provide visual context, especially for file tabs or categorized content
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Closable Tabs:</strong> Use for editor-like interfaces where users can open/close documents
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Controlled Mode:</strong> Use when you need to control tab state externally (wizards, forms, URL-based routing)
                     </li>
                     <li>

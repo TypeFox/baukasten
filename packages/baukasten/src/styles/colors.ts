@@ -17,35 +17,35 @@ export const colorTokens = `
      * BRAND COLORS
      * Primary colors for main actions and brand identity
      * ======================================================================== */
-    --color-primary: var(--vscode-button-background, #0e639c);
-    --color-primary-hover: var(--vscode-button-hoverBackground, #1177bb);
-    --color-primary-active: var(--vscode-button-hoverBackground, #1177bb);
-    --color-primary-foreground: var(--vscode-button-foreground, #ffffff);
+    --bk-color-primary: var(--vscode-button-background, #0e639c);
+    --bk-color-primary-hover: var(--vscode-button-hoverBackground, #1177bb);
+    --bk-color-primary-active: var(--vscode-button-hoverBackground, #1177bb);
+    --bk-color-primary-foreground: var(--vscode-button-foreground, #ffffff);
 
-    --color-secondary: var(--vscode-button-secondaryBackground, #3a3d41);
-    --color-secondary-hover: var(--vscode-button-secondaryHoverBackground, #45494e);
-    --color-secondary-active: var(--vscode-button-secondaryHoverBackground, #45494e);
-    --color-secondary-foreground: var(--vscode-button-secondaryForeground, #ffffff);
+    --bk-color-secondary: var(--vscode-button-secondaryBackground, #3a3d41);
+    --bk-color-secondary-hover: var(--vscode-button-secondaryHoverBackground, #45494e);
+    --bk-color-secondary-active: var(--vscode-button-secondaryHoverBackground, #45494e);
+    --bk-color-secondary-foreground: var(--vscode-button-secondaryForeground, #ffffff);
 
     /* ========================================================================
      * SEMANTIC COLORS
      * Colors that convey meaning (success, warning, error, info)
      * ======================================================================== */
-    --color-success: var(--vscode-testing-iconPassed, #4caf50);
-    --color-success-hover: var(--vscode-testing-iconPassed, #45a049);
-    --color-success-foreground: var(--vscode-button-foreground, #ffffff);
+    --bk-color-success: var(--vscode-testing-iconPassed, #4caf50);
+    --bk-color-success-hover: var(--vscode-testing-iconPassed, #45a049);
+    --bk-color-success-foreground: var(--vscode-button-foreground, #ffffff);
 
-    --color-warning: var(--vscode-editorWarning-foreground, #ff9800);
-    --color-warning-hover: var(--vscode-editorWarning-foreground, #f57c00);
-    --color-warning-foreground: var(--vscode-button-foreground, #ffffff);
+    --bk-color-warning: var(--vscode-editorWarning-foreground, #ff9800);
+    --bk-color-warning-hover: var(--vscode-editorWarning-foreground, #f57c00);
+    --bk-color-warning-foreground: var(--vscode-button-foreground, #ffffff);
 
-    --color-danger: var(--vscode-editorError-foreground, #f44336);
-    --color-danger-hover: var(--vscode-editorError-foreground, #d32f2f);
-    --color-danger-foreground: var(--vscode-button-foreground, #ffffff);
+    --bk-color-danger: var(--vscode-editorError-foreground, #f44336);
+    --bk-color-danger-hover: var(--vscode-editorError-foreground, #d32f2f);
+    --bk-color-danger-foreground: var(--vscode-button-foreground, #ffffff);
 
-    --color-info: var(--vscode-editorInfo-foreground, #2196f3);
-    --color-info-hover: var(--vscode-editorInfo-foreground, #1976d2);
-    --color-info-foreground: var(--vscode-button-foreground, #ffffff);
+    --bk-color-info: var(--vscode-editorInfo-foreground, #2196f3);
+    --bk-color-info-hover: var(--vscode-editorInfo-foreground, #1976d2);
+    --bk-color-info-foreground: var(--vscode-button-foreground, #ffffff);
 
     /* ========================================================================
      * NEUTRAL COLORS
@@ -53,140 +53,140 @@ export const colorTokens = `
      * ======================================================================== */
 
     /* Backgrounds */
-    --color-background: var(--vscode-editor-background, #1e1e1e);
-    --color-background-secondary: var(--vscode-sideBar-background, #252526);
-    --color-background-tertiary: var(--vscode-panel-background, #1e1e1e);
-    --color-background-elevated: var(--vscode-editorWidget-background, #252526);
+    --bk-color-background: var(--vscode-editor-background, #1e1e1e);
+    --bk-color-background-secondary: var(--vscode-sideBar-background, #252526);
+    --bk-color-background-tertiary: var(--vscode-panel-background, #1e1e1e);
+    --bk-color-background-elevated: var(--vscode-editorWidget-background, #252526);
 
     /* Foregrounds */
-    --color-foreground: var(--vscode-foreground, #cccccc);
-    --color-foreground-muted: var(--vscode-descriptionForeground, #8c8c8c);
-    --color-foreground-disabled: var(--vscode-disabledForeground, #6c6c6c);
+    --bk-color-foreground: var(--vscode-foreground, #cccccc);
+    --bk-color-foreground-muted: var(--vscode-descriptionForeground, #8c8c8c);
+    --bk-color-foreground-disabled: var(--vscode-disabledForeground, #6c6c6c);
 
     /* Borders */
-    --color-border: var(--vscode-input-border, rgba(128, 128, 128, 0.35));
-    --color-border-focus: var(--vscode-focusBorder, #007fd4);
-    --color-border-hover: var(--vscode-inputOption-activeBorder, #007fd4);
+    --bk-color-border: var(--vscode-input-border, rgba(128, 128, 128, 0.35));
+    --bk-color-border-focus: var(--vscode-focusBorder, #007fd4);
+    --bk-color-border-hover: var(--vscode-inputOption-activeBorder, #007fd4);
 
     /* Overlays */
-    --color-overlay: rgba(0, 0, 0, 0.5);
-    --color-overlay-light: rgba(0, 0, 0, 0.1);
+    --bk-color-overlay: rgba(0, 0, 0, 0.5);
+    --bk-color-overlay-light: rgba(0, 0, 0, 0.1);
 
     /* ========================================================================
      * INTERACTIVE STATES
      * Hover, active, focus, and disabled states
      * ======================================================================== */
-    --color-hover: var(--vscode-list-hoverBackground, rgba(45, 45, 45, 0.6));
-    --color-active: var(--vscode-list-activeSelectionBackground, #094771);
-    --color-focus: var(--vscode-focusBorder, #007fd4);
-    --color-selected: var(--vscode-list-activeSelectionBackground, #094771);
-    --color-selected-foreground: var(--vscode-list-activeSelectionForeground, #ffffff);
+    --bk-color-hover: var(--vscode-list-hoverBackground, rgba(45, 45, 45, 0.6));
+    --bk-color-active: var(--vscode-list-activeSelectionBackground, #094771);
+    --bk-color-focus: var(--vscode-focusBorder, #007fd4);
+    --bk-color-selected: var(--vscode-list-activeSelectionBackground, #094771);
+    --bk-color-selected-foreground: var(--vscode-list-activeSelectionForeground, #ffffff);
 
     /* ========================================================================
      * INPUT COLORS
      * Form elements and inputs
      * ======================================================================== */
-    --color-input-background: var(--vscode-input-background, #3c3c3c);
-    --color-input-foreground: var(--vscode-input-foreground, #cccccc);
-    --color-input-border: var(--vscode-input-border, rgba(128, 128, 128, 0.35));
-    --color-input-placeholder: var(--vscode-input-placeholderForeground, #8c8c8c);
-    --color-input-focus-border: var(--vscode-focusBorder, #007fd4);
+    --bk-color-input-background: var(--vscode-input-background, #3c3c3c);
+    --bk-color-input-foreground: var(--vscode-input-foreground, #cccccc);
+    --bk-color-input-border: var(--vscode-input-border, rgba(128, 128, 128, 0.35));
+    --bk-color-input-placeholder: var(--vscode-input-placeholderForeground, #8c8c8c);
+    --bk-color-input-focus-border: var(--vscode-focusBorder, #007fd4);
 
     /* Input validation */
-    --color-input-error: var(--vscode-inputValidation-errorBorder, #be1100);
-    --color-input-error-background: var(--vscode-inputValidation-errorBackground, #5a1d1d);
-    --color-input-error-foreground: var(--vscode-inputValidation-errorForeground, #ffffff);
+    --bk-color-input-error: var(--vscode-inputValidation-errorBorder, #be1100);
+    --bk-color-input-error-background: var(--vscode-inputValidation-errorBackground, #5a1d1d);
+    --bk-color-input-error-foreground: var(--vscode-inputValidation-errorForeground, #ffffff);
 
-    --color-input-warning: var(--vscode-inputValidation-warningBorder, #856404);
-    --color-input-warning-background: var(--vscode-inputValidation-warningBackground, #352a05);
-    --color-input-warning-foreground: var(--vscode-inputValidation-warningForeground, #ffffff);
+    --bk-color-input-warning: var(--vscode-inputValidation-warningBorder, #856404);
+    --bk-color-input-warning-background: var(--vscode-inputValidation-warningBackground, #352a05);
+    --bk-color-input-warning-foreground: var(--vscode-inputValidation-warningForeground, #ffffff);
 
-    --color-input-info: var(--vscode-inputValidation-infoBorder, #007acc);
-    --color-input-info-background: var(--vscode-inputValidation-infoBackground, #063b49);
-    --color-input-info-foreground: var(--vscode-inputValidation-infoForeground, #ffffff);
+    --bk-color-input-info: var(--vscode-inputValidation-infoBorder, #007acc);
+    --bk-color-input-info-background: var(--vscode-inputValidation-infoBackground, #063b49);
+    --bk-color-input-info-foreground: var(--vscode-inputValidation-infoForeground, #ffffff);
 
     /* ========================================================================
      * BADGE COLORS
      * Badges, tags, and labels
      * ======================================================================== */
-    --color-badge-background: var(--vscode-badge-background, #4d4d4d);
-    --color-badge-foreground: var(--vscode-badge-foreground, #ffffff);
+    --bk-color-badge-background: var(--vscode-badge-background, #4d4d4d);
+    --bk-color-badge-foreground: var(--vscode-badge-foreground, #ffffff);
 
     /* ========================================================================
      * LINK COLORS
      * Links and anchor elements
      * ======================================================================== */
-    --color-link: var(--vscode-textLink-foreground, #3794ff);
-    --color-link-hover: var(--vscode-textLink-activeForeground, #3794ff);
-    --color-link-active: var(--vscode-textLink-activeForeground, #3794ff);
+    --bk-color-link: var(--vscode-textLink-foreground, #3794ff);
+    --bk-color-link-hover: var(--vscode-textLink-activeForeground, #3794ff);
+    --bk-color-link-active: var(--vscode-textLink-activeForeground, #3794ff);
 
     /* ========================================================================
      * CODE COLORS
      * Inline and block code elements
      * ======================================================================== */
-    --color-code-background: var(--vscode-textCodeBlock-background, #0a0a0a);
-    --color-code-foreground: var(--vscode-editor-foreground, #cccccc);
+    --bk-color-code-background: var(--vscode-textCodeBlock-background, #0a0a0a);
+    --bk-color-code-foreground: var(--vscode-editor-foreground, #cccccc);
 
     /* ========================================================================
      * DROPDOWN COLORS
      * Dropdown menus and select elements
      * ======================================================================== */
-    --color-dropdown-background: var(--vscode-dropdown-background, #252526);
-    --color-dropdown-foreground: var(--vscode-dropdown-foreground, #cccccc);
-    --color-dropdown-border: var(--vscode-dropdown-border, rgba(128, 128, 128, 0.35));
-    --color-dropdown-list-background: var(--vscode-dropdown-listBackground, #252526);
+    --bk-color-dropdown-background: var(--vscode-dropdown-background, #252526);
+    --bk-color-dropdown-foreground: var(--vscode-dropdown-foreground, #cccccc);
+    --bk-color-dropdown-border: var(--vscode-dropdown-border, rgba(128, 128, 128, 0.35));
+    --bk-color-dropdown-list-background: var(--vscode-dropdown-listBackground, #252526);
 
     /* ========================================================================
      * CHECKBOX & RADIO COLORS
      * Checkbox and radio button elements
      * ======================================================================== */
-    --color-checkbox-background: var(--vscode-checkbox-background, #3c3c3c);
-    --color-checkbox-foreground: var(--vscode-checkbox-foreground, #f0f0f0);
-    --color-checkbox-border: var(--vscode-checkbox-border, #6b6b6b);
-    --color-checkbox-checked-background: var(--vscode-checkbox-selectBackground, #0e639c);
-    --color-checkbox-checked-border: var(--vscode-checkbox-selectBorder, #0e639c);
+    --bk-color-checkbox-background: var(--vscode-checkbox-background, #3c3c3c);
+    --bk-color-checkbox-foreground: var(--vscode-checkbox-foreground, #f0f0f0);
+    --bk-color-checkbox-border: var(--vscode-checkbox-border, #6b6b6b);
+    --bk-color-checkbox-checked-background: var(--vscode-checkbox-selectBackground, #0e639c);
+    --bk-color-checkbox-checked-border: var(--vscode-checkbox-selectBorder, #0e639c);
 
     /* ========================================================================
      * LIST & TREE COLORS
      * List items, tree views, and table rows
      * ======================================================================== */
-    --color-list-hover: var(--vscode-list-hoverBackground, rgba(45, 45, 45, 0.6));
-    --color-list-active: var(--vscode-list-activeSelectionBackground, #094771);
-    --color-list-active-foreground: var(--vscode-list-activeSelectionForeground, #ffffff);
-    --color-list-focus: var(--vscode-list-focusBackground, #062f4a);
-    --color-list-focus-outline: var(--vscode-list-focusOutline, #007fd4);
+    --bk-color-list-hover: var(--vscode-list-hoverBackground, rgba(45, 45, 45, 0.6));
+    --bk-color-list-active: var(--vscode-list-activeSelectionBackground, #094771);
+    --bk-color-list-active-foreground: var(--vscode-list-activeSelectionForeground, #ffffff);
+    --bk-color-list-focus: var(--vscode-list-focusBackground, #062f4a);
+    --bk-color-list-focus-outline: var(--vscode-list-focusOutline, #007fd4);
 
     /* ========================================================================
      * SCROLLBAR COLORS
      * Scrollbar styling
      * ======================================================================== */
-    --color-scrollbar: var(--vscode-scrollbarSlider-background, rgba(121, 121, 121, 0.4));
-    --color-scrollbar-hover: var(--vscode-scrollbarSlider-hoverBackground, rgba(100, 100, 100, 0.7));
-    --color-scrollbar-active: var(--vscode-scrollbarSlider-activeBackground, rgba(191, 191, 191, 0.4));
+    --bk-color-scrollbar: var(--vscode-scrollbarSlider-background, rgba(121, 121, 121, 0.4));
+    --bk-color-scrollbar-hover: var(--vscode-scrollbarSlider-hoverBackground, rgba(100, 100, 100, 0.7));
+    --bk-color-scrollbar-active: var(--vscode-scrollbarSlider-activeBackground, rgba(191, 191, 191, 0.4));
 
     /* ========================================================================
      * DIVIDER COLORS
      * Separators and dividers
      * ======================================================================== */
-    --color-divider: var(--vscode-panelSection-border, rgba(128, 128, 128, 0.2));
+    --bk-color-divider: var(--vscode-panelSection-border, rgba(128, 128, 128, 0.2));
 
     /* ========================================================================
      * SHADOW COLORS
      * Shadows and elevation (complementing existing shadow scale)
      * ======================================================================== */
-    --color-shadow: var(--vscode-widget-shadow, rgba(0, 0, 0, 0.36));
+    --bk-color-shadow: var(--vscode-widget-shadow, rgba(0, 0, 0, 0.36));
 
     /* ========================================================================
      * STATUS BAR COLORS
      * Status bar at the bottom of the window
      * ======================================================================== */
-    --color-statusbar-background: var(--vscode-statusBar-background, #007acc);
-    --color-statusbar-foreground: var(--vscode-statusBar-foreground, #ffffff);
-    --color-statusbar-border: var(--vscode-statusBar-border, transparent);
-    --color-statusbar-item-hover: var(--vscode-statusBarItem-hoverBackground, rgba(255, 255, 255, 0.12));
-    --color-statusbar-item-active: var(--vscode-statusBarItem-activeBackground, rgba(255, 255, 255, 0.18));
-    --color-statusbar-item-error: var(--vscode-statusBarItem-errorBackground, #c72e0f);
-    --color-statusbar-item-warning: var(--vscode-statusBarItem-warningBackground, #7a6400);
+    --bk-color-statusbar-background: var(--vscode-statusBar-background, #007acc);
+    --bk-color-statusbar-foreground: var(--vscode-statusBar-foreground, #ffffff);
+    --bk-color-statusbar-border: var(--vscode-statusBar-border, transparent);
+    --bk-color-statusbar-item-hover: var(--vscode-statusBarItem-hoverBackground, rgba(255, 255, 255, 0.12));
+    --bk-color-statusbar-item-active: var(--vscode-statusBarItem-activeBackground, rgba(255, 255, 255, 0.18));
+    --bk-color-statusbar-item-error: var(--vscode-statusBarItem-errorBackground, #c72e0f);
+    --bk-color-statusbar-item-warning: var(--vscode-statusBarItem-warningBackground, #7a6400);
   }
 `;
 
@@ -307,7 +307,7 @@ export type ColorToken =
  * ```
  */
 export const getColorToken = (token: ColorToken): string => {
-  return `var(--color-${token})`;
+  return `var(--bk-color-${token})`;
 };
 
 export default colorTokens;

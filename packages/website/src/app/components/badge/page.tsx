@@ -83,7 +83,7 @@ function App() {
         title="Sizes"
         description="Five size options from extra small to extra large."
         preview={
-          <div style={{ display: 'flex', gap: 'var(--spacing-4)', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', alignItems: 'center', flexWrap: 'wrap' }}>
             <Badge size="xs">Extra Small</Badge>
             <Badge size="sm">Small</Badge>
             <Badge size="md">Medium</Badge>
@@ -131,8 +131,8 @@ function App() {
         title="With Icons"
         description="Badges support icons for enhanced visual communication. Icons automatically scale with badge size."
         preview={
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
-            <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap' }}>
               <Badge variant="success">
                 <Icon name="check" />
                 Completed
@@ -150,7 +150,7 @@ function App() {
                 Info
               </Badge>
             </div>
-            <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
               <Badge variant="success" size="xs">
                 <Icon name="check" />
                 XS
@@ -195,7 +195,7 @@ function App() {
         title="Icon Only"
         description="Badges can contain only icons for compact displays."
         preview={
-          <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
             <Badge variant="success">
               <Icon name="check" />
             </Badge>
@@ -223,21 +223,21 @@ function App() {
         title="Status Indicators"
         description="Common pattern for displaying status information."
         preview={
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
-              <span style={{ fontSize: 'var(--font-size-md)', minWidth: '120px' }}>Build Status:</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
+              <span style={{ fontSize: 'var(--bk-font-size-md)', minWidth: '120px' }}>Build Status:</span>
               <Badge variant="success">Passing</Badge>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
-              <span style={{ fontSize: 'var(--font-size-md)', minWidth: '120px' }}>Deployment:</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
+              <span style={{ fontSize: 'var(--bk-font-size-md)', minWidth: '120px' }}>Deployment:</span>
               <Badge variant="warning">In Progress</Badge>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
-              <span style={{ fontSize: 'var(--font-size-md)', minWidth: '120px' }}>API Status:</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
+              <span style={{ fontSize: 'var(--bk-font-size-md)', minWidth: '120px' }}>API Status:</span>
               <Badge variant="error">Offline</Badge>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
-              <span style={{ fontSize: 'var(--font-size-md)', minWidth: '120px' }}>Coverage:</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
+              <span style={{ fontSize: 'var(--bk-font-size-md)', minWidth: '120px' }}>Coverage:</span>
               <Badge variant="info">85%</Badge>
             </div>
           </div>
@@ -257,21 +257,21 @@ function App() {
         title="Counters & Notifications"
         description="Use badges as notification counters or numeric indicators."
         preview={
-          <div style={{ display: 'flex', gap: 'var(--spacing-4)', flexWrap: 'wrap', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
-              <span style={{ fontSize: 'var(--font-size-md)' }}>Notifications</span>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
+              <span style={{ fontSize: 'var(--bk-font-size-md)' }}>Notifications</span>
               <Badge variant="error" size="sm">12</Badge>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
-              <span style={{ fontSize: 'var(--font-size-md)' }}>Inbox</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
+              <span style={{ fontSize: 'var(--bk-font-size-md)' }}>Inbox</span>
               <Badge variant="info" size="sm">42</Badge>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
-              <span style={{ fontSize: 'var(--font-size-md)' }}>Tasks</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
+              <span style={{ fontSize: 'var(--bk-font-size-md)' }}>Tasks</span>
               <Badge variant="success" size="sm">8</Badge>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
-              <span style={{ fontSize: 'var(--font-size-md)' }}>Issues</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
+              <span style={{ fontSize: 'var(--bk-font-size-md)' }}>Issues</span>
               <Badge variant="warning" size="sm">3</Badge>
             </div>
           </div>
@@ -291,7 +291,7 @@ function App() {
         title="Tags & Labels"
         description="Use default badges as content tags or category labels."
         preview={
-          <div style={{ display: 'flex', gap: 'var(--spacing-2)', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)', flexWrap: 'wrap' }}>
             <Badge variant="default" size="sm">TypeScript</Badge>
             <Badge variant="default" size="sm">React</Badge>
             <Badge variant="default" size="sm">Design System</Badge>
@@ -310,7 +310,7 @@ function App() {
         title="Mixed Combinations"
         description="Combine variants, sizes, and outline styles for different use cases."
         preview={
-          <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
             <Badge variant="success" size="xs">XS Success</Badge>
             <Badge variant="warning" size="sm" outline>SM Warning</Badge>
             <Badge variant="error" size="md">

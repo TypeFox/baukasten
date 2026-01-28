@@ -57,10 +57,10 @@ export default function Home() {
       {/* Hero Section */}
       <div style={{
         textAlign: 'center',
-        padding: 'calc(var(--spacing-12) * 1.5) var(--spacing-8) var(--spacing-12)',
-        margin: 'calc(var(--spacing-8) * -1) calc(var(--spacing-8) * -1) var(--spacing-12)',
+        padding: 'calc(var(--bk-spacing-12) * 1.5) var(--bk-spacing-8) var(--bk-spacing-12)',
+        margin: 'calc(var(--bk-spacing-8) * -1) calc(var(--bk-spacing-8) * -1) var(--bk-spacing-12)',
         background: 'linear-gradient(180deg, var(--vscode-editor-background) 0%, var(--vscode-sideBar-background) 100%)',
-        borderRadius: '0 0 var(--border-radius-lg) var(--border-radius-lg)',
+        borderRadius: '0 0 var(--bk-radius-lg) var(--bk-radius-lg)',
         borderBottom: '1px solid var(--vscode-panel-border)',
         position: 'relative',
         overflow: 'hidden',
@@ -80,7 +80,7 @@ export default function Home() {
 
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
           <Heading level={1} style={{
-            margin: '0 0 var(--spacing-6) 0',
+            margin: '0 0 var(--bk-spacing-6) 0',
             fontSize: 'clamp(3rem, 6vw, 4.5rem)',
             fontWeight: 700,
             lineHeight: 1.1,
@@ -90,7 +90,7 @@ export default function Home() {
           </Heading>
 
           <Paragraph style={{
-            margin: '0 auto var(--spacing-8)',
+            margin: '0 auto var(--bk-spacing-8)',
             maxWidth: '700px',
             fontSize: 'calc(var(--vscode-font-size) * 1.1)',
             lineHeight: 1.7,
@@ -104,19 +104,19 @@ export default function Home() {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: 'var(--spacing-4)',
+            gap: 'var(--bk-spacing-4)',
             maxWidth: '900px',
-            margin: '0 auto var(--spacing-8)',
+            margin: '0 auto var(--bk-spacing-8)',
             textAlign: 'left',
           }}>
             <div style={{
-              padding: 'var(--spacing-5)',
+              padding: 'var(--bk-spacing-5)',
               backgroundColor: 'var(--vscode-editor-background)',
-              borderRadius: 'var(--border-radius-md)',
+              borderRadius: 'var(--bk-radius-md)',
               border: '1px solid var(--vscode-button-background)',
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)', marginBottom: 'var(--spacing-2)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)', marginBottom: 'var(--bk-spacing-2)' }}>
                 <Icon name="extensions" style={{ fontSize: '24px', color: 'var(--vscode-button-background)' }} />
                 <Text style={{ fontWeight: 700, fontSize: 'calc(var(--vscode-font-size) * 1.05)', color: 'var(--vscode-foreground)' }}>
                   Seamless Integration
@@ -132,13 +132,13 @@ export default function Home() {
             </div>
 
             <div style={{
-              padding: 'var(--spacing-5)',
+              padding: 'var(--bk-spacing-5)',
               backgroundColor: 'var(--vscode-editor-background)',
-              borderRadius: 'var(--border-radius-md)',
+              borderRadius: 'var(--bk-radius-md)',
               border: '1px solid var(--vscode-button-background)',
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)', marginBottom: 'var(--spacing-2)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)', marginBottom: 'var(--bk-spacing-2)' }}>
                 <Icon name="database" style={{ fontSize: '24px', color: 'var(--vscode-button-background)' }} />
                 <Text style={{ fontWeight: 700, fontSize: 'calc(var(--vscode-font-size) * 1.05)', color: 'var(--vscode-foreground)' }}>
                   Domain-Specific Tools
@@ -154,13 +154,13 @@ export default function Home() {
             </div>
 
             <div style={{
-              padding: 'var(--spacing-5)',
+              padding: 'var(--bk-spacing-5)',
               backgroundColor: 'var(--vscode-editor-background)',
-              borderRadius: 'var(--border-radius-md)',
+              borderRadius: 'var(--bk-radius-md)',
               border: '1px solid var(--vscode-button-background)',
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)', marginBottom: 'var(--spacing-2)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)', marginBottom: 'var(--bk-spacing-2)' }}>
                 <Icon name="paintcan" style={{ fontSize: '24px', color: 'var(--vscode-button-background)' }} />
                 <Text style={{ fontWeight: 700, fontSize: 'calc(var(--vscode-font-size) * 1.05)', color: 'var(--vscode-foreground)' }}>
                   Application UI Focus
@@ -178,32 +178,32 @@ export default function Home() {
 
           <div style={{
             display: 'flex',
-            gap: 'var(--spacing-4)',
+            gap: 'var(--bk-spacing-4)',
             justifyContent: 'center',
             alignItems: 'center',
             flexWrap: 'wrap',
           }}>
             <Link href="/installation" style={{ textDecoration: 'none' }}>
               <Button variant="primary" size="lg">
-                <Icon name="rocket" style={{ marginRight: 'var(--spacing-2)' }} />
+                <Icon name="rocket" style={{ marginRight: 'var(--bk-spacing-2)' }} />
                 Get Started
               </Button>
             </Link>
             <Link href="/components/accordion" style={{ textDecoration: 'none' }}>
               <Button variant="secondary" size="lg">
-                <Icon name="library" style={{ marginRight: 'var(--spacing-2)' }} />
+                <Icon name="library" style={{ marginRight: 'var(--bk-spacing-2)' }} />
                 Components
               </Button>
             </Link>
             <Link href="/storybook" style={{ textDecoration: 'none' }}>
               <Button variant="secondary" size="lg">
-                <Icon name="book" style={{ marginRight: 'var(--spacing-2)' }} />
+                <Icon name="book" style={{ marginRight: 'var(--bk-spacing-2)' }} />
                 Storybook
               </Button>
             </Link>
             <a href="https://github.com/typefox/baukasten" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
               <Button variant="secondary" size="lg">
-                <Icon name="github" style={{ marginRight: 'var(--spacing-2)' }} />
+                <Icon name="github" style={{ marginRight: 'var(--bk-spacing-2)' }} />
                 GitHub
               </Button>
             </a>
@@ -215,17 +215,17 @@ export default function Home() {
       <div style={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
-        gap: 'var(--spacing-4)',
-        marginBottom: 'var(--spacing-12)',
+        gap: 'var(--bk-spacing-4)',
+        marginBottom: 'var(--bk-spacing-12)',
       }}>
         <div>
           <Text style={{
             display: 'block',
-            marginBottom: 'var(--spacing-3)',
+            marginBottom: 'var(--bk-spacing-3)',
             color: 'var(--vscode-descriptionForeground)',
             fontSize: 'var(--vscode-font-size)',
           }}>
-            <Icon name="terminal" style={{ marginRight: 'var(--spacing-2)' }} />
+            <Icon name="terminal" style={{ marginRight: 'var(--bk-spacing-2)' }} />
             Install
           </Text>
           <CodeBlock
@@ -237,11 +237,11 @@ export default function Home() {
         <div>
           <Text style={{
             display: 'block',
-            marginBottom: 'var(--spacing-3)',
+            marginBottom: 'var(--bk-spacing-3)',
             color: 'var(--vscode-descriptionForeground)',
             fontSize: 'var(--vscode-font-size)',
           }}>
-            <Icon name="code" style={{ marginRight: 'var(--spacing-2)' }} />
+            <Icon name="code" style={{ marginRight: 'var(--bk-spacing-2)' }} />
             Import
           </Text>
           <CodeBlock
@@ -253,16 +253,16 @@ export default function Home() {
 
       {/* Introduction Section */}
       <div style={{
-        marginBottom: 'var(--spacing-12)',
-        padding: 'var(--spacing-10) var(--spacing-8)',
+        marginBottom: 'var(--bk-spacing-12)',
+        padding: 'var(--bk-spacing-10) var(--bk-spacing-8)',
         backgroundColor: 'var(--vscode-editor-background)',
-        borderRadius: 'var(--border-radius-lg)',
+        borderRadius: 'var(--bk-radius-lg)',
         border: '1px solid var(--vscode-panel-border)',
       }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: 'var(--spacing-8)' }}>
+          <div style={{ textAlign: 'center', marginBottom: 'var(--bk-spacing-8)' }}>
             <Heading level={2} style={{
-              marginBottom: 'var(--spacing-4)',
+              marginBottom: 'var(--bk-spacing-4)',
               fontSize: 'calc(var(--vscode-font-size) * 2)',
             }}>
               What is Baukasten?
@@ -283,16 +283,16 @@ export default function Home() {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: 'var(--spacing-6)',
-            marginBottom: 'var(--spacing-6)',
+            gap: 'var(--bk-spacing-6)',
+            marginBottom: 'var(--bk-spacing-6)',
           }}>
             <div style={{
-              padding: 'var(--spacing-6)',
+              padding: 'var(--bk-spacing-6)',
               backgroundColor: 'var(--vscode-sideBar-background)',
-              borderRadius: 'var(--border-radius-md)',
+              borderRadius: 'var(--bk-radius-md)',
               border: '1px solid var(--vscode-panel-border)',
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)', marginBottom: 'var(--spacing-3)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)', marginBottom: 'var(--bk-spacing-3)' }}>
                 <Icon name="window" style={{
                   fontSize: '32px',
                   color: 'var(--vscode-symbolIcon-classForeground)',
@@ -312,12 +312,12 @@ export default function Home() {
             </div>
 
             <div style={{
-              padding: 'var(--spacing-6)',
+              padding: 'var(--bk-spacing-6)',
               backgroundColor: 'var(--vscode-sideBar-background)',
-              borderRadius: 'var(--border-radius-md)',
+              borderRadius: 'var(--bk-radius-md)',
               border: '1px solid var(--vscode-panel-border)',
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)', marginBottom: 'var(--spacing-3)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)', marginBottom: 'var(--bk-spacing-3)' }}>
                 <Icon name="extensions" style={{
                   fontSize: '32px',
                   color: 'var(--vscode-symbolIcon-interfaceForeground)',
@@ -337,12 +337,12 @@ export default function Home() {
             </div>
 
             <div style={{
-              padding: 'var(--spacing-6)',
+              padding: 'var(--bk-spacing-6)',
               backgroundColor: 'var(--vscode-sideBar-background)',
-              borderRadius: 'var(--border-radius-md)',
+              borderRadius: 'var(--bk-radius-md)',
               border: '1px solid var(--vscode-panel-border)',
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)', marginBottom: 'var(--spacing-3)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)', marginBottom: 'var(--bk-spacing-3)' }}>
                 <Icon name="globe" style={{
                   fontSize: '32px',
                   color: 'var(--vscode-symbolIcon-namespaceForeground)',
@@ -363,9 +363,9 @@ export default function Home() {
           </div>
 
           <div style={{
-            padding: 'var(--spacing-6)',
+            padding: 'var(--bk-spacing-6)',
             backgroundColor: 'var(--vscode-textCodeBlock-background)',
-            borderRadius: 'var(--border-radius-md)',
+            borderRadius: 'var(--bk-radius-md)',
             borderLeft: '3px solid var(--vscode-button-background)',
           }}>
             <Paragraph style={{
@@ -374,7 +374,7 @@ export default function Home() {
               fontSize: 'calc(var(--vscode-font-size) * 1.05)',
               lineHeight: 1.7,
             }}>
-              <Icon name="info" style={{ marginRight: 'var(--spacing-2)', color: 'var(--vscode-button-background)' }} />
+              <Icon name="info" style={{ marginRight: 'var(--bk-spacing-2)', color: 'var(--vscode-button-background)' }} />
               Baukasten design system is inspired by VSCode/Theia, to a offer a seamless UI integration within these platforms. But you can customize the theming to fit your own brand and style.
             </Paragraph>
           </div>
@@ -382,10 +382,10 @@ export default function Home() {
       </div>
 
       {/* Features */}
-      <div style={{ marginBottom: 'var(--spacing-12)' }}>
-        <div style={{ textAlign: 'center', marginBottom: 'var(--spacing-10)' }}>
+      <div style={{ marginBottom: 'var(--bk-spacing-12)' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'var(--bk-spacing-10)' }}>
           <Heading level={2} style={{
-            marginBottom: 'var(--spacing-4)',
+            marginBottom: 'var(--bk-spacing-4)',
             fontSize: 'calc(var(--vscode-font-size) * 2)',
           }}>
             Built for Professional Applications
@@ -403,8 +403,8 @@ export default function Home() {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-          gap: 'var(--spacing-5)',
-          marginBottom: 'var(--spacing-8)',
+          gap: 'var(--bk-spacing-5)',
+          marginBottom: 'var(--bk-spacing-8)',
         }}>
           {features.map((feature, index) => (
             <div
@@ -412,8 +412,8 @@ export default function Home() {
               style={{
                 backgroundColor: 'var(--vscode-editor-background)',
                 border: '1px solid var(--vscode-panel-border)',
-                borderRadius: 'var(--border-radius-md)',
-                padding: 'var(--spacing-7)',
+                borderRadius: 'var(--bk-radius-md)',
+                padding: 'var(--bk-spacing-7)',
                 transition: 'all 0.2s ease',
               }}
               onMouseEnter={(e) => {
@@ -428,8 +428,8 @@ export default function Home() {
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 'var(--spacing-3)',
-                marginBottom: 'var(--spacing-3)',
+                gap: 'var(--bk-spacing-3)',
+                marginBottom: 'var(--bk-spacing-3)',
               }}>
                 <Icon name={feature.icon} style={{
                   fontSize: '32px',

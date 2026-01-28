@@ -13,13 +13,13 @@ export const menuContainer = recipe({
     direction: {
       vertical: {
         flexDirection: 'column',
-        padding: 'var(--spacing-1) 0',
+        padding: 'var(--bk-spacing-1) 0',
         gap: 0,
       },
       horizontal: {
         flexDirection: 'row',
-        padding: '0 var(--spacing-1)',
-        gap: 'var(--spacing-1)',
+        padding: '0 var(--bk-spacing-1)',
+        gap: 'var(--bk-spacing-1)',
       },
     },
     iconOnly: {
@@ -50,16 +50,16 @@ export const menuItem = recipe({
   base: {
     display: 'flex',
     alignItems: 'center',
-    borderRadius: 'var(--radius-sm)',
-    transition: 'var(--transition-colors)',
+    borderRadius: 'var(--bk-radius-sm)',
+    transition: 'var(--bk-transition-colors)',
     userSelect: 'none',
-    color: 'var(--color-foreground)',
+    color: 'var(--bk-color-foreground)',
     backgroundColor: 'transparent',
 
     selectors: {
       '&:focus-visible': {
-        outline: 'var(--border-width-2) solid var(--color-focus-border)',
-        outlineOffset: 'calc(-1 * var(--border-width-2))',
+        outline: 'var(--bk-border-width-2) solid var(--bk-color-focus-border)',
+        outlineOffset: 'calc(-1 * var(--bk-border-width-2))',
       },
     },
   },
@@ -67,34 +67,34 @@ export const menuItem = recipe({
   variants: {
     size: {
       xs: {
-        padding: 'var(--padding-xs)',
-        gap: 'var(--gap-xs)',
-        fontSize: 'var(--font-size-xs)',
-        minHeight: 'var(--size-xs)',
+        padding: 'var(--bk-padding-xs)',
+        gap: 'var(--bk-gap-xs)',
+        fontSize: 'var(--bk-font-size-xs)',
+        minHeight: 'var(--bk-size-xs)',
       },
       sm: {
-        padding: 'var(--padding-sm)',
-        gap: 'var(--gap-sm)',
-        fontSize: 'var(--font-size-sm)',
-        minHeight: 'var(--size-sm)',
+        padding: 'var(--bk-padding-sm)',
+        gap: 'var(--bk-gap-sm)',
+        fontSize: 'var(--bk-font-size-sm)',
+        minHeight: 'var(--bk-size-sm)',
       },
       md: {
-        padding: 'var(--padding-md)',
-        gap: 'var(--gap-md)',
-        fontSize: 'var(--font-size-md)',
-        minHeight: 'var(--size-md)',
+        padding: 'var(--bk-padding-md)',
+        gap: 'var(--bk-gap-md)',
+        fontSize: 'var(--bk-font-size-md)',
+        minHeight: 'var(--bk-size-md)',
       },
       lg: {
-        padding: 'var(--padding-lg)',
-        gap: 'var(--gap-lg)',
-        fontSize: 'var(--font-size-base)',
-        minHeight: 'var(--size-lg)',
+        padding: 'var(--bk-padding-lg)',
+        gap: 'var(--bk-gap-lg)',
+        fontSize: 'var(--bk-font-size-base)',
+        minHeight: 'var(--bk-size-lg)',
       },
       xl: {
-        padding: 'var(--padding-xl)',
-        gap: 'var(--gap-xl)',
-        fontSize: 'var(--font-size-lg)',
-        minHeight: 'var(--size-xl)',
+        padding: 'var(--bk-padding-xl)',
+        gap: 'var(--bk-gap-xl)',
+        fontSize: 'var(--bk-font-size-lg)',
+        minHeight: 'var(--bk-size-xl)',
       },
     },
     iconOnly: {
@@ -108,7 +108,7 @@ export const menuItem = recipe({
     disabled: {
       true: {
         cursor: 'not-allowed',
-        color: 'var(--color-foreground-disabled)',
+        color: 'var(--bk-color-foreground-disabled)',
       },
       false: {
         cursor: 'pointer',
@@ -116,7 +116,7 @@ export const menuItem = recipe({
     },
     selected: {
       true: {
-        backgroundColor: 'var(--color-list-active)',
+        backgroundColor: 'var(--bk-color-list-active)',
       },
       false: {},
     },
@@ -124,11 +124,11 @@ export const menuItem = recipe({
 
   compoundVariants: [
     // iconOnly + size: reduce padding for icon-only items
-    { variants: { iconOnly: true, size: 'xs' }, style: { padding: 'var(--spacing-1)' } },
-    { variants: { iconOnly: true, size: 'sm' }, style: { padding: 'var(--spacing-1-5)' } },
-    { variants: { iconOnly: true, size: 'md' }, style: { padding: 'var(--spacing-2)' } },
-    { variants: { iconOnly: true, size: 'lg' }, style: { padding: 'var(--spacing-2-5)' } },
-    { variants: { iconOnly: true, size: 'xl' }, style: { padding: 'var(--spacing-3)' } },
+    { variants: { iconOnly: true, size: 'xs' }, style: { padding: 'var(--bk-spacing-1)' } },
+    { variants: { iconOnly: true, size: 'sm' }, style: { padding: 'var(--bk-spacing-1-5)' } },
+    { variants: { iconOnly: true, size: 'md' }, style: { padding: 'var(--bk-spacing-2)' } },
+    { variants: { iconOnly: true, size: 'lg' }, style: { padding: 'var(--bk-spacing-2-5)' } },
+    { variants: { iconOnly: true, size: 'xl' }, style: { padding: 'var(--bk-spacing-3)' } },
   ],
 
   defaultVariants: {
@@ -145,11 +145,11 @@ export const menuItem = recipe({
 const menuItemBase = menuItem.classNames.base;
 
 globalStyle(`${menuItemBase}:hover:not([aria-disabled="true"])`, {
-  backgroundColor: 'var(--color-list-hover)',
+  backgroundColor: 'var(--bk-color-list-hover)',
 });
 
 globalStyle(`${menuItemBase}:active:not([aria-disabled="true"])`, {
-  backgroundColor: 'var(--color-list-active)',
+  backgroundColor: 'var(--bk-color-list-active)',
 });
 
 // SVG icon sizing
@@ -195,9 +195,9 @@ export const menuItemRight = style({
   alignItems: 'center',
   gap: 'inherit',
   marginLeft: 'auto',
-  paddingLeft: 'var(--spacing-2)',
+  paddingLeft: 'var(--bk-spacing-2)',
   fontSize: '0.875em', // Relative to parent fontSize for proper scaling
-  color: 'var(--color-foreground-muted)',
+  color: 'var(--bk-color-foreground-muted)',
 });
 
 /**
@@ -205,19 +205,19 @@ export const menuItemRight = style({
  */
 export const menuDivider = recipe({
   base: {
-    backgroundColor: 'var(--color-divider)',
+    backgroundColor: 'var(--bk-color-divider)',
     flexShrink: 0,
   },
 
   variants: {
     direction: {
       vertical: {
-        height: 'var(--border-width-1)',
+        height: 'var(--bk-border-width-1)',
         width: 'auto',
-        margin: 'var(--spacing-1) 0',
+        margin: 'var(--bk-spacing-1) 0',
       },
       horizontal: {
-        width: 'var(--border-width-1)',
+        width: 'var(--bk-border-width-1)',
         height: 'auto',
         alignSelf: 'stretch',
         margin: 0,
@@ -243,17 +243,17 @@ export const subMenuContainer = style({
 export const subMenuContent = recipe({
   base: {
     position: 'absolute',
-    backgroundColor: 'var(--color-dropdown-list-background)',
-    border: 'var(--border-width-1) solid var(--color-dropdown-border)',
-    borderRadius: 'var(--radius-md)',
-    boxShadow: 'var(--shadow-lg)',
-    zIndex: 'var(--z-index-dropdown)',
-    minWidth: 'calc(var(--spacing-20) * 2)', // 10rem = 160px
-    maxWidth: 'calc(var(--spacing-20) * 4)', // 20rem = 320px
+    backgroundColor: 'var(--bk-color-dropdown-list-background)',
+    border: 'var(--bk-border-width-1) solid var(--bk-color-dropdown-border)',
+    borderRadius: 'var(--bk-radius-md)',
+    boxShadow: 'var(--bk-shadow-lg)',
+    zIndex: 'var(--bk-z-index-dropdown)',
+    minWidth: 'calc(var(--bk-spacing-20) * 2)', // 10rem = 160px
+    maxWidth: 'calc(var(--bk-spacing-20) * 4)', // 20rem = 320px
     width: 'max-content',
-    maxHeight: 'calc(100vh - var(--spacing-4))',
+    maxHeight: 'calc(100vh - var(--bk-spacing-4))',
     overflow: 'visible',
-    transition: 'opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast)',
+    transition: 'opacity var(--bk-transition-fast), transform var(--bk-transition-fast), visibility var(--bk-transition-fast)',
   },
 
   variants: {
@@ -276,11 +276,11 @@ export const subMenuContent = recipe({
     flipHorizontal: {
       true: {
         right: '100%',
-        marginRight: 'var(--spacing-1)',
+        marginRight: 'var(--bk-spacing-1)',
       },
       false: {
         left: '100%',
-        marginLeft: 'var(--spacing-1)',
+        marginLeft: 'var(--bk-spacing-1)',
       },
     },
   },
@@ -289,13 +289,13 @@ export const subMenuContent = recipe({
     {
       variants: { isOpen: false, flipHorizontal: false },
       style: {
-        transform: 'translateX(calc(-1 * var(--spacing-1)))',
+        transform: 'translateX(calc(-1 * var(--bk-spacing-1)))',
       },
     },
     {
       variants: { isOpen: false, flipHorizontal: true },
       style: {
-        transform: 'translateX(var(--spacing-1))',
+        transform: 'translateX(var(--bk-spacing-1))',
       },
     },
   ],

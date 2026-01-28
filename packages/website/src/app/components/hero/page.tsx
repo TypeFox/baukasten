@@ -16,8 +16,8 @@ const heroProps: PropDefinition[] = [
 const CTAContainer = ({ align, children }: { align?: 'left' | 'center' | 'right'; children: React.ReactNode }) => (
     <div style={{
         display: 'flex',
-        gap: 'var(--spacing-4)',
-        marginTop: 'var(--spacing-6)',
+        gap: 'var(--bk-spacing-4)',
+        marginTop: 'var(--bk-spacing-6)',
         justifyContent: align === 'center' ? 'center' : align === 'right' ? 'flex-end' : 'flex-start',
     }}>
         {children}
@@ -270,7 +270,7 @@ function App() {
                             size="sm"
                             background="default"
                         />
-                        <div style={{ padding: 'var(--spacing-6)' }}>
+                        <div style={{ padding: 'var(--bk-spacing-6)' }}>
                             <p style={{ color: 'var(--vscode-foreground)' }}>
                                 Your content goes here. The hero component works great as a section divider
                                 or category header within your application.
@@ -291,15 +291,15 @@ function App() {
 </>`}
             />
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Semantic Typography
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Title:</strong> Rendered as <code>&lt;h1&gt;</code> with hero-specific typography tokens
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Description:</strong> Rendered as <code>&lt;p&gt;</code> with hero description styling
                     </li>
                     <li>
@@ -308,15 +308,15 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Title uses semantic <code>&lt;h1&gt;</code> element for proper document structure
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Background colors use semantic tokens that respect theme contrast requirements
                     </li>
                     <li>
@@ -325,24 +325,24 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Size selection:</strong> Use <code>full</code> or <code>xl</code> for landing pages, <code>md</code> or <code>lg</code> for major sections, <code>sm</code> for section headers
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Alignment:</strong> Use <code>center</code> for landing pages, <code>left</code> for content sections, <code>right</code> sparingly for visual interest
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Background:</strong> Use different backgrounds to create visual hierarchy and separate major sections
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>CTA buttons:</strong> Place primary action first, limit to 1-3 buttons for clarity
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Title length:</strong> Keep titles concise - 3-8 words work best for hero sections
                     </li>
                     <li>

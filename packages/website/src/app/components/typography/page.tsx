@@ -55,7 +55,7 @@ export default function TypographyPage() {
                 title="Heading Component"
                 description="Semantic heading component (h1-h6) with default styling for each level. All heading levels from 1 to 6 are available."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                         <Heading level={1}>Heading Level 1</Heading>
                         <Heading level={2}>Heading Level 2</Heading>
                         <Heading level={3}>Heading Level 3</Heading>
@@ -85,7 +85,7 @@ function App() {
                 title="Heading Alignment"
                 description="Control the text alignment of headings using the align prop. Supports left, center, and right alignment."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                         <Heading level={2} align="left">Left Aligned Heading</Heading>
                         <Heading level={2} align="center">Center Aligned Heading</Heading>
                         <Heading level={2} align="right">Right Aligned Heading</Heading>
@@ -100,7 +100,7 @@ function App() {
                 title="Text Component"
                 description="Versatile text component for inline or block text. Can be rendered as span (inline) or div (block) with various styling options."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                         <div>
                             <Text>Default text</Text> | <Text weight="bold">Bold text</Text> | <Text italic>Italic text</Text> | <Text monospace>Monospace</Text>
                         </div>
@@ -141,7 +141,7 @@ function App() {
                 title="Text Block & Alignment"
                 description="Use block prop to render Text as a div element, enabling alignment options. Truncate prop adds ellipsis for overflow text."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                         <Text block align="left">Left aligned block text</Text>
                         <Text block align="center">Center aligned block text</Text>
                         <Text block align="right">Right aligned block text</Text>
@@ -165,7 +165,7 @@ function App() {
                 title="Paragraph Component"
                 description="Semantic paragraph component with flexible styling. Supports text alignment, line height control, and line clamping."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-5)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
                         <Paragraph>
                             This is a default paragraph with normal styling. It demonstrates how body text should look in typical use cases with default line height and spacing.
                         </Paragraph>
@@ -211,7 +211,7 @@ function App() {
                 title="Code Component"
                 description="Display inline or block code snippets with monospace font. Inline renders as <code>, block renders as <pre><code>."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-5)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
                         <div>
                             <Text>Use the <Code>console.log()</Code> function to debug your code.</Text>
                         </div>
@@ -265,7 +265,7 @@ Line 10`}</Code>
                 title="Link Component"
                 description="Versatile anchor/link component with various styling options. Supports different variants, sizes, and underline behaviors."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                         <div>
                             <Link href="#default">Default link</Link>
                         </div>
@@ -394,21 +394,21 @@ function App() {
 }`}
             />
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Semantic HTML
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Heading:</strong> Renders semantic HTML headings (h1-h6) based on the level prop
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Text:</strong> Renders as <code>&lt;span&gt;</code> (inline) or <code>&lt;div&gt;</code> (block) depending on the block prop
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Paragraph:</strong> Always renders as semantic <code>&lt;p&gt;</code> element
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Code:</strong> Renders as <code>&lt;code&gt;</code> (inline) or <code>&lt;pre&gt;&lt;code&gt;</code> (block)
                     </li>
                     <li>
@@ -417,18 +417,18 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Heading levels:</strong> Use proper heading hierarchy (h1 for page title, h2 for sections, etc.)
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Color contrast:</strong> All color variants meet WCAG 2.1 Level AA contrast requirements
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>External links:</strong> Automatically add <code>rel="noopener noreferrer"</code> and <code>target="_blank"</code>
                     </li>
                     <li>
@@ -437,24 +437,24 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Heading hierarchy:</strong> Always start with h1 and don't skip levels (h1 → h2 → h3, not h1 → h3)
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Text vs Paragraph:</strong> Use Text for short inline content, Paragraph for body text and longer content
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Code blocks:</strong> Use <code>block</code> prop for multi-line code, inline for short snippets
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Link underlines:</strong> Keep default hover underline for better usability, use <code>underline="never"</code> sparingly
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Line height:</strong> Use <code>relaxed</code> or <code>loose</code> for long-form content, <code>tight</code> for compact layouts
                     </li>
                     <li>

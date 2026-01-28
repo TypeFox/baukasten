@@ -72,7 +72,7 @@ export const Variants: Story = {
     children: '',
   },
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
       <Badge variant="default">Default</Badge>
       <Badge variant="success">Success</Badge>
       <Badge variant="warning">Warning</Badge>
@@ -97,7 +97,7 @@ export const Sizes: Story = {
     children: '',
   },
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
       <Badge size="xs">Extra Small</Badge>
       <Badge size="sm">Small</Badge>
       <Badge size="md">Medium</Badge>
@@ -122,7 +122,7 @@ export const OutlineVariants: Story = {
     children: '',
   },
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
       <Badge variant="default" outline>Default</Badge>
       <Badge variant="success" outline>Success</Badge>
       <Badge variant="warning" outline>Warning</Badge>
@@ -147,12 +147,12 @@ export const WithIcons: Story = {
     children: '',
   },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Icon + Text
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Badge variant="success">
             <Icon name="check" />
             Completed
@@ -172,10 +172,10 @@ export const WithIcons: Story = {
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Icon Only
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Badge variant="success">
             <Icon name="check" />
           </Badge>
@@ -188,10 +188,10 @@ export const WithIcons: Story = {
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Icons Scale with Badge Size
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Badge variant="success" size="xs">
             <Icon name="check" />
             XS Badge
@@ -215,10 +215,10 @@ export const WithIcons: Story = {
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Icon Only Badges at Different Sizes
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Badge variant="info" size="xs">
             <Icon name="star" />
           </Badge>
@@ -255,50 +255,50 @@ export const UsageExamples: Story = {
     children: '',
   },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Status Indicators
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-sm)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <span style={{ fontSize: 'var(--font-size-md)' }}>Build Status:</span>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-sm)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <span style={{ fontSize: 'var(--bk-font-size-md)' }}>Build Status:</span>
             <Badge variant="success">Passing</Badge>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <span style={{ fontSize: 'var(--font-size-md)' }}>Deployment:</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <span style={{ fontSize: 'var(--bk-font-size-md)' }}>Deployment:</span>
             <Badge variant="warning">In Progress</Badge>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <span style={{ fontSize: 'var(--font-size-md)' }}>API Status:</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <span style={{ fontSize: 'var(--bk-font-size-md)' }}>API Status:</span>
             <Badge variant="error">Offline</Badge>
           </div>
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Counters & Notifications
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <span style={{ fontSize: 'var(--font-size-md)' }}>Notifications</span>
+        <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <span style={{ fontSize: 'var(--bk-font-size-md)' }}>Notifications</span>
             <Badge variant="error" size="sm">12</Badge>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <span style={{ fontSize: 'var(--font-size-md)' }}>Inbox</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <span style={{ fontSize: 'var(--bk-font-size-md)' }}>Inbox</span>
             <Badge variant="info" size="sm">42</Badge>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <span style={{ fontSize: 'var(--font-size-md)' }}>Tasks</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <span style={{ fontSize: 'var(--bk-font-size-md)' }}>Tasks</span>
             <Badge variant="success" size="sm">8</Badge>
           </div>
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Tags & Labels
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap' }}>
           <Badge variant="default" size="sm">TypeScript</Badge>
           <Badge variant="default" size="sm">React</Badge>
           <Badge variant="default" size="sm">Design System</Badge>
@@ -324,13 +324,13 @@ export const Showcase: Story = {
     children: '',
   },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', padding: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)' }}>
       {/* Filled Badges - All Variants */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Filled Badges
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Badge variant="default">Default</Badge>
           <Badge variant="success">Success</Badge>
           <Badge variant="warning">Warning</Badge>
@@ -341,10 +341,10 @@ export const Showcase: Story = {
 
       {/* Outline Badges - All Variants */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Outline Badges
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Badge variant="default" outline>Default</Badge>
           <Badge variant="success" outline>Success</Badge>
           <Badge variant="warning" outline>Warning</Badge>
@@ -355,10 +355,10 @@ export const Showcase: Story = {
 
       {/* All Sizes (Success Variant) */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           All Sizes (Success Variant)
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Badge variant="success" size="xs">XS</Badge>
           <Badge variant="success" size="sm">SM</Badge>
           <Badge variant="success" size="md">MD</Badge>
@@ -369,10 +369,10 @@ export const Showcase: Story = {
 
       {/* All Sizes Outline (Error Variant) */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           All Sizes Outline (Error Variant)
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Badge variant="error" outline size="xs">XS</Badge>
           <Badge variant="error" outline size="sm">SM</Badge>
           <Badge variant="error" outline size="md">MD</Badge>
@@ -383,10 +383,10 @@ export const Showcase: Story = {
 
       {/* With Icons */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           With Icons
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Badge variant="success">
             <Icon name="check" />
             Completed
@@ -408,10 +408,10 @@ export const Showcase: Story = {
 
       {/* Mixed Sizes and Variants */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Mixed Combinations
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Badge variant="success" size="xs">XS Success</Badge>
           <Badge variant="warning" size="sm" outline>SM Warning</Badge>
           <Badge variant="error" size="md">MD Error</Badge>

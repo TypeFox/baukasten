@@ -10,7 +10,7 @@ export const heroContainer = recipe({
     flexDirection: 'column',
     justifyContent: 'center',
     width: '100%',
-    padding: 'var(--spacing-8) var(--spacing-6)',
+    padding: 'var(--bk-spacing-8) var(--bk-spacing-6)',
   },
 
   variants: {
@@ -33,16 +33,16 @@ export const heroContainer = recipe({
     },
     background: {
       default: {
-        backgroundColor: 'var(--color-background)',
+        backgroundColor: 'var(--bk-color-background)',
       },
       secondary: {
-        backgroundColor: 'var(--color-background-secondary)',
+        backgroundColor: 'var(--bk-color-background-secondary)',
       },
       tertiary: {
-        backgroundColor: 'var(--color-background-tertiary)',
+        backgroundColor: 'var(--bk-color-background-tertiary)',
       },
       elevated: {
-        backgroundColor: 'var(--color-background-elevated)',
+        backgroundColor: 'var(--bk-color-background-elevated)',
       },
     },
     align: {
@@ -70,11 +70,11 @@ export const heroContainer = recipe({
  */
 export const heroTitle = style({
   margin: 0,
-  fontSize: 'var(--font-size-hero)',
-  fontWeight: 'var(--font-weight-bold)',
-  lineHeight: 'var(--line-height-hero)',
-  letterSpacing: 'var(--letter-spacing-hero)',
-  color: 'var(--color-foreground)',
+  fontSize: 'var(--bk-font-size-hero)',
+  fontWeight: 'var(--bk-font-weight-bold)',
+  lineHeight: 'var(--bk-line-height-hero)',
+  letterSpacing: 'var(--bk-letter-spacing-hero)',
+  color: 'var(--bk-color-foreground)',
 });
 
 /**
@@ -82,11 +82,11 @@ export const heroTitle = style({
  */
 export const heroDescription = recipe({
   base: {
-    marginTop: 'var(--spacing-4)',
+    marginTop: 'var(--bk-spacing-4)',
     marginBottom: 0,
-    fontSize: 'var(--font-size-hero-description)',
-    lineHeight: 'var(--line-height-normal)',
-    color: 'var(--color-secondary-foreground)',
+    fontSize: 'var(--bk-font-size-hero-description)',
+    lineHeight: 'var(--bk-line-height-normal)',
+    color: 'var(--bk-color-secondary-foreground)',
     maxWidth: '60ch', // Optimal reading length (45-75 characters per line)
   },
 

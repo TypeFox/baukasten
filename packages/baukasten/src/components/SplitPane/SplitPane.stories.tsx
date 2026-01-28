@@ -61,10 +61,10 @@ const DemoContent = ({ color, children }: { color: string; children: React.React
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: color,
-    color: 'var(--color-foreground)',
-    fontSize: 'var(--font-size-lg)',
-    fontWeight: 'var(--font-weight-semibold)',
-    padding: 'var(--padding-lg)',
+    color: 'var(--bk-color-foreground)',
+    fontSize: 'var(--bk-font-size-lg)',
+    fontWeight: 'var(--bk-font-weight-semibold)',
+    padding: 'var(--bk-padding-lg)',
     overflow: 'auto',
     boxSizing: 'border-box',
     wordBreak: 'break-word',
@@ -78,11 +78,11 @@ const CodeEditor = ({ children }: { children: React.ReactNode }) => (
   <div style={{
     width: '100%',
     height: '100%',
-    backgroundColor: 'var(--color-background-secondary)',
-    padding: 'var(--padding-md)',
-    fontFamily: 'var(--font-family-monospace)',
-    fontSize: 'var(--font-size-sm)',
-    color: 'var(--color-foreground)',
+    backgroundColor: 'var(--bk-color-background-secondary)',
+    padding: 'var(--bk-padding-md)',
+    fontFamily: 'var(--bk-font-family-monospace)',
+    fontSize: 'var(--bk-font-size-sm)',
+    color: 'var(--bk-color-foreground)',
     overflow: 'auto',
     boxSizing: 'border-box',
   }}>
@@ -94,9 +94,9 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => (
   <div style={{
     width: '100%',
     height: '100%',
-    backgroundColor: 'var(--color-background-tertiary)',
-    padding: 'var(--padding-md)',
-    color: 'var(--color-foreground)',
+    backgroundColor: 'var(--bk-color-background-tertiary)',
+    padding: 'var(--bk-padding-md)',
+    color: 'var(--bk-color-foreground)',
     overflow: 'auto',
     boxSizing: 'border-box',
   }}>
@@ -108,12 +108,12 @@ const Panel = ({ children }: { children: React.ReactNode }) => (
   <div style={{
     width: '100%',
     height: '100%',
-    backgroundColor: 'var(--color-background)',
-    padding: 'var(--padding-md)',
-    color: 'var(--color-foreground)',
+    backgroundColor: 'var(--bk-color-background)',
+    padding: 'var(--bk-padding-md)',
+    color: 'var(--bk-color-foreground)',
     overflow: 'auto',
     boxSizing: 'border-box',
-    borderTop: '1px solid var(--color-border)',
+    borderTop: '1px solid var(--bk-color-border)',
   }}>
     {children}
   </div>
@@ -124,8 +124,8 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   <div style={{
     width: '100%',
     height: '600px',
-    border: '1px solid var(--color-border)',
-    borderRadius: 'var(--radius-md)',
+    border: '1px solid var(--bk-color-border)',
+    borderRadius: 'var(--bk-radius-md)',
     overflow: 'hidden',
   }}>
     {children}
@@ -146,16 +146,16 @@ export const Interactive: Story = {
     <StoryContainer>
       <SplitPane {...args}>
         <SplitPane.Pane>
-          <DemoContent color="color-mix(in srgb, var(--color-info) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-info) 15%, transparent)">
             Pane 1
             <br />
-            <small style={{ fontSize: "var(--font-size-sm)" }}>
+            <small style={{ fontSize: "var(--bk-font-size-sm)" }}>
               Drag the divider to resize
             </small>
           </DemoContent>
         </SplitPane.Pane>
         <SplitPane.Pane>
-          <DemoContent color="color-mix(in srgb, var(--color-success) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-success) 15%, transparent)">
             Pane 2
           </DemoContent>
         </SplitPane.Pane>
@@ -183,10 +183,10 @@ export const Horizontal: Story = {
     <StoryContainer>
       <SplitPane orientation="horizontal">
         <SplitPane.Pane>
-          <DemoContent color="color-mix(in srgb, var(--color-info) 15%, transparent)">Left Pane</DemoContent>
+          <DemoContent color="color-mix(in srgb, var(--bk-color-info) 15%, transparent)">Left Pane</DemoContent>
         </SplitPane.Pane>
         <SplitPane.Pane>
-          <DemoContent color="color-mix(in srgb, var(--color-success) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-success) 15%, transparent)">
             Right Pane
           </DemoContent>
         </SplitPane.Pane>
@@ -213,10 +213,10 @@ export const Vertical: Story = {
     <StoryContainer>
       <SplitPane orientation="vertical">
         <SplitPane.Pane>
-          <DemoContent color="color-mix(in srgb, var(--color-warning) 15%, transparent)">Top Pane</DemoContent>
+          <DemoContent color="color-mix(in srgb, var(--bk-color-warning) 15%, transparent)">Top Pane</DemoContent>
         </SplitPane.Pane>
         <SplitPane.Pane>
-          <DemoContent color="color-mix(in srgb, var(--color-danger) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-danger) 15%, transparent)">
             Bottom Pane
           </DemoContent>
         </SplitPane.Pane>
@@ -243,15 +243,15 @@ export const ThreePanes: Story = {
     <StoryContainer>
       <SplitPane orientation="horizontal">
         <SplitPane.Pane>
-          <DemoContent color="color-mix(in srgb, var(--color-info) 15%, transparent)">Pane 1</DemoContent>
+          <DemoContent color="color-mix(in srgb, var(--bk-color-info) 15%, transparent)">Pane 1</DemoContent>
         </SplitPane.Pane>
         <SplitPane.Pane>
-          <DemoContent color="color-mix(in srgb, var(--color-success) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-success) 15%, transparent)">
             Pane 2
           </DemoContent>
         </SplitPane.Pane>
         <SplitPane.Pane>
-          <DemoContent color="color-mix(in srgb, var(--color-warning) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-warning) 15%, transparent)">
             Pane 3
           </DemoContent>
         </SplitPane.Pane>
@@ -278,16 +278,16 @@ export const WithMinSize: Story = {
     <StoryContainer>
       <SplitPane orientation="horizontal">
         <SplitPane.Pane minSize={200}>
-          <DemoContent color="color-mix(in srgb, var(--color-info) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-info) 15%, transparent)">
             Min 200px
             <br />
-            <small style={{ fontSize: "var(--font-size-sm)" }}>
+            <small style={{ fontSize: "var(--bk-font-size-sm)" }}>
               Try to make me smaller!
             </small>
           </DemoContent>
         </SplitPane.Pane>
         <SplitPane.Pane minSize={150}>
-          <DemoContent color="color-mix(in srgb, var(--color-success) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-success) 15%, transparent)">
             Min 150px
           </DemoContent>
         </SplitPane.Pane>
@@ -315,16 +315,16 @@ export const WithMaxSize: Story = {
     <StoryContainer>
       <SplitPane orientation="horizontal">
         <SplitPane.Pane maxSize={400}>
-          <DemoContent color="color-mix(in srgb, var(--color-warning) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-warning) 15%, transparent)">
             Max 400px
             <br />
-            <small style={{ fontSize: "var(--font-size-sm)" }}>
+            <small style={{ fontSize: "var(--bk-font-size-sm)" }}>
               Try to make me bigger!
             </small>
           </DemoContent>
         </SplitPane.Pane>
         <SplitPane.Pane>
-          <DemoContent color="color-mix(in srgb, var(--color-danger) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-danger) 15%, transparent)">
             No max size
           </DemoContent>
         </SplitPane.Pane>
@@ -352,15 +352,15 @@ export const WithPreferredSizes: Story = {
     <StoryContainer>
       <SplitPane orientation="horizontal">
         <SplitPane.Pane preferredSize={200}>
-          <DemoContent color="color-mix(in srgb, var(--color-info) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-info) 15%, transparent)">
             200px initial
           </DemoContent>
         </SplitPane.Pane>
         <SplitPane.Pane preferredSize={0.7}>
-          <DemoContent color="color-mix(in srgb, var(--color-success) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-success) 15%, transparent)">
             70% initial
             <br />
-            <small style={{ fontSize: "var(--font-size-sm)" }}>
+            <small style={{ fontSize: "var(--bk-font-size-sm)" }}>
               (preferredSize: 0.7)
             </small>
           </DemoContent>
@@ -391,19 +391,19 @@ export const Nested: Story = {
         <SplitPane.Pane preferredSize={0.7}>
           <SplitPane orientation="horizontal">
             <SplitPane.Pane minSize={150}>
-              <DemoContent color="color-mix(in srgb, var(--color-info) 15%, transparent)">
+              <DemoContent color="color-mix(in srgb, var(--bk-color-info) 15%, transparent)">
                 Top Left
               </DemoContent>
             </SplitPane.Pane>
             <SplitPane.Pane>
-              <DemoContent color="color-mix(in srgb, var(--color-success) 15%, transparent)">
+              <DemoContent color="color-mix(in srgb, var(--bk-color-success) 15%, transparent)">
                 Top Right
               </DemoContent>
             </SplitPane.Pane>
           </SplitPane>
         </SplitPane.Pane>
         <SplitPane.Pane>
-          <DemoContent color="color-mix(in srgb, var(--color-warning) 15%, transparent)">
+          <DemoContent color="color-mix(in srgb, var(--bk-color-warning) 15%, transparent)">
             Bottom Panel
           </DemoContent>
         </SplitPane.Pane>
@@ -432,10 +432,10 @@ export const VSCodeLayout: Story = {
       <SplitPane orientation="horizontal">
         <SplitPane.Pane minSize={200} maxSize={400} preferredSize={250}>
           <Sidebar>
-            <h3 style={{ margin: "0 0 var(--padding-md) 0" }}>EXPLORER</h3>
+            <h3 style={{ margin: "0 0 var(--bk-padding-md) 0" }}>EXPLORER</h3>
             <div>📁 src</div>
-            <div style={{ paddingLeft: "var(--padding-md)" }}>📄 App.tsx</div>
-            <div style={{ paddingLeft: "var(--padding-md)" }}>📄 index.tsx</div>
+            <div style={{ paddingLeft: "var(--bk-padding-md)" }}>📄 App.tsx</div>
+            <div style={{ paddingLeft: "var(--bk-padding-md)" }}>📄 index.tsx</div>
             <div>📁 components</div>
             <div>📁 styles</div>
           </Sidebar>
@@ -469,7 +469,7 @@ export const VSCodeLayout: Story = {
             <SplitPane.Pane minSize={100} maxSize={400} preferredSize={200}>
               <Panel>
                 <strong>PROBLEMS</strong>
-                <div style={{ marginTop: "var(--padding-sm)" }}>
+                <div style={{ marginTop: "var(--bk-padding-sm)" }}>
                   No problems detected.
                 </div>
               </Panel>
@@ -499,34 +499,34 @@ export const Showcase: Story = {
   render: () => (
     <div
       style={{
-        padding: "var(--padding-xl)",
+        padding: "var(--bk-padding-xl)",
         display: "flex",
         flexDirection: "column",
-        gap: "var(--gap-xl)",
+        gap: "var(--bk-gap-xl)",
       }}
     >
       <div>
-        <h2 style={{ marginBottom: "var(--padding-md)" }}>
+        <h2 style={{ marginBottom: "var(--bk-padding-md)" }}>
           Basic Split Panes
         </h2>
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: "var(--gap-lg)",
+            gap: "var(--bk-gap-lg)",
           }}
         >
           <div>
-            <h3 style={{ marginBottom: "var(--padding-sm)" }}>Horizontal</h3>
-            <div style={{ height: "300px", border: "1px solid var(--color-border)" }}>
+            <h3 style={{ marginBottom: "var(--bk-padding-sm)" }}>Horizontal</h3>
+            <div style={{ height: "300px", border: "1px solid var(--bk-color-border)" }}>
               <SplitPane orientation="horizontal">
                 <SplitPane.Pane>
-                  <DemoContent color="color-mix(in srgb, var(--color-info) 15%, transparent)">
+                  <DemoContent color="color-mix(in srgb, var(--bk-color-info) 15%, transparent)">
                     Left
                   </DemoContent>
                 </SplitPane.Pane>
                 <SplitPane.Pane>
-                  <DemoContent color="color-mix(in srgb, var(--color-success) 15%, transparent)">
+                  <DemoContent color="color-mix(in srgb, var(--bk-color-success) 15%, transparent)">
                     Right
                   </DemoContent>
                 </SplitPane.Pane>
@@ -534,16 +534,16 @@ export const Showcase: Story = {
             </div>
           </div>
           <div>
-            <h3 style={{ marginBottom: "var(--padding-sm)" }}>Vertical</h3>
-            <div style={{ height: "300px", border: "1px solid var(--color-border)" }}>
+            <h3 style={{ marginBottom: "var(--bk-padding-sm)" }}>Vertical</h3>
+            <div style={{ height: "300px", border: "1px solid var(--bk-color-border)" }}>
               <SplitPane orientation="vertical">
                 <SplitPane.Pane>
-                  <DemoContent color="color-mix(in srgb, var(--color-warning) 15%, transparent)">
+                  <DemoContent color="color-mix(in srgb, var(--bk-color-warning) 15%, transparent)">
                     Top
                   </DemoContent>
                 </SplitPane.Pane>
                 <SplitPane.Pane>
-                  <DemoContent color="color-mix(in srgb, var(--color-danger) 15%, transparent)">
+                  <DemoContent color="color-mix(in srgb, var(--bk-color-danger) 15%, transparent)">
                     Bottom
                   </DemoContent>
                 </SplitPane.Pane>
@@ -554,28 +554,28 @@ export const Showcase: Story = {
       </div>
 
       <div>
-        <h2 style={{ marginBottom: "var(--padding-md)" }}>
+        <h2 style={{ marginBottom: "var(--bk-padding-md)" }}>
           Multiple Panes
         </h2>
-        <div style={{ height: "300px", border: "1px solid var(--color-border)" }}>
+        <div style={{ height: "300px", border: "1px solid var(--bk-color-border)" }}>
           <SplitPane orientation="horizontal">
             <SplitPane.Pane>
-              <DemoContent color="color-mix(in srgb, var(--color-info) 15%, transparent)">
+              <DemoContent color="color-mix(in srgb, var(--bk-color-info) 15%, transparent)">
                 Pane 1
               </DemoContent>
             </SplitPane.Pane>
             <SplitPane.Pane>
-              <DemoContent color="color-mix(in srgb, var(--color-success) 15%, transparent)">
+              <DemoContent color="color-mix(in srgb, var(--bk-color-success) 15%, transparent)">
                 Pane 2
               </DemoContent>
             </SplitPane.Pane>
             <SplitPane.Pane>
-              <DemoContent color="color-mix(in srgb, var(--color-warning) 15%, transparent)">
+              <DemoContent color="color-mix(in srgb, var(--bk-color-warning) 15%, transparent)">
                 Pane 3
               </DemoContent>
             </SplitPane.Pane>
             <SplitPane.Pane>
-              <DemoContent color="color-mix(in srgb, var(--color-danger) 15%, transparent)">
+              <DemoContent color="color-mix(in srgb, var(--bk-color-danger) 15%, transparent)">
                 Pane 4
               </DemoContent>
             </SplitPane.Pane>
@@ -584,27 +584,27 @@ export const Showcase: Story = {
       </div>
 
       <div>
-        <h2 style={{ marginBottom: "var(--padding-md)" }}>
+        <h2 style={{ marginBottom: "var(--bk-padding-md)" }}>
           Constraints & Sizing
         </h2>
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: "var(--gap-lg)",
+            gap: "var(--bk-gap-lg)",
           }}
         >
           <div>
-            <h3 style={{ marginBottom: "var(--padding-sm)" }}>Min/Max Size</h3>
-            <div style={{ height: "300px", border: "1px solid var(--color-border)" }}>
+            <h3 style={{ marginBottom: "var(--bk-padding-sm)" }}>Min/Max Size</h3>
+            <div style={{ height: "300px", border: "1px solid var(--bk-color-border)" }}>
               <SplitPane orientation="horizontal">
                 <SplitPane.Pane minSize={150} maxSize={300}>
-                  <DemoContent color="color-mix(in srgb, var(--color-info) 15%, transparent)">
+                  <DemoContent color="color-mix(in srgb, var(--bk-color-info) 15%, transparent)">
                     150-300px
                   </DemoContent>
                 </SplitPane.Pane>
                 <SplitPane.Pane minSize={200}>
-                  <DemoContent color="color-mix(in srgb, var(--color-success) 15%, transparent)">
+                  <DemoContent color="color-mix(in srgb, var(--bk-color-success) 15%, transparent)">
                     Min 200px
                   </DemoContent>
                 </SplitPane.Pane>
@@ -612,18 +612,18 @@ export const Showcase: Story = {
             </div>
           </div>
           <div>
-            <h3 style={{ marginBottom: "var(--padding-sm)" }}>
+            <h3 style={{ marginBottom: "var(--bk-padding-sm)" }}>
               Preferred Sizes
             </h3>
-            <div style={{ height: "300px", border: "1px solid var(--color-border)" }}>
+            <div style={{ height: "300px", border: "1px solid var(--bk-color-border)" }}>
               <SplitPane orientation="horizontal">
                 <SplitPane.Pane preferredSize={200}>
-                  <DemoContent color="color-mix(in srgb, var(--color-warning) 15%, transparent)">
+                  <DemoContent color="color-mix(in srgb, var(--bk-color-warning) 15%, transparent)">
                     200px
                   </DemoContent>
                 </SplitPane.Pane>
                 <SplitPane.Pane preferredSize={0.7}>
-                  <DemoContent color="color-mix(in srgb, var(--color-danger) 15%, transparent)">
+                  <DemoContent color="color-mix(in srgb, var(--bk-color-danger) 15%, transparent)">
                     70%
                   </DemoContent>
                 </SplitPane.Pane>
@@ -634,8 +634,8 @@ export const Showcase: Story = {
       </div>
 
       <div>
-        <h2 style={{ marginBottom: "var(--padding-md)" }}>Nested Layout</h2>
-        <div style={{ height: "400px", border: "1px solid var(--color-border)" }}>
+        <h2 style={{ marginBottom: "var(--bk-padding-md)" }}>Nested Layout</h2>
+        <div style={{ height: "400px", border: "1px solid var(--bk-color-border)" }}>
           <SplitPane orientation="horizontal">
             <SplitPane.Pane preferredSize={250}>
               <Sidebar>

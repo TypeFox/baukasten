@@ -15,19 +15,19 @@ export const sliderWrapper = recipe({
     variants: {
         size: {
             xs: {
-                gap: 'var(--gap-xs)',
+                gap: 'var(--bk-gap-xs)',
             },
             sm: {
-                gap: 'var(--gap-sm)',
+                gap: 'var(--bk-gap-sm)',
             },
             md: {
-                gap: 'var(--gap-sm)',
+                gap: 'var(--bk-gap-sm)',
             },
             lg: {
-                gap: 'var(--gap-md)',
+                gap: 'var(--bk-gap-md)',
             },
             xl: {
-                gap: 'var(--gap-md)',
+                gap: 'var(--bk-gap-md)',
             },
         },
         fullWidth: {
@@ -51,17 +51,17 @@ export const sliderLabels = style({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    fontSize: 'var(--font-size-xs)',
-    color: 'var(--color-foreground)',
-    gap: 'var(--gap-sm)',
+    fontSize: 'var(--bk-font-size-xs)',
+    color: 'var(--bk-color-foreground)',
+    gap: 'var(--bk-gap-sm)',
 });
 
 /**
  * Min/Max labels
  */
 export const sliderMinMax = style({
-    color: 'var(--color-descriptionForeground)',
-    fontWeight: 'var(--font-weight-normal)',
+    color: 'var(--bk-color-descriptionForeground)',
+    fontWeight: 'var(--bk-font-weight-normal)',
 });
 
 /**
@@ -69,7 +69,7 @@ export const sliderMinMax = style({
  */
 export const sliderValue = recipe({
     base: {
-        fontWeight: 'var(--font-weight-medium)',
+        fontWeight: 'var(--bk-font-weight-medium)',
     },
 
     variants: {
@@ -94,39 +94,39 @@ export const sliderTrack = recipe({
     base: {
         position: 'relative',
         width: '100%',
-        backgroundColor: 'var(--color-input-background)',
+        backgroundColor: 'var(--bk-color-input-background)',
         overflow: 'visible',
     },
 
     variants: {
         size: {
             xs: {
-                height: 'var(--spacing-1)',
-                marginBottom: 'var(--spacing-8)',
+                height: 'var(--bk-spacing-1)',
+                marginBottom: 'var(--bk-spacing-8)',
             },
             sm: {
-                height: 'var(--spacing-1-5)',
-                marginBottom: 'var(--spacing-8)',
+                height: 'var(--bk-spacing-1-5)',
+                marginBottom: 'var(--bk-spacing-8)',
             },
             md: {
-                height: 'var(--spacing-2)',
-                marginBottom: 'var(--spacing-10)',
+                height: 'var(--bk-spacing-2)',
+                marginBottom: 'var(--bk-spacing-10)',
             },
             lg: {
-                height: 'var(--spacing-2-5)',
-                marginBottom: 'var(--spacing-10)',
+                height: 'var(--bk-spacing-2-5)',
+                marginBottom: 'var(--bk-spacing-10)',
             },
             xl: {
-                height: 'var(--spacing-3)',
-                marginBottom: 'var(--spacing-12)',
+                height: 'var(--bk-spacing-3)',
+                marginBottom: 'var(--bk-spacing-12)',
             },
         },
         hasMarks: {
             true: {
-                borderRadius: 'var(--radius-sm)',
+                borderRadius: 'var(--bk-radius-sm)',
             },
             false: {
-                borderRadius: 'var(--radius-full)',
+                borderRadius: 'var(--bk-radius-full)',
             },
         },
     },
@@ -146,7 +146,7 @@ export const sliderFill = recipe({
         top: 0,
         left: 0,
         height: '100%',
-        backgroundColor: 'var(--color-primary)',
+        backgroundColor: 'var(--bk-color-primary)',
         pointerEvents: 'none',
         transition: 'width 0.1s ease-out',
     },
@@ -154,27 +154,27 @@ export const sliderFill = recipe({
     variants: {
         size: {
             xs: {
-                height: 'var(--spacing-1)',
+                height: 'var(--bk-spacing-1)',
             },
             sm: {
-                height: 'var(--spacing-1-5)',
+                height: 'var(--bk-spacing-1-5)',
             },
             md: {
-                height: 'var(--spacing-2)',
+                height: 'var(--bk-spacing-2)',
             },
             lg: {
-                height: 'var(--spacing-2-5)',
+                height: 'var(--bk-spacing-2-5)',
             },
             xl: {
-                height: 'var(--spacing-3)',
+                height: 'var(--bk-spacing-3)',
             },
         },
         hasMarks: {
             true: {
-                borderRadius: 'var(--radius-sm)',
+                borderRadius: 'var(--bk-radius-sm)',
             },
             false: {
-                borderRadius: 'var(--radius-full)',
+                borderRadius: 'var(--bk-radius-full)',
             },
         },
     },
@@ -193,41 +193,41 @@ export const sliderThumb = recipe({
         position: 'absolute',
         top: '50%',
         transform: 'translate(-50%, -50%)',
-        backgroundColor: 'var(--color-primary-foreground)',
-        border: 'var(--border-width-2) solid var(--color-primary)',
-        borderRadius: 'var(--radius-full)',
+        backgroundColor: 'var(--bk-color-primary-foreground)',
+        border: 'var(--bk-border-width-2) solid var(--bk-color-primary)',
+        borderRadius: 'var(--bk-radius-full)',
         pointerEvents: 'none',
         transition: 'left 0.1s ease-out, box-shadow 0.15s ease',
-        boxShadow: 'var(--shadow-base)',
+        boxShadow: 'var(--bk-shadow-base)',
         zIndex: 2,
     },
 
     variants: {
         size: {
             xs: {
-                width: 'var(--spacing-3)',
-                height: 'var(--spacing-3)',
+                width: 'var(--bk-spacing-3)',
+                height: 'var(--bk-spacing-3)',
             },
             sm: {
-                width: 'var(--spacing-3-5)',
-                height: 'var(--spacing-3-5)',
+                width: 'var(--bk-spacing-3-5)',
+                height: 'var(--bk-spacing-3-5)',
             },
             md: {
-                width: 'var(--spacing-4)',
-                height: 'var(--spacing-4)',
+                width: 'var(--bk-spacing-4)',
+                height: 'var(--bk-spacing-4)',
             },
             lg: {
-                width: 'var(--spacing-5)',
-                height: 'var(--spacing-5)',
+                width: 'var(--bk-spacing-5)',
+                height: 'var(--bk-spacing-5)',
             },
             xl: {
-                width: 'var(--spacing-6)',
-                height: 'var(--spacing-6)',
+                width: 'var(--bk-spacing-6)',
+                height: 'var(--bk-spacing-6)',
             },
         },
         disabled: {
             true: {
-                opacity: 'var(--opacity-disabled)',
+                opacity: 'var(--bk-opacity-disabled)',
                 cursor: 'not-allowed',
             },
             false: {},
@@ -281,7 +281,7 @@ export const slider = recipe({
  * Focus visible state for slider thumb
  */
 globalStyle(`${slider.classNames.base}:focus-visible + div`, {
-    boxShadow: '0 0 0 2px var(--color-focus)',
+    boxShadow: '0 0 0 2px var(--bk-color-focus)',
 });
 
 /**
@@ -315,24 +315,24 @@ export const sliderMark = recipe({
     variants: {
         size: {
             xs: {
-                width: 'var(--border-width-1)',
-                height: 'var(--spacing-2)',
+                width: 'var(--bk-border-width-1)',
+                height: 'var(--bk-spacing-2)',
             },
             sm: {
-                width: 'var(--border-width-1)',
-                height: 'var(--spacing-2-5)',
+                width: 'var(--bk-border-width-1)',
+                height: 'var(--bk-spacing-2-5)',
             },
             md: {
-                width: 'var(--border-width-2)',
-                height: 'var(--spacing-3)',
+                width: 'var(--bk-border-width-2)',
+                height: 'var(--bk-spacing-3)',
             },
             lg: {
-                width: 'var(--border-width-2)',
-                height: 'var(--spacing-3-5)',
+                width: 'var(--bk-border-width-2)',
+                height: 'var(--bk-spacing-3-5)',
             },
             xl: {
-                width: 'var(--border-width-2)',
-                height: 'var(--spacing-4)',
+                width: 'var(--bk-border-width-2)',
+                height: 'var(--bk-spacing-4)',
             },
         },
     },
@@ -347,40 +347,40 @@ export const sliderMark = recipe({
  */
 export const sliderMarkTick = recipe({
     base: {
-        borderRadius: 'var(--radius-full)',
+        borderRadius: 'var(--bk-radius-full)',
     },
 
     variants: {
         size: {
             xs: {
-                width: 'var(--border-width-1)',
-                height: 'var(--spacing-2)',
+                width: 'var(--bk-border-width-1)',
+                height: 'var(--bk-spacing-2)',
             },
             sm: {
-                width: 'var(--border-width-1)',
-                height: 'var(--spacing-2-5)',
+                width: 'var(--bk-border-width-1)',
+                height: 'var(--bk-spacing-2-5)',
             },
             md: {
-                width: 'var(--border-width-2)',
-                height: 'var(--spacing-3)',
+                width: 'var(--bk-border-width-2)',
+                height: 'var(--bk-spacing-3)',
             },
             lg: {
-                width: 'var(--border-width-2)',
-                height: 'var(--spacing-3-5)',
+                width: 'var(--bk-border-width-2)',
+                height: 'var(--bk-spacing-3-5)',
             },
             xl: {
-                width: 'var(--border-width-2)',
-                height: 'var(--spacing-4)',
+                width: 'var(--bk-border-width-2)',
+                height: 'var(--bk-spacing-4)',
             },
         },
         active: {
             true: {
-                backgroundColor: 'var(--color-primary)',
-                opacity: 'var(--opacity-100)',
+                backgroundColor: 'var(--bk-color-primary)',
+                opacity: 'var(--bk-opacity-100)',
             },
             false: {
-                backgroundColor: 'var(--color-input-background)',
-                opacity: 'var(--opacity-100)',
+                backgroundColor: 'var(--bk-color-input-background)',
+                opacity: 'var(--bk-opacity-100)',
             },
         },
     },
@@ -396,8 +396,8 @@ export const sliderMarkTick = recipe({
  */
 export const sliderMarkLabel = recipe({
     base: {
-        fontSize: 'var(--font-size-xs)',
-        color: 'var(--color-descriptionForeground)',
+        fontSize: 'var(--bk-font-size-xs)',
+        color: 'var(--bk-color-descriptionForeground)',
         whiteSpace: 'nowrap',
         userSelect: 'none',
     },
@@ -405,19 +405,19 @@ export const sliderMarkLabel = recipe({
     variants: {
         size: {
             xs: {
-                marginTop: 'var(--spacing-1-5)',
+                marginTop: 'var(--bk-spacing-1-5)',
             },
             sm: {
-                marginTop: 'var(--spacing-2)',
+                marginTop: 'var(--bk-spacing-2)',
             },
             md: {
-                marginTop: 'var(--spacing-2)',
+                marginTop: 'var(--bk-spacing-2)',
             },
             lg: {
-                marginTop: 'var(--spacing-2-5)',
+                marginTop: 'var(--bk-spacing-2-5)',
             },
             xl: {
-                marginTop: 'var(--spacing-3)',
+                marginTop: 'var(--bk-spacing-3)',
             },
         },
     },

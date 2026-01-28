@@ -84,7 +84,7 @@ function App() {
                 title="Sizes"
                 description="Five size options from extra small to extra large."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-4)', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', alignItems: 'center' }}>
                         <Avatar name="John Doe" size="xs" />
                         <Avatar name="John Doe" size="sm" />
                         <Avatar name="John Doe" size="md" />
@@ -103,14 +103,14 @@ function App() {
                 title="Shapes"
                 description="Avatars can be circular (default) or square."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-8)', alignItems: 'center' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
                             <Avatar name="John Doe" shape="circular" size="lg" />
-                            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>Circular</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>Circular</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
                             <Avatar name="John Doe" shape="square" size="lg" />
-                            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>Square</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>Square</span>
                         </div>
                     </div>
                 }
@@ -122,14 +122,14 @@ function App() {
                 title="With Images - Different Shapes"
                 description="Images work with both circular and square shapes."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-8)', alignItems: 'center' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
                             <Avatar name="Jane Smith" src="https://i.pravatar.cc/150?img=1" shape="circular" size="lg" />
-                            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>Circular</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>Circular</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
                             <Avatar name="Jane Smith" src="https://i.pravatar.cc/150?img=1" shape="square" size="lg" />
-                            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>Square</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>Square</span>
                         </div>
                     </div>
                 }
@@ -152,7 +152,7 @@ function App() {
                 title="All Sizes with Images"
                 description="Images scale properly across all size variants."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-4)', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', alignItems: 'center' }}>
                         <Avatar name="User 1" src="https://i.pravatar.cc/150?img=2" size="xs" />
                         <Avatar name="User 2" src="https://i.pravatar.cc/150?img=3" size="sm" />
                         <Avatar name="User 3" src="https://i.pravatar.cc/150?img=4" size="md" />
@@ -171,22 +171,22 @@ function App() {
                 title="Initials Generation"
                 description="Initials are automatically extracted from the first and last name. Single names show only one initial."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
                             <Avatar name="John" size="md" />
-                            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Single name</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Single name</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
                             <Avatar name="John Doe" size="md" />
-                            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Two names</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Two names</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
                             <Avatar name="John Michael Doe" size="md" />
-                            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Three names</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Three names</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
                             <Avatar name="María José García López" size="md" />
-                            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Four names</span>
+                            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Four names</span>
                         </div>
                     </div>
                 }
@@ -200,7 +200,7 @@ function App() {
                 title="Custom Tooltips"
                 description="Customize the tooltip content or disable it entirely. By default, the tooltip shows the name."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-3)', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', alignItems: 'center', flexWrap: 'wrap' }}>
                         <Avatar name="John Doe" tooltip="CEO & Founder" size="lg" />
                         <Avatar name="Jane Smith" tooltip="Senior Developer" src="https://i.pravatar.cc/150?img=11" size="lg" />
                         <Avatar name="Bob Johnson" tooltip="Product Manager" size="lg" />
@@ -221,12 +221,12 @@ function App() {
                 title="Avatar Group"
                 description="Common pattern for displaying multiple avatars together."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexDirection: 'column' }}>
                         <div>
-                            <h4 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+                            <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
                                 Team Members
                             </h4>
-                            <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
+                            <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
                                 <Avatar name="John Doe" src="https://i.pravatar.cc/150?img=7" />
                                 <Avatar name="Jane Smith" src="https://i.pravatar.cc/150?img=8" />
                                 <Avatar name="Bob Johnson" src="https://i.pravatar.cc/150?img=9" />
@@ -236,10 +236,10 @@ function App() {
                         </div>
 
                         <div>
-                            <h4 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+                            <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
                                 Project Team (Square)
                             </h4>
-                            <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
+                            <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
                                 <Avatar name="Sarah Connor" shape="square" />
                                 <Avatar name="Kyle Reese" shape="square" />
                                 <Avatar name="John Connor" shape="square" />
@@ -247,7 +247,7 @@ function App() {
                         </div>
                     </div>
                 }
-                code={`<div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
+                code={`<div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
   <Avatar name="John Doe" src="..." />
   <Avatar name="Jane Smith" src="..." />
   <Avatar name="Bob Johnson" src="..." />
@@ -262,29 +262,29 @@ function App() {
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: 'var(--spacing-4)',
-                        padding: 'var(--spacing-4)',
-                        background: 'var(--color-background-secondary)',
-                        borderRadius: 'var(--radius-lg)',
+                        gap: 'var(--bk-spacing-4)',
+                        padding: 'var(--bk-spacing-4)',
+                        background: 'var(--bk-color-background-secondary)',
+                        borderRadius: 'var(--bk-radius-lg)',
                         maxWidth: '400px',
                     }}>
-                        <h3 style={{ margin: 0, fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+                        <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
                             User Profile
                         </h3>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
                             <Avatar name="Sarah Johnson" src="https://i.pravatar.cc/150?img=12" size="xl" />
                             <div>
-                                <div style={{ fontWeight: 'var(--font-weight-semibold)', fontSize: 'var(--font-size-base)' }}>
+                                <div style={{ fontWeight: 'var(--bk-font-weight-semibold)', fontSize: 'var(--bk-font-size-base)' }}>
                                     Sarah Johnson
                                 </div>
-                                <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+                                <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
                                     Senior Software Engineer
                                 </div>
                             </div>
                         </div>
                     </div>
                 }
-                code={`<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+                code={`<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
   <Avatar 
     name="Sarah Johnson" 
     src="https://i.pravatar.cc/150?img=12" 
@@ -304,23 +304,23 @@ function App() {
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: 'var(--spacing-4)',
-                        padding: 'var(--spacing-4)',
-                        background: 'var(--color-background-secondary)',
-                        borderRadius: 'var(--radius-lg)',
+                        gap: 'var(--bk-spacing-4)',
+                        padding: 'var(--bk-spacing-4)',
+                        background: 'var(--bk-color-background-secondary)',
+                        borderRadius: 'var(--bk-radius-lg)',
                         minWidth: '300px',
                     }}>
-                        <h3 style={{ margin: 0, fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+                        <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
                             Team Members
                         </h3>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
                             {[
                                 { name: 'John Doe', role: 'Team Lead', img: 13 },
                                 { name: 'Emily Chen', role: 'Frontend Developer', img: 14 },
                                 { name: 'Michael Brown', role: 'Backend Developer', img: 15 },
                                 { name: 'Anna White', role: 'Designer' },
                             ].map((member) => (
-                                <div key={member.name} style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                                <div key={member.name} style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                                     <Avatar
                                         name={member.name}
                                         src={member.img ? `https://i.pravatar.cc/150?img=${member.img}` : undefined}
@@ -328,10 +328,10 @@ function App() {
                                         tooltip={`${member.name} - ${member.role}`}
                                     />
                                     <div style={{ flex: 1 }}>
-                                        <div style={{ fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                                        <div style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                             {member.name}
                                         </div>
-                                        <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+                                        <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
                                             {member.role}
                                         </div>
                                     </div>

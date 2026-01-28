@@ -53,7 +53,7 @@ export const Interactive: Story = {
     disabled: false,
   },
   render: (args) => (
-    <div style={{ padding: 'var(--spacing-8)' }}>
+    <div style={{ padding: 'var(--bk-spacing-8)' }}>
       <ContextMenu
         {...args}
         menu={
@@ -68,10 +68,10 @@ export const Interactive: Story = {
       >
         <div
           style={{
-            padding: 'var(--spacing-8)',
-            background: 'var(--color-background-secondary)',
-            border: '2px dashed var(--color-border)',
-            borderRadius: 'var(--radius-md)',
+            padding: 'var(--bk-spacing-8)',
+            background: 'var(--bk-color-background-secondary)',
+            border: '2px dashed var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
             textAlign: 'center',
             cursor: 'context-menu',
             userSelect: 'none',
@@ -96,7 +96,7 @@ export const Interactive: Story = {
  */
 export const WithShortcuts: Story = {
   render: () => (
-    <div style={{ padding: 'var(--spacing-8)' }}>
+    <div style={{ padding: 'var(--bk-spacing-8)' }}>
       <ContextMenu
         menu={
           <>
@@ -128,10 +128,10 @@ export const WithShortcuts: Story = {
       >
         <div
           style={{
-            padding: 'var(--spacing-8)',
-            background: 'var(--color-background-secondary)',
-            border: '2px dashed var(--color-border)',
-            borderRadius: 'var(--radius-md)',
+            padding: 'var(--bk-spacing-8)',
+            background: 'var(--bk-color-background-secondary)',
+            border: '2px dashed var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
             textAlign: 'center',
             cursor: 'context-menu',
             userSelect: 'none',
@@ -156,7 +156,7 @@ export const WithShortcuts: Story = {
  */
 export const WithSubMenus: Story = {
   render: () => (
-    <div style={{ padding: 'var(--spacing-8)' }}>
+    <div style={{ padding: 'var(--bk-spacing-8)' }}>
       <ContextMenu
         menu={
           <>
@@ -186,10 +186,10 @@ export const WithSubMenus: Story = {
       >
         <div
           style={{
-            padding: 'var(--spacing-8)',
-            background: 'var(--color-background-secondary)',
-            border: '2px dashed var(--color-border)',
-            borderRadius: 'var(--radius-md)',
+            padding: 'var(--bk-spacing-8)',
+            background: 'var(--bk-color-background-secondary)',
+            border: '2px dashed var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
             textAlign: 'center',
             cursor: 'context-menu',
             userSelect: 'none',
@@ -214,7 +214,7 @@ export const WithSubMenus: Story = {
  */
 export const WithBadgesAndStates: Story = {
   render: () => (
-    <div style={{ padding: 'var(--spacing-8)' }}>
+    <div style={{ padding: 'var(--bk-spacing-8)' }}>
       <ContextMenu
         menu={
           <>
@@ -255,10 +255,10 @@ export const WithBadgesAndStates: Story = {
       >
         <div
           style={{
-            padding: 'var(--spacing-8)',
-            background: 'var(--color-background-secondary)',
-            border: '2px dashed var(--color-border)',
-            borderRadius: 'var(--radius-md)',
+            padding: 'var(--bk-spacing-8)',
+            background: 'var(--bk-color-background-secondary)',
+            border: '2px dashed var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
             textAlign: 'center',
             cursor: 'context-menu',
             userSelect: 'none',
@@ -286,8 +286,8 @@ export const Sizes: Story = {
     <div
       style={{
         display: 'flex',
-        gap: 'var(--gap-lg)',
-        padding: 'var(--spacing-8)',
+        gap: 'var(--bk-gap-lg)',
+        padding: 'var(--bk-spacing-8)',
         flexWrap: 'wrap',
       }}
     >
@@ -305,14 +305,14 @@ export const Sizes: Story = {
         >
           <div
             style={{
-              padding: 'var(--spacing-4)',
-              background: 'var(--color-background-secondary)',
-              border: '2px dashed var(--color-border)',
-              borderRadius: 'var(--radius-md)',
+              padding: 'var(--bk-spacing-4)',
+              background: 'var(--bk-color-background-secondary)',
+              border: '2px dashed var(--bk-color-border)',
+              borderRadius: 'var(--bk-radius-md)',
               textAlign: 'center',
               cursor: 'context-menu',
               userSelect: 'none',
-              fontSize: 'var(--font-size-sm)',
+              fontSize: 'var(--bk-font-size-sm)',
             }}
           >
             {size.toUpperCase()}
@@ -339,12 +339,12 @@ export const DifferentTriggers: Story = {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--gap-lg)',
-        padding: 'var(--spacing-8)',
+        gap: 'var(--bk-gap-lg)',
+        padding: 'var(--bk-spacing-8)',
       }}
     >
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           On Text Content
         </h4>
         <ContextMenu
@@ -358,9 +358,9 @@ export const DifferentTriggers: Story = {
         >
           <p
             style={{
-              padding: 'var(--spacing-4)',
-              background: 'var(--color-background-secondary)',
-              borderRadius: 'var(--radius-md)',
+              padding: 'var(--bk-spacing-4)',
+              background: 'var(--bk-color-background-secondary)',
+              borderRadius: 'var(--bk-radius-md)',
               cursor: 'context-menu',
             }}
           >
@@ -370,7 +370,7 @@ export const DifferentTriggers: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           On Image/Card
         </h4>
         <ContextMenu
@@ -388,25 +388,25 @@ export const DifferentTriggers: Story = {
             style={{
               width: '200px',
               height: '150px',
-              background: 'var(--color-background-secondary)',
-              border: '1px solid var(--color-border)',
-              borderRadius: 'var(--radius-md)',
+              background: 'var(--bk-color-background-secondary)',
+              border: '1px solid var(--bk-color-border)',
+              borderRadius: 'var(--bk-radius-md)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'context-menu',
             }}
           >
-            <Icon name="file-media" size="3xl" color="var(--color-foreground-muted)" />
+            <Icon name="file-media" size="3xl" color="var(--bk-color-foreground-muted)" />
           </div>
         </ContextMenu>
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           On List Items
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-xs)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-xs)' }}>
           {['Item 1', 'Item 2', 'Item 3'].map((item) => (
             <ContextMenu
               key={item}
@@ -421,9 +421,9 @@ export const DifferentTriggers: Story = {
             >
               <div
                 style={{
-                  padding: 'var(--spacing-2)',
-                  background: 'var(--color-background-secondary)',
-                  borderRadius: 'var(--radius-sm)',
+                  padding: 'var(--bk-spacing-2)',
+                  background: 'var(--bk-color-background-secondary)',
+                  borderRadius: 'var(--bk-radius-sm)',
                   cursor: 'context-menu',
                 }}
               >
@@ -452,8 +452,8 @@ export const Disabled: Story = {
     <div
       style={{
         display: 'flex',
-        gap: 'var(--gap-lg)',
-        padding: 'var(--spacing-8)',
+        gap: 'var(--bk-gap-lg)',
+        padding: 'var(--bk-spacing-8)',
       }}
     >
       <ContextMenu
@@ -466,10 +466,10 @@ export const Disabled: Story = {
       >
         <div
           style={{
-            padding: 'var(--spacing-8)',
-            background: 'var(--color-background-secondary)',
-            border: '2px dashed var(--color-border)',
-            borderRadius: 'var(--radius-md)',
+            padding: 'var(--bk-spacing-8)',
+            background: 'var(--bk-color-background-secondary)',
+            border: '2px dashed var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
             textAlign: 'center',
             cursor: 'context-menu',
             userSelect: 'none',
@@ -489,10 +489,10 @@ export const Disabled: Story = {
       >
         <div
           style={{
-            padding: 'var(--spacing-8)',
-            background: 'var(--color-background-secondary)',
-            border: '2px dashed var(--color-border)',
-            borderRadius: 'var(--radius-md)',
+            padding: 'var(--bk-spacing-8)',
+            background: 'var(--bk-color-background-secondary)',
+            border: '2px dashed var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
             textAlign: 'center',
             opacity: 0.5,
             cursor: 'default',
@@ -569,24 +569,24 @@ export const WithClickHandlers: Story = {
       };
 
       return (
-        <div style={{ padding: 'var(--spacing-8)' }}>
+        <div style={{ padding: 'var(--bk-spacing-8)' }}>
           <div
             style={{
-              marginBottom: 'var(--spacing-4)',
-              padding: 'var(--spacing-4)',
-              background: 'var(--color-background-elevated)',
-              borderRadius: 'var(--radius-md)',
+              marginBottom: 'var(--bk-spacing-4)',
+              padding: 'var(--bk-spacing-4)',
+              background: 'var(--bk-color-background-elevated)',
+              borderRadius: 'var(--bk-radius-md)',
             }}
           >
-            <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
-              Last Action: <strong style={{ color: 'var(--color-foreground)' }}>{lastAction}</strong>
+            <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
+              Last Action: <strong style={{ color: 'var(--bk-color-foreground)' }}>{lastAction}</strong>
             </div>
-            <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginTop: 'var(--spacing-1)' }}>
-              Total Actions: <strong style={{ color: 'var(--color-foreground)' }}>{count}</strong>
+            <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginTop: 'var(--bk-spacing-1)' }}>
+              Total Actions: <strong style={{ color: 'var(--bk-color-foreground)' }}>{count}</strong>
             </div>
-            <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginTop: 'var(--spacing-1)' }}>
-              Status: Liked: <strong style={{ color: 'var(--color-foreground)' }}>{liked ? 'Yes' : 'No'}</strong>,
-              Bookmarked: <strong style={{ color: 'var(--color-foreground)' }}>{bookmarked ? 'Yes' : 'No'}</strong>
+            <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginTop: 'var(--bk-spacing-1)' }}>
+              Status: Liked: <strong style={{ color: 'var(--bk-color-foreground)' }}>{liked ? 'Yes' : 'No'}</strong>,
+              Bookmarked: <strong style={{ color: 'var(--bk-color-foreground)' }}>{bookmarked ? 'Yes' : 'No'}</strong>
             </div>
           </div>
 
@@ -638,17 +638,17 @@ export const WithClickHandlers: Story = {
           >
             <div
               style={{
-                padding: 'var(--spacing-8)',
-                background: 'var(--color-background-secondary)',
-                border: '2px dashed var(--color-border)',
-                borderRadius: 'var(--radius-md)',
+                padding: 'var(--bk-spacing-8)',
+                background: 'var(--bk-color-background-secondary)',
+                border: '2px dashed var(--bk-color-border)',
+                borderRadius: 'var(--bk-radius-md)',
                 textAlign: 'center',
                 cursor: 'context-menu',
                 userSelect: 'none',
               }}
             >
               Right-click me for interactive actions!
-              <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)', marginTop: 'var(--spacing-2)' }}>
+              <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)', marginTop: 'var(--bk-spacing-2)' }}>
                 Watch the status update above
               </div>
             </div>
@@ -677,13 +677,13 @@ export const Showcase: Story = {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--spacing-6)',
-        padding: 'var(--spacing-4)',
+        gap: 'var(--bk-spacing-6)',
+        padding: 'var(--bk-spacing-4)',
         maxWidth: '800px',
         margin: '0 auto',
       }}
     >
-      <h3 style={{ fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+      <h3 style={{ fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
         File Explorer Context Menu
       </h3>
       <ContextMenu
@@ -723,27 +723,27 @@ export const Showcase: Story = {
       >
         <div
           style={{
-            padding: 'var(--spacing-4)',
-            background: 'var(--color-background-secondary)',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius-md)',
+            padding: 'var(--bk-spacing-4)',
+            background: 'var(--bk-color-background-secondary)',
+            border: '1px solid var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
             cursor: 'context-menu',
             display: 'flex',
             alignItems: 'center',
-            gap: 'var(--gap-md)',
+            gap: 'var(--bk-gap-md)',
           }}
         >
           <Icon name="file-code" size="lg" />
           <div>
-            <div style={{ fontWeight: 'var(--font-weight-medium)' }}>app.tsx</div>
-            <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+            <div style={{ fontWeight: 'var(--bk-font-weight-medium)' }}>app.tsx</div>
+            <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
               TypeScript React Component
             </div>
           </div>
         </div>
       </ContextMenu>
 
-      <h3 style={{ fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)', marginTop: 'var(--spacing-4)' }}>
+      <h3 style={{ fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)', marginTop: 'var(--bk-spacing-4)' }}>
         Editor Context Menu
       </h3>
       <ContextMenu
@@ -787,12 +787,12 @@ export const Showcase: Story = {
       >
         <div
           style={{
-            padding: 'var(--spacing-4)',
-            background: 'var(--color-code-background)',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius-md)',
+            padding: 'var(--bk-spacing-4)',
+            background: 'var(--bk-color-code-background)',
+            border: '1px solid var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
             fontFamily: 'monospace',
-            fontSize: 'var(--font-size-sm)',
+            fontSize: 'var(--bk-font-size-sm)',
             cursor: 'context-menu',
           }}
         >

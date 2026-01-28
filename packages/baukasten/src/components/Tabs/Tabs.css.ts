@@ -33,7 +33,7 @@ export const tabList = recipe({
   base: {
     display: "flex",
     gap: 0,
-    backgroundColor: "var(--color-background-secondary)",
+    backgroundColor: "var(--bk-color-background-secondary)",
     overflowX: "auto",
     overflowY: "hidden",
     scrollbarWidth: "none",
@@ -42,11 +42,11 @@ export const tabList = recipe({
     orientation: {
       horizontal: {
         flexDirection: "row",
-        borderBottom: "var(--border-width-1) solid var(--color-border)",
+        borderBottom: "var(--bk-border-width-1) solid var(--bk-color-border)",
       },
       vertical: {
         flexDirection: "column",
-        borderRight: "var(--border-width-1) solid var(--color-border)",
+        borderRight: "var(--bk-border-width-1) solid var(--bk-color-border)",
       },
     },
   },
@@ -72,12 +72,12 @@ export const tab = recipe({
     border: "none",
     fontFamily: "inherit",
     whiteSpace: "nowrap",
-    transition: "var(--transition-colors)",
+    transition: "var(--bk-transition-colors)",
     position: "relative",
 
     selectors: {
       "&:focus-visible": {
-        outline: "var(--border-width-1) solid var(--color-focus)",
+        outline: "var(--bk-border-width-1) solid var(--bk-color-focus)",
         outlineOffset: "-2px", // Negative offset to draw focus ring inside tab boundary
       },
     },
@@ -85,58 +85,58 @@ export const tab = recipe({
   variants: {
     size: {
       xs: {
-        padding: "var(--padding-xs)",
-        fontSize: "var(--font-size-xs)",
-        minHeight: "var(--size-xs)",
-        gap: "var(--gap-xs)",
+        padding: "var(--bk-padding-xs)",
+        fontSize: "var(--bk-font-size-xs)",
+        minHeight: "var(--bk-size-xs)",
+        gap: "var(--bk-gap-xs)",
       },
       sm: {
-        padding: "var(--padding-sm)",
-        fontSize: "var(--font-size-sm)",
-        minHeight: "var(--size-sm)",
-        gap: "var(--gap-sm)",
+        padding: "var(--bk-padding-sm)",
+        fontSize: "var(--bk-font-size-sm)",
+        minHeight: "var(--bk-size-sm)",
+        gap: "var(--bk-gap-sm)",
       },
       md: {
-        padding: "var(--padding-md)",
-        fontSize: "var(--font-size-md)",
-        minHeight: "var(--size-md)",
-        gap: "var(--gap-sm)",
+        padding: "var(--bk-padding-md)",
+        fontSize: "var(--bk-font-size-md)",
+        minHeight: "var(--bk-size-md)",
+        gap: "var(--bk-gap-sm)",
       },
       lg: {
-        padding: "var(--padding-lg)",
-        fontSize: "var(--font-size-base)",
-        minHeight: "var(--size-lg)",
-        gap: "var(--gap-md)",
+        padding: "var(--bk-padding-lg)",
+        fontSize: "var(--bk-font-size-base)",
+        minHeight: "var(--bk-size-lg)",
+        gap: "var(--bk-gap-md)",
       },
       xl: {
-        padding: "var(--padding-xl)",
-        fontSize: "var(--font-size-lg)",
-        minHeight: "var(--size-xl)",
-        gap: "var(--gap-md)",
+        padding: "var(--bk-padding-xl)",
+        fontSize: "var(--bk-font-size-lg)",
+        minHeight: "var(--bk-size-xl)",
+        gap: "var(--bk-gap-md)",
       },
     },
     variant: {
       line: {},
       lifted: {
-        border: "var(--border-width-1) solid transparent",
+        border: "var(--bk-border-width-1) solid transparent",
       },
       pills: {
-        borderRadius: "var(--radius-md)",
-        margin: "var(--spacing-1)",
+        borderRadius: "var(--bk-radius-md)",
+        margin: "var(--bk-spacing-1)",
       },
     },
     active: {
       true: {
-        backgroundColor: "var(--color-background)",
-        color: "var(--color-foreground)",
+        backgroundColor: "var(--bk-color-background)",
+        color: "var(--bk-color-foreground)",
       },
       false: {
-        color: "var(--color-foreground-muted)",
+        color: "var(--bk-color-foreground-muted)",
       },
     },
     disabled: {
       true: {
-        opacity: "var(--opacity-disabled)",
+        opacity: "var(--bk-opacity-disabled)",
         cursor: "not-allowed",
         pointerEvents: "none",
       },
@@ -150,8 +150,8 @@ export const tab = recipe({
     {
       variants: { variant: "pills", active: true },
       style: {
-        backgroundColor: "var(--color-primary)",
-        color: "var(--color-primary-foreground)",
+        backgroundColor: "var(--bk-color-primary)",
+        color: "var(--bk-color-primary-foreground)",
       },
     },
     // Pills hover when active
@@ -160,7 +160,7 @@ export const tab = recipe({
       style: {
         selectors: {
           "&:hover": {
-            backgroundColor: "var(--color-primary-hover)",
+            backgroundColor: "var(--bk-color-primary-hover)",
           },
         },
       },
@@ -171,7 +171,7 @@ export const tab = recipe({
       style: {
         selectors: {
           "&:hover": {
-            backgroundColor: "var(--color-hover)",
+            backgroundColor: "var(--bk-color-hover)",
           },
         },
       },
@@ -182,8 +182,8 @@ export const tab = recipe({
       style: {
         selectors: {
           "&:hover": {
-            backgroundColor: "var(--color-hover)",
-            color: "var(--color-foreground)",
+            backgroundColor: "var(--bk-color-hover)",
+            color: "var(--bk-color-foreground)",
           },
         },
       },
@@ -193,8 +193,8 @@ export const tab = recipe({
       style: {
         selectors: {
           "&:hover": {
-            backgroundColor: "var(--color-hover)",
-            color: "var(--color-foreground)",
+            backgroundColor: "var(--bk-color-hover)",
+            color: "var(--bk-color-foreground)",
           },
         },
       },
@@ -203,7 +203,7 @@ export const tab = recipe({
     {
       variants: { variant: "lifted", active: true },
       style: {
-        borderColor: "var(--color-border)",
+        borderColor: "var(--bk-color-border)",
         zIndex: 1, // Lift above adjacent tabs to show border properly
       },
     },
@@ -222,7 +222,7 @@ export const tab = recipe({
 export const tabContent = style({
   display: "flex",
   alignItems: "center",
-  gap: "var(--gap-sm)",
+  gap: "var(--bk-gap-sm)",
   flex: 1,
 });
 
@@ -233,24 +233,24 @@ export const tabCloseButton = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: "var(--spacing-0-5)",
+  padding: "var(--bk-spacing-0-5)",
   backgroundColor: "transparent",
   border: "none",
-  borderRadius: "var(--radius-sm)",
-  color: "var(--color-foreground-muted)",
+  borderRadius: "var(--bk-radius-sm)",
+  color: "var(--bk-color-foreground-muted)",
   cursor: "pointer",
-  transition: "var(--transition-colors), var(--transition-opacity)",
-  marginLeft: "var(--spacing-1)",
+  transition: "var(--bk-transition-colors), var(--bk-transition-opacity)",
+  marginLeft: "var(--bk-spacing-1)",
   opacity: 0,
   pointerEvents: "none",
 
   selectors: {
     "&:hover": {
-      backgroundColor: "var(--color-hover)",
-      color: "var(--color-foreground)",
+      backgroundColor: "var(--bk-color-hover)",
+      color: "var(--bk-color-foreground)",
     },
     "&:focus-visible": {
-      outline: "var(--border-width-1) solid var(--color-focus)",
+      outline: "var(--bk-border-width-1) solid var(--bk-color-focus)",
     },
   },
 });
@@ -278,7 +278,7 @@ export const tabPanels = style({
  * Individual tab panel
  */
 export const tabPanel = style({
-  padding: "var(--spacing-4)",
+  padding: "var(--bk-spacing-4)",
   height: "100%",
 });
 
@@ -295,19 +295,19 @@ export const lineIndicatorVerticalStart = style({});
 globalStyle(`${tab.classNames.base}${lineIndicatorHorizontalEnd}::after`, {
   content: "",
   position: "absolute",
-  bottom: "-1px", // Overlap bottom border (var(--border-width-1))
+  bottom: "-1px", // Overlap bottom border (var(--bk-border-width-1))
   left: 0,
   right: 0,
-  height: "var(--border-width-2)",
+  height: "var(--bk-border-width-2)",
   backgroundColor: "transparent",
-  transition: "background-color var(--transition-base)",
+  transition: "background-color var(--bk-transition-base)",
   zIndex: 1, // Draw above border
 });
 
 globalStyle(
   `${tab.classNames.base}${lineIndicatorHorizontalEnd}[data-active="true"]::after`,
   {
-    backgroundColor: "var(--color-primary)",
+    backgroundColor: "var(--bk-color-primary)",
   }
 );
 
@@ -317,16 +317,16 @@ globalStyle(`${tab.classNames.base}${lineIndicatorHorizontalStart}::after`, {
   top: "-1px",
   left: 0,
   right: 0,
-  height: "var(--border-width-2)",
+  height: "var(--bk-border-width-2)",
   backgroundColor: "transparent",
-  transition: "background-color var(--transition-base)",
+  transition: "background-color var(--bk-transition-base)",
   zIndex: 1,
 });
 
 globalStyle(
   `${tab.classNames.base}${lineIndicatorHorizontalStart}[data-active="true"]::after`,
   {
-    backgroundColor: "var(--color-primary)",
+    backgroundColor: "var(--bk-color-primary)",
   }
 );
 
@@ -336,16 +336,16 @@ globalStyle(`${tab.classNames.base}${lineIndicatorVerticalEnd}::after`, {
   top: 0,
   bottom: 0,
   right: "-1px",
-  width: "var(--border-width-2)",
+  width: "var(--bk-border-width-2)",
   backgroundColor: "transparent",
-  transition: "background-color var(--transition-base)",
+  transition: "background-color var(--bk-transition-base)",
   zIndex: 1,
 });
 
 globalStyle(
   `${tab.classNames.base}${lineIndicatorVerticalEnd}[data-active="true"]::after`,
   {
-    backgroundColor: "var(--color-primary)",
+    backgroundColor: "var(--bk-color-primary)",
   }
 );
 
@@ -355,16 +355,16 @@ globalStyle(`${tab.classNames.base}${lineIndicatorVerticalStart}::after`, {
   top: 0,
   bottom: 0,
   left: "-1px",
-  width: "var(--border-width-2)",
+  width: "var(--bk-border-width-2)",
   backgroundColor: "transparent",
-  transition: "background-color var(--transition-base)",
+  transition: "background-color var(--bk-transition-base)",
   zIndex: 1,
 });
 
 globalStyle(
   `${tab.classNames.base}${lineIndicatorVerticalStart}[data-active="true"]::after`,
   {
-    backgroundColor: "var(--color-primary)",
+    backgroundColor: "var(--bk-color-primary)",
   }
 );
 
@@ -372,23 +372,23 @@ globalStyle(
  * Lifted variant border radius classes
  */
 export const liftedHorizontalEnd = style({
-  borderRadius: "var(--radius-md) var(--radius-md) 0 0",
-  marginBottom: "calc(-1 * var(--border-width-1))",
+  borderRadius: "var(--bk-radius-md) var(--bk-radius-md) 0 0",
+  marginBottom: "calc(-1 * var(--bk-border-width-1))",
 });
 
 export const liftedHorizontalStart = style({
-  borderRadius: "0 0 var(--radius-md) var(--radius-md)",
-  marginTop: "calc(-1 * var(--border-width-1))",
+  borderRadius: "0 0 var(--bk-radius-md) var(--bk-radius-md)",
+  marginTop: "calc(-1 * var(--bk-border-width-1))",
 });
 
 export const liftedVerticalEnd = style({
-  borderRadius: "var(--radius-md) 0 0 var(--radius-md)",
-  marginRight: "calc(-1 * var(--border-width-1))",
+  borderRadius: "var(--bk-radius-md) 0 0 var(--bk-radius-md)",
+  marginRight: "calc(-1 * var(--bk-border-width-1))",
 });
 
 export const liftedVerticalStart = style({
-  borderRadius: "0 var(--radius-md) var(--radius-md) 0",
-  marginLeft: "calc(-1 * var(--border-width-1))",
+  borderRadius: "0 var(--bk-radius-md) var(--bk-radius-md) 0",
+  marginLeft: "calc(-1 * var(--bk-border-width-1))",
 });
 
 // Lifted active border removal with ::before pseudo-element
@@ -407,8 +407,8 @@ globalStyle(
     bottom: "-1px",
     left: 0,
     right: 0,
-    height: "var(--border-width-1)",
-    backgroundColor: "var(--color-background)",
+    height: "var(--bk-border-width-1)",
+    backgroundColor: "var(--bk-color-background)",
     zIndex: 2,
   }
 );
@@ -428,8 +428,8 @@ globalStyle(
     top: "-1px",
     left: 0,
     right: 0,
-    height: "var(--border-width-1)",
-    backgroundColor: "var(--color-background)",
+    height: "var(--bk-border-width-1)",
+    backgroundColor: "var(--bk-color-background)",
     zIndex: 2,
   }
 );
@@ -446,8 +446,8 @@ globalStyle(
     right: "-1px",
     top: 0,
     bottom: 0,
-    width: "var(--border-width-1)",
-    backgroundColor: "var(--color-background)",
+    width: "var(--bk-border-width-1)",
+    backgroundColor: "var(--bk-color-background)",
     zIndex: 2,
   }
 );
@@ -467,8 +467,8 @@ globalStyle(
     left: "-1px",
     top: 0,
     bottom: 0,
-    width: "var(--border-width-1)",
-    backgroundColor: "var(--color-background)",
+    width: "var(--bk-border-width-1)",
+    backgroundColor: "var(--bk-color-background)",
     zIndex: 2,
   }
 );

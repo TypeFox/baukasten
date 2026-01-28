@@ -8,7 +8,7 @@ export const labelWrapper = recipe({
   base: {
     display: 'inline-flex',
     flexDirection: 'column',
-    gap: 'var(--gap-xs)',
+    gap: 'var(--bk-gap-xs)',
   },
 
   variants: {
@@ -39,21 +39,21 @@ export const labelWrapper = recipe({
 export const label = recipe({
   base: {
     display: 'inline-flex',
-    color: 'var(--color-foreground)',
+    color: 'var(--bk-color-foreground)',
   },
 
   variants: {
     variant: {
       input: {
         alignItems: 'center',
-        backgroundColor: 'var(--color-input-background)',
-        border: 'var(--border-width-1) solid var(--color-input-border)',
-        borderRadius: 'var(--radius-sm)',
-        transition: 'var(--transition-colors)',
+        backgroundColor: 'var(--bk-color-input-background)',
+        border: 'var(--bk-border-width-1) solid var(--bk-color-input-border)',
+        borderRadius: 'var(--bk-radius-sm)',
+        transition: 'var(--bk-transition-colors)',
 
         selectors: {
           '&:focus-within': {
-            borderColor: 'var(--color-input-focus-border)',
+            borderColor: 'var(--bk-color-input-focus-border)',
             outline: 'none',
           },
         },
@@ -61,25 +61,25 @@ export const label = recipe({
       textarea: {
         flexDirection: 'column',
         alignItems: 'stretch',
-        backgroundColor: 'var(--color-input-background)',
-        border: 'var(--border-width-1) solid var(--color-input-border)',
-        borderRadius: 'var(--radius-sm)',
-        transition: 'var(--transition-colors)',
-        padding: 'var(--spacing-2)',
-        gap: 'var(--gap-sm)',
+        backgroundColor: 'var(--bk-color-input-background)',
+        border: 'var(--bk-border-width-1) solid var(--bk-color-input-border)',
+        borderRadius: 'var(--bk-radius-sm)',
+        transition: 'var(--bk-transition-colors)',
+        padding: 'var(--bk-spacing-2)',
+        gap: 'var(--bk-gap-sm)',
 
         selectors: {
           '&:focus-within': {
-            borderColor: 'var(--color-input-focus-border)',
+            borderColor: 'var(--bk-color-input-focus-border)',
             outline: 'none',
           },
         },
       },
       checkbox: {
         alignItems: 'flex-start',
-        gap: 'var(--gap-sm)',
+        gap: 'var(--bk-gap-sm)',
         userSelect: 'none',
-        lineHeight: 'var(--line-height-normal)',
+        lineHeight: 'var(--bk-line-height-normal)',
         cursor: 'pointer',
       },
     },
@@ -102,25 +102,25 @@ export const label = recipe({
 
   compoundVariants: [
     // Input variant + size
-    { variants: { variant: 'input', size: 'xs' }, style: { padding: '0 var(--spacing-1-5)', gap: 'var(--gap-xs)', fontSize: 'var(--font-size-xs)', minHeight: 'var(--size-xs)' } },
-    { variants: { variant: 'input', size: 'sm' }, style: { padding: '0 var(--spacing-2)', gap: 'var(--gap-xs)', fontSize: 'var(--font-size-sm)', minHeight: 'var(--size-sm)' } },
-    { variants: { variant: 'input', size: 'md' }, style: { padding: '0 var(--spacing-2)', gap: 'var(--gap-sm)', fontSize: 'var(--font-size-md)', minHeight: 'var(--size-md)' } },
-    { variants: { variant: 'input', size: 'lg' }, style: { padding: '0 var(--spacing-2-5)', gap: 'var(--gap-sm)', fontSize: 'var(--font-size-base)', minHeight: 'var(--size-lg)' } },
-    { variants: { variant: 'input', size: 'xl' }, style: { padding: '0 var(--spacing-3)', gap: 'var(--gap-md)', fontSize: 'var(--font-size-lg)', minHeight: 'var(--size-xl)' } },
+    { variants: { variant: 'input', size: 'xs' }, style: { padding: '0 var(--bk-spacing-1-5)', gap: 'var(--bk-gap-xs)', fontSize: 'var(--bk-font-size-xs)', minHeight: 'var(--bk-size-xs)' } },
+    { variants: { variant: 'input', size: 'sm' }, style: { padding: '0 var(--bk-spacing-2)', gap: 'var(--bk-gap-xs)', fontSize: 'var(--bk-font-size-sm)', minHeight: 'var(--bk-size-sm)' } },
+    { variants: { variant: 'input', size: 'md' }, style: { padding: '0 var(--bk-spacing-2)', gap: 'var(--bk-gap-sm)', fontSize: 'var(--bk-font-size-md)', minHeight: 'var(--bk-size-md)' } },
+    { variants: { variant: 'input', size: 'lg' }, style: { padding: '0 var(--bk-spacing-2-5)', gap: 'var(--bk-gap-sm)', fontSize: 'var(--bk-font-size-base)', minHeight: 'var(--bk-size-lg)' } },
+    { variants: { variant: 'input', size: 'xl' }, style: { padding: '0 var(--bk-spacing-3)', gap: 'var(--bk-gap-md)', fontSize: 'var(--bk-font-size-lg)', minHeight: 'var(--bk-size-xl)' } },
     // Checkbox variant + size
-    { variants: { variant: 'checkbox', size: 'xs' }, style: { fontSize: 'var(--font-size-xs)' } },
-    { variants: { variant: 'checkbox', size: 'sm' }, style: { fontSize: 'var(--font-size-sm)' } },
-    { variants: { variant: 'checkbox', size: 'md' }, style: { fontSize: 'var(--font-size-md)' } },
-    { variants: { variant: 'checkbox', size: 'lg' }, style: { fontSize: 'var(--font-size-base)' } },
-    { variants: { variant: 'checkbox', size: 'xl' }, style: { fontSize: 'var(--font-size-lg)' } },
+    { variants: { variant: 'checkbox', size: 'xs' }, style: { fontSize: 'var(--bk-font-size-xs)' } },
+    { variants: { variant: 'checkbox', size: 'sm' }, style: { fontSize: 'var(--bk-font-size-sm)' } },
+    { variants: { variant: 'checkbox', size: 'md' }, style: { fontSize: 'var(--bk-font-size-md)' } },
+    { variants: { variant: 'checkbox', size: 'lg' }, style: { fontSize: 'var(--bk-font-size-base)' } },
+    { variants: { variant: 'checkbox', size: 'xl' }, style: { fontSize: 'var(--bk-font-size-lg)' } },
     // Input + fullWidth
     { variants: { variant: 'input', fullWidth: true }, style: { width: '100%' } },
     // TextArea + fullWidth
     { variants: { variant: 'textarea', fullWidth: true }, style: { width: '100%' } },
     // Input + hasError
-    { variants: { variant: 'input', hasError: true }, style: { borderColor: 'var(--color-input-error)' } },
+    { variants: { variant: 'input', hasError: true }, style: { borderColor: 'var(--bk-color-input-error)' } },
     // TextArea + hasError
-    { variants: { variant: 'textarea', hasError: true }, style: { borderColor: 'var(--color-input-error)' } },
+    { variants: { variant: 'textarea', hasError: true }, style: { borderColor: 'var(--bk-color-input-error)' } },
   ],
 
   defaultVariants: {
@@ -136,7 +136,7 @@ export const label = recipe({
  */
 const inputErrorClass = style({});
 globalStyle(`${inputErrorClass}:focus-within`, {
-  borderColor: 'var(--color-input-error)',
+  borderColor: 'var(--bk-color-input-error)',
 });
 
 /**
@@ -146,8 +146,8 @@ globalStyle(`${label.classNames.base} .label`, {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: 'var(--color-secondary-foreground)',
-  borderRadius: 'var(--radius-xs)',
+  color: 'var(--bk-color-secondary-foreground)',
+  borderRadius: 'var(--bk-radius-xs)',
   whiteSpace: 'nowrap',
   userSelect: 'none',
   fontSize: 'inherit',
@@ -167,7 +167,7 @@ globalStyle(`${label.classNames.base} > div`, {
   display: 'flex',
   flexDirection: 'column',
   flex: 1,
-  gap: 'var(--gap-xs)',
+  gap: 'var(--bk-gap-xs)',
 });
 
 /**
@@ -202,7 +202,7 @@ globalStyle(`${label.classNames.base} > div > button:hover:not(:disabled)`, form
 globalStyle(`${label.classNames.base} > div > button:focus`, formElementReset);
 
 // TextArea minimum height for usability
-const TEXTAREA_MIN_HEIGHT = 'calc(var(--size-xl) * 2)'; // ~80px, approximately 3-4 rows
+const TEXTAREA_MIN_HEIGHT = 'calc(var(--bk-size-xl) * 2)'; // ~80px, approximately 3-4 rows
 
 /**
  * TextArea specific styles
@@ -210,7 +210,7 @@ const TEXTAREA_MIN_HEIGHT = 'calc(var(--size-xl) * 2)'; // ~80px, approximately 
 globalStyle(`${label.classNames.base} > div > textarea`, {
   resize: 'vertical',
   minHeight: TEXTAREA_MIN_HEIGHT,
-  fontSize: 'var(--font-size-md) !important',
+  fontSize: 'var(--bk-font-size-md) !important',
 });
 
 /**
@@ -232,15 +232,15 @@ globalStyle(`${label.classNames.base}:has(input:disabled)`, {
 });
 
 globalStyle(`${label.classNames.base}:has(input:disabled) > span:not(:has(input))`, {
-  opacity: 'var(--opacity-disabled)',
+  opacity: 'var(--bk-opacity-disabled)',
 });
 
 /**
  * Error text
  */
 export const errorText = style({
-  fontSize: 'var(--font-size-xs)',
-  color: 'var(--color-input-error)',
+  fontSize: 'var(--bk-font-size-xs)',
+  color: 'var(--bk-color-input-error)',
 });
 
 /**

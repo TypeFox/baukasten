@@ -32,7 +32,7 @@ interface ShowcaseProps {
 
 export function Showcase({ title, description, preview, code, props }: ShowcaseProps) {
   return (
-    <section style={{ marginBottom: 'var(--padding-2xl)' }}>
+    <section style={{ marginBottom: 'var(--bk-padding-2xl)' }}>
       <Heading level={2}>
         {title}
       </Heading>
@@ -42,26 +42,26 @@ export function Showcase({ title, description, preview, code, props }: ShowcaseP
         </Paragraph>
       )}
 
-      <div style={{ marginBottom: 'var(--padding-md)' }}>
+      <div style={{ marginBottom: 'var(--bk-padding-md)' }}>
         <Tabs defaultValue="preview" variant="line" size="sm">
           <TabList>
             <Tab value="preview">Preview</Tab>
             <Tab value="code">Code</Tab>
           </TabList>
 
-          <TabPanels style={{ paddingTop: 'var(--padding-md)', overflow: 'visible' }}>
+          <TabPanels style={{ paddingTop: 'var(--bk-padding-md)', overflow: 'visible' }}>
             <TabPanel value="preview">
               <div style={{
-                backgroundColor: 'var(--color-surface)',
-                border: '1px solid var(--color-border)',
-                borderRadius: 'var(--border-radius-md)',
-                padding: 'var(--padding-xl)',
-                marginBottom: 'var(--padding-md)',
+                backgroundColor: 'var(--bk-color-surface)',
+                border: '1px solid var(--bk-color-border)',
+                borderRadius: 'var(--bk-radius-md)',
+                padding: 'var(--bk-padding-xl)',
+                marginBottom: 'var(--bk-padding-md)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 minHeight: '120px',
-                gap: 'var(--padding-md)',
+                gap: 'var(--bk-padding-md)',
                 flexWrap: 'wrap',
                 overflow: 'visible',
               }}>
@@ -77,7 +77,7 @@ export function Showcase({ title, description, preview, code, props }: ShowcaseP
 
       {props && props.length > 0 && (
         <>
-          <Heading level={2} style={{ marginBottom: 'var(--padding-md)' }}>
+          <Heading level={2} style={{ marginBottom: 'var(--bk-padding-md)' }}>
             Props
           </Heading>
           <Table variant="default" size="sm" bordered>
@@ -120,7 +120,7 @@ export function VariantGrid({ children }: VariantGridProps) {
     <div style={{
       display: 'flex',
       flexWrap: 'wrap',
-      gap: 'var(--padding-lg)',
+      gap: 'var(--bk-padding-lg)',
     }}>
       {children}
     </div>
@@ -135,22 +135,22 @@ interface VariantProps {
 export function Variant({ label, children }: VariantProps) {
   return (
     <div style={{
-      backgroundColor: 'var(--color-surface)',
-      border: '1px solid var(--color-border)',
-      borderRadius: 'var(--border-radius-md)',
-      padding: 'var(--padding-lg)',
+      backgroundColor: 'var(--bk-color-surface)',
+      border: '1px solid var(--bk-color-border)',
+      borderRadius: 'var(--bk-radius-md)',
+      padding: 'var(--bk-padding-lg)',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      gap: 'var(--padding-md)',
+      gap: 'var(--bk-padding-md)',
       minWidth: '140px',
       flex: '0 1 auto',
     }}>
       {children}
       <div style={{
-        fontSize: 'var(--font-size-sm)',
-        color: 'var(--color-text-secondary)',
-        fontWeight: 'var(--font-weight-medium)',
+        fontSize: 'var(--bk-font-size-sm)',
+        color: 'var(--bk-color-text-secondary)',
+        fontWeight: 'var(--bk-font-weight-medium)',
       }}>
         {label}
       </div>

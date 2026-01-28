@@ -13,24 +13,24 @@ export const paginationContainer = recipe({
     variants: {
         size: {
             xs: {
-                gap: 'var(--gap-xs)',
-                fontSize: 'var(--font-size-xs)',
+                gap: 'var(--bk-gap-xs)',
+                fontSize: 'var(--bk-font-size-xs)',
             },
             sm: {
-                gap: 'var(--gap-sm)',
-                fontSize: 'var(--font-size-sm)',
+                gap: 'var(--bk-gap-sm)',
+                fontSize: 'var(--bk-font-size-sm)',
             },
             md: {
-                gap: 'var(--gap-md)',
-                fontSize: 'var(--font-size-md)',
+                gap: 'var(--bk-gap-md)',
+                fontSize: 'var(--bk-font-size-md)',
             },
             lg: {
-                gap: 'var(--gap-md)',
-                fontSize: 'var(--font-size-base)',
+                gap: 'var(--bk-gap-md)',
+                fontSize: 'var(--bk-font-size-base)',
             },
             xl: {
-                gap: 'var(--gap-lg)',
-                fontSize: 'var(--font-size-lg)',
+                gap: 'var(--bk-gap-lg)',
+                fontSize: 'var(--bk-font-size-lg)',
             },
         },
     },
@@ -49,7 +49,7 @@ export const paginationSection = style({
  * Range text (e.g., "1-10 of 100")
  */
 export const rangeText = style({
-    color: 'var(--color-foreground-muted)',
+    color: 'var(--bk-color-foreground-muted)',
     whiteSpace: 'nowrap',
 });
 
@@ -58,29 +58,29 @@ export const rangeText = style({
  */
 const pageButtonSizes = styleVariants({
     xs: {
-        minWidth: 'var(--size-xs)',
-        height: 'var(--size-xs)',
-        padding: '0 var(--spacing-1)',
+        minWidth: 'var(--bk-size-xs)',
+        height: 'var(--bk-size-xs)',
+        padding: '0 var(--bk-spacing-1)',
     },
     sm: {
-        minWidth: 'var(--size-sm)',
-        height: 'var(--size-sm)',
-        padding: '0 var(--spacing-1-5)',
+        minWidth: 'var(--bk-size-sm)',
+        height: 'var(--bk-size-sm)',
+        padding: '0 var(--bk-spacing-1-5)',
     },
     md: {
-        minWidth: 'var(--size-md)',
-        height: 'var(--size-md)',
-        padding: '0 var(--spacing-2)',
+        minWidth: 'var(--bk-size-md)',
+        height: 'var(--bk-size-md)',
+        padding: '0 var(--bk-spacing-2)',
     },
     lg: {
-        minWidth: 'var(--size-lg)',
-        height: 'var(--size-lg)',
-        padding: '0 var(--spacing-2-5)',
+        minWidth: 'var(--bk-size-lg)',
+        height: 'var(--bk-size-lg)',
+        padding: '0 var(--bk-spacing-2-5)',
     },
     xl: {
-        minWidth: 'var(--size-xl)',
-        height: 'var(--size-xl)',
-        padding: '0 var(--spacing-3)',
+        minWidth: 'var(--bk-size-xl)',
+        height: 'var(--bk-size-xl)',
+        padding: '0 var(--bk-spacing-3)',
     },
 });
 
@@ -92,27 +92,27 @@ export const pageButton = recipe({
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'var(--color-secondary)',
-        color: 'var(--color-secondary-foreground)',
-        border: 'var(--border-width-1) solid transparent',
-        borderRadius: 'var(--radius-sm)',
+        backgroundColor: 'var(--bk-color-secondary)',
+        color: 'var(--bk-color-secondary-foreground)',
+        border: 'var(--bk-border-width-1) solid transparent',
+        borderRadius: 'var(--bk-radius-sm)',
         fontFamily: 'inherit',
         fontSize: 'inherit',
-        fontWeight: 'var(--font-weight-medium)',
+        fontWeight: 'var(--bk-font-weight-medium)',
         cursor: 'pointer',
-        transition: 'var(--transition-colors)',
+        transition: 'var(--bk-transition-colors)',
         userSelect: 'none',
 
         selectors: {
             '&:hover:not(:disabled)': {
-                backgroundColor: 'var(--color-secondary-hover)',
+                backgroundColor: 'var(--bk-color-secondary-hover)',
             },
             '&:active:not(:disabled)': {
-                backgroundColor: 'var(--color-secondary-active)',
+                backgroundColor: 'var(--bk-color-secondary-active)',
             },
             '&:focus-visible': {
-                outline: 'var(--border-width-2) solid var(--color-focus)',
-                outlineOffset: 'var(--spacing-0-5)',
+                outline: 'var(--bk-border-width-2) solid var(--bk-color-focus)',
+                outlineOffset: 'var(--bk-spacing-0-5)',
             },
         },
     },
@@ -120,13 +120,13 @@ export const pageButton = recipe({
         size: pageButtonSizes,
         isActive: {
             true: {
-                backgroundColor: 'var(--color-primary)',
-                color: 'var(--color-primary-foreground)',
+                backgroundColor: 'var(--bk-color-primary)',
+                color: 'var(--bk-color-primary-foreground)',
                 borderColor: 'transparent',
 
                 selectors: {
                     '&:hover:not(:disabled)': {
-                        backgroundColor: 'var(--color-primary-hover)',
+                        backgroundColor: 'var(--bk-color-primary-hover)',
                     },
                 },
             },
@@ -134,7 +134,7 @@ export const pageButton = recipe({
         },
         isDisabled: {
             true: {
-                opacity: 'var(--opacity-disabled)',
+                opacity: 'var(--bk-opacity-disabled)',
                 cursor: 'not-allowed',
             },
             false: {},
@@ -146,8 +146,8 @@ export const pageButton = recipe({
  * Ellipsis indicator
  */
 export const ellipsis = style({
-    color: 'var(--color-foreground-muted)',
-    padding: '0 var(--spacing-1)',
+    color: 'var(--bk-color-foreground-muted)',
+    padding: '0 var(--bk-spacing-1)',
     userSelect: 'none',
 });
 
@@ -157,7 +157,7 @@ export const ellipsis = style({
 export const pageSizeContainer = style({
     display: 'flex',
     alignItems: 'center',
-    gap: 'var(--gap-sm)',
-    color: 'var(--color-foreground-muted)',
+    gap: 'var(--bk-gap-sm)',
+    color: 'var(--bk-color-foreground-muted)',
     whiteSpace: 'nowrap',
 });

@@ -11,16 +11,16 @@ export const fileUpload = recipe({
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
-        borderRadius: 'var(--radius-lg)',
+        borderRadius: 'var(--bk-radius-lg)',
         cursor: 'pointer',
         userSelect: 'none',
 
         // Transition
-        transition: 'var(--transition-colors), var(--transition-transform)',
+        transition: 'var(--bk-transition-colors), var(--bk-transition-transform)',
 
         // Focus
         ':focus': {
-            outline: '2px solid var(--color-accent)',
+            outline: '2px solid var(--bk-color-accent)',
             outlineOffset: '2px',
         },
     },
@@ -28,39 +28,39 @@ export const fileUpload = recipe({
     variants: {
         size: {
             xs: {
-                padding: 'var(--spacing-4)',
+                padding: 'var(--bk-spacing-4)',
                 minHeight: '80px',
             },
             sm: {
-                padding: 'var(--spacing-6)',
+                padding: 'var(--bk-spacing-6)',
                 minHeight: '120px',
             },
             md: {
-                padding: 'var(--spacing-8)',
+                padding: 'var(--bk-spacing-8)',
                 minHeight: '160px',
             },
             lg: {
-                padding: 'var(--spacing-10)',
+                padding: 'var(--bk-spacing-10)',
                 minHeight: '200px',
             },
             xl: {
-                padding: 'var(--spacing-12)',
+                padding: 'var(--bk-spacing-12)',
                 minHeight: '240px',
             },
         },
 
         variant: {
             default: {
-                backgroundColor: 'var(--color-background-secondary)',
-                border: 'var(--border-width-2) solid var(--color-border)',
+                backgroundColor: 'var(--bk-color-background-secondary)',
+                border: 'var(--bk-border-width-2) solid var(--bk-color-border)',
             },
             primary: {
-                backgroundColor: 'color-mix(in srgb, var(--color-accent) 10%, transparent)',
-                border: 'var(--border-width-2) solid var(--color-accent)',
+                backgroundColor: 'color-mix(in srgb, var(--bk-color-accent) 10%, transparent)',
+                border: 'var(--bk-border-width-2) solid var(--bk-color-accent)',
             },
             dashed: {
-                backgroundColor: 'var(--color-background-secondary)',
-                border: 'var(--border-width-2) dashed var(--color-border)',
+                backgroundColor: 'var(--bk-color-background-secondary)',
+                border: 'var(--bk-border-width-2) dashed var(--bk-color-border)',
             },
         },
 
@@ -74,8 +74,8 @@ export const fileUpload = recipe({
 
         isDragging: {
             true: {
-                backgroundColor: 'color-mix(in srgb, var(--color-accent) 15%, transparent)',
-                borderColor: 'var(--color-accent)',
+                backgroundColor: 'color-mix(in srgb, var(--bk-color-accent) 15%, transparent)',
+                borderColor: 'var(--bk-color-accent)',
                 transform: 'scale(1.02)',
             },
             false: {},
@@ -107,8 +107,8 @@ export const fileUpload = recipe({
 export const fileList = style({
     display: 'flex',
     flexDirection: 'column',
-    gap: 'var(--spacing-2)',
-    marginTop: 'var(--spacing-4)',
+    gap: 'var(--bk-spacing-2)',
+    marginTop: 'var(--bk-spacing-4)',
 });
 
 /**
@@ -117,15 +117,15 @@ export const fileList = style({
 export const fileItem = style({
     display: 'flex',
     alignItems: 'center',
-    gap: 'var(--spacing-3)',
-    padding: 'var(--spacing-3)',
-    backgroundColor: 'var(--color-background-secondary)',
-    border: 'var(--border-width-1) solid var(--color-border)',
-    borderRadius: 'var(--radius-md)',
-    transition: 'var(--transition-colors)',
+    gap: 'var(--bk-spacing-3)',
+    padding: 'var(--bk-spacing-3)',
+    backgroundColor: 'var(--bk-color-background-secondary)',
+    border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
+    borderRadius: 'var(--bk-radius-md)',
+    transition: 'var(--bk-transition-colors)',
 
     ':hover': {
-        backgroundColor: 'var(--color-background-hover)',
+        backgroundColor: 'var(--bk-color-background-hover)',
     },
 });
 
@@ -136,25 +136,25 @@ export const fileItemRemove = style({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 'var(--spacing-1)',
+    padding: 'var(--bk-spacing-1)',
     backgroundColor: 'transparent',
     border: 'none',
-    borderRadius: 'var(--radius-sm)',
-    color: 'var(--color-foreground-muted)',
+    borderRadius: 'var(--bk-radius-sm)',
+    color: 'var(--bk-color-foreground-muted)',
     cursor: 'pointer',
-    transition: 'var(--transition-colors)',
+    transition: 'var(--bk-transition-colors)',
     flexShrink: 0,
 
     ':focus': {
-        outline: '2px solid var(--color-accent)',
+        outline: '2px solid var(--bk-color-accent)',
         outlineOffset: '2px',
     },
 });
 
 // Hover style for remove button when not disabled
 globalStyle(`${fileItemRemove}:hover:not(:disabled)`, {
-    backgroundColor: 'var(--color-danger)',
-    color: 'var(--color-danger-foreground)',
+    backgroundColor: 'var(--bk-color-danger)',
+    color: 'var(--bk-color-danger-foreground)',
 });
 
 // Disabled state for remove button

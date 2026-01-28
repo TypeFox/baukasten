@@ -40,7 +40,7 @@ export default function TooltipPage() {
                 title="Basic Usage"
                 description="Wrap any trigger element with Tooltip and provide content. Hover over the button to see the tooltip appear above it."
                 preview={
-                    <div style={{ padding: 'var(--spacing-8)' }}>
+                    <div style={{ padding: 'var(--bk-spacing-8)' }}>
                         <Tooltip content="This is a tooltip">
                             <Button>Hover me</Button>
                         </Tooltip>
@@ -65,8 +65,8 @@ function App() {
                     <div style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(4, 1fr)',
-                        gap: 'var(--spacing-6)',
-                        padding: 'var(--spacing-8)',
+                        gap: 'var(--bk-spacing-6)',
+                        padding: 'var(--bk-spacing-8)',
                         minHeight: '400px',
                         alignItems: 'center',
                         justifyItems: 'center',
@@ -134,7 +134,7 @@ function App() {
                 title="Variants"
                 description="Six visual variants available: default (neutral), primary (emphasis), success (positive), warning (caution), error (danger), and info (information). Hover over each button to see the variant."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', alignItems: 'center', padding: 'var(--spacing-8)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'center', padding: 'var(--bk-spacing-8)' }}>
                         <Tooltip content="Default variant" variant="default">
                             <Button variant="ghost">Default</Button>
                         </Tooltip>
@@ -184,16 +184,16 @@ function App() {
                 title="With and Without Arrow"
                 description="Tooltips can be shown with or without an arrow. The arrow helps visually connect the tooltip to its trigger element."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-8)', alignItems: 'center', padding: 'var(--spacing-8)' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
-                            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>With Arrow (Default)</span>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)', alignItems: 'center', padding: 'var(--bk-spacing-8)' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
+                            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>With Arrow (Default)</span>
                             <Tooltip content="This tooltip has an arrow" placement="top" showArrow={true}>
                                 <Button size="sm">Hover me</Button>
                             </Tooltip>
                         </div>
 
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
-                            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>Without Arrow</span>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
+                            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>Without Arrow</span>
                             <Tooltip content="This tooltip has no arrow" placement="top" showArrow={false}>
                                 <Button size="sm">Hover me</Button>
                             </Tooltip>
@@ -215,16 +215,16 @@ function App() {
                 title="Content Types"
                 description="Tooltips can contain any React content: simple text, structured layouts, icons, formatted text, and more. Use the maxWidth prop to control text wrapping."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-4)', flexWrap: 'wrap', alignItems: 'center', padding: 'var(--spacing-8)' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', flexWrap: 'wrap', alignItems: 'center', padding: 'var(--bk-spacing-8)' }}>
                         <Tooltip content="Simple text content" variant="default">
                             <Button size="sm">Simple Text</Button>
                         </Tooltip>
 
                         <Tooltip
                             content={
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-1)' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-1)' }}>
                                     <strong>Tooltip with structured content</strong>
-                                    <span style={{ fontSize: 'var(--font-size-sm)' }}>
+                                    <span style={{ fontSize: 'var(--bk-font-size-sm)' }}>
                                         You can include any React content inside a tooltip.
                                     </span>
                                 </div>
@@ -237,7 +237,7 @@ function App() {
 
                         <Tooltip
                             content={
-                                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                                     <Icon name="check" />
                                     <span>Success with icon</span>
                                 </div>
@@ -249,12 +249,12 @@ function App() {
 
                         <Tooltip
                             content={
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                                         <Icon name="info" />
                                         <strong>Information</strong>
                                     </div>
-                                    <p style={{ margin: 0, fontSize: 'var(--font-size-sm)', lineHeight: 1.5 }}>
+                                    <p style={{ margin: 0, fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.5 }}>
                                         This is a longer information message that demonstrates how content wraps within the tooltip.
                                     </p>
                                 </div>
@@ -320,7 +320,7 @@ function App() {
                 title="With Delay"
                 description="Add a delay before the tooltip appears. This is useful to prevent tooltips from showing during quick mouse movements."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-4)', alignItems: 'center', padding: 'var(--spacing-8)' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', alignItems: 'center', padding: 'var(--bk-spacing-8)' }}>
                         <Tooltip content="Appears immediately" placement="top" delay={0}>
                             <Button size="sm">No Delay</Button>
                         </Tooltip>
@@ -354,8 +354,8 @@ function App() {
                 title="Action Buttons Example"
                 description="Practical example showing tooltips on action buttons with different variants and placements. Hover over each button to see contextual information."
                 preview={
-                    <div style={{ padding: 'var(--spacing-8)' }}>
-                        <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+                    <div style={{ padding: 'var(--bk-spacing-8)' }}>
+                        <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
                             <Tooltip content="Save your changes" placement="top" variant="default">
                                 <Button variant="primary">
                                     <Icon name="check" />
@@ -415,18 +415,18 @@ function App() {
 </div>`}
             />
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Positioning & Behavior
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Automatic flip:</strong> If there's no space for the tooltip in the specified placement, it automatically flips to the opposite side
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Viewport shift:</strong> The tooltip automatically shifts to stay within the viewport boundaries
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Portal rendering:</strong> Tooltips are rendered in a portal to avoid z-index and overflow issues
                     </li>
                     <li>
@@ -435,18 +435,18 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Uses <code>role="tooltip"</code> for proper semantic meaning
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Shows on both hover and keyboard focus for accessibility
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Dismisses on <code>Escape</code> key and click outside
                     </li>
                     <li>
@@ -455,24 +455,24 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--spacing-6)', padding: 'var(--spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--border-radius-md)' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--spacing-4)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Content:</strong> Keep tooltip text concise and to the point. Use 1-2 short sentences maximum
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Placement:</strong> Use <code>top</code> or <code>bottom</code> for most cases. Use <code>left</code> or <code>right</code> for side navigation
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Variants:</strong> Use <code>error</code> for destructive actions, <code>warning</code> for caution, <code>info</code> for help text, <code>success</code> for confirmations
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Delay:</strong> Add a delay (200-500ms) when tooltips are in dense interfaces to prevent flickering during mouse movement
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Arrow:</strong> Keep the arrow enabled (default) for better visual connection. Disable for clean, minimal designs
                     </li>
                     <li>

@@ -118,12 +118,12 @@ export const Interactive: Story = {
  */
 export const Orientations: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-8)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-8)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Horizontal (Default)
         </h4>
-        <div style={{ width: '600px', height: '300px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '300px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="home" orientation="horizontal">
             <TabList>
               <Tab value="home">Home</Tab>
@@ -149,10 +149,10 @@ export const Orientations: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Vertical
         </h4>
-        <div style={{ width: '600px', height: '300px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '300px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="dashboard" orientation="vertical">
             <TabList>
               <Tab value="dashboard">Dashboard</Tab>
@@ -197,12 +197,12 @@ export const Orientations: Story = {
  */
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-8)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-8)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Extra Small (xs)
         </h4>
-        <div style={{ width: '600px', height: '200px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '200px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" size="xs">
             <TabList>
               <Tab value="tab1">Tab 1</Tab>
@@ -219,10 +219,10 @@ export const Sizes: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Small (sm)
         </h4>
-        <div style={{ width: '600px', height: '200px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '200px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" size="sm">
             <TabList>
               <Tab value="tab1">Tab 1</Tab>
@@ -239,10 +239,10 @@ export const Sizes: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Medium (md - Default)
         </h4>
-        <div style={{ width: '600px', height: '200px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '200px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" size="md">
             <TabList>
               <Tab value="tab1">Tab 1</Tab>
@@ -259,10 +259,10 @@ export const Sizes: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Large (lg)
         </h4>
-        <div style={{ width: '600px', height: '200px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '200px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" size="lg">
             <TabList>
               <Tab value="tab1">Tab 1</Tab>
@@ -279,10 +279,10 @@ export const Sizes: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Extra Large (xl)
         </h4>
-        <div style={{ width: '600px', height: '200px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '200px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" size="xl">
             <TabList>
               <Tab value="tab1">Tab 1</Tab>
@@ -313,12 +313,12 @@ export const Sizes: Story = {
  */
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-8)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-8)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Line Variant (Default) - VSCode Style
         </h4>
-        <div style={{ width: '600px', height: '200px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '200px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" variant="line">
             <TabList>
               <Tab value="tab1">Overview</Tab>
@@ -335,10 +335,10 @@ export const Variants: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Lifted Variant - Classic Tabbed Interface
         </h4>
-        <div style={{ width: '600px', height: '200px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '200px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" variant="lifted">
             <TabList>
               <Tab value="tab1">Overview</Tab>
@@ -355,10 +355,10 @@ export const Variants: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Pills Variant - Modern Tag Style
         </h4>
-        <div style={{ width: '600px', height: '200px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '200px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" variant="pills">
             <TabList>
               <Tab value="tab1">Overview</Tab>
@@ -389,12 +389,12 @@ export const Variants: Story = {
  */
 export const IndicatorPositions: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-8)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-8)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Horizontal - Indicator at End (Bottom - Default)
         </h4>
-        <div style={{ width: '600px', height: '200px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '200px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" orientation="horizontal" indicatorPosition="end">
             <TabList>
               <Tab value="tab1">Tab 1</Tab>
@@ -411,10 +411,10 @@ export const IndicatorPositions: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Horizontal - Indicator at Start (Top)
         </h4>
-        <div style={{ width: '600px', height: '200px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '200px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" orientation="horizontal" indicatorPosition="start">
             <TabList>
               <Tab value="tab1">Tab 1</Tab>
@@ -431,10 +431,10 @@ export const IndicatorPositions: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Vertical - Indicator at End (Right - Default)
         </h4>
-        <div style={{ width: '600px', height: '300px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '300px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" orientation="vertical" indicatorPosition="end">
             <TabList>
               <Tab value="tab1">Tab 1</Tab>
@@ -451,10 +451,10 @@ export const IndicatorPositions: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Vertical - Indicator at Start (Left)
         </h4>
-        <div style={{ width: '600px', height: '300px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '300px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="tab1" orientation="vertical" indicatorPosition="start">
             <TabList>
               <Tab value="tab1">Tab 1</Tab>
@@ -485,7 +485,7 @@ export const IndicatorPositions: Story = {
  */
 export const WithIcons: Story = {
   render: () => (
-    <div style={{ width: '600px', height: '350px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+    <div style={{ width: '600px', height: '350px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
       <Tabs defaultValue="file1">
         <TabList>
           <Tab value="file1" icon="file">index.tsx</Tab>
@@ -495,22 +495,22 @@ export const WithIcons: Story = {
         </TabList>
         <TabPanels>
           <TabPanel value="file1">
-            <div style={{ fontFamily: 'monospace', fontSize: 'var(--font-size-sm)' }}>
-              <div style={{ color: 'var(--color-foreground-muted)' }}>// index.tsx</div>
+            <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
+              <div style={{ color: 'var(--bk-color-foreground-muted)' }}>// index.tsx</div>
               <div>import React from 'react';</div>
               <div>import {'{'} App {'}'} from './App';</div>
             </div>
           </TabPanel>
           <TabPanel value="file2">
-            <div style={{ fontFamily: 'monospace', fontSize: 'var(--font-size-sm)' }}>
-              <div style={{ color: 'var(--color-foreground-muted)' }}>/* styles.css */</div>
+            <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
+              <div style={{ color: 'var(--bk-color-foreground-muted)' }}>/* styles.css */</div>
               <div>.container {'{'}</div>
               <div>  padding: 20px;</div>
               <div>{'}'}</div>
             </div>
           </TabPanel>
           <TabPanel value="file3">
-            <div style={{ fontFamily: 'monospace', fontSize: 'var(--font-size-sm)' }}>
+            <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
               <div>{'{'}</div>
               <div>  "name": "my-app",</div>
               <div>  "version": "1.0.0"</div>
@@ -518,8 +518,8 @@ export const WithIcons: Story = {
             </div>
           </TabPanel>
           <TabPanel value="file4">
-            <div style={{ fontFamily: 'monospace', fontSize: 'var(--font-size-sm)' }}>
-              <div style={{ color: 'var(--color-foreground-muted)' }}>// utils.ts</div>
+            <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
+              <div style={{ color: 'var(--bk-color-foreground-muted)' }}>// utils.ts</div>
               <div>export const formatDate = (date: Date) =&gt; {'{'}</div>
               <div>  return date.toISOString();</div>
               <div>{'}'}</div>
@@ -562,7 +562,7 @@ export const ClosableTabs: Story = {
       };
 
       return (
-        <div style={{ width: '600px', height: '300px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '600px', height: '300px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs value={activeTab} onChange={setActiveTab}>
             <TabList>
               {tabs.map(tab => (
@@ -587,7 +587,7 @@ export const ClosableTabs: Story = {
             </TabPanels>
           </Tabs>
           {tabs.length === 0 && (
-            <div style={{ padding: 'var(--spacing-8)', textAlign: 'center', color: 'var(--color-foreground-muted)' }}>
+            <div style={{ padding: 'var(--bk-spacing-8)', textAlign: 'center', color: 'var(--bk-color-foreground-muted)' }}>
               All tabs closed. Refresh the page to reset.
             </div>
           )}
@@ -611,7 +611,7 @@ export const ClosableTabs: Story = {
  */
 export const DisabledTabs: Story = {
   render: () => (
-    <div style={{ width: '600px', height: '300px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+    <div style={{ width: '600px', height: '300px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
       <Tabs defaultValue="available">
         <TabList>
           <Tab value="available">Available</Tab>
@@ -652,12 +652,12 @@ export const DisabledTabs: Story = {
  */
 export const UsageExamples: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-8)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-8)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Settings Panel
         </h4>
-        <div style={{ width: '700px', height: '400px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '700px', height: '400px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="general">
             <TabList>
               <Tab value="general" icon="settings-gear">General</Tab>
@@ -667,8 +667,8 @@ export const UsageExamples: Story = {
             </TabList>
             <TabPanels>
               <TabPanel value="general">
-                <h3 style={{ marginBottom: 'var(--spacing-3)' }}>General Settings</h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+                <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>General Settings</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                   <Label variant="checkbox">
                     <Checkbox />
                     <span>Enable auto-save</span>
@@ -684,8 +684,8 @@ export const UsageExamples: Story = {
                 </div>
               </TabPanel>
               <TabPanel value="appearance">
-                <h3 style={{ marginBottom: 'var(--spacing-3)' }}>Appearance</h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+                <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>Appearance</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                   <div>
                     <FieldLabel htmlFor="font-family">Font Family</FieldLabel>
                     <Input id="font-family" defaultValue="Consolas, Monaco, monospace" fullWidth />
@@ -701,8 +701,8 @@ export const UsageExamples: Story = {
                 </div>
               </TabPanel>
               <TabPanel value="editor">
-                <h3 style={{ marginBottom: 'var(--spacing-3)' }}>Editor Settings</h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+                <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>Editor Settings</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                   <Label variant="checkbox">
                     <Checkbox defaultChecked />
                     <span>Show line numbers</span>
@@ -722,11 +722,11 @@ export const UsageExamples: Story = {
                 </div>
               </TabPanel>
               <TabPanel value="extensions">
-                <h3 style={{ marginBottom: 'var(--spacing-3)' }}>Extensions</h3>
-                <p style={{ color: 'var(--color-foreground-muted)', marginBottom: 'var(--spacing-3)' }}>
+                <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>Extensions</h3>
+                <p style={{ color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-spacing-3)' }}>
                   Manage your installed extensions
                 </p>
-                <div style={{ display: 'flex', gap: 'var(--gap-md)' }}>
+                <div style={{ display: 'flex', gap: 'var(--bk-gap-md)' }}>
                   <Button variant="primary">Browse Extensions</Button>
                   <Button variant="secondary">Check for Updates</Button>
                 </div>
@@ -737,7 +737,7 @@ export const UsageExamples: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Controlled Tabs (External State)
         </h4>
         <ControlledExample />
@@ -774,8 +774,8 @@ const ControlledExample = () => {
 
   return (
     <div>
-      <div style={{ marginBottom: 'var(--spacing-3)', display: 'flex', gap: 'var(--gap-md)', alignItems: 'center' }}>
-        <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+      <div style={{ marginBottom: 'var(--bk-spacing-3)', display: 'flex', gap: 'var(--bk-gap-md)', alignItems: 'center' }}>
+        <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           External controls:
         </span>
         <Button size="sm" onClick={goToPreviousStep} disabled={activeTab === 'step1'}>
@@ -785,7 +785,7 @@ const ControlledExample = () => {
           Next
         </Button>
       </div>
-      <div style={{ width: '600px', height: '300px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+      <div style={{ width: '600px', height: '300px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
         <Tabs value={activeTab} onChange={setActiveTab}>
           <TabList>
             <Tab value="step1" icon="circle-large-filled">Step 1</Tab>
@@ -796,7 +796,7 @@ const ControlledExample = () => {
             <TabPanel value="step1">
               <h3>Step 1: Basic Information</h3>
               <p>Enter your basic information to get started.</p>
-              <div style={{ marginTop: 'var(--spacing-3)' }}>
+              <div style={{ marginTop: 'var(--bk-spacing-3)' }}>
                 <FieldLabel htmlFor="full-name">Full Name</FieldLabel>
                 <Input id="full-name" placeholder="John Doe" fullWidth />
               </div>
@@ -804,7 +804,7 @@ const ControlledExample = () => {
             <TabPanel value="step2">
               <h3>Step 2: Contact Details</h3>
               <p>Provide your contact information.</p>
-              <div style={{ marginTop: 'var(--spacing-3)' }}>
+              <div style={{ marginTop: 'var(--bk-spacing-3)' }}>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
                 <Input id="email" type="email" placeholder="john@example.com" fullWidth />
               </div>
@@ -812,7 +812,7 @@ const ControlledExample = () => {
             <TabPanel value="step3">
               <h3>Step 3: Complete</h3>
               <p>Review and submit your information.</p>
-              <Button variant="primary" style={{ marginTop: 'var(--spacing-3)' }}>Submit</Button>
+              <Button variant="primary" style={{ marginTop: 'var(--bk-spacing-3)' }}>Submit</Button>
             </TabPanel>
           </TabPanels>
         </Tabs>
@@ -826,23 +826,23 @@ const ControlledExample = () => {
  */
 export const Showcase: Story = {
   render: () => (
-    <div style={{ padding: 'var(--spacing-8)', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-8)' }}>
+    <div style={{ padding: 'var(--bk-spacing-8)', display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-8)' }}>
       {/* Header */}
       <div>
-        <h2 style={{ fontSize: 'var(--font-size-2xl)', fontWeight: 'var(--font-weight-bold)', marginBottom: 'var(--spacing-2)' }}>
+        <h2 style={{ fontSize: 'var(--bk-font-size-2xl)', fontWeight: 'var(--bk-font-weight-bold)', marginBottom: 'var(--bk-spacing-2)' }}>
           Tabs Component
         </h2>
-        <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <p style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           Tabbed interface following VSCode design patterns
         </p>
       </div>
 
       {/* Basic Tabs */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Basic Tabs
         </h3>
-        <div style={{ width: '100%', maxWidth: '800px', height: '250px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '100%', maxWidth: '800px', height: '250px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="overview">
             <TabList>
               <Tab value="overview">Overview</Tab>
@@ -874,10 +874,10 @@ export const Showcase: Story = {
 
       {/* With Icons */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           With Icons
         </h3>
-        <div style={{ width: '100%', maxWidth: '800px', height: '250px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '100%', maxWidth: '800px', height: '250px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="files">
             <TabList>
               <Tab value="files" icon="files">Files</Tab>
@@ -909,10 +909,10 @@ export const Showcase: Story = {
 
       {/* Vertical Orientation */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Vertical Orientation
         </h3>
-        <div style={{ width: '100%', maxWidth: '800px', height: '300px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '100%', maxWidth: '800px', height: '300px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="account" orientation="vertical">
             <TabList>
               <Tab value="account" icon="account">Account</Tab>
@@ -944,10 +944,10 @@ export const Showcase: Story = {
 
       {/* Disabled State */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           With Disabled Tabs
         </h3>
-        <div style={{ width: '100%', maxWidth: '800px', height: '200px', border: 'var(--border-width-1) solid var(--color-border)', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ width: '100%', maxWidth: '800px', height: '200px', border: 'var(--bk-border-width-1) solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-md)' }}>
           <Tabs defaultValue="enabled1">
             <TabList>
               <Tab value="enabled1">Enabled</Tab>

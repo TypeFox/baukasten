@@ -8,7 +8,7 @@ export const dataTableWrapper = recipe({
     base: {
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--spacing-3)',
+        gap: 'var(--bk-spacing-3)',
         width: '100%',
     },
     variants: {},
@@ -20,13 +20,13 @@ export const dataTableWrapper = recipe({
 export const tableContainer = recipe({
     base: {
         overflow: 'auto',
-        backgroundColor: 'var(--color-background)',
-        borderRadius: 'var(--radius-md)',
+        backgroundColor: 'var(--bk-color-background)',
+        borderRadius: 'var(--bk-radius-md)',
     },
     variants: {
         bordered: {
             true: {
-                border: 'var(--border-width-1) solid var(--color-border)',
+                border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
             },
             false: {},
         },
@@ -43,9 +43,9 @@ export const table = recipe({
     base: {
         borderCollapse: 'collapse',
         borderSpacing: 0,
-        color: 'var(--color-foreground)',
+        color: 'var(--bk-color-foreground)',
         fontFamily: 'inherit',
-        backgroundColor: 'var(--color-background)',
+        backgroundColor: 'var(--bk-color-background)',
     },
     variants: {
         fullWidth: {
@@ -72,7 +72,7 @@ export const tableHead = recipe({
             true: {
                 position: 'sticky',
                 top: 0,
-                zIndex: 'var(--z-index-sticky)',
+                zIndex: 'var(--bk-z-index-sticky)',
             },
             false: {},
         },
@@ -86,7 +86,7 @@ export const tableHead = recipe({
  * Sticky header th cells
  */
 globalStyle(`${tableHead.classNames.base} th`, {
-    backgroundColor: 'var(--color-background-secondary)',
+    backgroundColor: 'var(--bk-color-background-secondary)',
     position: 'relative',
 });
 
@@ -95,24 +95,24 @@ globalStyle(`${tableHead.classNames.base} th`, {
  */
 const cellSizes = {
     xs: {
-        padding: 'var(--spacing-0-5) var(--spacing-2)',
-        fontSize: 'var(--font-size-xs)',
+        padding: 'var(--bk-spacing-0-5) var(--bk-spacing-2)',
+        fontSize: 'var(--bk-font-size-xs)',
     },
     sm: {
-        padding: 'var(--spacing-1) var(--spacing-2-5)',
-        fontSize: 'var(--font-size-sm)',
+        padding: 'var(--bk-spacing-1) var(--bk-spacing-2-5)',
+        fontSize: 'var(--bk-font-size-sm)',
     },
     md: {
-        padding: 'var(--spacing-2) var(--spacing-3)',
-        fontSize: 'var(--font-size-md)',
+        padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+        fontSize: 'var(--bk-font-size-md)',
     },
     lg: {
-        padding: 'var(--spacing-2-5) var(--spacing-4)',
-        fontSize: 'var(--font-size-base)',
+        padding: 'var(--bk-spacing-2-5) var(--bk-spacing-4)',
+        fontSize: 'var(--bk-font-size-base)',
     },
     xl: {
-        padding: 'var(--spacing-3) var(--spacing-5)',
-        fontSize: 'var(--font-size-lg)',
+        padding: 'var(--bk-spacing-3) var(--bk-spacing-5)',
+        fontSize: 'var(--bk-font-size-lg)',
     },
 } as const;
 
@@ -121,8 +121,8 @@ const cellSizes = {
  */
 export const tableHeaderCell = recipe({
     base: {
-        fontWeight: 'var(--font-weight-medium)',
-        backgroundColor: 'var(--color-background-secondary)',
+        fontWeight: 'var(--bk-font-weight-medium)',
+        backgroundColor: 'var(--bk-color-background-secondary)',
         position: 'relative',
         whiteSpace: 'nowrap',
     },
@@ -134,7 +134,7 @@ export const tableHeaderCell = recipe({
         },
         bordered: {
             true: {
-                borderBottom: 'var(--border-width-1) solid var(--color-border)',
+                borderBottom: 'var(--bk-border-width-1) solid var(--bk-color-border)',
             },
             false: {},
         },
@@ -145,10 +145,10 @@ export const tableHeaderCell = recipe({
                 userSelect: 'none',
                 selectors: {
                     '&:hover': {
-                        backgroundColor: 'var(--color-hover)',
+                        backgroundColor: 'var(--bk-color-hover)',
                     },
                     '&:active': {
-                        backgroundColor: 'var(--color-active)',
+                        backgroundColor: 'var(--bk-color-active)',
                     },
                 },
             },
@@ -176,7 +176,7 @@ export const tableHeaderCell = recipe({
 export const headerContent = style({
     display: 'flex',
     alignItems: 'center',
-    gap: 'var(--spacing-1)',
+    gap: 'var(--bk-spacing-1)',
 });
 
 /**
@@ -185,10 +185,10 @@ export const headerContent = style({
 export const sortIndicator = recipe({
     base: {
         display: 'inline-flex',
-        marginLeft: 'var(--spacing-1)',
+        marginLeft: 'var(--bk-spacing-1)',
         fontSize: '0.75em',
         opacity: 0.5,
-        transition: 'var(--transition-base)',
+        transition: 'var(--bk-transition-base)',
     },
     variants: {
         active: {
@@ -209,22 +209,22 @@ export const resizer = recipe({
         right: 0,
         top: 0,
         height: '100%',
-        width: 'var(--spacing-1-5)',
+        width: 'var(--bk-spacing-1-5)',
         cursor: 'col-resize',
         userSelect: 'none',
         touchAction: 'none',
         backgroundColor: 'transparent',
-        transition: 'background-color var(--transition-fast)',
+        transition: 'background-color var(--bk-transition-fast)',
         selectors: {
             '&:hover': {
-                backgroundColor: 'var(--color-primary)',
+                backgroundColor: 'var(--bk-color-primary)',
             },
         },
     },
     variants: {
         isResizing: {
             true: {
-                backgroundColor: 'var(--color-primary)',
+                backgroundColor: 'var(--bk-color-primary)',
                 opacity: 1,
             },
             false: {},
@@ -242,13 +242,13 @@ export const tableBody = style({});
  */
 export const tableRow = recipe({
     base: {
-        transition: 'var(--transition-colors)',
-        backgroundColor: 'var(--color-background)',
+        transition: 'var(--bk-transition-colors)',
+        backgroundColor: 'var(--bk-color-background)',
     },
     variants: {
         variant: {
             default: {
-                backgroundColor: 'var(--color-background)',
+                backgroundColor: 'var(--bk-color-background)',
             },
             zebra: {
                 backgroundColor: 'transparent',
@@ -256,8 +256,8 @@ export const tableRow = recipe({
         },
         selected: {
             true: {
-                backgroundColor: 'var(--color-selected)',
-                color: 'var(--color-selected-foreground)',
+                backgroundColor: 'var(--bk-color-selected)',
+                color: 'var(--bk-color-selected-foreground)',
             },
             false: {},
         },
@@ -275,7 +275,7 @@ export const tableRow = recipe({
             style: {
                 selectors: {
                     '&:hover': {
-                        backgroundColor: 'var(--color-hover)',
+                        backgroundColor: 'var(--bk-color-hover)',
                     },
                 },
             },
@@ -297,7 +297,7 @@ export const zebraRow = style({});
  * Zebra striping for even rows
  */
 globalStyle(`tbody tr${zebraRow}:nth-child(even)`, {
-    backgroundColor: 'var(--color-background-secondary)',
+    backgroundColor: 'var(--bk-color-background-secondary)',
 });
 
 /**
@@ -313,7 +313,7 @@ export const tableCell = recipe({
         },
         bordered: {
             true: {
-                borderBottom: 'var(--border-width-1) solid var(--color-border)',
+                borderBottom: 'var(--bk-border-width-1) solid var(--bk-color-border)',
             },
             false: {},
         },
@@ -334,16 +334,16 @@ export const paginationContainer = style({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    gap: 'var(--spacing-3)',
-    padding: 'var(--spacing-3) 0',
+    gap: 'var(--bk-spacing-3)',
+    padding: 'var(--bk-spacing-3) 0',
 });
 
 /**
  * Pagination info
  */
 export const paginationInfo = style({
-    fontSize: 'var(--font-size-sm)',
-    color: 'var(--color-secondary-foreground)',
+    fontSize: 'var(--bk-font-size-sm)',
+    color: 'var(--bk-color-secondary-foreground)',
 });
 
 /**
@@ -352,7 +352,7 @@ export const paginationInfo = style({
 export const paginationControls = style({
     display: 'flex',
     alignItems: 'center',
-    gap: 'var(--spacing-2)',
+    gap: 'var(--bk-spacing-2)',
 });
 
 /**
@@ -361,18 +361,18 @@ export const paginationControls = style({
 export const pageSizeSelect = style({
     display: 'flex',
     alignItems: 'center',
-    gap: 'var(--spacing-2)',
-    fontSize: 'var(--font-size-sm)',
-    color: 'var(--color-secondary-foreground)',
+    gap: 'var(--bk-spacing-2)',
+    fontSize: 'var(--bk-font-size-sm)',
+    color: 'var(--bk-color-secondary-foreground)',
 });
 
 /**
  * Empty state
  */
 export const emptyState = style({
-    padding: 'var(--spacing-8)',
+    padding: 'var(--bk-spacing-8)',
     textAlign: 'center',
-    color: 'var(--color-secondary-foreground)',
+    color: 'var(--bk-color-secondary-foreground)',
 });
 
 /**
@@ -401,7 +401,7 @@ export const loadingCell = style({
     margin: 0,
     border: 'none',
     position: 'relative',
-    height: 'var(--spacing-1)',
+    height: 'var(--bk-spacing-1)',
 });
 
 /**
@@ -412,9 +412,9 @@ export const loadingLine = style({
     left: 0,
     right: 0,
     top: 0,
-    height: 'var(--spacing-1)',
+    height: 'var(--bk-spacing-1)',
     overflow: 'hidden',
-    backgroundColor: 'var(--color-border)',
+    backgroundColor: 'var(--bk-color-border)',
     zIndex: 10,
 });
 
@@ -427,7 +427,7 @@ export const loadingBar = style({
     left: 0,
     height: '100%',
     width: '25%',
-    backgroundColor: 'var(--color-primary)',
+    backgroundColor: 'var(--bk-color-primary)',
     animation: `${loadingSlide} 1.2s ease-in-out infinite`,
 });
 
@@ -445,7 +445,7 @@ export const loadingOverlay = style({
         content: '""',
         position: 'absolute',
         inset: 0,
-        backgroundColor: 'var(--color-background)',
+        backgroundColor: 'var(--bk-color-background)',
         opacity: 0.85,
     },
 });
@@ -454,9 +454,9 @@ export const loadingOverlay = style({
  * Checkbox cell
  */
 export const checkboxCell = style({
-    width: 'var(--spacing-10)',
-    minWidth: 'var(--spacing-10)',
-    maxWidth: 'var(--spacing-10)',
+    width: 'var(--bk-spacing-10)',
+    minWidth: 'var(--bk-spacing-10)',
+    maxWidth: 'var(--bk-spacing-10)',
 });
 
 /**
@@ -466,6 +466,6 @@ export const toolbar = style({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 'var(--spacing-3)',
+    gap: 'var(--bk-spacing-3)',
     flexWrap: 'wrap',
 });

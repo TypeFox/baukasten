@@ -76,7 +76,7 @@ export const Interactive: Story = {
  */
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', width: '500px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', width: '500px' }}>
       <Alert variant="info">
         This is an informational alert. Use it to provide helpful information to users.
       </Alert>
@@ -105,7 +105,7 @@ export const Variants: Story = {
  */
 export const WithTitle: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', width: '500px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', width: '500px' }}>
       <Alert variant="info" title="Information">
         This alert includes a title to provide additional context and structure to the message.
       </Alert>
@@ -134,7 +134,7 @@ export const WithTitle: Story = {
  */
 export const Dismissible: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', width: '500px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', width: '500px' }}>
       <Alert
         variant="info"
         title="Dismissible Info"
@@ -178,7 +178,7 @@ export const Dismissible: Story = {
  */
 export const CustomIcons: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', width: '500px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', width: '500px' }}>
       <Alert
         variant="info"
         icon={<Icon name="lightbulb" size="md" />}
@@ -223,7 +223,7 @@ export const CustomIcons: Story = {
  */
 export const WithoutIcons: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', width: '500px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', width: '500px' }}>
       <Alert variant="info" icon={null}>
         This alert has no icon, providing a more minimal appearance.
       </Alert>
@@ -249,7 +249,7 @@ export const WithoutIcons: Story = {
  */
 export const ContentVariations: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', width: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', width: '600px' }}>
       <Alert variant="info" title="Short Message">
         Brief alert.
       </Alert>
@@ -264,10 +264,10 @@ export const ContentVariations: Story = {
 
       <Alert variant="info" title="With Structured Content">
         <div>
-          <p style={{ margin: '0 0 var(--spacing-2) 0' }}>
+          <p style={{ margin: '0 0 var(--bk-spacing-2) 0' }}>
             Alerts can contain structured content including:
           </p>
-          <ul style={{ margin: '0', paddingLeft: 'var(--spacing-4)' }}>
+          <ul style={{ margin: '0', paddingLeft: 'var(--bk-spacing-4)' }}>
             <li>Lists of items</li>
             <li>Multiple paragraphs</li>
             <li>Inline formatting</li>
@@ -290,12 +290,12 @@ export const ContentVariations: Story = {
  */
 export const UsageExamples: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)', width: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)', width: '600px' }}>
       <div>
         <h4 style={{
-          marginBottom: 'var(--spacing-2)',
-          fontSize: 'var(--font-size-sm)',
-          fontWeight: 'var(--font-weight-medium)'
+          marginBottom: 'var(--bk-spacing-2)',
+          fontSize: 'var(--bk-font-size-sm)',
+          fontWeight: 'var(--bk-font-weight-medium)'
         }}>
           System Notification
         </h4>
@@ -310,9 +310,9 @@ export const UsageExamples: Story = {
 
       <div>
         <h4 style={{
-          marginBottom: 'var(--spacing-2)',
-          fontSize: 'var(--font-size-sm)',
-          fontWeight: 'var(--font-weight-medium)'
+          marginBottom: 'var(--bk-spacing-2)',
+          fontSize: 'var(--bk-font-size-sm)',
+          fontWeight: 'var(--bk-font-weight-medium)'
         }}>
           Form Validation Success
         </h4>
@@ -323,9 +323,9 @@ export const UsageExamples: Story = {
 
       <div>
         <h4 style={{
-          marginBottom: 'var(--spacing-2)',
-          fontSize: 'var(--font-size-sm)',
-          fontWeight: 'var(--font-weight-medium)'
+          marginBottom: 'var(--bk-spacing-2)',
+          fontSize: 'var(--bk-font-size-sm)',
+          fontWeight: 'var(--bk-font-weight-medium)'
         }}>
           Destructive Action Warning
         </h4>
@@ -340,9 +340,9 @@ export const UsageExamples: Story = {
 
       <div>
         <h4 style={{
-          marginBottom: 'var(--spacing-2)',
-          fontSize: 'var(--font-size-sm)',
-          fontWeight: 'var(--font-weight-medium)'
+          marginBottom: 'var(--bk-spacing-2)',
+          fontSize: 'var(--bk-font-size-sm)',
+          fontWeight: 'var(--bk-font-weight-medium)'
         }}>
           API Error Message
         </h4>
@@ -373,21 +373,21 @@ export const Showcase: Story = {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      gap: 'var(--spacing-6)',
-      padding: 'var(--spacing-4)',
+      gap: 'var(--bk-spacing-6)',
+      padding: 'var(--bk-spacing-4)',
       maxWidth: '800px',
       margin: '0 auto',
     }}>
       {/* Basic Variants */}
       <div>
         <h3 style={{
-          marginBottom: 'var(--spacing-3)',
-          fontSize: 'var(--font-size-base)',
-          fontWeight: 'var(--font-weight-semibold)'
+          marginBottom: 'var(--bk-spacing-3)',
+          fontSize: 'var(--bk-font-size-base)',
+          fontWeight: 'var(--bk-font-weight-semibold)'
         }}>
           Basic Variants
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Alert variant="info">
             Informational alert with default styling and icon.
           </Alert>
@@ -406,13 +406,13 @@ export const Showcase: Story = {
       {/* With Titles */}
       <div>
         <h3 style={{
-          marginBottom: 'var(--spacing-3)',
-          fontSize: 'var(--font-size-base)',
-          fontWeight: 'var(--font-weight-semibold)'
+          marginBottom: 'var(--bk-spacing-3)',
+          fontSize: 'var(--bk-font-size-base)',
+          fontWeight: 'var(--bk-font-weight-semibold)'
         }}>
           With Titles
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Alert variant="info" title="Information">
             Add titles to provide additional context and structure.
           </Alert>
@@ -431,13 +431,13 @@ export const Showcase: Story = {
       {/* Dismissible */}
       <div>
         <h3 style={{
-          marginBottom: 'var(--spacing-3)',
-          fontSize: 'var(--font-size-base)',
-          fontWeight: 'var(--font-weight-semibold)'
+          marginBottom: 'var(--bk-spacing-3)',
+          fontSize: 'var(--bk-font-size-base)',
+          fontWeight: 'var(--bk-font-weight-semibold)'
         }}>
           Dismissible Alerts
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Alert
             variant="info"
             title="Tip"
@@ -457,13 +457,13 @@ export const Showcase: Story = {
       {/* Custom Icons */}
       <div>
         <h3 style={{
-          marginBottom: 'var(--spacing-3)',
-          fontSize: 'var(--font-size-base)',
-          fontWeight: 'var(--font-weight-semibold)'
+          marginBottom: 'var(--bk-spacing-3)',
+          fontSize: 'var(--bk-font-size-base)',
+          fontWeight: 'var(--bk-font-weight-semibold)'
         }}>
           Custom Icons
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Alert
             variant="info"
             icon={<Icon name="lightbulb" size="md" />}
@@ -487,9 +487,9 @@ export const Showcase: Story = {
       {/* Complex Content */}
       <div>
         <h3 style={{
-          marginBottom: 'var(--spacing-3)',
-          fontSize: 'var(--font-size-base)',
-          fontWeight: 'var(--font-weight-semibold)'
+          marginBottom: 'var(--bk-spacing-3)',
+          fontSize: 'var(--bk-font-size-base)',
+          fontWeight: 'var(--bk-font-weight-semibold)'
         }}>
           Complex Content
         </h3>
@@ -499,10 +499,10 @@ export const Showcase: Story = {
           closable
         >
           <div>
-            <p style={{ margin: '0 0 var(--spacing-2) 0' }}>
+            <p style={{ margin: '0 0 var(--bk-spacing-2) 0' }}>
               Alerts can contain rich structured content including:
             </p>
-            <ul style={{ margin: '0', paddingLeft: 'var(--spacing-4)' }}>
+            <ul style={{ margin: '0', paddingLeft: 'var(--bk-spacing-4)' }}>
               <li>Multiple paragraphs of text</li>
               <li>Lists (ordered or unordered)</li>
               <li>Inline formatting and links</li>

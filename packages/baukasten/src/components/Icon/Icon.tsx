@@ -34,7 +34,7 @@ export interface IconProps extends Omit<React.HTMLAttributes<HTMLElement>, 'clas
   /**
    * Color of the icon (uses CSS color value)
    * Uses design system color tokens by default
-   * @default undefined (inherits from parent or uses --color-foreground)
+   * @default undefined (inherits from parent or uses --bk-color-foreground)
    */
   color?: string;
 
@@ -91,7 +91,7 @@ export interface IconProps extends Omit<React.HTMLAttributes<HTMLElement>, 'clas
  * <Icon name="search" size="lg" />
  * 
  * // With custom color
- * <Icon name="error" color="var(--color-danger)" />
+ * <Icon name="error" color="var(--bk-color-danger)" />
  * 
  * // Loading spinner
  * <Icon name="loading" spin />

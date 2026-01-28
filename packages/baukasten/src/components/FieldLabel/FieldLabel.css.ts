@@ -7,11 +7,11 @@ import { style } from '@vanilla-extract/css';
 export const fieldLabel = recipe({
   base: {
     display: 'inline-block',
-    color: 'var(--color-foreground)',
-    fontSize: 'var(--font-size-sm)',
-    fontWeight: 'var(--font-weight-medium)',
-    lineHeight: 'var(--line-height-normal)',
-    marginBottom: 'var(--spacing-1)',
+    color: 'var(--bk-color-foreground)',
+    fontSize: 'var(--bk-font-size-sm)',
+    fontWeight: 'var(--bk-font-weight-medium)',
+    lineHeight: 'var(--bk-line-height-normal)',
+    marginBottom: 'var(--bk-spacing-1)',
     userSelect: 'none',
     cursor: 'default',
   },
@@ -19,7 +19,7 @@ export const fieldLabel = recipe({
   variants: {
     disabled: {
       true: {
-        opacity: 'var(--opacity-disabled)',
+        opacity: 'var(--bk-opacity-disabled)',
         cursor: 'not-allowed',
       },
       false: {},
@@ -35,7 +35,7 @@ export const fieldLabel = recipe({
  * Required indicator (asterisk)
  */
 export const requiredIndicator = style({
-  color: 'var(--color-danger)',
-  marginLeft: 'var(--spacing-0-5)',
-  fontWeight: 'var(--font-weight-medium)',
+  color: 'var(--bk-color-danger)',
+  marginLeft: 'var(--bk-spacing-0-5)',
+  fontWeight: 'var(--bk-font-weight-medium)',
 });

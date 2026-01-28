@@ -218,8 +218,8 @@ export const Backgrounds: Story = {
 const CTAContainer = ({ align, children }: { align?: 'left' | 'center' | 'right'; children: React.ReactNode }) => (
   <div style={{
     display: 'flex',
-    gap: 'var(--spacing-4)',
-    marginTop: 'var(--spacing-6)',
+    gap: 'var(--bk-spacing-4)',
+    marginTop: 'var(--bk-spacing-6)',
     justifyContent: align === 'center' ? 'center' : align === 'right' ? 'flex-end' : 'flex-start',
   }}>
     {children}
@@ -324,8 +324,8 @@ export const SectionHeader: Story = {
         size="sm"
         background="default"
       />
-      <div style={{ padding: 'var(--spacing-6)' }}>
-        <p style={{ color: 'var(--color-foreground)' }}>
+      <div style={{ padding: 'var(--bk-spacing-6)' }}>
+        <p style={{ color: 'var(--bk-color-foreground)' }}>
           Your content goes here. The hero component works great as a section divider
           or category header within your application.
         </p>
@@ -343,7 +343,7 @@ export const SectionHeader: Story = {
 };
 
 const ShowcaseSection = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ marginBottom: 'var(--spacing-2)' }}>
+  <div style={{ marginBottom: 'var(--bk-spacing-2)' }}>
     {children}
   </div>
 );

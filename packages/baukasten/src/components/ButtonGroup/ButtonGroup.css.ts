@@ -113,7 +113,7 @@ globalStyle(`${buttonGroup.classNames.variants.showSeparator.true} > button:not(
   right: 0,
   top: "20%",
   bottom: "20%",
-  width: "var(--border-width-1)",
+  width: "var(--bk-border-width-1)",
   backgroundColor: "currentColor",
   opacity: 0.2,
   pointerEvents: "none",
@@ -127,7 +127,7 @@ globalStyle(
     right: 0,
     top: "20%",
     bottom: "20%",
-    width: "var(--border-width-1)",
+    width: "var(--bk-border-width-1)",
     backgroundColor: "currentColor",
     opacity: 0.2,
     pointerEvents: "none",
@@ -169,40 +169,40 @@ globalStyle(`${dropdownTriggerWrapper.classNames.base} > button`, {
 });
 
 globalStyle(`${dropdownTriggerWrapper.classNames.variants.size.xs} > button`, {
-  width: "var(--size-xs)",
+  width: "var(--bk-size-xs)",
 });
 
 globalStyle(`${dropdownTriggerWrapper.classNames.variants.size.sm} > button`, {
-  width: "var(--size-sm)",
+  width: "var(--bk-size-sm)",
 });
 
 globalStyle(`${dropdownTriggerWrapper.classNames.variants.size.md} > button`, {
-  width: "var(--size-md)",
+  width: "var(--bk-size-md)",
 });
 
 globalStyle(`${dropdownTriggerWrapper.classNames.variants.size.lg} > button`, {
-  width: "var(--size-lg)",
+  width: "var(--bk-size-lg)",
 });
 
 globalStyle(`${dropdownTriggerWrapper.classNames.variants.size.xl} > button`, {
-  width: "var(--size-xl)",
+  width: "var(--bk-size-xl)",
 });
 
 /**
  * Dropdown content container - positioned by Floating UI
  */
 export const dropdownPortalContent = style({
-  zIndex: "var(--z-index-dropdown)",
-  minWidth: "var(--spacing-20)",
-  backgroundColor: "var(--color-dropdown-list-background)",
-  border: "var(--border-width-1) solid var(--color-dropdown-border)",
-  borderRadius: "var(--radius-md)",
-  boxShadow: "var(--shadow-lg)",
+  zIndex: "var(--bk-z-index-dropdown)",
+  minWidth: "var(--bk-spacing-20)",
+  backgroundColor: "var(--bk-color-dropdown-list-background)",
+  border: "var(--bk-border-width-1) solid var(--bk-color-dropdown-border)",
+  borderRadius: "var(--bk-radius-md)",
+  boxShadow: "var(--bk-shadow-lg)",
   opacity: 0,
   transform: "scale(0.95)",
-  transition: "opacity var(--transition-fast) ease, transform var(--transition-fast) ease",
+  transition: "opacity var(--bk-transition-fast) ease, transform var(--bk-transition-fast) ease",
   overflow: "auto",
-  maxHeight: "var(--spacing-80)",
+  maxHeight: "var(--bk-spacing-80)",
   selectors: {
     '&[data-status="open"]': {
       opacity: 1,

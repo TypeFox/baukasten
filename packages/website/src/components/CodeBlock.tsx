@@ -21,7 +21,7 @@ export default function CodeBlock({
 
   return (
     <div style={{
-      margin: 'var(--padding-md) 0',
+      margin: 'var(--bk-padding-md) 0',
     }}>
       <ShikiHighlighter
         language={language}
@@ -29,14 +29,14 @@ export default function CodeBlock({
         delay={150}
         style={{
           margin: '0',
-          padding: 'var(--spacing-4, 1rem)',
+          padding: 'var(--bk-spacing-4, 1rem)',
           overflowX: 'auto',
           fontFamily: 'var(--vscode-editor-font-family, \'SF Mono\', Monaco, \'Cascadia Code\', \'Roboto Mono\', Consolas, \'Courier New\', monospace)',
-          fontSize: 'var(--vscode-editor-font-size, var(--font-size-sm, 0.875rem))',
+          fontSize: 'var(--vscode-editor-font-size, var(--bk-font-size-sm, 0.875rem))',
           lineHeight: 1.6,
-          backgroundColor: 'var(--vscode-editor-background, var(--color-background))',
-          border: '1px solid var(--vscode-panel-border, var(--color-border))',
-          borderRadius: 'var(--radius-md, 4px)',
+          backgroundColor: 'var(--vscode-editor-background, var(--bk-color-background))',
+          border: '1px solid var(--vscode-panel-border, var(--bk-color-border))',
+          borderRadius: 'var(--bk-radius-md, 4px)',
         }}
       >
         {code}

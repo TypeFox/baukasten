@@ -71,7 +71,7 @@ export const Interactive: Story = {
  */
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
       <StatusBar>
         <StatusBarSection>
           <StatusBarItem variant="default" icon={<Icon name="info" />}>
@@ -120,15 +120,15 @@ export const WithClickHandlers: Story = {
         <div>
           <div
             style={{
-              marginBottom: 'var(--spacing-4)',
-              padding: 'var(--spacing-4)',
-              background: 'var(--color-background-elevated)',
-              borderRadius: 'var(--radius-md)',
-              fontSize: 'var(--font-size-sm)',
+              marginBottom: 'var(--bk-spacing-4)',
+              padding: 'var(--bk-spacing-4)',
+              background: 'var(--bk-color-background-elevated)',
+              borderRadius: 'var(--bk-radius-md)',
+              fontSize: 'var(--bk-font-size-sm)',
             }}
           >
             <div>Click on status bar items to interact with them!</div>
-            <div style={{ marginTop: 'var(--spacing-2)', color: 'var(--color-foreground-muted)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-2)', color: 'var(--bk-color-foreground-muted)' }}>
               Current state: Branch: <strong>{branch}</strong>, Errors: <strong>{errors}</strong>,
               Warnings: <strong>{warnings}</strong>, Position: <strong>Ln {line}, Col {col}</strong>
             </div>
@@ -430,30 +430,30 @@ export const InContext: Story = {
         display: 'flex',
         flexDirection: 'column',
         height: '400px',
-        border: '1px solid var(--color-border)',
-        borderRadius: 'var(--radius-md)',
+        border: '1px solid var(--bk-color-border)',
+        borderRadius: 'var(--bk-radius-md)',
         overflow: 'hidden',
       }}
     >
       {/* Header */}
       <div
         style={{
-          padding: 'var(--spacing-3)',
-          borderBottom: '1px solid var(--color-border)',
-          background: 'var(--color-background)',
+          padding: 'var(--bk-spacing-3)',
+          borderBottom: '1px solid var(--bk-color-border)',
+          background: 'var(--bk-color-background)',
         }}
       >
-        <h3 style={{ margin: 0, fontSize: 'var(--font-size-base)' }}>Editor Window</h3>
+        <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-base)' }}>Editor Window</h3>
       </div>
 
       {/* Content Area */}
       <div
         style={{
           flex: 1,
-          padding: 'var(--spacing-4)',
-          background: 'var(--color-background)',
+          padding: 'var(--bk-spacing-4)',
+          background: 'var(--bk-color-background)',
           fontFamily: 'monospace',
-          fontSize: 'var(--font-size-sm)',
+          fontSize: 'var(--bk-font-size-sm)',
           overflow: 'auto',
         }}
       >
@@ -511,8 +511,8 @@ export const WithDropdowns: Story = {
             display: 'flex',
             flexDirection: 'column',
             height: '300px',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius-md)',
+            border: '1px solid var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
             overflow: 'hidden',
           }}
         >
@@ -520,14 +520,14 @@ export const WithDropdowns: Story = {
           <div
             style={{
               flex: 1,
-              padding: 'var(--spacing-4)',
-              background: 'var(--color-background)',
+              padding: 'var(--bk-spacing-4)',
+              background: 'var(--bk-color-background)',
             }}
           >
-            <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+            <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
               Click on status bar items to open dropdowns
             </div>
-            <div style={{ marginTop: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>
               Branch: <strong>{selectedBranch}</strong> |
               Encoding: <strong>{selectedEncoding}</strong> |
               Language: <strong>{selectedLanguage}</strong>
@@ -698,12 +698,12 @@ export const Showcase: Story = {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--spacing-6)',
-        padding: 'var(--spacing-4)',
+        gap: 'var(--bk-spacing-6)',
+        padding: 'var(--bk-spacing-4)',
       }}
     >
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Basic Layout
         </h3>
         <StatusBar>
@@ -717,7 +717,7 @@ export const Showcase: Story = {
       </div>
 
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           With Icons
         </h3>
         <StatusBar>
@@ -731,7 +731,7 @@ export const Showcase: Story = {
       </div>
 
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Color Variants
         </h3>
         <StatusBar>
@@ -746,7 +746,7 @@ export const Showcase: Story = {
       </div>
 
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           VSCode-Style Complete
         </h3>
         <StatusBar>

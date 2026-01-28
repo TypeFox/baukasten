@@ -9,30 +9,30 @@ const baseMaxLines = style({
 
 export const paragraph = recipe({
   base: {
-    color: 'var(--color-foreground)',
-    fontWeight: 'var(--font-weight-normal)',
+    color: 'var(--bk-color-foreground)',
+    fontWeight: 'var(--bk-font-weight-normal)',
     margin: 0,
   },
 
   variants: {
     size: {
       xs: {
-        fontSize: 'var(--font-size-xs)',
+        fontSize: 'var(--bk-font-size-xs)',
       },
       sm: {
-        fontSize: 'var(--font-size-sm)',
+        fontSize: 'var(--bk-font-size-sm)',
       },
       md: {
-        fontSize: 'var(--font-size-md)',
+        fontSize: 'var(--bk-font-size-md)',
       },
       base: {
-        fontSize: 'var(--font-size-base)',
+        fontSize: 'var(--bk-font-size-base)',
       },
       lg: {
-        fontSize: 'var(--font-size-lg)',
+        fontSize: 'var(--bk-font-size-lg)',
       },
       xl: {
-        fontSize: 'var(--font-size-xl)',
+        fontSize: 'var(--bk-font-size-xl)',
       },
     },
 
@@ -53,22 +53,22 @@ export const paragraph = recipe({
 
     lineHeight: {
       tight: {
-        lineHeight: 'var(--line-height-tight)',
+        lineHeight: 'var(--bk-line-height-tight)',
       },
       normal: {
-        lineHeight: 'var(--line-height-normal)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       relaxed: {
-        lineHeight: 'var(--line-height-relaxed)',
+        lineHeight: 'var(--bk-line-height-relaxed)',
       },
       loose: {
-        lineHeight: 'var(--line-height-loose)',
+        lineHeight: 'var(--bk-line-height-loose)',
       },
     },
 
     marginBottom: {
       true: {
-        marginBottom: 'var(--spacing-4)',
+        marginBottom: 'var(--bk-spacing-4)',
       },
       false: {},
     },

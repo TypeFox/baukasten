@@ -2,42 +2,42 @@ import { recipe } from '@vanilla-extract/recipes';
 
 export const code = recipe({
   base: {
-    fontFamily: 'var(--font-family-mono)',
+    fontFamily: 'var(--bk-font-family-mono)',
   },
 
   variants: {
     size: {
       xs: {
-        fontSize: 'var(--font-size-xs)',
+        fontSize: 'var(--bk-font-size-xs)',
       },
       sm: {
-        fontSize: 'var(--font-size-sm)',
+        fontSize: 'var(--bk-font-size-sm)',
       },
       md: {
-        fontSize: 'var(--font-size-md)',
+        fontSize: 'var(--bk-font-size-md)',
       },
       base: {
-        fontSize: 'var(--font-size-base)',
+        fontSize: 'var(--bk-font-size-base)',
       },
     },
 
     block: {
       true: {
         display: 'block',
-        backgroundColor: 'var(--color-code-background)',
-        color: 'var(--color-code-foreground)',
-        padding: 'var(--spacing-3)',
-        borderRadius: 'var(--radius-md)',
-        border: 'var(--border-width-1) solid var(--color-border)',
-        lineHeight: 'var(--line-height-relaxed)',
+        backgroundColor: 'var(--bk-color-code-background)',
+        color: 'var(--bk-color-code-foreground)',
+        padding: 'var(--bk-spacing-3)',
+        borderRadius: 'var(--bk-radius-md)',
+        border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
+        lineHeight: 'var(--bk-line-height-relaxed)',
         margin: 0,
       },
       false: {
-        backgroundColor: 'var(--color-code-background)',
-        color: 'var(--color-code-foreground)',
-        padding: 'var(--spacing-0-5) var(--spacing-1-5)',
-        borderRadius: 'var(--radius-sm)',
-        border: 'var(--border-width-1) solid var(--color-border)',
+        backgroundColor: 'var(--bk-color-code-background)',
+        color: 'var(--bk-color-code-foreground)',
+        padding: 'var(--bk-spacing-0-5) var(--bk-spacing-1-5)',
+        borderRadius: 'var(--bk-radius-sm)',
+        border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
         lineHeight: 1,
       },
     },

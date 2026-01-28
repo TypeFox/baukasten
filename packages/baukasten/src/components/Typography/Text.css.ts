@@ -8,86 +8,86 @@ export const text = recipe({
   variants: {
     size: {
       xs: {
-        fontSize: 'var(--font-size-xs)',
-        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--bk-font-size-xs)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       sm: {
-        fontSize: 'var(--font-size-sm)',
-        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--bk-font-size-sm)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       md: {
-        fontSize: 'var(--font-size-md)',
-        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--bk-font-size-md)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       base: {
-        fontSize: 'var(--font-size-base)',
-        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--bk-font-size-base)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       lg: {
-        fontSize: 'var(--font-size-lg)',
-        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--bk-font-size-lg)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       xl: {
-        fontSize: 'var(--font-size-xl)',
-        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--bk-font-size-xl)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       '2xl': {
-        fontSize: 'var(--font-size-2xl)',
-        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--bk-font-size-2xl)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       '3xl': {
-        fontSize: 'var(--font-size-3xl)',
-        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--bk-font-size-3xl)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       '4xl': {
-        fontSize: 'var(--font-size-4xl)',
-        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--bk-font-size-4xl)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       '5xl': {
-        fontSize: 'var(--font-size-5xl)',
-        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--bk-font-size-5xl)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
     },
 
     weight: {
       light: {
-        fontWeight: 'var(--font-weight-light)',
+        fontWeight: 'var(--bk-font-weight-light)',
       },
       normal: {
-        fontWeight: 'var(--font-weight-normal)',
+        fontWeight: 'var(--bk-font-weight-normal)',
       },
       medium: {
-        fontWeight: 'var(--font-weight-medium)',
+        fontWeight: 'var(--bk-font-weight-medium)',
       },
       semibold: {
-        fontWeight: 'var(--font-weight-semibold)',
+        fontWeight: 'var(--bk-font-weight-semibold)',
       },
       bold: {
-        fontWeight: 'var(--font-weight-bold)',
+        fontWeight: 'var(--bk-font-weight-bold)',
       },
     },
 
     color: {
       default: {
-        color: 'var(--color-foreground)',
+        color: 'var(--bk-color-foreground)',
       },
       muted: {
-        color: 'var(--color-secondary-foreground)',
+        color: 'var(--bk-color-secondary-foreground)',
       },
       primary: {
-        color: 'var(--color-primary)',
+        color: 'var(--bk-color-primary)',
       },
       success: {
-        color: 'var(--color-success)',
+        color: 'var(--bk-color-success)',
       },
       warning: {
-        color: 'var(--color-warning)',
+        color: 'var(--bk-color-warning)',
       },
       danger: {
-        color: 'var(--color-danger)',
+        color: 'var(--bk-color-danger)',
       },
       info: {
-        color: 'var(--color-info)',
+        color: 'var(--bk-color-info)',
       },
     },
 
@@ -126,7 +126,7 @@ export const text = recipe({
 
     monospace: {
       true: {
-        fontFamily: 'var(--font-family-mono)',
+        fontFamily: 'var(--bk-font-family-mono)',
       },
       false: {
         fontFamily: 'inherit',

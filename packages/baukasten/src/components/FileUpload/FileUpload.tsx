@@ -277,15 +277,15 @@ export const FileUpload: React.FC<FileUploadProps> = ({
                     aria-hidden="true"
                 />
 
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
                     <Icon name="cloud-upload" style={{ fontSize: size === 'xl' ? '48px' : size === 'lg' ? '40px' : '32px' }} />
 
                     <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontWeight: 'var(--font-weight-medium)', marginBottom: 'var(--spacing-1)' }}>
+                        <div style={{ fontWeight: 'var(--bk-font-weight-medium)', marginBottom: 'var(--bk-spacing-1)' }}>
                             {label}
                         </div>
                         {description && (
-                            <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
                                 {description}
                             </div>
                         )}
@@ -299,10 +299,10 @@ export const FileUpload: React.FC<FileUploadProps> = ({
                         <div key={`${file.name}-${index}`} className={fileItem}>
                             <Icon name="file" style={{ flexShrink: 0 }} />
                             <div style={{ flex: 1, minWidth: 0 }}>
-                                <div style={{ fontWeight: 'var(--font-weight-medium)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                <div style={{ fontWeight: 'var(--bk-font-weight-medium)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                                     {file.name}
                                 </div>
-                                <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+                                <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
                                     {formatFileSize(file.size)}
                                 </div>
                             </div>

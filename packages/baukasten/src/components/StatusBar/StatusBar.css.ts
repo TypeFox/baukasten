@@ -9,11 +9,11 @@ export const statusBar = style({
     alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
-    height: 'var(--size-md)',
-    backgroundColor: 'var(--color-statusbar-background)',
-    borderTop: 'var(--border-width-1) solid var(--color-statusbar-border)',
-    fontSize: 'var(--font-size-xs)',
-    color: 'var(--color-statusbar-foreground)',
+    height: 'var(--bk-size-md)',
+    backgroundColor: 'var(--bk-color-statusbar-background)',
+    borderTop: 'var(--bk-border-width-1) solid var(--bk-color-statusbar-border)',
+    fontSize: 'var(--bk-font-size-xs)',
+    color: 'var(--bk-color-statusbar-foreground)',
     userSelect: 'none',
     flexShrink: 0,
 });
@@ -25,7 +25,7 @@ export const statusBarSection = recipe({
     base: {
         display: 'flex',
         alignItems: 'center',
-        gap: 'var(--gap-xs)',
+        gap: 'var(--bk-gap-xs)',
         height: '100%',
     },
     variants: {
@@ -48,31 +48,31 @@ export const statusBarItem = recipe({
     base: {
         display: 'flex',
         alignItems: 'center',
-        gap: 'var(--gap-xs)',
-        padding: '0 var(--spacing-2)',
+        gap: 'var(--bk-gap-xs)',
+        padding: '0 var(--bk-spacing-2)',
         height: '100%',
         whiteSpace: 'nowrap',
-        transition: 'var(--transition-colors)',
-        color: 'var(--color-statusbar-foreground)',
+        transition: 'var(--bk-transition-colors)',
+        color: 'var(--bk-color-statusbar-foreground)',
     },
     variants: {
         variant: {
             default: {
-                color: 'var(--color-statusbar-foreground)',
+                color: 'var(--bk-color-statusbar-foreground)',
             },
             error: {
-                backgroundColor: 'var(--color-statusbar-item-error)',
-                color: 'var(--color-statusbar-foreground)',
+                backgroundColor: 'var(--bk-color-statusbar-item-error)',
+                color: 'var(--bk-color-statusbar-foreground)',
             },
             warning: {
-                backgroundColor: 'var(--color-statusbar-item-warning)',
-                color: 'var(--color-statusbar-foreground)',
+                backgroundColor: 'var(--bk-color-statusbar-item-warning)',
+                color: 'var(--bk-color-statusbar-foreground)',
             },
             info: {
-                color: 'var(--color-info)',
+                color: 'var(--bk-color-info)',
             },
             success: {
-                color: 'var(--color-success)',
+                color: 'var(--bk-color-success)',
             },
         },
         clickable: {
@@ -80,10 +80,10 @@ export const statusBarItem = recipe({
                 cursor: 'pointer',
                 selectors: {
                     '&:hover': {
-                        backgroundColor: 'var(--color-statusbar-item-hover)',
+                        backgroundColor: 'var(--bk-color-statusbar-item-hover)',
                     },
                     '&:active': {
-                        backgroundColor: 'var(--color-statusbar-item-active)',
+                        backgroundColor: 'var(--bk-color-statusbar-item-active)',
                     },
                 },
             },
@@ -91,7 +91,7 @@ export const statusBarItem = recipe({
         },
         active: {
             true: {
-                backgroundColor: 'var(--color-statusbar-item-active)',
+                backgroundColor: 'var(--bk-color-statusbar-item-active)',
             },
             false: {},
         },

@@ -81,7 +81,7 @@ export const Interactive: Story = {
 export const Variants: Story = {
   args: { children: null },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
       <ButtonGroup>
         <Button variant="primary">Cut</Button>
         <Button variant="primary">Copy</Button>
@@ -114,7 +114,7 @@ export const Variants: Story = {
 export const Sizes: Story = {
   args: { children: null },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
       <ButtonGroup>
         <Button variant="primary" size="xs">Cut</Button>
         <Button variant="primary" size="xs">Copy</Button>
@@ -157,7 +157,7 @@ export const Sizes: Story = {
 export const Outline: Story = {
   args: { children: null },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
       <ButtonGroup>
         <Button variant="primary" outline>Cut</Button>
         <Button variant="primary" outline>Copy</Button>
@@ -190,9 +190,9 @@ export const Outline: Story = {
 export const WithoutSeparators: Story = {
   args: { children: null },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Without Separators (default)
         </h4>
         <ButtonGroup>
@@ -202,7 +202,7 @@ export const WithoutSeparators: Story = {
         </ButtonGroup>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           With Separators
         </h4>
         <ButtonGroup showSeparator={true}>
@@ -212,7 +212,7 @@ export const WithoutSeparators: Story = {
         </ButtonGroup>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Outline With Separators
         </h4>
         <ButtonGroup showSeparator={true}>
@@ -238,7 +238,7 @@ export const WithoutSeparators: Story = {
 export const SplitButton: Story = {
   args: { children: null },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
       <ButtonGroup>
         <Button variant="primary" onClick={() => console.log('Save clicked')}>Save</Button>
         <ButtonGroup.Dropdown variant="primary" content={<SampleMenu />} />
@@ -285,7 +285,7 @@ export const SplitButton: Story = {
 export const WithIcons: Story = {
   args: { children: null },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
       <ButtonGroup>
         <Button variant="secondary">
           <Icon name="bold" />
@@ -337,7 +337,7 @@ export const WithIcons: Story = {
 export const FullWidth: Story = {
   args: { children: null },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', width: '400px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '400px' }}>
       <ButtonGroup fullWidth>
         <Button variant="primary">Previous</Button>
         <Button variant="primary">Next</Button>
@@ -370,7 +370,7 @@ export const FullWidth: Story = {
 export const DropdownPlacements: Story = {
   args: { children: null },
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--spacing-8)', flexWrap: 'wrap', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)', flexWrap: 'wrap', alignItems: 'center' }}>
       <ButtonGroup>
         <Button variant="secondary" size="xs">Action</Button>
         <ButtonGroup.Dropdown size="xs" variant="secondary" content={<SampleMenu />} placement="bottom-start" />
@@ -408,9 +408,9 @@ export const DropdownPlacements: Story = {
 export const UsageExamples: Story = {
   args: { children: null },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Text Formatting Toolbar
         </h4>
         <ButtonGroup>
@@ -427,7 +427,7 @@ export const UsageExamples: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Split Button with Save Actions
         </h4>
         <ButtonGroup>
@@ -446,7 +446,7 @@ export const UsageExamples: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Segmented Control
         </h4>
         <ButtonGroup>
@@ -457,7 +457,7 @@ export const UsageExamples: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Pagination
         </h4>
         <ButtonGroup>
@@ -472,7 +472,7 @@ export const UsageExamples: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Zoom Controls
         </h4>
         <ButtonGroup>
@@ -522,7 +522,7 @@ export const States: Story = {
               onOpenChange={setIsOpen}
             />
           </ButtonGroup>
-          <div style={{ marginTop: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+          <div style={{ marginTop: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
             Dropdown is {isOpen ? 'open' : 'closed'}
           </div>
         </div>
@@ -530,9 +530,9 @@ export const States: Story = {
     };
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', alignItems: 'flex-start' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             Disabled Buttons
           </h4>
           <ButtonGroup>
@@ -543,7 +543,7 @@ export const States: Story = {
         </div>
 
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             Disabled Split Button
           </h4>
           <ButtonGroup>
@@ -553,7 +553,7 @@ export const States: Story = {
         </div>
 
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             Controlled Dropdown State
           </h4>
           <ControlledExample />
@@ -576,13 +576,13 @@ export const States: Story = {
 export const Showcase: Story = {
   args: { children: null },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', padding: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)' }}>
       {/* Regular Button Groups */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Regular Button Groups
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', alignItems: 'flex-start' }}>
           <ButtonGroup>
             <Button variant="primary">Cut</Button>
             <Button variant="primary">Copy</Button>
@@ -603,10 +603,10 @@ export const Showcase: Story = {
 
       {/* Outline Variants */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Outline Variants
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', alignItems: 'flex-start' }}>
           <ButtonGroup>
             <Button variant="primary" outline>Cut</Button>
             <Button variant="primary" outline>Copy</Button>
@@ -622,10 +622,10 @@ export const Showcase: Story = {
 
       {/* Sizes */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Sizes
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', alignItems: 'flex-start' }}>
           <ButtonGroup>
             <Button variant="primary" size="xs">Cut</Button>
             <Button variant="primary" size="xs">Copy</Button>
@@ -656,10 +656,10 @@ export const Showcase: Story = {
 
       {/* Split Button Pattern */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Split Button Pattern
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', alignItems: 'flex-start' }}>
           <ButtonGroup>
             <Button variant="primary" onClick={() => console.log('Save')}>
               <Icon name="save" />
@@ -685,10 +685,10 @@ export const Showcase: Story = {
 
       {/* With Icons */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           With Icons
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', alignItems: 'flex-start' }}>
           <ButtonGroup>
             <Button variant="secondary">
               <Icon name="bold" />
@@ -719,10 +719,10 @@ export const Showcase: Story = {
 
       {/* Full Width */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Full Width
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)', width: '400px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '400px' }}>
           <ButtonGroup fullWidth>
             <Button variant="primary">Previous</Button>
             <Button variant="primary">Next</Button>
@@ -737,12 +737,12 @@ export const Showcase: Story = {
 
       {/* Real-world Examples */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Real-world Examples
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', alignItems: 'flex-start' }}>
           <div>
-            <p style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+            <p style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
               Text Editor Toolbar
             </p>
             <ButtonGroup>
@@ -752,7 +752,7 @@ export const Showcase: Story = {
             </ButtonGroup>
           </div>
           <div>
-            <p style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+            <p style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
               View Switcher
             </p>
             <ButtonGroup>
@@ -762,7 +762,7 @@ export const Showcase: Story = {
             </ButtonGroup>
           </div>
           <div>
-            <p style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+            <p style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
               Pagination Control
             </p>
             <ButtonGroup>
