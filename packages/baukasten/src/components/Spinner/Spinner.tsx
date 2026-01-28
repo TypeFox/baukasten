@@ -14,7 +14,7 @@ export interface SpinnerProps {
 
   /**
    * Custom color for the spinner (uses semantic token or CSS value)
-   * @default undefined (uses --color-primary)
+   * @default undefined (uses --bk-color-primary)
    */
   color?: string;
 
@@ -55,7 +55,7 @@ export interface SpinnerProps {
  * <Spinner size="lg" />
  *
  * // Custom color using semantic token
- * <Spinner color="var(--color-success)" />
+ * <Spinner color="var(--bk-color-success)" />
  *
  * // Custom color using CSS value
  * <Spinner color="#ff6600" />
@@ -82,7 +82,7 @@ export const Spinner: React.FC<SpinnerProps> = ({
     <div className={wrapperClassName} style={inlineStyle}>
       <div
         className={spinner({ size })}
-        style={{ borderTopColor: color || 'var(--color-primary)' }}
+        style={{ borderTopColor: color || 'var(--bk-color-primary)' }}
         role="status"
         aria-label={ariaLabel || 'Loading'}
         aria-live="polite"

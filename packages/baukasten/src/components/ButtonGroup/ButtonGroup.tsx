@@ -25,9 +25,9 @@ import {
 } from './ButtonGroup.css';
 
 // Constants matching design tokens (for Floating UI numeric values)
-const OFFSET_SPACING = 4; // var(--spacing-1)
-const PADDING_SPACING = 8; // var(--spacing-2)
-const TRANSITION_DURATION = 150; // var(--transition-fast) = 150ms
+const OFFSET_SPACING = 4; // var(--bk-spacing-1)
+const PADDING_SPACING = 8; // var(--bk-spacing-2)
+const TRANSITION_DURATION = 150; // var(--bk-transition-fast) = 150ms
 
 /**
  * ButtonGroup component props
@@ -240,7 +240,7 @@ const ButtonGroupDropdown: React.FC<ButtonGroupDropdownProps> = ({
       floatingSize({
         apply({ availableHeight, elements }) {
           Object.assign(elements.floating.style, {
-            minWidth: 'var(--spacing-20)',
+            minWidth: 'var(--bk-spacing-20)',
             maxHeight: `${availableHeight}px`,
           });
         },
@@ -309,7 +309,7 @@ const ButtonGroupDropdown: React.FC<ButtonGroupDropdownProps> = ({
               style={{
                 ...floatingStyles,
                 visibility: isPositioned ? 'visible' : 'hidden',
-                zIndex: 'var(--z-index-popover)',
+                zIndex: 'var(--bk-z-index-popover)',
               }}
               {...getFloatingProps()}
             >

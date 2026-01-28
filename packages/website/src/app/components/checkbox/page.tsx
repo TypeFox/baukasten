@@ -53,7 +53,7 @@ function ControlledExample() {
   const [switchChecked, setSwitchChecked] = useState(true);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
       <Label variant="checkbox" size="md">
         <Checkbox
           checked={checked}
@@ -96,7 +96,7 @@ function IndeterminateExample() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
       <Label variant="checkbox" size="md">
         <Checkbox
           checked={allChecked}
@@ -107,7 +107,7 @@ function IndeterminateExample() {
           Select all items
         </span>
       </Label>
-      <div style={{ paddingLeft: 'var(--spacing-6)', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
+      <div style={{ paddingLeft: 'var(--bk-spacing-6)', display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
         {items.map(item => (
           <Label key={item.id} variant="checkbox" size="md">
             <Checkbox
@@ -153,7 +153,7 @@ function App() {
         title="Variants"
         description="Two variants available: traditional checkbox and toggle switch."
         preview={
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
             <Label variant="checkbox" size="md">
               <Checkbox variant="checkbox" />
               <span>Checkbox variant</span>
@@ -179,12 +179,12 @@ function App() {
         title="Sizes"
         description="Five size options from extra small to extra large. Label font size automatically scales with checkbox size."
         preview={
-          <div style={{ display: 'flex', gap: 'var(--spacing-8)', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)', flexWrap: 'wrap' }}>
             <div style={{ flex: '1', minWidth: '250px' }}>
-              <h4 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 600 }}>
+              <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
                 Checkbox Sizes
               </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                 <Label variant="checkbox" size="xs">
                   <Checkbox size="xs" />
                   <span>Extra Small</span>
@@ -208,10 +208,10 @@ function App() {
               </div>
             </div>
             <div style={{ flex: '1', minWidth: '250px' }}>
-              <h4 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 600 }}>
+              <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
                 Switch Sizes
               </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                 <Label variant="checkbox" size="xs">
                   <Checkbox variant="switch" size="xs" />
                   <span>Extra Small</span>
@@ -256,12 +256,12 @@ function App() {
         title="States"
         description="Multiple states: unchecked, checked, indeterminate, and disabled."
         preview={
-          <div style={{ display: 'flex', gap: 'var(--spacing-8)', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)', flexWrap: 'wrap' }}>
             <div style={{ flex: '1', minWidth: '250px' }}>
-              <h4 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 600 }}>
+              <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
                 Checkbox States
               </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                 <Label variant="checkbox" size="md">
                   <Checkbox />
                   <span>Unchecked</span>
@@ -285,10 +285,10 @@ function App() {
               </div>
             </div>
             <div style={{ flex: '1', minWidth: '250px' }}>
-              <h4 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 600 }}>
+              <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
                 Switch States
               </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                 <Label variant="checkbox" size="md">
                   <Checkbox variant="switch" />
                   <span>Unchecked</span>
@@ -412,7 +412,7 @@ function IndeterminateExample() {
         title="Multiline Labels"
         description="Labels automatically wrap and maintain proper alignment with the checkbox."
         preview={
-          <div style={{ maxWidth: '400px', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+          <div style={{ maxWidth: '400px', display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
             <Label variant="checkbox" size="md">
               <Checkbox />
               <span>This is a very long label that will wrap to multiple lines and maintain proper alignment with the checkbox. The text wraps naturally below the first line.</span>
@@ -439,17 +439,17 @@ function IndeterminateExample() {
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: 'var(--spacing-4)',
-            padding: 'var(--spacing-6)',
+            gap: 'var(--bk-spacing-4)',
+            padding: 'var(--bk-spacing-6)',
             backgroundColor: 'var(--vscode-sideBar-background)',
             border: '1px solid var(--vscode-panel-border)',
-            borderRadius: 'var(--border-radius-md)',
+            borderRadius: 'var(--bk-radius-md)',
             maxWidth: '400px',
           }}>
-            <h3 style={{ fontSize: 'var(--font-size-base)', fontWeight: 600, marginBottom: 'var(--spacing-2)' }}>
+            <h3 style={{ fontSize: 'var(--bk-font-size-base)', fontWeight: 600, marginBottom: 'var(--bk-spacing-2)' }}>
               Notification Preferences
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
               <Label variant="checkbox" size="md">
                 <Checkbox defaultChecked />
                 <span>Email notifications</span>
@@ -464,12 +464,12 @@ function IndeterminateExample() {
               </Label>
             </div>
 
-            <div style={{ height: '1px', backgroundColor: 'var(--vscode-panel-border)', margin: 'var(--spacing-2) 0' }} />
+            <div style={{ height: '1px', backgroundColor: 'var(--vscode-panel-border)', margin: 'var(--bk-spacing-2) 0' }} />
 
-            <h3 style={{ fontSize: 'var(--font-size-base)', fontWeight: 600, marginBottom: 'var(--spacing-2)' }}>
+            <h3 style={{ fontSize: 'var(--bk-font-size-base)', fontWeight: 600, marginBottom: 'var(--bk-spacing-2)' }}>
               Display Settings
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
               <Label variant="checkbox" size="md">
                 <Checkbox variant="switch" defaultChecked />
                 <span>Dark mode</span>

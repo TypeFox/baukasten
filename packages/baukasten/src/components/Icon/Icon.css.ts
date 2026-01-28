@@ -32,25 +32,25 @@ export const icon = recipe({
   variants: {
     size: {
       xs: {
-        fontSize: 'var(--font-size-xs) !important',
+        fontSize: 'var(--bk-font-size-xs) !important',
       },
       sm: {
-        fontSize: 'var(--font-size-sm) !important',
+        fontSize: 'var(--bk-font-size-sm) !important',
       },
       md: {
-        fontSize: 'var(--font-size-md) !important',
+        fontSize: 'var(--bk-font-size-md) !important',
       },
       lg: {
-        fontSize: 'var(--font-size-lg) !important',
+        fontSize: 'var(--bk-font-size-lg) !important',
       },
       xl: {
-        fontSize: 'var(--font-size-xl) !important',
+        fontSize: 'var(--bk-font-size-xl) !important',
       },
       '2xl': {
-        fontSize: 'var(--font-size-2xl) !important',
+        fontSize: 'var(--bk-font-size-2xl) !important',
       },
       '3xl': {
-        fontSize: 'var(--font-size-3xl) !important',
+        fontSize: 'var(--bk-font-size-3xl) !important',
       },
     },
     spin: {

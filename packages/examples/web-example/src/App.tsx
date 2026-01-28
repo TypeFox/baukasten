@@ -35,7 +35,7 @@ function App() {
         <section style={{ marginBottom: '48px' }}>
           <h2 style={{ fontSize: '24px', marginBottom: '16px', fontWeight: 600 }}>Buttons</h2>
           <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Button Variants</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -45,7 +45,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Button Sizes</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -56,7 +56,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Button States</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <Button disabled>Disabled Button</Button>
@@ -69,7 +69,7 @@ function App() {
         <section style={{ marginBottom: '48px' }}>
           <h2 style={{ fontSize: '24px', marginBottom: '16px', fontWeight: 600 }}>Icons</h2>
           <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Icon Sizes</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -82,14 +82,14 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Common Icons</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
-                  <Icon name="check" color="var(--color-success)" size="lg" />
-                  <Icon name="error" color="var(--color-danger)" size="lg" />
-                  <Icon name="warning" color="var(--color-warning)" size="lg" />
-                  <Icon name="info" color="var(--color-info)" size="lg" />
+                  <Icon name="check" color="var(--bk-color-success)" size="lg" />
+                  <Icon name="error" color="var(--bk-color-danger)" size="lg" />
+                  <Icon name="warning" color="var(--bk-color-warning)" size="lg" />
+                  <Icon name="info" color="var(--bk-color-info)" size="lg" />
                   <Icon name="search" size="lg" />
                   <Icon name="settings" size="lg" />
                   <Icon name="close" size="lg" />
@@ -97,7 +97,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Icons with Buttons</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -119,7 +119,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Animated Icons</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -135,7 +135,7 @@ function App() {
         <section style={{ marginBottom: '48px' }}>
           <h2 style={{ fontSize: '24px', marginBottom: '16px', fontWeight: 600 }}>Input Fields</h2>
           <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Basic Input</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <Input
@@ -147,7 +147,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Input with Validation</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <Input
@@ -160,7 +160,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Input States</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <Input
@@ -179,7 +179,7 @@ function App() {
         <section style={{ marginBottom: '48px' }}>
           <h2 style={{ fontSize: '24px', marginBottom: '16px', fontWeight: 600 }}>Badges</h2>
           <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Badge Variants</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -192,7 +192,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Badge Sizes</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -202,7 +202,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Badge Usage Examples</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -225,7 +225,7 @@ function App() {
         <section style={{ marginBottom: '48px' }}>
           <h2 style={{ fontSize: '24px', marginBottom: '16px', fontWeight: 600 }}>Typography</h2>
           <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Headings</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <Heading level={1}>Heading 1</Heading>
@@ -234,7 +234,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Text Variants</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <Text>Default text</Text>
@@ -244,7 +244,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Paragraphs & Links</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <Paragraph size="md">
@@ -255,7 +255,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Code Examples</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <Paragraph size="sm">
@@ -269,7 +269,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>Images</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ width: '120px' }}>
@@ -295,7 +295,7 @@ function App() {
         <section style={{ marginBottom: '48px' }}>
           <h2 style={{ fontSize: '24px', marginBottom: '16px', fontWeight: 600 }}>Form Example</h2>
           <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-            <div style={{ padding: 'var(--spacing-6)', backgroundColor: 'var(--color-background)', borderRadius: 'var(--radius-md)', border: 'var(--border-width-1) solid var(--color-border)' }}>
+            <div style={{ padding: 'var(--bk-spacing-6)', backgroundColor: 'var(--bk-color-background)', borderRadius: 'var(--bk-radius-md)', border: 'var(--bk-border-width-1) solid var(--bk-color-border)' }}>
               <h3 style={{ fontSize: '16px', marginBottom: '12px', fontWeight: 500 }}>User Registration Form</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <Input

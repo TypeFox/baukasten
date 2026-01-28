@@ -28,7 +28,7 @@ const contextMenuFadeIn = keyframes({
 export const menuWrapper = recipe({
   base: {
     position: 'fixed',
-    zIndex: 'var(--z-index-context-menu)',
+    zIndex: 'var(--bk-z-index-context-menu)',
   },
 
   variants: {
@@ -60,12 +60,12 @@ export const menuWrapper = recipe({
  * Styled menu container
  */
 export const styledMenu = style({
-  backgroundColor: 'var(--color-dropdown-list-background)',
-  border: 'var(--border-width-1) solid var(--color-dropdown-border)',
-  borderRadius: 'var(--radius-md)',
-  boxShadow: 'var(--shadow-lg)',
-  minWidth: 'calc(var(--spacing-24) * 2)', // 12rem = 192px
-  maxWidth: 'calc(var(--spacing-20) * 4)', // 20rem = 320px
-  padding: 'var(--spacing-1)',
-  animation: `${contextMenuFadeIn} var(--transition-fast) ease-out`,
+  backgroundColor: 'var(--bk-color-dropdown-list-background)',
+  border: 'var(--bk-border-width-1) solid var(--bk-color-dropdown-border)',
+  borderRadius: 'var(--bk-radius-md)',
+  boxShadow: 'var(--bk-shadow-lg)',
+  minWidth: 'calc(var(--bk-spacing-24) * 2)', // 12rem = 192px
+  maxWidth: 'calc(var(--bk-spacing-20) * 4)', // 20rem = 320px
+  padding: 'var(--bk-spacing-1)',
+  animation: `${contextMenuFadeIn} var(--bk-transition-fast) ease-out`,
 });

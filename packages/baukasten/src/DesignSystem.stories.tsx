@@ -2,29 +2,29 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 // Story-specific styles using a style tag
 const storyStyles = `
-  .ds-container { font-family: var(--font-family-sans); color: var(--color-foreground); padding: var(--spacing-4); }
-  .ds-section { margin-bottom: var(--spacing-8); }
-  .ds-section-title { font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-4); color: var(--color-foreground); border-bottom: var(--border-width-2) solid var(--color-divider); padding-bottom: var(--spacing-2); }
-  .ds-subsection-title { font-size: var(--font-size-lg); font-weight: var(--font-weight-semibold); margin-top: var(--spacing-6); margin-bottom: var(--spacing-3); color: var(--color-foreground); }
-  .ds-description { font-size: var(--font-size-md); color: var(--color-foreground-muted); margin-bottom: var(--spacing-4); line-height: var(--line-height-relaxed); }
-  .ds-grid { display: grid; gap: var(--spacing-4); margin-bottom: var(--spacing-4); }
+  .ds-container { font-family: var(--bk-font-family-sans); color: var(--bk-color-foreground); padding: var(--bk-spacing-4); }
+  .ds-section { margin-bottom: var(--bk-spacing-8); }
+  .ds-section-title { font-size: var(--bk-font-size-2xl); font-weight: var(--bk-font-weight-bold); margin-bottom: var(--bk-spacing-4); color: var(--bk-color-foreground); border-bottom: var(--bk-border-width-2) solid var(--bk-color-divider); padding-bottom: var(--bk-spacing-2); }
+  .ds-subsection-title { font-size: var(--bk-font-size-lg); font-weight: var(--bk-font-weight-semibold); margin-top: var(--bk-spacing-6); margin-bottom: var(--bk-spacing-3); color: var(--bk-color-foreground); }
+  .ds-description { font-size: var(--bk-font-size-md); color: var(--bk-color-foreground-muted); margin-bottom: var(--bk-spacing-4); line-height: var(--bk-line-height-relaxed); }
+  .ds-grid { display: grid; gap: var(--bk-spacing-4); margin-bottom: var(--bk-spacing-4); }
   .ds-grid-3 { grid-template-columns: repeat(3, 1fr); }
   .ds-grid-4 { grid-template-columns: repeat(4, 1fr); }
   .ds-grid-2 { grid-template-columns: repeat(2, 1fr); }
   .ds-grid-1 { grid-template-columns: repeat(1, 1fr); }
-  .ds-token-card { padding: var(--spacing-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background-color: var(--color-background-secondary); transition: var(--transition-colors); }
-  .ds-token-card:hover { border-color: var(--color-border-hover); background-color: var(--color-hover); }
-  .ds-token-name { font-family: var(--font-family-mono); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-foreground); margin-bottom: var(--spacing-1); }
-  .ds-token-value { font-family: var(--font-family-mono); font-size: var(--font-size-xs); color: var(--color-foreground-muted); }
-  .ds-color-swatch { width: 100%; height: 60px; border-radius: var(--radius-sm); margin-bottom: var(--spacing-2); border: var(--border-width-1) solid var(--color-border); }
-  .ds-spacing-box { background-color: var(--color-primary); opacity: var(--opacity-80); border-radius: var(--radius-sm); }
+  .ds-token-card { padding: var(--bk-spacing-3); border: var(--bk-border-width-1) solid var(--bk-color-border); border-radius: var(--bk-radius-md); background-color: var(--bk-color-background-secondary); transition: var(--bk-transition-colors); }
+  .ds-token-card:hover { border-color: var(--bk-color-border-hover); background-color: var(--bk-color-hover); }
+  .ds-token-name { font-family: var(--bk-font-family-mono); font-size: var(--bk-font-size-sm); font-weight: var(--bk-font-weight-medium); color: var(--bk-color-foreground); margin-bottom: var(--bk-spacing-1); }
+  .ds-token-value { font-family: var(--bk-font-family-mono); font-size: var(--bk-font-size-xs); color: var(--bk-color-foreground-muted); }
+  .ds-color-swatch { width: 100%; height: 60px; border-radius: var(--bk-radius-sm); margin-bottom: var(--bk-spacing-2); border: var(--bk-border-width-1) solid var(--bk-color-border); }
+  .ds-spacing-box { background-color: var(--bk-color-primary); opacity: var(--bk-opacity-80); border-radius: var(--bk-radius-sm); }
   .ds-gap-demo { display: flex; }
-  .ds-gap-item { width: 40px; height: 40px; background-color: var(--color-primary); border-radius: var(--radius-sm); flex-shrink: 0; }
-  .ds-padding-demo { background-color: var(--color-background-secondary); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-sm); display: inline-block; }
-  .ds-padding-inner { background-color: var(--color-primary); color: var(--color-primary-foreground); padding: var(--spacing-2); border-radius: var(--radius-sm); font-size: var(--font-size-xs); text-align: center; }
-  .ds-text-sample { color: var(--color-foreground); margin-bottom: var(--spacing-2); }
-  .ds-shadow-box { width: 100%; height: 80px; background-color: var(--color-background-elevated); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--color-foreground); font-size: var(--font-size-sm); }
-  .ds-code { font-family: var(--font-family-mono); background-color: var(--color-background-secondary); padding: var(--spacing-0-5) var(--spacing-1); border-radius: var(--radius-sm); font-size: var(--font-size-sm); color: var(--color-primary); }
+  .ds-gap-item { width: 40px; height: 40px; background-color: var(--bk-color-primary); border-radius: var(--bk-radius-sm); flex-shrink: 0; }
+  .ds-padding-demo { background-color: var(--bk-color-background-secondary); border: var(--bk-border-width-1) solid var(--bk-color-border); border-radius: var(--bk-radius-sm); display: inline-block; }
+  .ds-padding-inner { background-color: var(--bk-color-primary); color: var(--bk-color-primary-foreground); padding: var(--bk-spacing-2); border-radius: var(--bk-radius-sm); font-size: var(--bk-font-size-xs); text-align: center; }
+  .ds-text-sample { color: var(--bk-color-foreground); margin-bottom: var(--bk-spacing-2); }
+  .ds-shadow-box { width: 100%; height: 80px; background-color: var(--bk-color-background-elevated); border-radius: var(--bk-radius-md); display: flex; align-items: center; justify-content: center; color: var(--bk-color-foreground); font-size: var(--bk-font-size-sm); }
+  .ds-code { font-family: var(--bk-font-family-mono); background-color: var(--bk-color-background-secondary); padding: var(--bk-spacing-0-5) var(--bk-spacing-1); border-radius: var(--bk-radius-sm); font-size: var(--bk-font-size-sm); color: var(--bk-color-primary); }
 `;
 
 /**
@@ -75,12 +75,12 @@ Then use tokens in your components with CSS:
 // Using inline styles
 const Button = ({ children }: { children: React.ReactNode }) => (
   <button style={{
-    backgroundColor: 'var(--color-primary)',
-    color: 'var(--color-primary-foreground)',
-    padding: 'var(--padding-md)',
-    fontSize: 'var(--font-size-base)',
-    borderRadius: 'var(--radius-md)',
-    transition: 'var(--transition-colors)'
+    backgroundColor: 'var(--bk-color-primary)',
+    color: 'var(--bk-color-primary-foreground)',
+    padding: 'var(--bk-padding-md)',
+    fontSize: 'var(--bk-font-size-base)',
+    borderRadius: 'var(--bk-radius-md)',
+    transition: 'var(--bk-transition-colors)'
   }}>
     {children}
   </button>
@@ -89,16 +89,16 @@ const Button = ({ children }: { children: React.ReactNode }) => (
 // Or using CSS classes
 const styles = \`
   .button {
-    background-color: var(--color-primary);
-    color: var(--color-primary-foreground);
-    padding: var(--padding-md);
-    font-size: var(--font-size-base);
-    border-radius: var(--radius-md);
-    transition: var(--transition-colors);
+    background-color: var(--bk-color-primary);
+    color: var(--bk-color-primary-foreground);
+    padding: var(--bk-padding-md);
+    font-size: var(--bk-font-size-base);
+    border-radius: var(--bk-radius-md);
+    transition: var(--bk-transition-colors);
   }
   
   .button:hover {
-    background-color: var(--color-primary-hover);
+    background-color: var(--bk-color-primary-hover);
   }
 \`;
 \`\`\`
@@ -109,9 +109,9 @@ Override any token by redefining the CSS variable:
 
 \`\`\`css
 :root {
-  --color-primary: #007acc;
-  --color-primary-hover: #005a9e;
-  --spacing-4: 1.5rem; /* Increase base spacing */
+  --bk-color-primary: #007acc;
+  --bk-color-primary-hover: #005a9e;
+  --bk-spacing-4: 1.5rem; /* Increase base spacing */
 }
 \`\`\`
         `,
@@ -143,7 +143,7 @@ const GapItem = () => <div className="ds-gap-item" />;
 const PaddingDemo = ({ padding, children }: { padding: string; children: React.ReactNode }) => <div className="ds-padding-demo" style={{ padding }}>{children}</div>;
 const PaddingInner = ({ children }: { children: React.ReactNode }) => <div className="ds-padding-inner">{children}</div>;
 const TextSample = ({ size, weight, children }: { size: string; weight?: string; children: React.ReactNode }) => (
-  <div className="ds-text-sample" style={{ fontSize: size, fontWeight: weight || 'var(--font-weight-normal)' }}>{children}</div>
+  <div className="ds-text-sample" style={{ fontSize: size, fontWeight: weight || 'var(--bk-font-weight-normal)' }}>{children}</div>
 );
 const ShadowBox = ({ shadow, children }: { shadow: string; children: React.ReactNode }) => (
   <div className="ds-shadow-box" style={{ boxShadow: shadow }}>{children}</div>
@@ -153,93 +153,93 @@ const Code = ({ children }: { children: React.ReactNode }) => <code className="d
 // Color tokens grouped by category
 const colorTokens = {
   brand: [
-    { name: '--color-primary', description: 'Primary brand color' },
-    { name: '--color-primary-hover', description: 'Primary hover state' },
-    { name: '--color-primary-foreground', description: 'Text on primary' },
-    { name: '--color-secondary', description: 'Secondary brand color' },
-    { name: '--color-secondary-hover', description: 'Secondary hover state' },
-    { name: '--color-secondary-foreground', description: 'Text on secondary' },
+    { name: '--bk-color-primary', description: 'Primary brand color' },
+    { name: '--bk-color-primary-hover', description: 'Primary hover state' },
+    { name: '--bk-color-primary-foreground', description: 'Text on primary' },
+    { name: '--bk-color-secondary', description: 'Secondary brand color' },
+    { name: '--bk-color-secondary-hover', description: 'Secondary hover state' },
+    { name: '--bk-color-secondary-foreground', description: 'Text on secondary' },
   ],
   semantic: [
-    { name: '--color-success', description: 'Success state' },
-    { name: '--color-warning', description: 'Warning state' },
-    { name: '--color-danger', description: 'Error/danger state' },
-    { name: '--color-info', description: 'Info state' },
+    { name: '--bk-color-success', description: 'Success state' },
+    { name: '--bk-color-warning', description: 'Warning state' },
+    { name: '--bk-color-danger', description: 'Error/danger state' },
+    { name: '--bk-color-info', description: 'Info state' },
   ],
   neutral: [
-    { name: '--color-background', description: 'Primary background' },
-    { name: '--color-background-secondary', description: 'Secondary background' },
-    { name: '--color-foreground', description: 'Primary text' },
-    { name: '--color-foreground-muted', description: 'Muted text' },
-    { name: '--color-border', description: 'Border color' },
-    { name: '--color-border-focus', description: 'Focus border' },
+    { name: '--bk-color-background', description: 'Primary background' },
+    { name: '--bk-color-background-secondary', description: 'Secondary background' },
+    { name: '--bk-color-foreground', description: 'Primary text' },
+    { name: '--bk-color-foreground-muted', description: 'Muted text' },
+    { name: '--bk-color-border', description: 'Border color' },
+    { name: '--bk-color-border-focus', description: 'Focus border' },
   ],
   interactive: [
-    { name: '--color-hover', description: 'Hover background' },
-    { name: '--color-active', description: 'Active background' },
-    { name: '--color-focus', description: 'Focus indicator' },
-    { name: '--color-selected', description: 'Selected background' },
+    { name: '--bk-color-hover', description: 'Hover background' },
+    { name: '--bk-color-active', description: 'Active background' },
+    { name: '--bk-color-focus', description: 'Focus indicator' },
+    { name: '--bk-color-selected', description: 'Selected background' },
   ],
 };
 
 const spacingTokens = [
-  { name: '--spacing-0', value: '0' },
-  { name: '--spacing-1', value: '4px' },
-  { name: '--spacing-2', value: '8px' },
-  { name: '--spacing-3', value: '12px' },
-  { name: '--spacing-4', value: '16px' },
-  { name: '--spacing-6', value: '24px' },
-  { name: '--spacing-8', value: '32px' },
-  { name: '--spacing-12', value: '48px' },
+  { name: '--bk-spacing-0', value: '0' },
+  { name: '--bk-spacing-1', value: '4px' },
+  { name: '--bk-spacing-2', value: '8px' },
+  { name: '--bk-spacing-3', value: '12px' },
+  { name: '--bk-spacing-4', value: '16px' },
+  { name: '--bk-spacing-6', value: '24px' },
+  { name: '--bk-spacing-8', value: '32px' },
+  { name: '--bk-spacing-12', value: '48px' },
 ];
 
 const gapTokens = [
-  { name: '--gap-xs', value: '4px' },
-  { name: '--gap-sm', value: '6px' },
-  { name: '--gap-md', value: '8px' },
-  { name: '--gap-lg', value: '12px' },
-  { name: '--gap-xl', value: '16px' },
+  { name: '--bk-gap-xs', value: '4px' },
+  { name: '--bk-gap-sm', value: '6px' },
+  { name: '--bk-gap-md', value: '8px' },
+  { name: '--bk-gap-lg', value: '12px' },
+  { name: '--bk-gap-xl', value: '16px' },
 ];
 
 const paddingTokens = [
-  { name: '--padding-xs', value: '2px 8px' },
-  { name: '--padding-sm', value: '4px 10px' },
-  { name: '--padding-md', value: '6px 14px' },
-  { name: '--padding-lg', value: '8px 16px' },
-  { name: '--padding-xl', value: '10px 20px' },
+  { name: '--bk-padding-xs', value: '2px 8px' },
+  { name: '--bk-padding-sm', value: '4px 10px' },
+  { name: '--bk-padding-md', value: '6px 14px' },
+  { name: '--bk-padding-lg', value: '8px 16px' },
+  { name: '--bk-padding-xl', value: '10px 20px' },
 ];
 
 const typographyTokens = {
   sizes: [
-    { name: '--font-size-xs', value: '11px', sample: 'The quick brown fox' },
-    { name: '--font-size-sm', value: '12px', sample: 'The quick brown fox' },
-    { name: '--font-size-md', value: '13px', sample: 'The quick brown fox' },
-    { name: '--font-size-base', value: '14px', sample: 'The quick brown fox' },
-    { name: '--font-size-lg', value: '16px', sample: 'The quick brown fox' },
-    { name: '--font-size-xl', value: '18px', sample: 'The quick brown fox' },
-    { name: '--font-size-2xl', value: '20px', sample: 'The quick brown fox' },
+    { name: '--bk-font-size-xs', value: '11px', sample: 'The quick brown fox' },
+    { name: '--bk-font-size-sm', value: '12px', sample: 'The quick brown fox' },
+    { name: '--bk-font-size-md', value: '13px', sample: 'The quick brown fox' },
+    { name: '--bk-font-size-base', value: '14px', sample: 'The quick brown fox' },
+    { name: '--bk-font-size-lg', value: '16px', sample: 'The quick brown fox' },
+    { name: '--bk-font-size-xl', value: '18px', sample: 'The quick brown fox' },
+    { name: '--bk-font-size-2xl', value: '20px', sample: 'The quick brown fox' },
   ],
   weights: [
-    { name: '--font-weight-light', value: '300' },
-    { name: '--font-weight-normal', value: '400' },
-    { name: '--font-weight-medium', value: '500' },
-    { name: '--font-weight-semibold', value: '600' },
-    { name: '--font-weight-bold', value: '700' },
+    { name: '--bk-font-weight-light', value: '300' },
+    { name: '--bk-font-weight-normal', value: '400' },
+    { name: '--bk-font-weight-medium', value: '500' },
+    { name: '--bk-font-weight-semibold', value: '600' },
+    { name: '--bk-font-weight-bold', value: '700' },
   ],
 };
 
 const effectsTokens = {
   radius: [
-    { name: '--radius-sm', value: '2px' },
-    { name: '--radius-md', value: '4px' },
-    { name: '--radius-lg', value: '6px' },
-    { name: '--radius-xl', value: '8px' },
+    { name: '--bk-radius-sm', value: '2px' },
+    { name: '--bk-radius-md', value: '4px' },
+    { name: '--bk-radius-lg', value: '6px' },
+    { name: '--bk-radius-xl', value: '8px' },
   ],
   shadows: [
-    { name: '--shadow-sm', description: 'Small shadow' },
-    { name: '--shadow-base', description: 'Base shadow' },
-    { name: '--shadow-md', description: 'Medium shadow' },
-    { name: '--shadow-lg', description: 'Large shadow' },
+    { name: '--bk-shadow-sm', description: 'Small shadow' },
+    { name: '--bk-shadow-base', description: 'Base shadow' },
+    { name: '--bk-shadow-md', description: 'Medium shadow' },
+    { name: '--bk-shadow-lg', description: 'Large shadow' },
   ],
 };
 
@@ -335,7 +335,7 @@ export const Spacing: Story = {
           <Grid columns={4}>
             {spacingTokens.map(token => (
               <TokenCard key={token.name}>
-                <div style={{ display: 'flex', alignItems: 'center', marginBottom: 'var(--spacing-2)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: 'var(--bk-spacing-2)' }}>
                   <SpacingBox size={`var(${token.name})`} />
                 </div>
                 <TokenName>{token.name}</TokenName>
@@ -356,7 +356,7 @@ export const Spacing: Story = {
                   <GapItem />
                   <GapItem />
                 </GapDemo>
-                <div style={{ marginTop: 'var(--spacing-2)' }}>
+                <div style={{ marginTop: 'var(--bk-spacing-2)' }}>
                   <TokenName>{token.name}</TokenName>
                   <TokenValue>{token.value}</TokenValue>
                 </div>
@@ -374,7 +374,7 @@ export const Spacing: Story = {
                 <PaddingDemo padding={`var(${token.name})`}>
                   <PaddingInner>Content</PaddingInner>
                 </PaddingDemo>
-                <div style={{ marginTop: 'var(--spacing-2)' }}>
+                <div style={{ marginTop: 'var(--bk-spacing-2)' }}>
                   <TokenName>{token.name}</TokenName>
                   <TokenValue>{token.value}</TokenValue>
                 </div>
@@ -389,14 +389,14 @@ export const Spacing: Story = {
           <Grid columns={2}>
             <TokenCard>
               <TokenName>Regular Sizes</TokenName>
-              <TokenValue style={{ marginTop: 'var(--spacing-2)' }}>
-                <Code>--size-xs</Code> (20px) through <Code>--size-xl</Code> (36px)
+              <TokenValue style={{ marginTop: 'var(--bk-spacing-2)' }}>
+                <Code>--bk-size-xs</Code> (20px) through <Code>--bk-size-xl</Code> (36px)
               </TokenValue>
             </TokenCard>
             <TokenCard>
               <TokenName>Circular Sizes</TokenName>
-              <TokenValue style={{ marginTop: 'var(--spacing-2)' }}>
-                <Code>--size-circular-xs</Code> (24px) through <Code>--size-circular-xl</Code> (40px)
+              <TokenValue style={{ marginTop: 'var(--bk-spacing-2)' }}>
+                <Code>--bk-size-circular-xs</Code> (24px) through <Code>--bk-size-circular-xl</Code> (40px)
               </TokenValue>
             </TokenCard>
           </Grid>
@@ -439,7 +439,7 @@ export const Typography: Story = {
           <Grid columns={3}>
             {typographyTokens.weights.map(token => (
               <TokenCard key={token.name}>
-                <TextSample size="var(--font-size-base)" weight={`var(${token.name})`}>
+                <TextSample size="var(--bk-font-size-base)" weight={`var(${token.name})`}>
                   The quick brown fox
                 </TextSample>
                 <TokenName>{token.name}</TokenName>
@@ -452,20 +452,20 @@ export const Typography: Story = {
           <Grid columns={2}>
             <TokenCard>
               <TokenName>Line Heights</TokenName>
-              <TokenValue style={{ marginTop: 'var(--spacing-2)' }}>
-                <Code>--line-height-tight</Code> (1.25)<br />
-                <Code>--line-height-normal</Code> (1.5)<br />
-                <Code>--line-height-relaxed</Code> (1.75)<br />
-                <Code>--line-height-loose</Code> (2)
+              <TokenValue style={{ marginTop: 'var(--bk-spacing-2)' }}>
+                <Code>--bk-line-height-tight</Code> (1.25)<br />
+                <Code>--bk-line-height-normal</Code> (1.5)<br />
+                <Code>--bk-line-height-relaxed</Code> (1.75)<br />
+                <Code>--bk-line-height-loose</Code> (2)
               </TokenValue>
             </TokenCard>
             <TokenCard>
               <TokenName>Letter Spacing</TokenName>
-              <TokenValue style={{ marginTop: 'var(--spacing-2)' }}>
-                <Code>--letter-spacing-tight</Code><br />
-                <Code>--letter-spacing-normal</Code><br />
-                <Code>--letter-spacing-wide</Code><br />
-                <Code>--letter-spacing-wider</Code>
+              <TokenValue style={{ marginTop: 'var(--bk-spacing-2)' }}>
+                <Code>--bk-letter-spacing-tight</Code><br />
+                <Code>--bk-letter-spacing-normal</Code><br />
+                <Code>--bk-letter-spacing-wide</Code><br />
+                <Code>--bk-letter-spacing-wider</Code>
               </TokenValue>
             </TokenCard>
           </Grid>
@@ -498,7 +498,7 @@ export const Effects: Story = {
                 <ShadowBox shadow={`var(${token.name})`}>
                   {token.description}
                 </ShadowBox>
-                <div style={{ marginTop: 'var(--spacing-2)' }}>
+                <div style={{ marginTop: 'var(--bk-spacing-2)' }}>
                   <TokenName>{token.name}</TokenName>
                 </div>
               </TokenCard>
@@ -513,9 +513,9 @@ export const Effects: Story = {
                   style={{
                     width: '60px',
                     height: '60px',
-                    backgroundColor: 'var(--color-primary)',
+                    backgroundColor: 'var(--bk-color-primary)',
                     borderRadius: `var(${token.name})`,
-                    marginBottom: 'var(--spacing-2)',
+                    marginBottom: 'var(--bk-spacing-2)',
                   }}
                 />
                 <TokenName>{token.name}</TokenName>
@@ -528,19 +528,19 @@ export const Effects: Story = {
           <Grid columns={2}>
             <TokenCard>
               <TokenName>Duration</TokenName>
-              <TokenValue style={{ marginTop: 'var(--spacing-2)' }}>
-                <Code>--transition-fast</Code> (100ms)<br />
-                <Code>--transition-base</Code> (150ms)<br />
-                <Code>--transition-slow</Code> (300ms)
+              <TokenValue style={{ marginTop: 'var(--bk-spacing-2)' }}>
+                <Code>--bk-transition-fast</Code> (100ms)<br />
+                <Code>--bk-transition-base</Code> (150ms)<br />
+                <Code>--bk-transition-slow</Code> (300ms)
               </TokenValue>
             </TokenCard>
             <TokenCard>
               <TokenName>Properties</TokenName>
-              <TokenValue style={{ marginTop: 'var(--spacing-2)' }}>
-                <Code>--transition-colors</Code><br />
-                <Code>--transition-all</Code><br />
-                <Code>--transition-transform</Code><br />
-                <Code>--transition-opacity</Code>
+              <TokenValue style={{ marginTop: 'var(--bk-spacing-2)' }}>
+                <Code>--bk-transition-colors</Code><br />
+                <Code>--bk-transition-all</Code><br />
+                <Code>--bk-transition-transform</Code><br />
+                <Code>--bk-transition-opacity</Code>
               </TokenValue>
             </TokenCard>
           </Grid>
@@ -549,20 +549,20 @@ export const Effects: Story = {
           <Grid columns={2}>
             <TokenCard>
               <TokenName>Opacity</TokenName>
-              <TokenValue style={{ marginTop: 'var(--spacing-2)' }}>
-                <Code>--opacity-disabled</Code> (0.4)<br />
-                <Code>--opacity-hover</Code> (0.8)<br />
-                <Code>--opacity-muted</Code> (0.6)<br />
-                Scale from <Code>--opacity-0</Code> to <Code>--opacity-100</Code>
+              <TokenValue style={{ marginTop: 'var(--bk-spacing-2)' }}>
+                <Code>--bk-opacity-disabled</Code> (0.4)<br />
+                <Code>--bk-opacity-hover</Code> (0.8)<br />
+                <Code>--bk-opacity-muted</Code> (0.6)<br />
+                Scale from <Code>--bk-opacity-0</Code> to <Code>--bk-opacity-100</Code>
               </TokenValue>
             </TokenCard>
             <TokenCard>
               <TokenName>Z-Index</TokenName>
-              <TokenValue style={{ marginTop: 'var(--spacing-2)' }}>
-                <Code>--z-index-dropdown</Code> (1000)<br />
-                <Code>--z-index-modal</Code> (1050)<br />
-                <Code>--z-index-tooltip</Code> (1070)<br />
-                <Code>--z-index-notification</Code> (1080)
+              <TokenValue style={{ marginTop: 'var(--bk-spacing-2)' }}>
+                <Code>--bk-z-index-dropdown</Code> (1000)<br />
+                <Code>--bk-z-index-modal</Code> (1050)<br />
+                <Code>--bk-z-index-tooltip</Code> (1070)<br />
+                <Code>--bk-z-index-notification</Code> (1080)
               </TokenValue>
             </TokenCard>
           </Grid>

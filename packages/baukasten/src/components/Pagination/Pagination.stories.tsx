@@ -137,25 +137,25 @@ export const Sizes: Story = {
     };
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)' }}>
         <div>
-          <p style={{ marginBottom: 'var(--spacing-2)', color: 'var(--color-foreground-muted)' }}>Extra Small (xs)</p>
+          <p style={{ marginBottom: 'var(--bk-spacing-2)', color: 'var(--bk-color-foreground-muted)' }}>Extra Small (xs)</p>
           <ExampleWithSize size="xs" />
         </div>
         <div>
-          <p style={{ marginBottom: 'var(--spacing-2)', color: 'var(--color-foreground-muted)' }}>Small (sm)</p>
+          <p style={{ marginBottom: 'var(--bk-spacing-2)', color: 'var(--bk-color-foreground-muted)' }}>Small (sm)</p>
           <ExampleWithSize size="sm" />
         </div>
         <div>
-          <p style={{ marginBottom: 'var(--spacing-2)', color: 'var(--color-foreground-muted)' }}>Medium (md)</p>
+          <p style={{ marginBottom: 'var(--bk-spacing-2)', color: 'var(--bk-color-foreground-muted)' }}>Medium (md)</p>
           <ExampleWithSize size="md" />
         </div>
         <div>
-          <p style={{ marginBottom: 'var(--spacing-2)', color: 'var(--color-foreground-muted)' }}>Large (lg)</p>
+          <p style={{ marginBottom: 'var(--bk-spacing-2)', color: 'var(--bk-color-foreground-muted)' }}>Large (lg)</p>
           <ExampleWithSize size="lg" />
         </div>
         <div>
-          <p style={{ marginBottom: 'var(--spacing-2)', color: 'var(--color-foreground-muted)' }}>Extra Large (xl)</p>
+          <p style={{ marginBottom: 'var(--bk-spacing-2)', color: 'var(--bk-color-foreground-muted)' }}>Extra Large (xl)</p>
           <ExampleWithSize size="xl" />
         </div>
       </div>
@@ -181,7 +181,7 @@ export const States: Story = {
 
       return (
         <div>
-          <p style={{ marginBottom: 'var(--spacing-2)', color: 'var(--color-foreground-muted)' }}>{label}</p>
+          <p style={{ marginBottom: 'var(--bk-spacing-2)', color: 'var(--bk-color-foreground-muted)' }}>{label}</p>
           <Pagination
             {...props}
             currentPage={currentPage}
@@ -194,7 +194,7 @@ export const States: Story = {
     };
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-xl)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-xl)' }}>
         <StateExample
           label="First Page"
           totalItems={100}
@@ -346,22 +346,22 @@ export const WithDataTable: Story = {
     const paginatedData = allData.slice(startIndex, startIndex + pageSize);
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)' }}>
         <div style={{ overflowX: 'auto' }}>
           <table style={{
             width: '100%',
             borderCollapse: 'collapse',
-            fontSize: 'var(--font-size-sm)',
+            fontSize: 'var(--bk-font-size-sm)',
           }}>
             <thead>
               <tr style={{
-                borderBottom: '1px solid var(--color-border)',
-                backgroundColor: 'var(--color-background-secondary)',
+                borderBottom: '1px solid var(--bk-color-border)',
+                backgroundColor: 'var(--bk-color-background-secondary)',
               }}>
-                <th style={{ padding: 'var(--spacing-2)', textAlign: 'left' }}>ID</th>
-                <th style={{ padding: 'var(--spacing-2)', textAlign: 'left' }}>Name</th>
-                <th style={{ padding: 'var(--spacing-2)', textAlign: 'left' }}>Category</th>
-                <th style={{ padding: 'var(--spacing-2)', textAlign: 'right' }}>Price</th>
+                <th style={{ padding: 'var(--bk-spacing-2)', textAlign: 'left' }}>ID</th>
+                <th style={{ padding: 'var(--bk-spacing-2)', textAlign: 'left' }}>Name</th>
+                <th style={{ padding: 'var(--bk-spacing-2)', textAlign: 'left' }}>Category</th>
+                <th style={{ padding: 'var(--bk-spacing-2)', textAlign: 'right' }}>Price</th>
               </tr>
             </thead>
             <tbody>
@@ -369,13 +369,13 @@ export const WithDataTable: Story = {
                 <tr
                   key={item.id}
                   style={{
-                    borderBottom: '1px solid var(--color-border)',
+                    borderBottom: '1px solid var(--bk-color-border)',
                   }}
                 >
-                  <td style={{ padding: 'var(--spacing-2)' }}>{item.id}</td>
-                  <td style={{ padding: 'var(--spacing-2)' }}>{item.name}</td>
-                  <td style={{ padding: 'var(--spacing-2)' }}>{item.category}</td>
-                  <td style={{ padding: 'var(--spacing-2)', textAlign: 'right' }}>${item.price}</td>
+                  <td style={{ padding: 'var(--bk-spacing-2)' }}>{item.id}</td>
+                  <td style={{ padding: 'var(--bk-spacing-2)' }}>{item.name}</td>
+                  <td style={{ padding: 'var(--bk-spacing-2)' }}>{item.category}</td>
+                  <td style={{ padding: 'var(--bk-spacing-2)', textAlign: 'right' }}>${item.price}</td>
                 </tr>
               ))}
             </tbody>
@@ -409,16 +409,16 @@ export const Showcase: Story = {
   render: () => {
     const ShowcaseSection = ({ title, children }: { title: string; children: React.ReactNode }) => (
       <div style={{
-        marginBottom: 'var(--spacing-8)',
-        padding: 'var(--spacing-6)',
-        backgroundColor: 'var(--color-background-secondary)',
-        borderRadius: 'var(--radius-md)',
+        marginBottom: 'var(--bk-spacing-8)',
+        padding: 'var(--bk-spacing-6)',
+        backgroundColor: 'var(--bk-color-background-secondary)',
+        borderRadius: 'var(--bk-radius-md)',
       }}>
         <h2 style={{
           marginTop: 0,
-          marginBottom: 'var(--spacing-4)',
-          fontSize: 'var(--font-size-xl)',
-          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--bk-spacing-4)',
+          fontSize: 'var(--bk-font-size-xl)',
+          fontWeight: 'var(--bk-font-weight-semibold)',
         }}>
           {title}
         </h2>
@@ -431,12 +431,12 @@ export const Showcase: Story = {
       const [pageSize, setPageSize] = useState(props.pageSize);
 
       return (
-        <div style={{ marginBottom: 'var(--spacing-4)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-4)' }}>
           {label && (
             <p style={{
-              marginBottom: 'var(--spacing-2)',
-              color: 'var(--color-foreground-muted)',
-              fontSize: 'var(--font-size-sm)',
+              marginBottom: 'var(--bk-spacing-2)',
+              color: 'var(--bk-color-foreground-muted)',
+              fontSize: 'var(--bk-font-size-sm)',
             }}>
               {label}
             </p>
@@ -453,19 +453,19 @@ export const Showcase: Story = {
     };
 
     return (
-      <div style={{ padding: 'var(--spacing-6)' }}>
+      <div style={{ padding: 'var(--bk-spacing-6)' }}>
         <h1 style={{
           marginTop: 0,
-          marginBottom: 'var(--spacing-2)',
-          fontSize: 'var(--font-size-hero)',
-          fontWeight: 'var(--font-weight-bold)',
+          marginBottom: 'var(--bk-spacing-2)',
+          fontSize: 'var(--bk-font-size-hero)',
+          fontWeight: 'var(--bk-font-weight-bold)',
         }}>
           Pagination Component
         </h1>
         <p style={{
-          marginBottom: 'var(--spacing-8)',
-          fontSize: 'var(--font-size-lg)',
-          color: 'var(--color-secondary-foreground)',
+          marginBottom: 'var(--bk-spacing-8)',
+          fontSize: 'var(--bk-font-size-lg)',
+          color: 'var(--bk-color-secondary-foreground)',
         }}>
           Navigate through pages of data with smart controls and optional page size selection.
         </p>

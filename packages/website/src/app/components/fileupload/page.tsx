@@ -131,7 +131,7 @@ function App() {
                 title="Sizes"
                 description="Five size options from extra small to extra large."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', minWidth: '500px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', minWidth: '500px' }}>
                         <FileUpload size="xs" label="Extra Small" onChange={(files) => console.log(files)} />
                         <FileUpload size="sm" label="Small" onChange={(files) => console.log(files)} />
                         <FileUpload size="md" label="Medium (Default)" onChange={(files) => console.log(files)} />
@@ -148,7 +148,7 @@ function App() {
                 title="Variants"
                 description="Three visual variants: default, primary, and dashed."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', minWidth: '500px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', minWidth: '500px' }}>
                         <FileUpload variant="default" label="Default Variant" onChange={(files) => console.log(files)} />
                         <FileUpload variant="primary" label="Primary Variant" onChange={(files) => console.log(files)} />
                         <FileUpload variant="dashed" label="Dashed Variant (Default)" onChange={(files) => console.log(files)} />
@@ -280,18 +280,18 @@ function App() {
                             description={`${files1.length} file(s) selected`}
                             onChange={setFiles1}
                         />
-                        <div style={{ marginTop: 'var(--spacing-4)' }}>
+                        <div style={{ marginTop: 'var(--bk-spacing-4)' }}>
                             <button
                                 onClick={() => setFiles1([])}
                                 disabled={files1.length === 0}
                                 style={{
-                                    padding: 'var(--spacing-2) var(--spacing-4)',
-                                    background: files1.length > 0 ? 'var(--color-danger)' : 'var(--color-background-hover)',
-                                    color: files1.length > 0 ? 'var(--color-danger-foreground)' : 'var(--color-foreground-muted)',
+                                    padding: 'var(--bk-spacing-2) var(--bk-spacing-4)',
+                                    background: files1.length > 0 ? 'var(--bk-color-danger)' : 'var(--bk-color-background-hover)',
+                                    color: files1.length > 0 ? 'var(--bk-color-danger-foreground)' : 'var(--bk-color-foreground-muted)',
                                     border: 'none',
-                                    borderRadius: 'var(--radius-md)',
+                                    borderRadius: 'var(--bk-radius-md)',
                                     cursor: files1.length > 0 ? 'pointer' : 'not-allowed',
-                                    fontWeight: 'var(--font-weight-medium)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
                                 }}
                             >
                                 Clear All Files
@@ -324,13 +324,13 @@ return (
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: 'var(--spacing-4)',
-                        padding: 'var(--spacing-6)',
-                        background: 'var(--color-background-secondary)',
-                        borderRadius: 'var(--radius-lg)',
+                        gap: 'var(--bk-spacing-4)',
+                        padding: 'var(--bk-spacing-6)',
+                        background: 'var(--bk-color-background-secondary)',
+                        borderRadius: 'var(--bk-radius-lg)',
                         maxWidth: '500px',
                     }}>
-                        <h3 style={{ margin: 0, fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>
+                        <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
                             Upload Profile Picture
                         </h3>
                         <FileUpload
@@ -364,23 +364,23 @@ return (
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: 'var(--spacing-6)',
-                        padding: 'var(--spacing-6)',
-                        background: 'var(--color-background-secondary)',
-                        borderRadius: 'var(--radius-lg)',
+                        gap: 'var(--bk-spacing-6)',
+                        padding: 'var(--bk-spacing-6)',
+                        background: 'var(--bk-color-background-secondary)',
+                        borderRadius: 'var(--bk-radius-lg)',
                         maxWidth: '600px',
                     }}>
                         <div>
-                            <h3 style={{ margin: 0, marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>
+                            <h3 style={{ margin: 0, marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
                                 Submit Application Documents
                             </h3>
-                            <p style={{ margin: 0, fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+                            <p style={{ margin: 0, fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
                                 Upload all required documents for your application
                             </p>
                         </div>
 
                         <div>
-                            <label style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <label style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Resume / CV *
                             </label>
                             <FileUpload
@@ -393,7 +393,7 @@ return (
                         </div>
 
                         <div>
-                            <label style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontWeight: 'var(--font-weight-medium)' }}>
+                            <label style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                                 Supporting Documents
                             </label>
                             <FileUpload
@@ -408,12 +408,12 @@ return (
 
                         <button
                             style={{
-                                padding: 'var(--spacing-3) var(--spacing-6)',
-                                background: 'var(--color-accent)',
-                                color: 'var(--color-accent-foreground)',
+                                padding: 'var(--bk-spacing-3) var(--bk-spacing-6)',
+                                background: 'var(--bk-color-accent)',
+                                color: 'var(--bk-color-accent-foreground)',
                                 border: 'none',
-                                borderRadius: 'var(--radius-md)',
-                                fontWeight: 'var(--font-weight-medium)',
+                                borderRadius: 'var(--bk-radius-md)',
+                                fontWeight: 'var(--bk-font-weight-medium)',
                                 cursor: 'pointer',
                             }}
                         >

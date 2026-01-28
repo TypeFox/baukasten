@@ -581,7 +581,7 @@ export function DataTable<TData>({
                             «
                         </Button>
 
-                        <span style={{ fontSize: 'var(--font-size-sm)', padding: '0 var(--spacing-2)' }}>
+                        <span style={{ fontSize: 'var(--bk-font-size-sm)', padding: '0 var(--bk-spacing-2)' }}>
                             Page {currentPage + 1} of {pageCount}
                         </span>
 

@@ -21,23 +21,23 @@ Quick patterns and examples for using the Baukasten design system.
 
 ```css
 /* Colors */
---color-primary
---color-foreground
---color-background
---color-border
+--bk-color-primary
+--bk-color-foreground
+--bk-color-background
+--bk-color-border
 
 /* Spacing */
---spacing-4        /* 16px */
---padding-md       /* 6px 14px */
---gap-sm          /* 6px */
+--bk-spacing-4        /* 16px */
+--bk-padding-md       /* 6px 14px */
+--bk-gap-sm          /* 6px */
 
 /* Typography */
---font-size-md    /* 13px */
---font-weight-medium
+--bk-font-size-md    /* 13px */
+--bk-font-weight-medium
 
 /* Effects */
---radius-md
---transition-colors
+--bk-radius-md
+--bk-transition-colors
 ```
 
 ## Component Template
@@ -50,16 +50,16 @@ export interface MyComponentProps {
 }
 
 const StyledComponent = styled.div<{ $size: string }>`
-  padding: var(--padding-${(props) => props.$size});
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  border: var(--border-width-1) solid var(--color-border);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-md);
-  transition: var(--transition-colors);
+  padding: var(--bk-padding-${(props) => props.$size});
+  background-color: var(--bk-color-background);
+  color: var(--bk-color-foreground);
+  border: var(--bk-border-width-1) solid var(--bk-color-border);
+  border-radius: var(--bk-radius-md);
+  font-size: var(--bk-font-size-md);
+  transition: var(--bk-transition-colors);
 
   &:hover {
-    background-color: var(--color-hover);
+    background-color: var(--bk-color-hover);
   }
 `;
 
@@ -85,8 +85,8 @@ ComponentName/
 ✅ **Use semantic tokens**
 
 ```tsx
-color: var(--color-primary);
-padding: var(--padding-md);
+color: var(--bk-color-primary);
+padding: var(--bk-padding-md);
 ```
 
 ❌ **Don't hardcode or use VSCode vars directly**
@@ -127,23 +127,23 @@ Quick patterns and examples for using the Baukasten design system.
 
 ```css
 /* Colors */
---color-primary
---color-foreground
---color-background
---color-border
+--bk-color-primary
+--bk-color-foreground
+--bk-color-background
+--bk-color-border
 
 /* Spacing */
---spacing-4        /* 16px */
---padding-md       /* 6px 14px */
---gap-sm          /* 6px */
+--bk-spacing-4        /* 16px */
+--bk-padding-md       /* 6px 14px */
+--bk-gap-sm          /* 6px */
 
 /* Typography */
---font-size-md    /* 13px */
---font-weight-medium
+--bk-font-size-md    /* 13px */
+--bk-font-weight-medium
 
 /* Effects */
---radius-md
---transition-colors
+--bk-radius-md
+--bk-transition-colors
 ```
 
 ## Component Template
@@ -156,16 +156,16 @@ export interface MyComponentProps {
 }
 
 const StyledComponent = styled.div<{ $size: string }>`
-  padding: var(--padding-${(props) => props.$size});
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  border: var(--border-width-1) solid var(--color-border);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-md);
-  transition: var(--transition-colors);
+  padding: var(--bk-padding-${(props) => props.$size});
+  background-color: var(--bk-color-background);
+  color: var(--bk-color-foreground);
+  border: var(--bk-border-width-1) solid var(--bk-color-border);
+  border-radius: var(--bk-radius-md);
+  font-size: var(--bk-font-size-md);
+  transition: var(--bk-transition-colors);
 
   &:hover {
-    background-color: var(--color-hover);
+    background-color: var(--bk-color-hover);
   }
 `;
 
@@ -191,8 +191,8 @@ ComponentName/
 ✅ **Use semantic tokens**
 
 ```tsx
-color: var(--color-primary);
-padding: var(--padding-md);
+color: var(--bk-color-primary);
+padding: var(--bk-padding-md);
 ```
 
 ❌ **Don't hardcode or use VSCode vars directly**

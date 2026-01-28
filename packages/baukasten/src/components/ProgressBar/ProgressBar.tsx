@@ -12,7 +12,7 @@ import {
 export type ProgressBarVariant = 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info';
 
 // Default progress bar height
-const DEFAULT_HEIGHT = 'var(--spacing-2)'; // 8px
+const DEFAULT_HEIGHT = 'var(--bk-spacing-2)'; // 8px
 
 /**
  * ProgressBar component props
@@ -32,7 +32,7 @@ export interface ProgressBarProps {
 
   /**
    * Height of the progress bar
-   * @default 'var(--spacing-2)' (8px)
+   * @default 'var(--bk-spacing-2)' (8px)
    */
   height?: string;
 

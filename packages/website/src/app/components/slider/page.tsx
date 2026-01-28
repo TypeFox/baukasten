@@ -132,33 +132,33 @@ function App() {
                 title="Sizes"
                 description="Five size options from extra small to extra large. Spacing between labels, track, and tick marks automatically scales with the slider size for optimal visual balance."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', width: '400px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', width: '400px' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-descriptionForeground)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
                                 Extra Small (xs)
                             </div>
                             <Slider size="xs" defaultValue={25} showValue showMinMax marks={25} />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-descriptionForeground)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
                                 Small (sm)
                             </div>
                             <Slider size="sm" defaultValue={35} showValue showMinMax marks={25} />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-descriptionForeground)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
                                 Medium (md) - Default
                             </div>
                             <Slider size="md" defaultValue={50} showValue showMinMax marks={25} />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-descriptionForeground)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
                                 Large (lg)
                             </div>
                             <Slider size="lg" defaultValue={65} showValue showMinMax marks={25} />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-descriptionForeground)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
                                 Extra Large (xl)
                             </div>
                             <Slider size="xl" defaultValue={85} showValue showMinMax marks={25} />
@@ -176,9 +176,9 @@ function App() {
                 title="Custom Range"
                 description="Configure custom minimum, maximum, and step values."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', width: '400px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', width: '400px' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-descriptionForeground)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
                                 Temperature (-10 to 40°C)
                             </div>
                             <Slider
@@ -192,7 +192,7 @@ function App() {
                             />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-descriptionForeground)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
                                 Price ($0-$1000)
                             </div>
                             <Slider
@@ -232,7 +232,7 @@ function App() {
                 title="Custom Formatter"
                 description="Use a custom formatter to display values with units or custom formatting."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', width: '400px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '400px' }}>
                         <Slider
                             showValue
                             formatValue={(v) => `${v}%`}
@@ -268,9 +268,9 @@ function App() {
                 title="Controlled Component"
                 description="Use the slider as a controlled component with state management."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', width: '400px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '400px' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-descriptionForeground)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
                                 Volume
                             </div>
                             <Slider
@@ -282,10 +282,10 @@ function App() {
                             />
                         </div>
                         <div style={{
-                            padding: 'var(--spacing-3)',
-                            backgroundColor: 'var(--color-secondary)',
-                            borderRadius: 'var(--radius-md)',
-                            fontSize: 'var(--font-size-sm)',
+                            padding: 'var(--bk-spacing-3)',
+                            backgroundColor: 'var(--bk-color-secondary)',
+                            borderRadius: 'var(--bk-radius-md)',
+                            fontSize: 'var(--bk-font-size-sm)',
                         }}>
                             Current volume: <strong>{volume}%</strong>
                         </div>
@@ -328,15 +328,15 @@ function App() {
                 title="With Tick Marks"
                 description="Display visual tick marks to help users see increments. The slider automatically highlights marks before the current value."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', width: '400px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', width: '400px' }}>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-descriptionForeground)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
                                 Marks at every step (step=10)
                             </div>
                             <Slider defaultValue={50} showValue marks={true} step={10} />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-descriptionForeground)' }}>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
                                 Marks every 25 units
                             </div>
                             <Slider defaultValue={50} showValue showMinMax marks={25} step={5} />
@@ -393,16 +393,16 @@ function App() {
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: 'var(--spacing-4)',
+                        gap: 'var(--bk-spacing-4)',
                         width: '450px',
-                        padding: 'var(--spacing-4)',
-                        backgroundColor: 'var(--color-secondary)',
-                        borderRadius: 'var(--radius-lg)',
+                        padding: 'var(--bk-spacing-4)',
+                        backgroundColor: 'var(--bk-color-secondary)',
+                        borderRadius: 'var(--bk-radius-lg)',
                     }}>
                         <h4 style={{
                             margin: 0,
-                            fontSize: 'var(--font-size-base)',
-                            fontWeight: 'var(--font-weight-semibold)',
+                            fontSize: 'var(--bk-font-size-base)',
+                            fontWeight: 'var(--bk-font-weight-semibold)',
                         }}>
                             Volume Control
                         </h4>
@@ -419,10 +419,10 @@ function App() {
                             size="lg"
                         />
                         <div style={{
-                            padding: 'var(--spacing-3)',
-                            backgroundColor: 'var(--color-info)',
-                            borderRadius: 'var(--radius-md)',
-                            fontSize: 'var(--font-size-sm)',
+                            padding: 'var(--bk-spacing-3)',
+                            backgroundColor: 'var(--bk-color-info)',
+                            borderRadius: 'var(--bk-radius-md)',
+                            fontSize: 'var(--bk-font-size-sm)',
                             textAlign: 'center',
                         }}>
                             Current Volume: <strong>{volume}%</strong>
@@ -455,23 +455,23 @@ function App() {
                         const [commitCount, setCommitCount] = useState(0);
 
                         return (
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', width: '450px' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '450px' }}>
                                 <div style={{
-                                    padding: 'var(--spacing-4)',
-                                    backgroundColor: 'var(--color-secondary)',
-                                    borderRadius: 'var(--radius-lg)',
+                                    padding: 'var(--bk-spacing-4)',
+                                    backgroundColor: 'var(--bk-color-secondary)',
+                                    borderRadius: 'var(--bk-radius-lg)',
                                 }}>
                                     <h4 style={{
-                                        margin: '0 0 var(--spacing-3) 0',
-                                        fontSize: 'var(--font-size-base)',
-                                        fontWeight: 'var(--font-weight-semibold)',
+                                        margin: '0 0 var(--bk-spacing-3) 0',
+                                        fontSize: 'var(--bk-font-size-base)',
+                                        fontWeight: 'var(--bk-font-weight-semibold)',
                                     }}>
                                         Performance Demo
                                     </h4>
                                     <p style={{
-                                        margin: '0 0 var(--spacing-4) 0',
-                                        fontSize: 'var(--font-size-sm)',
-                                        color: 'var(--color-descriptionForeground)',
+                                        margin: '0 0 var(--bk-spacing-4) 0',
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        color: 'var(--bk-color-descriptionForeground)',
                                     }}>
                                         Drag the slider and watch the counters
                                     </p>
@@ -496,59 +496,59 @@ function App() {
                                 <div style={{
                                     display: 'grid',
                                     gridTemplateColumns: '1fr 1fr',
-                                    gap: 'var(--spacing-3)',
+                                    gap: 'var(--bk-spacing-3)',
                                 }}>
                                     <div style={{
-                                        padding: 'var(--spacing-3)',
-                                        backgroundColor: 'var(--color-info)',
-                                        borderRadius: 'var(--radius-md)',
+                                        padding: 'var(--bk-spacing-3)',
+                                        backgroundColor: 'var(--bk-color-info)',
+                                        borderRadius: 'var(--bk-radius-md)',
                                         textAlign: 'center',
                                     }}>
                                         <div style={{
-                                            fontSize: 'var(--font-size-xs)',
-                                            fontWeight: 'var(--font-weight-medium)',
-                                            marginBottom: 'var(--spacing-1)',
+                                            fontSize: 'var(--bk-font-size-xs)',
+                                            fontWeight: 'var(--bk-font-weight-medium)',
+                                            marginBottom: 'var(--bk-spacing-1)',
                                         }}>
                                             onChange
                                         </div>
                                         <div style={{
-                                            fontSize: 'var(--font-size-xl)',
-                                            fontWeight: 'var(--font-weight-bold)',
+                                            fontSize: 'var(--bk-font-size-xl)',
+                                            fontWeight: 'var(--bk-font-weight-bold)',
                                         }}>
                                             {updateCount}
                                         </div>
                                         <div style={{
-                                            fontSize: 'var(--font-size-xs)',
-                                            color: 'var(--color-descriptionForeground)',
-                                            marginTop: 'var(--spacing-1)',
+                                            fontSize: 'var(--bk-font-size-xs)',
+                                            color: 'var(--bk-color-descriptionForeground)',
+                                            marginTop: 'var(--bk-spacing-1)',
                                         }}>
                                             updates
                                         </div>
                                     </div>
 
                                     <div style={{
-                                        padding: 'var(--spacing-3)',
-                                        backgroundColor: 'var(--color-success)',
-                                        borderRadius: 'var(--radius-md)',
+                                        padding: 'var(--bk-spacing-3)',
+                                        backgroundColor: 'var(--bk-color-success)',
+                                        borderRadius: 'var(--bk-radius-md)',
                                         textAlign: 'center',
                                     }}>
                                         <div style={{
-                                            fontSize: 'var(--font-size-xs)',
-                                            fontWeight: 'var(--font-weight-medium)',
-                                            marginBottom: 'var(--spacing-1)',
+                                            fontSize: 'var(--bk-font-size-xs)',
+                                            fontWeight: 'var(--bk-font-weight-medium)',
+                                            marginBottom: 'var(--bk-spacing-1)',
                                         }}>
                                             onChangeCommitted
                                         </div>
                                         <div style={{
-                                            fontSize: 'var(--font-size-xl)',
-                                            fontWeight: 'var(--font-weight-bold)',
+                                            fontSize: 'var(--bk-font-size-xl)',
+                                            fontWeight: 'var(--bk-font-weight-bold)',
                                         }}>
                                             {commitCount}
                                         </div>
                                         <div style={{
-                                            fontSize: 'var(--font-size-xs)',
-                                            color: 'var(--color-descriptionForeground)',
-                                            marginTop: 'var(--spacing-1)',
+                                            fontSize: 'var(--bk-font-size-xs)',
+                                            color: 'var(--bk-color-descriptionForeground)',
+                                            marginTop: 'var(--bk-spacing-1)',
                                         }}>
                                             commits
                                         </div>
@@ -591,16 +591,16 @@ const [commitCount, setCommitCount] = useState(0);
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: 'var(--spacing-4)',
+                        gap: 'var(--bk-spacing-4)',
                         width: '450px',
-                        padding: 'var(--spacing-4)',
-                        backgroundColor: 'var(--color-secondary)',
-                        borderRadius: 'var(--radius-lg)',
+                        padding: 'var(--bk-spacing-4)',
+                        backgroundColor: 'var(--bk-color-secondary)',
+                        borderRadius: 'var(--bk-radius-lg)',
                     }}>
                         <h4 style={{
                             margin: 0,
-                            fontSize: 'var(--font-size-base)',
-                            fontWeight: 'var(--font-weight-semibold)',
+                            fontSize: 'var(--bk-font-size-base)',
+                            fontWeight: 'var(--bk-font-weight-semibold)',
                         }}>
                             Display Settings
                         </h4>
@@ -610,17 +610,17 @@ const [commitCount, setCommitCount] = useState(0);
                                 display: 'flex',
                                 justifyContent: 'space-between',
                                 alignItems: 'center',
-                                marginBottom: 'var(--spacing-2)',
+                                marginBottom: 'var(--bk-spacing-2)',
                             }}>
                                 <label style={{
-                                    fontSize: 'var(--font-size-sm)',
-                                    fontWeight: 'var(--font-weight-medium)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
                                 }}>
                                     Brightness
                                 </label>
                                 <span style={{
-                                    fontSize: 'var(--font-size-sm)',
-                                    color: 'var(--color-descriptionForeground)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-descriptionForeground)',
                                 }}>
                                     {brightness}%
                                 </span>
@@ -641,10 +641,10 @@ const [commitCount, setCommitCount] = useState(0);
 <div style={{ 
   display: 'flex', 
   flexDirection: 'column', 
-  gap: 'var(--spacing-4)', 
-  padding: 'var(--spacing-4)',
-  backgroundColor: 'var(--color-secondary)',
-  borderRadius: 'var(--radius-lg)',
+  gap: 'var(--bk-spacing-4)', 
+  padding: 'var(--bk-spacing-4)',
+  backgroundColor: 'var(--bk-color-secondary)',
+  borderRadius: 'var(--bk-radius-lg)',
 }}>
   <h4>Display Settings</h4>
   
@@ -652,7 +652,7 @@ const [commitCount, setCommitCount] = useState(0);
     <div style={{ 
       display: 'flex', 
       justifyContent: 'space-between', 
-      marginBottom: 'var(--spacing-2)',
+      marginBottom: 'var(--bk-spacing-2)',
     }}>
       <label>Brightness</label>
       <span>{brightness}%</span>

@@ -46,7 +46,7 @@ export interface DividerProps {
 
   /**
    * Vertical spacing (for horizontal dividers)
-   * @default 'var(--spacing-4)'
+   * @default 'var(--bk-spacing-4)'
    */
   spacing?: string;
 
@@ -93,7 +93,7 @@ export interface DividerProps {
  * <Divider variant="dotted" />
  *
  * // Custom spacing
- * <Divider spacing="var(--spacing-8)" />
+ * <Divider spacing="var(--bk-spacing-8)" />
  *
  * // Vertical divider (for use in flex containers)
  * <div style={{ display: 'flex', height: '100px' }}>
@@ -103,7 +103,7 @@ export interface DividerProps {
  * </div>
  *
  * // Custom color
- * <Divider color="var(--color-primary)" />
+ * <Divider color="var(--bk-color-primary)" />
  *
  * // Between sections
  * <div>
@@ -119,7 +119,7 @@ export const Divider: React.FC<DividerProps> = ({
   variant = 'solid',
   label,
   labelAlign = 'center',
-  spacing = 'var(--spacing-4)',
+  spacing = 'var(--bk-spacing-4)',
   color,
   className,
   style: inlineStyle,
@@ -139,8 +139,8 @@ export const Divider: React.FC<DividerProps> = ({
     : { margin: `0 ${spacing}` };
 
   // Create border styles
-  const borderColor = color || 'var(--color-border)';
-  const borderWidth = 'var(--border-width-1)';
+  const borderColor = color || 'var(--bk-color-border)';
+  const borderWidth = 'var(--bk-border-width-1)';
   const borderStyle = borderStyleMap[variant];
 
   const lineBorderStyle = orientation === 'horizontal'

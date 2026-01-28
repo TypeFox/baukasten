@@ -71,7 +71,7 @@ function App() {
         title="Variants"
         description="Four variants for different types of messages: info, success, warning, and error."
         preview={
-          <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+          <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
             <Alert variant="info">
               This is an informational alert. Use it to provide helpful information to users.
             </Alert>
@@ -104,7 +104,7 @@ function App() {
         title="With Title"
         description="Add an optional title for better content organization."
         preview={
-          <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+          <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
             <Alert variant="info" title="Information">
               This alert includes a title to provide additional context and structure to the message.
             </Alert>
@@ -140,7 +140,7 @@ function App() {
         title="Dismissible"
         description="Alerts can be made dismissible by setting the closable prop."
         preview={
-          <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+          <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
             <Alert variant="info" title="Dismissible Info" closable>
               This alert can be dismissed by clicking the close button.
             </Alert>
@@ -169,7 +169,7 @@ function App() {
         title="Custom Icons"
         description="Override the default variant icons with custom icons."
         preview={
-          <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+          <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
             <Alert
               variant="info"
               icon={<Icon name="lightbulb" />}
@@ -221,7 +221,7 @@ function App() {
         title="Without Icons"
         description="Pass icon={null} to render alerts without icons for a minimal design."
         preview={
-          <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+          <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
             <Alert variant="info" icon={null}>
               This alert has no icon, providing a more minimal appearance.
             </Alert>
@@ -249,10 +249,10 @@ function App() {
           <div style={{ width: '100%', maxWidth: '600px' }}>
             <Alert variant="warning" title="Important Notice" closable>
               <div>
-                <p style={{ margin: `0 0 var(--spacing-2) 0` }}>
+                <p style={{ margin: `0 0 var(--bk-spacing-2) 0` }}>
                   Alerts can contain rich structured content including:
                 </p>
-                <ul style={{ margin: '0', paddingLeft: 'var(--spacing-5)' }}>
+                <ul style={{ margin: '0', paddingLeft: 'var(--bk-spacing-5)' }}>
                   <li>Multiple paragraphs of text</li>
                   <li>Lists (ordered or unordered)</li>
                   <li>Inline formatting and links</li>

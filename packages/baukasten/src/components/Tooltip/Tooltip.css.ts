@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
 // Transition duration for tooltip animations
-const TRANSITION_DURATION = '150ms'; // var(--transition-fast) = 150ms
+const TRANSITION_DURATION = '150ms'; // var(--bk-transition-fast) = 150ms
 
 // Color mix percentage for semantic variant backgrounds
 const VARIANT_BG_OPACITY = '15%'; // Subtle tint for better readability
@@ -21,13 +21,13 @@ export const triggerWrapper = style({
 export const tooltipContainer = recipe({
     base: {
         display: 'inline-block',
-        padding: 'var(--padding-sm) var(--padding-md)',
-        borderRadius: 'var(--radius-md)',
-        border: 'var(--border-width-1) solid',
-        boxShadow: 'var(--shadow-lg)',
-        fontSize: 'var(--font-size-sm)',
-        lineHeight: 'var(--line-height-normal)',
-        zIndex: 'var(--z-index-tooltip)',
+        padding: 'var(--bk-padding-sm) var(--bk-padding-md)',
+        borderRadius: 'var(--bk-radius-md)',
+        border: 'var(--bk-border-width-1) solid',
+        boxShadow: 'var(--bk-shadow-lg)',
+        fontSize: 'var(--bk-font-size-sm)',
+        lineHeight: 'var(--bk-line-height-normal)',
+        zIndex: 'var(--bk-z-index-tooltip)',
         whiteSpace: 'normal',
         wordWrap: 'break-word',
         pointerEvents: 'none',
@@ -44,34 +44,34 @@ export const tooltipContainer = recipe({
     variants: {
         variant: {
             default: {
-                backgroundColor: 'var(--color-background-elevated)',
-                color: 'var(--color-foreground)',
-                borderColor: 'var(--color-border)',
+                backgroundColor: 'var(--bk-color-background-elevated)',
+                color: 'var(--bk-color-foreground)',
+                borderColor: 'var(--bk-color-border)',
             },
             primary: {
-                backgroundColor: 'var(--color-primary)',
-                color: 'var(--color-primary-foreground)',
-                borderColor: 'var(--color-primary)',
+                backgroundColor: 'var(--bk-color-primary)',
+                color: 'var(--bk-color-primary-foreground)',
+                borderColor: 'var(--bk-color-primary)',
             },
             success: {
-                backgroundColor: `color-mix(in srgb, var(--color-success) ${VARIANT_BG_OPACITY}, var(--color-background-elevated))`,
-                color: 'var(--color-foreground)',
-                borderColor: 'var(--color-success)',
+                backgroundColor: `color-mix(in srgb, var(--bk-color-success) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
+                color: 'var(--bk-color-foreground)',
+                borderColor: 'var(--bk-color-success)',
             },
             warning: {
-                backgroundColor: `color-mix(in srgb, var(--color-warning) ${VARIANT_BG_OPACITY}, var(--color-background-elevated))`,
-                color: 'var(--color-foreground)',
-                borderColor: 'var(--color-warning)',
+                backgroundColor: `color-mix(in srgb, var(--bk-color-warning) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
+                color: 'var(--bk-color-foreground)',
+                borderColor: 'var(--bk-color-warning)',
             },
             error: {
-                backgroundColor: `color-mix(in srgb, var(--color-danger) ${VARIANT_BG_OPACITY}, var(--color-background-elevated))`,
-                color: 'var(--color-foreground)',
-                borderColor: 'var(--color-danger)',
+                backgroundColor: `color-mix(in srgb, var(--bk-color-danger) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
+                color: 'var(--bk-color-foreground)',
+                borderColor: 'var(--bk-color-danger)',
             },
             info: {
-                backgroundColor: `color-mix(in srgb, var(--color-info) ${VARIANT_BG_OPACITY}, var(--color-background-elevated))`,
-                color: 'var(--color-foreground)',
-                borderColor: 'var(--color-info)',
+                backgroundColor: `color-mix(in srgb, var(--bk-color-info) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
+                color: 'var(--bk-color-foreground)',
+                borderColor: 'var(--bk-color-info)',
             },
         },
     },
@@ -84,30 +84,30 @@ export const tooltipContainer = recipe({
  * Arrow element - styled to match Floating UI's FloatingArrow
  */
 export const arrow = style({
-    fill: 'var(--color-background-elevated)',
-    stroke: 'var(--color-border)',
-    strokeWidth: 1, // Matches var(--border-width-1)
+    fill: 'var(--bk-color-background-elevated)',
+    stroke: 'var(--bk-color-border)',
+    strokeWidth: 1, // Matches var(--bk-border-width-1)
     selectors: {
         // Match arrow color to parent tooltip variant
         '[data-variant="primary"] &': {
-            fill: 'var(--color-primary)',
-            stroke: 'var(--color-primary)',
+            fill: 'var(--bk-color-primary)',
+            stroke: 'var(--bk-color-primary)',
         },
         '[data-variant="success"] &': {
-            fill: `color-mix(in srgb, var(--color-success) ${VARIANT_BG_OPACITY}, var(--color-background-elevated))`,
-            stroke: 'var(--color-success)',
+            fill: `color-mix(in srgb, var(--bk-color-success) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
+            stroke: 'var(--bk-color-success)',
         },
         '[data-variant="warning"] &': {
-            fill: `color-mix(in srgb, var(--color-warning) ${VARIANT_BG_OPACITY}, var(--color-background-elevated))`,
-            stroke: 'var(--color-warning)',
+            fill: `color-mix(in srgb, var(--bk-color-warning) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
+            stroke: 'var(--bk-color-warning)',
         },
         '[data-variant="error"] &': {
-            fill: `color-mix(in srgb, var(--color-danger) ${VARIANT_BG_OPACITY}, var(--color-background-elevated))`,
-            stroke: 'var(--color-danger)',
+            fill: `color-mix(in srgb, var(--bk-color-danger) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
+            stroke: 'var(--bk-color-danger)',
         },
         '[data-variant="info"] &': {
-            fill: `color-mix(in srgb, var(--color-info) ${VARIANT_BG_OPACITY}, var(--color-background-elevated))`,
-            stroke: 'var(--color-info)',
+            fill: `color-mix(in srgb, var(--bk-color-info) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
+            stroke: 'var(--bk-color-info)',
         },
     },
 });

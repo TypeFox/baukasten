@@ -4,14 +4,14 @@ import { Button } from '../Button';
 
 // Story-specific styles
 const storyStyles = `
-  .icon-story-container { display: flex; flex-direction: column; gap: var(--gap-lg); padding: var(--spacing-4); }
-  .icon-story-row { display: flex; align-items: center; gap: var(--gap-md); }
-  .icon-story-button-row { display: flex; align-items: center; gap: var(--gap-md); flex-wrap: wrap; }
-  .icon-story-label { font-size: var(--font-size-sm); color: var(--color-foreground); min-width: 80px; }
-  .icon-story-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: var(--spacing-4); padding: var(--spacing-4); }
-  .icon-story-cell { display: flex; flex-direction: column; align-items: center; gap: var(--gap-sm); padding: var(--spacing-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); transition: var(--transition-colors); }
-  .icon-story-cell:hover { background-color: var(--color-hover); border-color: var(--color-primary); }
-  .icon-story-name { font-size: var(--font-size-xs); color: var(--color-secondary-foreground); text-align: center; word-break: break-word; font-family: var(--font-family-mono); }
+  .icon-story-container { display: flex; flex-direction: column; gap: var(--bk-gap-lg); padding: var(--bk-spacing-4); }
+  .icon-story-row { display: flex; align-items: center; gap: var(--bk-gap-md); }
+  .icon-story-button-row { display: flex; align-items: center; gap: var(--bk-gap-md); flex-wrap: wrap; }
+  .icon-story-label { font-size: var(--bk-font-size-sm); color: var(--bk-color-foreground); min-width: 80px; }
+  .icon-story-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: var(--bk-spacing-4); padding: var(--bk-spacing-4); }
+  .icon-story-cell { display: flex; flex-direction: column; align-items: center; gap: var(--bk-gap-sm); padding: var(--bk-spacing-3); border: 1px solid var(--bk-color-border); border-radius: var(--bk-radius-md); transition: var(--bk-transition-colors); }
+  .icon-story-cell:hover { background-color: var(--bk-color-hover); border-color: var(--bk-color-primary); }
+  .icon-story-name { font-size: var(--bk-font-size-xs); color: var(--bk-color-secondary-foreground); text-align: center; word-break: break-word; font-family: var(--bk-font-family-mono); }
 `;
 
 /**
@@ -171,23 +171,23 @@ export const Colors: Story = {
             <style>{storyStyles}</style>
             <div className="icon-story-container">
                 <div className="icon-story-row">
-                    <Icon name="info" color="var(--color-info)" size="lg" />
+                    <Icon name="info" color="var(--bk-color-info)" size="lg" />
                     <span className="icon-story-label">Info</span>
                 </div>
                 <div className="icon-story-row">
-                    <Icon name="check" color="var(--color-success)" size="lg" />
+                    <Icon name="check" color="var(--bk-color-success)" size="lg" />
                     <span className="icon-story-label">Success</span>
                 </div>
                 <div className="icon-story-row">
-                    <Icon name="warning" color="var(--color-warning)" size="lg" />
+                    <Icon name="warning" color="var(--bk-color-warning)" size="lg" />
                     <span className="icon-story-label">Warning</span>
                 </div>
                 <div className="icon-story-row">
-                    <Icon name="error" color="var(--color-danger)" size="lg" />
+                    <Icon name="error" color="var(--bk-color-danger)" size="lg" />
                     <span className="icon-story-label">Danger</span>
                 </div>
                 <div className="icon-story-row">
-                    <Icon name="star" color="var(--color-primary)" size="lg" />
+                    <Icon name="star" color="var(--bk-color-primary)" size="lg" />
                     <span className="icon-story-label">Primary</span>
                 </div>
             </div>
@@ -380,7 +380,7 @@ export const WithButtons: Story = {
             <style>{storyStyles}</style>
             <div className="icon-story-container">
                 <div>
-                    <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                    <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                         Icons Inherit Button Size (No size prop!)
                     </h4>
                     <div className="icon-story-button-row">
@@ -407,7 +407,7 @@ export const WithButtons: Story = {
                     </div>
                 </div>
                 <div>
-                    <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                    <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                         Icon Only Buttons
                     </h4>
                     <div className="icon-story-button-row">
@@ -556,19 +556,19 @@ export const StatusIcons: Story = {
             <style>{storyStyles}</style>
             <div className="icon-story-grid">
                 <div className="icon-story-cell">
-                    <Icon name="check" size="lg" color="var(--color-success)" />
+                    <Icon name="check" size="lg" color="var(--bk-color-success)" />
                     <span className="icon-story-name">check</span>
                 </div>
                 <div className="icon-story-cell">
-                    <Icon name="error" size="lg" color="var(--color-danger)" />
+                    <Icon name="error" size="lg" color="var(--bk-color-danger)" />
                     <span className="icon-story-name">error</span>
                 </div>
                 <div className="icon-story-cell">
-                    <Icon name="warning" size="lg" color="var(--color-warning)" />
+                    <Icon name="warning" size="lg" color="var(--bk-color-warning)" />
                     <span className="icon-story-name">warning</span>
                 </div>
                 <div className="icon-story-cell">
-                    <Icon name="info" size="lg" color="var(--color-info)" />
+                    <Icon name="info" size="lg" color="var(--bk-color-info)" />
                     <span className="icon-story-name">info</span>
                 </div>
                 <div className="icon-story-cell">
@@ -588,7 +588,7 @@ export const StatusIcons: Story = {
                     <span className="icon-story-name">circle-outline</span>
                 </div>
                 <div className="icon-story-cell">
-                    <Icon name="pass" size="lg" color="var(--color-success)" />
+                    <Icon name="pass" size="lg" color="var(--bk-color-success)" />
                     <span className="icon-story-name">pass</span>
                 </div>
                 <div className="icon-story-cell">

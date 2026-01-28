@@ -3,68 +3,68 @@ import { recipe } from '@vanilla-extract/recipes';
 export const link = recipe({
   base: {
     cursor: 'pointer',
-    transition: 'var(--transition-colors)',
-    fontWeight: 'var(--font-weight-normal)',
+    transition: 'var(--bk-transition-colors)',
+    fontWeight: 'var(--bk-font-weight-normal)',
     lineHeight: 'inherit',
 
     ':focus-visible': {
-      outline: 'var(--border-width-1) solid var(--color-focus)',
+      outline: 'var(--bk-border-width-1) solid var(--bk-color-focus)',
       outlineOffset: '2px', // Spacing between link text and focus ring
-      borderRadius: 'var(--radius-xs)',
+      borderRadius: 'var(--bk-radius-xs)',
     },
   },
 
   variants: {
     size: {
       xs: {
-        fontSize: 'var(--font-size-xs)',
+        fontSize: 'var(--bk-font-size-xs)',
       },
       sm: {
-        fontSize: 'var(--font-size-sm)',
+        fontSize: 'var(--bk-font-size-sm)',
       },
       md: {
-        fontSize: 'var(--font-size-md)',
+        fontSize: 'var(--bk-font-size-md)',
       },
       base: {
-        fontSize: 'var(--font-size-base)',
+        fontSize: 'var(--bk-font-size-base)',
       },
       lg: {
-        fontSize: 'var(--font-size-lg)',
+        fontSize: 'var(--bk-font-size-lg)',
       },
     },
 
     variant: {
       default: {
-        color: 'var(--color-link)',
+        color: 'var(--bk-color-link)',
 
         ':hover': {
-          color: 'var(--color-link-hover)',
+          color: 'var(--bk-color-link-hover)',
         },
 
         ':active': {
-          color: 'var(--color-link-active)',
+          color: 'var(--bk-color-link-active)',
         },
       },
       muted: {
-        color: 'var(--color-secondary-foreground)',
+        color: 'var(--bk-color-secondary-foreground)',
 
         ':hover': {
-          color: 'var(--color-foreground)',
+          color: 'var(--bk-color-foreground)',
         },
 
         ':active': {
-          color: 'var(--color-foreground)',
+          color: 'var(--bk-color-foreground)',
         },
       },
       primary: {
-        color: 'var(--color-primary)',
+        color: 'var(--bk-color-primary)',
 
         ':hover': {
-          color: 'var(--color-primary-hover)',
+          color: 'var(--bk-color-primary-hover)',
         },
 
         ':active': {
-          color: 'var(--color-primary-active)',
+          color: 'var(--bk-color-primary-active)',
         },
       },
     },

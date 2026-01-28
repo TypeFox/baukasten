@@ -5,25 +5,25 @@ import CodeBlock from '@/components/CodeBlock';
 import { Heading, Alert, Icon, Code } from 'baukasten-ui';
 
 const Section = ({ children }: { children: React.ReactNode }) => (
-  <section style={{ marginBottom: 'var(--padding-2xl)' }}>{children}</section>
+  <section style={{ marginBottom: 'var(--bk-padding-2xl)' }}>{children}</section>
 );
 
 const Paragraph = ({ children }: { children: React.ReactNode }) => (
   <p style={{
-    fontSize: 'var(--font-size-md)',
-    color: 'var(--color-text-secondary)',
-    margin: '0 0 var(--padding-md) 0',
-    lineHeight: 'var(--line-height-relaxed)',
+    fontSize: 'var(--bk-font-size-md)',
+    color: 'var(--bk-color-text-secondary)',
+    margin: '0 0 var(--bk-padding-md) 0',
+    lineHeight: 'var(--bk-line-height-relaxed)',
   }}>{children}</p>
 );
 
 const List = ({ children }: { children: React.ReactNode }) => (
   <ul style={{
-    fontSize: 'var(--font-size-md)',
-    color: 'var(--color-text-secondary)',
-    lineHeight: 'var(--line-height-relaxed)',
-    margin: 'var(--padding-md) 0',
-    paddingLeft: 'var(--padding-xl)',
+    fontSize: 'var(--bk-font-size-md)',
+    color: 'var(--bk-color-text-secondary)',
+    lineHeight: 'var(--bk-line-height-relaxed)',
+    margin: 'var(--bk-padding-md) 0',
+    paddingLeft: 'var(--bk-padding-xl)',
   }}>{children}</ul>
 );
 
@@ -60,44 +60,44 @@ export default function InstallationPage() {
         </Paragraph>
 
         <div style={{
-          backgroundColor: 'var(--color-background-secondary)',
-          border: '1px solid var(--color-border)',
-          borderRadius: 'var(--border-radius-lg)',
-          padding: 'var(--spacing-6)',
-          marginBottom: 'var(--spacing-6)',
+          backgroundColor: 'var(--bk-color-background-secondary)',
+          border: '1px solid var(--bk-color-border)',
+          borderRadius: 'var(--bk-radius-lg)',
+          padding: 'var(--bk-spacing-6)',
+          marginBottom: 'var(--bk-spacing-6)',
         }}>
           <table style={{
             width: '100%',
             borderCollapse: 'collapse',
-            fontSize: 'var(--font-size-sm)',
+            fontSize: 'var(--bk-font-size-sm)',
           }}>
             <thead>
-              <tr style={{ borderBottom: '1px solid var(--color-border)' }}>
-                <th style={{ textAlign: 'left', padding: 'var(--spacing-2) var(--spacing-4)', fontWeight: 'var(--font-weight-semibold)' }}>File</th>
-                <th style={{ textAlign: 'left', padding: 'var(--spacing-2) var(--spacing-4)', fontWeight: 'var(--font-weight-semibold)' }}>Description</th>
-                <th style={{ textAlign: 'left', padding: 'var(--spacing-2) var(--spacing-4)', fontWeight: 'var(--font-weight-semibold)' }}>Use Case</th>
+              <tr style={{ borderBottom: '1px solid var(--bk-color-border)' }}>
+                <th style={{ textAlign: 'left', padding: 'var(--bk-spacing-2) var(--bk-spacing-4)', fontWeight: 'var(--bk-font-weight-semibold)' }}>File</th>
+                <th style={{ textAlign: 'left', padding: 'var(--bk-spacing-2) var(--bk-spacing-4)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Description</th>
+                <th style={{ textAlign: 'left', padding: 'var(--bk-spacing-2) var(--bk-spacing-4)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Use Case</th>
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid var(--color-border)' }}>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)' }}><Code>baukasten-base.css</Code></td>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)', color: 'var(--color-text-secondary)' }}>Component styles (vanilla-extract)</td>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)', color: 'var(--color-text-secondary)' }}>Required for all platforms</td>
+              <tr style={{ borderBottom: '1px solid var(--bk-color-border)' }}>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)' }}><Code>baukasten-base.css</Code></td>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)', color: 'var(--bk-color-text-secondary)' }}>Component styles (vanilla-extract)</td>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)', color: 'var(--bk-color-text-secondary)' }}>Required for all platforms</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid var(--color-border)' }}>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)' }}><Code>baukasten-vscode.css</Code></td>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)', color: 'var(--color-text-secondary)' }}>Uses <Code>--vscode-*</Code> CSS variables</td>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)', color: 'var(--color-text-secondary)' }}>VS Code extensions</td>
+              <tr style={{ borderBottom: '1px solid var(--bk-color-border)' }}>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)' }}><Code>baukasten-vscode.css</Code></td>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)', color: 'var(--bk-color-text-secondary)' }}>Uses <Code>--vscode-*</Code> CSS variables</td>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)', color: 'var(--bk-color-text-secondary)' }}>VS Code extensions</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid var(--color-border)' }}>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)' }}><Code>baukasten-theia.css</Code></td>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)', color: 'var(--color-text-secondary)' }}>Uses <Code>--theia-*</Code> CSS variables</td>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)', color: 'var(--color-text-secondary)' }}>Eclipse Theia applications</td>
+              <tr style={{ borderBottom: '1px solid var(--bk-color-border)' }}>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)' }}><Code>baukasten-theia.css</Code></td>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)', color: 'var(--bk-color-text-secondary)' }}>Uses <Code>--theia-*</Code> CSS variables</td>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)', color: 'var(--bk-color-text-secondary)' }}>Eclipse Theia applications</td>
               </tr>
               <tr>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)' }}><Code>baukasten-web.css</Code></td>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)', color: 'var(--color-text-secondary)' }}>Uses default fallback values</td>
-                <td style={{ padding: 'var(--spacing-2) var(--spacing-4)', color: 'var(--color-text-secondary)' }}>Standalone web applications</td>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)' }}><Code>baukasten-web.css</Code></td>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)', color: 'var(--bk-color-text-secondary)' }}>Uses default fallback values</td>
+                <td style={{ padding: 'var(--bk-spacing-2) var(--bk-spacing-4)', color: 'var(--bk-color-text-secondary)' }}>Standalone web applications</td>
               </tr>
             </tbody>
           </table>
@@ -175,7 +175,7 @@ function App() {
           language="tsx"
         />
         <Paragraph>
-          You can customize the theme by overriding the CSS variables. See the <a href="/guides/theming" style={{ color: 'var(--color-link)' }}>Theming Guide</a> for details.
+          You can customize the theme by overriding the CSS variables. See the <a href="/guides/theming" style={{ color: 'var(--bk-color-link)' }}>Theming Guide</a> for details.
         </Paragraph>
       </Section>
 
@@ -273,10 +273,10 @@ function MyComponent() {
           code={`// Use CSS variables directly in inline styles
 const CustomDiv = () => (
   <div style={{
-    padding: 'var(--padding-md)',
-    backgroundColor: 'var(--color-surface)',
-    borderRadius: 'var(--border-radius-md)',
-    color: 'var(--color-text)',
+    padding: 'var(--bk-padding-md)',
+    backgroundColor: 'var(--bk-color-surface)',
+    borderRadius: 'var(--bk-radius-md)',
+    color: 'var(--bk-color-text)',
   }}>
     Content
   </div>
@@ -287,7 +287,7 @@ const CustomDiv = () => (
 
       <Section>
         <Heading level={2}>Legacy: GlobalStyles Component</Heading>
-        <Alert variant="warning" style={{ marginBottom: 'var(--spacing-4)' }}>
+        <Alert variant="warning" style={{ marginBottom: 'var(--bk-spacing-4)' }}>
           The GlobalStyles component is deprecated. Please use the CSS file imports shown above instead.
         </Alert>
         <Paragraph>
@@ -315,7 +315,7 @@ function App() {
         <Paragraph>
           Now that you have Baukasten installed, explore the component documentation
           to see what's available and how to use each component. Check out the{' '}
-          <a href="/guides/theming" style={{ color: 'var(--color-link)' }}>Theming Guide</a>{' '}
+          <a href="/guides/theming" style={{ color: 'var(--bk-color-link)' }}>Theming Guide</a>{' '}
           to learn how to customize the appearance of your application.
         </Paragraph>
       </Section>

@@ -54,7 +54,7 @@ function ControlledExample() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', alignItems: 'center' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'center' }}>
       <Badge variant={open ? 'success' : 'default'}>
         Dropdown is {open ? 'Open' : 'Closed'}
       </Badge>
@@ -71,7 +71,7 @@ function ControlledExample() {
         </Menu>
       </Dropdown>
 
-      <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
+      <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
         <Button variant="secondary" size="sm" onClick={() => setOpen(!open)}>
           Toggle
         </Button>
@@ -97,22 +97,22 @@ function FormExample() {
       closeOnClick={false}
     >
       <div style={{
-        padding: 'var(--spacing-5)',
+        padding: 'var(--bk-spacing-5)',
         minWidth: '280px',
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--spacing-3)'
+        gap: 'var(--bk-spacing-3)'
       }}>
         <div style={{
-          fontSize: 'var(--font-size-lg)',
+          fontSize: 'var(--bk-font-size-lg)',
           fontWeight: 600,
-          marginBottom: 'var(--spacing-1)'
+          marginBottom: 'var(--bk-spacing-1)'
         }}>
           Welcome Back
         </div>
 
         <div>
-          <div style={{ fontSize: 'var(--font-size-sm)', marginBottom: 'var(--spacing-1)' }}>Email</div>
+          <div style={{ fontSize: 'var(--bk-font-size-sm)', marginBottom: 'var(--bk-spacing-1)' }}>Email</div>
           <Input
             type="email"
             placeholder="you@example.com"
@@ -123,7 +123,7 @@ function FormExample() {
         </div>
 
         <div>
-          <div style={{ fontSize: 'var(--font-size-sm)', marginBottom: 'var(--spacing-1)' }}>Password</div>
+          <div style={{ fontSize: 'var(--bk-font-size-sm)', marginBottom: 'var(--bk-spacing-1)' }}>Password</div>
           <Input
             type="password"
             placeholder="••••••••"
@@ -138,7 +138,7 @@ function FormExample() {
         </Button>
 
         <div style={{
-          fontSize: 'var(--font-size-sm)',
+          fontSize: 'var(--bk-font-size-sm)',
           color: 'var(--vscode-textLink-foreground)',
           textAlign: 'center',
           cursor: 'pointer'
@@ -194,7 +194,7 @@ function App() {
         title="Placement Options"
         description="Four placement options: bottom-start (default), bottom-end, top-start, and top-end."
         preview={
-          <div style={{ display: 'flex', gap: 'var(--spacing-4)', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', flexWrap: 'wrap' }}>
             <Dropdown
               trigger={<Button size="sm">Bottom Start</Button>}
               placement="bottom-start"
@@ -314,19 +314,19 @@ function App() {
           >
             <div style={{ minWidth: '220px' }}>
               <div style={{
-                padding: 'var(--spacing-3)',
+                padding: 'var(--bk-spacing-3)',
                 borderBottom: '1px solid var(--vscode-panel-border)',
-                marginBottom: 'var(--spacing-1)'
+                marginBottom: 'var(--bk-spacing-1)'
               }}>
                 <div style={{
                   fontWeight: 600,
-                  fontSize: 'var(--font-size-base)',
+                  fontSize: 'var(--bk-font-size-base)',
                   marginBottom: '2px'
                 }}>
                   Jane Developer
                 </div>
                 <div style={{
-                  fontSize: 'var(--font-size-sm)',
+                  fontSize: 'var(--bk-font-size-sm)',
                   color: 'var(--vscode-descriptionForeground)'
                 }}>
                   jane.dev@example.com
@@ -353,7 +353,7 @@ function App() {
   <div style={{ minWidth: '220px' }}>
     {/* Custom header */}
     <div style={{ 
-      padding: 'var(--spacing-3)', 
+      padding: 'var(--bk-spacing-3)', 
       borderBottom: '1px solid var(--vscode-panel-border)' 
     }}>
       <div>Jane Developer</div>
@@ -452,7 +452,7 @@ function FormExample() {
       trigger={<Button>Sign In</Button>}
       closeOnClick={false}
     >
-      <div style={{ padding: 'var(--spacing-5)', minWidth: '280px' }}>
+      <div style={{ padding: 'var(--bk-spacing-5)', minWidth: '280px' }}>
         <h3>Welcome Back</h3>
         
         <Input
@@ -493,11 +493,11 @@ function FormExample() {
             }
             closeOnClick={false}
           >
-            <div style={{ minWidth: '260px', padding: 'var(--spacing-4)' }}>
+            <div style={{ minWidth: '260px', padding: 'var(--bk-spacing-4)' }}>
               <div style={{
-                fontSize: 'var(--font-size-lg)',
+                fontSize: 'var(--bk-font-size-lg)',
                 fontWeight: 600,
-                marginBottom: 'var(--spacing-3)'
+                marginBottom: 'var(--bk-spacing-3)'
               }}>
                 Project Overview
               </div>
@@ -505,25 +505,25 @@ function FormExample() {
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
-                gap: 'var(--spacing-3)',
-                marginBottom: 'var(--spacing-3)',
-                padding: 'var(--spacing-3)',
+                gap: 'var(--bk-spacing-3)',
+                marginBottom: 'var(--bk-spacing-3)',
+                padding: 'var(--bk-spacing-3)',
                 background: 'var(--vscode-sideBar-background)',
-                borderRadius: 'var(--border-radius-md)'
+                borderRadius: 'var(--bk-radius-md)'
               }}>
                 <div>
-                  <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
+                  <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
                     Files
                   </div>
-                  <div style={{ fontSize: 'var(--font-size-xl)', fontWeight: 700 }}>
+                  <div style={{ fontSize: 'var(--bk-font-size-xl)', fontWeight: 700 }}>
                     247
                   </div>
                 </div>
                 <div>
-                  <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
+                  <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
                     Lines
                   </div>
-                  <div style={{ fontSize: 'var(--font-size-xl)', fontWeight: 700 }}>
+                  <div style={{ fontSize: 'var(--bk-font-size-xl)', fontWeight: 700 }}>
                     12.4K
                   </div>
                 </div>
@@ -542,7 +542,7 @@ function FormExample() {
   trigger={<Button>Quick Stats</Button>}
   closeOnClick={false}
 >
-  <div style={{ minWidth: '260px', padding: 'var(--spacing-4)' }}>
+  <div style={{ minWidth: '260px', padding: 'var(--bk-spacing-4)' }}>
     <h3>Project Overview</h3>
     
     {/* Custom stats grid */}
@@ -603,7 +603,7 @@ function ControlledExample() {
         title="Different Triggers"
         description="Any React element can be a dropdown trigger: buttons, badges, icons, or custom components."
         preview={
-          <div style={{ display: 'flex', gap: 'var(--spacing-4)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', flexWrap: 'wrap', alignItems: 'center' }}>
             <Dropdown trigger={<Button variant="primary">Primary</Button>}>
               <Menu size="sm">
                 <MenuItem icon={<Icon name="zap" />}>Quick Action</MenuItem>
@@ -641,14 +641,14 @@ function ControlledExample() {
             <Dropdown
               trigger={
                 <div style={{
-                  padding: 'var(--spacing-2) var(--spacing-3)',
+                  padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
                   background: 'var(--vscode-button-secondaryBackground)',
                   color: 'var(--vscode-button-secondaryForeground)',
-                  borderRadius: 'var(--border-radius-md)',
+                  borderRadius: 'var(--bk-radius-md)',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 'var(--spacing-2)',
+                  gap: 'var(--bk-spacing-2)',
                   fontWeight: 500
                 }}>
                   <Icon name="person" />

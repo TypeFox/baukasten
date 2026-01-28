@@ -6,13 +6,13 @@ import { style, globalStyle } from '@vanilla-extract/css';
  */
 export const accordionItem = recipe({
   base: {
-    backgroundColor: 'var(--color-background)',
+    backgroundColor: 'var(--bk-color-background)',
   },
 
   variants: {
     disabled: {
       true: {
-        opacity: 'var(--opacity-disabled)',
+        opacity: 'var(--bk-opacity-disabled)',
       },
       false: {},
     },
@@ -33,34 +33,34 @@ export const accordionHeader = recipe({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    gap: 'var(--gap-sm)',
-    padding: 'var(--padding-md)',
+    gap: 'var(--bk-gap-sm)',
+    padding: 'var(--bk-padding-md)',
 
     // Colors
-    backgroundColor: 'var(--color-background)',
-    color: 'var(--color-foreground)',
+    backgroundColor: 'var(--bk-color-background)',
+    color: 'var(--bk-color-foreground)',
     border: 'none',
 
     // Typography
     fontFamily: 'inherit',
-    fontSize: 'var(--font-size-md)',
-    fontWeight: 'var(--font-weight-medium)',
+    fontSize: 'var(--bk-font-size-md)',
+    fontWeight: 'var(--bk-font-weight-medium)',
     textAlign: 'left',
 
     // Interaction
-    transition: 'var(--transition-colors)',
+    transition: 'var(--bk-transition-colors)',
     outline: 'none',
 
     // Focus state
     ':focus-visible': {
-      outline: 'var(--border-width-1) solid var(--color-focus)',
-      outlineOffset: 'calc(var(--border-width-1) * -1)',
+      outline: 'var(--bk-border-width-1) solid var(--bk-color-focus)',
+      outlineOffset: 'calc(var(--bk-border-width-1) * -1)',
     },
 
     // Hover state using selectors for better specificity
     selectors: {
       '&:hover:not(:disabled)': {
-        backgroundColor: 'var(--color-hover)',
+        backgroundColor: 'var(--bk-color-hover)',
       },
     },
   },
@@ -90,7 +90,7 @@ export const chevron = recipe({
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 'auto',
-    transition: 'transform var(--transition-base)',
+    transition: 'transform var(--bk-transition-base)',
   },
 
   variants: {
@@ -122,7 +122,7 @@ globalStyle(`${chevron.classNames.base} svg`, {
 export const accordionContent = recipe({
   base: {
     display: 'grid',
-    transition: 'grid-template-rows var(--transition-slow), opacity var(--transition-base)',
+    transition: 'grid-template-rows var(--bk-transition-slow), opacity var(--bk-transition-base)',
   },
 
   variants: {
@@ -151,16 +151,16 @@ export const accordionContentInner = recipe({
   base: {
     overflow: 'hidden',
     minHeight: 0,
-    transition: 'padding var(--transition-slow)',
+    transition: 'padding var(--bk-transition-slow)',
   },
 
   variants: {
     isOpen: {
       true: {
-        paddingTop: 'var(--spacing-2)',
-        paddingRight: 'var(--spacing-3-5)',
-        paddingBottom: 'var(--spacing-3-5)',
-        paddingLeft: 'var(--spacing-3-5)',
+        paddingTop: 'var(--bk-spacing-2)',
+        paddingRight: 'var(--bk-spacing-3-5)',
+        paddingBottom: 'var(--bk-spacing-3-5)',
+        paddingLeft: 'var(--bk-spacing-3-5)',
       },
       false: {
         padding: 0,

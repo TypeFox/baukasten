@@ -124,8 +124,8 @@ export const AllPlacements: Story = {
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: 'var(--spacing-8)',
-        padding: 'var(--spacing-8)',
+        gap: 'var(--bk-spacing-8)',
+        padding: 'var(--bk-spacing-8)',
         minHeight: '400px',
         alignItems: 'center',
         justifyItems: 'center',
@@ -160,7 +160,7 @@ export const AllPlacements: Story = {
  */
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', alignItems: 'center' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'center' }}>
       <Tooltip content="Default variant" variant="default">
         <Button variant="ghost">Default</Button>
       </Tooltip>
@@ -196,12 +196,12 @@ export const Variants: Story = {
 export const HoverTooltips: Story = {
   render: () => {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', padding: 'var(--spacing-4)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)' }}>
         <div>
-          <h4 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
             Action Buttons with Tooltips
           </h4>
-          <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
             <Tooltip content="Save your changes" placement="top" variant="default">
               <Button variant="primary">
                 <Icon name="check" />
@@ -248,16 +248,16 @@ export const HoverTooltips: Story = {
  */
 export const WithAndWithoutArrow: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--spacing-6)', alignItems: 'center' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
-        <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>With Arrow</span>
+    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', alignItems: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
+        <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>With Arrow</span>
         <Tooltip content="This tooltip has an arrow" placement="top" showArrow={true}>
           <Button size="sm">Hover me</Button>
         </Tooltip>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'center' }}>
-        <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>Without Arrow</span>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
+        <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>Without Arrow</span>
         <Tooltip content="This tooltip has no arrow" placement="top" showArrow={false}>
           <Button size="sm">Hover me</Button>
         </Tooltip>
@@ -278,16 +278,16 @@ export const WithAndWithoutArrow: Story = {
  */
 export const ContentExamples: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--spacing-4)', flexWrap: 'wrap', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', flexWrap: 'wrap', alignItems: 'center' }}>
       <Tooltip content="Simple text content" variant="default">
         <Button size="sm">Simple Text</Button>
       </Tooltip>
 
       <Tooltip
         content={
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-1)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-1)' }}>
             <strong>Tooltip with structured content</strong>
-            <span style={{ fontSize: 'var(--font-size-sm)' }}>
+            <span style={{ fontSize: 'var(--bk-font-size-sm)' }}>
               You can include any React content inside a tooltip.
             </span>
           </div>
@@ -300,7 +300,7 @@ export const ContentExamples: Story = {
 
       <Tooltip
         content={
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-xs)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-xs)' }}>
             <Icon name="check" />
             <span>Success with icon</span>
           </div>
@@ -312,12 +312,12 @@ export const ContentExamples: Story = {
 
       <Tooltip
         content={
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-xs)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-xs)' }}>
               <Icon name="info" />
               <strong>Information</strong>
             </div>
-            <p style={{ margin: 0, fontSize: 'var(--font-size-sm)', lineHeight: 'var(--line-height-relaxed)' }}>
+            <p style={{ margin: 0, fontSize: 'var(--bk-font-size-sm)', lineHeight: 'var(--bk-line-height-relaxed)' }}>
               This is a longer information message that demonstrates how content wraps within the tooltip.
             </p>
           </div>
@@ -343,7 +343,7 @@ export const ContentExamples: Story = {
  */
 export const WithDelay: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--spacing-4)', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', alignItems: 'center' }}>
       <Tooltip content="Appears immediately" placement="top" delay={0}>
         <Button size="sm">No Delay</Button>
       </Tooltip>
@@ -372,13 +372,13 @@ export const WithDelay: Story = {
 export const Showcase: Story = {
   render: () => {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', padding: 'var(--spacing-4)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)' }}>
         {/* Interactive Hover Example */}
         <div>
-          <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+          <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
             Interactive Hover Examples
           </h3>
-          <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap' }}>
             <Tooltip content="This appears on top!" placement="top" variant="primary">
               <Button variant="primary" size="sm">Hover for Top</Button>
             </Tooltip>
@@ -399,10 +399,10 @@ export const Showcase: Story = {
 
         {/* Variants */}
         <div>
-          <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+          <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
             Variants
           </h3>
-          <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap' }}>
             <Tooltip content="Default variant" variant="default">
               <Button size="sm">Default</Button>
             </Tooltip>
@@ -426,10 +426,10 @@ export const Showcase: Story = {
 
         {/* Arrow Options */}
         <div>
-          <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+          <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
             Arrow Options
           </h3>
-          <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)' }}>
             <Tooltip content="With Arrow" showArrow={true}>
               <Button size="sm">With Arrow</Button>
             </Tooltip>
@@ -441,13 +441,13 @@ export const Showcase: Story = {
 
         {/* Content Examples */}
         <div>
-          <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+          <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
             Content Examples
           </h3>
-          <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap' }}>
             <Tooltip
               content={
-                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-xs)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-xs)' }}>
                   <Icon name="check" />
                   <span>With Icon</span>
                 </div>
@@ -459,9 +459,9 @@ export const Showcase: Story = {
 
             <Tooltip
               content={
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-1)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-1)' }}>
                   <strong>Structured Content</strong>
-                  <span style={{ fontSize: 'var(--font-size-sm)' }}>
+                  <span style={{ fontSize: 'var(--bk-font-size-sm)' }}>
                     Tooltips can contain complex layouts.
                   </span>
                 </div>

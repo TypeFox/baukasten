@@ -220,7 +220,7 @@ const ControlledSortingExample = () => {
 
     return (
         <div>
-            <div style={{ marginBottom: 'var(--spacing-3)', padding: 'var(--spacing-2)', backgroundColor: 'var(--color-background-secondary)', borderRadius: 'var(--radius-md)' }}>
+            <div style={{ marginBottom: 'var(--bk-spacing-3)', padding: 'var(--bk-spacing-2)', backgroundColor: 'var(--bk-color-background-secondary)', borderRadius: 'var(--bk-radius-md)' }}>
                 <strong>Current Sort:</strong> {sorting.length > 0
                     ? `${sorting[0].id} (${sorting[0].desc ? 'desc' : 'asc'})`
                     : 'None'}
@@ -262,14 +262,14 @@ const RowSelectionExample = () => {
 
     return (
         <div>
-            <div style={{ marginBottom: 'var(--spacing-3)', padding: 'var(--spacing-2)', backgroundColor: 'var(--color-background-secondary)', borderRadius: 'var(--radius-md)' }}>
+            <div style={{ marginBottom: 'var(--bk-spacing-3)', padding: 'var(--bk-spacing-2)', backgroundColor: 'var(--bk-color-background-secondary)', borderRadius: 'var(--bk-radius-md)' }}>
                 <strong>Selected:</strong> {selectedCount} row(s)
                 {selectedCount > 0 && (
                     <Button
                         size="sm"
                         variant="ghost"
                         onClick={() => setRowSelection({})}
-                        style={{ marginLeft: 'var(--spacing-2)' }}
+                        style={{ marginLeft: 'var(--bk-spacing-2)' }}
                     >
                         Clear
                     </Button>
@@ -438,12 +438,12 @@ export const CustomEmptyState: Story = {
         data: [],
         columns: basicColumns,
         emptyComponent: (
-            <div style={{ textAlign: 'center', padding: 'var(--spacing-6)' }}>
-                <div style={{ fontSize: 'var(--font-size-3xl)', marginBottom: 'var(--spacing-2)' }}>📭</div>
-                <div style={{ fontWeight: 'var(--font-weight-medium)', marginBottom: 'var(--spacing-1)' }}>
+            <div style={{ textAlign: 'center', padding: 'var(--bk-spacing-6)' }}>
+                <div style={{ fontSize: 'var(--bk-font-size-3xl)', marginBottom: 'var(--bk-spacing-2)' }}>📭</div>
+                <div style={{ fontWeight: 'var(--bk-font-weight-medium)', marginBottom: 'var(--bk-spacing-1)' }}>
                     No Data Found
                 </div>
-                <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-secondary-foreground)', marginBottom: 'var(--spacing-3)' }}>
+                <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-secondary-foreground)', marginBottom: 'var(--bk-spacing-3)' }}>
                     Add some users to get started
                 </div>
                 <Button size="sm">Add User</Button>
@@ -461,7 +461,7 @@ const RowClickExample = () => {
     return (
         <div>
             {clickedRow && (
-                <div style={{ marginBottom: 'var(--spacing-3)', padding: 'var(--spacing-2)', backgroundColor: 'var(--color-background-secondary)', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ marginBottom: 'var(--bk-spacing-3)', padding: 'var(--bk-spacing-2)', backgroundColor: 'var(--bk-color-background-secondary)', borderRadius: 'var(--bk-radius-md)' }}>
                     <strong>Clicked:</strong> {clickedRow.name} ({clickedRow.email})
                 </div>
             )}
@@ -495,8 +495,8 @@ const customColumns: ColumnDef<User, unknown>[] = [
         header: 'User',
         cell: ({ row }) => (
             <div>
-                <div style={{ fontWeight: 'var(--font-weight-medium)' }}>{row.original.name}</div>
-                <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-secondary-foreground)' }}>
+                <div style={{ fontWeight: 'var(--bk-font-weight-medium)' }}>{row.original.name}</div>
+                <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-secondary-foreground)' }}>
                     {row.original.email}
                 </div>
             </div>
@@ -530,7 +530,7 @@ const customColumns: ColumnDef<User, unknown>[] = [
         header: 'Actions',
         meta: { align: 'right' },
         cell: () => (
-            <div style={{ display: 'flex', gap: 'var(--spacing-1)', justifyContent: 'flex-end' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-1)', justifyContent: 'flex-end' }}>
                 <Button size="sm" variant="ghost">Edit</Button>
                 <Button size="sm" variant="ghost">Delete</Button>
             </div>
@@ -707,10 +707,10 @@ export const AllFeatures: Story = {
  */
 export const Sizes: Story = {
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
             {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
                 <div key={size}>
-                    <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+                    <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
                         Size: {size.toUpperCase()}
                     </h4>
                     <DataTable

@@ -19,12 +19,12 @@ import React, { useRef, useState } from 'react';
 import * as styles from './Tooltip.css';
 
 // Floating UI numeric values (required by Floating UI API)
-const OFFSET_SPACING = 8; // var(--spacing-2)
-const PADDING_SPACING = 8; // var(--spacing-2)
-const TRANSITION_DURATION = 150; // var(--transition-fast) = 150ms
+const OFFSET_SPACING = 8; // var(--bk-spacing-2)
+const PADDING_SPACING = 8; // var(--bk-spacing-2)
+const TRANSITION_DURATION = 150; // var(--bk-transition-fast) = 150ms
 
 // Default max width for tooltips
-const DEFAULT_MAX_WIDTH = '320px'; // Reasonable width for readability (calc(var(--spacing-20) * 4))
+const DEFAULT_MAX_WIDTH = '320px'; // Reasonable width for readability (calc(var(--bk-spacing-20) * 4))
 
 /**
  * Tooltip placement types - all 12 possible placements
@@ -216,7 +216,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
               ...floatingStyles,
               visibility: isPositioned ? 'visible' : 'hidden',
               maxWidth,
-              zIndex: 'var(--z-index-tooltip)',
+              zIndex: 'var(--bk-z-index-tooltip)',
             }}
             {...getFloatingProps()}
           >

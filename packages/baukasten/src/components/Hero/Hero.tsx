@@ -61,7 +61,7 @@ export interface HeroProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
  * Perfect for landing pages, section headers, or important announcements.
  *
  * Features:
- * - Large hero typography using semantic tokens (--font-size-hero, --font-size-hero-description)
+ * - Large hero typography using semantic tokens (--bk-font-size-hero, --bk-font-size-hero-description)
  * - Flexible sizing from 20vh (sm) to 100vh (full)
  * - Text alignment options (left, center, right)
  * - Semantic background colors that adapt to VSCode themes
@@ -96,7 +96,7 @@ export interface HeroProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
  *   description="Get started in minutes"
  *   align="center"
  * >
- *   <div style={{ display: 'flex', gap: 'var(--spacing-4)', marginTop: 'var(--spacing-6)' }}>
+ *   <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', marginTop: 'var(--bk-spacing-6)' }}>
  *     <Button variant="primary" size="lg">Get Started</Button>
  *     <Button variant="secondary" size="lg">Learn More</Button>
  *   </div>

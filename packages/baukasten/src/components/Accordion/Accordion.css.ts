@@ -9,8 +9,8 @@ import { style, globalStyle } from '@vanilla-extract/css';
 export const accordion = style({
   display: 'flex',
   flexDirection: 'column',
-  border: 'var(--border-width-1) solid var(--color-border)',
-  borderRadius: 'var(--radius-md)',
+  border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
+  borderRadius: 'var(--bk-radius-md)',
   overflow: 'hidden',
 });
 
@@ -19,5 +19,5 @@ export const accordion = style({
  * Uses globalStyle since we're targeting child elements
  */
 globalStyle(`${accordion} > * + *`, {
-  borderTop: 'var(--border-width-1) solid var(--color-border)',
+  borderTop: 'var(--bk-border-width-1) solid var(--bk-color-border)',
 });

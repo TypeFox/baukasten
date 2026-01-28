@@ -84,7 +84,7 @@ All design tokens are defined in `packages/baukasten/src/styles/`:
 
 ### CSS Variables
 
-Design tokens are exported as CSS custom properties (e.g., `--color-primary`, `--padding-md`, `--font-size-md`) that map to VSCode theme variables by default but can be customized.
+Design tokens are exported as CSS custom properties (e.g., `--bk-color-primary`, `--bk-padding-md`, `--bk-font-size-md`) that map to VSCode theme variables by default but can be customized.
 
 ### Critical Rule: Use Semantic Tokens
 
@@ -92,9 +92,9 @@ Design tokens are exported as CSS custom properties (e.g., `--color-primary`, `-
 
 ```tsx
 // ✅ CORRECT
-background-color: var(--color-primary);
-padding: var(--padding-md);
-font-size: var(--font-size-md);
+background-color: var(--bk-color-primary);
+padding: var(--bk-padding-md);
+font-size: var(--bk-font-size-md);
 
 // ❌ WRONG
 background-color: #007acc;              // Never hardcode
@@ -265,22 +265,22 @@ export const baseButton = style({
   border: '1px solid transparent',
   cursor: 'pointer',
   fontFamily: 'inherit',
-  transition: 'var(--transition-colors)',
+  transition: 'var(--bk-transition-colors)',
   outline: 'none',
 
   // Use CSS variables for design tokens
-  padding: 'var(--padding-md)',
-  fontSize: 'var(--font-size-md)',
-  backgroundColor: 'var(--color-primary)',
-  color: 'var(--color-primary-foreground)',
+  padding: 'var(--bk-padding-md)',
+  fontSize: 'var(--bk-font-size-md)',
+  backgroundColor: 'var(--bk-color-primary)',
+  color: 'var(--bk-color-primary-foreground)',
 
   // Pseudo-selectors
   ':hover:not(:disabled)': {
-    backgroundColor: 'var(--color-primary-hover)',
+    backgroundColor: 'var(--bk-color-primary-hover)',
   },
 
   ':disabled': {
-    opacity: 'var(--opacity-disabled)',
+    opacity: 'var(--bk-opacity-disabled)',
     cursor: 'not-allowed',
   },
 });
@@ -295,26 +295,26 @@ Use `styleVariants` for simple variant maps:
 import { style, styleVariants } from '@vanilla-extract/css';
 
 const base = style({
-  padding: 'var(--padding-md)',
+  padding: 'var(--bk-padding-md)',
 });
 
 // Simple variants
 export const buttonSize = styleVariants({
   xs: [base, {
-    fontSize: 'var(--font-size-xs)',
-    minHeight: 'var(--size-xs)',
+    fontSize: 'var(--bk-font-size-xs)',
+    minHeight: 'var(--bk-size-xs)',
   }],
   sm: [base, {
-    fontSize: 'var(--font-size-sm)',
-    minHeight: 'var(--size-sm)',
+    fontSize: 'var(--bk-font-size-sm)',
+    minHeight: 'var(--bk-size-sm)',
   }],
   md: [base, {
-    fontSize: 'var(--font-size-md)',
-    minHeight: 'var(--size-md)',
+    fontSize: 'var(--bk-font-size-md)',
+    minHeight: 'var(--bk-size-md)',
   }],
   lg: [base, {
-    fontSize: 'var(--font-size-base)',
-    minHeight: 'var(--size-lg)',
+    fontSize: 'var(--bk-font-size-base)',
+    minHeight: 'var(--bk-size-lg)',
   }],
 });
 ```
@@ -336,35 +336,35 @@ export const button = recipe({
     border: '1px solid transparent',
     cursor: 'pointer',
     fontFamily: 'inherit',
-    transition: 'var(--transition-colors)',
+    transition: 'var(--bk-transition-colors)',
     outline: 'none',
     whiteSpace: 'nowrap',
     textDecoration: 'none',
-    gap: 'var(--gap-sm)',
+    gap: 'var(--bk-gap-sm)',
   },
 
   variants: {
     // First variant dimension
     variant: {
       primary: {
-        backgroundColor: 'var(--color-primary)',
-        color: 'var(--color-primary-foreground)',
+        backgroundColor: 'var(--bk-color-primary)',
+        color: 'var(--bk-color-primary-foreground)',
         ':hover:not(:disabled)': {
-          backgroundColor: 'var(--color-primary-hover)',
+          backgroundColor: 'var(--bk-color-primary-hover)',
         },
       },
       secondary: {
-        backgroundColor: 'var(--color-secondary)',
-        color: 'var(--color-secondary-foreground)',
+        backgroundColor: 'var(--bk-color-secondary)',
+        color: 'var(--bk-color-secondary-foreground)',
         ':hover:not(:disabled)': {
-          backgroundColor: 'var(--color-secondary-hover)',
+          backgroundColor: 'var(--bk-color-secondary-hover)',
         },
       },
       ghost: {
         backgroundColor: 'transparent',
-        color: 'var(--color-foreground)',
+        color: 'var(--bk-color-foreground)',
         ':hover:not(:disabled)': {
-          backgroundColor: 'var(--color-secondary-hover)',
+          backgroundColor: 'var(--bk-color-secondary-hover)',
         },
       },
     },
@@ -372,19 +372,19 @@ export const button = recipe({
     // Second variant dimension
     size: {
       xs: {
-        padding: 'var(--padding-xs)',
-        fontSize: 'var(--font-size-xs)',
-        minHeight: 'var(--size-xs)',
+        padding: 'var(--bk-padding-xs)',
+        fontSize: 'var(--bk-font-size-xs)',
+        minHeight: 'var(--bk-size-xs)',
       },
       sm: {
-        padding: 'var(--padding-sm)',
-        fontSize: 'var(--font-size-sm)',
-        minHeight: 'var(--size-sm)',
+        padding: 'var(--bk-padding-sm)',
+        fontSize: 'var(--bk-font-size-sm)',
+        minHeight: 'var(--bk-size-sm)',
       },
       md: {
-        padding: 'var(--padding-md)',
-        fontSize: 'var(--font-size-md)',
-        minHeight: 'var(--size-md)',
+        padding: 'var(--bk-padding-md)',
+        fontSize: 'var(--bk-font-size-md)',
+        minHeight: 'var(--bk-size-md)',
       },
     },
 
@@ -392,19 +392,19 @@ export const button = recipe({
     outline: {
       true: {
         backgroundColor: 'transparent',
-        borderColor: 'var(--color-primary)',
+        borderColor: 'var(--bk-color-primary)',
       },
       false: {},
     },
 
     circular: {
       true: {
-        borderRadius: 'var(--radius-full)',
+        borderRadius: 'var(--bk-radius-full)',
         aspectRatio: '1',
         padding: '0',
       },
       false: {
-        borderRadius: 'var(--radius-sm)',
+        borderRadius: 'var(--bk-radius-sm)',
       },
     },
   },
@@ -417,11 +417,11 @@ export const button = recipe({
         outline: true,
       },
       style: {
-        color: 'var(--color-primary)',
-        borderColor: 'var(--color-primary)',
+        color: 'var(--bk-color-primary)',
+        borderColor: 'var(--bk-color-primary)',
         ':hover:not(:disabled)': {
-          backgroundColor: 'var(--color-primary)',
-          color: 'var(--color-primary-foreground)',
+          backgroundColor: 'var(--bk-color-primary)',
+          color: 'var(--bk-color-primary-foreground)',
         },
       },
     },
@@ -477,8 +477,8 @@ export const Button: React.FC<ButtonProps> = ({
 1. **Always Use CSS Variables for Design Tokens**
    ```typescript
    // ✅ CORRECT
-   backgroundColor: 'var(--color-primary)',
-   padding: 'var(--padding-md)',
+   backgroundColor: 'var(--bk-color-primary)',
+   padding: 'var(--bk-padding-md)',
 
    // ❌ WRONG
    backgroundColor: '#007acc',
@@ -492,8 +492,8 @@ export const Button: React.FC<ButtonProps> = ({
 
    // ✅ CORRECT - Use variants or CSS variables
    export const theme = styleVariants({
-     light: { backgroundColor: 'var(--color-background)' },
-     dark: { backgroundColor: 'var(--color-background-dark)' },
+     light: { backgroundColor: 'var(--bk-color-background)' },
+     dark: { backgroundColor: 'var(--bk-color-background-dark)' },
    });
    ```
 
@@ -530,12 +530,12 @@ export const Button: React.FC<ButtonProps> = ({
    export const button = style({
      // Pseudo-classes
      ':hover': { opacity: 0.8 },
-     ':focus-visible': { outline: '2px solid var(--color-focus)' },
+     ':focus-visible': { outline: '2px solid var(--bk-color-focus)' },
      ':disabled': { opacity: 0.5 },
 
      // Nested selectors
      selectors: {
-       '&:hover:not(:disabled)': { backgroundColor: 'var(--color-hover)' },
+       '&:hover:not(:disabled)': { backgroundColor: 'var(--bk-color-hover)' },
        '& svg': { width: '1em', height: '1em' },
      },
    });
@@ -546,11 +546,11 @@ export const Button: React.FC<ButtonProps> = ({
    import { style } from '@vanilla-extract/css';
 
    export const responsive = style({
-     padding: 'var(--padding-sm)',
+     padding: 'var(--bk-padding-sm)',
 
      '@media': {
        'screen and (min-width: 768px)': {
-         padding: 'var(--padding-md)',
+         padding: 'var(--bk-padding-md)',
        },
      },
    });

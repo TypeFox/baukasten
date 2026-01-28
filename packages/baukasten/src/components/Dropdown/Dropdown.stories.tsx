@@ -107,7 +107,7 @@ export const Placements: Story = {
     children: null,
   },
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'var(--spacing-12)', padding: 'var(--spacing-12)' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'var(--bk-spacing-12)', padding: 'var(--bk-spacing-12)' }}>
       <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
         <Dropdown
           trigger={<Button>Bottom Start</Button>}
@@ -219,7 +219,7 @@ export const MenuSizes: Story = {
     children: null,
   },
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-lg)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-lg)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
       <Dropdown trigger={<Button size="sm">Small</Button>}>
         <Menu size="sm">
           <MenuItem icon={<Icon name="file" />}>New File</MenuItem>
@@ -325,20 +325,20 @@ export const UserProfileMenu: Story = {
       <div style={{ minWidth: '220px' }}>
         {/* User header with custom styling */}
         <div style={{
-          padding: 'var(--padding-md)',
-          borderBottom: '1px solid var(--color-divider)',
-          marginBottom: 'var(--spacing-1)'
+          padding: 'var(--bk-padding-md)',
+          borderBottom: '1px solid var(--bk-color-divider)',
+          marginBottom: 'var(--bk-spacing-1)'
         }}>
           <div style={{
-            fontWeight: 'var(--font-weight-semibold)',
-            fontSize: 'var(--font-size-base)',
-            marginBottom: 'var(--spacing-0-5)'
+            fontWeight: 'var(--bk-font-weight-semibold)',
+            fontSize: 'var(--bk-font-size-base)',
+            marginBottom: 'var(--bk-spacing-0-5)'
           }}>
             Jane Developer
           </div>
           <div style={{
-            fontSize: 'var(--font-size-sm)',
-            color: 'var(--color-foreground-muted)'
+            fontSize: 'var(--bk-font-size-sm)',
+            color: 'var(--bk-color-foreground-muted)'
           }}>
             jane.dev@example.com
           </div>
@@ -451,22 +451,22 @@ export const WithForm: Story = {
         closeOnClick={false}
       >
         <div style={{
-          padding: 'var(--padding-lg)',
+          padding: 'var(--bk-padding-lg)',
           minWidth: '280px',
           display: 'flex',
           flexDirection: 'column',
-          gap: 'var(--gap-md)'
+          gap: 'var(--bk-gap-md)'
         }}>
           <div style={{
-            fontSize: 'var(--font-size-lg)',
-            fontWeight: 'var(--font-weight-semibold)',
-            marginBottom: 'var(--spacing-1)'
+            fontSize: 'var(--bk-font-size-lg)',
+            fontWeight: 'var(--bk-font-weight-semibold)',
+            marginBottom: 'var(--bk-spacing-1)'
           }}>
             Welcome Back
           </div>
 
           <div>
-            <div style={{ fontSize: 'var(--font-size-sm)', marginBottom: 'var(--spacing-1)' }}>Email</div>
+            <div style={{ fontSize: 'var(--bk-font-size-sm)', marginBottom: 'var(--bk-spacing-1)' }}>Email</div>
             <Input
               type="email"
               placeholder="you@example.com"
@@ -477,7 +477,7 @@ export const WithForm: Story = {
           </div>
 
           <div>
-            <div style={{ fontSize: 'var(--font-size-sm)', marginBottom: 'var(--spacing-1)' }}>Password</div>
+            <div style={{ fontSize: 'var(--bk-font-size-sm)', marginBottom: 'var(--bk-spacing-1)' }}>Password</div>
             <Input
               type="password"
               placeholder="••••••••"
@@ -496,8 +496,8 @@ export const WithForm: Story = {
           </Button>
 
           <div style={{
-            fontSize: 'var(--font-size-sm)',
-            color: 'var(--color-link)',
+            fontSize: 'var(--bk-font-size-sm)',
+            color: 'var(--bk-color-link)',
             textAlign: 'center',
             cursor: 'pointer'
           }}>
@@ -534,12 +534,12 @@ export const WithCustomContent: Story = {
       }
       closeOnClick={false}
     >
-      <div style={{ minWidth: '260px', padding: 'var(--padding-md)' }}>
+      <div style={{ minWidth: '260px', padding: 'var(--bk-padding-md)' }}>
         {/* Custom header */}
         <div style={{
-          fontSize: 'var(--font-size-lg)',
-          fontWeight: 'var(--font-weight-semibold)',
-          marginBottom: 'var(--spacing-3)'
+          fontSize: 'var(--bk-font-size-lg)',
+          fontWeight: 'var(--bk-font-weight-semibold)',
+          marginBottom: 'var(--bk-spacing-3)'
         }}>
           Project Overview
         </div>
@@ -548,25 +548,25 @@ export const WithCustomContent: Story = {
         <div style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          gap: 'var(--gap-md)',
-          marginBottom: 'var(--spacing-3)',
-          padding: 'var(--padding-sm)',
-          background: 'var(--color-background-secondary)',
-          borderRadius: 'var(--radius-md)'
+          gap: 'var(--bk-gap-md)',
+          marginBottom: 'var(--bk-spacing-3)',
+          padding: 'var(--bk-padding-sm)',
+          background: 'var(--bk-color-background-secondary)',
+          borderRadius: 'var(--bk-radius-md)'
         }}>
           <div>
-            <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+            <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
               Files
             </div>
-            <div style={{ fontSize: 'var(--font-size-xl)', fontWeight: 'var(--font-weight-bold)' }}>
+            <div style={{ fontSize: 'var(--bk-font-size-xl)', fontWeight: 'var(--bk-font-weight-bold)' }}>
               247
             </div>
           </div>
           <div>
-            <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+            <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
               Lines
             </div>
-            <div style={{ fontSize: 'var(--font-size-xl)', fontWeight: 'var(--font-weight-bold)' }}>
+            <div style={{ fontSize: 'var(--bk-font-size-xl)', fontWeight: 'var(--bk-font-weight-bold)' }}>
               12.4K
             </div>
           </div>
@@ -604,7 +604,7 @@ export const ControlledMode: Story = {
     const [open, setOpen] = useState(false);
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', alignItems: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'center' }}>
         <Badge variant={open ? 'success' : 'default'}>
           Dropdown is {open ? 'Open' : 'Closed'}
         </Badge>
@@ -621,7 +621,7 @@ export const ControlledMode: Story = {
           </Menu>
         </Dropdown>
 
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)' }}>
           <Button variant="secondary" size="sm" onClick={() => setOpen(!open)}>
             Toggle
           </Button>
@@ -653,7 +653,7 @@ export const DifferentTriggers: Story = {
     children: null,
   },
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-lg)', flexWrap: 'wrap', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-lg)', flexWrap: 'wrap', alignItems: 'center' }}>
       {/* Primary button */}
       <Dropdown
         trigger={<Button variant="primary">Primary</Button>}
@@ -698,15 +698,15 @@ export const DifferentTriggers: Story = {
       <Dropdown
         trigger={
           <div style={{
-            padding: 'var(--padding-sm) var(--padding-md)',
-            background: 'var(--color-secondary)',
-            color: 'var(--color-secondary-foreground)',
-            borderRadius: 'var(--radius-md)',
+            padding: 'var(--bk-padding-sm) var(--bk-padding-md)',
+            background: 'var(--bk-color-secondary)',
+            color: 'var(--bk-color-secondary-foreground)',
+            borderRadius: 'var(--bk-radius-md)',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
-            gap: 'var(--gap-sm)',
-            fontWeight: 'var(--font-weight-medium)'
+            gap: 'var(--bk-gap-sm)',
+            fontWeight: 'var(--bk-font-weight-medium)'
           }}>
             <Icon name="person" />
             <span>Profile</span>
@@ -741,7 +741,7 @@ export const DisabledState: Story = {
     children: null,
   },
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-md)', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-md)', alignItems: 'center' }}>
       <Dropdown
         trigger={<Button>Enabled</Button>}
       >
@@ -780,7 +780,7 @@ export const CloseOnClickBehavior: Story = {
     children: null,
   },
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-lg)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-lg)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
       {/* Default: closes on click */}
       <Dropdown
         trigger={<Button>Default (Closes)</Button>}
@@ -798,11 +798,11 @@ export const CloseOnClickBehavior: Story = {
         trigger={<Button>Stays Open</Button>}
         closeOnClick={false}
       >
-        <div style={{ minWidth: '200px', padding: 'var(--padding-md)' }}>
+        <div style={{ minWidth: '200px', padding: 'var(--bk-padding-md)' }}>
           <div style={{
-            fontSize: 'var(--font-size-sm)',
-            fontWeight: 'var(--font-weight-semibold)',
-            marginBottom: 'var(--spacing-2)'
+            fontSize: 'var(--bk-font-size-sm)',
+            fontWeight: 'var(--bk-font-weight-semibold)',
+            marginBottom: 'var(--bk-spacing-2)'
           }}>
             Select Options
           </div>
@@ -811,7 +811,7 @@ export const CloseOnClickBehavior: Story = {
             <MenuItem icon={<Icon name="circle-outline" />}>Option B</MenuItem>
             <MenuItem icon={<Icon name="circle-outline" />}>Option C</MenuItem>
           </Menu>
-          <div style={{ marginTop: 'var(--spacing-2)' }}>
+          <div style={{ marginTop: 'var(--bk-spacing-2)' }}>
             <Button variant="primary" size="sm" width="block">
               Apply
             </Button>
@@ -838,13 +838,13 @@ export const Showcase: Story = {
     children: null,
   },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-10)', padding: 'var(--spacing-8)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-10)', padding: 'var(--bk-spacing-8)' }}>
       {/* Placements */}
       <section>
-        <h3 style={{ marginBottom: 'var(--spacing-4)', fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-bold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)' }}>
           Placements
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-md)', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-md)', flexWrap: 'wrap' }}>
           <Dropdown trigger={<Button size="sm">Bottom Start</Button>} placement="bottom-start">
             <Menu size="sm">
               <MenuItem icon={<Icon name="arrow-down" />}>Below Left</MenuItem>
@@ -870,10 +870,10 @@ export const Showcase: Story = {
 
       {/* Menu Patterns */}
       <section>
-        <h3 style={{ marginBottom: 'var(--spacing-4)', fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-bold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)' }}>
           Menu Patterns
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-lg)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-lg)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
           {/* Simple Menu */}
           <Dropdown trigger={<Button size="sm"><Icon name="list-unordered" />Simple</Button>}>
             <Menu size="sm">
@@ -911,11 +911,11 @@ export const Showcase: Story = {
           {/* User Profile */}
           <Dropdown trigger={<Button size="sm"><Icon name="account" />Profile</Button>}>
             <div style={{ minWidth: '200px' }}>
-              <div style={{ padding: 'var(--padding-sm)', borderBottom: '1px solid var(--color-divider)', marginBottom: 'var(--spacing-1)' }}>
-                <div style={{ fontWeight: 'var(--font-weight-semibold)', fontSize: 'var(--font-size-sm)' }}>
+              <div style={{ padding: 'var(--bk-padding-sm)', borderBottom: '1px solid var(--bk-color-divider)', marginBottom: 'var(--bk-spacing-1)' }}>
+                <div style={{ fontWeight: 'var(--bk-font-weight-semibold)', fontSize: 'var(--bk-font-size-sm)' }}>
                   John Doe
                 </div>
-                <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>
+                <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
                   john@example.com
                 </div>
               </div>
@@ -932,10 +932,10 @@ export const Showcase: Story = {
 
       {/* Trigger Variations */}
       <section>
-        <h3 style={{ marginBottom: 'var(--spacing-4)', fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-bold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)' }}>
           Trigger Variations
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Dropdown trigger={<Button variant="primary" size="sm">Primary</Button>}>
             <Menu size="sm"><MenuItem>Action</MenuItem></Menu>
           </Dropdown>
@@ -960,24 +960,24 @@ export const Showcase: Story = {
 
       {/* Custom Content */}
       <section>
-        <h3 style={{ marginBottom: 'var(--spacing-4)', fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-bold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)' }}>
           Custom Content
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-md)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-md)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
           {/* Stats Card */}
           <Dropdown trigger={<Button size="sm"><Icon name="graph" />Stats</Button>} closeOnClick={false}>
-            <div style={{ minWidth: '220px', padding: 'var(--padding-md)' }}>
-              <div style={{ fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--spacing-2)' }}>
+            <div style={{ minWidth: '220px', padding: 'var(--bk-padding-md)' }}>
+              <div style={{ fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-2)' }}>
                 Quick Stats
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--gap-sm)', marginBottom: 'var(--spacing-2)', padding: 'var(--padding-sm)', background: 'var(--color-background-secondary)', borderRadius: 'var(--radius-md)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--bk-gap-sm)', marginBottom: 'var(--bk-spacing-2)', padding: 'var(--bk-padding-sm)', background: 'var(--bk-color-background-secondary)', borderRadius: 'var(--bk-radius-md)' }}>
                 <div>
-                  <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Files</div>
-                  <div style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-bold)' }}>127</div>
+                  <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Files</div>
+                  <div style={{ fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)' }}>127</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Lines</div>
-                  <div style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-bold)' }}>8.2K</div>
+                  <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Lines</div>
+                  <div style={{ fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)' }}>8.2K</div>
                 </div>
               </div>
               <Menu size="sm">
@@ -989,9 +989,9 @@ export const Showcase: Story = {
 
           {/* Form */}
           <Dropdown trigger={<Button size="sm"><Icon name="mail" />Quick Reply</Button>} closeOnClick={false}>
-            <div style={{ minWidth: '240px', padding: 'var(--padding-md)', display: 'flex', flexDirection: 'column', gap: 'var(--gap-sm)' }}>
+            <div style={{ minWidth: '240px', padding: 'var(--bk-padding-md)', display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-sm)' }}>
               <div>
-                <div style={{ fontSize: 'var(--font-size-sm)', marginBottom: 'var(--spacing-1)' }}>Message</div>
+                <div style={{ fontSize: 'var(--bk-font-size-sm)', marginBottom: 'var(--bk-spacing-1)' }}>Message</div>
                 <Input placeholder="Type your reply..." fullWidth />
               </div>
               <Button variant="primary" size="sm" width="block">Send</Button>
@@ -1002,10 +1002,10 @@ export const Showcase: Story = {
 
       {/* States */}
       <section>
-        <h3 style={{ marginBottom: 'var(--spacing-4)', fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-bold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)' }}>
           States
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-md)', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-md)', alignItems: 'center' }}>
           <Dropdown trigger={<Button size="sm">Enabled</Button>}>
             <Menu size="sm"><MenuItem>Normal dropdown</MenuItem></Menu>
           </Dropdown>

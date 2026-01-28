@@ -8,7 +8,7 @@ export const inputWrapper = recipe({
   base: {
     display: 'inline-flex',
     flexDirection: 'column',
-    gap: 'var(--gap-xs)',
+    gap: 'var(--bk-gap-xs)',
   },
 
   variants: {
@@ -30,24 +30,24 @@ export const inputWrapper = recipe({
  */
 export const input = recipe({
   base: {
-    backgroundColor: 'var(--color-input-background)',
-    color: 'var(--color-input-foreground)',
-    border: 'var(--border-width-1) solid var(--color-input-border)',
-    borderRadius: 'var(--radius-sm)',
+    backgroundColor: 'var(--bk-color-input-background)',
+    color: 'var(--bk-color-input-foreground)',
+    border: 'var(--bk-border-width-1) solid var(--bk-color-input-border)',
+    borderRadius: 'var(--bk-radius-sm)',
     fontFamily: 'inherit',
-    transition: 'var(--transition-colors)',
+    transition: 'var(--bk-transition-colors)',
     width: '100%',
 
     selectors: {
       '&:focus': {
-        borderColor: 'var(--color-input-focus-border)',
+        borderColor: 'var(--bk-color-input-focus-border)',
         outline: 'none',
       },
       '&::placeholder': {
-        color: 'var(--color-input-placeholder)',
+        color: 'var(--bk-color-input-placeholder)',
       },
       '&:disabled': {
-        opacity: 'var(--opacity-disabled)',
+        opacity: 'var(--bk-opacity-disabled)',
         cursor: 'not-allowed',
       },
     },
@@ -56,37 +56,37 @@ export const input = recipe({
   variants: {
     size: {
       xs: {
-        padding: 'var(--spacing-0-5) var(--spacing-1-5)',
-        fontSize: 'var(--font-size-xs)',
-        minHeight: 'var(--size-xs)',
+        padding: 'var(--bk-spacing-0-5) var(--bk-spacing-1-5)',
+        fontSize: 'var(--bk-font-size-xs)',
+        minHeight: 'var(--bk-size-xs)',
       },
       sm: {
-        padding: 'var(--spacing-1) var(--spacing-2)',
-        fontSize: 'var(--font-size-sm)',
-        minHeight: 'var(--size-sm)',
+        padding: 'var(--bk-spacing-1) var(--bk-spacing-2)',
+        fontSize: 'var(--bk-font-size-sm)',
+        minHeight: 'var(--bk-size-sm)',
       },
       md: {
-        padding: 'var(--spacing-1-5) var(--spacing-2)',
-        fontSize: 'var(--font-size-md)',
-        minHeight: 'var(--size-md)',
+        padding: 'var(--bk-spacing-1-5) var(--bk-spacing-2)',
+        fontSize: 'var(--bk-font-size-md)',
+        minHeight: 'var(--bk-size-md)',
       },
       lg: {
-        padding: 'var(--spacing-2) var(--spacing-2-5)',
-        fontSize: 'var(--font-size-base)',
-        minHeight: 'var(--size-lg)',
+        padding: 'var(--bk-spacing-2) var(--bk-spacing-2-5)',
+        fontSize: 'var(--bk-font-size-base)',
+        minHeight: 'var(--bk-size-lg)',
       },
       xl: {
-        padding: 'var(--spacing-2-5) var(--spacing-3)',
-        fontSize: 'var(--font-size-lg)',
-        minHeight: 'var(--size-xl)',
+        padding: 'var(--bk-spacing-2-5) var(--bk-spacing-3)',
+        fontSize: 'var(--bk-font-size-lg)',
+        minHeight: 'var(--bk-size-xl)',
       },
     },
     hasError: {
       true: {
-        borderColor: 'var(--color-input-error)',
+        borderColor: 'var(--bk-color-input-error)',
         selectors: {
           '&:focus': {
-            borderColor: 'var(--color-input-error)',
+            borderColor: 'var(--bk-color-input-error)',
           },
         },
       },
@@ -104,7 +104,7 @@ export const input = recipe({
  * Error text
  */
 export const errorText = style({
-  fontSize: 'var(--font-size-xs)',
-  color: 'var(--color-danger)',
-  marginTop: 'var(--spacing-1)',
+  fontSize: 'var(--bk-font-size-xs)',
+  color: 'var(--bk-color-danger)',
+  marginTop: 'var(--bk-spacing-1)',
 });

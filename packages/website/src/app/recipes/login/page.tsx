@@ -23,41 +23,41 @@ export default function LoginRecipesPage() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: 'var(--vscode-editor-background)',
-            padding: 'var(--spacing-8)',
+            backgroundColor: 'var(--bk-color-background)',
+            padding: 'var(--bk-spacing-8)',
           }}>
             <div style={{
               width: '100%',
               maxWidth: '400px',
-              padding: 'var(--spacing-8)',
-              backgroundColor: 'var(--vscode-sideBar-background)',
-              border: '1px solid var(--vscode-panel-border)',
-              borderRadius: 'var(--border-radius-lg)',
+              padding: 'var(--bk-spacing-8)',
+              backgroundColor: 'var(--bk-color-background-secondary)',
+              border: '1px solid var(--bk-color-border)',
+              borderRadius: 'var(--bk-radius-lg)',
             }}>
-              <div style={{ textAlign: 'center', marginBottom: 'var(--spacing-6)' }}>
+              <div style={{ textAlign: 'center', marginBottom: 'var(--bk-spacing-6)' }}>
                 <div style={{
                   width: '56px',
                   height: '56px',
-                  margin: '0 auto var(--spacing-4)',
-                  background: 'linear-gradient(135deg, var(--vscode-button-background) 0%, var(--vscode-button-hoverBackground) 100%)',
-                  borderRadius: 'var(--border-radius-lg)',
+                  margin: '0 auto var(--bk-spacing-4)',
+                  background: 'linear-gradient(135deg, var(--bk-color-primary) 0%, var(--bk-color-primary-hover) 100%)',
+                  borderRadius: 'var(--bk-radius-lg)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
-                  <Icon name="account" style={{ color: 'var(--vscode-button-foreground)', fontSize: '28px' }} />
+                  <Icon name="account" style={{ color: 'var(--bk-color-primary-foreground)', fontSize: '28px' }} />
                 </div>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-2)', textAlign: 'center' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-2)', textAlign: 'center' }}>
                   Welcome Back
                 </Heading>
-                <Text style={{ color: 'var(--vscode-descriptionForeground)' }}>
+                <Text style={{ color: 'var(--bk-color-foreground-muted)' }}>
                   Sign in to your account
                 </Text>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                 <div>
-                  <Text style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontWeight: 500 }}>
+                  <Text style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontWeight: 500 }}>
                     Email
                   </Text>
                   <Input
@@ -70,7 +70,7 @@ export default function LoginRecipesPage() {
                 </div>
 
                 <div>
-                  <Text style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontWeight: 500 }}>
+                  <Text style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontWeight: 500 }}>
                     Password
                   </Text>
                   <Input
@@ -94,7 +94,7 @@ export default function LoginRecipesPage() {
                   Sign In
                 </Button>
 
-                <Text style={{ textAlign: 'center', color: 'var(--vscode-descriptionForeground)', fontSize: 'var(--font-size-sm)' }}>
+                <Text style={{ textAlign: 'center', color: 'var(--bk-color-foreground-muted)', fontSize: 'var(--bk-font-size-sm)' }}>
                   Don't have an account? <Button variant="link" size="sm">Sign up</Button>
                 </Text>
               </div>
@@ -113,41 +113,41 @@ function LoginPage() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'var(--vscode-editor-background)',
-      padding: 'var(--spacing-8)',
+      backgroundColor: 'var(--bk-color-background)',
+      padding: 'var(--bk-spacing-8)',
     }}>
       <div style={{
         width: '100%',
         maxWidth: '400px',
-        padding: 'var(--spacing-8)',
-        backgroundColor: 'var(--vscode-sideBar-background)',
-        border: '1px solid var(--vscode-panel-border)',
-        borderRadius: 'var(--border-radius-lg)',
+        padding: 'var(--bk-spacing-8)',
+        backgroundColor: 'var(--bk-color-background-secondary)',
+        border: '1px solid var(--bk-color-border)',
+        borderRadius: 'var(--bk-radius-lg)',
       }}>
-        <div style={{ textAlign: 'center', marginBottom: 'var(--spacing-6)' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'var(--bk-spacing-6)' }}>
           <div style={{
             width: '56px',
             height: '56px',
-            margin: '0 auto var(--spacing-4)',
-            background: 'linear-gradient(135deg, var(--vscode-button-background) 0%, var(--vscode-button-hoverBackground) 100%)',
-            borderRadius: 'var(--border-radius-lg)',
+            margin: '0 auto var(--bk-spacing-4)',
+            background: 'linear-gradient(135deg, var(--bk-color-primary) 0%, var(--bk-color-primary-hover) 100%)',
+            borderRadius: 'var(--bk-radius-lg)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-            <Icon name="account" style={{ color: 'var(--vscode-button-foreground)', fontSize: '28px' }} />
+            <Icon name="account" style={{ color: 'var(--bk-color-primary-foreground)', fontSize: '28px' }} />
           </div>
-          <Heading level={3} style={{ marginBottom: 'var(--spacing-2)', textAlign: 'center' }}>
+          <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-2)', textAlign: 'center' }}>
             Welcome Back
           </Heading>
-          <Text style={{ color: 'var(--vscode-descriptionForeground)' }}>
+          <Text style={{ color: 'var(--bk-color-foreground-muted)' }}>
             Sign in to your account
           </Text>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
           <div>
-            <Text style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontWeight: 500 }}>
+            <Text style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontWeight: 500 }}>
               Email
             </Text>
             <Input
@@ -160,7 +160,7 @@ function LoginPage() {
           </div>
 
           <div>
-            <Text style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontWeight: 500 }}>
+            <Text style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontWeight: 500 }}>
               Password
             </Text>
             <Input
@@ -184,7 +184,7 @@ function LoginPage() {
             Sign In
           </Button>
 
-          <Text style={{ textAlign: 'center', color: 'var(--vscode-descriptionForeground)' }}>
+          <Text style={{ textAlign: 'center', color: 'var(--bk-color-foreground-muted)' }}>
             Don't have an account? <Button variant="link" size="sm">Sign up</Button>
           </Text>
         </div>
@@ -203,55 +203,55 @@ function LoginPage() {
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: 0,
-            backgroundColor: 'var(--vscode-editor-background)',
+            backgroundColor: 'var(--bk-color-background)',
           }}>
             {/* Left Side - Branding */}
             <div style={{
-              padding: 'var(--spacing-8)',
-              background: 'linear-gradient(135deg, var(--vscode-button-background) 0%, var(--vscode-button-hoverBackground) 100%)',
+              padding: 'var(--bk-spacing-8)',
+              background: 'linear-gradient(135deg, var(--bk-color-primary) 0%, var(--bk-color-primary-hover) 100%)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              color: 'var(--vscode-button-foreground)',
+              color: 'var(--bk-color-primary-foreground)',
             }}>
               <div style={{
                 width: '80px',
                 height: '80px',
-                marginBottom: 'var(--spacing-6)',
+                marginBottom: 'var(--bk-spacing-6)',
                 background: 'rgba(255, 255, 255, 0.2)',
-                borderRadius: 'var(--border-radius-lg)',
+                borderRadius: 'var(--bk-radius-lg)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
                 <Icon name="rocket" style={{ fontSize: '40px' }} />
               </div>
-              <Heading level={2} style={{ marginBottom: 'var(--spacing-3)', color: 'inherit' }}>
+              <Heading level={2} style={{ marginBottom: 'var(--bk-spacing-3)', color: 'inherit' }}>
                 Baukasten
               </Heading>
-              <Text style={{ textAlign: 'center', maxWidth: '300px', opacity: 0.9, color: 'var(--vscode-button-foreground)' }}>
+              <Text style={{ textAlign: 'center', maxWidth: '300px', opacity: 0.9, color: 'var(--bk-color-primary-foreground)' }}>
                 Build beautiful applications with Baukasten UI
               </Text>
             </div>
 
             {/* Right Side - Form */}
             <div style={{
-              padding: 'var(--spacing-8)',
+              padding: 'var(--bk-spacing-8)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
-              backgroundColor: 'var(--vscode-sideBar-background)',
+              backgroundColor: 'var(--bk-color-background-secondary)',
             }}>
               <div style={{ maxWidth: '400px', margin: '0 auto', width: '100%' }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-2)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                   Sign In
                 </Heading>
-                <Text style={{ color: 'var(--vscode-descriptionForeground)', marginBottom: 'var(--spacing-6)' }}>
+                <Text style={{ color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-spacing-6)' }}>
                   Enter your credentials to continue
                 </Text>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                   <Input
                     type="email"
                     placeholder="Email address"
@@ -266,24 +266,24 @@ function LoginPage() {
                     Continue
                   </Button>
 
-                  <div style={{ position: 'relative', textAlign: 'center', margin: 'var(--spacing-4) 0' }}>
+                  <div style={{ position: 'relative', textAlign: 'center', margin: 'var(--bk-spacing-4) 0' }}>
                     <Divider />
                     <span style={{
                       position: 'absolute',
                       top: '50%',
                       left: '50%',
                       transform: 'translate(-50%, -50%)',
-                      backgroundColor: 'var(--vscode-sideBar-background)',
-                      padding: '0 var(--spacing-3)',
-                      color: 'var(--vscode-descriptionForeground)',
-                      fontSize: 'var(--font-size-sm)',
+                      backgroundColor: 'var(--bk-color-background-secondary)',
+                      padding: '0 var(--bk-spacing-3)',
+                      color: 'var(--bk-color-foreground-muted)',
+                      fontSize: 'var(--bk-font-size-sm)',
                     }}>
                       OR
                     </span>
                   </div>
 
                   <Button variant="secondary" width="block">
-                    <Icon name="github" style={{ marginRight: 'var(--spacing-2)' }} />
+                    <Icon name="github" style={{ marginRight: 'var(--bk-spacing-2)' }} />
                     Sign in with GitHub
                   </Button>
                 </div>
@@ -303,16 +303,16 @@ function SplitLoginPage() {
     }}>
       {/* Left Side - Branding */}
       <div style={{
-        padding: 'var(--spacing-8)',
-        background: 'linear-gradient(135deg, var(--vscode-button-background) 0%, var(--vscode-button-hoverBackground) 100%)',
+        padding: 'var(--bk-spacing-8)',
+        background: 'linear-gradient(135deg, var(--bk-color-primary) 0%, var(--bk-color-primary-hover) 100%)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        color: 'var(--vscode-button-foreground)',
+        color: 'var(--bk-color-primary-foreground)',
       }}>
-        <Icon name="rocket" style={{ fontSize: '80px', marginBottom: 'var(--spacing-6)' }} />
-        <Heading level={2} style={{ marginBottom: 'var(--spacing-3)', color: 'inherit' }}>
+        <Icon name="rocket" style={{ fontSize: '80px', marginBottom: 'var(--bk-spacing-6)' }} />
+        <Heading level={2} style={{ marginBottom: 'var(--bk-spacing-3)', color: 'inherit' }}>
           Baukasten
         </Heading>
         <Text style={{ textAlign: 'center', maxWidth: '300px', opacity: 0.9 }}>
@@ -322,28 +322,28 @@ function SplitLoginPage() {
 
       {/* Right Side - Form */}
       <div style={{
-        padding: 'var(--spacing-8)',
+        padding: 'var(--bk-spacing-8)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        backgroundColor: 'var(--vscode-sideBar-background)',
+        backgroundColor: 'var(--bk-color-background-secondary)',
       }}>
         <div style={{ maxWidth: '400px', margin: '0 auto', width: '100%' }}>
           <Heading level={3}>Sign In</Heading>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
             <Input type="email" placeholder="Email address" width="block" />
             <Input type="password" placeholder="Password" width="block" />
             <Button variant="primary" width="block">Continue</Button>
             
-            <div style={{ position: 'relative', textAlign: 'center', margin: 'var(--spacing-4) 0' }}>
+            <div style={{ position: 'relative', textAlign: 'center', margin: 'var(--bk-spacing-4) 0' }}>
               <Divider />
-              <span style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'var(--vscode-sideBar-background)', padding: '0 var(--spacing-3)' }}>
+              <span style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'var(--bk-color-background-secondary)', padding: '0 var(--bk-spacing-3)' }}>
                 OR
               </span>
             </div>
 
             <Button variant="secondary" width="block">
-              <Icon name="github" style={{ marginRight: 'var(--spacing-2)' }} />
+              <Icon name="github" style={{ marginRight: 'var(--bk-spacing-2)' }} />
               Sign in with GitHub
             </Button>
           </div>
@@ -363,22 +363,22 @@ function SplitLoginPage() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: 'var(--vscode-editor-background)',
-            padding: 'var(--spacing-6)',
+            backgroundColor: 'var(--bk-color-background)',
+            padding: 'var(--bk-spacing-6)',
           }}>
             <div style={{
               width: '100%',
               maxWidth: '350px',
-              padding: 'var(--spacing-6)',
-              backgroundColor: 'var(--vscode-sideBar-background)',
-              border: '1px solid var(--vscode-panel-border)',
-              borderRadius: 'var(--border-radius-md)',
+              padding: 'var(--bk-spacing-6)',
+              backgroundColor: 'var(--bk-color-background-secondary)',
+              border: '1px solid var(--bk-color-border)',
+              borderRadius: 'var(--bk-radius-md)',
             }}>
-              <Heading level={4} style={{ marginBottom: 'var(--spacing-4)' }}>
+              <Heading level={4} style={{ marginBottom: 'var(--bk-spacing-4)' }}>
                 Sign In
               </Heading>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                 <Input
                   type="email"
                   placeholder="Email"
@@ -391,7 +391,7 @@ function SplitLoginPage() {
                   size="sm"
                   width="block"
                 />
-                <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
+                <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
                   <Button variant="primary" size="sm" width="block">
                     Sign In
                   </Button>
@@ -413,19 +413,19 @@ function CompactLogin() {
     <div style={{
       width: '100%',
       maxWidth: '350px',
-      padding: 'var(--spacing-6)',
-      backgroundColor: 'var(--vscode-sideBar-background)',
-      border: '1px solid var(--vscode-panel-border)',
-      borderRadius: 'var(--border-radius-md)',
+      padding: 'var(--bk-spacing-6)',
+      backgroundColor: 'var(--bk-color-background-secondary)',
+      border: '1px solid var(--bk-color-border)',
+      borderRadius: 'var(--bk-radius-md)',
     }}>
-      <Heading level={4} style={{ marginBottom: 'var(--spacing-4)' }}>
+      <Heading level={4} style={{ marginBottom: 'var(--bk-spacing-4)' }}>
         Sign In
       </Heading>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
         <Input type="email" placeholder="Email" size="sm" width="block" />
         <Input type="password" placeholder="Password" size="sm" width="block" />
-        <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
           <Button variant="primary" size="sm" width="block">Sign In</Button>
           <Button variant="secondary" size="sm" width="block">Cancel</Button>
         </div>

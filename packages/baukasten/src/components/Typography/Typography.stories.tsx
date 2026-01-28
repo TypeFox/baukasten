@@ -3,12 +3,12 @@ import { Heading, Text, Paragraph, Code, Link, Image } from './index';
 
 // Story-specific styles using a style tag
 const storyStyles = `
-  .typo-container { padding: var(--spacing-6); max-width: 800px; }
-  .typo-section { margin-bottom: var(--spacing-8); padding-bottom: var(--spacing-6); border-bottom: var(--border-width-1) solid var(--color-border); }
+  .typo-container { padding: var(--bk-spacing-6); max-width: 800px; }
+  .typo-section { margin-bottom: var(--bk-spacing-8); padding-bottom: var(--bk-spacing-6); border-bottom: var(--bk-border-width-1) solid var(--bk-color-border); }
   .typo-section:last-child { border-bottom: none; }
-  .typo-section-title { color: var(--color-foreground); font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); margin: 0 0 var(--spacing-4) 0; }
-  .typo-example { margin-bottom: var(--spacing-4); padding: var(--spacing-4); background-color: var(--color-background); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); }
-  .typo-example-label { font-size: var(--font-size-xs); color: var(--color-secondary-foreground); margin-bottom: var(--spacing-2); font-family: var(--font-family-mono); }
+  .typo-section-title { color: var(--bk-color-foreground); font-size: var(--bk-font-size-lg); font-weight: var(--bk-font-weight-bold); margin: 0 0 var(--bk-spacing-4) 0; }
+  .typo-example { margin-bottom: var(--bk-spacing-4); padding: var(--bk-spacing-4); background-color: var(--bk-color-background); border: var(--bk-border-width-1) solid var(--bk-color-border); border-radius: var(--bk-radius-md); }
+  .typo-example-label { font-size: var(--bk-font-size-xs); color: var(--bk-color-secondary-foreground); margin-bottom: var(--bk-spacing-2); font-family: var(--bk-font-family-mono); }
 `;
 
 // Functional components replacing styled components
@@ -108,7 +108,7 @@ const TypographyShowcase = () => (
 
                 <Example>
                     <ExampleLabel>Text sizes</ExampleLabel>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
                         <Text size="xs">Extra small text (xs)</Text>
                         <Text size="sm">Small text (sm)</Text>
                         <Text size="md">Medium text (md)</Text>
@@ -120,7 +120,7 @@ const TypographyShowcase = () => (
 
                 <Example>
                     <ExampleLabel>Semantic colors</ExampleLabel>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
                         <Text color="default">Default text</Text>
                         <Text color="primary">Primary text</Text>
                         <Text color="success">Success text</Text>
@@ -193,7 +193,7 @@ function example8() { return "line 8"; }`}
 
                 <Example>
                     <ExampleLabel>Link variants</ExampleLabel>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
                         <Link href="#default">Default link (hover for underline)</Link>
                         <Link href="#muted" variant="muted">Muted link variant</Link>
                         <Link href="#primary" variant="primary">Primary link variant</Link>
@@ -202,7 +202,7 @@ function example8() { return "line 8"; }`}
 
                 <Example>
                     <ExampleLabel>Underline options</ExampleLabel>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
                         <Link href="#always" underline="always">Always underlined</Link>
                         <Link href="#hover" underline="hover">Underline on hover (default)</Link>
                         <Link href="#never" underline="never">Never underlined</Link>
@@ -227,7 +227,7 @@ function example8() { return "line 8"; }`}
 
                 <Example>
                     <ExampleLabel>Link sizes</ExampleLabel>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
                         <Link href="#xs" size="xs">Extra small link</Link>
                         <Link href="#sm" size="sm">Small link</Link>
                         <Link href="#md" size="md">Medium link</Link>
@@ -305,7 +305,7 @@ function example8() { return "line 8"; }`}
 
                 <Example>
                     <ExampleLabel>Different fit options</ExampleLabel>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--spacing-4)' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--bk-spacing-4)' }}>
                         <div>
                             <Image
                                 src="https://picsum.photos/200/300"
@@ -454,9 +454,9 @@ export const Headings: Story = {
                 <Heading level={5}>Heading Level 5</Heading>
                 <Heading level={6}>Heading Level 6</Heading>
 
-                <div style={{ marginTop: 'var(--spacing-8)' }}>
-                    <Heading level={2} style={{ fontSize: 'var(--font-size-5xl)' }}>Custom Sized Heading</Heading>
-                    <Heading level={1} style={{ fontSize: 'var(--font-size-lg)' }}>Small H1</Heading>
+                <div style={{ marginTop: 'var(--bk-spacing-8)' }}>
+                    <Heading level={2} style={{ fontSize: 'var(--bk-font-size-5xl)' }}>Custom Sized Heading</Heading>
+                    <Heading level={1} style={{ fontSize: 'var(--bk-font-size-lg)' }}>Small H1</Heading>
                 </div>
             </Container>
         </>
@@ -512,7 +512,7 @@ export const TextVariants: Story = {
         <>
             <style>{storyStyles}</style>
             <Container>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                     <div>
                         <Text>Default</Text> | <Text weight="bold">Bold</Text> | <Text italic>Italic</Text> | <Text monospace>Mono</Text>
                     </div>
@@ -556,7 +556,7 @@ export const CodeSnippets: Story = {
                     Inline code example: <Code>const x = 42;</Code>
                 </Paragraph>
 
-                <div style={{ marginTop: 'var(--spacing-4)' }}>
+                <div style={{ marginTop: 'var(--bk-spacing-4)' }}>
                     <Code block>
                         {`function fibonacci(n: number): number {
   if (n <= 1) return n;
@@ -586,7 +586,7 @@ export const Links: Story = {
         <>
             <style>{storyStyles}</style>
             <Container>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
                     <div>
                         <Link href="#default">Default link</Link>
                     </div>
@@ -629,9 +629,9 @@ export const Images: Story = {
         <>
             <style>{storyStyles}</style>
             <Container>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
                     <div>
-                        <Text weight="bold" block style={{ marginBottom: 'var(--spacing-2)' }}>
+                        <Text weight="bold" block style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                             Basic Image
                         </Text>
                         <Image
@@ -641,7 +641,7 @@ export const Images: Story = {
                     </div>
 
                     <div>
-                        <Text weight="bold" block style={{ marginBottom: 'var(--spacing-2)' }}>
+                        <Text weight="bold" block style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                             With Caption
                         </Text>
                         <Image
@@ -653,7 +653,7 @@ export const Images: Story = {
                     </div>
 
                     <div>
-                        <Text weight="bold" block style={{ marginBottom: 'var(--spacing-2)' }}>
+                        <Text weight="bold" block style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                             Circular Avatar
                         </Text>
                         <div style={{ width: '150px' }}>
@@ -667,7 +667,7 @@ export const Images: Story = {
                     </div>
 
                     <div>
-                        <Text weight="bold" block style={{ marginBottom: 'var(--spacing-2)' }}>
+                        <Text weight="bold" block style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                             With Border & Shadow
                         </Text>
                         <Image

@@ -67,11 +67,11 @@ The design system is defined in these files:
 
 ```tsx
 // Use semantic tokens from design system
-background-color: var(--color-primary);
-padding: var(--padding-md);
-font-size: var(--font-size-md);
-border-radius: var(--radius-md);
-transition: var(--transition-colors);
+background-color: var(--bk-color-primary);
+padding: var(--bk-padding-md);
+font-size: var(--bk-font-size-md);
+border-radius: var(--bk-radius-md);
+transition: var(--bk-transition-colors);
 ```
 
 ### ❌ DON'T
@@ -202,11 +202,11 @@ The design system is defined in these files:
 
 ```tsx
 // Use semantic tokens from design system
-background-color: var(--color-primary);
-padding: var(--padding-md);
-font-size: var(--font-size-md);
-border-radius: var(--radius-md);
-transition: var(--transition-colors);
+background-color: var(--bk-color-primary);
+padding: var(--bk-padding-md);
+font-size: var(--bk-font-size-md);
+border-radius: var(--bk-radius-md);
+transition: var(--bk-transition-colors);
 ```
 
 ### ❌ DON'T

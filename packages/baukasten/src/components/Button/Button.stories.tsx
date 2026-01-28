@@ -81,7 +81,7 @@ export const Interactive: Story = {
  */
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="ghost">Ghost</Button>
@@ -102,7 +102,7 @@ export const Variants: Story = {
  */
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'flex-end' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'flex-end' }}>
       <Button size="xs">Extra Small</Button>
       <Button size="sm">Small</Button>
       <Button size="md">Medium</Button>
@@ -124,7 +124,7 @@ export const Sizes: Story = {
  */
 export const OutlineVariants: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
       <Button variant="primary" outline>Primary Outline</Button>
       <Button variant="secondary" outline>Secondary Outline</Button>
       <Button variant="ghost" outline>Ghost Outline</Button>
@@ -144,12 +144,12 @@ export const OutlineVariants: Story = {
  */
 export const CircularButtons: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Circular Sizes
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', alignItems: 'center' }}>
           <Button circular size="xs">+</Button>
           <Button circular size="sm">+</Button>
           <Button circular size="md">+</Button>
@@ -158,10 +158,10 @@ export const CircularButtons: Story = {
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Circular Variants
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', alignItems: 'center' }}>
           <Button variant="primary" circular>✓</Button>
           <Button variant="secondary" circular>×</Button>
           <Button variant="ghost" circular>?</Button>
@@ -184,9 +184,9 @@ export const CircularButtons: Story = {
  */
 export const WidthOptions: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', width: '100%', maxWidth: '400px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', width: '100%', maxWidth: '400px' }}>
       <Button width="block">Block Width (100%)</Button>
-      <div style={{ display: 'flex', gap: 'var(--gap-sm)' }}>
+      <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)' }}>
         <Button width="wide">Wide Button</Button>
         <Button>Auto Width</Button>
       </div>
@@ -207,12 +207,12 @@ export const WidthOptions: Story = {
  */
 export const WithIcons: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Icon + Text
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Button variant="primary">
             <Icon name="check" />
             Save Changes
@@ -228,10 +228,10 @@ export const WithIcons: Story = {
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Icon Only
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', alignItems: 'center' }}>
           <Button variant="primary">
             <Icon name="check" />
           </Button>
@@ -244,10 +244,10 @@ export const WithIcons: Story = {
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Icons Scale with Button Size
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'flex-end' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'flex-end' }}>
           <Button variant="primary" size="xs">
             <Icon name="save" />
             XS Button
@@ -271,10 +271,10 @@ export const WithIcons: Story = {
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Circular Icons Scale with Button Size
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', alignItems: 'center' }}>
           <Button variant="secondary" circular size="xs">
             <Icon name="add" />
           </Button>
@@ -308,12 +308,12 @@ export const WithIcons: Story = {
  */
 export const States: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Disabled Buttons
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Button variant="primary" disabled>Primary Disabled</Button>
           <Button variant="secondary" disabled>Secondary Disabled</Button>
           <Button variant="ghost" disabled>Ghost Disabled</Button>
@@ -337,11 +337,11 @@ export const States: Story = {
  */
 export const Showcase: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', padding: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)' }}>
       {/* Filled Variants */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Filled Variants</h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Filled Variants</h3>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Button variant="primary">Primary</Button>
           <Button variant="secondary">Secondary</Button>
           <Button variant="ghost">Ghost</Button>
@@ -351,8 +351,8 @@ export const Showcase: Story = {
 
       {/* Outline Variants */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Outline Variants</h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Outline Variants</h3>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Button variant="primary" outline>Primary Outline</Button>
           <Button variant="secondary" outline>Secondary Outline</Button>
           <Button variant="ghost" outline>Ghost Outline</Button>
@@ -361,8 +361,8 @@ export const Showcase: Story = {
 
       {/* Size Variations (Primary) */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Sizes</h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'flex-end' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Sizes</h3>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'flex-end' }}>
           <Button variant="primary" size="xs">Extra Small</Button>
           <Button variant="primary" size="sm">Small</Button>
           <Button variant="primary" size="md">Medium</Button>
@@ -373,16 +373,16 @@ export const Showcase: Story = {
 
       {/* Circular Buttons */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Circular Buttons</h3>
-        <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
-          <div style={{ display: 'flex', gap: 'var(--gap-xs)', alignItems: 'center' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Circular Buttons</h3>
+        <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-gap-xs)', alignItems: 'center' }}>
             <Button variant="primary" circular size="xs">+</Button>
             <Button variant="primary" circular size="sm">+</Button>
             <Button variant="primary" circular size="md">+</Button>
             <Button variant="primary" circular size="lg">+</Button>
             <Button variant="primary" circular size="xl">+</Button>
           </div>
-          <div style={{ display: 'flex', gap: 'var(--gap-xs)', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-gap-xs)', alignItems: 'center' }}>
             <Button variant="secondary" circular>×</Button>
             <Button variant="ghost" circular>?</Button>
             <Button variant="primary" circular outline>!</Button>
@@ -392,8 +392,8 @@ export const Showcase: Story = {
 
       {/* With Icons */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>With Icons</h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>With Icons</h3>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Button variant="primary">
             <Icon name="check" />
             With Icon
@@ -413,10 +413,10 @@ export const Showcase: Story = {
 
       {/* Width Variations */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Width Variations</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-sm)', maxWidth: '400px' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Width Variations</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-sm)', maxWidth: '400px' }}>
           <Button variant="primary" width="block">Block Width (100%)</Button>
-          <div style={{ display: 'flex', gap: 'var(--gap-sm)' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)' }}>
             <Button variant="secondary" width="wide">Wide Button</Button>
             <Button variant="ghost">Auto Width</Button>
           </div>
@@ -425,8 +425,8 @@ export const Showcase: Story = {
 
       {/* Disabled States */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Disabled States</h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Disabled States</h3>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Button variant="primary" disabled>Primary Disabled</Button>
           <Button variant="secondary" disabled>Secondary Disabled</Button>
           <Button variant="ghost" disabled>Ghost Disabled</Button>

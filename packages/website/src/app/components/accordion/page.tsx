@@ -205,7 +205,7 @@ function App() {
             <Accordion>
               <AccordionItem
                 title={
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', width: '100%' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)', width: '100%' }}>
                     <Icon name="rocket" />
                     <Text weight="semibold">New Features</Text>
                     <Badge variant="info" size="sm">3</Badge>
@@ -219,7 +219,7 @@ function App() {
               </AccordionItem>
               <AccordionItem
                 title={
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', width: '100%' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)', width: '100%' }}>
                     <Icon name="bug" />
                     <Text>Bug Fixes</Text>
                     <Badge variant="success" size="sm">Fixed</Badge>
@@ -232,7 +232,7 @@ function App() {
               </AccordionItem>
               <AccordionItem
                 title={
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', width: '100%' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)', width: '100%' }}>
                     <Icon name="beaker" />
                     <Text>Experimental</Text>
                     <Badge variant="warning" size="sm">Beta</Badge>
@@ -248,7 +248,7 @@ function App() {
         }
         code={`<AccordionItem
   title={
-    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
       <Icon name="rocket" />
       <Text weight="semibold">New Features</Text>
       <Badge variant="info" size="sm">3</Badge>
@@ -306,14 +306,14 @@ function App() {
             <Accordion>
               <AccordionItem title="Installation Guide" defaultOpen>
                 <Paragraph>Follow these steps to install Baukasten:</Paragraph>
-                <ol style={{ paddingLeft: 'var(--spacing-4)', marginBottom: 'var(--spacing-3)' }}>
-                  <li style={{ marginBottom: 'var(--spacing-1)' }}>
+                <ol style={{ paddingLeft: 'var(--bk-spacing-4)', marginBottom: 'var(--bk-spacing-3)' }}>
+                  <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
                     <Text>Install: <Code>npm install baukasten-ui</Code></Text>
                   </li>
-                  <li style={{ marginBottom: 'var(--spacing-1)' }}>
+                  <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
                     <Text>Import components in your app</Text>
                   </li>
-                  <li style={{ marginBottom: 'var(--spacing-1)' }}>
+                  <li style={{ marginBottom: 'var(--bk-spacing-1)' }}>
                     <Text>Add <Code>GlobalStyles</Code> to root</Text>
                   </li>
                 </ol>

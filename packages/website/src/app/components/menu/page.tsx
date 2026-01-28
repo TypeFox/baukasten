@@ -180,9 +180,9 @@ function App() {
                 title="Sizes"
                 description="Five size options: xs, sm, md (default), lg, and xl. The size affects padding, font size, and icon size for all menu items."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Extra Small
                             </div>
                             <Menu size="xs">
@@ -191,7 +191,7 @@ function App() {
                             </Menu>
                         </div>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Small
                             </div>
                             <Menu size="sm">
@@ -200,7 +200,7 @@ function App() {
                             </Menu>
                         </div>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Medium (Default)
                             </div>
                             <Menu>
@@ -209,7 +209,7 @@ function App() {
                             </Menu>
                         </div>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Large
                             </div>
                             <Menu size="lg">
@@ -244,9 +244,9 @@ function App() {
                 title="With Right Content"
                 description="Menu items support rightContent for displaying keyboard shortcuts, badges, counts, or any React element."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Keyboard Shortcuts
                             </div>
                             <Menu>
@@ -262,7 +262,7 @@ function App() {
                             </Menu>
                         </div>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 With Badges
                             </div>
                             <Menu>
@@ -316,9 +316,9 @@ function App() {
                 title="States"
                 description="Menu items support disabled and selected states. Disabled items cannot be clicked or focused, while selected items indicate the current choice."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Disabled Items
                             </div>
                             <Menu>
@@ -334,7 +334,7 @@ function App() {
                             </Menu>
                         </div>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Selected Items
                             </div>
                             <Menu>
@@ -375,9 +375,9 @@ function App() {
                 title="Icon-Only Menus"
                 description="Icon-only mode reduces horizontal padding, making menus more compact. Perfect for toolbars and side panels."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Icon Only
                             </div>
                             <Menu iconOnly>
@@ -389,7 +389,7 @@ function App() {
                             </Menu>
                         </div>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 With Dividers
                             </div>
                             <Menu iconOnly>
@@ -401,7 +401,7 @@ function App() {
                             </Menu>
                         </div>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Small Size
                             </div>
                             <Menu size="sm" iconOnly>
@@ -440,9 +440,9 @@ function App() {
                 title="Horizontal Menus"
                 description="Horizontal direction is perfect for navigation bars and toolbars. Works with both text and icon-only modes."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', alignItems: 'flex-start' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', alignItems: 'flex-start' }}>
                         <div style={{ width: '100%' }}>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Horizontal with Text
                             </div>
                             <Menu direction="horizontal">
@@ -455,7 +455,7 @@ function App() {
                             </Menu>
                         </div>
                         <div style={{ width: '100%' }}>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Horizontal Icon-Only (Toolbar)
                             </div>
                             <Menu direction="horizontal" iconOnly>
@@ -493,9 +493,9 @@ function App() {
                 title="SubMenus"
                 description="SubMenu component creates nested menus that expand on hover. They can be nested infinitely for complex hierarchies."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Basic SubMenu
                             </div>
                             <Menu>
@@ -510,7 +510,7 @@ function App() {
                             </Menu>
                         </div>
                         <div>
-                            <div style={{ fontSize: 'var(--font-size-xs)', marginBottom: 'var(--spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                            <div style={{ fontSize: 'var(--bk-font-size-xs)', marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                 Nested SubMenus
                             </div>
                             <Menu>
@@ -563,7 +563,7 @@ function App() {
                 title="With Dropdown"
                 description="Menu works seamlessly with Dropdown to create complete dropdown menu solutions. The Menu handles content structure while Dropdown handles positioning and visibility."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-4)', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', flexWrap: 'wrap' }}>
                         <Dropdown
                             trigger={
                                 <Button variant="secondary">
@@ -711,22 +711,22 @@ function InteractiveExample() {
 
             <div
                 style={{
-                    marginTop: 'var(--spacing-8)',
-                    padding: 'var(--spacing-6)',
+                    marginTop: 'var(--bk-spacing-8)',
+                    padding: 'var(--bk-spacing-6)',
                     background: 'var(--vscode-textBlockQuote-background)',
                     border: '1px solid var(--vscode-textBlockQuote-border)',
-                    borderRadius: 'var(--border-radius-md)',
+                    borderRadius: 'var(--bk-radius-md)',
                 }}
             >
-                <h3 style={{ marginTop: 0, marginBottom: 'var(--spacing-3)' }}>Accessibility</h3>
-                <ul style={{ marginBottom: 0, paddingLeft: 'var(--spacing-5)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <h3 style={{ marginTop: 0, marginBottom: 'var(--bk-spacing-3)' }}>Accessibility</h3>
+                <ul style={{ marginBottom: 0, paddingLeft: 'var(--bk-spacing-5)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Keyboard Navigation:</strong> Use <code>Arrow Keys</code> to navigate between items, <code>Enter</code> or <code>Space</code> to activate, <code>Home</code>/<code>End</code> to jump to first/last item
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>SubMenu Navigation:</strong> Use <code>Arrow Right</code> to open submenus, <code>Arrow Left</code> or <code>Escape</code> to close
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Screen Readers:</strong> Menu items have proper <code>role="menu"</code> and <code>role="menuitem"</code> attributes
                     </li>
                     <li>

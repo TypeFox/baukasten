@@ -87,44 +87,44 @@ export const Interactive: Story = {
  */
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', maxWidth: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', maxWidth: '600px' }}>
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Default
         </div>
         <ProgressBar value={75} variant="default" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Primary
         </div>
         <ProgressBar value={75} variant="primary" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Success
         </div>
         <ProgressBar value={75} variant="success" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Warning
         </div>
         <ProgressBar value={75} variant="warning" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Danger
         </div>
         <ProgressBar value={75} variant="danger" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Info
         </div>
         <ProgressBar value={75} variant="info" />
@@ -145,37 +145,37 @@ export const Variants: Story = {
  */
 export const ProgressValues: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', maxWidth: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', maxWidth: '600px' }}>
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           0% - Just started
         </div>
         <ProgressBar value={0} />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           25% - Early progress
         </div>
         <ProgressBar value={25} />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           50% - Halfway there
         </div>
         <ProgressBar value={50} />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           75% - Almost done
         </div>
         <ProgressBar value={75} />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           100% - Complete
         </div>
         <ProgressBar value={100} variant="success" />
@@ -196,7 +196,7 @@ export const ProgressValues: Story = {
  */
 export const WithLabels: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', maxWidth: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', maxWidth: '600px' }}>
       <ProgressBar value={25} showLabel />
       <ProgressBar value={50} showLabel variant="primary" />
       <ProgressBar value={75} showLabel variant="success" />
@@ -217,23 +217,23 @@ export const WithLabels: Story = {
  */
 export const IndeterminateLoading: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', maxWidth: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', maxWidth: '600px' }}>
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Loading (default)
         </div>
         <ProgressBar />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Loading (success)
         </div>
         <ProgressBar variant="success" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Loading (danger)
         </div>
         <ProgressBar variant="danger" />
@@ -254,37 +254,37 @@ export const IndeterminateLoading: Story = {
  */
 export const CustomHeights: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', maxWidth: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', maxWidth: '600px' }}>
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           Thin (4px) - Subtle progress
         </div>
         <ProgressBar value={60} height="4px" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           Default (8px) - Standard
         </div>
         <ProgressBar value={60} height="8px" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           Medium (12px) - More prominent
         </div>
         <ProgressBar value={60} height="12px" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           Thick (16px) - Very prominent
         </div>
         <ProgressBar value={60} height="16px" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           Extra thick (24px) - Maximum visibility
         </div>
         <ProgressBar value={60} height="24px" />
@@ -305,23 +305,23 @@ export const CustomHeights: Story = {
  */
 export const StripedPattern: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', maxWidth: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', maxWidth: '600px' }}>
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Primary with stripes
         </div>
         <ProgressBar value={70} striped height="12px" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Success with stripes
         </div>
         <ProgressBar value={70} variant="success" striped height="12px" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Warning with stripes
         </div>
         <ProgressBar value={70} variant="warning" striped height="12px" />
@@ -342,23 +342,23 @@ export const StripedPattern: Story = {
  */
 export const AnimatedStripes: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', maxWidth: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', maxWidth: '600px' }}>
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Animated stripes (processing)
         </div>
         <ProgressBar value={65} striped animated height="12px" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Success - Animated
         </div>
         <ProgressBar value={85} variant="success" striped animated height="12px" />
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Warning - Animated
         </div>
         <ProgressBar value={45} variant="warning" striped animated height="12px" />
@@ -411,22 +411,22 @@ export const FileUploadSimulation: Story = {
     return (
       <div style={{ maxWidth: '600px' }}>
         <div style={{
-          padding: 'var(--spacing-4)',
-          backgroundColor: 'var(--color-background-elevated)',
-          borderRadius: 'var(--radius-md)',
-          marginBottom: 'var(--spacing-4)',
+          padding: 'var(--bk-spacing-4)',
+          backgroundColor: 'var(--bk-color-background-elevated)',
+          borderRadius: 'var(--bk-radius-md)',
+          marginBottom: 'var(--bk-spacing-4)',
         }}>
           <div style={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            marginBottom: 'var(--spacing-3)',
+            marginBottom: 'var(--bk-spacing-3)',
           }}>
             <div>
-              <div style={{ fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--spacing-1)' }}>
+              <div style={{ fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-1)' }}>
                 document.pdf
               </div>
-              <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+              <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
                 {progress === 100 ? 'Upload complete' : isUploading ? 'Uploading...' : 'Ready to upload'}
               </div>
             </div>
@@ -434,14 +434,14 @@ export const FileUploadSimulation: Story = {
               onClick={startUpload}
               disabled={isUploading}
               style={{
-                padding: 'var(--spacing-2) var(--spacing-3)',
-                backgroundColor: isUploading ? 'var(--color-background)' : 'var(--color-primary)',
-                color: isUploading ? 'var(--color-foreground-muted)' : 'var(--color-primary-foreground)',
+                padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+                backgroundColor: isUploading ? 'var(--bk-color-background)' : 'var(--bk-color-primary)',
+                color: isUploading ? 'var(--bk-color-foreground-muted)' : 'var(--bk-color-primary-foreground)',
                 border: 'none',
-                borderRadius: 'var(--radius-sm)',
+                borderRadius: 'var(--bk-radius-sm)',
                 cursor: isUploading ? 'not-allowed' : 'pointer',
-                fontSize: 'var(--font-size-sm)',
-                fontWeight: 'var(--font-weight-medium)',
+                fontSize: 'var(--bk-font-size-sm)',
+                fontWeight: 'var(--bk-font-weight-medium)',
               }}
             >
               {isUploading ? 'Uploading...' : progress === 100 ? 'Upload Again' : 'Start Upload'}
@@ -468,29 +468,29 @@ export const MultipleTasks: Story = {
   render: () => (
     <div style={{
       maxWidth: '700px',
-      padding: 'var(--spacing-4)',
-      backgroundColor: 'var(--color-background-elevated)',
-      borderRadius: 'var(--radius-md)',
+      padding: 'var(--bk-spacing-4)',
+      backgroundColor: 'var(--bk-color-background-elevated)',
+      borderRadius: 'var(--bk-radius-md)',
     }}>
       <h3 style={{
         marginTop: 0,
-        marginBottom: 'var(--spacing-4)',
-        fontSize: 'var(--font-size-base)',
-        fontWeight: 'var(--font-weight-semibold)',
+        marginBottom: 'var(--bk-spacing-4)',
+        fontSize: 'var(--bk-font-size-base)',
+        fontWeight: 'var(--bk-font-weight-semibold)',
       }}>
         Build Tasks
       </h3>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
         <div>
           <div style={{
             display: 'flex',
             justifyContent: 'space-between',
-            marginBottom: 'var(--spacing-2)',
-            fontSize: 'var(--font-size-sm)',
+            marginBottom: 'var(--bk-spacing-2)',
+            fontSize: 'var(--bk-font-size-sm)',
           }}>
             <span>Compiling TypeScript</span>
-            <span style={{ color: 'var(--color-success)' }}>✓ Complete</span>
+            <span style={{ color: 'var(--bk-color-success)' }}>✓ Complete</span>
           </div>
           <ProgressBar value={100} variant="success" />
         </div>
@@ -499,11 +499,11 @@ export const MultipleTasks: Story = {
           <div style={{
             display: 'flex',
             justifyContent: 'space-between',
-            marginBottom: 'var(--spacing-2)',
-            fontSize: 'var(--font-size-sm)',
+            marginBottom: 'var(--bk-spacing-2)',
+            fontSize: 'var(--bk-font-size-sm)',
           }}>
             <span>Bundling assets</span>
-            <span style={{ color: 'var(--color-foreground-muted)' }}>75%</span>
+            <span style={{ color: 'var(--bk-color-foreground-muted)' }}>75%</span>
           </div>
           <ProgressBar value={75} striped animated />
         </div>
@@ -512,11 +512,11 @@ export const MultipleTasks: Story = {
           <div style={{
             display: 'flex',
             justifyContent: 'space-between',
-            marginBottom: 'var(--spacing-2)',
-            fontSize: 'var(--font-size-sm)',
+            marginBottom: 'var(--bk-spacing-2)',
+            fontSize: 'var(--bk-font-size-sm)',
           }}>
             <span>Running tests</span>
-            <span style={{ color: 'var(--color-foreground-muted)' }}>45%</span>
+            <span style={{ color: 'var(--bk-color-foreground-muted)' }}>45%</span>
           </div>
           <ProgressBar value={45} />
         </div>
@@ -525,11 +525,11 @@ export const MultipleTasks: Story = {
           <div style={{
             display: 'flex',
             justifyContent: 'space-between',
-            marginBottom: 'var(--spacing-2)',
-            fontSize: 'var(--font-size-sm)',
+            marginBottom: 'var(--bk-spacing-2)',
+            fontSize: 'var(--bk-font-size-sm)',
           }}>
             <span>Optimizing images</span>
-            <span style={{ color: 'var(--color-foreground-muted)' }}>Loading...</span>
+            <span style={{ color: 'var(--bk-color-foreground-muted)' }}>Loading...</span>
           </div>
           <ProgressBar variant="info" />
         </div>
@@ -538,11 +538,11 @@ export const MultipleTasks: Story = {
           <div style={{
             display: 'flex',
             justifyContent: 'space-between',
-            marginBottom: 'var(--spacing-2)',
-            fontSize: 'var(--font-size-sm)',
+            marginBottom: 'var(--bk-spacing-2)',
+            fontSize: 'var(--bk-font-size-sm)',
           }}>
             <span>Deploying to production</span>
-            <span style={{ color: 'var(--color-foreground-muted)' }}>Waiting...</span>
+            <span style={{ color: 'var(--bk-color-foreground-muted)' }}>Waiting...</span>
           </div>
           <ProgressBar value={0} variant="default" />
         </div>
@@ -563,20 +563,20 @@ export const MultipleTasks: Story = {
  */
 export const Showcase: Story = {
   render: () => (
-    <div style={{ padding: 'var(--spacing-4)', maxWidth: '800px', margin: '0 auto' }}>
-      <h1 style={{ fontSize: 'var(--font-size-xl)', fontWeight: 'var(--font-weight-bold)', marginBottom: 'var(--spacing-2)' }}>
+    <div style={{ padding: 'var(--bk-spacing-4)', maxWidth: '800px', margin: '0 auto' }}>
+      <h1 style={{ fontSize: 'var(--bk-font-size-xl)', fontWeight: 'var(--bk-font-weight-bold)', marginBottom: 'var(--bk-spacing-2)' }}>
         ProgressBar Component
       </h1>
-      <p style={{ color: 'var(--color-foreground-muted)', marginBottom: 'var(--spacing-6)' }}>
+      <p style={{ color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-spacing-6)' }}>
         Progress indicators for tasks and loading states
       </p>
 
       {/* Variants */}
-      <section style={{ marginBottom: 'var(--spacing-8)' }}>
-        <h2 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--spacing-4)' }}>
+      <section style={{ marginBottom: 'var(--bk-spacing-8)' }}>
+        <h2 style={{ fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-4)' }}>
           Variants
         </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
           <ProgressBar value={70} variant="default" />
           <ProgressBar value={70} variant="primary" />
           <ProgressBar value={70} variant="success" />
@@ -587,11 +587,11 @@ export const Showcase: Story = {
       </section>
 
       {/* Progress Values */}
-      <section style={{ marginBottom: 'var(--spacing-8)' }}>
-        <h2 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--spacing-4)' }}>
+      <section style={{ marginBottom: 'var(--bk-spacing-8)' }}>
+        <h2 style={{ fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-4)' }}>
           Progress Values
         </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
           <ProgressBar value={0} />
           <ProgressBar value={25} />
           <ProgressBar value={50} />
@@ -601,11 +601,11 @@ export const Showcase: Story = {
       </section>
 
       {/* With Labels */}
-      <section style={{ marginBottom: 'var(--spacing-8)' }}>
-        <h2 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--spacing-4)' }}>
+      <section style={{ marginBottom: 'var(--bk-spacing-8)' }}>
+        <h2 style={{ fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-4)' }}>
           With Labels
         </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
           <ProgressBar value={30} showLabel />
           <ProgressBar value={60} showLabel variant="primary" />
           <ProgressBar value={90} showLabel variant="success" />
@@ -613,11 +613,11 @@ export const Showcase: Story = {
       </section>
 
       {/* Indeterminate */}
-      <section style={{ marginBottom: 'var(--spacing-8)' }}>
-        <h2 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--spacing-4)' }}>
+      <section style={{ marginBottom: 'var(--bk-spacing-8)' }}>
+        <h2 style={{ fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-4)' }}>
           Indeterminate Loading
         </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
           <ProgressBar />
           <ProgressBar variant="primary" />
           <ProgressBar variant="info" />
@@ -625,11 +625,11 @@ export const Showcase: Story = {
       </section>
 
       {/* Heights */}
-      <section style={{ marginBottom: 'var(--spacing-8)' }}>
-        <h2 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--spacing-4)' }}>
+      <section style={{ marginBottom: 'var(--bk-spacing-8)' }}>
+        <h2 style={{ fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-4)' }}>
           Custom Heights
         </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
           <ProgressBar value={60} height="4px" />
           <ProgressBar value={60} height="8px" />
           <ProgressBar value={60} height="12px" />
@@ -639,10 +639,10 @@ export const Showcase: Story = {
 
       {/* Striped & Animated */}
       <section>
-        <h2 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--spacing-4)' }}>
+        <h2 style={{ fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-4)' }}>
           Striped & Animated
         </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
           <ProgressBar value={70} striped height="12px" />
           <ProgressBar value={70} striped animated height="12px" />
           <ProgressBar value={70} variant="success" striped animated height="12px" />

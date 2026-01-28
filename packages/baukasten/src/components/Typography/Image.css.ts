@@ -17,10 +17,10 @@ const shimmer = keyframes({
 // Radius mapping
 export const radiusMap = {
   none: '0',
-  sm: 'var(--radius-sm)',
-  md: 'var(--radius-md)',
-  lg: 'var(--radius-lg)',
-  full: 'var(--radius-full)',
+  sm: 'var(--bk-radius-sm)',
+  md: 'var(--bk-radius-md)',
+  lg: 'var(--bk-radius-lg)',
+  full: 'var(--bk-radius-full)',
 } as const;
 
 export const imageWrapper = recipe({
@@ -70,7 +70,7 @@ export const image = recipe({
     display: 'block',
     width: '100%',
     height: '100%',
-    transition: 'var(--transition-base)',
+    transition: 'var(--bk-transition-base)',
   },
 
   variants: {
@@ -112,14 +112,14 @@ export const image = recipe({
 
     bordered: {
       true: {
-        border: 'var(--border-width-1) solid var(--color-border)',
+        border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
       },
       false: {},
     },
 
     shadow: {
       true: {
-        boxShadow: 'var(--shadow-md)',
+        boxShadow: 'var(--bk-shadow-md)',
       },
       false: {},
     },
@@ -154,9 +154,9 @@ export const loadingSkeleton = style({
   inset: 0,
   background: `linear-gradient(
     90deg,
-    var(--color-background-secondary) 0%,
-    var(--color-background-tertiary) 50%,
-    var(--color-background-secondary) 100%
+    var(--bk-color-background-secondary) 0%,
+    var(--bk-color-background-tertiary) 50%,
+    var(--bk-color-background-secondary) 100%
   )`,
   backgroundSize: '200% 100%',
   animation: `${shimmer} ${SHIMMER_DURATION} infinite`,
@@ -173,12 +173,12 @@ export const errorContainer = style({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: 'var(--color-background-secondary)',
-  color: 'var(--color-secondary-foreground)',
-  padding: 'var(--spacing-4)',
+  backgroundColor: 'var(--bk-color-background-secondary)',
+  color: 'var(--bk-color-secondary-foreground)',
+  padding: 'var(--bk-spacing-4)',
   textAlign: 'center',
-  fontSize: 'var(--font-size-sm)',
-  gap: 'var(--spacing-2)',
+  fontSize: 'var(--bk-font-size-sm)',
+  gap: 'var(--bk-spacing-2)',
 });
 
 export const errorContainerRadius = styleVariants(radiusMap, (radius) => ({
@@ -187,23 +187,23 @@ export const errorContainerRadius = styleVariants(radiusMap, (radius) => ({
 
 export const caption = recipe({
   base: {
-    fontSize: 'var(--font-size-sm)',
-    color: 'var(--color-secondary-foreground)',
-    lineHeight: 'var(--line-height-normal)',
+    fontSize: 'var(--bk-font-size-sm)',
+    color: 'var(--bk-color-secondary-foreground)',
+    lineHeight: 'var(--bk-line-height-normal)',
   },
 
   variants: {
     position: {
       bottom: {
-        marginTop: 'var(--spacing-2)',
-        padding: '0 var(--spacing-1)',
+        marginTop: 'var(--bk-spacing-2)',
+        padding: '0 var(--bk-spacing-1)',
       },
       overlay: {
         position: 'absolute',
         bottom: 0,
         left: 0,
         right: 0,
-        padding: 'var(--spacing-3)',
+        padding: 'var(--bk-spacing-3)',
         color: 'white',
         zIndex: 1, // Above gradient overlay
       },

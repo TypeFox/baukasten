@@ -10,46 +10,46 @@ export const badge = recipe({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 'var(--radius-full)',
+    borderRadius: 'var(--bk-radius-full)',
     whiteSpace: 'nowrap',
-    gap: 'var(--gap-xs)',
+    gap: 'var(--bk-gap-xs)',
 
     // Typography
-    fontWeight: 'var(--font-weight-medium)',
+    fontWeight: 'var(--bk-font-weight-medium)',
 
     // Interaction
-    transition: 'var(--transition-colors)',
+    transition: 'var(--bk-transition-colors)',
 
     // Border
-    border: 'var(--border-width-1) solid transparent',
+    border: 'var(--bk-border-width-1) solid transparent',
   },
 
   variants: {
     size: {
       xs: {
-        padding: 'var(--spacing-0-5) var(--spacing-1)',
-        fontSize: 'var(--font-size-xs)',
-        lineHeight: 'var(--line-height-tight)',
+        padding: 'var(--bk-spacing-0-5) var(--bk-spacing-1)',
+        fontSize: 'var(--bk-font-size-xs)',
+        lineHeight: 'var(--bk-line-height-tight)',
       },
       sm: {
-        padding: 'var(--spacing-0-5) var(--spacing-1-5)',
-        fontSize: 'var(--font-size-sm)',
-        lineHeight: 'var(--line-height-tight)',
+        padding: 'var(--bk-spacing-0-5) var(--bk-spacing-1-5)',
+        fontSize: 'var(--bk-font-size-sm)',
+        lineHeight: 'var(--bk-line-height-tight)',
       },
       md: {
-        padding: 'var(--spacing-1) var(--spacing-2)',
-        fontSize: 'var(--font-size-sm)',
-        lineHeight: 'var(--line-height-normal)',
+        padding: 'var(--bk-spacing-1) var(--bk-spacing-2)',
+        fontSize: 'var(--bk-font-size-sm)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       lg: {
-        padding: 'var(--spacing-1-5) var(--spacing-2-5)',
-        fontSize: 'var(--font-size-md)',
-        lineHeight: 'var(--line-height-normal)',
+        padding: 'var(--bk-spacing-1-5) var(--bk-spacing-2-5)',
+        fontSize: 'var(--bk-font-size-md)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
       xl: {
-        padding: 'var(--spacing-2) var(--spacing-3)',
-        fontSize: 'var(--font-size-base)',
-        lineHeight: 'var(--line-height-normal)',
+        padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+        fontSize: 'var(--bk-font-size-base)',
+        lineHeight: 'var(--bk-line-height-normal)',
       },
     },
 
@@ -72,40 +72,40 @@ export const badge = recipe({
     {
       variants: { variant: 'success', outline: false },
       style: {
-        backgroundColor: 'color-mix(in srgb, var(--color-success) 30%, transparent)',
-        color: 'var(--color-success)',
+        backgroundColor: 'color-mix(in srgb, var(--bk-color-success) 30%, transparent)',
+        color: 'var(--bk-color-success)',
         borderColor: 'transparent',
       },
     },
     {
       variants: { variant: 'warning', outline: false },
       style: {
-        backgroundColor: 'color-mix(in srgb, var(--color-warning) 30%, transparent)',
-        color: 'var(--color-warning)',
+        backgroundColor: 'color-mix(in srgb, var(--bk-color-warning) 30%, transparent)',
+        color: 'var(--bk-color-warning)',
         borderColor: 'transparent',
       },
     },
     {
       variants: { variant: 'error', outline: false },
       style: {
-        backgroundColor: 'color-mix(in srgb, var(--color-danger) 30%, transparent)',
-        color: 'var(--color-danger)',
+        backgroundColor: 'color-mix(in srgb, var(--bk-color-danger) 30%, transparent)',
+        color: 'var(--bk-color-danger)',
         borderColor: 'transparent',
       },
     },
     {
       variants: { variant: 'info', outline: false },
       style: {
-        backgroundColor: 'color-mix(in srgb, var(--color-info) 30%, transparent)',
-        color: 'var(--color-info)',
+        backgroundColor: 'color-mix(in srgb, var(--bk-color-info) 30%, transparent)',
+        color: 'var(--bk-color-info)',
         borderColor: 'transparent',
       },
     },
     {
       variants: { variant: 'default', outline: false },
       style: {
-        backgroundColor: 'var(--color-badge-background)',
-        color: 'var(--color-badge-foreground)',
+        backgroundColor: 'var(--bk-color-badge-background)',
+        color: 'var(--bk-color-badge-foreground)',
         borderColor: 'transparent',
       },
     },
@@ -115,40 +115,40 @@ export const badge = recipe({
       variants: { variant: 'success', outline: true },
       style: {
         backgroundColor: 'transparent',
-        color: 'var(--color-success)',
-        borderColor: 'var(--color-success)',
+        color: 'var(--bk-color-success)',
+        borderColor: 'var(--bk-color-success)',
       },
     },
     {
       variants: { variant: 'warning', outline: true },
       style: {
         backgroundColor: 'transparent',
-        color: 'var(--color-warning)',
-        borderColor: 'var(--color-warning)',
+        color: 'var(--bk-color-warning)',
+        borderColor: 'var(--bk-color-warning)',
       },
     },
     {
       variants: { variant: 'error', outline: true },
       style: {
         backgroundColor: 'transparent',
-        color: 'var(--color-danger)',
-        borderColor: 'var(--color-danger)',
+        color: 'var(--bk-color-danger)',
+        borderColor: 'var(--bk-color-danger)',
       },
     },
     {
       variants: { variant: 'info', outline: true },
       style: {
         backgroundColor: 'transparent',
-        color: 'var(--color-info)',
-        borderColor: 'var(--color-info)',
+        color: 'var(--bk-color-info)',
+        borderColor: 'var(--bk-color-info)',
       },
     },
     {
       variants: { variant: 'default', outline: true },
       style: {
         backgroundColor: 'transparent',
-        color: 'var(--color-badge-foreground)',
-        borderColor: 'var(--color-border)',
+        color: 'var(--bk-color-badge-foreground)',
+        borderColor: 'var(--bk-color-border)',
       },
     },
   ],

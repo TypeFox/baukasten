@@ -44,14 +44,14 @@ export default function IconPage() {
 				title="Basic Usage"
 				description="Icons automatically inherit font-size and color from their parent. No size prop needed!"
 				preview={
-					<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-lg)' }}>
-						<div style={{ fontSize: '16px', color: 'var(--color-primary)' }}>
+					<div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-lg)' }}>
+						<div style={{ fontSize: '16px', color: 'var(--bk-color-primary)' }}>
 							<Icon name="check" />
 						</div>
-						<div style={{ fontSize: '20px', color: 'var(--color-success)' }}>
+						<div style={{ fontSize: '20px', color: 'var(--bk-color-success)' }}>
 							<Icon name="check" />
 						</div>
-						<div style={{ fontSize: '24px', color: 'var(--color-warning)' }}>
+						<div style={{ fontSize: '24px', color: 'var(--bk-color-warning)' }}>
 							<Icon name="check" />
 						</div>
 					</div>
@@ -60,7 +60,7 @@ export default function IconPage() {
 
 function App() {
   return (
-    <div style={{ fontSize: '20px', color: 'var(--color-primary)' }}>
+    <div style={{ fontSize: '20px', color: 'var(--bk-color-primary)' }}>
       <Icon name="check" />
     </div>
   );
@@ -110,34 +110,34 @@ function App() {
 				preview={
 					<VariantGrid>
 						<Variant label="Info">
-							<Icon name="info" color="var(--color-info)" size="lg" />
+							<Icon name="info" color="var(--bk-color-info)" size="lg" />
 						</Variant>
 						<Variant label="Success">
-							<Icon name="check" color="var(--color-success)" size="lg" />
+							<Icon name="check" color="var(--bk-color-success)" size="lg" />
 						</Variant>
 						<Variant label="Warning">
-							<Icon name="warning" color="var(--color-warning)" size="lg" />
+							<Icon name="warning" color="var(--bk-color-warning)" size="lg" />
 						</Variant>
 						<Variant label="Danger">
-							<Icon name="error" color="var(--color-danger)" size="lg" />
+							<Icon name="error" color="var(--bk-color-danger)" size="lg" />
 						</Variant>
 						<Variant label="Primary">
-							<Icon name="star" color="var(--color-primary)" size="lg" />
+							<Icon name="star" color="var(--bk-color-primary)" size="lg" />
 						</Variant>
 					</VariantGrid>
 				}
-				code={`<Icon name="info" color="var(--color-info)" size="lg" />
-<Icon name="check" color="var(--color-success)" size="lg" />
-<Icon name="warning" color="var(--color-warning)" size="lg" />
-<Icon name="error" color="var(--color-danger)" size="lg" />
-<Icon name="star" color="var(--color-primary)" size="lg" />`}
+				code={`<Icon name="info" color="var(--bk-color-info)" size="lg" />
+<Icon name="check" color="var(--bk-color-success)" size="lg" />
+<Icon name="warning" color="var(--bk-color-warning)" size="lg" />
+<Icon name="error" color="var(--bk-color-danger)" size="lg" />
+<Icon name="star" color="var(--bk-color-primary)" size="lg" />`}
 			/>
 
 			<Showcase
 				title="Common Icons"
 				description="Frequently used icons throughout VSCode interfaces."
 				preview={
-					<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))', gap: 'var(--spacing-3)', width: '100%' }}>
+					<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))', gap: 'var(--bk-spacing-3)', width: '100%' }}>
 						{[
 							'check', 'close', 'search', 'chevron-right', 'chevron-down',
 							'add', 'remove', 'edit', 'trash', 'save',
@@ -149,12 +149,12 @@ function App() {
 									display: 'flex',
 									flexDirection: 'column',
 									alignItems: 'center',
-									gap: 'var(--gap-xs)',
-									padding: 'var(--spacing-2)',
+									gap: 'var(--bk-gap-xs)',
+									padding: 'var(--bk-spacing-2)',
 								}}
 							>
 								<Icon name={name as any} size="lg" />
-								<span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-secondary-foreground)', textAlign: 'center' }}>
+								<span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-secondary-foreground)', textAlign: 'center' }}>
 									{name}
 								</span>
 							</div>
@@ -222,8 +222,8 @@ function App() {
 				title="With Buttons"
 				description="Icons automatically scale with button size without any size prop."
 				preview={
-					<div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', width: '100%' }}>
-						<div style={{ display: 'flex', gap: 'var(--gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
+					<div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%' }}>
+						<div style={{ display: 'flex', gap: 'var(--bk-gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
 							<Button size="xs">
 								<Icon name="save" />
 								XS Button
@@ -245,7 +245,7 @@ function App() {
 								XL Button
 							</Button>
 						</div>
-						<div style={{ display: 'flex', gap: 'var(--gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
+						<div style={{ display: 'flex', gap: 'var(--bk-gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
 							<Button size="sm" circular>
 								<Icon name="add" />
 							</Button>
@@ -274,7 +274,7 @@ function App() {
 				title="File & Folder Icons"
 				description="Commonly used icons for file explorers and document interfaces."
 				preview={
-					<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))', gap: 'var(--spacing-3)', width: '100%' }}>
+					<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))', gap: 'var(--bk-spacing-3)', width: '100%' }}>
 						{[
 							'file', 'file-code', 'file-text', 'folder', 'folder-opened',
 							'new-file', 'new-folder', 'root-folder'
@@ -285,12 +285,12 @@ function App() {
 									display: 'flex',
 									flexDirection: 'column',
 									alignItems: 'center',
-									gap: 'var(--gap-xs)',
-									padding: 'var(--spacing-2)',
+									gap: 'var(--bk-gap-xs)',
+									padding: 'var(--bk-spacing-2)',
 								}}
 							>
 								<Icon name={name as any} size="lg" />
-								<span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-secondary-foreground)', textAlign: 'center' }}>
+								<span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-secondary-foreground)', textAlign: 'center' }}>
 									{name}
 								</span>
 							</div>
@@ -311,16 +311,16 @@ function App() {
 				preview={
 					<VariantGrid>
 						<Variant label="check">
-							<Icon name="check" color="var(--color-success)" size="lg" />
+							<Icon name="check" color="var(--bk-color-success)" size="lg" />
 						</Variant>
 						<Variant label="error">
-							<Icon name="error" color="var(--color-danger)" size="lg" />
+							<Icon name="error" color="var(--bk-color-danger)" size="lg" />
 						</Variant>
 						<Variant label="warning">
-							<Icon name="warning" color="var(--color-warning)" size="lg" />
+							<Icon name="warning" color="var(--bk-color-warning)" size="lg" />
 						</Variant>
 						<Variant label="info">
-							<Icon name="info" color="var(--color-info)" size="lg" />
+							<Icon name="info" color="var(--bk-color-info)" size="lg" />
 						</Variant>
 						<Variant label="bell">
 							<Icon name="bell" size="lg" />
@@ -330,10 +330,10 @@ function App() {
 						</Variant>
 					</VariantGrid>
 				}
-				code={`<Icon name="check" color="var(--color-success)" />
-<Icon name="error" color="var(--color-danger)" />
-<Icon name="warning" color="var(--color-warning)" />
-<Icon name="info" color="var(--color-info)" />
+				code={`<Icon name="check" color="var(--bk-color-success)" />
+<Icon name="error" color="var(--bk-color-danger)" />
+<Icon name="warning" color="var(--bk-color-warning)" />
+<Icon name="info" color="var(--bk-color-info)" />
 <Icon name="bell" />
 <Icon name="bell-dot" />`}
 				props={iconProps}

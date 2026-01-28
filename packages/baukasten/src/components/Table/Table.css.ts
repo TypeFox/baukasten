@@ -8,9 +8,9 @@ export const table = recipe({
     base: {
         borderCollapse: 'collapse',
         borderSpacing: 0,
-        color: 'var(--color-foreground)',
+        color: 'var(--bk-color-foreground)',
         fontFamily: 'inherit',
-        backgroundColor: 'var(--color-background)',
+        backgroundColor: 'var(--bk-color-background)',
     },
     variants: {
         fullWidth: {
@@ -23,10 +23,10 @@ export const table = recipe({
         },
         bordered: {
             true: {
-                border: 'var(--border-width-1) solid var(--color-border)',
+                border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
             },
             false: {
-                border: 'var(--border-width-1) solid transparent',
+                border: 'var(--bk-border-width-1) solid transparent',
             },
         },
     },
@@ -41,10 +41,10 @@ export const table = recipe({
  */
 export const caption = recipe({
     base: {
-        padding: 'var(--spacing-2) var(--spacing-3)',
-        fontSize: 'var(--font-size-md)',
-        fontWeight: 'var(--font-weight-medium)',
-        color: 'var(--color-foreground)',
+        padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+        fontSize: 'var(--bk-font-size-md)',
+        fontWeight: 'var(--bk-font-weight-medium)',
+        color: 'var(--bk-color-foreground)',
         textAlign: 'left',
     },
     variants: {
@@ -72,7 +72,7 @@ export const tableHead = recipe({
             true: {
                 position: 'sticky',
                 top: 0,
-                zIndex: 'var(--z-index-sticky)',
+                zIndex: 'var(--bk-z-index-sticky)',
             },
             false: {},
         },
@@ -91,7 +91,7 @@ export const tableHead = recipe({
  * Sticky header th cells get solid backgrounds
  */
 globalStyle(`${tableHead.classNames.base} th`, {
-    backgroundColor: 'var(--color-background-secondary)',
+    backgroundColor: 'var(--bk-color-background-secondary)',
     position: 'relative',
 });
 
@@ -113,7 +113,7 @@ globalStyle(`${tableHead.classNames.base} th::before`, {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'var(--color-background-secondary)',
+    backgroundColor: 'var(--bk-color-background-secondary)',
     zIndex: -1,
 });
 
@@ -126,8 +126,8 @@ globalStyle(`thead[class*="sticky"][class*="bordered"]::before`, {
     left: 0,
     right: 0,
     top: 0,
-    height: 'var(--border-width-1)',
-    backgroundColor: 'var(--color-border)',
+    height: 'var(--bk-border-width-1)',
+    backgroundColor: 'var(--bk-color-border)',
     zIndex: 2,
     pointerEvents: 'none',
 });
@@ -141,8 +141,8 @@ globalStyle(`thead[class*="sticky"][class*="bordered"]::after`, {
     left: 0,
     right: 0,
     bottom: 0,
-    height: 'var(--border-width-1)',
-    backgroundColor: 'var(--color-border)',
+    height: 'var(--bk-border-width-1)',
+    backgroundColor: 'var(--bk-color-border)',
     zIndex: 2,
     pointerEvents: 'none',
 });
@@ -152,24 +152,24 @@ globalStyle(`thead[class*="sticky"][class*="bordered"]::after`, {
  */
 const cellSizes = styleVariants({
     xs: {
-        padding: 'var(--spacing-0-5) var(--spacing-2)',
-        fontSize: 'var(--font-size-xs)',
+        padding: 'var(--bk-spacing-0-5) var(--bk-spacing-2)',
+        fontSize: 'var(--bk-font-size-xs)',
     },
     sm: {
-        padding: 'var(--spacing-1) var(--spacing-2-5)',
-        fontSize: 'var(--font-size-sm)',
+        padding: 'var(--bk-spacing-1) var(--bk-spacing-2-5)',
+        fontSize: 'var(--bk-font-size-sm)',
     },
     md: {
-        padding: 'var(--spacing-2) var(--spacing-3)',
-        fontSize: 'var(--font-size-md)',
+        padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+        fontSize: 'var(--bk-font-size-md)',
     },
     lg: {
-        padding: 'var(--spacing-2-5) var(--spacing-4)',
-        fontSize: 'var(--font-size-base)',
+        padding: 'var(--bk-spacing-2-5) var(--bk-spacing-4)',
+        fontSize: 'var(--bk-font-size-base)',
     },
     xl: {
-        padding: 'var(--spacing-3) var(--spacing-5)',
-        fontSize: 'var(--font-size-lg)',
+        padding: 'var(--bk-spacing-3) var(--bk-spacing-5)',
+        fontSize: 'var(--bk-font-size-lg)',
     },
 });
 
@@ -183,16 +183,16 @@ export const tableBody = style({});
  */
 export const tableFooter = recipe({
     base: {
-        fontWeight: 'var(--font-weight-medium)',
-        backgroundColor: 'var(--color-background-secondary)',
+        fontWeight: 'var(--bk-font-weight-medium)',
+        backgroundColor: 'var(--bk-color-background-secondary)',
     },
     variants: {
         bordered: {
             true: {
-                borderTop: 'var(--border-width-2) solid var(--color-border)',
+                borderTop: 'var(--bk-border-width-2) solid var(--bk-color-border)',
             },
             false: {
-                borderTop: 'var(--border-width-2) solid transparent',
+                borderTop: 'var(--bk-border-width-2) solid transparent',
             },
         },
     },
@@ -206,13 +206,13 @@ export const tableFooter = recipe({
  */
 export const tableRow = recipe({
     base: {
-        transition: 'var(--transition-colors)',
-        backgroundColor: 'var(--color-background)',
+        transition: 'var(--bk-transition-colors)',
+        backgroundColor: 'var(--bk-color-background)',
     },
     variants: {
         variant: {
             default: {
-                backgroundColor: 'var(--color-background)',
+                backgroundColor: 'var(--bk-color-background)',
             },
             zebra: {
                 backgroundColor: 'transparent',
@@ -220,8 +220,8 @@ export const tableRow = recipe({
         },
         selected: {
             true: {
-                backgroundColor: 'var(--color-selected)',
-                color: 'var(--color-selected-foreground)',
+                backgroundColor: 'var(--bk-color-selected)',
+                color: 'var(--bk-color-selected-foreground)',
             },
             false: {},
         },
@@ -239,7 +239,7 @@ export const tableRow = recipe({
             style: {
                 selectors: {
                     '&:hover': {
-                        backgroundColor: 'var(--color-hover)',
+                        backgroundColor: 'var(--bk-color-hover)',
                     },
                 },
             },
@@ -261,7 +261,7 @@ export const zebraRow = style({});
  * Zebra striping for even rows in tbody
  */
 globalStyle(`tbody tr${zebraRow}:nth-child(even)`, {
-    backgroundColor: 'var(--color-background-secondary)',
+    backgroundColor: 'var(--bk-color-background-secondary)',
 });
 
 /**
@@ -283,10 +283,10 @@ export const tableCell = recipe({
         },
         bordered: {
             true: {
-                border: 'var(--border-width-1) solid var(--color-border)',
+                border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
             },
             false: {
-                border: 'var(--border-width-1) solid transparent',
+                border: 'var(--bk-border-width-1) solid transparent',
             },
         },
         size: cellSizes,
@@ -303,8 +303,8 @@ export const tableCell = recipe({
  */
 export const tableHeaderCell = recipe({
     base: {
-        fontWeight: 'var(--font-weight-medium)',
-        backgroundColor: 'var(--color-background-secondary)',
+        fontWeight: 'var(--bk-font-weight-medium)',
+        backgroundColor: 'var(--bk-color-background-secondary)',
         position: 'relative',
     },
     variants: {
@@ -321,10 +321,10 @@ export const tableHeaderCell = recipe({
         },
         bordered: {
             true: {
-                border: 'var(--border-width-1) solid var(--color-border)',
+                border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
             },
             false: {
-                border: 'var(--border-width-1) solid transparent',
+                border: 'var(--bk-border-width-1) solid transparent',
             },
         },
         size: cellSizes,
@@ -334,16 +334,16 @@ export const tableHeaderCell = recipe({
                 userSelect: 'none',
                 selectors: {
                     '&:hover': {
-                        backgroundColor: 'var(--color-hover)',
+                        backgroundColor: 'var(--bk-color-hover)',
                     },
                     '&:hover::before': {
-                        backgroundColor: 'var(--color-hover)',
+                        backgroundColor: 'var(--bk-color-hover)',
                     },
                     '&:active': {
-                        backgroundColor: 'var(--color-active)',
+                        backgroundColor: 'var(--bk-color-active)',
                     },
                     '&:active::before': {
-                        backgroundColor: 'var(--color-active)',
+                        backgroundColor: 'var(--bk-color-active)',
                     },
                 },
             },
@@ -386,9 +386,9 @@ export const tableScrollWrapper = recipe({
 export const sortIndicator = recipe({
     base: {
         display: 'inline-block',
-        marginLeft: 'var(--spacing-1)',
+        marginLeft: 'var(--bk-spacing-1)',
         fontSize: '0.75em', // Relative to parent font size for proportional scaling
-        transition: 'var(--transition-base)',
+        transition: 'var(--bk-transition-base)',
     },
     variants: {
         direction: {

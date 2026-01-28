@@ -16,60 +16,60 @@ export const avatar = recipe({
         userSelect: 'none',
 
         // Colors
-        backgroundColor: 'var(--color-accent)',
-        color: 'var(--color-accent-foreground)',
+        backgroundColor: 'var(--bk-color-accent)',
+        color: 'var(--bk-color-accent-foreground)',
 
         // Typography
-        fontWeight: 'var(--font-weight-medium)',
+        fontWeight: 'var(--bk-font-weight-medium)',
         textAlign: 'center',
 
         // Transition
-        transition: 'var(--transition-colors)',
+        transition: 'var(--bk-transition-colors)',
 
         // Border
-        border: 'var(--border-width-1) solid var(--color-border)',
+        border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
     },
 
     variants: {
         size: {
             xs: {
-                width: 'var(--spacing-6)',
-                height: 'var(--spacing-6)',
-                fontSize: 'var(--font-size-xs)',
-                lineHeight: 'var(--line-height-tight)',
+                width: 'var(--bk-spacing-6)',
+                height: 'var(--bk-spacing-6)',
+                fontSize: 'var(--bk-font-size-xs)',
+                lineHeight: 'var(--bk-line-height-tight)',
             },
             sm: {
-                width: 'var(--spacing-8)',
-                height: 'var(--spacing-8)',
-                fontSize: 'var(--font-size-sm)',
-                lineHeight: 'var(--line-height-tight)',
+                width: 'var(--bk-spacing-8)',
+                height: 'var(--bk-spacing-8)',
+                fontSize: 'var(--bk-font-size-sm)',
+                lineHeight: 'var(--bk-line-height-tight)',
             },
             md: {
-                width: 'var(--spacing-10)',
-                height: 'var(--spacing-10)',
-                fontSize: 'var(--font-size-base)',
-                lineHeight: 'var(--line-height-normal)',
+                width: 'var(--bk-spacing-10)',
+                height: 'var(--bk-spacing-10)',
+                fontSize: 'var(--bk-font-size-base)',
+                lineHeight: 'var(--bk-line-height-normal)',
             },
             lg: {
-                width: 'var(--spacing-12)',
-                height: 'var(--spacing-12)',
-                fontSize: 'var(--font-size-lg)',
-                lineHeight: 'var(--line-height-normal)',
+                width: 'var(--bk-spacing-12)',
+                height: 'var(--bk-spacing-12)',
+                fontSize: 'var(--bk-font-size-lg)',
+                lineHeight: 'var(--bk-line-height-normal)',
             },
             xl: {
-                width: 'var(--spacing-16)',
-                height: 'var(--spacing-16)',
-                fontSize: 'var(--font-size-xl)',
-                lineHeight: 'var(--line-height-normal)',
+                width: 'var(--bk-spacing-16)',
+                height: 'var(--bk-spacing-16)',
+                fontSize: 'var(--bk-font-size-xl)',
+                lineHeight: 'var(--bk-line-height-normal)',
             },
         },
 
         shape: {
             circular: {
-                borderRadius: 'var(--radius-full)',
+                borderRadius: 'var(--bk-radius-full)',
             },
             square: {
-                borderRadius: 'var(--radius-md)',
+                borderRadius: 'var(--bk-radius-md)',
             },
         },
 

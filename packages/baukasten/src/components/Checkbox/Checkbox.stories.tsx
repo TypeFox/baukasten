@@ -84,7 +84,7 @@ export const Interactive: Story = {
  */
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)' }}>
       <Label variant="checkbox" size="md">
         <Checkbox variant="checkbox" name="variant-checkbox" id="checkbox-variant" />
         <span>Checkbox variant</span>
@@ -109,12 +109,12 @@ export const Variants: Story = {
  */
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Checkbox Sizes
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Label variant="checkbox" size="xs">
             <Checkbox size="xs" />
             <span>Extra Small</span>
@@ -138,10 +138,10 @@ export const Sizes: Story = {
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Switch Sizes
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Label variant="checkbox" size="xs">
             <Checkbox variant="switch" size="xs" />
             <span>Extra Small</span>
@@ -180,12 +180,12 @@ export const Sizes: Story = {
  */
 export const States: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Checkbox States
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Label variant="checkbox" size="md">
             <Checkbox />
             <span>Unchecked</span>
@@ -209,10 +209,10 @@ export const States: Story = {
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Switch States
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Label variant="checkbox" size="md">
             <Checkbox variant="switch" />
             <span>Unchecked</span>
@@ -250,7 +250,7 @@ const ControlledExampleComponent = () => {
   const [switchChecked, setSwitchChecked] = useState(true);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)' }}>
       <Label variant="checkbox" size="md">
         <Checkbox
           checked={checked}
@@ -290,7 +290,7 @@ export const ControlledExample: Story = {
  */
 export const MultilineLabels: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)', maxWidth: '400px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)', maxWidth: '400px' }}>
       <Label variant="checkbox" size="md">
         <Checkbox name="multiline-1" id="multiline-checkbox" />
         <span>This is a very long label that will wrap to multiple lines and maintain proper alignment with the checkbox. The text wraps naturally below the first line.</span>
@@ -340,7 +340,7 @@ const IndeterminateExampleComponent = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
       <Label variant="checkbox" size="md">
         <Checkbox
           checked={allChecked}
@@ -349,7 +349,7 @@ const IndeterminateExampleComponent = () => {
         />
         <span>Select all items</span>
       </Label>
-      <div style={{ paddingLeft: 'var(--spacing-6)', display: 'flex', flexDirection: 'column', gap: 'var(--gap-sm)' }}>
+      <div style={{ paddingLeft: 'var(--bk-spacing-6)', display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-sm)' }}>
         {items.map(item => (
           <Label key={item.id} variant="checkbox" size="md">
             <Checkbox
@@ -383,17 +383,17 @@ export const FormExample: Story = {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      gap: 'var(--spacing-4)',
-      padding: 'var(--spacing-4)',
-      backgroundColor: 'var(--color-background-secondary)',
-      borderRadius: 'var(--radius-md)',
+      gap: 'var(--bk-spacing-4)',
+      padding: 'var(--bk-spacing-4)',
+      backgroundColor: 'var(--bk-color-background-secondary)',
+      borderRadius: 'var(--bk-radius-md)',
       maxWidth: '400px',
     }}>
-      <h3 style={{ fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--spacing-2)' }}>
+      <h3 style={{ fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-2)' }}>
         Notification Preferences
       </h3>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
         <Label variant="checkbox" size="md">
           <Checkbox defaultChecked name="notifications-email" id="email-notifications" />
           <span>Email notifications</span>
@@ -408,13 +408,13 @@ export const FormExample: Story = {
         </Label>
       </div>
 
-      <div style={{ height: 'var(--border-width-1)', backgroundColor: 'var(--color-divider)', margin: 'var(--spacing-2) 0' }} />
+      <div style={{ height: 'var(--bk-border-width-1)', backgroundColor: 'var(--bk-color-divider)', margin: 'var(--bk-spacing-2) 0' }} />
 
-      <h3 style={{ fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--spacing-2)' }}>
+      <h3 style={{ fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-2)' }}>
         Display Settings
       </h3>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
         <Label variant="checkbox" size="md">
           <Checkbox variant="switch" defaultChecked name="display-dark" id="dark-mode" />
           <span>Dark mode</span>
@@ -445,7 +445,7 @@ export const FormExample: Story = {
  */
 export const WithoutLabel: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-lg)', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-lg)', alignItems: 'center' }}>
       <Checkbox name="standalone-1" />
       <Checkbox variant="switch" name="standalone-2" />
       <Checkbox size="lg" name="standalone-3" />
@@ -466,11 +466,11 @@ export const WithoutLabel: Story = {
  */
 export const Showcase: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', padding: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)' }}>
       {/* Variants */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Variants</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Variants</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Label variant="checkbox" size="md">
             <Checkbox variant="checkbox" />
             <span>Checkbox variant</span>
@@ -484,8 +484,8 @@ export const Showcase: Story = {
 
       {/* Checkbox Sizes */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Checkbox Sizes</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Checkbox Sizes</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Label variant="checkbox" size="xs">
             <Checkbox size="xs" />
             <span>Extra Small</span>
@@ -511,8 +511,8 @@ export const Showcase: Story = {
 
       {/* Switch Sizes */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Switch Sizes</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Switch Sizes</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Label variant="checkbox" size="xs">
             <Checkbox variant="switch" size="xs" />
             <span>Extra Small</span>
@@ -538,8 +538,8 @@ export const Showcase: Story = {
 
       {/* Checkbox States */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Checkbox States</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Checkbox States</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Label variant="checkbox" size="md">
             <Checkbox />
             <span>Unchecked</span>
@@ -565,8 +565,8 @@ export const Showcase: Story = {
 
       {/* Switch States */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Switch States</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Switch States</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Label variant="checkbox" size="md">
             <Checkbox variant="switch" />
             <span>Unchecked</span>
@@ -588,8 +588,8 @@ export const Showcase: Story = {
 
       {/* Multiline Labels */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Multiline Labels</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)', maxWidth: '400px' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Multiline Labels</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)', maxWidth: '400px' }}>
           <Label variant="checkbox" size="md">
             <Checkbox />
             <span>This is a very long label that will wrap to multiple lines and maintain proper alignment with the checkbox.</span>
@@ -603,8 +603,8 @@ export const Showcase: Story = {
 
       {/* Without Labels */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>Without Labels</h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-lg)', alignItems: 'center' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>Without Labels</h3>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-lg)', alignItems: 'center' }}>
           <Checkbox size="sm" />
           <Checkbox />
           <Checkbox size="lg" />

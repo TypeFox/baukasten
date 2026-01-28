@@ -19,7 +19,7 @@ export const triggerWrapper = recipe({
     disabled: {
       true: {
         cursor: "not-allowed",
-        opacity: "var(--opacity-disabled)",
+        opacity: "var(--bk-opacity-disabled)",
       },
       false: {
         cursor: "pointer",
@@ -39,32 +39,32 @@ export const triggerWrapper = recipe({
 export const dropdownContent = recipe({
   base: {
     position: "absolute",
-    zIndex: "var(--z-index-dropdown)",
-    minWidth: "calc(var(--spacing-20) * 2)",
-    backgroundColor: "var(--color-dropdown-list-background)",
-    border: "var(--border-width-1) solid var(--color-dropdown-border)",
-    borderRadius: "var(--radius-md)",
-    boxShadow: "var(--shadow-lg)",
+    zIndex: "var(--bk-z-index-dropdown)",
+    minWidth: "calc(var(--bk-spacing-20) * 2)",
+    backgroundColor: "var(--bk-color-dropdown-list-background)",
+    border: "var(--bk-border-width-1) solid var(--bk-color-dropdown-border)",
+    borderRadius: "var(--bk-radius-md)",
+    boxShadow: "var(--bk-shadow-lg)",
     transition:
-      "opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast)",
+      "opacity var(--bk-transition-fast), transform var(--bk-transition-fast), visibility var(--bk-transition-fast)",
   },
 
   variants: {
     placement: {
       "bottom-start": {
-        top: "calc(100% + var(--spacing-1))",
+        top: "calc(100% + var(--bk-spacing-1))",
         left: 0,
       },
       "bottom-end": {
-        top: "calc(100% + var(--spacing-1))",
+        top: "calc(100% + var(--bk-spacing-1))",
         right: 0,
       },
       "top-start": {
-        bottom: "calc(100% + var(--spacing-1))",
+        bottom: "calc(100% + var(--bk-spacing-1))",
         left: 0,
       },
       "top-end": {
-        bottom: "calc(100% + var(--spacing-1))",
+        bottom: "calc(100% + var(--bk-spacing-1))",
         right: 0,
       },
     },
@@ -89,20 +89,20 @@ export const dropdownContent = recipe({
     // Closed transform for top placements
     {
       variants: { isOpen: false, placement: "top-start" },
-      style: { transform: "translateY(var(--spacing-1))" },
+      style: { transform: "translateY(var(--bk-spacing-1))" },
     },
     {
       variants: { isOpen: false, placement: "top-end" },
-      style: { transform: "translateY(var(--spacing-1))" },
+      style: { transform: "translateY(var(--bk-spacing-1))" },
     },
     // Closed transform for bottom placements
     {
       variants: { isOpen: false, placement: "bottom-start" },
-      style: { transform: "translateY(calc(-1 * var(--spacing-1)))" },
+      style: { transform: "translateY(calc(-1 * var(--bk-spacing-1)))" },
     },
     {
       variants: { isOpen: false, placement: "bottom-end" },
-      style: { transform: "translateY(calc(-1 * var(--spacing-1)))" },
+      style: { transform: "translateY(calc(-1 * var(--bk-spacing-1)))" },
     },
   ],
 
@@ -116,15 +116,15 @@ export const dropdownContent = recipe({
  * Portal content - positioned by Floating UI
  */
 export const portalContent = style({
-  zIndex: "var(--z-index-dropdown)",
-  minWidth: "calc(var(--spacing-20) * 2)",
-  backgroundColor: "var(--color-dropdown-list-background)",
-  border: "var(--border-width-1) solid var(--color-dropdown-border)",
-  borderRadius: "var(--radius-md)",
-  boxShadow: "var(--shadow-lg)",
+  zIndex: "var(--bk-z-index-dropdown)",
+  minWidth: "calc(var(--bk-spacing-20) * 2)",
+  backgroundColor: "var(--bk-color-dropdown-list-background)",
+  border: "var(--bk-border-width-1) solid var(--bk-color-dropdown-border)",
+  borderRadius: "var(--bk-radius-md)",
+  boxShadow: "var(--bk-shadow-lg)",
   opacity: 0,
   transform: "scale(0.95)",
-  transition: "opacity var(--transition-fast) ease, transform var(--transition-fast) ease",
+  transition: "opacity var(--bk-transition-fast) ease, transform var(--bk-transition-fast) ease",
   overflow: "visible", // Allow submenus to overflow (changed from "auto" to allow nested SubMenu components to render independently)
   selectors: {
     "&[data-status='open']": {

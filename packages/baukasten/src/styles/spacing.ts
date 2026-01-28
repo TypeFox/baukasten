@@ -12,26 +12,26 @@ export const spacingTokens = `
      * SPACING SCALE
      * Base unit: 4px
      * ======================================================================== */
-    --spacing-0: 0;
-    --spacing-0-5: 0.125rem; /* 2px */
-    --spacing-1: 0.25rem;    /* 4px */
-    --spacing-1-5: 0.375rem; /* 6px */
-    --spacing-2: 0.5rem;     /* 8px */
-    --spacing-2-5: 0.625rem; /* 10px */
-    --spacing-3: 0.75rem;    /* 12px */
-    --spacing-3-5: 0.875rem; /* 14px */
-    --spacing-4: 1rem;       /* 16px */
-    --spacing-5: 1.25rem;    /* 20px */
-    --spacing-6: 1.5rem;     /* 24px */
-    --spacing-7: 1.75rem;    /* 28px */
-    --spacing-8: 2rem;       /* 32px */
-    --spacing-9: 2.25rem;    /* 36px */
-    --spacing-10: 2.5rem;    /* 40px */
-    --spacing-12: 3rem;      /* 48px */
-    --spacing-14: 3.5rem;    /* 56px */
-    --spacing-16: 4rem;      /* 64px */
-    --spacing-20: 5rem;      /* 80px */
-    --spacing-24: 6rem;      /* 96px */
+    --bk-spacing-0: 0;
+    --bk-spacing-0-5: 0.125rem; /* 2px */
+    --bk-spacing-1: 0.25rem;    /* 4px */
+    --bk-spacing-1-5: 0.375rem; /* 6px */
+    --bk-spacing-2: 0.5rem;     /* 8px */
+    --bk-spacing-2-5: 0.625rem; /* 10px */
+    --bk-spacing-3: 0.75rem;    /* 12px */
+    --bk-spacing-3-5: 0.875rem; /* 14px */
+    --bk-spacing-4: 1rem;       /* 16px */
+    --bk-spacing-5: 1.25rem;    /* 20px */
+    --bk-spacing-6: 1.5rem;     /* 24px */
+    --bk-spacing-7: 1.75rem;    /* 28px */
+    --bk-spacing-8: 2rem;       /* 32px */
+    --bk-spacing-9: 2.25rem;    /* 36px */
+    --bk-spacing-10: 2.5rem;    /* 40px */
+    --bk-spacing-12: 3rem;      /* 48px */
+    --bk-spacing-14: 3.5rem;    /* 56px */
+    --bk-spacing-16: 4rem;      /* 64px */
+    --bk-spacing-20: 5rem;      /* 80px */
+    --bk-spacing-24: 6rem;      /* 96px */
 
     /* ========================================================================
      * COMPONENT SPACING
@@ -39,35 +39,35 @@ export const spacingTokens = `
      * ======================================================================== */
     
     /* Gap between elements */
-    --gap-xs: var(--spacing-1);
-    --gap-sm: var(--spacing-1-5);
-    --gap-md: var(--spacing-2);
-    --gap-lg: var(--spacing-3);
-    --gap-xl: var(--spacing-4);
+    --bk-gap-xs: var(--bk-spacing-1);
+    --bk-gap-sm: var(--bk-spacing-1-5);
+    --bk-gap-md: var(--bk-spacing-2);
+    --bk-gap-lg: var(--bk-spacing-3);
+    --bk-gap-xl: var(--bk-spacing-4);
 
     /* Padding for components */
-    --padding-xs: var(--spacing-0-5) var(--spacing-2);
-    --padding-sm: var(--spacing-1) var(--spacing-2-5);
-    --padding-md: var(--spacing-1-5) var(--spacing-3-5);
-    --padding-lg: var(--spacing-2) var(--spacing-4);
-    --padding-xl: var(--spacing-2-5) var(--spacing-5);
+    --bk-padding-xs: var(--bk-spacing-0-5) var(--bk-spacing-2);
+    --bk-padding-sm: var(--bk-spacing-1) var(--bk-spacing-2-5);
+    --bk-padding-md: var(--bk-spacing-1-5) var(--bk-spacing-3-5);
+    --bk-padding-lg: var(--bk-spacing-2) var(--bk-spacing-4);
+    --bk-padding-xl: var(--bk-spacing-2-5) var(--bk-spacing-5);
 
     /* ========================================================================
      * COMPONENT SIZES
      * Heights for interactive elements (buttons, inputs, etc.)
      * ======================================================================== */
-    --size-xs: 1.25rem;  /* 20px */
-    --size-sm: 1.5rem;   /* 24px */
-    --size-md: 1.75rem;  /* 28px */
-    --size-lg: 2rem;     /* 32px */
-    --size-xl: 2.25rem;  /* 36px */
+    --bk-size-xs: 1.25rem;  /* 20px */
+    --bk-size-sm: 1.5rem;   /* 24px */
+    --bk-size-md: 1.75rem;  /* 28px */
+    --bk-size-lg: 2rem;     /* 32px */
+    --bk-size-xl: 2.25rem;  /* 36px */
 
     /* Circular/Square sizes (for icon buttons, avatars) */
-    --size-circular-xs: 1.5rem;  /* 24px */
-    --size-circular-sm: 1.75rem; /* 28px */
-    --size-circular-md: 2rem;    /* 32px */
-    --size-circular-lg: 2.25rem; /* 36px */
-    --size-circular-xl: 2.5rem;  /* 40px */
+    --bk-size-circular-xs: 1.5rem;  /* 24px */
+    --bk-size-circular-sm: 1.75rem; /* 28px */
+    --bk-size-circular-md: 2rem;    /* 32px */
+    --bk-size-circular-lg: 2.25rem; /* 36px */
+    --bk-size-circular-xl: 2.5rem;  /* 40px */
   }
 `;
 
@@ -96,7 +96,7 @@ export type ComponentSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
  * ```
  */
 export const getSpacing = (scale: SpacingScale): string => {
-  return `var(--spacing-${scale})`;
+  return `var(--bk-spacing-${scale})`;
 };
 
 /**
@@ -105,7 +105,7 @@ export const getSpacing = (scale: SpacingScale): string => {
  * @returns CSS variable reference string
  */
 export const getGap = (size: GapSize): string => {
-  return `var(--gap-${size})`;
+  return `var(--bk-gap-${size})`;
 };
 
 /**
@@ -115,7 +115,7 @@ export const getGap = (size: GapSize): string => {
  * @returns CSS variable reference string
  */
 export const getComponentSize = (size: ComponentSize, circular: boolean = false): string => {
-  return circular ? `var(--size-circular-${size})` : `var(--size-${size})`;
+  return circular ? `var(--bk-size-circular-${size})` : `var(--bk-size-${size})`;
 };
 
 export default spacingTokens;

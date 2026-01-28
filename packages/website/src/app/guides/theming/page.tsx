@@ -10,23 +10,23 @@ export default function ThemingGuidePage() {
             title="Theming Guide"
             description="Learn how to customize and theme Baukasten components to match your application's design."
         >
-            <Alert variant="info" style={{ marginBottom: 'var(--spacing-8)' }}>
+            <Alert variant="info" style={{ marginBottom: 'var(--bk-spacing-8)' }}>
                 Baukasten is built with VSCode's theming system in mind, making it automatically compatible with all VSCode and Theia color themes.
             </Alert>
 
-            <section style={{ marginBottom: 'var(--spacing-12)' }}>
+            <section style={{ marginBottom: 'var(--bk-spacing-12)' }}>
                 <h2 style={{
-                    fontSize: 'var(--font-size-xl)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginBottom: 'var(--spacing-4)',
+                    fontSize: 'var(--bk-font-size-xl)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
+                    marginBottom: 'var(--bk-spacing-4)',
                 }}>
                     Overview
                 </h2>
                 <p style={{
-                    fontSize: 'var(--font-size-base)',
-                    color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-6)',
-                    lineHeight: 'var(--line-height-relaxed)',
+                    fontSize: 'var(--bk-font-size-base)',
+                    color: 'var(--bk-color-text-secondary)',
+                    marginBottom: 'var(--bk-spacing-6)',
+                    lineHeight: 'var(--bk-line-height-relaxed)',
                 }}>
                     Baukasten uses CSS variables (custom properties) for theming. Simply import the appropriate
                     platform CSS file for your environment, and optionally override any variables to customize
@@ -34,49 +34,49 @@ export default function ThemingGuidePage() {
                 </p>
             </section>
 
-            <section style={{ marginBottom: 'var(--spacing-12)' }}>
+            <section style={{ marginBottom: 'var(--bk-spacing-12)' }}>
                 <h2 style={{
-                    fontSize: 'var(--font-size-xl)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginBottom: 'var(--spacing-4)',
+                    fontSize: 'var(--bk-font-size-xl)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
+                    marginBottom: 'var(--bk-spacing-4)',
                 }}>
                     Platform CSS Files
                 </h2>
                 <p style={{
-                    fontSize: 'var(--font-size-base)',
-                    color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-6)',
-                    lineHeight: 'var(--line-height-relaxed)',
+                    fontSize: 'var(--bk-font-size-base)',
+                    color: 'var(--bk-color-text-secondary)',
+                    marginBottom: 'var(--bk-spacing-6)',
+                    lineHeight: 'var(--bk-line-height-relaxed)',
                 }}>
                     Baukasten provides three platform-specific CSS files. Import the one that matches your target environment:
                 </p>
 
                 <div style={{
                     display: 'grid',
-                    gap: 'var(--spacing-5)',
-                    marginBottom: 'var(--spacing-6)',
+                    gap: 'var(--bk-spacing-5)',
+                    marginBottom: 'var(--bk-spacing-6)',
                 }}>
                     <div style={{
-                        backgroundColor: 'var(--color-background-secondary)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--border-radius-lg)',
-                        padding: 'var(--spacing-6)',
+                        backgroundColor: 'var(--bk-color-background-secondary)',
+                        border: '1px solid var(--bk-color-border)',
+                        borderRadius: 'var(--bk-radius-lg)',
+                        padding: 'var(--bk-spacing-6)',
                     }}>
                         <h3 style={{
-                            fontSize: 'var(--font-size-lg)',
-                            fontWeight: 'var(--font-weight-semibold)',
-                            marginBottom: 'var(--spacing-3)',
+                            fontSize: 'var(--bk-font-size-lg)',
+                            fontWeight: 'var(--bk-font-weight-semibold)',
+                            marginBottom: 'var(--bk-spacing-3)',
                             display: 'flex',
                             alignItems: 'center',
                         }}>
-                            <Badge variant="info" style={{ marginRight: 'var(--spacing-2)' }}>VS Code</Badge>
+                            <Badge variant="info" style={{ marginRight: 'var(--bk-spacing-2)' }}>VS Code</Badge>
                             baukasten-vscode.css
                         </h3>
                         <p style={{
-                            fontSize: 'var(--font-size-base)',
-                            color: 'var(--color-text-secondary)',
-                            marginBottom: 'var(--spacing-4)',
-                            lineHeight: 'var(--line-height-relaxed)',
+                            fontSize: 'var(--bk-font-size-base)',
+                            color: 'var(--bk-color-text-secondary)',
+                            marginBottom: 'var(--bk-spacing-4)',
+                            lineHeight: 'var(--bk-line-height-relaxed)',
                         }}>
                             Uses <Code>--vscode-*</Code> CSS variables. Components automatically adapt to the user's VS Code theme.
                         </p>
@@ -88,26 +88,26 @@ import 'baukasten-ui/dist/baukasten-vscode.css';`}
                     </div>
 
                     <div style={{
-                        backgroundColor: 'var(--color-background-secondary)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--border-radius-lg)',
-                        padding: 'var(--spacing-6)',
+                        backgroundColor: 'var(--bk-color-background-secondary)',
+                        border: '1px solid var(--bk-color-border)',
+                        borderRadius: 'var(--bk-radius-lg)',
+                        padding: 'var(--bk-spacing-6)',
                     }}>
                         <h3 style={{
-                            fontSize: 'var(--font-size-lg)',
-                            fontWeight: 'var(--font-weight-semibold)',
-                            marginBottom: 'var(--spacing-3)',
+                            fontSize: 'var(--bk-font-size-lg)',
+                            fontWeight: 'var(--bk-font-weight-semibold)',
+                            marginBottom: 'var(--bk-spacing-3)',
                             display: 'flex',
                             alignItems: 'center',
                         }}>
-                            <Badge variant="warning" style={{ marginRight: 'var(--spacing-2)' }}>Theia</Badge>
+                            <Badge variant="warning" style={{ marginRight: 'var(--bk-spacing-2)' }}>Theia</Badge>
                             baukasten-theia.css
                         </h3>
                         <p style={{
-                            fontSize: 'var(--font-size-base)',
-                            color: 'var(--color-text-secondary)',
-                            marginBottom: 'var(--spacing-4)',
-                            lineHeight: 'var(--line-height-relaxed)',
+                            fontSize: 'var(--bk-font-size-base)',
+                            color: 'var(--bk-color-text-secondary)',
+                            marginBottom: 'var(--bk-spacing-4)',
+                            lineHeight: 'var(--bk-line-height-relaxed)',
                         }}>
                             Uses <Code>--theia-*</Code> CSS variables. Components automatically adapt to the Eclipse Theia theme.
                         </p>
@@ -119,26 +119,26 @@ import 'baukasten-ui/dist/baukasten-theia.css';`}
                     </div>
 
                     <div style={{
-                        backgroundColor: 'var(--color-background-secondary)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--border-radius-lg)',
-                        padding: 'var(--spacing-6)',
+                        backgroundColor: 'var(--bk-color-background-secondary)',
+                        border: '1px solid var(--bk-color-border)',
+                        borderRadius: 'var(--bk-radius-lg)',
+                        padding: 'var(--bk-spacing-6)',
                     }}>
                         <h3 style={{
-                            fontSize: 'var(--font-size-lg)',
-                            fontWeight: 'var(--font-weight-semibold)',
-                            marginBottom: 'var(--spacing-3)',
+                            fontSize: 'var(--bk-font-size-lg)',
+                            fontWeight: 'var(--bk-font-weight-semibold)',
+                            marginBottom: 'var(--bk-spacing-3)',
                             display: 'flex',
                             alignItems: 'center',
                         }}>
-                            <Badge variant="default" style={{ marginRight: 'var(--spacing-2)' }}>Web</Badge>
+                            <Badge variant="default" style={{ marginRight: 'var(--bk-spacing-2)' }}>Web</Badge>
                             baukasten-web.css
                         </h3>
                         <p style={{
-                            fontSize: 'var(--font-size-base)',
-                            color: 'var(--color-text-secondary)',
-                            marginBottom: 'var(--spacing-4)',
-                            lineHeight: 'var(--line-height-relaxed)',
+                            fontSize: 'var(--bk-font-size-base)',
+                            color: 'var(--bk-color-text-secondary)',
+                            marginBottom: 'var(--bk-spacing-4)',
+                            lineHeight: 'var(--bk-line-height-relaxed)',
                         }}>
                             Uses default fallback values for standalone web applications. This is the file you'll want to customize.
                         </p>
@@ -151,19 +151,19 @@ import 'baukasten-ui/dist/baukasten-web.css';`}
                 </div>
             </section>
 
-            <section style={{ marginBottom: 'var(--spacing-12)' }}>
+            <section style={{ marginBottom: 'var(--bk-spacing-12)' }}>
                 <h2 style={{
-                    fontSize: 'var(--font-size-xl)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginBottom: 'var(--spacing-4)',
+                    fontSize: 'var(--bk-font-size-xl)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
+                    marginBottom: 'var(--bk-spacing-4)',
                 }}>
                     Customizing Themes
                 </h2>
                 <p style={{
-                    fontSize: 'var(--font-size-base)',
-                    color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-6)',
-                    lineHeight: 'var(--line-height-relaxed)',
+                    fontSize: 'var(--bk-font-size-base)',
+                    color: 'var(--bk-color-text-secondary)',
+                    marginBottom: 'var(--bk-spacing-6)',
+                    lineHeight: 'var(--bk-line-height-relaxed)',
                 }}>
                     After importing the platform CSS file, simply override the CSS variables you want to customize.
                     You can do this in your own CSS file or in a <Code>&lt;style&gt;</Code> tag:
@@ -173,36 +173,36 @@ import 'baukasten-ui/dist/baukasten-web.css';`}
                     code={`/* your-custom-theme.css */
 :root {
   /* Override brand colors */
-  --color-primary: #6c5ce7;
-  --color-primary-hover: #5f4dd1;
-  --color-primary-foreground: #ffffff;
+  --bk-color-primary: #6c5ce7;
+  --bk-color-primary-hover: #5f4dd1;
+  --bk-color-primary-foreground: #ffffff;
   
   /* Override semantic colors */
-  --color-success: #00d4aa;
-  --color-warning: #ffb627;
-  --color-danger: #ff6b6b;
-  --color-info: #4fc3f7;
+  --bk-color-success: #00d4aa;
+  --bk-color-warning: #ffb627;
+  --bk-color-danger: #ff6b6b;
+  --bk-color-info: #4fc3f7;
   
   /* Override backgrounds */
-  --color-background: #1a1a2e;
-  --color-background-secondary: #0f1419;
-  --color-background-elevated: #252545;
+  --bk-color-background: #1a1a2e;
+  --bk-color-background-secondary: #0f1419;
+  --bk-color-background-elevated: #252545;
   
   /* Override text colors */
-  --color-foreground: #e0e0e0;
-  --color-foreground-muted: #9a9ca5;
+  --bk-color-foreground: #e0e0e0;
+  --bk-color-foreground-muted: #9a9ca5;
   
   /* Override borders */
-  --color-border: #3e4c5e;
-  --color-border-focus: #6c5ce7;
+  --bk-color-border: #3e4c5e;
+  --bk-color-border-focus: #6c5ce7;
 }`}
                 />
                 <p style={{
-                    fontSize: 'var(--font-size-base)',
-                    color: 'var(--color-text-secondary)',
-                    marginTop: 'var(--spacing-4)',
-                    marginBottom: 'var(--spacing-4)',
-                    lineHeight: 'var(--line-height-relaxed)',
+                    fontSize: 'var(--bk-font-size-base)',
+                    color: 'var(--bk-color-text-secondary)',
+                    marginTop: 'var(--bk-spacing-4)',
+                    marginBottom: 'var(--bk-spacing-4)',
+                    lineHeight: 'var(--bk-line-height-relaxed)',
                 }}>
                     Then import your custom CSS file after the Baukasten CSS:
                 </p>
@@ -215,40 +215,40 @@ import './your-custom-theme.css';`}
                 />
             </section>
 
-            <section style={{ marginBottom: 'var(--spacing-12)' }}>
+            <section style={{ marginBottom: 'var(--bk-spacing-12)' }}>
                 <h2 style={{
-                    fontSize: 'var(--font-size-xl)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginBottom: 'var(--spacing-4)',
+                    fontSize: 'var(--bk-font-size-xl)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
+                    marginBottom: 'var(--bk-spacing-4)',
                 }}>
                     Dynamic Theme Switching
                 </h2>
                 <p style={{
-                    fontSize: 'var(--font-size-base)',
-                    color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-6)',
-                    lineHeight: 'var(--line-height-relaxed)',
+                    fontSize: 'var(--bk-font-size-base)',
+                    color: 'var(--bk-color-text-secondary)',
+                    marginBottom: 'var(--bk-spacing-6)',
+                    lineHeight: 'var(--bk-line-height-relaxed)',
                 }}>
                     For dynamic theme switching (e.g., light/dark mode toggle), you can update CSS variables at runtime using JavaScript:
                 </p>
                 <CodeBlock
                     language="tsx"
                     code={`const lightTheme = {
-  '--color-background': '#ffffff',
-  '--color-background-secondary': '#f5f5f5',
-  '--color-foreground': '#1e1e1e',
-  '--color-foreground-muted': '#6b6b6b',
-  '--color-border': '#e0e0e0',
-  '--color-primary': '#007acc',
+  '--bk-color-background': '#ffffff',
+  '--bk-color-background-secondary': '#f5f5f5',
+  '--bk-color-foreground': '#1e1e1e',
+  '--bk-color-foreground-muted': '#6b6b6b',
+  '--bk-color-border': '#e0e0e0',
+  '--bk-color-primary': '#007acc',
 };
 
 const darkTheme = {
-  '--color-background': '#1e1e1e',
-  '--color-background-secondary': '#252526',
-  '--color-foreground': '#cccccc',
-  '--color-foreground-muted': '#858585',
-  '--color-border': '#3e3e42',
-  '--color-primary': '#0e639c',
+  '--bk-color-background': '#1e1e1e',
+  '--bk-color-background-secondary': '#252526',
+  '--bk-color-foreground': '#cccccc',
+  '--bk-color-foreground-muted': '#858585',
+  '--bk-color-border': '#3e3e42',
+  '--bk-color-primary': '#0e639c',
 };
 
 function applyTheme(theme: Record<string, string>) {
@@ -264,19 +264,19 @@ applyTheme(lightTheme); // Switch to light theme`}
                 />
             </section>
 
-            <section style={{ marginBottom: 'var(--spacing-12)' }}>
+            <section style={{ marginBottom: 'var(--bk-spacing-12)' }}>
                 <h2 style={{
-                    fontSize: 'var(--font-size-xl)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginBottom: 'var(--spacing-4)',
+                    fontSize: 'var(--bk-font-size-xl)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
+                    marginBottom: 'var(--bk-spacing-4)',
                 }}>
                     Using baukasten-ui-web-wrapper (Optional)
                 </h2>
                 <p style={{
-                    fontSize: 'var(--font-size-base)',
-                    color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-6)',
-                    lineHeight: 'var(--line-height-relaxed)',
+                    fontSize: 'var(--bk-font-size-base)',
+                    color: 'var(--bk-color-text-secondary)',
+                    marginBottom: 'var(--bk-spacing-6)',
+                    lineHeight: 'var(--bk-line-height-relaxed)',
                 }}>
                     For convenience, the <Code>baukasten-ui-web-wrapper</Code> package provides pre-built theme presets:
                 </p>
@@ -298,54 +298,54 @@ applyTheme(darkModern);`}
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                    gap: 'var(--spacing-5)',
-                    marginTop: 'var(--spacing-6)',
+                    gap: 'var(--bk-spacing-5)',
+                    marginTop: 'var(--bk-spacing-6)',
                 }}>
                     <div style={{
-                        backgroundColor: 'var(--color-background-secondary)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--border-radius-lg)',
-                        padding: 'var(--spacing-6)',
+                        backgroundColor: 'var(--bk-color-background-secondary)',
+                        border: '1px solid var(--bk-color-border)',
+                        borderRadius: 'var(--bk-radius-lg)',
+                        padding: 'var(--bk-spacing-6)',
                     }}>
-                        <Badge variant="default" style={{ marginBottom: 'var(--spacing-3)' }}>
+                        <Badge variant="default" style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                             Light Theme
                         </Badge>
                         <h4 style={{
-                            fontSize: 'var(--font-size-base)',
-                            fontWeight: 'var(--font-weight-semibold)',
-                            marginBottom: 'var(--spacing-2)',
+                            fontSize: 'var(--bk-font-size-base)',
+                            fontWeight: 'var(--bk-font-weight-semibold)',
+                            marginBottom: 'var(--bk-spacing-2)',
                         }}>
                             <Code>lightModern</Code>
                         </h4>
                         <p style={{
-                            fontSize: 'var(--font-size-sm)',
-                            color: 'var(--color-text-secondary)',
-                            lineHeight: 'var(--line-height-relaxed)',
+                            fontSize: 'var(--bk-font-size-sm)',
+                            color: 'var(--bk-color-text-secondary)',
+                            lineHeight: 'var(--bk-line-height-relaxed)',
                         }}>
                             Clean, bright theme inspired by VSCode's default light theme
                         </p>
                     </div>
 
                     <div style={{
-                        backgroundColor: 'var(--color-background-secondary)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--border-radius-lg)',
-                        padding: 'var(--spacing-6)',
+                        backgroundColor: 'var(--bk-color-background-secondary)',
+                        border: '1px solid var(--bk-color-border)',
+                        borderRadius: 'var(--bk-radius-lg)',
+                        padding: 'var(--bk-spacing-6)',
                     }}>
-                        <Badge variant="default" style={{ marginBottom: 'var(--spacing-3)' }}>
+                        <Badge variant="default" style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                             Dark Theme
                         </Badge>
                         <h4 style={{
-                            fontSize: 'var(--font-size-base)',
-                            fontWeight: 'var(--font-weight-semibold)',
-                            marginBottom: 'var(--spacing-2)',
+                            fontSize: 'var(--bk-font-size-base)',
+                            fontWeight: 'var(--bk-font-weight-semibold)',
+                            marginBottom: 'var(--bk-spacing-2)',
                         }}>
                             <Code>darkModern</Code>
                         </h4>
                         <p style={{
-                            fontSize: 'var(--font-size-sm)',
-                            color: 'var(--color-text-secondary)',
-                            lineHeight: 'var(--line-height-relaxed)',
+                            fontSize: 'var(--bk-font-size-sm)',
+                            color: 'var(--bk-color-text-secondary)',
+                            lineHeight: 'var(--bk-line-height-relaxed)',
                         }}>
                             Professional dark theme matching VSCode's modern dark theme
                         </p>
@@ -353,19 +353,19 @@ applyTheme(darkModern);`}
                 </div>
             </section>
 
-            <section style={{ marginBottom: 'var(--spacing-12)' }}>
+            <section style={{ marginBottom: 'var(--bk-spacing-12)' }}>
                 <h2 style={{
-                    fontSize: 'var(--font-size-xl)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginBottom: 'var(--spacing-4)',
+                    fontSize: 'var(--bk-font-size-xl)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
+                    marginBottom: 'var(--bk-spacing-4)',
                 }}>
                     Theme Variables Reference
                 </h2>
                 <p style={{
-                    fontSize: 'var(--font-size-base)',
-                    color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-6)',
-                    lineHeight: 'var(--line-height-relaxed)',
+                    fontSize: 'var(--bk-font-size-base)',
+                    color: 'var(--bk-color-text-secondary)',
+                    marginBottom: 'var(--bk-spacing-6)',
+                    lineHeight: 'var(--bk-line-height-relaxed)',
                 }}>
                     Here are the most commonly customized CSS variables:
                 </p>
@@ -373,175 +373,175 @@ applyTheme(darkModern);`}
                 <div style={{
                     backgroundColor: 'var(--vscode-sideBar-background)',
                     border: '1px solid var(--vscode-panel-border)',
-                    borderRadius: 'var(--border-radius-lg)',
-                    padding: 'var(--spacing-6)',
-                    marginBottom: 'var(--spacing-6)',
+                    borderRadius: 'var(--bk-radius-lg)',
+                    padding: 'var(--bk-spacing-6)',
+                    marginBottom: 'var(--bk-spacing-6)',
                 }}>
                     <h3 style={{
-                        fontSize: 'var(--font-size-lg)',
-                        fontWeight: 'var(--font-weight-semibold)',
-                        marginBottom: 'var(--spacing-4)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-4)',
                     }}>
                         Brand Colors
                     </h3>
                     <div style={{
                         display: 'grid',
                         gridTemplateColumns: 'auto 1fr',
-                        gap: 'var(--spacing-3) var(--spacing-6)',
-                        fontSize: 'var(--font-size-sm)',
+                        gap: 'var(--bk-spacing-3) var(--bk-spacing-6)',
+                        fontSize: 'var(--bk-font-size-sm)',
                     }}>
-                        <Code>--color-primary</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Primary brand color</span>
-                        <Code>--color-primary-hover</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Primary hover state</span>
-                        <Code>--color-primary-foreground</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Text on primary background</span>
-                        <Code>--color-secondary</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Secondary brand color</span>
+                        <Code>--bk-color-primary</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Primary brand color</span>
+                        <Code>--bk-color-primary-hover</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Primary hover state</span>
+                        <Code>--bk-color-primary-foreground</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Text on primary background</span>
+                        <Code>--bk-color-secondary</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Secondary brand color</span>
                     </div>
                 </div>
 
                 <div style={{
                     backgroundColor: 'var(--vscode-sideBar-background)',
                     border: '1px solid var(--vscode-panel-border)',
-                    borderRadius: 'var(--border-radius-lg)',
-                    padding: 'var(--spacing-6)',
-                    marginBottom: 'var(--spacing-6)',
+                    borderRadius: 'var(--bk-radius-lg)',
+                    padding: 'var(--bk-spacing-6)',
+                    marginBottom: 'var(--bk-spacing-6)',
                 }}>
                     <h3 style={{
-                        fontSize: 'var(--font-size-lg)',
-                        fontWeight: 'var(--font-weight-semibold)',
-                        marginBottom: 'var(--spacing-4)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-4)',
                     }}>
                         Semantic Colors
                     </h3>
                     <div style={{
                         display: 'grid',
                         gridTemplateColumns: 'auto 1fr',
-                        gap: 'var(--spacing-3) var(--spacing-6)',
-                        fontSize: 'var(--font-size-sm)',
+                        gap: 'var(--bk-spacing-3) var(--bk-spacing-6)',
+                        fontSize: 'var(--bk-font-size-sm)',
                     }}>
-                        <Code>--color-success</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Success/positive actions</span>
-                        <Code>--color-warning</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Warning/caution messages</span>
-                        <Code>--color-danger</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Error/destructive actions</span>
-                        <Code>--color-info</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Informational messages</span>
+                        <Code>--bk-color-success</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Success/positive actions</span>
+                        <Code>--bk-color-warning</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Warning/caution messages</span>
+                        <Code>--bk-color-danger</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Error/destructive actions</span>
+                        <Code>--bk-color-info</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Informational messages</span>
                     </div>
                 </div>
 
                 <div style={{
                     backgroundColor: 'var(--vscode-sideBar-background)',
                     border: '1px solid var(--vscode-panel-border)',
-                    borderRadius: 'var(--border-radius-lg)',
-                    padding: 'var(--spacing-6)',
-                    marginBottom: 'var(--spacing-6)',
+                    borderRadius: 'var(--bk-radius-lg)',
+                    padding: 'var(--bk-spacing-6)',
+                    marginBottom: 'var(--bk-spacing-6)',
                 }}>
                     <h3 style={{
-                        fontSize: 'var(--font-size-lg)',
-                        fontWeight: 'var(--font-weight-semibold)',
-                        marginBottom: 'var(--spacing-4)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-4)',
                     }}>
                         Background & Foreground
                     </h3>
                     <div style={{
                         display: 'grid',
                         gridTemplateColumns: 'auto 1fr',
-                        gap: 'var(--spacing-3) var(--spacing-6)',
-                        fontSize: 'var(--font-size-sm)',
+                        gap: 'var(--bk-spacing-3) var(--bk-spacing-6)',
+                        fontSize: 'var(--bk-font-size-sm)',
                     }}>
-                        <Code>--color-background</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Main background color</span>
-                        <Code>--color-background-secondary</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Secondary background (e.g., sidebars)</span>
-                        <Code>--color-background-elevated</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Elevated surfaces (e.g., modals)</span>
-                        <Code>--color-foreground</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Primary text color</span>
-                        <Code>--color-foreground-muted</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Secondary/muted text</span>
+                        <Code>--bk-color-background</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Main background color</span>
+                        <Code>--bk-color-background-secondary</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Secondary background (e.g., sidebars)</span>
+                        <Code>--bk-color-background-elevated</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Elevated surfaces (e.g., modals)</span>
+                        <Code>--bk-color-foreground</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Primary text color</span>
+                        <Code>--bk-color-foreground-muted</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Secondary/muted text</span>
                     </div>
                 </div>
 
                 <div style={{
                     backgroundColor: 'var(--vscode-sideBar-background)',
                     border: '1px solid var(--vscode-panel-border)',
-                    borderRadius: 'var(--border-radius-lg)',
-                    padding: 'var(--spacing-6)',
-                    marginBottom: 'var(--spacing-6)',
+                    borderRadius: 'var(--bk-radius-lg)',
+                    padding: 'var(--bk-spacing-6)',
+                    marginBottom: 'var(--bk-spacing-6)',
                 }}>
                     <h3 style={{
-                        fontSize: 'var(--font-size-lg)',
-                        fontWeight: 'var(--font-weight-semibold)',
-                        marginBottom: 'var(--spacing-4)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-4)',
                     }}>
                         Borders & Interactive States
                     </h3>
                     <div style={{
                         display: 'grid',
                         gridTemplateColumns: 'auto 1fr',
-                        gap: 'var(--spacing-3) var(--spacing-6)',
-                        fontSize: 'var(--font-size-sm)',
+                        gap: 'var(--bk-spacing-3) var(--bk-spacing-6)',
+                        fontSize: 'var(--bk-font-size-sm)',
                     }}>
-                        <Code>--color-border</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Default border color</span>
-                        <Code>--color-border-focus</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Focus indicator color</span>
-                        <Code>--color-hover</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Hover state background</span>
-                        <Code>--color-active</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Active/pressed state background</span>
+                        <Code>--bk-color-border</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Default border color</span>
+                        <Code>--bk-color-border-focus</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Focus indicator color</span>
+                        <Code>--bk-color-hover</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Hover state background</span>
+                        <Code>--bk-color-active</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Active/pressed state background</span>
                     </div>
                 </div>
 
                 <div style={{
                     backgroundColor: 'var(--vscode-sideBar-background)',
                     border: '1px solid var(--vscode-panel-border)',
-                    borderRadius: 'var(--border-radius-lg)',
-                    padding: 'var(--spacing-6)',
+                    borderRadius: 'var(--bk-radius-lg)',
+                    padding: 'var(--bk-spacing-6)',
                 }}>
                     <h3 style={{
-                        fontSize: 'var(--font-size-lg)',
-                        fontWeight: 'var(--font-weight-semibold)',
-                        marginBottom: 'var(--spacing-4)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-4)',
                     }}>
                         Spacing
                     </h3>
                     <div style={{
                         display: 'grid',
                         gridTemplateColumns: 'auto 1fr',
-                        gap: 'var(--spacing-3) var(--spacing-6)',
-                        fontSize: 'var(--font-size-sm)',
+                        gap: 'var(--bk-spacing-3) var(--bk-spacing-6)',
+                        fontSize: 'var(--bk-font-size-sm)',
                     }}>
-                        <Code>--spacing-2</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Extra small spacing (4px)</span>
-                        <Code>--spacing-4</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Small spacing (8px)</span>
-                        <Code>--spacing-6</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Medium spacing (12px)</span>
-                        <Code>--spacing-8</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Large spacing (16px)</span>
-                        <Code>--spacing-12</Code>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>Extra large spacing (24px)</span>
+                        <Code>--bk-spacing-2</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Extra small spacing (4px)</span>
+                        <Code>--bk-spacing-4</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Small spacing (8px)</span>
+                        <Code>--bk-spacing-6</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Medium spacing (12px)</span>
+                        <Code>--bk-spacing-8</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Large spacing (16px)</span>
+                        <Code>--bk-spacing-12</Code>
+                        <span style={{ color: 'var(--bk-color-text-secondary)' }}>Extra large spacing (24px)</span>
                     </div>
                 </div>
             </section>
 
-            <section style={{ marginBottom: 'var(--spacing-12)' }}>
+            <section style={{ marginBottom: 'var(--bk-spacing-12)' }}>
                 <h2 style={{
-                    fontSize: 'var(--font-size-xl)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginBottom: 'var(--spacing-4)',
+                    fontSize: 'var(--bk-font-size-xl)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
+                    marginBottom: 'var(--bk-spacing-4)',
                 }}>
                     Component-Specific Overrides
                 </h2>
                 <p style={{
-                    fontSize: 'var(--font-size-base)',
-                    color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-4)',
-                    lineHeight: 'var(--line-height-relaxed)',
+                    fontSize: 'var(--bk-font-size-base)',
+                    color: 'var(--bk-color-text-secondary)',
+                    marginBottom: 'var(--bk-spacing-4)',
+                    lineHeight: 'var(--bk-line-height-relaxed)',
                 }}>
                     For component-specific customization, you can use inline styles with CSS variables:
                 </p>
@@ -554,8 +554,8 @@ function CustomButton() {
     <Button
       variant="primary"
       style={{
-        '--color-primary': '#ff6b6b',
-        '--color-primary-hover': '#ee5a52',
+        '--bk-color-primary': '#ff6b6b',
+        '--bk-color-primary-hover': '#ee5a52',
       } as React.CSSProperties}
     >
       Custom Styled Button
@@ -567,36 +567,36 @@ function CustomButton() {
 
             <section>
                 <h2 style={{
-                    fontSize: 'var(--font-size-xl)',
-                    fontWeight: 'var(--font-weight-semibold)',
-                    marginBottom: 'var(--spacing-4)',
+                    fontSize: 'var(--bk-font-size-xl)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
+                    marginBottom: 'var(--bk-spacing-4)',
                 }}>
                     Best Practices
                 </h2>
                 <div style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: 'var(--spacing-4)',
+                    gap: 'var(--bk-spacing-4)',
                 }}>
                     <div style={{
                         display: 'flex',
-                        gap: 'var(--spacing-3)',
-                        padding: 'var(--spacing-5)',
-                        backgroundColor: 'var(--color-background-secondary)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--border-radius-md)',
+                        gap: 'var(--bk-spacing-3)',
+                        padding: 'var(--bk-spacing-5)',
+                        backgroundColor: 'var(--bk-color-background-secondary)',
+                        border: '1px solid var(--bk-color-border)',
+                        borderRadius: 'var(--bk-radius-md)',
                     }}>
                         <Icon name="check" style={{
-                            color: 'var(--color-success)',
+                            color: 'var(--bk-color-success)',
                             flexShrink: 0,
                             marginTop: '4px',
                         }} />
                         <div>
                             <strong>Import the right platform CSS</strong>
                             <p style={{
-                                fontSize: 'var(--font-size-sm)',
-                                color: 'var(--color-text-secondary)',
-                                marginTop: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-sm)',
+                                color: 'var(--bk-color-text-secondary)',
+                                marginTop: 'var(--bk-spacing-2)',
                                 marginBottom: 0,
                             }}>
                                 Use <Code>baukasten-vscode.css</Code> for VS Code, <Code>baukasten-theia.css</Code> for Theia,
@@ -607,26 +607,26 @@ function CustomButton() {
 
                     <div style={{
                         display: 'flex',
-                        gap: 'var(--spacing-3)',
-                        padding: 'var(--spacing-5)',
-                        backgroundColor: 'var(--color-background-secondary)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--border-radius-md)',
+                        gap: 'var(--bk-spacing-3)',
+                        padding: 'var(--bk-spacing-5)',
+                        backgroundColor: 'var(--bk-color-background-secondary)',
+                        border: '1px solid var(--bk-color-border)',
+                        borderRadius: 'var(--bk-radius-md)',
                     }}>
                         <Icon name="check" style={{
-                            color: 'var(--color-success)',
+                            color: 'var(--bk-color-success)',
                             flexShrink: 0,
                             marginTop: '4px',
                         }} />
                         <div>
                             <strong>Override semantic tokens, not platform variables</strong>
                             <p style={{
-                                fontSize: 'var(--font-size-sm)',
-                                color: 'var(--color-text-secondary)',
-                                marginTop: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-sm)',
+                                color: 'var(--bk-color-text-secondary)',
+                                marginTop: 'var(--bk-spacing-2)',
                                 marginBottom: 0,
                             }}>
-                                Override <Code>--color-*</Code> tokens (e.g., <Code>--color-primary</Code>)
+                                Override <Code>--bk-color-*</Code> tokens (e.g., <Code>--bk-color-primary</Code>)
                                 instead of <Code>--vscode-*</Code> or <Code>--theia-*</Code> variables
                             </p>
                         </div>
@@ -634,23 +634,23 @@ function CustomButton() {
 
                     <div style={{
                         display: 'flex',
-                        gap: 'var(--spacing-3)',
-                        padding: 'var(--spacing-5)',
-                        backgroundColor: 'var(--color-background-secondary)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--border-radius-md)',
+                        gap: 'var(--bk-spacing-3)',
+                        padding: 'var(--bk-spacing-5)',
+                        backgroundColor: 'var(--bk-color-background-secondary)',
+                        border: '1px solid var(--bk-color-border)',
+                        borderRadius: 'var(--bk-radius-md)',
                     }}>
                         <Icon name="check" style={{
-                            color: 'var(--color-success)',
+                            color: 'var(--bk-color-success)',
                             flexShrink: 0,
                             marginTop: '4px',
                         }} />
                         <div>
                             <strong>Test with multiple themes</strong>
                             <p style={{
-                                fontSize: 'var(--font-size-sm)',
-                                color: 'var(--color-text-secondary)',
-                                marginTop: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-sm)',
+                                color: 'var(--bk-color-text-secondary)',
+                                marginTop: 'var(--bk-spacing-2)',
                                 marginBottom: 0,
                             }}>
                                 Verify your components work well in both light and dark themes
@@ -660,23 +660,23 @@ function CustomButton() {
 
                     <div style={{
                         display: 'flex',
-                        gap: 'var(--spacing-3)',
-                        padding: 'var(--spacing-5)',
-                        backgroundColor: 'var(--color-background-secondary)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--border-radius-md)',
+                        gap: 'var(--bk-spacing-3)',
+                        padding: 'var(--bk-spacing-5)',
+                        backgroundColor: 'var(--bk-color-background-secondary)',
+                        border: '1px solid var(--bk-color-border)',
+                        borderRadius: 'var(--bk-radius-md)',
                     }}>
                         <Icon name="check" style={{
-                            color: 'var(--color-success)',
+                            color: 'var(--bk-color-success)',
                             flexShrink: 0,
                             marginTop: '4px',
                         }} />
                         <div>
                             <strong>Import order matters</strong>
                             <p style={{
-                                fontSize: 'var(--font-size-sm)',
-                                color: 'var(--color-text-secondary)',
-                                marginTop: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-sm)',
+                                color: 'var(--bk-color-text-secondary)',
+                                marginTop: 'var(--bk-spacing-2)',
                                 marginBottom: 0,
                             }}>
                                 Import base CSS first, then platform CSS, then your custom overrides

@@ -5,8 +5,8 @@ import { style, keyframes } from '@vanilla-extract/css';
 const INDETERMINATE_DURATION = '1.5s'; // Smooth loading animation
 const STRIPED_DURATION = '1s'; // Stripe movement speed
 
-// Stripe pattern size (matches var(--spacing-10) = 40px)
-const STRIPE_SIZE = 'var(--spacing-10)'; // 40px
+// Stripe pattern size (matches var(--bk-spacing-10) = 40px)
+const STRIPE_SIZE = 'var(--bk-spacing-10)'; // 40px
 
 /**
  * Indeterminate loading animation (VSCode-style shimmer)
@@ -38,7 +38,7 @@ const stripedAnimation = keyframes({
 export const progressBarWrapper = style({
   display: 'flex',
   alignItems: 'center',
-  gap: 'var(--gap-md)',
+  gap: 'var(--bk-gap-md)',
   width: '100%',
 });
 
@@ -48,10 +48,10 @@ export const progressBarWrapper = style({
 export const progressBarContainer = style({
   position: 'relative',
   width: '100%',
-  backgroundColor: 'var(--color-background-elevated)',
-  borderRadius: 'var(--radius-full)',
+  backgroundColor: 'var(--bk-color-background-elevated)',
+  borderRadius: 'var(--bk-radius-full)',
   overflow: 'hidden',
-  border: 'var(--border-width-1) solid var(--color-border)',
+  border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
 });
 
 /**
@@ -60,29 +60,29 @@ export const progressBarContainer = style({
 export const progressBarFill = recipe({
   base: {
     height: '100%',
-    borderRadius: 'var(--radius-full)',
-    transition: 'width var(--transition-base)',
+    borderRadius: 'var(--bk-radius-full)',
+    transition: 'width var(--bk-transition-base)',
   },
 
   variants: {
     variant: {
       default: {
-        backgroundColor: 'var(--color-foreground-muted)',
+        backgroundColor: 'var(--bk-color-foreground-muted)',
       },
       primary: {
-        backgroundColor: 'var(--color-primary)',
+        backgroundColor: 'var(--bk-color-primary)',
       },
       success: {
-        backgroundColor: 'var(--color-success)',
+        backgroundColor: 'var(--bk-color-success)',
       },
       warning: {
-        backgroundColor: 'var(--color-warning)',
+        backgroundColor: 'var(--bk-color-warning)',
       },
       danger: {
-        backgroundColor: 'var(--color-danger)',
+        backgroundColor: 'var(--bk-color-danger)',
       },
       info: {
-        backgroundColor: 'var(--color-info)',
+        backgroundColor: 'var(--bk-color-info)',
       },
     },
     indeterminate: {
@@ -134,9 +134,9 @@ export const progressBarFill = recipe({
  * Progress bar label
  */
 export const progressBarLabel = style({
-  fontSize: 'var(--font-size-sm)',
-  color: 'var(--color-foreground)',
-  fontWeight: 'var(--font-weight-medium)',
+  fontSize: 'var(--bk-font-size-sm)',
+  color: 'var(--bk-color-foreground)',
+  fontWeight: 'var(--bk-font-weight-medium)',
   minWidth: '3em',
   textAlign: 'right',
 });

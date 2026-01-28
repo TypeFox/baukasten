@@ -2,10 +2,10 @@ import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
 // Transition duration for divider hover/drag states
-const TRANSITION_DURATION = '0.15s'; // var(--transition-fast) = 150ms
+const TRANSITION_DURATION = '0.15s'; // var(--bk-transition-fast) = 150ms
 
 // Divider hit area sizing (extends beyond visual divider for better UX)
-const HIT_AREA_EXTENSION = '3px'; // Extension on each side of 1px divider (var(--spacing-0-5) + var(--spacing-0-25))
+const HIT_AREA_EXTENSION = '3px'; // Extension on each side of 1px divider (var(--bk-spacing-0-5) + var(--bk-spacing-0-25))
 const HIT_AREA_TOTAL = '7px'; // Total hit area width/height (1px + 2 * 3px)
 
 // Gradient positions (centered in hit area)
@@ -84,7 +84,7 @@ export const dividerWrapper = recipe({
 export const divider = recipe({
     base: {
         position: 'absolute',
-        backgroundColor: 'var(--color-border)',
+        backgroundColor: 'var(--bk-color-border)',
         // Prevent text selection during drag
         WebkitUserSelect: 'none',
         userSelect: 'none',
@@ -119,13 +119,13 @@ export const divider = recipe({
         },
         isDragging: {
             true: {
-                backgroundColor: 'var(--color-primary)',
+                backgroundColor: 'var(--bk-color-primary)',
             },
             false: {},
         },
         isHovered: {
             true: {
-                backgroundColor: 'var(--color-primary-hover)',
+                backgroundColor: 'var(--bk-color-primary-hover)',
             },
             false: {},
         },
@@ -138,7 +138,7 @@ export const divider = recipe({
                 isHovered: true,
             },
             style: {
-                background: `linear-gradient(to right, transparent ${GRADIENT_THICK_START}, var(--color-primary-hover) ${GRADIENT_THICK_START}, var(--color-primary-hover) ${GRADIENT_THICK_END}, transparent ${GRADIENT_THICK_END})`,
+                background: `linear-gradient(to right, transparent ${GRADIENT_THICK_START}, var(--bk-color-primary-hover) ${GRADIENT_THICK_START}, var(--bk-color-primary-hover) ${GRADIENT_THICK_END}, transparent ${GRADIENT_THICK_END})`,
             },
         },
         // Vertical + hovered: show wider divider (3px centered in 7px)
@@ -148,7 +148,7 @@ export const divider = recipe({
                 isHovered: true,
             },
             style: {
-                background: `linear-gradient(to bottom, transparent ${GRADIENT_THICK_START}, var(--color-primary-hover) ${GRADIENT_THICK_START}, var(--color-primary-hover) ${GRADIENT_THICK_END}, transparent ${GRADIENT_THICK_END})`,
+                background: `linear-gradient(to bottom, transparent ${GRADIENT_THICK_START}, var(--bk-color-primary-hover) ${GRADIENT_THICK_START}, var(--bk-color-primary-hover) ${GRADIENT_THICK_END}, transparent ${GRADIENT_THICK_END})`,
             },
         },
         // Horizontal + dragging: show wider divider with primary color
@@ -158,7 +158,7 @@ export const divider = recipe({
                 isDragging: true,
             },
             style: {
-                background: `linear-gradient(to right, transparent ${GRADIENT_THICK_START}, var(--color-primary) ${GRADIENT_THICK_START}, var(--color-primary) ${GRADIENT_THICK_END}, transparent ${GRADIENT_THICK_END})`,
+                background: `linear-gradient(to right, transparent ${GRADIENT_THICK_START}, var(--bk-color-primary) ${GRADIENT_THICK_START}, var(--bk-color-primary) ${GRADIENT_THICK_END}, transparent ${GRADIENT_THICK_END})`,
             },
         },
         // Vertical + dragging: show wider divider with primary color
@@ -168,7 +168,7 @@ export const divider = recipe({
                 isDragging: true,
             },
             style: {
-                background: `linear-gradient(to bottom, transparent ${GRADIENT_THICK_START}, var(--color-primary) ${GRADIENT_THICK_START}, var(--color-primary) ${GRADIENT_THICK_END}, transparent ${GRADIENT_THICK_END})`,
+                background: `linear-gradient(to bottom, transparent ${GRADIENT_THICK_START}, var(--bk-color-primary) ${GRADIENT_THICK_START}, var(--bk-color-primary) ${GRADIENT_THICK_END}, transparent ${GRADIENT_THICK_END})`,
             },
         },
         // Horizontal + default (not hovered, not dragging): show 1px line
@@ -179,7 +179,7 @@ export const divider = recipe({
                 isDragging: false,
             },
             style: {
-                background: `linear-gradient(to right, transparent ${GRADIENT_THIN_START}, var(--color-border) ${GRADIENT_THIN_START}, var(--color-border) ${GRADIENT_THIN_END}, transparent ${GRADIENT_THIN_END})`,
+                background: `linear-gradient(to right, transparent ${GRADIENT_THIN_START}, var(--bk-color-border) ${GRADIENT_THIN_START}, var(--bk-color-border) ${GRADIENT_THIN_END}, transparent ${GRADIENT_THIN_END})`,
             },
         },
         // Vertical + default (not hovered, not dragging): show 1px line
@@ -190,7 +190,7 @@ export const divider = recipe({
                 isDragging: false,
             },
             style: {
-                background: `linear-gradient(to bottom, transparent ${GRADIENT_THIN_START}, var(--color-border) ${GRADIENT_THIN_START}, var(--color-border) ${GRADIENT_THIN_END}, transparent ${GRADIENT_THIN_END})`,
+                background: `linear-gradient(to bottom, transparent ${GRADIENT_THIN_START}, var(--bk-color-border) ${GRADIENT_THIN_START}, var(--bk-color-border) ${GRADIENT_THIN_END}, transparent ${GRADIENT_THIN_END})`,
             },
         },
     ],

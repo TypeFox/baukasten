@@ -89,9 +89,9 @@ export const Interactive: Story = {
  */
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-xl)', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-xl)', alignItems: 'flex-start' }}>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-sm)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-sm)' }}>
           Default variant
         </div>
         <Breadcrumbs
@@ -105,7 +105,7 @@ export const Variants: Story = {
         />
       </div>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-sm)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-sm)' }}>
           Pill variant
         </div>
         <Breadcrumbs
@@ -119,7 +119,7 @@ export const Variants: Story = {
         />
       </div>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-sm)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-sm)' }}>
           Pill variant with chevron separator
         </div>
         <Breadcrumbs
@@ -149,9 +149,9 @@ export const Variants: Story = {
  */
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)', alignItems: 'flex-start' }}>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
           Extra Small (xs)
         </div>
         <Breadcrumbs
@@ -164,7 +164,7 @@ export const Sizes: Story = {
         />
       </div>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
           Small (sm)
         </div>
         <Breadcrumbs
@@ -177,7 +177,7 @@ export const Sizes: Story = {
         />
       </div>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
           Medium (md) - Default
         </div>
         <Breadcrumbs
@@ -190,7 +190,7 @@ export const Sizes: Story = {
         />
       </div>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
           Large (lg)
         </div>
         <Breadcrumbs
@@ -203,7 +203,7 @@ export const Sizes: Story = {
         />
       </div>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
           Extra Large (xl)
         </div>
         <Breadcrumbs
@@ -231,9 +231,9 @@ export const Sizes: Story = {
  */
 export const Separators: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)', alignItems: 'flex-start' }}>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
           Default (/)
         </div>
         <Breadcrumbs
@@ -246,7 +246,7 @@ export const Separators: Story = {
         />
       </div>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
           Greater Than (›)
         </div>
         <Breadcrumbs
@@ -259,7 +259,7 @@ export const Separators: Story = {
         />
       </div>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
           Arrow (→)
         </div>
         <Breadcrumbs
@@ -272,7 +272,7 @@ export const Separators: Story = {
         />
       </div>
       <div>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
           Chevron Icon
         </div>
         <Breadcrumbs
@@ -300,7 +300,7 @@ export const Separators: Story = {
  */
 export const WithIcons: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)', alignItems: 'flex-start' }}>
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/', icon: <Icon name="home" /> },
@@ -343,21 +343,21 @@ export const CollapsedItems: Story = {
     ];
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)', alignItems: 'flex-start', maxWidth: '600px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)', alignItems: 'flex-start', maxWidth: '600px' }}>
         <div>
-          <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+          <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
             Full path (7 items)
           </div>
           <Breadcrumbs items={longPath} />
         </div>
         <div>
-          <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+          <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
             Collapsed to 4 items
           </div>
           <Breadcrumbs items={longPath} maxItems={4} />
         </div>
         <div>
-          <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)', marginBottom: 'var(--gap-xs)' }}>
+          <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-gap-xs)' }}>
             Collapsed to 3 items
           </div>
           <Breadcrumbs items={longPath} maxItems={3} />
@@ -411,18 +411,18 @@ export const FileBrowserExample: Story = {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      gap: 'var(--gap-md)',
-      padding: 'var(--padding-lg)',
-      background: 'var(--color-background-secondary)',
-      borderRadius: 'var(--radius-md)',
+      gap: 'var(--bk-gap-md)',
+      padding: 'var(--bk-padding-lg)',
+      background: 'var(--bk-color-background-secondary)',
+      borderRadius: 'var(--bk-radius-md)',
       minWidth: '500px',
     }}>
       <div>
         <div style={{
-          fontSize: 'var(--font-size-sm)',
-          fontWeight: 'var(--font-weight-medium)',
-          marginBottom: 'var(--gap-sm)',
-          color: 'var(--color-foreground)',
+          fontSize: 'var(--bk-font-size-sm)',
+          fontWeight: 'var(--bk-font-weight-medium)',
+          marginBottom: 'var(--bk-gap-sm)',
+          color: 'var(--bk-color-foreground)',
         }}>
           File Explorer
         </div>
@@ -439,11 +439,11 @@ export const FileBrowserExample: Story = {
       </div>
       <div style={{
         height: '1px',
-        background: 'var(--color-divider)',
+        background: 'var(--bk-color-divider)',
       }} />
       <div style={{
-        fontSize: 'var(--font-size-sm)',
-        color: 'var(--color-foreground-muted)',
+        fontSize: 'var(--bk-font-size-sm)',
+        color: 'var(--bk-color-foreground-muted)',
       }}>
         File content would appear here...
       </div>
@@ -466,10 +466,10 @@ export const SettingsNavigationExample: Story = {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      gap: 'var(--gap-md)',
-      padding: 'var(--padding-lg)',
-      background: 'var(--color-background)',
-      borderRadius: 'var(--radius-md)',
+      gap: 'var(--bk-gap-md)',
+      padding: 'var(--bk-padding-lg)',
+      background: 'var(--bk-color-background)',
+      borderRadius: 'var(--bk-radius-md)',
       minWidth: '500px',
     }}>
       <Breadcrumbs
@@ -482,20 +482,20 @@ export const SettingsNavigationExample: Story = {
       />
       <div style={{
         height: '1px',
-        background: 'var(--color-divider)',
-        margin: 'var(--gap-sm) 0',
+        background: 'var(--bk-color-divider)',
+        margin: 'var(--bk-gap-sm) 0',
       }} />
       <div>
         <h3 style={{
-          margin: '0 0 var(--gap-md) 0',
-          fontSize: 'var(--font-size-lg)',
-          fontWeight: 'var(--font-weight-medium)',
+          margin: '0 0 var(--bk-gap-md) 0',
+          fontSize: 'var(--bk-font-size-lg)',
+          fontWeight: 'var(--bk-font-weight-medium)',
         }}>
           Font Settings
         </h3>
         <div style={{
-          fontSize: 'var(--font-size-sm)',
-          color: 'var(--color-foreground-muted)',
+          fontSize: 'var(--bk-font-size-sm)',
+          color: 'var(--bk-color-foreground-muted)',
         }}>
           Configure your editor font preferences...
         </div>
@@ -517,24 +517,24 @@ export const SettingsNavigationExample: Story = {
 export const Showcase: Story = {
   render: () => (
     <div style={{
-      padding: 'var(--padding-xl)',
+      padding: 'var(--bk-padding-xl)',
       display: 'flex',
       flexDirection: 'column',
-      gap: 'var(--gap-xl)',
+      gap: 'var(--bk-gap-xl)',
       maxWidth: '1200px',
       margin: '0 auto',
     }}>
       <div>
         <h2 style={{
-          margin: '0 0 var(--gap-lg) 0',
-          fontSize: 'var(--font-size-xl)',
-          fontWeight: 'var(--font-weight-semibold)',
+          margin: '0 0 var(--bk-gap-lg) 0',
+          fontSize: 'var(--bk-font-size-xl)',
+          fontWeight: 'var(--bk-font-weight-semibold)',
         }}>
           Breadcrumbs Component
         </h2>
         <p style={{
-          fontSize: 'var(--font-size-md)',
-          color: 'var(--color-foreground-muted)',
+          fontSize: 'var(--bk-font-size-md)',
+          color: 'var(--bk-color-foreground-muted)',
           margin: 0,
         }}>
           Navigation component showing the user's location in the app hierarchy
@@ -543,16 +543,16 @@ export const Showcase: Story = {
 
       <section>
         <h3 style={{
-          margin: '0 0 var(--gap-md) 0',
-          fontSize: 'var(--font-size-lg)',
-          fontWeight: 'var(--font-weight-medium)',
+          margin: '0 0 var(--bk-gap-md) 0',
+          fontSize: 'var(--bk-font-size-lg)',
+          fontWeight: 'var(--bk-font-weight-medium)',
         }}>
           Basic Usage
         </h3>
         <div style={{
-          padding: 'var(--padding-lg)',
-          background: 'var(--color-background-secondary)',
-          borderRadius: 'var(--radius-md)',
+          padding: 'var(--bk-padding-lg)',
+          background: 'var(--bk-color-background-secondary)',
+          borderRadius: 'var(--bk-radius-md)',
         }}>
           <Breadcrumbs
             items={[
@@ -566,16 +566,16 @@ export const Showcase: Story = {
 
       <section>
         <h3 style={{
-          margin: '0 0 var(--gap-md) 0',
-          fontSize: 'var(--font-size-lg)',
-          fontWeight: 'var(--font-weight-medium)',
+          margin: '0 0 var(--bk-gap-md) 0',
+          fontSize: 'var(--bk-font-size-lg)',
+          fontWeight: 'var(--bk-font-weight-medium)',
         }}>
           With Icons
         </h3>
         <div style={{
-          padding: 'var(--padding-lg)',
-          background: 'var(--color-background-secondary)',
-          borderRadius: 'var(--radius-md)',
+          padding: 'var(--bk-padding-lg)',
+          background: 'var(--bk-color-background-secondary)',
+          borderRadius: 'var(--bk-radius-md)',
         }}>
           <Breadcrumbs
             separator={<Icon name="chevron-right" />}
@@ -591,26 +591,26 @@ export const Showcase: Story = {
 
       <section>
         <h3 style={{
-          margin: '0 0 var(--gap-md) 0',
-          fontSize: 'var(--font-size-lg)',
-          fontWeight: 'var(--font-weight-medium)',
+          margin: '0 0 var(--bk-gap-md) 0',
+          fontSize: 'var(--bk-font-size-lg)',
+          fontWeight: 'var(--bk-font-weight-medium)',
         }}>
           Variants
         </h3>
         <div style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 'var(--gap-md)',
+          gap: 'var(--bk-gap-md)',
         }}>
           <div style={{
-            padding: 'var(--padding-lg)',
-            background: 'var(--color-background-secondary)',
-            borderRadius: 'var(--radius-md)',
+            padding: 'var(--bk-padding-lg)',
+            background: 'var(--bk-color-background-secondary)',
+            borderRadius: 'var(--bk-radius-md)',
           }}>
             <div style={{
-              fontSize: 'var(--font-size-sm)',
-              color: 'var(--color-foreground-muted)',
-              marginBottom: 'var(--gap-sm)',
+              fontSize: 'var(--bk-font-size-sm)',
+              color: 'var(--bk-color-foreground-muted)',
+              marginBottom: 'var(--bk-gap-sm)',
             }}>
               Default
             </div>
@@ -624,14 +624,14 @@ export const Showcase: Story = {
             />
           </div>
           <div style={{
-            padding: 'var(--padding-lg)',
-            background: 'var(--color-background-secondary)',
-            borderRadius: 'var(--radius-md)',
+            padding: 'var(--bk-padding-lg)',
+            background: 'var(--bk-color-background-secondary)',
+            borderRadius: 'var(--bk-radius-md)',
           }}>
             <div style={{
-              fontSize: 'var(--font-size-sm)',
-              color: 'var(--color-foreground-muted)',
-              marginBottom: 'var(--gap-sm)',
+              fontSize: 'var(--bk-font-size-sm)',
+              color: 'var(--bk-color-foreground-muted)',
+              marginBottom: 'var(--bk-gap-sm)',
             }}>
               Pill
             </div>
@@ -649,24 +649,24 @@ export const Showcase: Story = {
 
       <section>
         <h3 style={{
-          margin: '0 0 var(--gap-md) 0',
-          fontSize: 'var(--font-size-lg)',
-          fontWeight: 'var(--font-weight-medium)',
+          margin: '0 0 var(--bk-gap-md) 0',
+          fontSize: 'var(--bk-font-size-lg)',
+          fontWeight: 'var(--bk-font-weight-medium)',
         }}>
           Sizes
         </h3>
         <div style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 'var(--gap-md)',
+          gap: 'var(--bk-gap-md)',
         }}>
           {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map(size => (
             <div
               key={size}
               style={{
-                padding: 'var(--padding-md)',
-                background: 'var(--color-background-secondary)',
-                borderRadius: 'var(--radius-md)',
+                padding: 'var(--bk-padding-md)',
+                background: 'var(--bk-color-background-secondary)',
+                borderRadius: 'var(--bk-radius-md)',
               }}
             >
               <Breadcrumbs
@@ -684,19 +684,19 @@ export const Showcase: Story = {
 
       <section>
         <h3 style={{
-          margin: '0 0 var(--gap-md) 0',
-          fontSize: 'var(--font-size-lg)',
-          fontWeight: 'var(--font-weight-medium)',
+          margin: '0 0 var(--bk-gap-md) 0',
+          fontSize: 'var(--bk-font-size-lg)',
+          fontWeight: 'var(--bk-font-weight-medium)',
         }}>
           Long Paths with Collapse
         </h3>
         <div style={{
-          padding: 'var(--padding-lg)',
-          background: 'var(--color-background-secondary)',
-          borderRadius: 'var(--radius-md)',
+          padding: 'var(--bk-padding-lg)',
+          background: 'var(--bk-color-background-secondary)',
+          borderRadius: 'var(--bk-radius-md)',
           display: 'flex',
           flexDirection: 'column',
-          gap: 'var(--gap-md)',
+          gap: 'var(--bk-gap-md)',
         }}>
           <Breadcrumbs
             items={[

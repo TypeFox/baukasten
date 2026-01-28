@@ -48,7 +48,7 @@ const meta = {
       control: 'text',
       description: 'Vertical spacing (for horizontal) or horizontal spacing (for vertical)',
       table: {
-        defaultValue: { summary: 'var(--spacing-4)' },
+        defaultValue: { summary: 'var(--bk-spacing-4)' },
       },
     },
     color: {
@@ -70,10 +70,10 @@ export const Interactive: Story = {
     variant: 'solid',
     label: '',
     labelAlign: 'center',
-    spacing: 'var(--spacing-4)',
+    spacing: 'var(--bk-spacing-4)',
   },
   render: (args) => (
-    <div style={{ padding: 'var(--spacing-4)' }}>
+    <div style={{ padding: 'var(--bk-spacing-4)' }}>
       <Paragraph>Content above the divider</Paragraph>
       <Divider {...args} />
       <Paragraph>Content below the divider</Paragraph>
@@ -138,7 +138,7 @@ export const WithLabel: Story = {
  */
 export const LabelAlignments: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', maxWidth: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', maxWidth: '600px' }}>
       <div>
         <Heading level={3}>Introduction</Heading>
         <Paragraph>Welcome to our application. This section introduces the main features.</Paragraph>
@@ -173,9 +173,9 @@ export const LabelAlignments: Story = {
  */
 export const BorderStyles: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', maxWidth: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', maxWidth: '600px' }}>
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Solid (default)
         </div>
         <Paragraph>Content above solid divider</Paragraph>
@@ -184,7 +184,7 @@ export const BorderStyles: Story = {
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Dashed
         </div>
         <Paragraph>Content above dashed divider</Paragraph>
@@ -193,7 +193,7 @@ export const BorderStyles: Story = {
       </div>
 
       <div>
-        <div style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Dotted
         </div>
         <Paragraph>Content above dotted divider</Paragraph>
@@ -216,8 +216,8 @@ export const BorderStyles: Story = {
  */
 export const Vertical: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
-      <div style={{ display: 'flex', alignItems: 'center', height: '100px', gap: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', height: '100px', gap: 'var(--bk-spacing-4)' }}>
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Paragraph>Left content</Paragraph>
         </div>
@@ -227,11 +227,11 @@ export const Vertical: Story = {
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', height: '60px', gap: 'var(--spacing-3)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', height: '60px', gap: 'var(--bk-spacing-3)' }}>
         <Button variant="primary">Button 1</Button>
-        <Divider orientation="vertical" spacing="var(--spacing-2)" />
+        <Divider orientation="vertical" spacing="var(--bk-spacing-2)" />
         <Button variant="secondary">Button 2</Button>
-        <Divider orientation="vertical" spacing="var(--spacing-2)" />
+        <Divider orientation="vertical" spacing="var(--bk-spacing-2)" />
         <Button variant="ghost">Button 3</Button>
       </div>
     </div>
@@ -253,19 +253,19 @@ export const CustomSpacing: Story = {
     <div style={{ maxWidth: '600px' }}>
       <div>
         <Paragraph>Content with minimal spacing</Paragraph>
-        <Divider spacing="var(--spacing-1)" />
+        <Divider spacing="var(--bk-spacing-1)" />
         <Paragraph>Very tight spacing (spacing-1)</Paragraph>
       </div>
 
-      <div style={{ marginTop: 'var(--spacing-4)' }}>
+      <div style={{ marginTop: 'var(--bk-spacing-4)' }}>
         <Paragraph>Content with default spacing</Paragraph>
-        <Divider spacing="var(--spacing-4)" />
+        <Divider spacing="var(--bk-spacing-4)" />
         <Paragraph>Default spacing (spacing-4)</Paragraph>
       </div>
 
-      <div style={{ marginTop: 'var(--spacing-4)' }}>
+      <div style={{ marginTop: 'var(--bk-spacing-4)' }}>
         <Paragraph>Content with generous spacing</Paragraph>
-        <Divider spacing="var(--spacing-8)" />
+        <Divider spacing="var(--bk-spacing-8)" />
         <Paragraph>Large spacing (spacing-8)</Paragraph>
       </div>
     </div>
@@ -273,7 +273,7 @@ export const CustomSpacing: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Control the spacing around dividers using the `spacing` prop. Default is `var(--spacing-4)`.',
+        story: 'Control the spacing around dividers using the `spacing` prop. Default is `var(--bk-spacing-4)`.',
       },
     },
   },
@@ -284,7 +284,7 @@ export const CustomSpacing: Story = {
  */
 export const CustomColors: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', maxWidth: '600px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', maxWidth: '600px' }}>
       <div>
         <Paragraph>Default border color</Paragraph>
         <Divider />
@@ -293,25 +293,25 @@ export const CustomColors: Story = {
 
       <div>
         <Paragraph>Primary color divider</Paragraph>
-        <Divider color="var(--color-primary)" />
+        <Divider color="var(--bk-color-primary)" />
         <Paragraph>Stands out with brand color</Paragraph>
       </div>
 
       <div>
         <Paragraph>Success color divider</Paragraph>
-        <Divider color="var(--color-success)" />
+        <Divider color="var(--bk-color-success)" />
         <Paragraph>Green for positive sections</Paragraph>
       </div>
 
       <div>
         <Paragraph>Warning color divider</Paragraph>
-        <Divider color="var(--color-warning)" />
+        <Divider color="var(--bk-color-warning)" />
         <Paragraph>Yellow for caution sections</Paragraph>
       </div>
 
       <div>
         <Paragraph>Danger color divider</Paragraph>
-        <Divider color="var(--color-danger)" />
+        <Divider color="var(--bk-color-danger)" />
         <Paragraph>Red for important sections</Paragraph>
       </div>
     </div>
@@ -332,19 +332,19 @@ export const FormExample: Story = {
   render: () => (
     <div style={{
       maxWidth: '400px',
-      padding: 'var(--spacing-6)',
-      backgroundColor: 'var(--color-background-elevated)',
-      borderRadius: 'var(--radius-md)',
+      padding: 'var(--bk-spacing-6)',
+      backgroundColor: 'var(--bk-color-background-elevated)',
+      borderRadius: 'var(--bk-radius-md)',
     }}>
       <Heading level={2} style={{ marginTop: 0 }}>Sign In</Heading>
 
-      <div style={{ marginBottom: 'var(--spacing-4)' }}>
+      <div style={{ marginBottom: 'var(--bk-spacing-4)' }}>
         <Button variant="primary" fullWidth>
           Sign in with Google
         </Button>
       </div>
 
-      <div style={{ marginBottom: 'var(--spacing-4)' }}>
+      <div style={{ marginBottom: 'var(--bk-spacing-4)' }}>
         <Button variant="secondary" fullWidth>
           Sign in with GitHub
         </Button>
@@ -352,8 +352,8 @@ export const FormExample: Story = {
 
       <Divider label="OR" />
 
-      <div style={{ marginBottom: 'var(--spacing-3)' }}>
-        <label style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>
+      <div style={{ marginBottom: 'var(--bk-spacing-3)' }}>
+        <label style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>
           Email
         </label>
         <input
@@ -361,19 +361,19 @@ export const FormExample: Story = {
           placeholder="your@email.com"
           style={{
             width: '100%',
-            padding: 'var(--padding-md)',
-            backgroundColor: 'var(--color-input-background)',
-            color: 'var(--color-input-foreground)',
-            border: '1px solid var(--color-input-border)',
-            borderRadius: 'var(--radius-sm)',
+            padding: 'var(--bk-padding-md)',
+            backgroundColor: 'var(--bk-color-input-background)',
+            color: 'var(--bk-color-input-foreground)',
+            border: '1px solid var(--bk-color-input-border)',
+            borderRadius: 'var(--bk-radius-sm)',
             fontFamily: 'inherit',
-            fontSize: 'var(--font-size-md)',
+            fontSize: 'var(--bk-font-size-md)',
           }}
         />
       </div>
 
-      <div style={{ marginBottom: 'var(--spacing-4)' }}>
-        <label style={{ display: 'block', marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>
+      <div style={{ marginBottom: 'var(--bk-spacing-4)' }}>
+        <label style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>
           Password
         </label>
         <input
@@ -381,13 +381,13 @@ export const FormExample: Story = {
           placeholder="••••••••"
           style={{
             width: '100%',
-            padding: 'var(--padding-md)',
-            backgroundColor: 'var(--color-input-background)',
-            color: 'var(--color-input-foreground)',
-            border: '1px solid var(--color-input-border)',
-            borderRadius: 'var(--radius-sm)',
+            padding: 'var(--bk-padding-md)',
+            backgroundColor: 'var(--bk-color-input-background)',
+            color: 'var(--bk-color-input-foreground)',
+            border: '1px solid var(--bk-color-input-border)',
+            borderRadius: 'var(--bk-radius-sm)',
             fontFamily: 'inherit',
-            fontSize: 'var(--font-size-md)',
+            fontSize: 'var(--bk-font-size-md)',
           }}
         />
       </div>
@@ -462,12 +462,12 @@ export const ContentSections: Story = {
  */
 export const Showcase: Story = {
   render: () => (
-    <div style={{ padding: 'var(--spacing-4)', maxWidth: '800px', margin: '0 auto' }}>
+    <div style={{ padding: 'var(--bk-spacing-4)', maxWidth: '800px', margin: '0 auto' }}>
       <Heading level={1}>Divider Component</Heading>
       <Paragraph color="muted">Visual separation for content sections</Paragraph>
 
       {/* Basic */}
-      <section style={{ marginTop: 'var(--spacing-8)' }}>
+      <section style={{ marginTop: 'var(--bk-spacing-8)' }}>
         <Heading level={2}>Basic</Heading>
         <Paragraph>Simple horizontal divider</Paragraph>
         <Divider />
@@ -475,9 +475,9 @@ export const Showcase: Story = {
       </section>
 
       {/* With Labels */}
-      <section style={{ marginTop: 'var(--spacing-8)' }}>
+      <section style={{ marginTop: 'var(--bk-spacing-8)' }}>
         <Heading level={2}>With Labels</Heading>
-        <div style={{ marginTop: 'var(--spacing-4)' }}>
+        <div style={{ marginTop: 'var(--bk-spacing-4)' }}>
           <Divider label="Left aligned" labelAlign="left" />
           <Divider label="Center aligned" labelAlign="center" />
           <Divider label="Right aligned" labelAlign="right" />
@@ -485,9 +485,9 @@ export const Showcase: Story = {
       </section>
 
       {/* Border Styles */}
-      <section style={{ marginTop: 'var(--spacing-8)' }}>
+      <section style={{ marginTop: 'var(--bk-spacing-8)' }}>
         <Heading level={2}>Border Styles</Heading>
-        <div style={{ marginTop: 'var(--spacing-4)' }}>
+        <div style={{ marginTop: 'var(--bk-spacing-4)' }}>
           <Paragraph>Solid</Paragraph>
           <Divider variant="solid" />
           <Paragraph>Dashed</Paragraph>
@@ -498,9 +498,9 @@ export const Showcase: Story = {
       </section>
 
       {/* Vertical */}
-      <section style={{ marginTop: 'var(--spacing-8)' }}>
+      <section style={{ marginTop: 'var(--bk-spacing-8)' }}>
         <Heading level={2}>Vertical</Heading>
-        <div style={{ display: 'flex', alignItems: 'center', height: '80px', gap: 'var(--spacing-4)', marginTop: 'var(--spacing-4)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', height: '80px', gap: 'var(--bk-spacing-4)', marginTop: 'var(--bk-spacing-4)' }}>
           <div style={{ flex: 1, textAlign: 'center' }}>
             <Paragraph>Left</Paragraph>
           </div>
@@ -516,13 +516,13 @@ export const Showcase: Story = {
       </section>
 
       {/* Custom Colors */}
-      <section style={{ marginTop: 'var(--spacing-8)', marginBottom: 'var(--spacing-4)' }}>
+      <section style={{ marginTop: 'var(--bk-spacing-8)', marginBottom: 'var(--bk-spacing-4)' }}>
         <Heading level={2}>Custom Colors</Heading>
-        <div style={{ marginTop: 'var(--spacing-4)' }}>
-          <Divider color="var(--color-primary)" label="Primary" />
-          <Divider color="var(--color-success)" label="Success" />
-          <Divider color="var(--color-warning)" label="Warning" />
-          <Divider color="var(--color-danger)" label="Danger" />
+        <div style={{ marginTop: 'var(--bk-spacing-4)' }}>
+          <Divider color="var(--bk-color-primary)" label="Primary" />
+          <Divider color="var(--bk-color-success)" label="Success" />
+          <Divider color="var(--bk-color-warning)" label="Warning" />
+          <Divider color="var(--bk-color-danger)" label="Danger" />
         </div>
       </section>
     </div>

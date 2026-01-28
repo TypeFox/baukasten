@@ -27,7 +27,7 @@ const meta = {
       control: 'text',
       description: 'Custom color for the spinner (uses semantic token or CSS value)',
       table: {
-        defaultValue: { summary: 'var(--color-primary)' },
+        defaultValue: { summary: 'var(--bk-color-primary)' },
       },
     },
     'aria-label': {
@@ -65,26 +65,26 @@ export const Interactive: Story = {
  */
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-xl)', alignItems: 'center', flexWrap: 'wrap' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-xl)', alignItems: 'center', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
         <Spinner size="xs" />
-        <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>xs</span>
+        <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>xs</span>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
         <Spinner size="sm" />
-        <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>sm</span>
+        <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>sm</span>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
         <Spinner size="md" />
-        <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>md</span>
+        <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>md</span>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
         <Spinner size="lg" />
-        <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>lg</span>
+        <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>lg</span>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
         <Spinner size="xl" />
-        <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>xl</span>
+        <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>xl</span>
       </div>
     </div>
   ),
@@ -102,50 +102,50 @@ export const Sizes: Story = {
  */
 export const Colors: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Semantic Colors
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-xl)', alignItems: 'center', flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <Spinner color="var(--color-primary)" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Primary</span>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-xl)', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <Spinner color="var(--bk-color-primary)" />
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Primary</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <Spinner color="var(--color-success)" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Success</span>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <Spinner color="var(--bk-color-success)" />
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Success</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <Spinner color="var(--color-warning)" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Warning</span>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <Spinner color="var(--bk-color-warning)" />
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Warning</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <Spinner color="var(--color-danger)" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Danger</span>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <Spinner color="var(--bk-color-danger)" />
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Danger</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <Spinner color="var(--color-info)" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Info</span>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <Spinner color="var(--bk-color-info)" />
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Info</span>
           </div>
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Custom Colors
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-xl)', alignItems: 'center', flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-xl)', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
             <Spinner color="#ff6600" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>#ff6600</span>
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>#ff6600</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
             <Spinner color="#9333ea" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>#9333ea</span>
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>#9333ea</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
             <Spinner color="#06b6d4" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>#06b6d4</span>
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>#06b6d4</span>
           </div>
         </div>
       </div>
@@ -165,18 +165,18 @@ export const Colors: Story = {
  */
 export const UsageExamples: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           In Buttons
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Button variant="primary" disabled>
-            <Spinner size="sm" color="var(--color-primary-foreground)" />
+            <Spinner size="sm" color="var(--bk-color-primary-foreground)" />
             Loading...
           </Button>
           <Button variant="secondary" disabled>
-            <Spinner size="sm" color="var(--color-secondary-foreground)" />
+            <Spinner size="sm" color="var(--bk-color-secondary-foreground)" />
             Processing
           </Button>
           <Button variant="ghost" disabled>
@@ -187,19 +187,19 @@ export const UsageExamples: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Standalone Loading States
         </h4>
-        <div style={{ display: 'flex', gap: 'var(--gap-xl)', flexWrap: 'wrap', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-xl)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)' }}>
             <Spinner size="sm" />
-            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
               Loading data...
             </span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)' }}>
-            <Spinner size="md" color="var(--color-success)" />
-            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)' }}>
+            <Spinner size="md" color="var(--bk-color-success)" />
+            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
               Syncing...
             </span>
           </div>
@@ -207,7 +207,7 @@ export const UsageExamples: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Centered Content Loading
         </h4>
         <div
@@ -216,14 +216,14 @@ export const UsageExamples: Story = {
             alignItems: 'center',
             justifyContent: 'center',
             minHeight: '200px',
-            border: 'var(--border-width-1) solid var(--color-border)',
-            borderRadius: 'var(--radius-md)',
-            backgroundColor: 'var(--color-background-elevated)',
+            border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
+            backgroundColor: 'var(--bk-color-background-elevated)',
           }}
         >
           <div style={{ textAlign: 'center' }}>
             <Spinner size="lg" />
-            <p style={{ marginTop: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+            <p style={{ marginTop: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
               Loading content...
             </p>
           </div>
@@ -231,10 +231,10 @@ export const UsageExamples: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Inline with Text
         </h4>
-        <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground)' }}>
+        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground)' }}>
           Please wait while we fetch your data <Spinner size="xs" /> this may take a moment.
         </div>
       </div>
@@ -254,87 +254,87 @@ export const UsageExamples: Story = {
  */
 export const Showcase: Story = {
   render: () => (
-    <div style={{ padding: 'var(--spacing-8)', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-8)' }}>
+    <div style={{ padding: 'var(--bk-spacing-8)', display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-8)' }}>
       {/* Header */}
       <div>
-        <h2 style={{ fontSize: 'var(--font-size-2xl)', fontWeight: 'var(--font-weight-bold)', marginBottom: 'var(--spacing-2)' }}>
+        <h2 style={{ fontSize: 'var(--bk-font-size-2xl)', fontWeight: 'var(--bk-font-weight-bold)', marginBottom: 'var(--bk-spacing-2)' }}>
           Spinner Component
         </h2>
-        <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+        <p style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
           A versatile loading spinner that adapts to your design system
         </p>
       </div>
 
       {/* Sizes */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Sizes
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-xl)', alignItems: 'center', flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-xl)', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
             <Spinner size="xs" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Extra Small</span>
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Extra Small</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
             <Spinner size="sm" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Small</span>
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Small</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
             <Spinner size="md" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Medium</span>
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Medium</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
             <Spinner size="lg" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Large</span>
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Large</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
             <Spinner size="xl" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Extra Large</span>
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Extra Large</span>
           </div>
         </div>
       </div>
 
       {/* Semantic Colors */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Semantic Colors
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-xl)', alignItems: 'center', flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <Spinner color="var(--color-primary)" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Primary</span>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-xl)', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <Spinner color="var(--bk-color-primary)" />
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Primary</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <Spinner color="var(--color-success)" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Success</span>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <Spinner color="var(--bk-color-success)" />
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Success</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <Spinner color="var(--color-warning)" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Warning</span>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <Spinner color="var(--bk-color-warning)" />
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Warning</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <Spinner color="var(--color-danger)" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Danger</span>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <Spinner color="var(--bk-color-danger)" />
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Danger</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--gap-sm)' }}>
-            <Spinner color="var(--color-info)" />
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-foreground-muted)' }}>Info</span>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-gap-sm)' }}>
+            <Spinner color="var(--bk-color-info)" />
+            <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Info</span>
           </div>
         </div>
       </div>
 
       {/* In Buttons */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           In Buttons
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-md)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Button variant="primary" disabled>
-            <Spinner size="sm" color="var(--color-primary-foreground)" />
+            <Spinner size="sm" color="var(--bk-color-primary-foreground)" />
             Loading...
           </Button>
           <Button variant="secondary" disabled>
-            <Spinner size="sm" color="var(--color-secondary-foreground)" />
+            <Spinner size="sm" color="var(--bk-color-secondary-foreground)" />
             Processing
           </Button>
           <Button variant="ghost" disabled>
@@ -346,19 +346,19 @@ export const Showcase: Story = {
 
       {/* Loading States */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Loading States
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)' }}>
             <Spinner size="sm" />
-            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
               Loading data...
             </span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)' }}>
-            <Spinner size="md" color="var(--color-success)" />
-            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)' }}>
+            <Spinner size="md" color="var(--bk-color-success)" />
+            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
               Syncing...
             </span>
           </div>
@@ -367,7 +367,7 @@ export const Showcase: Story = {
 
       {/* Content Placeholder */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Content Placeholder
         </h3>
         <div
@@ -376,14 +376,14 @@ export const Showcase: Story = {
             alignItems: 'center',
             justifyContent: 'center',
             minHeight: '200px',
-            border: 'var(--border-width-1) solid var(--color-border)',
-            borderRadius: 'var(--radius-md)',
-            backgroundColor: 'var(--color-background-elevated)',
+            border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
+            backgroundColor: 'var(--bk-color-background-elevated)',
           }}
         >
           <div style={{ textAlign: 'center' }}>
             <Spinner size="lg" />
-            <p style={{ marginTop: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+            <p style={{ marginTop: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
               Loading content...
             </p>
           </div>

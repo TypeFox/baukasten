@@ -36,8 +36,8 @@ interface PaneData {
 const HOVER_DELAY_MS = 200;
 
 // Sizing constants
-const DEFAULT_MIN_SIZE = 50; // Minimum pane size in pixels (var(--spacing-12-5) equivalent)
-const DIVIDER_SIZE = 1; // Width of divider in pixels (var(--border-width-1) equivalent)
+const DEFAULT_MIN_SIZE = 50; // Minimum pane size in pixels (var(--bk-spacing-12-5) equivalent)
+const DIVIDER_SIZE = 1; // Width of divider in pixels (var(--bk-border-width-1) equivalent)
 
 export const Pane: React.FC<PaneProps> = ({ children }) => {
   return <>{children}</>;

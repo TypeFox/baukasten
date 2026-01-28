@@ -307,7 +307,7 @@ const BackdropVariantsComponent = () => {
       </Modal>
 
       {/* Background content to see backdrop effect */}
-      <div style={{ marginTop: '2rem', padding: '1rem', border: '1px solid var(--color-border)' }}>
+      <div style={{ marginTop: '2rem', padding: '1rem', border: '1px solid var(--bk-color-border)' }}>
         <Heading level={3}>Background Content</Heading>
         <Paragraph>Open the modals above to see how different backdrop styles affect this content.</Paragraph>
         <Paragraph>The blur backdrop will make this text appear blurred.</Paragraph>
@@ -520,13 +520,13 @@ const WithFormComponent = () => {
                     rows={4}
                     style={{
                       width: '100%',
-                      padding: 'var(--padding-md)',
-                      backgroundColor: 'var(--color-input-background)',
-                      color: 'var(--color-input-foreground)',
-                      border: '1px solid var(--color-input-border)',
-                      borderRadius: 'var(--radius-sm)',
+                      padding: 'var(--bk-padding-md)',
+                      backgroundColor: 'var(--bk-color-input-background)',
+                      color: 'var(--bk-color-input-foreground)',
+                      border: '1px solid var(--bk-color-input-border)',
+                      borderRadius: 'var(--bk-radius-sm)',
                       fontFamily: 'inherit',
-                      fontSize: 'var(--font-size-md)',
+                      fontSize: 'var(--bk-font-size-md)',
                       resize: 'vertical',
                     }}
                   />
@@ -1039,10 +1039,10 @@ const WithSelectComponent = () => {
             </FormGroup>
 
             <div style={{
-              padding: 'var(--padding-md)',
-              backgroundColor: 'var(--color-background-elevated)',
-              borderRadius: 'var(--radius-sm)',
-              border: '1px solid var(--color-border)',
+              padding: 'var(--bk-padding-md)',
+              backgroundColor: 'var(--bk-color-background-elevated)',
+              borderRadius: 'var(--bk-radius-sm)',
+              border: '1px solid var(--bk-color-border)',
             }}>
               <Paragraph style={{ marginBottom: '0.5rem' }}>
                 <Text weight="semibold">Selected Values:</Text>
@@ -1184,10 +1184,10 @@ const WithAllPopupsComponent = () => {
               >
                 <div
                   style={{
-                    padding: 'var(--padding-lg)',
-                    backgroundColor: 'var(--color-background-elevated)',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px solid var(--color-border)',
+                    padding: 'var(--bk-padding-lg)',
+                    backgroundColor: 'var(--bk-color-background-elevated)',
+                    borderRadius: 'var(--bk-radius-md)',
+                    border: '1px solid var(--bk-color-border)',
                     textAlign: 'center',
                     cursor: 'context-menu',
                   }}
@@ -1195,7 +1195,7 @@ const WithAllPopupsComponent = () => {
                   <Paragraph>
                     <Text weight="semibold">Right-click here</Text>
                   </Paragraph>
-                  <Paragraph color="muted" style={{ fontSize: 'var(--font-size-sm)' }}>
+                  <Paragraph color="muted" style={{ fontSize: 'var(--bk-font-size-sm)' }}>
                     Context menu should appear above the modal
                   </Paragraph>
                 </div>
@@ -1243,16 +1243,16 @@ const WithAllPopupsComponent = () => {
             {/* Info Box */}
             <div
               style={{
-                padding: 'var(--padding-md)',
-                backgroundColor: 'var(--color-background-elevated)',
-                borderRadius: 'var(--radius-sm)',
-                border: '1px solid var(--color-border)',
+                padding: 'var(--bk-padding-md)',
+                backgroundColor: 'var(--bk-color-background-elevated)',
+                borderRadius: 'var(--bk-radius-sm)',
+                border: '1px solid var(--bk-color-border)',
               }}
             >
               <Text weight="semibold" style={{ display: 'block', marginBottom: '0.5rem' }}>
                 ✅ Z-Index Layering Test
               </Text>
-              <Paragraph style={{ fontSize: 'var(--font-size-sm)', margin: 0 }}>
+              <Paragraph style={{ fontSize: 'var(--bk-font-size-sm)', margin: 0 }}>
                 All popup components (Select, Dropdown, ContextMenu) should appear above the modal.
                 This verifies that the z-index hierarchy is working correctly.
               </Paragraph>

@@ -7,32 +7,32 @@ import { style } from '@vanilla-extract/css';
 export const alert = recipe({
   base: {
     display: 'flex',
-    gap: 'var(--gap-md)',
-    padding: 'var(--padding-md)',
-    borderRadius: 'var(--radius-md)',
-    border: 'var(--border-width-1) solid',
-    fontSize: 'var(--font-size-sm)',
-    lineHeight: 'var(--line-height-normal)',
-    color: 'var(--color-foreground)',
+    gap: 'var(--bk-gap-md)',
+    padding: 'var(--bk-padding-md)',
+    borderRadius: 'var(--bk-radius-md)',
+    border: 'var(--bk-border-width-1) solid',
+    fontSize: 'var(--bk-font-size-sm)',
+    lineHeight: 'var(--bk-line-height-normal)',
+    color: 'var(--bk-color-foreground)',
   },
 
   variants: {
     variant: {
       info: {
-        backgroundColor: 'color-mix(in srgb, var(--color-info) 10%, transparent)',
-        borderColor: 'var(--color-info)',
+        backgroundColor: 'color-mix(in srgb, var(--bk-color-info) 10%, transparent)',
+        borderColor: 'var(--bk-color-info)',
       },
       success: {
-        backgroundColor: 'color-mix(in srgb, var(--color-success) 10%, transparent)',
-        borderColor: 'var(--color-success)',
+        backgroundColor: 'color-mix(in srgb, var(--bk-color-success) 10%, transparent)',
+        borderColor: 'var(--bk-color-success)',
       },
       warning: {
-        backgroundColor: 'color-mix(in srgb, var(--color-warning) 10%, transparent)',
-        borderColor: 'var(--color-warning)',
+        backgroundColor: 'color-mix(in srgb, var(--bk-color-warning) 10%, transparent)',
+        borderColor: 'var(--bk-color-warning)',
       },
       error: {
-        backgroundColor: 'color-mix(in srgb, var(--color-danger) 10%, transparent)',
-        borderColor: 'var(--color-danger)',
+        backgroundColor: 'color-mix(in srgb, var(--bk-color-danger) 10%, transparent)',
+        borderColor: 'var(--bk-color-danger)',
       },
     },
   },
@@ -50,22 +50,22 @@ export const alertIcon = recipe({
     flexShrink: 0,
     display: 'flex',
     alignItems: 'flex-start',
-    paddingTop: 'var(--spacing-0-5)',
+    paddingTop: 'var(--bk-spacing-0-5)',
   },
 
   variants: {
     variant: {
       info: {
-        color: 'var(--color-info)',
+        color: 'var(--bk-color-info)',
       },
       success: {
-        color: 'var(--color-success)',
+        color: 'var(--bk-color-success)',
       },
       warning: {
-        color: 'var(--color-warning)',
+        color: 'var(--bk-color-warning)',
       },
       error: {
-        color: 'var(--color-danger)',
+        color: 'var(--bk-color-danger)',
       },
     },
   },
@@ -82,7 +82,7 @@ export const alertContent = style({
   flex: 1,
   display: 'flex',
   flexDirection: 'column',
-  gap: 'var(--gap-xs)',
+  gap: 'var(--bk-gap-xs)',
   minWidth: 0, // Allow content to shrink
 });
 
@@ -90,17 +90,17 @@ export const alertContent = style({
  * Alert title
  */
 export const alertTitle = style({
-  fontWeight: 'var(--font-weight-semibold)',
-  fontSize: 'var(--font-size-md)',
-  lineHeight: 'var(--line-height-tight)',
+  fontWeight: 'var(--bk-font-weight-semibold)',
+  fontSize: 'var(--bk-font-size-md)',
+  lineHeight: 'var(--bk-line-height-tight)',
 });
 
 /**
  * Alert description
  */
 export const alertDescription = style({
-  color: 'var(--color-foreground)',
-  lineHeight: 'var(--line-height-relaxed)',
+  color: 'var(--bk-color-foreground)',
+  lineHeight: 'var(--bk-line-height-relaxed)',
 });
 
 /**
@@ -114,19 +114,19 @@ export const alertClose = style({
   padding: 0,
   display: 'flex',
   alignItems: 'flex-start',
-  paddingTop: 'var(--spacing-0-5)',
-  color: 'var(--color-foreground-muted)',
-  transition: 'var(--transition-colors)',
+  paddingTop: 'var(--bk-spacing-0-5)',
+  color: 'var(--bk-color-foreground-muted)',
+  transition: 'var(--bk-transition-colors)',
 
   selectors: {
     '&:hover': {
-      color: 'var(--color-foreground)',
+      color: 'var(--bk-color-foreground)',
     },
 
     '&:focus-visible': {
-      outline: 'var(--border-width-2) solid var(--color-focus)',
-      outlineOffset: 'var(--spacing-0-5)',
-      borderRadius: 'var(--radius-sm)',
+      outline: 'var(--bk-border-width-2) solid var(--bk-color-focus)',
+      outlineOffset: 'var(--bk-spacing-0-5)',
+      borderRadius: 'var(--bk-radius-sm)',
     },
   },
 });

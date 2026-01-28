@@ -327,7 +327,7 @@ const TableBody: React.FC<TableBodyProps> = ({
           <td
             className={styles.tableCell({ align: 'center', bordered: false, size: 'md' })}
             colSpan={colSpan}
-            style={{ padding: 'var(--spacing-6)' }}
+            style={{ padding: 'var(--bk-spacing-6)' }}
           >
             {loadingComponent || loadingText}
           </td>
@@ -344,7 +344,7 @@ const TableBody: React.FC<TableBodyProps> = ({
           <td
             className={styles.tableCell({ align: 'center', bordered: false, size: 'md' })}
             colSpan={colSpan}
-            style={{ padding: 'var(--spacing-6)', color: 'var(--color-secondary-foreground)' }}
+            style={{ padding: 'var(--bk-spacing-6)', color: 'var(--bk-color-secondary-foreground)' }}
           >
             {emptyComponent || emptyText}
           </td>

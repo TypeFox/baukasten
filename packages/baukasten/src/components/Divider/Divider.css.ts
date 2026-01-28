@@ -84,7 +84,7 @@ export const dividerLine = recipe({
     {
       variants: { position: 'first', labelAlign: 'left' },
       style: {
-        maxWidth: 'var(--spacing-8)',
+        maxWidth: 'var(--bk-spacing-8)',
       },
     },
     {
@@ -97,7 +97,7 @@ export const dividerLine = recipe({
     {
       variants: { position: 'last', labelAlign: 'right' },
       style: {
-        maxWidth: 'var(--spacing-8)',
+        maxWidth: 'var(--bk-spacing-8)',
       },
     },
     {
@@ -120,9 +120,9 @@ export const dividerLine = recipe({
  * Divider label
  */
 export const dividerLabel = style({
-  padding: '0 var(--spacing-2)',
-  fontSize: 'var(--font-size-sm)',
-  color: 'var(--color-foreground-muted)',
+  padding: '0 var(--bk-spacing-2)',
+  fontSize: 'var(--bk-font-size-sm)',
+  color: 'var(--bk-color-foreground-muted)',
   whiteSpace: 'nowrap',
-  fontWeight: 'var(--font-weight-medium)',
+  fontWeight: 'var(--bk-font-weight-medium)',
 });

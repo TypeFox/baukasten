@@ -47,10 +47,10 @@ const contextMenuProps: PropDefinition[] = [
 const TriggerBox = ({ children, ...props }: { children: React.ReactNode;[key: string]: any }) => (
 	<div
 		style={{
-			padding: 'var(--spacing-8)',
+			padding: 'var(--bk-spacing-8)',
 			background: 'var(--vscode-sideBar-background)',
 			border: '2px dashed var(--vscode-panel-border)',
-			borderRadius: 'var(--border-radius-md)',
+			borderRadius: 'var(--bk-radius-md)',
 			textAlign: 'center',
 			cursor: 'context-menu',
 			userSelect: 'none',
@@ -72,16 +72,16 @@ function InteractiveExample() {
 		<div>
 			<div
 				style={{
-					marginBottom: 'var(--spacing-4)',
-					padding: 'var(--spacing-4)',
+					marginBottom: 'var(--bk-spacing-4)',
+					padding: 'var(--bk-spacing-4)',
 					background: 'var(--vscode-editor-background)',
 					border: '1px solid var(--vscode-panel-border)',
-					borderRadius: 'var(--border-radius-md)',
-					fontSize: 'var(--font-size-sm)',
+					borderRadius: 'var(--bk-radius-md)',
+					fontSize: 'var(--bk-font-size-sm)',
 				}}
 			>
 				<div>Last Action: <strong>{lastAction}</strong></div>
-				<div style={{ marginTop: 'var(--spacing-1)' }}>
+				<div style={{ marginTop: 'var(--bk-spacing-1)' }}>
 					Liked: <strong>{liked ? 'Yes' : 'No'}</strong> | Bookmarked: <strong>{bookmarked ? 'Yes' : 'No'}</strong>
 				</div>
 			</div>
@@ -119,7 +119,7 @@ function InteractiveExample() {
 			>
 				<TriggerBox>
 					Right-click for interactive actions!
-					<div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)', marginTop: 'var(--spacing-2)' }}>
+					<div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)', marginTop: 'var(--bk-spacing-2)' }}>
 						Watch the status update above
 					</div>
 				</TriggerBox>
@@ -343,7 +343,7 @@ function App() {
 				title="Sizes"
 				description="Five size options from extra small to extra large."
 				preview={
-					<div style={{ display: 'flex', gap: 'var(--spacing-4)', flexWrap: 'wrap' }}>
+					<div style={{ display: 'flex', gap: 'var(--bk-spacing-4)', flexWrap: 'wrap' }}>
 						{(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
 							<ContextMenu
 								key={size}
@@ -356,7 +356,7 @@ function App() {
 									</>
 								}
 							>
-								<TriggerBox style={{ padding: 'var(--spacing-4)', fontSize: 'var(--font-size-sm)' }}>
+								<TriggerBox style={{ padding: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-sm)' }}>
 									{size.toUpperCase()}
 								</TriggerBox>
 							</ContextMenu>
@@ -426,9 +426,9 @@ function InteractiveExample() {
 				title="Different Triggers"
 				description="Context menus work on any element: text, images, cards, list items, etc."
 				preview={
-					<div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+					<div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
 						<div>
-							<h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 600 }}>
+							<h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
 								On Text Content
 							</h4>
 							<ContextMenu
@@ -441,9 +441,9 @@ function InteractiveExample() {
 							>
 								<p
 									style={{
-										padding: 'var(--spacing-4)',
+										padding: 'var(--bk-spacing-4)',
 										background: 'var(--vscode-sideBar-background)',
-										borderRadius: 'var(--border-radius-md)',
+										borderRadius: 'var(--bk-radius-md)',
 										cursor: 'context-menu',
 									}}
 								>
@@ -453,10 +453,10 @@ function InteractiveExample() {
 						</div>
 
 						<div>
-							<h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 600 }}>
+							<h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
 								On List Items
 							</h4>
-							<div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
+							<div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
 								{['Item 1', 'Item 2', 'Item 3'].map((item) => (
 									<ContextMenu
 										key={item}
@@ -471,9 +471,9 @@ function InteractiveExample() {
 									>
 										<div
 											style={{
-												padding: 'var(--spacing-2)',
+												padding: 'var(--bk-spacing-2)',
 												background: 'var(--vscode-sideBar-background)',
-												borderRadius: 'var(--border-radius-sm)',
+												borderRadius: 'var(--bk-radius-sm)',
 												cursor: 'context-menu',
 											}}
 										>
@@ -554,20 +554,20 @@ function InteractiveExample() {
 					>
 						<div
 							style={{
-								padding: 'var(--spacing-4)',
+								padding: 'var(--bk-spacing-4)',
 								background: 'var(--vscode-sideBar-background)',
 								border: '1px solid var(--vscode-panel-border)',
-								borderRadius: 'var(--border-radius-md)',
+								borderRadius: 'var(--bk-radius-md)',
 								cursor: 'context-menu',
 								display: 'flex',
 								alignItems: 'center',
-								gap: 'var(--spacing-3)',
+								gap: 'var(--bk-spacing-3)',
 							}}
 						>
 							<Icon name="file-code" size="lg" />
 							<div>
 								<div style={{ fontWeight: 600 }}>app.tsx</div>
-								<div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
+								<div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
 									TypeScript React Component
 								</div>
 							</div>

@@ -74,7 +74,7 @@ export const Interactive: Story = {
  */
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
       <Label variant="checkbox" size="xs">
         <Radio size="xs" name="size-demo" value="xs" />
         <span>Extra Small</span>
@@ -111,12 +111,12 @@ export const Sizes: Story = {
  */
 export const States: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-lg)' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Default States
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Label variant="checkbox" size="md">
             <Radio name="state-default" value="unchecked" />
             <span>Unchecked</span>
@@ -129,10 +129,10 @@ export const States: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Disabled States
         </h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
           <Label variant="checkbox" size="md">
             <Radio name="state-disabled" value="unchecked" disabled />
             <span>Disabled unchecked</span>
@@ -162,7 +162,7 @@ export const ControlledRadioGroup: Story = {
     const [theme, setTheme] = useState('light');
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
         <RadioGroup name="theme" value={theme} onChange={setTheme}>
           <Label variant="checkbox" size="md">
             <Radio value="light" />
@@ -179,13 +179,13 @@ export const ControlledRadioGroup: Story = {
         </RadioGroup>
 
         <div style={{
-          padding: 'var(--spacing-3)',
-          backgroundColor: 'var(--color-background-elevated)',
-          borderRadius: 'var(--radius-md)',
-          fontSize: 'var(--font-size-sm)',
-          color: 'var(--color-foreground-muted)'
+          padding: 'var(--bk-spacing-3)',
+          backgroundColor: 'var(--bk-color-background-elevated)',
+          borderRadius: 'var(--bk-radius-md)',
+          fontSize: 'var(--bk-font-size-sm)',
+          color: 'var(--bk-color-foreground-muted)'
         }}>
-          Selected: <strong style={{ color: 'var(--color-foreground)' }}>{theme}</strong>
+          Selected: <strong style={{ color: 'var(--bk-color-foreground)' }}>{theme}</strong>
         </div>
       </div>
     );
@@ -237,7 +237,7 @@ export const HorizontalOrientation: Story = {
     const [size, setSize] = useState('medium');
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
         <RadioGroup name="size" value={size} onChange={setSize} orientation="horizontal">
           <Label variant="checkbox" size="sm">
             <Radio value="small" size="sm" />
@@ -254,13 +254,13 @@ export const HorizontalOrientation: Story = {
         </RadioGroup>
 
         <div style={{
-          padding: 'var(--spacing-3)',
-          backgroundColor: 'var(--color-background-elevated)',
-          borderRadius: 'var(--radius-md)',
-          fontSize: 'var(--font-size-sm)',
-          color: 'var(--color-foreground-muted)'
+          padding: 'var(--bk-spacing-3)',
+          backgroundColor: 'var(--bk-color-background-elevated)',
+          borderRadius: 'var(--bk-radius-md)',
+          fontSize: 'var(--bk-font-size-sm)',
+          color: 'var(--bk-color-foreground-muted)'
         }}>
-          Selected size: <strong style={{ color: 'var(--color-foreground)' }}>{size}</strong>
+          Selected size: <strong style={{ color: 'var(--bk-color-foreground)' }}>{size}</strong>
         </div>
       </div>
     );
@@ -316,8 +316,8 @@ export const MultilineLabels: Story = {
         <Label variant="checkbox" size="md">
           <Radio value="basic" />
           <span>
-            <strong style={{ display: 'block', marginBottom: 'var(--spacing-0-5)' }}>Basic Plan</strong>
-            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+            <strong style={{ display: 'block', marginBottom: 'var(--bk-spacing-0-5)' }}>Basic Plan</strong>
+            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
               Perfect for individuals. Includes 10GB storage and basic features.
             </span>
           </span>
@@ -325,8 +325,8 @@ export const MultilineLabels: Story = {
         <Label variant="checkbox" size="md">
           <Radio value="pro" />
           <span>
-            <strong style={{ display: 'block', marginBottom: 'var(--spacing-0-5)' }}>Pro Plan</strong>
-            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+            <strong style={{ display: 'block', marginBottom: 'var(--bk-spacing-0-5)' }}>Pro Plan</strong>
+            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
               For professionals. Includes 100GB storage, priority support, and advanced features.
             </span>
           </span>
@@ -334,8 +334,8 @@ export const MultilineLabels: Story = {
         <Label variant="checkbox" size="md">
           <Radio value="enterprise" />
           <span>
-            <strong style={{ display: 'block', marginBottom: 'var(--spacing-0-5)' }}>Enterprise Plan</strong>
-            <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-foreground-muted)' }}>
+            <strong style={{ display: 'block', marginBottom: 'var(--bk-spacing-0-5)' }}>Enterprise Plan</strong>
+            <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
               For teams. Unlimited storage, dedicated support, and custom integrations.
             </span>
           </span>
@@ -368,14 +368,14 @@ export const FormExample: Story = {
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--spacing-6)',
+        gap: 'var(--bk-spacing-6)',
         maxWidth: '400px',
       }}>
         <div>
           <h4 style={{
-            marginBottom: 'var(--spacing-3)',
-            fontSize: 'var(--font-size-base)',
-            fontWeight: 'var(--font-weight-semibold)'
+            marginBottom: 'var(--bk-spacing-3)',
+            fontSize: 'var(--bk-font-size-base)',
+            fontWeight: 'var(--bk-font-weight-semibold)'
           }}>
             Delivery Method
           </h4>
@@ -401,9 +401,9 @@ export const FormExample: Story = {
 
         <div>
           <h4 style={{
-            marginBottom: 'var(--spacing-3)',
-            fontSize: 'var(--font-size-base)',
-            fontWeight: 'var(--font-weight-semibold)'
+            marginBottom: 'var(--bk-spacing-3)',
+            fontSize: 'var(--bk-font-size-base)',
+            fontWeight: 'var(--bk-font-weight-semibold)'
           }}>
             Payment Method
           </h4>
@@ -429,9 +429,9 @@ export const FormExample: Story = {
 
         <div>
           <h4 style={{
-            marginBottom: 'var(--spacing-3)',
-            fontSize: 'var(--font-size-base)',
-            fontWeight: 'var(--font-weight-semibold)'
+            marginBottom: 'var(--bk-spacing-3)',
+            fontSize: 'var(--bk-font-size-base)',
+            fontWeight: 'var(--bk-font-weight-semibold)'
           }}>
             Newsletter Frequency
           </h4>
@@ -460,15 +460,15 @@ export const FormExample: Story = {
         </div>
 
         <div style={{
-          padding: 'var(--spacing-3)',
-          backgroundColor: 'var(--color-background-elevated)',
-          borderRadius: 'var(--radius-md)',
-          fontSize: 'var(--font-size-sm)',
+          padding: 'var(--bk-spacing-3)',
+          backgroundColor: 'var(--bk-color-background-elevated)',
+          borderRadius: 'var(--bk-radius-md)',
+          fontSize: 'var(--bk-font-size-sm)',
         }}>
-          <div style={{ marginBottom: 'var(--spacing-2)', fontWeight: 'var(--font-weight-semibold)' }}>
+          <div style={{ marginBottom: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
             Form Data:
           </div>
-          <pre style={{ margin: 0, fontSize: 'var(--font-size-xs)' }}>
+          <pre style={{ margin: 0, fontSize: 'var(--bk-font-size-xs)' }}>
             {JSON.stringify(formData, null, 2)}
           </pre>
         </div>
@@ -494,13 +494,13 @@ export const Showcase: Story = {
     const [size, setSize] = useState('medium');
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-8)', padding: 'var(--spacing-4)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-8)', padding: 'var(--bk-spacing-4)' }}>
         {/* Sizes */}
         <div>
-          <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>
+          <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
             Sizes
           </h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
             <Label variant="checkbox" size="xs">
               <Radio size="xs" name="showcase-size" value="xs" />
               <span>Extra Small</span>
@@ -526,11 +526,11 @@ export const Showcase: Story = {
 
         {/* States */}
         <div>
-          <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>
+          <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
             States
           </h3>
-          <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+          <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
               <Label variant="checkbox" size="md">
                 <Radio name="showcase-state" value="unchecked" />
                 <span>Unchecked</span>
@@ -540,7 +540,7 @@ export const Showcase: Story = {
                 <span>Checked</span>
               </Label>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
               <Label variant="checkbox" size="md">
                 <Radio name="showcase-disabled" value="unchecked" disabled />
                 <span>Disabled</span>
@@ -555,7 +555,7 @@ export const Showcase: Story = {
 
         {/* RadioGroup - Vertical */}
         <div>
-          <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>
+          <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
             RadioGroup - Vertical (default)
           </h3>
           <RadioGroup name="showcase-theme" value={theme} onChange={setTheme}>
@@ -576,7 +576,7 @@ export const Showcase: Story = {
 
         {/* RadioGroup - Horizontal */}
         <div>
-          <h3 style={{ marginBottom: 'var(--spacing-3)', fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>
+          <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
             RadioGroup - Horizontal
           </h3>
           <RadioGroup name="showcase-size-h" value={size} onChange={setSize} orientation="horizontal">

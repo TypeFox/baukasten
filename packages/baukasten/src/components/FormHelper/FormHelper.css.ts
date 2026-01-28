@@ -5,27 +5,27 @@ import { recipe } from '@vanilla-extract/recipes';
  */
 export const formHelper = recipe({
   base: {
-    fontSize: 'var(--font-size-xs)',
-    lineHeight: 'var(--line-height-relaxed)',
-    marginTop: 'var(--spacing-1)',
+    fontSize: 'var(--bk-font-size-xs)',
+    lineHeight: 'var(--bk-line-height-relaxed)',
+    marginTop: 'var(--bk-spacing-1)',
   },
 
   variants: {
     variant: {
       default: {
-        color: 'var(--color-foreground-muted)',
+        color: 'var(--bk-color-foreground-muted)',
       },
       error: {
-        color: 'var(--color-danger)',
+        color: 'var(--bk-color-danger)',
       },
       warning: {
-        color: 'var(--color-warning)',
+        color: 'var(--bk-color-warning)',
       },
       success: {
-        color: 'var(--color-success)',
+        color: 'var(--bk-color-success)',
       },
       info: {
-        color: 'var(--color-info)',
+        color: 'var(--bk-color-info)',
       },
     },
   },

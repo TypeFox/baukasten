@@ -189,13 +189,13 @@ export const VSCodeStyleForm: Story = {
 
           <FormGroup>
             <FieldLabel>Notifications</FieldLabel>
-            <div style={{ paddingTop: 'var(--spacing-1)' }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+            <div style={{ paddingTop: 'var(--bk-spacing-1)' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
                 <Checkbox
                   checked={formData.notifications}
                   onChange={(e) => setFormData({ ...formData, notifications: e.target.checked })}
                 />
-                <span style={{ fontSize: 'var(--font-size-sm)' }}>
+                <span style={{ fontSize: 'var(--bk-font-size-sm)' }}>
                   Enable email notifications
                 </span>
               </label>
@@ -203,7 +203,7 @@ export const VSCodeStyleForm: Story = {
             </div>
           </FormGroup>
 
-          <div style={{ marginTop: 'var(--spacing-6)', display: 'flex', gap: 'var(--spacing-2)' }}>
+          <div style={{ marginTop: 'var(--bk-spacing-6)', display: 'flex', gap: 'var(--bk-spacing-2)' }}>
             <Button variant="primary">Save Changes</Button>
             <Button variant="secondary">Cancel</Button>
           </div>
@@ -302,7 +302,7 @@ export const WithValidation: Story = {
             </div>
           </FormGroup>
 
-          <div style={{ marginTop: 'var(--spacing-6)' }}>
+          <div style={{ marginTop: 'var(--bk-spacing-6)' }}>
             <Button variant="primary">Create Account</Button>
           </div>
         </form>
@@ -446,7 +446,7 @@ export const WithRadioGroup: Story = {
         <form style={{ marginTop: '2rem' }}>
           <FormGroup>
             <FieldLabel>Theme Preference</FieldLabel>
-            <div style={{ marginTop: 'var(--spacing-1)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-1)' }}>
               <RadioGroup
                 name="theme"
                 value={formData.theme}
@@ -471,7 +471,7 @@ export const WithRadioGroup: Story = {
 
           <FormGroup>
             <FieldLabel required>Delivery Method</FieldLabel>
-            <div style={{ marginTop: 'var(--spacing-1)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-1)' }}>
               <RadioGroup
                 name="delivery"
                 value={formData.deliveryMethod}
@@ -519,22 +519,22 @@ export const WithRadioGroup: Story = {
             </div>
           </FormGroup>
 
-          <div style={{ marginTop: 'var(--spacing-6)', display: 'flex', gap: 'var(--spacing-2)' }}>
+          <div style={{ marginTop: 'var(--bk-spacing-6)', display: 'flex', gap: 'var(--bk-spacing-2)' }}>
             <Button variant="primary">Save Preferences</Button>
             <Button variant="secondary">Reset</Button>
           </div>
 
           <div style={{
-            marginTop: 'var(--spacing-6)',
-            padding: 'var(--spacing-3)',
-            backgroundColor: 'var(--color-background-elevated)',
-            borderRadius: 'var(--radius-md)',
-            fontSize: 'var(--font-size-sm)',
+            marginTop: 'var(--bk-spacing-6)',
+            padding: 'var(--bk-spacing-3)',
+            backgroundColor: 'var(--bk-color-background-elevated)',
+            borderRadius: 'var(--bk-radius-md)',
+            fontSize: 'var(--bk-font-size-sm)',
           }}>
-            <div style={{ marginBottom: 'var(--spacing-2)', fontWeight: 'var(--font-weight-semibold)' }}>
+            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
               Current Selection:
             </div>
-            <pre style={{ margin: 0, fontSize: 'var(--font-size-xs)' }}>
+            <pre style={{ margin: 0, fontSize: 'var(--bk-font-size-xs)' }}>
               {JSON.stringify(formData, null, 2)}
             </pre>
           </div>
@@ -666,7 +666,7 @@ export const Showcase: Story = {
         <form style={{ marginTop: '1.5rem' }}>
           <FormGroup>
             <FieldLabel>Notification Frequency</FieldLabel>
-            <div style={{ marginTop: 'var(--spacing-1)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-1)' }}>
               <RadioGroup name="showcase-freq" defaultValue="weekly">
                 <Label variant="checkbox" size="md">
                   <Radio value="daily" />
@@ -691,7 +691,7 @@ export const Showcase: Story = {
 
           <FormGroup>
             <FieldLabel required>Account Type</FieldLabel>
-            <div style={{ marginTop: 'var(--spacing-1)' }}>
+            <div style={{ marginTop: 'var(--bk-spacing-1)' }}>
               <RadioGroup name="showcase-account" defaultValue="personal">
                 <Label variant="checkbox" size="md">
                   <Radio value="personal" />

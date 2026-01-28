@@ -90,14 +90,14 @@ function InteractiveStatusBar() {
     return (
         <div style={{ width: '100%' }}>
             <div style={{
-                marginBottom: 'var(--spacing-3)',
-                padding: 'var(--spacing-3)',
+                marginBottom: 'var(--bk-spacing-3)',
+                padding: 'var(--bk-spacing-3)',
                 backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--border-radius-sm)',
-                fontSize: 'var(--font-size-sm)',
+                borderRadius: 'var(--bk-radius-sm)',
+                fontSize: 'var(--bk-font-size-sm)',
             }}>
                 <div>Click on status bar items to interact!</div>
-                <div style={{ marginTop: 'var(--spacing-1)', color: 'var(--vscode-descriptionForeground)' }}>
+                <div style={{ marginTop: 'var(--bk-spacing-1)', color: 'var(--vscode-descriptionForeground)' }}>
                     Branch: <strong>{branch}</strong> | Errors: <strong>{errors}</strong> |
                     Warnings: <strong>{warnings}</strong> | Position: <strong>Ln {line}, Col {col}</strong>
                 </div>
@@ -199,19 +199,19 @@ function EditorContextExample() {
             flexDirection: 'column',
             height: '400px',
             border: '1px solid var(--vscode-panel-border)',
-            borderRadius: 'var(--border-radius-md)',
+            borderRadius: 'var(--bk-radius-md)',
             overflow: 'hidden',
         }}>
             <div style={{
-                padding: 'var(--spacing-3)',
+                padding: 'var(--bk-spacing-3)',
                 borderBottom: '1px solid var(--vscode-panel-border)',
                 backgroundColor: 'var(--vscode-editor-background)',
             }}>
-                <h4 style={{ margin: 0, fontSize: 'var(--font-size-md)' }}>Editor Window</h4>
+                <h4 style={{ margin: 0, fontSize: 'var(--bk-font-size-md)' }}>Editor Window</h4>
             </div>
             <div style={{
                 flex: 1,
-                padding: 'var(--spacing-4)',
+                padding: 'var(--bk-spacing-4)',
                 backgroundColor: 'var(--vscode-editor-background)',
                 fontFamily: 'var(--vscode-editor-font-family)',
                 fontSize: 'var(--vscode-editor-font-size)',
@@ -257,18 +257,18 @@ function DropdownExample() {
             flexDirection: 'column',
             minHeight: '300px',
             border: '1px solid var(--vscode-panel-border)',
-            borderRadius: 'var(--border-radius-md)',
+            borderRadius: 'var(--bk-radius-md)',
             overflow: 'hidden',
         }}>
             <div style={{
                 flex: 1,
-                padding: 'var(--spacing-4)',
+                padding: 'var(--bk-spacing-4)',
                 backgroundColor: 'var(--vscode-editor-background)',
             }}>
-                <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+                <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
                     Click on status bar items to open dropdowns (upward positioning)
                 </div>
-                <div style={{ marginTop: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)' }}>
+                <div style={{ marginTop: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>
                     Branch: <strong>{selectedBranch}</strong> |
                     Encoding: <strong>{selectedEncoding}</strong> |
                     Language: <strong>{selectedLanguage}</strong>
@@ -820,27 +820,27 @@ function App() {
             />
 
             <div style={{
-                marginTop: 'var(--spacing-6)',
-                padding: 'var(--spacing-4)',
+                marginTop: 'var(--bk-spacing-6)',
+                padding: 'var(--bk-spacing-4)',
                 backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--border-radius-md)',
+                borderRadius: 'var(--bk-radius-md)',
             }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
                 <ul style={{
-                    fontSize: 'var(--font-size-sm)',
+                    fontSize: 'var(--bk-font-size-sm)',
                     lineHeight: 1.6,
                     color: 'var(--vscode-descriptionForeground)',
-                    marginLeft: 'var(--spacing-4)',
+                    marginLeft: 'var(--bk-spacing-4)',
                 }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Clickable items have <code>role="button"</code> and <code>tabIndex={0}</code>
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Keyboard support: <code>Enter</code> and <code>Space</code> to activate clickable items
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Tooltips use native <code>title</code> attribute for screen reader support
                     </li>
                     <li>
@@ -850,33 +850,33 @@ function App() {
             </div>
 
             <div style={{
-                marginTop: 'var(--spacing-6)',
-                padding: 'var(--spacing-4)',
+                marginTop: 'var(--bk-spacing-6)',
+                padding: 'var(--bk-spacing-4)',
                 backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--border-radius-md)',
+                borderRadius: 'var(--bk-radius-md)',
             }}>
-                <Heading level={3} style={{ marginBottom: 'var(--spacing-3)' }}>
+                <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
                 <ul style={{
-                    fontSize: 'var(--font-size-sm)',
+                    fontSize: 'var(--bk-font-size-sm)',
                     lineHeight: 1.6,
                     color: 'var(--vscode-descriptionForeground)',
-                    marginLeft: 'var(--spacing-4)',
+                    marginLeft: 'var(--bk-spacing-4)',
                 }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Position:</strong> Use as a fixed bottom bar or at the bottom of a container
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Left Section:</strong> Display contextual information (git branch, errors, warnings, connection status)
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Right Section:</strong> Display editor/file information (cursor position, encoding, language, line endings)
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Tooltips:</strong> Always add tooltips to items for clarity
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Dropdowns:</strong> Use <code>placement="top-start"</code> or <code>"top-end"</code> for status bar dropdowns
                     </li>
                     <li>

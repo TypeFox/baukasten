@@ -79,9 +79,9 @@ export const Interactive: Story = {
 export const Sizes: Story = {
   args: {},
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Extra Small
         </h4>
         <Menu size="xs">
@@ -92,7 +92,7 @@ export const Sizes: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Small
         </h4>
         <Menu size="sm">
@@ -103,7 +103,7 @@ export const Sizes: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Medium (Default)
         </h4>
         <Menu size="md">
@@ -114,7 +114,7 @@ export const Sizes: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Large
         </h4>
         <Menu size="lg">
@@ -125,7 +125,7 @@ export const Sizes: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Extra Large
         </h4>
         <Menu size="xl">
@@ -175,9 +175,9 @@ export const WithIcons: Story = {
 export const WithRightContent: Story = {
   args: {},
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Keyboard Shortcuts
         </h4>
         <Menu>
@@ -210,7 +210,7 @@ export const WithRightContent: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           With Badges
         </h4>
         <Menu>
@@ -236,7 +236,7 @@ export const WithRightContent: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Mixed Content
         </h4>
         <Menu>
@@ -301,9 +301,9 @@ export const WithDividers: Story = {
 export const States: Story = {
   args: {},
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Disabled Items
         </h4>
         <Menu>
@@ -316,7 +316,7 @@ export const States: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Selected Items
         </h4>
         <Menu>
@@ -328,7 +328,7 @@ export const States: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Mixed States
         </h4>
         <Menu>
@@ -355,9 +355,9 @@ export const States: Story = {
 export const IconOnly: Story = {
   args: {},
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Icon Only Menu
         </h4>
         <Menu iconOnly>
@@ -370,7 +370,7 @@ export const IconOnly: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Compact Size
         </h4>
         <Menu size="sm" iconOnly>
@@ -382,7 +382,7 @@ export const IconOnly: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           With Dividers
         </h4>
         <Menu iconOnly>
@@ -410,9 +410,9 @@ export const IconOnly: Story = {
 export const Horizontal: Story = {
   args: {},
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', alignItems: 'flex-start' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Horizontal with Text
         </h4>
         <Menu direction="horizontal">
@@ -424,7 +424,7 @@ export const Horizontal: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Horizontal Icon-Only (Toolbar)
         </h4>
         <Menu direction="horizontal" iconOnly>
@@ -438,7 +438,7 @@ export const Horizontal: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Horizontal Compact
         </h4>
         <Menu direction="horizontal" iconOnly size="sm">
@@ -466,9 +466,9 @@ export const Horizontal: Story = {
 export const WithSubMenus: Story = {
   args: {},
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Basic SubMenu
         </h4>
         <Menu>
@@ -484,7 +484,7 @@ export const WithSubMenus: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Nested SubMenus
         </h4>
         <Menu>
@@ -509,7 +509,7 @@ export const WithSubMenus: Story = {
       </div>
 
       <div>
-        <h4 style={{ marginBottom: 'var(--spacing-2)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)' }}>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
           Deep Nesting
         </h4>
         <Menu>
@@ -544,7 +544,7 @@ export const WithSubMenus: Story = {
 export const WithDropdown: Story = {
   args: {},
   render: () => (
-    <div style={{ display: 'flex', gap: 'var(--gap-lg)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', gap: 'var(--bk-gap-lg)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
       <Dropdown
         trigger={
           <Button variant="secondary">
@@ -629,10 +629,10 @@ export const WithDropdown: Story = {
 export const Showcase: Story = {
   args: {},
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-8)', padding: 'var(--spacing-6)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-8)', padding: 'var(--bk-spacing-6)' }}>
       {/* Basic Menu */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-4)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           Basic Menu
         </h3>
         <Menu>
@@ -646,10 +646,10 @@ export const Showcase: Story = {
 
       {/* With Right Content */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-4)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           With Shortcuts & Badges
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--spacing-4)' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)' }}>
           <Menu>
             <MenuItem icon={<Icon name="save" />} rightContent="⌘S">Save</MenuItem>
             <MenuItem icon={<Icon name="copy" />} rightContent="⌘C">Copy</MenuItem>
@@ -665,10 +665,10 @@ export const Showcase: Story = {
 
       {/* States */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-4)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           States
         </h3>
-        <div style={{ display: 'flex', gap: 'var(--spacing-4)' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)' }}>
           <Menu>
             <MenuItem icon={<Icon name="check" />} selected>Selected</MenuItem>
             <MenuItem icon={<Icon name="close" />}>Normal</MenuItem>
@@ -679,7 +679,7 @@ export const Showcase: Story = {
 
       {/* SubMenus */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-4)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           SubMenus
         </h3>
         <Menu>
@@ -701,7 +701,7 @@ export const Showcase: Story = {
 
       {/* With Dropdown */}
       <div>
-        <h3 style={{ marginBottom: 'var(--spacing-4)', fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)' }}>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-4)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
           In Dropdown
         </h3>
         <Dropdown

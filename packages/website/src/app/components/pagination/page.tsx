@@ -106,22 +106,22 @@ function DataTableExample() {
     const paginatedData = allData.slice(startIndex, startIndex + pageSize);
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
             <div style={{ overflowX: 'auto' }}>
                 <table style={{
                     width: '100%',
                     borderCollapse: 'collapse',
-                    fontSize: 'var(--font-size-sm)',
+                    fontSize: 'var(--bk-font-size-sm)',
                 }}>
                     <thead>
                         <tr style={{
                             borderBottom: '1px solid var(--vscode-textBlockQuote-border)',
                             backgroundColor: 'var(--vscode-textBlockQuote-background)',
                         }}>
-                            <th style={{ padding: 'var(--spacing-2)', textAlign: 'left' }}>ID</th>
-                            <th style={{ padding: 'var(--spacing-2)', textAlign: 'left' }}>Name</th>
-                            <th style={{ padding: 'var(--spacing-2)', textAlign: 'left' }}>Category</th>
-                            <th style={{ padding: 'var(--spacing-2)', textAlign: 'right' }}>Price</th>
+                            <th style={{ padding: 'var(--bk-spacing-2)', textAlign: 'left' }}>ID</th>
+                            <th style={{ padding: 'var(--bk-spacing-2)', textAlign: 'left' }}>Name</th>
+                            <th style={{ padding: 'var(--bk-spacing-2)', textAlign: 'left' }}>Category</th>
+                            <th style={{ padding: 'var(--bk-spacing-2)', textAlign: 'right' }}>Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -132,10 +132,10 @@ function DataTableExample() {
                                     borderBottom: '1px solid var(--vscode-textBlockQuote-border)',
                                 }}
                             >
-                                <td style={{ padding: 'var(--spacing-2)' }}>{item.id}</td>
-                                <td style={{ padding: 'var(--spacing-2)' }}>{item.name}</td>
-                                <td style={{ padding: 'var(--spacing-2)' }}>{item.category}</td>
-                                <td style={{ padding: 'var(--spacing-2)', textAlign: 'right' }}>${item.price}</td>
+                                <td style={{ padding: 'var(--bk-spacing-2)' }}>{item.id}</td>
+                                <td style={{ padding: 'var(--bk-spacing-2)' }}>{item.name}</td>
+                                <td style={{ padding: 'var(--bk-spacing-2)' }}>{item.category}</td>
+                                <td style={{ padding: 'var(--bk-spacing-2)', textAlign: 'right' }}>${item.price}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -217,12 +217,12 @@ function App() {
                 title="Sizes"
                 description="Five size variants (xs, sm, md, lg, xl) to match different contexts and visual hierarchies. The size affects padding, font size, and icon size."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
                         {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
                             <div key={size}>
                                 <div style={{
-                                    fontSize: 'var(--font-size-xs)',
-                                    marginBottom: 'var(--spacing-2)',
+                                    fontSize: 'var(--bk-font-size-xs)',
+                                    marginBottom: 'var(--bk-spacing-2)',
                                     color: 'var(--vscode-descriptionForeground)'
                                 }}>
                                     {size === 'xs' ? 'Extra Small' :
@@ -259,11 +259,11 @@ function App() {
                 title="States"
                 description="Various pagination states including first page, middle page, last page, many pages with ellipsis, single page, and empty state."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
                         <div>
                             <div style={{
-                                fontSize: 'var(--font-size-xs)',
-                                marginBottom: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                marginBottom: 'var(--bk-spacing-2)',
                                 color: 'var(--vscode-descriptionForeground)'
                             }}>
                                 First Page (Previous Disabled)
@@ -277,8 +277,8 @@ function App() {
                         </div>
                         <div>
                             <div style={{
-                                fontSize: 'var(--font-size-xs)',
-                                marginBottom: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                marginBottom: 'var(--bk-spacing-2)',
                                 color: 'var(--vscode-descriptionForeground)'
                             }}>
                                 Middle Page
@@ -292,8 +292,8 @@ function App() {
                         </div>
                         <div>
                             <div style={{
-                                fontSize: 'var(--font-size-xs)',
-                                marginBottom: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                marginBottom: 'var(--bk-spacing-2)',
                                 color: 'var(--vscode-descriptionForeground)'
                             }}>
                                 Last Page (Next Disabled)
@@ -307,8 +307,8 @@ function App() {
                         </div>
                         <div>
                             <div style={{
-                                fontSize: 'var(--font-size-xs)',
-                                marginBottom: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                marginBottom: 'var(--bk-spacing-2)',
                                 color: 'var(--vscode-descriptionForeground)'
                             }}>
                                 Many Pages (with Ellipsis)
@@ -322,8 +322,8 @@ function App() {
                         </div>
                         <div>
                             <div style={{
-                                fontSize: 'var(--font-size-xs)',
-                                marginBottom: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                marginBottom: 'var(--bk-spacing-2)',
                                 color: 'var(--vscode-descriptionForeground)'
                             }}>
                                 Single Page
@@ -337,8 +337,8 @@ function App() {
                         </div>
                         <div>
                             <div style={{
-                                fontSize: 'var(--font-size-xs)',
-                                marginBottom: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                marginBottom: 'var(--bk-spacing-2)',
                                 color: 'var(--vscode-descriptionForeground)'
                             }}>
                                 Empty (No Items)
@@ -445,11 +445,11 @@ function App() {
                 title="Limited Visible Pages"
                 description="Control the maximum number of visible page buttons with maxVisiblePages. Useful for mobile or narrow layouts. The component intelligently shows ellipsis when there are more pages."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                         <div>
                             <div style={{
-                                fontSize: 'var(--font-size-xs)',
-                                marginBottom: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                marginBottom: 'var(--bk-spacing-2)',
                                 color: 'var(--vscode-descriptionForeground)'
                             }}>
                                 Default (7 visible pages)
@@ -464,8 +464,8 @@ function App() {
                         </div>
                         <div>
                             <div style={{
-                                fontSize: 'var(--font-size-xs)',
-                                marginBottom: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                marginBottom: 'var(--bk-spacing-2)',
                                 color: 'var(--vscode-descriptionForeground)'
                             }}>
                                 Limited (5 visible pages)
@@ -480,8 +480,8 @@ function App() {
                         </div>
                         <div>
                             <div style={{
-                                fontSize: 'var(--font-size-xs)',
-                                marginBottom: 'var(--spacing-2)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                marginBottom: 'var(--bk-spacing-2)',
                                 color: 'var(--vscode-descriptionForeground)'
                             }}>
                                 Very Limited (3 visible pages)
@@ -584,28 +584,28 @@ function DataTable() {
 
             <div
                 style={{
-                    marginTop: 'var(--spacing-8)',
-                    padding: 'var(--spacing-6)',
+                    marginTop: 'var(--bk-spacing-8)',
+                    padding: 'var(--bk-spacing-6)',
                     background: 'var(--vscode-textBlockQuote-background)',
                     border: '1px solid var(--vscode-textBlockQuote-border)',
-                    borderRadius: 'var(--border-radius-md)',
+                    borderRadius: 'var(--bk-radius-md)',
                 }}
             >
-                <h3 style={{ marginTop: 0, marginBottom: 'var(--spacing-3)' }}>Features & Behavior</h3>
-                <ul style={{ marginBottom: 'var(--spacing-4)', paddingLeft: 'var(--spacing-5)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <h3 style={{ marginTop: 0, marginBottom: 'var(--bk-spacing-3)' }}>Features & Behavior</h3>
+                <ul style={{ marginBottom: 'var(--bk-spacing-4)', paddingLeft: 'var(--bk-spacing-5)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Smart Ellipsis:</strong> Automatically shows ellipsis (...) when there are more pages than <code>maxVisiblePages</code>
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Range Display:</strong> Shows "X-Y of Z" text to indicate current items being viewed
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Page Size Selector:</strong> Optional dropdown to change items per page, with customizable options
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Auto Reset:</strong> When page size changes, automatically resets to page 1
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Disabled States:</strong> Previous button disabled on first page, next button disabled on last page
                     </li>
                     <li>
@@ -613,15 +613,15 @@ function DataTable() {
                     </li>
                 </ul>
 
-                <h3 style={{ marginTop: 'var(--spacing-4)', marginBottom: 'var(--spacing-3)' }}>Accessibility</h3>
-                <ul style={{ marginBottom: 0, paddingLeft: 'var(--spacing-5)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <h3 style={{ marginTop: 'var(--bk-spacing-4)', marginBottom: 'var(--bk-spacing-3)' }}>Accessibility</h3>
+                <ul style={{ marginBottom: 0, paddingLeft: 'var(--bk-spacing-5)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>ARIA Labels:</strong> Navigation buttons include <code>aria-label</code> for screen readers
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Current Page:</strong> Active page button has <code>aria-current="page"</code>
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Keyboard Navigation:</strong> All buttons are keyboard accessible with <code>Tab</code> and <code>Enter</code>
                     </li>
                     <li>

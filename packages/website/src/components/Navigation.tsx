@@ -94,7 +94,7 @@ export default function Navigation() {
       }}>
         {/* Logo Header */}
         <div style={{
-          padding: 'var(--spacing-6) var(--spacing-5)',
+          padding: 'var(--bk-spacing-6) var(--bk-spacing-5)',
           borderBottom: '1px solid var(--vscode-panel-border)',
           position: 'sticky',
           top: 0,
@@ -112,14 +112,14 @@ export default function Navigation() {
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 'var(--spacing-3)',
-            marginBottom: 'var(--spacing-2)',
+            gap: 'var(--bk-spacing-3)',
+            marginBottom: 'var(--bk-spacing-2)',
           }}>
             <div style={{
               width: '36px',
               height: '36px',
               background: 'linear-gradient(135deg, var(--vscode-button-background) 0%, var(--vscode-button-hoverBackground) 100%)',
-              borderRadius: 'var(--border-radius-md)',
+              borderRadius: 'var(--bk-radius-md)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -153,8 +153,8 @@ export default function Navigation() {
         </div>
 
         {/* Navigation Sections */}
-        <div style={{ padding: 'var(--spacing-5)', flex: 1 }}>
-          <div className="nav-section" style={{ marginBottom: 'var(--spacing-6)' }}>
+        <div style={{ padding: 'var(--bk-spacing-5)', flex: 1 }}>
+          <div className="nav-section" style={{ marginBottom: 'var(--bk-spacing-6)' }}>
             <Text style={{
               display: 'block',
               fontSize: 'calc(var(--vscode-font-size) * 0.85)',
@@ -162,8 +162,8 @@ export default function Navigation() {
               color: 'var(--vscode-descriptionForeground)',
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              marginBottom: 'var(--spacing-3)',
-              paddingLeft: 'var(--spacing-4)',
+              marginBottom: 'var(--bk-spacing-3)',
+              paddingLeft: 'var(--bk-spacing-4)',
             }}>
               Getting Started
             </Text>
@@ -180,7 +180,7 @@ export default function Navigation() {
             </Menu>
           </div>
 
-          <div className="nav-section" style={{ marginBottom: 'var(--spacing-6)' }}>
+          <div className="nav-section" style={{ marginBottom: 'var(--bk-spacing-6)' }}>
             <Text style={{
               display: 'block',
               fontSize: 'calc(var(--vscode-font-size) * 0.85)',
@@ -188,8 +188,8 @@ export default function Navigation() {
               color: 'var(--vscode-descriptionForeground)',
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              marginBottom: 'var(--spacing-3)',
-              paddingLeft: 'var(--spacing-4)',
+              marginBottom: 'var(--bk-spacing-3)',
+              paddingLeft: 'var(--bk-spacing-4)',
             }}>
               Foundations
             </Text>
@@ -206,7 +206,7 @@ export default function Navigation() {
             </Menu>
           </div>
 
-          <div className="nav-section" style={{ marginBottom: 'var(--spacing-6)' }}>
+          <div className="nav-section" style={{ marginBottom: 'var(--bk-spacing-6)' }}>
             <Text style={{
               display: 'block',
               fontSize: 'calc(var(--vscode-font-size) * 0.85)',
@@ -214,8 +214,8 @@ export default function Navigation() {
               color: 'var(--vscode-descriptionForeground)',
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              marginBottom: 'var(--spacing-3)',
-              paddingLeft: 'var(--spacing-4)',
+              marginBottom: 'var(--bk-spacing-3)',
+              paddingLeft: 'var(--bk-spacing-4)',
             }}>
               Guides
             </Text>
@@ -232,7 +232,7 @@ export default function Navigation() {
             </Menu>
           </div>
 
-          <div className="nav-section" style={{ marginBottom: 'var(--spacing-6)' }}>
+          <div className="nav-section" style={{ marginBottom: 'var(--bk-spacing-6)' }}>
             <Text style={{
               display: 'block',
               fontSize: 'calc(var(--vscode-font-size) * 0.85)',
@@ -240,8 +240,8 @@ export default function Navigation() {
               color: 'var(--vscode-descriptionForeground)',
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              marginBottom: 'var(--spacing-3)',
-              paddingLeft: 'var(--spacing-4)',
+              marginBottom: 'var(--bk-spacing-3)',
+              paddingLeft: 'var(--bk-spacing-4)',
             }}>
               Recipes
             </Text>
@@ -258,7 +258,7 @@ export default function Navigation() {
             </Menu>
           </div>
 
-          <div className="nav-section" style={{ marginBottom: 'var(--spacing-6)' }}>
+          <div className="nav-section" style={{ marginBottom: 'var(--bk-spacing-6)' }}>
             <Text style={{
               display: 'block',
               fontSize: 'calc(var(--vscode-font-size) * 0.85)',
@@ -266,8 +266,8 @@ export default function Navigation() {
               color: 'var(--vscode-descriptionForeground)',
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              marginBottom: 'var(--spacing-3)',
-              paddingLeft: 'var(--spacing-4)',
+              marginBottom: 'var(--bk-spacing-3)',
+              paddingLeft: 'var(--bk-spacing-4)',
             }}>
               Components ({components.length})
             </Text>
@@ -287,7 +287,7 @@ export default function Navigation() {
 
         {/* Footer */}
         <div style={{
-          padding: 'var(--spacing-5)',
+          padding: 'var(--bk-spacing-5)',
           borderTop: '1px solid var(--vscode-panel-border)',
           backgroundColor: 'var(--vscode-editor-background)',
         }}>
@@ -298,9 +298,9 @@ export default function Navigation() {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 'var(--spacing-3)',
-              padding: 'var(--spacing-3) var(--spacing-4)',
-              borderRadius: 'var(--border-radius-md)',
+              gap: 'var(--bk-spacing-3)',
+              padding: 'var(--bk-spacing-3) var(--bk-spacing-4)',
+              borderRadius: 'var(--bk-radius-md)',
               backgroundColor: 'var(--vscode-sideBar-background)',
               border: '1px solid var(--vscode-panel-border)',
               color: 'var(--vscode-foreground)',
@@ -322,8 +322,8 @@ export default function Navigation() {
             <span>View on GitHub</span>
           </a>
           <div style={{
-            marginTop: 'var(--spacing-4)',
-            paddingTop: 'var(--spacing-4)',
+            marginTop: 'var(--bk-spacing-4)',
+            paddingTop: 'var(--bk-spacing-4)',
             borderTop: '1px solid var(--vscode-panel-border)',
           }}>
             <Paragraph style={{

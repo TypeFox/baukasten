@@ -50,7 +50,7 @@ Group related properties for side-by-side comparison. Common groups:
 ```tsx
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: "var(--gap-sm)", flexWrap: "wrap" }}>
+    <div style={{ display: "flex", gap: "var(--bk-gap-sm)", flexWrap: "wrap" }}>
       <Component variant="primary">Primary</Component>
       <Component variant="secondary">Secondary</Component>
       <Component variant="ghost">Ghost</Component>
@@ -72,7 +72,7 @@ export const Variants: Story = {
 export const Sizes: Story = {
   render: () => (
     <div
-      style={{ display: "flex", gap: "var(--gap-sm)", alignItems: "flex-end" }}
+      style={{ display: "flex", gap: "var(--bk-gap-sm)", alignItems: "flex-end" }}
     >
       <Component size="xs">Extra Small</Component>
       <Component size="sm">Small</Component>
@@ -101,19 +101,19 @@ export const States: Story = {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "var(--spacing-3)",
+        gap: "var(--bk-spacing-3)",
       }}
     >
       <div>
-        <h4 style={{ marginBottom: "var(--spacing-2)" }}>Default</h4>
+        <h4 style={{ marginBottom: "var(--bk-spacing-2)" }}>Default</h4>
         <Component>Default State</Component>
       </div>
       <div>
-        <h4 style={{ marginBottom: "var(--spacing-2)" }}>Disabled</h4>
+        <h4 style={{ marginBottom: "var(--bk-spacing-2)" }}>Disabled</h4>
         <Component disabled>Disabled State</Component>
       </div>
       <div>
-        <h4 style={{ marginBottom: "var(--spacing-2)" }}>Error</h4>
+        <h4 style={{ marginBottom: "var(--bk-spacing-2)" }}>Error</h4>
         <Component error="Error message">Error State</Component>
       </div>
     </div>
@@ -137,7 +137,7 @@ export const WithIcons: Story = {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "var(--spacing-4)",
+        gap: "var(--bk-spacing-4)",
       }}
     >
       <div>
@@ -169,8 +169,8 @@ export const Showcase: Story = {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "var(--spacing-6)",
-        padding: "var(--spacing-4)",
+        gap: "var(--bk-spacing-6)",
+        padding: "var(--bk-spacing-4)",
       }}
     >
       <div>
@@ -243,7 +243,7 @@ When using custom render functions, always wrap in a container with proper spaci
 
 ```tsx
 render: () => (
-  <div style={{ display: "flex", gap: "var(--gap-sm)", flexWrap: "wrap" }}>
+  <div style={{ display: "flex", gap: "var(--bk-gap-sm)", flexWrap: "wrap" }}>
     {/* Components */}
   </div>
 );
@@ -257,10 +257,10 @@ ALWAYS use design system tokens for styling within stories:
 
 ```tsx
 // ✅ DO
-gap: "var(--gap-sm)";
-padding: "var(--spacing-4)";
-fontSize: "var(--font-size-md)";
-fontWeight: "var(--font-weight-semibold)";
+gap: "var(--bk-gap-sm)";
+padding: "var(--bk-spacing-4)";
+fontSize: "var(--bk-font-size-md)";
+fontWeight: "var(--bk-font-weight-semibold)";
 
 // ❌ DON'T
 gap: "8px";
@@ -275,17 +275,17 @@ Use consistent styling for section headers in showcase stories:
 
 ```tsx
 <h3 style={{
-  marginBottom: 'var(--spacing-3)',
-  fontSize: 'var(--font-size-base)',
-  fontWeight: 'var(--font-weight-semibold)'
+  marginBottom: 'var(--bk-spacing-3)',
+  fontSize: 'var(--bk-font-size-base)',
+  fontWeight: 'var(--bk-font-weight-semibold)'
 }}>
   Section Title
 </h3>
 
 <h4 style={{
-  marginBottom: 'var(--spacing-2)',
-  fontSize: 'var(--font-size-sm)',
-  fontWeight: 'var(--font-weight-medium)'
+  marginBottom: 'var(--bk-spacing-2)',
+  fontSize: 'var(--bk-font-size-sm)',
+  fontWeight: 'var(--bk-font-weight-medium)'
 }}>
   Subsection Title
 </h4>
@@ -299,7 +299,7 @@ Use consistent styling for section headers in showcase stories:
 <div
   style={{
     display: "flex",
-    gap: "var(--gap-sm)",
+    gap: "var(--bk-gap-sm)",
     flexWrap: "wrap",
     alignItems: "center",
   }}
@@ -312,7 +312,7 @@ Use consistent styling for section headers in showcase stories:
 
 ```tsx
 <div
-  style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-3)" }}
+  style={{ display: "flex", flexDirection: "column", gap: "var(--bk-spacing-3)" }}
 >
   {/* Components */}
 </div>
@@ -325,7 +325,7 @@ Use consistent styling for section headers in showcase stories:
   style={{
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-    gap: "var(--spacing-3)",
+    gap: "var(--bk-spacing-3)",
   }}
 >
   {/* Components */}

@@ -219,7 +219,7 @@ function FormExample() {
                     Contact Us
                 </ModalHeader>
                 <ModalBody>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
                         <FormGroup orientation="vertical">
                             <FieldLabel htmlFor="name" required>Name</FieldLabel>
                             <div>
@@ -261,13 +261,13 @@ function FormExample() {
                                 rows={4}
                                 style={{
                                     width: '100%',
-                                    padding: 'var(--padding-md)',
-                                    backgroundColor: 'var(--color-input-background)',
-                                    color: 'var(--color-input-foreground)',
-                                    border: '1px solid var(--color-input-border)',
-                                    borderRadius: 'var(--radius-sm)',
+                                    padding: 'var(--bk-padding-md)',
+                                    backgroundColor: 'var(--bk-color-input-background)',
+                                    color: 'var(--bk-color-input-foreground)',
+                                    border: '1px solid var(--bk-color-input-border)',
+                                    borderRadius: 'var(--bk-radius-sm)',
                                     fontFamily: 'inherit',
-                                    fontSize: 'var(--font-size-md)',
+                                    fontSize: 'var(--bk-font-size-md)',
                                     resize: 'vertical',
                                 }}
                             />
@@ -339,7 +339,7 @@ function App() {
                 title="Sizes"
                 description="Six size options: xs (400px), sm (500px), md (600px - default), lg (800px), xl (1000px), and fullscreen. All sizes are responsive with 90% width on smaller screens."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap' }}>
                         {['xs', 'sm', 'md', 'lg', 'xl'].map((size) => (
                             <Button key={size} size="sm" onClick={() => setSizesModal(size)}>
                                 {size.toUpperCase()}
@@ -425,7 +425,7 @@ function App() {
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     height: '100%',
-                                    gap: 'var(--spacing-4)'
+                                    gap: 'var(--bk-spacing-4)'
                                 }}>
                                     <Heading level={2}>Fullscreen Modal</Heading>
                                     <Paragraph>This modal covers the entire viewport.</Paragraph>
@@ -455,7 +455,7 @@ function App() {
                 title="Backdrop Variants"
                 description="Three backdrop styles: solid (default dark overlay), blur (backdrop-filter blur effect), and transparent (no visible backdrop but still interactive)."
                 preview={
-                    <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap' }}>
                         <Button onClick={() => setBackdropModal('solid')}>Solid Backdrop</Button>
                         <Button onClick={() => setBackdropModal('blur')}>Blur Backdrop</Button>
                         <Button onClick={() => setBackdropModal('transparent')}>Transparent</Button>
@@ -472,7 +472,7 @@ function App() {
                                 </ModalHeader>
                                 <ModalBody>
                                     <Paragraph>This modal uses the <Text weight="bold">{variant}</Text> backdrop variant.</Paragraph>
-                                    <ul style={{ margin: 0, paddingLeft: 'var(--spacing-5)' }}>
+                                    <ul style={{ margin: 0, paddingLeft: 'var(--bk-spacing-5)' }}>
                                         <li><Text weight="bold">Solid</Text>: Dark semi-transparent</li>
                                         <li><Text weight="bold">Blur</Text>: Blurred with backdrop-filter</li>
                                         <li><Text weight="bold">Transparent</Text>: No visible backdrop</li>
@@ -486,10 +486,10 @@ function App() {
                         {/* Background content to see backdrop effect */}
                         <div style={{
                             width: '100%',
-                            marginTop: 'var(--spacing-4)',
-                            padding: 'var(--spacing-4)',
+                            marginTop: 'var(--bk-spacing-4)',
+                            padding: 'var(--bk-spacing-4)',
                             border: '1px solid var(--vscode-textBlockQuote-border)',
-                            borderRadius: 'var(--border-radius-md)'
+                            borderRadius: 'var(--bk-radius-md)'
                         }}>
                             <Heading level={4}>Background Content</Heading>
                             <Paragraph>Open the modals above to see how different backdrop styles affect this content. The blur backdrop will make this text appear blurred.</Paragraph>
@@ -684,10 +684,10 @@ function FormModal() {
                         <Button onClick={() => setSimpleModal(true)}>Open Simple Modal</Button>
                         <Modal open={simpleModal} onClose={() => setSimpleModal(false)} size="sm">
                             <ModalBody>
-                                <div style={{ textAlign: 'center', padding: 'var(--spacing-4)' }}>
+                                <div style={{ textAlign: 'center', padding: 'var(--bk-spacing-4)' }}>
                                     <Heading level={3} marginBottom={false}>Simple Message</Heading>
                                     <Paragraph>This modal only has a body section.</Paragraph>
-                                    <div style={{ marginTop: 'var(--spacing-4)' }}>
+                                    <div style={{ marginTop: 'var(--bk-spacing-4)' }}>
                                         <Button onClick={() => setSimpleModal(false)}>Got it</Button>
                                     </div>
                                 </div>
@@ -763,28 +763,28 @@ function FormModal() {
 
             <div
                 style={{
-                    marginTop: 'var(--spacing-8)',
-                    padding: 'var(--spacing-6)',
+                    marginTop: 'var(--bk-spacing-8)',
+                    padding: 'var(--bk-spacing-6)',
                     background: 'var(--vscode-textBlockQuote-background)',
                     border: '1px solid var(--vscode-textBlockQuote-border)',
-                    borderRadius: 'var(--border-radius-md)',
+                    borderRadius: 'var(--bk-radius-md)',
                 }}
             >
-                <h3 style={{ marginTop: 0, marginBottom: 'var(--spacing-3)' }}>Features & Behavior</h3>
-                <ul style={{ marginBottom: 'var(--spacing-4)', paddingLeft: 'var(--spacing-5)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <h3 style={{ marginTop: 0, marginBottom: 'var(--bk-spacing-3)' }}>Features & Behavior</h3>
+                <ul style={{ marginBottom: 'var(--bk-spacing-4)', paddingLeft: 'var(--bk-spacing-5)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Portal Rendering:</strong> Modal renders to <code>document.body</code> using React portals, ensuring proper z-index stacking
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Focus Management:</strong> Automatically focuses modal on open and restores focus to the previously active element on close
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Scroll Locking:</strong> Prevents body scroll when modal is open to avoid background scrolling
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Keyboard Support:</strong> Press <code>ESC</code> to close (configurable with <code>closeOnEscape</code>)
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Backdrop Click:</strong> Click outside modal to close (configurable with <code>closeOnBackdropClick</code>)
                     </li>
                     <li>
@@ -792,15 +792,15 @@ function FormModal() {
                     </li>
                 </ul>
 
-                <h3 style={{ marginTop: 'var(--spacing-4)', marginBottom: 'var(--spacing-3)' }}>Accessibility</h3>
-                <ul style={{ marginBottom: 0, paddingLeft: 'var(--spacing-5)' }}>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                <h3 style={{ marginTop: 'var(--bk-spacing-4)', marginBottom: 'var(--bk-spacing-3)' }}>Accessibility</h3>
+                <ul style={{ marginBottom: 0, paddingLeft: 'var(--bk-spacing-5)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>ARIA Attributes:</strong> Uses <code>role="dialog"</code> and <code>aria-modal="true"</code> for screen readers
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Focus Trap:</strong> Modal automatically receives focus when opened
                     </li>
-                    <li style={{ marginBottom: 'var(--spacing-2)' }}>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Focus Restoration:</strong> Returns focus to trigger element when closed
                     </li>
                     <li>

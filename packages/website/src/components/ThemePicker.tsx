@@ -9,9 +9,9 @@ export default function ThemePicker() {
     return (
         <div style={{
             display: 'flex',
-            gap: 'var(--spacing-2)',
-            padding: '0 var(--spacing-4)',
-            marginTop: 'var(--spacing-4)',
+            gap: 'var(--bk-spacing-2)',
+            padding: '0 var(--bk-spacing-4)',
+            marginTop: 'var(--bk-spacing-4)',
         }}>
             <Button
                 variant={themeMode === 'light' ? 'primary' : 'secondary'}
