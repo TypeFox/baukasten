@@ -408,11 +408,4 @@ export const sortIndicator = recipe({
     },
 });
 
-/**
- * Sort indicator content based on direction
- */
-globalStyle(`${sortIndicator.classNames.base}::before`, {
-    content: '▲',
-});
-
 // Override for desc direction - we'll handle this with dynamic content in the component
