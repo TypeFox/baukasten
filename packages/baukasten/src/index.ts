@@ -207,5 +207,10 @@ export type {
 // Style utilities
 export * from "./styles";
 
-// Global styles (re-export for convenience)
+/**
+ * @deprecated Use pre-built CSS files instead:
+ * - baukasten-ui/dist/baukasten-vscode.css for VS Code
+ * - baukasten-ui/dist/baukasten-theia.css for Eclipse Theia
+ * - baukasten-ui/dist/baukasten-web.css for standalone web apps
+ */
 export { GlobalStyles } from "./styles/global-styles";
