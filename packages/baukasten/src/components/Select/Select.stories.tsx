@@ -133,6 +133,10 @@ const meta = {
         defaultValue: { summary: 'true' },
       },
     },
+    dropdownClassName: {
+      control: 'text',
+      description: 'Additional CSS class name for the dropdown portal element (useful for custom dropdown styling)',
+    },
   },
 } satisfies Meta<typeof Select>;
 
@@ -836,6 +840,107 @@ export const FullWidth: Story = {
     docs: {
       description: {
         story: 'Use the `fullWidth` prop to make the select take up 100% of its container width. Useful for form layouts.',
+      },
+    },
+  },
+};
+
+/**
+ * Custom dropdown styling using dropdownClassName.
+ */
+export const CustomDropdownStyle: Story = {
+  args: { options: [] },
+  render: () => (
+    <div style={{ minWidth: '300px' }}>
+      <style>
+        {`
+          .custom-dropdown-wide {
+            min-width: 400px !important;
+          }
+          .custom-dropdown-rounded {
+            border-radius: 12px !important;
+            overflow: hidden;
+          }
+          .custom-dropdown-shadow {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+          }
+          .custom-dropdown-bordered {
+            border: 2px solid var(--bk-color-primary) !important;
+          }
+        `}
+      </style>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
+        <div>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+            Default Dropdown
+          </h4>
+          <Select
+            options={languageOptions}
+            placeholder="Select a language..."
+          />
+        </div>
+
+        <div>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+            Wider Dropdown (min-width: 400px)
+          </h4>
+          <Select
+            options={languageOptions}
+            placeholder="Select a language..."
+            dropdownClassName="custom-dropdown-wide"
+          />
+        </div>
+
+        <div>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+            Rounded Dropdown (border-radius: 12px)
+          </h4>
+          <Select
+            options={languageOptions}
+            placeholder="Select a language..."
+            dropdownClassName="custom-dropdown-rounded"
+          />
+        </div>
+
+        <div>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+            Enhanced Shadow
+          </h4>
+          <Select
+            options={languageOptions}
+            placeholder="Select a language..."
+            dropdownClassName="custom-dropdown-shadow"
+          />
+        </div>
+
+        <div>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+            Primary Border
+          </h4>
+          <Select
+            options={languageOptions}
+            placeholder="Select a language..."
+            dropdownClassName="custom-dropdown-bordered"
+          />
+        </div>
+
+        <div>
+          <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+            Combined Custom Styles
+          </h4>
+          <Select
+            options={languageOptions}
+            placeholder="Select a language..."
+            dropdownClassName="custom-dropdown-rounded custom-dropdown-shadow custom-dropdown-bordered"
+          />
+        </div>
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Use the `dropdownClassName` prop to pass custom CSS class names to the dropdown portal element. This allows for custom styling of the dropdown independently from the trigger. You can combine multiple classes for complex customizations.',
       },
     },
   },

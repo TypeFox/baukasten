@@ -69,6 +69,12 @@ export interface SelectOption<T = string> {
  */
 export interface SelectProps<T = string> {
   /**
+   * Unique identifier for the select trigger element
+   * Used for label association (htmlFor) in FormGroup
+   */
+  id?: string;
+
+  /**
    * Array of options to display
    */
   options: SelectOption<T>[];
@@ -178,9 +184,15 @@ export interface SelectProps<T = string> {
   showDescriptionPanel?: boolean;
 
   /**
-   * Additional CSS class name
+   * Additional CSS class name for the container
    */
   className?: string;
+
+  /**
+   * Additional CSS class name for the dropdown portal
+   * Useful for customizing dropdown styles when rendered in a portal
+   */
+  dropdownClassName?: string;
 }
 
 
@@ -241,6 +253,7 @@ export interface SelectProps<T = string> {
  * ```
  */
 export function Select<T = string>({
+  id,
   options,
   value: controlledValue,
   defaultValue,
@@ -261,6 +274,7 @@ export function Select<T = string>({
   maxDropdownHeight = '300px',
   showDescriptionPanel = true,
   className,
+  dropdownClassName,
 }: SelectProps<T>) {
   // Controlled vs uncontrolled value
   const [internalValue, setInternalValue] = useState<T | undefined>(defaultValue);
@@ -530,6 +544,7 @@ export function Select<T = string>({
       <button
         ref={refs.setReference}
         type="button"
+        id={id}
         className={styles.selectTrigger({
           size,
           hasError: !!error,
@@ -562,6 +577,7 @@ export function Select<T = string>({
         <FloatingPortal>
           <div
             ref={refs.setFloating}
+            className={dropdownClassName}
             style={{
               ...floatingStyles,
               visibility: isPositioned ? 'visible' : 'hidden',

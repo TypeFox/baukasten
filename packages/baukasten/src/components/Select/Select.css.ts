@@ -374,7 +374,6 @@ export const descriptionPanel = style({
     fontSize: 'var(--bk-font-size-xs)',
     color: 'var(--bk-color-foreground-muted)',
     lineHeight: 'var(--bk-line-height-relaxed)',
-    minHeight: 'calc(var(--bk-line-height-relaxed) * var(--bk-font-size-xs) * 3)', // ~3 lines of text
     display: 'flex',
     alignItems: 'center',
     overflowWrap: 'break-word',
