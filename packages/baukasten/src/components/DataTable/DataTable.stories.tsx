@@ -130,6 +130,10 @@ For simple static tables, consider using the basic \`Table\` component instead.
             control: 'boolean',
             description: 'Make header sticky when scrolling',
         },
+        fillHeight: {
+            control: 'boolean',
+            description: 'Fill parent height and become scrollable (pagination stays at bottom)',
+        },
         loading: {
             control: 'boolean',
             description: 'Show loading state',
@@ -387,6 +391,62 @@ export const StickyHeader: Story = {
         docs: {
             description: {
                 story: 'Use `stickyHeader` with `maxHeight` to create a scrollable table with a fixed header.',
+            },
+        },
+    },
+};
+
+/**
+ * Fill height with pagination - table fills parent container and scrolls when content exceeds
+ */
+const FillHeightExample = () => {
+    return (
+        <div style={{
+            height: '400px',
+            border: '2px dashed var(--bk-color-border)',
+            borderRadius: 'var(--bk-radius-md)',
+            padding: 'var(--bk-spacing-2)',
+        }}>
+            <DataTable
+                data={sampleData.slice(0, 30)}
+                columns={basicColumns}
+                fillHeight
+                stickyHeader
+                enablePagination
+                initialPageSize={20}
+                variant="zebra"
+            />
+        </div>
+    );
+};
+
+export const FillHeight: Story = {
+    render: () => <FillHeightExample />,
+    parameters: {
+        docs: {
+            description: {
+                story: `
+Use \`fillHeight\` to make the table expand to fill its parent container's height.
+The table will become scrollable if content exceeds available space, while pagination stays fixed at the bottom.
+
+**Key features:**
+- Table fills parent height
+- Scrollable content area when content exceeds space
+- Pagination stays fixed at the bottom
+- Best used with \`stickyHeader\` for better UX
+
+\`\`\`tsx
+<div style={{ height: '400px' }}>
+  <DataTable
+    data={users}
+    columns={columns}
+    fillHeight
+    stickyHeader
+    enablePagination
+  />
+</div>
+\`\`\`
+                `,
             },
         },
     },

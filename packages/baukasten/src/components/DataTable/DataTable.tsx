@@ -196,6 +196,14 @@ export interface DataTableProps<TData> {
     maxHeight?: number | string;
 
     /**
+     * Whether the table should fill parent height and become scrollable
+     * When enabled, the table expands to fill available space and scrolls if content exceeds.
+     * Pagination stays fixed at the bottom.
+     * @default false
+     */
+    fillHeight?: boolean;
+
+    /**
      * Whether the table is loading
      * @default false
      */
@@ -300,6 +308,7 @@ export function DataTable<TData>({
     globalFilterPlaceholder = 'Search...',
     stickyHeader = false,
     maxHeight,
+    fillHeight = false,
     loading = false,
     loadingIndicator = 'line',
     loadingComponent,
@@ -453,7 +462,7 @@ export function DataTable<TData>({
     const isEmpty = rows.length === 0 && !loading;
 
     return (
-        <div className={`${styles.dataTableWrapper()} ${className ?? ''}`} style={style}>
+        <div className={`${styles.dataTableWrapper({ fillHeight })} ${className ?? ''}`} style={style}>
             {/* Toolbar with global filter */}
             {enableGlobalFilter && (
                 <div className={styles.toolbar}>
@@ -477,7 +486,7 @@ export function DataTable<TData>({
 
             {/* Table container */}
             <div
-                className={styles.tableContainer({ bordered })}
+                className={styles.tableContainer({ bordered, fillHeight })}
                 style={{ ...containerStyle, position: 'relative' }}
             >
                 {/* Spinner overlay */}

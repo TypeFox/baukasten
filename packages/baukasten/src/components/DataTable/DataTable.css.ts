@@ -11,7 +11,17 @@ export const dataTableWrapper = recipe({
         gap: 'var(--bk-spacing-3)',
         width: '100%',
     },
-    variants: {},
+    variants: {
+        fillHeight: {
+            true: {
+                height: '100%',
+            },
+            false: {},
+        },
+    },
+    defaultVariants: {
+        fillHeight: false,
+    },
 });
 
 /**
@@ -30,9 +40,17 @@ export const tableContainer = recipe({
             },
             false: {},
         },
+        fillHeight: {
+            true: {
+                flex: 1,
+                minHeight: 0, // Critical: allows flex item to shrink below content size
+            },
+            false: {},
+        },
     },
     defaultVariants: {
         bordered: true,
+        fillHeight: false,
     },
 });
 
@@ -125,6 +143,8 @@ export const tableHeaderCell = recipe({
         backgroundColor: 'var(--bk-color-background-secondary)',
         position: 'relative',
         whiteSpace: 'nowrap',
+        // Ensure isolation for proper stacking context (prevents bleed-through on sticky)
+        isolation: 'isolate',
     },
     variants: {
         align: {
@@ -143,11 +163,20 @@ export const tableHeaderCell = recipe({
             true: {
                 cursor: 'pointer',
                 userSelect: 'none',
+                // Use pseudo-element for hover overlay to preserve solid background underneath
                 selectors: {
-                    '&:hover': {
+                    '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        inset: 0,
+                        backgroundColor: 'transparent',
+                        transition: 'var(--bk-transition-colors)',
+                        pointerEvents: 'none',
+                    },
+                    '&:hover::after': {
                         backgroundColor: 'var(--bk-color-hover)',
                     },
-                    '&:active': {
+                    '&:active::after': {
                         backgroundColor: 'var(--bk-color-active)',
                     },
                 },
