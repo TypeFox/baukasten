@@ -197,6 +197,14 @@ export const dropdown = recipe({
 });
 
 /**
+ * Floating wrapper for dropdown (receives Floating UI positioning)
+ * z-index is set here so it can be overridden via dropdownClassName
+ */
+export const floatingWrapper = style({
+    zIndex: 'var(--bk-z-index-popover)',
+});
+
+/**
  * Dropdown menu portal (used with Floating UI)
  */
 export const dropdownPortal = style({

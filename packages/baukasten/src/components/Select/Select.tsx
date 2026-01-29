@@ -577,11 +577,10 @@ export function Select<T = string>({
         <FloatingPortal>
           <div
             ref={refs.setFloating}
-            className={dropdownClassName}
+            className={`${styles.floatingWrapper}${dropdownClassName ? ` ${dropdownClassName}` : ''}`}
             style={{
               ...floatingStyles,
               visibility: isPositioned ? 'visible' : 'hidden',
-              zIndex: 'var(--bk-z-index-popover)',
             }}
             {...getFloatingProps()}
           >
