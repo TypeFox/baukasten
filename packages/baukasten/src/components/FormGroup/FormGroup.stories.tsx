@@ -173,6 +173,7 @@ export const VSCodeStyleForm: Story = {
             <FieldLabel htmlFor="role">Role</FieldLabel>
             <div>
               <Select
+                id="role"
                 value={formData.role}
                 onChange={(value) => setFormData({ ...formData, role: value })}
                 options={[
