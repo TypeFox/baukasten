@@ -15,7 +15,8 @@ baukasten/
 │   ├── web-wrapper/         # VSCode theme wrapper for browser demos
 │   ├── website/             # Documentation website
 │   └── examples/
-│       └── web-example/     # Web application example
+│       ├── web-example/     # Web application example
+│       └── vscode/          # VSCode extension example (Log Viewer)
 ```
 
 ## Common Commands
@@ -36,6 +37,9 @@ npm run storybook
 # Run web example
 npm run example:web
 # Runs at http://localhost:3000
+
+# Run VSCode extension example (then press F5 in VSCode)
+npm run example:vscode
 ```
 
 ### Building
@@ -254,6 +258,7 @@ Main package (`baukasten`) exports:
 
 - View in Storybook: `npm run storybook`
 - Test in web: `npm run example:web`
+- Test in VSCode: `npm run example:vscode` then F5
 - Use .vscode launch configurations for debugging
 
 ## Notes

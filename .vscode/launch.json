@@ -18,13 +18,26 @@
       "webRoot": "${workspaceFolder}/packages/baukasten",
       "sourceMaps": true,
       "preLaunchTask": "npm: storybook"
+    },
+    {
+      "name": "Launch VSCode Extension Example",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/packages/examples/vscode"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/packages/examples/vscode/dist/**/*.js"
+      ],
+      "preLaunchTask": "npm: build:vscode-example"
     }
   ],
   "compounds": [
     {
       "name": "Launch All Examples",
       "configurations": [
-        "Attach to Web Example (Chrome)"
+        "Attach to Web Example (Chrome)",
+        "Launch VSCode Extension Example"
       ],
       "stopAll": true
     }

@@ -1,0 +1,47 @@
+{
+  "name": "@baukasten/vscode-example",
+  "displayName": "Baukasten Log Viewer",
+  "description": "A VSCode extension demo showcasing baukasten UI components with a Log Viewer",
+  "version": "0.2.1",
+  "publisher": "baukasten",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "baukasten.showLogViewer",
+        "title": "Baukasten: Show Log Viewer"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "npm run build:extension && npm run build:webview",
+    "build:extension": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+    "build:webview": "vite build",
+    "watch": "npm run watch:extension & npm run watch:webview",
+    "watch:extension": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --watch",
+    "watch:webview": "vite build --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.3",
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "baukasten-ui": "*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

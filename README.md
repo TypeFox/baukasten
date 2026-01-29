@@ -14,6 +14,7 @@ baukasten/
 │   ├── website/             # Source code of the website
 │   └── examples/
 │       ├── web-example/     # Web application example
+│       └── vscode/          # VSCode extension example (Log Viewer)
 └── package.json             # Root package with workspace config
 ```
 
@@ -45,7 +46,9 @@ baukasten/
 This project includes pre-configured VSCode launch configurations. Simply:
 
 1. Open the project in VSCode
-2. Use the **Run and Debug** panel to select:
+2. Press **F5** to launch the VSCode extension example, or
+3. Use the **Run and Debug** panel to select:
+   - **Launch VSCode Extension Example**
    - **Attach to Web Example (Chrome)**
    - **Attach to Storybook (Chrome)**
    - **Launch All Examples** (runs multiple at once)
@@ -75,6 +78,14 @@ npm run example:web
 ```
 
 The web example will be available at `http://localhost:3000`
+
+_VSCode extension example_ (Log Viewer demo):
+
+```bash
+npm run example:vscode
+```
+
+Then press F5 in VSCode to launch the extension host.
 
 **Run the website:**
 

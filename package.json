@@ -17,7 +17,9 @@
     "website": "npm run dev --workspace=packages/website",
     "website:build": "npm run build --workspace=packages/website",
     "website:start": "npm run start --workspace=packages/website",
-    "example:web": "npm run dev --workspace=packages/examples/web-example"
+    "example:web": "npm run dev --workspace=packages/examples/web-example",
+    "example:vscode": "npm run watch --workspace=packages/examples/vscode",
+    "build:vscode": "npm run build --workspace=packages/examples/vscode"
   },
   "devDependencies": {
     "typescript": "^5.3.3"
