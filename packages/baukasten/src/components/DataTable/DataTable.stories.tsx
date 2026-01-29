@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { DataTable } from './DataTable';
 import { createSelectColumn, type ColumnDef, type SortingState, type PaginationState, type RowSelectionState } from './DataTable.utils';
 import { Badge } from '../Badge';
@@ -787,6 +787,171 @@ export const Sizes: Story = {
         docs: {
             description: {
                 story: 'All available size options for the DataTable.',
+            },
+        },
+    },
+};
+
+/**
+ * Header grouping using TanStack Table's column groups
+ */
+const headerGroupColumns: ColumnDef<User, unknown>[] = [
+    {
+        header: 'Personal Info',
+        columns: [
+            {
+                accessorKey: 'name',
+                header: 'Name',
+            },
+            {
+                accessorKey: 'email',
+                header: 'Email',
+            },
+        ],
+    },
+    {
+        header: 'Employment',
+        columns: [
+            {
+                accessorKey: 'role',
+                header: 'Role',
+            },
+            {
+                accessorKey: 'department',
+                header: 'Department',
+            },
+            {
+                accessorKey: 'salary',
+                header: 'Salary',
+                meta: { align: 'right' },
+                cell: ({ getValue }) => {
+                    const value = getValue() as number;
+                    return `$${value.toLocaleString()}`;
+                },
+            },
+        ],
+    },
+    {
+        header: 'Status',
+        columns: [
+            {
+                accessorKey: 'status',
+                header: 'Active',
+                cell: ({ getValue }) => {
+                    const status = getValue() as string;
+                    const variant = status === 'active' ? 'success' : status === 'pending' ? 'warning' : 'default';
+                    return <Badge variant={variant}>{status}</Badge>;
+                },
+            },
+            {
+                accessorKey: 'startDate',
+                header: 'Start Date',
+            },
+        ],
+    },
+];
+
+export const WithHeaderGroups: Story = {
+    args: {
+        data: sampleData.slice(0, 10),
+        columns: headerGroupColumns,
+        variant: 'zebra',
+        enableSorting: true,
+        bordered: true,
+    },
+    parameters: {
+        docs: {
+            description: {
+                story: `
+Use column groups to create multi-level headers. Group related columns under parent headers for better organization.
+
+\`\`\`tsx
+const columns = [
+  {
+    header: 'Personal Info',
+    columns: [
+      { accessorKey: 'name', header: 'Name' },
+      { accessorKey: 'email', header: 'Email' },
+    ],
+  },
+  {
+    header: 'Employment',
+    columns: [
+      { accessorKey: 'role', header: 'Role' },
+      { accessorKey: 'department', header: 'Department' },
+    ],
+  },
+];
+
+<DataTable data={users} columns={columns} />
+\`\`\`
+                `,
+            },
+        },
+    },
+};
+
+/**
+ * Header grouping with loading state
+ */
+const HeaderGroupsWithLoadingExample = () => {
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState<User[]>([]);
+
+    // Simulate data loading
+    const loadData = () => {
+        setLoading(true);
+        setData([]);
+        setTimeout(() => {
+            setData(sampleData.slice(0, 10));
+            setLoading(false);
+        }, 2000);
+    };
+
+    // Initial load
+    useEffect(() => {
+        loadData();
+    }, []);
+
+    return (
+        <div>
+            <div style={{ marginBottom: 'var(--bk-spacing-3)' }}>
+                <Button onClick={loadData} disabled={loading}>
+                    {loading ? 'Loading...' : 'Reload Data'}
+                </Button>
+            </div>
+            <DataTable
+                data={data}
+                columns={headerGroupColumns}
+                variant="zebra"
+                enableSorting
+                bordered
+                loading={loading}
+                loadingIndicator="line"
+                emptyText="No data loaded yet"
+            />
+        </div>
+    );
+};
+
+export const HeaderGroupsWithLoading: Story = {
+    render: () => <HeaderGroupsWithLoadingExample />,
+    parameters: {
+        docs: {
+            description: {
+                story: `
+Combine header groups with loading state for a complete data loading experience.
+The loading indicator appears under the grouped headers while data is being fetched.
+
+\`\`\`tsx
+<DataTable
+  data={data}
+  columns={groupedColumns}
+  loading={isLoading}
+  loadingIndicator="line"
+/>
+\`\`\`
+                `,
             },
         },
     },

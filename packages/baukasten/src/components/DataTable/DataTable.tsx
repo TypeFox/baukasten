@@ -512,7 +512,7 @@ export function DataTable<TData>({
                         {/* Loading line indicator - positioned at bottom of header */}
                         {loading && loadingIndicator === 'line' && !loadingComponent && (
                             <tr className={styles.loadingRow}>
-                                <td colSpan={columns.length} className={styles.loadingCell}>
+                                <td colSpan={table.getVisibleLeafColumns().length} className={styles.loadingCell}>
                                     <div className={styles.loadingLine}>
                                         <div className={styles.loadingBar} />
                                     </div>
@@ -524,7 +524,7 @@ export function DataTable<TData>({
                         {isEmpty ? (
                             <tr>
                                 <td
-                                    colSpan={columns.length}
+                                    colSpan={table.getVisibleLeafColumns().length}
                                     className={styles.emptyState}
                                 >
                                     {emptyComponent ?? emptyText}
