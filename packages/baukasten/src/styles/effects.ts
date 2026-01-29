@@ -50,6 +50,7 @@ export const effectsTokens = `
      * Z-INDEX SCALE
      * ======================================================================== */
     --bk-z-index-base: 0;
+    --bk-z-index-overlay-content: 1;  /* Content layered above overlay backgrounds (e.g., image captions) */
     --bk-z-index-sticky: 1020;
     --bk-z-index-fixed: 1030;
     --bk-z-index-modal-backdrop: 1040;
@@ -103,7 +104,7 @@ export type Transition = 'fast' | 'base' | 'slow';
 export type TransitionProperty = 'colors' | 'all' | 'transform' | 'opacity';
 
 export type ZIndex =
-  | 'base' | 'dropdown' | 'sticky' | 'fixed'
+  | 'base' | 'overlay-content' | 'dropdown' | 'sticky' | 'fixed'
   | 'modal-backdrop' | 'modal' | 'popover' | 'context-menu' | 'tooltip' | 'notification';
 
 export type Opacity =

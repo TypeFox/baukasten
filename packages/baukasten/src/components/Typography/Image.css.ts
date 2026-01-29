@@ -50,7 +50,7 @@ export const imageWrapper = recipe({
             left: 0,
             right: 0,
             height: '50%', // Cover bottom half for caption readability
-            background: 'linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent)', // Dark to transparent gradient
+            background: 'linear-gradient(to top, var(--bk-color-overlay-gradient-start), transparent)',
             pointerEvents: 'none',
             borderRadius: 'inherit',
           },
@@ -204,8 +204,8 @@ export const caption = recipe({
         left: 0,
         right: 0,
         padding: 'var(--bk-spacing-3)',
-        color: 'white',
-        zIndex: 1, // Above gradient overlay
+        color: 'var(--bk-color-overlay-foreground)',
+        zIndex: 'var(--bk-z-index-overlay-content)',
       },
     },
 

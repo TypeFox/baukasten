@@ -94,7 +94,7 @@ export const progressBarFill = recipe({
     },
     striped: {
       true: {
-        backgroundImage: 'linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)', // Semi-transparent white stripes
+        backgroundImage: 'linear-gradient(45deg, var(--bk-color-stripe-overlay) 25%, transparent 25%, transparent 50%, var(--bk-color-stripe-overlay) 50%, var(--bk-color-stripe-overlay) 75%, transparent 75%, transparent)',
         backgroundSize: `${STRIPE_SIZE} ${STRIPE_SIZE}`,
       },
       false: {},

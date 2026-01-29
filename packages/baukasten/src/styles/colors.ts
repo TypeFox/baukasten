@@ -72,6 +72,17 @@ export const colorTokens = `
     --bk-color-overlay: rgba(0, 0, 0, 0.5);
     --bk-color-overlay-light: rgba(0, 0, 0, 0.1);
 
+    /* Backdrop colors (for modal/dialog overlays) */
+    --bk-color-backdrop: rgba(0, 0, 0, 0.5);
+    --bk-color-backdrop-blur: rgba(0, 0, 0, 0.3);
+
+    /* Image overlay gradient */
+    --bk-color-overlay-gradient-start: rgba(0, 0, 0, 0.7);
+    --bk-color-overlay-foreground: #ffffff;
+
+    /* Progress bar stripe overlay */
+    --bk-color-stripe-overlay: rgba(255, 255, 255, 0.15);
+
     /* ========================================================================
      * INTERACTIVE STATES
      * Hover, active, focus, and disabled states
@@ -228,6 +239,14 @@ export type ColorToken =
   | "border"
   | "border-focus"
   | "border-hover"
+  // Overlays/Backdrops
+  | "overlay"
+  | "overlay-light"
+  | "backdrop"
+  | "backdrop-blur"
+  | "overlay-gradient-start"
+  | "overlay-foreground"
+  | "stripe-overlay"
   // Interactive
   | "hover"
   | "active"

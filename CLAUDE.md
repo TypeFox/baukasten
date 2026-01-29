@@ -6,8 +6,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Baukasten is a VSCode webview UI toolkit built with React 19, TypeScript, vanilla-extract, and designed to match VSCode's native look and feel. This is a monorepo managed with npm workspaces.
 
-**Note**: The project is currently migrating from styled-components to vanilla-extract. Some components may still use styled-components during the transition period.
-
 ## Monorepo Structure
 
 ```
@@ -15,10 +13,9 @@ baukasten/
 ├── packages/
 │   ├── baukasten/           # Main UI component library (baukasten)
 │   ├── web-wrapper/         # VSCode theme wrapper for browser demos
+│   ├── website/             # Documentation website
 │   └── examples/
-│       ├── web-example/     # Web application example
-│       ├── table-example/   # Table component demo
-│       └── vscode/          # VSCode extension example
+│       └── web-example/     # Web application example
 ```
 
 ## Common Commands
@@ -39,12 +36,6 @@ npm run storybook
 # Run web example
 npm run example:web
 # Runs at http://localhost:3000
-
-# Run table example
-npm run example:table
-
-# Watch VSCode extension example (then press F5 in VSCode)
-npm run example:vscode
 ```
 
 ### Building
@@ -114,16 +105,13 @@ ComponentName/
 └── index.ts                  # Exports
 ```
 
-**For new components** (using vanilla-extract):
+**For components** (using vanilla-extract):
 1. Use semantic tokens from the design system via CSS variables
 2. Export TypeScript types for props
 3. Include comprehensive Storybook stories
 4. Use `recipe` API for variant-based styling
 5. Use `style` API for base styles
 6. Use `styleVariants` for simple variant maps
-
-**For legacy components** (still using styled-components):
-1. Follow the naming convention: `$propName` for transient props (until migrated)
 
 ### Theming System
 
@@ -167,14 +155,62 @@ Reference: `packages/baukasten/src/components/Button/Button.stories.tsx`
 ## Available Components
 
 Current components (exported from `baukasten`):
+
+**Form Controls:**
 - **Button** - Versatile button with variants (primary, secondary, ghost, outline) and sizes
+- **ButtonGroup** - Group of related buttons
 - **Input** - Text input with label and error state support
+- **TextArea** - Multi-line text input
+- **Select** - Dropdown selection component
+- **Checkbox** - Checkbox with label support
+- **Radio** - Radio button and RadioGroup components
+- **Slider** - Range slider input
+- **FileUpload** - File upload component with drag & drop
+
+**Form Helpers:**
 - **Label** - Form label component
+- **FieldLabel** - Field label with optional required indicator
+- **FormGroup** - Group form elements with consistent spacing
+- **FormHelper** - Helper text for form fields
+
+**Typography:**
+- **Heading** - h1-h6 headings with semantic sizing
+- **Text** - Inline text with size and weight variants
+- **Paragraph** - Block text element
+- **Code** - Inline and block code display
+- **Link** - Anchor links with variants
+- **Image** - Responsive images with loading states and captions
+
+**Data Display:**
 - **Badge** - Status indicator component
-- **Icon** - VSCode Codicons integration
-- **Typography** - Heading, Text, Paragraph, Code, Link, Image
 - **Table** - Basic table components with sorting and variants
 - **DataTable** - Advanced data table with virtualization, sorting, filtering
+- **Avatar** - User avatar with image/initials fallback
+
+**Navigation:**
+- **Tabs** - Tabbed navigation component
+- **Breadcrumbs** - Breadcrumb navigation
+- **Menu** - Dropdown menu component
+- **ContextMenu** - Right-click context menu
+- **Pagination** - Page navigation controls
+
+**Feedback:**
+- **Alert** - Alert messages with variants (info, success, warning, danger)
+- **Modal** - Modal dialog component
+- **Tooltip** - Hover tooltips
+- **Spinner** - Loading spinner
+- **ProgressBar** - Progress indicator with variants
+
+**Layout:**
+- **Divider** - Horizontal/vertical divider
+- **SplitPane** - Resizable split pane layout
+- **Accordion** - Collapsible content panels
+- **Dropdown** - Generic dropdown container
+
+**Specialized:**
+- **Icon** - VSCode Codicons integration
+- **StatusBar** - VSCode-style status bar
+- **Hero** - Hero section component
 
 ## Key Technical Details
 
@@ -204,7 +240,6 @@ Main package (`baukasten`) exports:
    - Export from `packages/baukasten/src/index.ts`
 3. **Test in examples**:
    - Web example for browser testing
-   - VSCode example for extension integration
 4. **Build**: `npm run build` before committing
 
 ## Important Files
@@ -219,7 +254,6 @@ Main package (`baukasten`) exports:
 
 - View in Storybook: `npm run storybook`
 - Test in web: `npm run example:web`
-- Test in VSCode: `npm run example:vscode` then F5
 - Use .vscode launch configurations for debugging
 
 ## Notes
@@ -556,17 +590,3 @@ export const Button: React.FC<ButtonProps> = ({
    });
    ```
 
-### Migration Checklist
-
-When migrating a component from styled-components to vanilla-extract:
-
-- [ ] Create `ComponentName.css.ts` file
-- [ ] Convert `styled.*` to `style()` or `recipe()`
-- [ ] Replace prop interpolation with `recipe` variants
-- [ ] Remove transient props (`$propName`) - use recipe variants instead
-- [ ] Update component imports
-- [ ] Use `className` instead of styled component wrapper
-- [ ] Extract variant types with `RecipeVariants`
-- [ ] Test all variant combinations in Storybook
-- [ ] Verify design tokens are used (no hardcoded values)
-- [ ] Remove styled-components imports after migration complete

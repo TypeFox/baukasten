@@ -64,11 +64,6 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
  *
  * // Large link
  * <Link size="lg" href="/home">Home</Link>
- *
- * // As a button (no href)
- * <Link as="button" onClick={() => console.log('clicked')}>
- *   Click me
- * </Link>
  * ```
  */
 export const Link: React.FC<LinkProps> = ({
