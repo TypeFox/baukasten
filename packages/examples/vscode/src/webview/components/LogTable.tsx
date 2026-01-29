@@ -79,19 +79,18 @@ export const LogTable: React.FC<LogTableProps> = ({
   };
 
   return (
-    <div>
-      <DataTable
-        data={logs}
-        columns={columns}
-        enableSorting
-        enablePagination
-        initialPageSize={50}
-        pageSizeOptions={[25, 50, 100, 200]}
-        stickyHeader
-        maxHeight="100%"
-        loading={loading}
-        onRowClick={handleRowClick}
-      />
-    </div>
+    <DataTable
+      data={logs}
+      columns={columns}
+      enableSorting
+      enablePagination
+      initialPageSize={50}
+      pageSizeOptions={[25, 50, 100, 200]}
+      stickyHeader
+      fillHeight
+      maxHeight="100%"
+      loading={loading}
+      onRowClick={handleRowClick}
+    />
   );
 };

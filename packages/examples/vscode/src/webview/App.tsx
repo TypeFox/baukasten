@@ -69,7 +69,7 @@ export const App: React.FC = () => {
       <div className="mainContent">
         <SplitPane orientation="horizontal">
           <Pane preferredSize={0.65} minSize={300}>
-            <div className="tableWrapper" style={{ padding: '10px' }}>
+            <div className="tableWrapper" style={{ padding: '10px', height: '100%' }}>
               <LogTable
                 logs={filteredLogs}
                 selectedLogId={selectedLog?.id ?? null}
