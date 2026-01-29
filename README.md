@@ -45,14 +45,10 @@ baukasten/
 This project includes pre-configured VSCode launch configurations. Simply:
 
 1. Open the project in VSCode
-2. Press **F5** to launch the VSCode extension example, or
-3. Use the **Run and Debug** panel to select:
-   - **Launch VSCode Extension Example**
+2. Use the **Run and Debug** panel to select:
    - **Attach to Web Example (Chrome)**
    - **Attach to Storybook (Chrome)**
    - **Launch All Examples** (runs multiple at once)
-
-See [.vscode/README.md](.vscode/README.md) for detailed instructions.
 
 #### Manual Commands:
 

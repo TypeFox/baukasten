@@ -22,11 +22,11 @@ export const backdrop = recipe({
   variants: {
     variant: {
       solid: {
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Standard semi-transparent black
+        backgroundColor: 'var(--bk-color-backdrop)',
         backdropFilter: 'none',
       },
       blur: {
-        backgroundColor: 'rgba(0, 0, 0, 0.3)', // Lighter for blur effect
+        backgroundColor: 'var(--bk-color-backdrop-blur)',
         backdropFilter: 'blur(var(--bk-spacing-1))', // 4px
       },
       transparent: {

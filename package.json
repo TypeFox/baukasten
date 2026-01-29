@@ -11,16 +11,13 @@
     "build:web-wrapper": "npm run build --workspace=packages/web-wrapper",
     "build:baukasten": "npm run build --workspace=packages/baukasten",
     "build:website": "npm run build --workspace=packages/website",
-    "build:vscode": "npm run build --workspace=packages/examples/vscode",
     "dev": "npm run dev --workspace=packages/baukasten",
     "storybook": "npm run storybook --workspace=packages/baukasten",
     "build-storybook": "npm run build:web-wrapper && cd packages/baukasten && NODE_PATH=./node_modules npm run build-storybook",
     "website": "npm run dev --workspace=packages/website",
     "website:build": "npm run build --workspace=packages/website",
     "website:start": "npm run start --workspace=packages/website",
-    "example:web": "npm run dev --workspace=packages/examples/web-example",
-    "example:table": "npm run dev --workspace=packages/examples/table-example",
-    "example:vscode": "npm run watch --workspace=packages/examples/vscode"
+    "example:web": "npm run dev --workspace=packages/examples/web-example"
   },
   "devDependencies": {
     "typescript": "^5.3.3"
