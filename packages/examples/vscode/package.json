@@ -2,7 +2,7 @@
   "name": "@baukasten/vscode-example",
   "displayName": "Baukasten Log Viewer",
   "description": "A VSCode extension demo showcasing baukasten UI components with a Log Viewer",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publisher": "baukasten",
   "engines": {
     "vscode": "^1.85.0"
