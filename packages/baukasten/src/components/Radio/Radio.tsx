@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { type Size } from '../../styles';
 import { useRadioGroup } from './RadioGroup';
 import { radioWrapper, hiddenInput, radioIndicator, radioDot } from './Radio.css';
@@ -99,7 +100,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(({
 
   return (
     <label
-      className={className ? `${radioWrapper} ${className}` : radioWrapper}
+      className={clsx(radioWrapper, className)}
       style={style}
     >
       <input

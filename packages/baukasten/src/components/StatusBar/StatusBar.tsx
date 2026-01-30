@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import * as styles from './StatusBar.css';
 
 /**
@@ -123,10 +124,8 @@ export const StatusBar: React.FC<StatusBarProps> = ({
   className,
   style,
 }) => {
-  const barClassName = className ? `${styles.statusBar} ${className}` : styles.statusBar;
-
   return (
-    <div className={barClassName} style={style}>
+    <div className={clsx(styles.statusBar, className)} style={style}>
       {children}
     </div>
   );
@@ -142,12 +141,8 @@ export const StatusBarSection: React.FC<StatusBarSectionProps> = ({
   children,
   className,
 }) => {
-  const sectionClassName = className
-    ? `${styles.statusBarSection({ align })} ${className}`
-    : styles.statusBarSection({ align });
-
   return (
-    <div className={sectionClassName}>
+    <div className={clsx(styles.statusBarSection({ align }), className)}>
       {children}
     </div>
   );

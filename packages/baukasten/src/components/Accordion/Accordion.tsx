@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from 'react';
+import clsx from 'clsx';
 import { accordion } from './Accordion.css';
 
 /**
@@ -115,7 +116,7 @@ export const Accordion: React.FC<AccordionProps> = ({
 
   return (
     <AccordionContext.Provider value={contextValue}>
-      <div className={className ? `${accordion} ${className}` : accordion} {...props}>
+      <div className={clsx(accordion, className)} {...props}>
         {children}
       </div>
     </AccordionContext.Provider>

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom';
+import clsx from 'clsx';
 import { type Size } from '../../styles';
 import { usePortalRoot } from '../../context';
 import { Icon } from '../Icon';
@@ -261,10 +262,6 @@ export const Modal: React.FC<ModalProps> = ({
 
   if (!open) return null;
 
-  const containerClassName = className
-    ? `${modalContainer({ size })} ${className}`
-    : modalContainer({ size });
-
   // Use portal root from context if available, otherwise fallback to document.body
   const portalTarget = portalRoot ?? document.body;
 
@@ -273,7 +270,7 @@ export const Modal: React.FC<ModalProps> = ({
       <div className={backdrop({ variant: backdropVariant })} onClick={handleBackdropClick} />
       <div
         ref={modalRef}
-        className={containerClassName}
+        className={clsx(modalContainer({ size }), className)}
         role="dialog"
         aria-modal="true"
         tabIndex={-1}
@@ -303,10 +300,8 @@ export const ModalHeader: React.FC<ModalHeaderProps> = ({
   onClose,
   className,
 }) => {
-  const headerClassName = className ? `${modalHeader} ${className}` : modalHeader;
-
   return (
-    <div className={headerClassName}>
+    <div className={clsx(modalHeader, className)}>
       <div className={modalTitle}>{children}</div>
       {showCloseButton && onClose && (
         <button className={closeButton} onClick={onClose} aria-label="Close modal">
@@ -330,8 +325,7 @@ export const ModalHeader: React.FC<ModalHeaderProps> = ({
  * ```
  */
 export const ModalBody: React.FC<ModalBodyProps> = ({ children, className }) => {
-  const bodyClassName = className ? `${modalBody} ${className}` : modalBody;
-  return <div className={bodyClassName}>{children}</div>;
+  return <div className={clsx(modalBody, className)}>{children}</div>;
 };
 
 /**
@@ -349,6 +343,5 @@ export const ModalBody: React.FC<ModalBodyProps> = ({ children, className }) => 
  * ```
  */
 export const ModalFooter: React.FC<ModalFooterProps> = ({ children, className }) => {
-  const footerClassName = className ? `${modalFooter} ${className}` : modalFooter;
-  return <div className={footerClassName}>{children}</div>;
+  return <div className={clsx(modalFooter, className)}>{children}</div>;
 };

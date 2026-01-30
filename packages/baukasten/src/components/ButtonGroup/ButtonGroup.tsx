@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import clsx from 'clsx';
 import {
   useFloating,
   autoUpdate,
@@ -183,7 +184,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> & {
 }) => {
     return (
       <div
-        className={className ? `${buttonGroup({ fullWidth, showSeparator })} ${className}` : buttonGroup({ fullWidth, showSeparator })}
+        className={clsx(buttonGroup({ fullWidth, showSeparator }), className)}
         {...props}
       >
         {children}
@@ -288,7 +289,7 @@ const ButtonGroupDropdown: React.FC<ButtonGroupDropdownProps> = ({
     <>
       <div
         ref={refs.setReference}
-        className={className ? `${dropdownTriggerWrapper({ size })} ${className}` : dropdownTriggerWrapper({ size })}
+        className={clsx(dropdownTriggerWrapper({ size }), className)}
         {...getReferenceProps()}
       >
         <Button
