@@ -204,6 +204,10 @@ export type {
   StatusBarItemVariant,
 } from "./components/StatusBar";
 
+// Context providers
+export { PortalProvider, usePortalRoot } from "./context";
+export type { PortalProviderProps, PortalContextValue } from "./context";
+
 // Style utilities
 export * from "./styles";
 

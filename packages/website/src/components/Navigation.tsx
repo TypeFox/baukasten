@@ -50,6 +50,8 @@ const foundations = [
 
 const guides = [
   { name: 'Theming', path: '/guides/theming' },
+  { name: 'Usage in VS Code', path: '/guides/vscode' },
+  { name: 'Usage in Eclipse Theia', path: '/guides/theia' },
 ];
 
 const recipes = [

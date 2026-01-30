@@ -18,6 +18,7 @@ import {
 import { type Size } from '../../styles';
 import { Button, type ButtonVariant } from '../Button';
 import { Icon } from '../Icon';
+import { usePortalRoot } from '../../context';
 import {
   buttonGroup,
   dropdownTriggerWrapper,
@@ -280,6 +281,9 @@ const ButtonGroupDropdown: React.FC<ButtonGroupDropdownProps> = ({
     }
   }, [closeOnClick, isControlled, onOpenChange]);
 
+  // Get portal root from context (for multi-window support)
+  const portalRoot = usePortalRoot();
+
   return (
     <>
       <div
@@ -302,7 +306,7 @@ const ButtonGroupDropdown: React.FC<ButtonGroupDropdownProps> = ({
 
       {/* Portal with transition support for exit animations */}
       {isMounted && (
-        <FloatingPortal>
+        <FloatingPortal root={portalRoot}>
           <FloatingFocusManager context={context} modal={false}>
             <div
               ref={refs.setFloating}

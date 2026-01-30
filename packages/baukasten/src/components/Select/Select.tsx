@@ -16,6 +16,7 @@ import {
 } from '@floating-ui/react';
 import { type Size } from '../../styles';
 import { Icon } from '../Icon';
+import { usePortalRoot } from '../../context';
 import * as styles from './Select.css';
 
 // Floating UI numeric values (required by Floating UI API)
@@ -535,6 +536,9 @@ export function Select<T = string>({
 
   // Floating UI handles click-outside and position updates automatically via autoUpdate and useDismiss
 
+  // Get portal root from context (for multi-window support)
+  const portalRoot = usePortalRoot();
+
   const containerClassName = className
     ? `${styles.selectContainer({ fullWidth })} ${className}`
     : styles.selectContainer({ fullWidth });
@@ -574,7 +578,7 @@ export function Select<T = string>({
       </button>
 
       {isMounted && (
-        <FloatingPortal>
+        <FloatingPortal root={portalRoot}>
           <div
             ref={refs.setFloating}
             className={`${styles.floatingWrapper}${dropdownClassName ? ` ${dropdownClassName}` : ''}`}

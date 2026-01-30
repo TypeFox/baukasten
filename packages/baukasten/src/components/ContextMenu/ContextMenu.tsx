@@ -13,6 +13,7 @@ import {
 } from '@floating-ui/react';
 import { Menu } from '../Menu';
 import type { MenuProps } from '../Menu';
+import { usePortalRoot } from '../../context';
 import { menuWrapper, styledMenu, triggerWrapper } from './ContextMenu.css';
 
 /**
@@ -169,6 +170,9 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     setIsOpen(false);
   }, []);
 
+  // Get portal root from context (for multi-window support)
+  const portalRoot = usePortalRoot();
+
   return (
     <>
       <div className={triggerWrapper} onContextMenu={handleContextMenu}>
@@ -177,7 +181,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
       {/* Portal with transition support for exit animations */}
       {isMounted && (
-        <FloatingPortal>
+        <FloatingPortal root={portalRoot}>
           <FloatingFocusManager context={context} modal={false}>
             <div
               ref={refs.setFloating}

@@ -15,6 +15,7 @@ import {
   FloatingFocusManager,
   type Placement,
 } from '@floating-ui/react';
+import { usePortalRoot } from '../../context';
 import { dropdownWrapper, triggerWrapper, portalContent } from './Dropdown.css';
 
 /**
@@ -238,6 +239,9 @@ export const Dropdown: React.FC<DropdownProps> = ({
     }
   }, [closeOnClick, isControlled, onOpenChange]);
 
+  // Get portal root from context (for multi-window support)
+  const portalRoot = usePortalRoot();
+
   return (
     <>
       <div
@@ -252,7 +256,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
       {/* Portal with transition support for exit animations */}
       {isMounted && (
-        <FloatingPortal>
+        <FloatingPortal root={portalRoot}>
           <FloatingFocusManager context={context} modal={modal}>
             <div
               ref={refs.setFloating}
