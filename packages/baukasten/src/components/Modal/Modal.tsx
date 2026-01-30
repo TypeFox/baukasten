@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import { type Size } from '../../styles';
+import { usePortalRoot } from '../../context';
 import { Icon } from '../Icon';
 import {
   backdrop,
@@ -204,6 +205,9 @@ export const Modal: React.FC<ModalProps> = ({
   const modalRef = useRef<HTMLDivElement>(null);
   const previousActiveElement = useRef<HTMLElement | null>(null);
 
+  // Get portal root from context (for multi-window support)
+  const portalRoot = usePortalRoot();
+
   // Handle backdrop click
   const handleBackdropClick = useCallback((e: React.MouseEvent) => {
     if (closeOnBackdropClick && e.target === e.currentTarget) {
@@ -261,6 +265,9 @@ export const Modal: React.FC<ModalProps> = ({
     ? `${modalContainer({ size })} ${className}`
     : modalContainer({ size });
 
+  // Use portal root from context if available, otherwise fallback to document.body
+  const portalTarget = portalRoot ?? document.body;
+
   return ReactDOM.createPortal(
     <>
       <div className={backdrop({ variant: backdropVariant })} onClick={handleBackdropClick} />
@@ -274,7 +281,7 @@ export const Modal: React.FC<ModalProps> = ({
         {children}
       </div>
     </>,
-    document.body
+    portalTarget
   );
 };
 
