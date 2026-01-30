@@ -198,6 +198,16 @@ export const Tooltip: React.FC<TooltipProps> = ({
     duration: TRANSITION_DURATION,
   });
 
+
+  const strokeColor = {
+    default: 'var(--bk-color-border)',
+    primary: 'var(--bk-color-primary)',
+    success: 'var(--bk-color-success)',
+    warning: 'var(--bk-color-warning)',
+    error: 'var(--bk-color-danger)',
+    info: 'var(--bk-color-info)',
+  }[variant];
+
   return (
     <>
       <div
@@ -230,6 +240,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
                 <FloatingArrow
                   ref={arrowRef}
                   context={context}
+                  stroke={strokeColor}
+                  strokeWidth={0.5}
+                  strokeLinejoin='round'
                   className={styles.arrow}
                 />
               )}
