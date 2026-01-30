@@ -85,29 +85,22 @@ export const tooltipContainer = recipe({
  */
 export const arrow = style({
     fill: 'var(--bk-color-background-elevated)',
-    stroke: 'var(--bk-color-border)',
-    strokeWidth: 1, // Matches var(--bk-border-width-1)
     selectors: {
         // Match arrow color to parent tooltip variant
         '[data-variant="primary"] &': {
             fill: 'var(--bk-color-primary)',
-            stroke: 'var(--bk-color-primary)',
         },
         '[data-variant="success"] &': {
             fill: `color-mix(in srgb, var(--bk-color-success) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
-            stroke: 'var(--bk-color-success)',
         },
         '[data-variant="warning"] &': {
             fill: `color-mix(in srgb, var(--bk-color-warning) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
-            stroke: 'var(--bk-color-warning)',
         },
         '[data-variant="error"] &': {
             fill: `color-mix(in srgb, var(--bk-color-danger) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
-            stroke: 'var(--bk-color-danger)',
         },
         '[data-variant="info"] &': {
             fill: `color-mix(in srgb, var(--bk-color-info) ${VARIANT_BG_OPACITY}, var(--bk-color-background-elevated))`,
-            stroke: 'var(--bk-color-info)',
         },
     },
 });
