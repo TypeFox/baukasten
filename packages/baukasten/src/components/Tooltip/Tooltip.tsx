@@ -155,7 +155,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   maxWidth = DEFAULT_MAX_WIDTH,
   delay = 0,
 }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const arrowRef = useRef(null);
 
   // Convert placement to Floating UI Placement type
@@ -197,6 +197,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const { isMounted, status } = useTransitionStatus(context, {
     duration: TRANSITION_DURATION,
   });
+
 
   const strokeColor = {
     default: 'var(--bk-color-border)',
