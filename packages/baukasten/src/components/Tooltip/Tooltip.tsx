@@ -16,6 +16,7 @@ import {
   type Placement,
 } from '@floating-ui/react';
 import React, { useRef, useState } from 'react';
+import { usePortalRoot } from '../../context';
 import * as styles from './Tooltip.css';
 
 // Floating UI numeric values (required by Floating UI API)
@@ -207,6 +208,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
     error: 'var(--bk-color-danger)',
     info: 'var(--bk-color-info)',
   }[variant];
+  // Get portal root from context (for multi-window support)
+  const portalRoot = usePortalRoot();
 
   return (
     <>
@@ -219,7 +222,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
       </div>
 
       {isMounted && (
-        <FloatingPortal>
+        <FloatingPortal root={portalRoot}>
           <div
             ref={refs.setFloating}
             style={{

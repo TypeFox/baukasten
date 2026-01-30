@@ -216,6 +216,9 @@ Current components (exported from `baukasten`):
 - **StatusBar** - VSCode-style status bar
 - **Hero** - Hero section component
 
+**Context Providers:**
+- **PortalProvider** - Configures portal root for multi-window support (Theia secondary windows)
+
 ## Key Technical Details
 
 ### Build System
@@ -593,5 +596,55 @@ export const Button: React.FC<ButtonProps> = ({
        },
      },
    });
-   ```
+ ```
+
+## Multi-Window Support (Eclipse Theia)
+
+### The Portal Problem
+
+Portal-based components (Select, Dropdown, Tooltip, ContextMenu, ButtonGroup) use `FloatingPortal` from `@floating-ui/react` to render floating content. By default, portals render to `document.body` of the main window. In Eclipse Theia's multi-window scenarios, this causes dropdowns opened in secondary/popup windows to appear in the main window instead.
+
+### Solution: PortalProvider
+
+The `PortalProvider` context allows specifying a custom root element for all portal-based components:
+
+```tsx
+import { PortalProvider, Select } from 'baukasten-ui';
+
+function SecondaryWindowContent() {
+const rootRef = useRef<HTMLDivElement>(null);
+const [ready, setReady] = useState(false);
+
+useEffect(() => setReady(true), []);
+
+return (
+ <div ref={rootRef} className="secondary-window-container">
+   {ready && (
+     <PortalProvider root={rootRef.current}>
+       {/* All dropdowns, tooltips, etc. will render in this window */}
+       <Select options={options} />
+       <Dropdown trigger={<Button>Menu</Button>}>
+         <Menu>...</Menu>
+       </Dropdown>
+     </PortalProvider>
+   )}
+ </div>
+);
+}
+```
+
+### Components Using PortalProvider
+
+These components respect the `PortalProvider` context:
+- **Select** - Dropdown options list
+- **Dropdown** - Generic dropdown container
+- **Tooltip** - Hover tooltips
+- **ContextMenu** - Right-click menus
+- **ButtonGroup.Dropdown** - Split button dropdowns
+
+### Implementation Notes
+
+1. **Backward Compatible**: If `PortalProvider` is not used, components fall back to default portal behavior (`document.body`)
+2. **Hook**: Use `usePortalRoot()` hook to access the portal root in custom components
+3. **Context Location**: Defined in `packages/baukasten/src/context/PortalProvider.tsx`
 
