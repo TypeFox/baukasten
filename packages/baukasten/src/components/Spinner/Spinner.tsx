@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { type Size } from '../../styles';
 import { spinnerWrapper, spinner } from './Spinner.css';
 
@@ -76,10 +77,8 @@ export const Spinner: React.FC<SpinnerProps> = ({
   style: inlineStyle,
   'aria-label': ariaLabel,
 }) => {
-  const wrapperClassName = className ? `${spinnerWrapper} ${className}` : spinnerWrapper;
-
   return (
-    <div className={wrapperClassName} style={inlineStyle}>
+    <div className={clsx(spinnerWrapper, className)} style={inlineStyle}>
       <div
         className={spinner({ size })}
         style={{ borderTopColor: color || 'var(--bk-color-primary)' }}

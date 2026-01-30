@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { type Size } from '../../styles';
 import {
   breadcrumbs,
@@ -241,7 +242,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   return (
     <nav
       aria-label={ariaLabel}
-      className={className ? `${breadcrumbs({ size })} ${className}` : breadcrumbs({ size })}
+      className={clsx(breadcrumbs({ size }), className)}
     >
       <ol className={breadcrumbList}>
         {displayItems.map(renderItem)}

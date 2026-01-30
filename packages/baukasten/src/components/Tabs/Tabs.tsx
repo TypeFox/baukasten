@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
+import clsx from 'clsx';
 import { Icon, type CodiconName } from '../Icon';
 import { type Size } from '../../styles';
 import * as styles from './Tabs.css';
@@ -340,13 +341,9 @@ export const Tabs: React.FC<TabsProps> = ({
     onChange?.(newValue);
   }, [isControlled, onChange]);
 
-  const tabsClassName = className
-    ? `${styles.tabs({ orientation })} ${className}`
-    : styles.tabs({ orientation });
-
   return (
     <TabsContext.Provider value={{ activeValue, setActiveValue, orientation, variant, indicatorPosition, size }}>
-      <div className={tabsClassName} style={style}>
+      <div className={clsx(styles.tabs({ orientation }), className)} style={style}>
         {children}
       </div>
     </TabsContext.Provider>
@@ -359,15 +356,11 @@ export const Tabs: React.FC<TabsProps> = ({
 export const TabList: React.FC<TabListProps> = ({ children, className, style }) => {
   const { orientation } = useTabsContext();
 
-  const listClassName = className
-    ? `${styles.tabList({ orientation })} ${className}`
-    : styles.tabList({ orientation });
-
   return (
     <div
       role="tablist"
       aria-orientation={orientation}
-      className={listClassName}
+      className={clsx(styles.tabList({ orientation }), className)}
       style={style}
     >
       {children}
@@ -402,17 +395,12 @@ export const Tab: React.FC<TabProps> = ({
   };
 
   // Get additional classes based on variant and orientation
-  let tabClassName = styles.tab({ size, variant, active: isActive, disabled });
-
-  if (variant === 'line') {
-    tabClassName = `${tabClassName} ${getLineIndicatorClass(orientation, indicatorPosition)}`;
-  } else if (variant === 'lifted') {
-    tabClassName = `${tabClassName} ${getLiftedClass(orientation, indicatorPosition)}`;
-  }
-
-  if (className) {
-    tabClassName = `${tabClassName} ${className}`;
-  }
+  const tabClassName = clsx(
+    styles.tab({ size, variant, active: isActive, disabled }),
+    variant === 'line' && getLineIndicatorClass(orientation, indicatorPosition),
+    variant === 'lifted' && getLiftedClass(orientation, indicatorPosition),
+    className
+  );
 
   return (
     <button
@@ -453,10 +441,8 @@ export const Tab: React.FC<TabProps> = ({
  * TabPanels component - Container for TabPanel content
  */
 export const TabPanels: React.FC<TabPanelsProps> = ({ children, className, style }) => {
-  const panelsClassName = className ? `${styles.tabPanels} ${className}` : styles.tabPanels;
-
   return (
-    <div className={panelsClassName} style={style}>
+    <div className={clsx(styles.tabPanels, className)} style={style}>
       {children}
     </div>
   );
@@ -473,13 +459,11 @@ export const TabPanel: React.FC<TabPanelProps> = ({ value, children, className, 
     return null;
   }
 
-  const panelClassName = className ? `${styles.tabPanel} ${className}` : styles.tabPanel;
-
   return (
     <div
       role="tabpanel"
       aria-hidden={!isActive}
-      className={panelClassName}
+      className={clsx(styles.tabPanel, className)}
       style={style}
     >
       {children}

@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { type Size } from '../../styles';
 import { textAreaWrapper, styledTextArea, errorText } from './TextArea.css';
 
@@ -90,6 +91,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
   fullWidth = false,
   resize = 'vertical',
   rows = 4,
+  className,
   ...props
 }) => {
   // Only show error text if error is a string (not just boolean)
@@ -98,7 +100,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
   return (
     <div className={textAreaWrapper({ fullWidth })}>
       <textarea
-        className={styledTextArea({ size, resize, hasError: !!error })}
+        className={clsx(styledTextArea({ size, resize, hasError: !!error }), className)}
         rows={rows}
         {...props}
       />

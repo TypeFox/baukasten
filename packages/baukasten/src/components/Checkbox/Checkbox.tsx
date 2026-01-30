@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { type Size } from '../../styles';
 import {
   checkboxWrapper,
@@ -147,7 +148,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({
 
   return (
     <label
-      className={className ? `${checkboxWrapper({ disabled })} ${className}` : checkboxWrapper({ disabled })}
+      className={clsx(checkboxWrapper({ disabled }), className)}
       style={style}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

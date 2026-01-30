@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import clsx from 'clsx';
 import {
   useFloating,
   autoUpdate,
@@ -246,7 +247,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     <>
       <div
         ref={refs.setReference}
-        className={className ? `${dropdownWrapper} ${className}` : dropdownWrapper}
+        className={clsx(dropdownWrapper, className)}
         {...getReferenceProps()}
       >
         <div className={triggerWrapper({ disabled })}>

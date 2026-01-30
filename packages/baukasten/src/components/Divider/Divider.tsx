@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { dividerContainer, dividerLine, dividerLabel } from './Divider.css';
 
 /**
@@ -154,7 +155,7 @@ export const Divider: React.FC<DividerProps> = ({
 
   return (
     <div
-      className={className ? `${baseClassName} ${className}` : baseClassName}
+      className={clsx(baseClassName, className)}
       style={{ ...spacingStyle, ...inlineStyle }}
       role="separator"
       aria-orientation={orientation}

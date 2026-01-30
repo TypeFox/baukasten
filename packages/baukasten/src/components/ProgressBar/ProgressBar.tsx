@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import {
   progressBarWrapper,
   progressBarContainer,
@@ -131,10 +132,8 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   const clampedValue = value !== undefined ? Math.min(Math.max(value, 0), 100) : undefined;
   const isIndeterminate = clampedValue === undefined;
 
-  const wrapperClassName = className ? `${progressBarWrapper} ${className}` : progressBarWrapper;
-
   return (
-    <div className={wrapperClassName} style={style}>
+    <div className={clsx(progressBarWrapper, className)} style={style}>
       <div
         className={progressBarContainer}
         style={{ height }}

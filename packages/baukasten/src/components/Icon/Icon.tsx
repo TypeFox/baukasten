@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { icon, noSize } from './Icon.css';
 import type { CodiconName } from './codicon-names';
 
@@ -115,8 +116,8 @@ export const Icon: React.FC<IconProps> = ({
   className,
   ...props
 }) => {
-  const iconClass = size ? icon({ size, spin }) : `${icon({ spin })} ${noSize}`;
-  const classes = ['codicon', `codicon-${name}`, iconClass, className].filter(Boolean).join(' ');
+  const iconClass = size ? icon({ size, spin }) : clsx(icon({ spin }), noSize);
+  const classes = clsx('codicon', `codicon-${name}`, iconClass, className);
 
   // Handle color and rotate via inline styles
   const style: React.CSSProperties = {
