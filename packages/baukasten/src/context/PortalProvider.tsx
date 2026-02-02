@@ -134,17 +134,21 @@ export function PortalProvider({ root, children }: PortalProviderProps) {
 
 /**
  * Hook to access the portal root element from context
- * 
- * Returns null if no PortalProvider is present, which signals components
- * to use their default portal behavior.
- * 
- * @returns The portal root element or null
- * 
+ *
+ * Returns the portal root from PortalProvider if present, otherwise falls back
+ * to `document.body`. This ensures portals always render correctly, even without
+ * an explicit PortalProvider wrapper.
+ *
+ * For multi-window applications (like Theia), wrap your content in PortalProvider
+ * with the appropriate root element for that window.
+ *
+ * @returns The portal root element (from context or document.body), or null in SSR
+ *
  * @example
  * ```tsx
  * function MyPortalComponent() {
  *   const portalRoot = usePortalRoot();
- *   
+ *
  *   return (
  *     <FloatingPortal root={portalRoot}>
  *       <div>Portal content</div>
@@ -155,5 +159,7 @@ export function PortalProvider({ root, children }: PortalProviderProps) {
  */
 export function usePortalRoot(): HTMLElement | null {
     const context = useContext(PortalContext);
-    return context.root;
+    // Return the context root if provided, otherwise fall back to document.body
+    // This ensures portals work even without an explicit PortalProvider
+    return context.root ?? (typeof document !== 'undefined' ? document.body : null);
 }
