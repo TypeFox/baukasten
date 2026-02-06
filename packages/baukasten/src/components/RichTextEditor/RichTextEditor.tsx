@@ -1,4 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
+import { flushSync } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {
   useFloating,
   autoUpdate,
@@ -37,8 +39,24 @@ export interface RichTextTrigger<T = unknown> {
   trigger: string;
   /** Available suggestions for this trigger */
   suggestions: RichTextSuggestion<T>[];
-  /** Custom render function for suggestions */
+  /** Custom render function for suggestion dropdown items */
   renderSuggestion?: (suggestion: RichTextSuggestion<T>, isHighlighted: boolean) => React.ReactNode;
+  /**
+   * Custom render function for mention chips in the editor.
+   * The returned React element will be rendered inside the mention span.
+   * @param suggestion - The selected suggestion
+   * @returns React node to render inside the mention chip
+   */
+  renderMention?: (suggestion: RichTextSuggestion<T>) => React.ReactNode;
+  /**
+   * Custom serialization function for mention values.
+   * When provided, this function determines what text value is used when
+   * serializing the content (e.g., for copying or in onChange/onSubmit).
+   * By default, the visible textContent is used.
+   * @param suggestion - The selected suggestion
+   * @returns The text value to use when serializing (e.g., file path instead of filename)
+   */
+  serializeValue?: (suggestion: RichTextSuggestion<T>) => string;
 }
 
 /**
@@ -133,9 +151,11 @@ function serializeContent(container: HTMLElement): RichTextSegment[] {
         } catch {
           data = undefined;
         }
+        // Use serializedValue if available, otherwise fall back to textContent
+        const value = el.dataset.serializedValue || el.textContent || '';
         segments.push({
           type: 'mention',
-          value: el.textContent || '',
+          value,
           trigger: el.dataset.trigger,
           data,
         });
@@ -283,9 +303,6 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
   const [triggerRangeRef, setTriggerRangeRef] = useState<Range | null>(null);
   const suggestionRefs = useRef<Map<number, HTMLDivElement | null>>(new Map());
 
-  // Suppress the next input handler (used after inserting a mention)
-  const suppressInputRef = useRef(false);
-
   // Track last known text to avoid unnecessary controlled updates
   const lastTextRef = useRef('');
 
@@ -393,7 +410,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
       // Delete the trigger character + query text
       triggerRangeRef.deleteContents();
 
-      // Create the mention chip
+      // Create the mention chip container
       const chip = document.createElement('span');
       chip.contentEditable = 'false';
       chip.dataset.mention = 'true';
@@ -402,8 +419,24 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
       if (suggestion.data !== undefined) {
         chip.dataset.payload = JSON.stringify(suggestion.data);
       }
+      // Store the serialized value if provided (used when extracting plain text)
+      if (activeTrigger.serializeValue) {
+        chip.dataset.serializedValue = activeTrigger.serializeValue(suggestion);
+      }
       chip.className = styles.mentionChip;
-      chip.textContent = `${activeTrigger.trigger}${suggestion.label}`;
+
+      // Render custom content or default text
+      if (activeTrigger.renderMention) {
+        // Render the React node synchronously into the chip
+        const reactNode = activeTrigger.renderMention(suggestion);
+        const root = createRoot(chip);
+        flushSync(() => {
+          root.render(reactNode as React.ReactElement);
+        });
+      } else {
+        // Default: just show trigger + label
+        chip.textContent = `${activeTrigger.trigger}${suggestion.label}`;
+      }
 
       // Insert the chip
       triggerRangeRef.insertNode(chip);
@@ -425,8 +458,10 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
       setTriggerQuery('');
       setTriggerRangeRef(null);
 
-      // Suppress input handler for this mutation, then emit change manually
-      suppressInputRef.current = true;
+      // Emit change for this mutation
+      // Note: We don't suppress input here because DOM mutations from insertNode/deleteContents
+      // don't reliably trigger input events, and suppressing can cause subsequent keystrokes
+      // to be missed if they happen to fire an input event immediately after.
       emitChange();
     },
     [activeTrigger, triggerRangeRef, emitChange],
@@ -436,10 +471,6 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
   // Event handlers
   // -----------------------------------------------------------------------
   const handleInput = useCallback(() => {
-    if (suppressInputRef.current) {
-      suppressInputRef.current = false;
-      return;
-    }
     emitChange();
     detectTrigger();
   }, [emitChange, detectTrigger]);

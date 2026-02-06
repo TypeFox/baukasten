@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { RichTextEditor } from './RichTextEditor';
 import type { RichTextTrigger, RichTextSegment } from './RichTextEditor';
+import { Icon } from '../Icon';
 
 const meta = {
   title: 'Components/RichTextEditor',
@@ -306,14 +307,14 @@ export const CustomSuggestionRender: Story = {
               >
                 {suggestion.label}
               </div>
-              {suggestion.data?.role && (
+              {(suggestion.data as { role?: string })?.role && (
                 <div
                   style={{
                     fontSize: 'var(--bk-font-size-xs)',
                     color: 'var(--bk-color-foreground-muted)',
                   }}
                 >
-                  {suggestion.data.role}
+                  {(suggestion.data as { role?: string }).role}
                 </div>
               )}
             </div>
@@ -560,7 +561,7 @@ export const Showcase: Story = {
             triggers={triggers}
             fullWidth
             rows={2}
-            onSubmit={() => {}}
+            onSubmit={() => { }}
           />
         </div>
       </div>
@@ -572,6 +573,542 @@ export const Showcase: Story = {
       description: {
         story:
           'Comprehensive showcase of all RichTextEditor features: mentions, sizes, states, and chat input mode.',
+      },
+    },
+  },
+};
+
+// AI Agent chat data
+const projectFolders = [
+  { label: 'src', data: { path: '/src', type: 'folder' } },
+  { label: 'components', data: { path: '/src/components', type: 'folder' } },
+  { label: 'utils', data: { path: '/src/utils', type: 'folder' } },
+  { label: 'hooks', data: { path: '/src/hooks', type: 'folder' } },
+  { label: 'styles', data: { path: '/src/styles', type: 'folder' } },
+  { label: 'tests', data: { path: '/tests', type: 'folder' } },
+  { label: 'node_modules', data: { path: '/node_modules', type: 'folder' }, disabled: true },
+];
+
+const projectFiles = [
+  { label: 'index.tsx', data: { path: '/src/index.tsx', type: 'file', lang: 'typescript' } },
+  { label: 'App.tsx', data: { path: '/src/App.tsx', type: 'file', lang: 'typescript' } },
+  { label: 'Button.tsx', data: { path: '/src/components/Button.tsx', type: 'file', lang: 'typescript' } },
+  { label: 'Modal.tsx', data: { path: '/src/components/Modal.tsx', type: 'file', lang: 'typescript' } },
+  { label: 'useAuth.ts', data: { path: '/src/hooks/useAuth.ts', type: 'file', lang: 'typescript' } },
+  { label: 'api.ts', data: { path: '/src/utils/api.ts', type: 'file', lang: 'typescript' } },
+  { label: 'package.json', data: { path: '/package.json', type: 'file', lang: 'json' } },
+  { label: 'tsconfig.json', data: { path: '/tsconfig.json', type: 'file', lang: 'json' } },
+  { label: 'README.md', data: { path: '/README.md', type: 'file', lang: 'markdown' } },
+];
+
+function AIAgentChatExample() {
+  const [messages, setMessages] = useState<Array<{
+    role: 'user' | 'assistant';
+    content: string;
+    segments: RichTextSegment[];
+  }>>([
+    {
+      role: 'assistant',
+      content: 'Hello! I\'m your AI coding assistant. You can reference folders with @ and files with #. How can I help you today?',
+      segments: [{ type: 'text', value: 'Hello! I\'m your AI coding assistant. You can reference folders with @ and files with #. How can I help you today?' }],
+    },
+  ]);
+
+  const triggers: RichTextTrigger[] = [
+    {
+      trigger: '@',
+      suggestions: projectFolders,
+      renderSuggestion: (suggestion, isHighlighted) => (
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'var(--bk-spacing-2)',
+            width: '100%',
+            opacity: suggestion.disabled ? 0.5 : 1,
+          }}
+        >
+          <Icon
+            name="folder"
+            size="sm"
+            color={isHighlighted ? 'var(--bk-color-list-active-foreground)' : 'var(--bk-color-warning)'}
+          />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div
+              style={{
+                fontWeight: 'var(--bk-font-weight-medium)',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {suggestion.label}
+            </div>
+            <div
+              style={{
+                fontSize: 'var(--bk-font-size-xs)',
+                color: 'var(--bk-color-foreground-muted)',
+              }}
+            >
+              {(suggestion.data as { path?: string })?.path}
+            </div>
+          </div>
+        </div>
+      ),
+      // Custom rendering for folder mentions in the editor (with folder icon)
+      renderMention: (suggestion) => (
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '2px' }}>
+          <Icon name="folder" size="sm" color="var(--bk-color-warning)" />
+          <span>{suggestion.label}</span>
+        </span>
+      ),
+      // Serialize as the full path instead of just the folder name
+      serializeValue: (suggestion) => (suggestion.data as { path?: string })?.path || suggestion.label,
+    },
+    {
+      trigger: '#',
+      suggestions: projectFiles,
+      renderSuggestion: (suggestion, isHighlighted) => {
+        // Choose icon based on file extension
+        const getFileIcon = () => {
+          const lang = (suggestion.data as { lang?: string })?.lang;
+          if (lang === 'typescript') return 'symbol-file';
+          if (lang === 'json') return 'json';
+          if (lang === 'markdown') return 'markdown';
+          return 'file';
+        };
+
+        return (
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 'var(--bk-spacing-2)',
+              width: '100%',
+            }}
+          >
+            <Icon
+              name={getFileIcon()}
+              size="sm"
+              color={isHighlighted ? 'var(--bk-color-list-active-foreground)' : 'var(--bk-color-info)'}
+            />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div
+                style={{
+                  fontWeight: 'var(--bk-font-weight-medium)',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {suggestion.label}
+              </div>
+              <div
+                style={{
+                  fontSize: 'var(--bk-font-size-xs)',
+                  color: 'var(--bk-color-foreground-muted)',
+                }}
+              >
+                {(suggestion.data as { path?: string })?.path}
+              </div>
+            </div>
+          </div>
+        );
+      },
+      // Custom rendering for file mentions in the editor (with file icon)
+      renderMention: (suggestion) => {
+        const getFileIcon = () => {
+          const lang = (suggestion.data as { lang?: string })?.lang;
+          if (lang === 'typescript') return 'symbol-file';
+          if (lang === 'json') return 'json';
+          if (lang === 'markdown') return 'markdown';
+          return 'file';
+        };
+        return (
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '2px' }}>
+            <Icon name={getFileIcon()} size="sm" color="var(--bk-color-info)" />
+            <span>{suggestion.label}</span>
+          </span>
+        );
+      },
+      // Serialize as the full path instead of just the filename
+      serializeValue: (suggestion) => (suggestion.data as { path?: string })?.path || suggestion.label,
+    },
+  ];
+
+  const handleSubmit = (text: string, segments: RichTextSegment[]) => {
+    if (!text.trim()) return;
+
+    // Add user message
+    setMessages((prev) => [...prev, { role: 'user', content: text, segments }]);
+
+    // Simulate AI response
+    setTimeout(() => {
+      const fileRefs = segments.filter((s) => s.type === 'mention' && s.trigger === '#');
+      const folderRefs = segments.filter((s) => s.type === 'mention' && s.trigger === '@');
+
+      let response = 'I understand you want me to help with';
+      if (fileRefs.length > 0) {
+        response += ` the file${fileRefs.length > 1 ? 's' : ''}: ${fileRefs.map((f) => f.value).join(', ')}`;
+      }
+      if (folderRefs.length > 0) {
+        if (fileRefs.length > 0) response += ' in';
+        response += ` the folder${folderRefs.length > 1 ? 's' : ''}: ${folderRefs.map((f) => f.value).join(', ')}`;
+      }
+      if (fileRefs.length === 0 && folderRefs.length === 0) {
+        response = `I'll help you with that. Could you provide more context by referencing specific files (#) or folders (@)?`;
+      } else {
+        response += '. Let me analyze the code and provide suggestions.';
+      }
+
+      setMessages((prev) => [
+        ...prev,
+        { role: 'assistant', content: response, segments: [{ type: 'text', value: response }] },
+      ]);
+    }, 800);
+  };
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '500px',
+        backgroundColor: 'var(--bk-color-background)',
+        borderRadius: 'var(--bk-radius-lg)',
+        border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Header */}
+      <div
+        style={{
+          padding: 'var(--bk-spacing-3) var(--bk-spacing-4)',
+          borderBottom: 'var(--bk-border-width-1) solid var(--bk-color-border)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 'var(--bk-spacing-2)',
+          backgroundColor: 'var(--bk-color-background-secondary)',
+        }}
+      >
+        <Icon name="hubot" size="lg" color="var(--bk-color-primary)" />
+        <div>
+          <div style={{ fontWeight: 'var(--bk-font-weight-semibold)', fontSize: 'var(--bk-font-size-sm)' }}>
+            AI Code Assistant
+          </div>
+          <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
+            Reference files with # and folders with @
+          </div>
+        </div>
+      </div>
+
+      {/* Messages */}
+      <div
+        style={{
+          flex: 1,
+          overflowY: 'auto',
+          padding: 'var(--bk-spacing-4)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--bk-spacing-3)',
+        }}
+      >
+        {messages.map((msg, i) => (
+          <div
+            key={i}
+            style={{
+              display: 'flex',
+              gap: 'var(--bk-spacing-2)',
+              flexDirection: msg.role === 'user' ? 'row-reverse' : 'row',
+            }}
+          >
+            <div
+              style={{
+                width: '28px',
+                height: '28px',
+                borderRadius: 'var(--bk-radius-full)',
+                backgroundColor: msg.role === 'assistant' ? 'var(--bk-color-primary)' : 'var(--bk-color-badge-background)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <Icon
+                name={msg.role === 'assistant' ? 'hubot' : 'account'}
+                size="sm"
+                color={msg.role === 'assistant' ? 'var(--bk-color-primary-foreground)' : 'var(--bk-color-badge-foreground)'}
+              />
+            </div>
+            <div
+              style={{
+                padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+                backgroundColor: msg.role === 'assistant' ? 'var(--bk-color-background-secondary)' : 'var(--bk-color-primary)',
+                color: msg.role === 'assistant' ? 'var(--bk-color-foreground)' : 'var(--bk-color-primary-foreground)',
+                borderRadius: 'var(--bk-radius-md)',
+                maxWidth: '80%',
+                fontSize: 'var(--bk-font-size-sm)',
+                lineHeight: 'var(--bk-line-height-relaxed)',
+              }}
+            >
+              {msg.content}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Input */}
+      <div
+        style={{
+          padding: 'var(--bk-spacing-3) var(--bk-spacing-4)',
+          borderTop: 'var(--bk-border-width-1) solid var(--bk-color-border)',
+          backgroundColor: 'var(--bk-color-background-secondary)',
+        }}
+      >
+        <RichTextEditor
+          placeholder='Ask about your code... Use @ for folders, # for files'
+          triggers={triggers}
+          fullWidth
+          rows={2}
+          size="sm"
+          onSubmit={handleSubmit}
+        />
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Simulates an AI agent chat window where users can reference folders and files.
+ * Type "@" to mention folders (with folder icons) or "#" to reference files (with file icons).
+ */
+export const AIAgentChat: Story = {
+  render: () => <AIAgentChatExample />,
+  decorators: [
+    (Story) => (
+      <div style={{ width: '550px', padding: 'var(--bk-spacing-4)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'An AI coding assistant chat interface demonstrating file and folder references. Type "@" to mention folders (shown with folder icons in yellow) or "#" to reference files (shown with file icons in blue). The chat simulates an AI response that acknowledges the referenced files and folders. Enter sends the message.',
+      },
+    },
+  },
+};
+
+// Notion-like block commands
+const blockCommands = [
+  { label: 'Heading 1', data: { prefix: '# ', style: 'h1' } },
+  { label: 'Heading 2', data: { prefix: '## ', style: 'h2' } },
+  { label: 'Heading 3', data: { prefix: '### ', style: 'h3' } },
+  { label: 'Bulleted list', data: { prefix: '• ', style: 'list' } },
+  { label: 'Numbered list', data: { prefix: '1. ', style: 'numbered' } },
+  { label: 'Quote', data: { prefix: '> ', style: 'quote' } },
+  { label: 'Code block', data: { prefix: '```\n', style: 'code' } },
+  { label: 'Divider', data: { prefix: '---\n', style: 'divider' } },
+];
+
+function NotionBlockEditorExample() {
+  const [lastChange, setLastChange] = useState<{
+    text: string;
+    segments: RichTextSegment[];
+  } | null>(null);
+
+  const triggers: RichTextTrigger[] = [
+    {
+      trigger: '/',
+      suggestions: blockCommands,
+      renderSuggestion: (suggestion, isHighlighted) => {
+        // Icon mapping for block types
+        const getIcon = () => {
+          const style = (suggestion.data as { style?: string })?.style;
+          switch (style) {
+            case 'h1': return 'symbol-class';
+            case 'h2': return 'symbol-method';
+            case 'h3': return 'symbol-field';
+            case 'list': return 'list-unordered';
+            case 'numbered': return 'list-ordered';
+            case 'quote': return 'quote';
+            case 'code': return 'code';
+            case 'divider': return 'horizontal-rule';
+            default: return 'symbol-text';
+          }
+        };
+
+        return (
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 'var(--bk-spacing-2)',
+              width: '100%',
+            }}
+          >
+            <div
+              style={{
+                width: '28px',
+                height: '28px',
+                borderRadius: 'var(--bk-radius-sm)',
+                backgroundColor: isHighlighted
+                  ? 'var(--bk-color-primary)'
+                  : 'var(--bk-color-background-secondary)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <Icon
+                name={getIcon()}
+                size="sm"
+                color={isHighlighted ? 'var(--bk-color-primary-foreground)' : 'var(--bk-color-foreground-muted)'}
+              />
+            </div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div
+                style={{
+                  fontWeight: 'var(--bk-font-weight-medium)',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {suggestion.label}
+              </div>
+              <div
+                style={{
+                  fontSize: 'var(--bk-font-size-xs)',
+                  color: 'var(--bk-color-foreground-muted)',
+                  fontFamily: 'var(--bk-font-family-mono)',
+                }}
+              >
+                {(suggestion.data as { prefix?: string })?.prefix?.replace('\n', '↵')}
+              </div>
+            </div>
+          </div>
+        );
+      },
+      // Render the markdown prefix as the mention content
+      renderMention: (suggestion) => {
+        const prefix = (suggestion.data as { prefix?: string })?.prefix || '';
+        const style = (suggestion.data as { style?: string })?.style;
+
+        // Style based on block type
+        const getStyle = (): React.CSSProperties => {
+          switch (style) {
+            case 'h1':
+              return { fontSize: '1.5em', fontWeight: 'bold' };
+            case 'h2':
+              return { fontSize: '1.25em', fontWeight: 'bold' };
+            case 'h3':
+              return { fontSize: '1.1em', fontWeight: 'bold' };
+            case 'quote':
+              return {
+                borderLeft: '3px solid var(--bk-color-border)',
+                paddingLeft: 'var(--bk-spacing-2)',
+                fontStyle: 'italic',
+                color: 'var(--bk-color-foreground-muted)',
+              };
+            case 'code':
+              return {
+                fontFamily: 'var(--bk-font-family-mono)',
+                backgroundColor: 'var(--bk-color-background-secondary)',
+                padding: '0 var(--bk-spacing-1)',
+                borderRadius: 'var(--bk-radius-sm)',
+              };
+            case 'divider':
+              return {
+                display: 'block',
+                borderBottom: '1px solid var(--bk-color-border)',
+                margin: 'var(--bk-spacing-2) 0',
+              };
+            default:
+              return {};
+          }
+        };
+
+        return (
+          <span style={{ ...getStyle(), display: style === 'divider' ? 'block' : 'inline' }}>
+            {prefix.replace('\n', '')}
+          </span>
+        );
+      },
+      // Serialize just the prefix
+      serializeValue: (suggestion) => (suggestion.data as { prefix?: string })?.prefix || '',
+    },
+  ];
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+      <div
+        style={{
+          padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+          backgroundColor: 'var(--bk-color-background-secondary)',
+          borderRadius: 'var(--bk-radius-md)',
+          fontSize: 'var(--bk-font-size-sm)',
+          color: 'var(--bk-color-foreground-muted)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 'var(--bk-spacing-2)',
+        }}
+      >
+        <Icon name="lightbulb" size="sm" color="var(--bk-color-warning)" />
+        <span>Type <code style={{ backgroundColor: 'var(--bk-color-background)', padding: '0 4px', borderRadius: '2px' }}>/</code> to insert block commands like headers, lists, quotes...</span>
+      </div>
+
+      <RichTextEditor
+        placeholder="Type '/' for commands..."
+        triggers={triggers}
+        fullWidth
+        rows={6}
+        onChange={(text, segments) => setLastChange({ text, segments })}
+      />
+
+      {lastChange && (
+        <div
+          style={{
+            padding: 'var(--bk-spacing-2)',
+            backgroundColor: 'var(--bk-color-background-secondary)',
+            borderRadius: 'var(--bk-radius-sm)',
+            fontSize: 'var(--bk-font-size-xs)',
+            fontFamily: 'var(--bk-font-family-mono)',
+          }}
+        >
+          <div style={{ marginBottom: 'var(--bk-spacing-1)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+            Serialized markdown:
+          </div>
+          <pre style={{ margin: 0, whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
+            {lastChange.text}
+          </pre>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * A Notion-like block editor with slash commands.
+ * Type "/" to see available block types like headers, lists, quotes, and code blocks.
+ */
+export const NotionBlockEditor: Story = {
+  render: () => <NotionBlockEditorExample />,
+  decorators: [
+    (Story) => (
+      <div style={{ width: '550px', padding: 'var(--bk-spacing-4)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'A Notion-style block editor demonstrating slash commands. Type "/" to see block options like Heading 1, Heading 2, Heading 3, bulleted/numbered lists, quotes, code blocks, and dividers. Selecting an option inserts the corresponding markdown prefix, and the serialized output shows the markdown-formatted text.',
       },
     },
   },

@@ -112,6 +112,7 @@ export const editor = recipe({
 
 /**
  * Placeholder shown when editor is empty
+ * Note: padding is inherited from the editor size variant class applied in the component
  */
 export const placeholder = style({
   position: 'absolute',
@@ -122,6 +123,10 @@ export const placeholder = style({
   pointerEvents: 'none',
   color: 'var(--bk-color-input-placeholder)',
   userSelect: 'none',
+  // Reset properties that would conflict with overlay behavior
+  border: 'none',
+  backgroundColor: 'transparent',
+  overflow: 'hidden',
 });
 
 /**
