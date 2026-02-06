@@ -38,6 +38,14 @@ export type {
   RichTextSegment,
 } from "./components/RichTextEditor";
 
+export {
+  decoratorHighlight,
+  decoratorLink,
+  decoratorWarning,
+  decoratorError,
+  decoratorSuccess,
+} from "./components/RichTextEditor";
+
 export { Checkbox } from "./components/Checkbox";
 export type { CheckboxProps, CheckboxVariant } from "./components/Checkbox";
 

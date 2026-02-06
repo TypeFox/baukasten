@@ -287,6 +287,52 @@ export const errorText = style({
 });
 
 /**
+ * Default decorator highlight style — can be used as className on a decorator.
+ * Provides a subtle background highlight using the info color.
+ */
+export const decoratorHighlight = style({
+  backgroundColor: 'color-mix(in srgb, var(--bk-color-info) 20%, transparent)',
+  borderRadius: 'var(--bk-radius-sm)',
+  padding: '0 1px',
+});
+
+/**
+ * URL / link-style decorator
+ */
+export const decoratorLink = style({
+  color: 'var(--bk-color-info)',
+  textDecoration: 'underline',
+  textUnderlineOffset: '2px',
+});
+
+/**
+ * Warning-style decorator
+ */
+export const decoratorWarning = style({
+  backgroundColor: 'color-mix(in srgb, var(--bk-color-warning) 20%, transparent)',
+  borderRadius: 'var(--bk-radius-sm)',
+  padding: '0 1px',
+});
+
+/**
+ * Error / danger-style decorator
+ */
+export const decoratorError = style({
+  backgroundColor: 'color-mix(in srgb, var(--bk-color-danger) 20%, transparent)',
+  borderRadius: 'var(--bk-radius-sm)',
+  padding: '0 1px',
+});
+
+/**
+ * Success-style decorator
+ */
+export const decoratorSuccess = style({
+  backgroundColor: 'color-mix(in srgb, var(--bk-color-success) 20%, transparent)',
+  borderRadius: 'var(--bk-radius-sm)',
+  padding: '0 1px',
+});
+
+/**
  * Global styles for mention chips inside the editor
  */
 globalStyle(`${editor.classNames.base} [data-mention="true"]`, {

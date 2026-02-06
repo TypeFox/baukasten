@@ -6,3 +6,11 @@ export type {
   RichTextDecorator,
   RichTextSegment,
 } from './RichTextEditor';
+
+export {
+  decoratorHighlight,
+  decoratorLink,
+  decoratorWarning,
+  decoratorError,
+  decoratorSuccess,
+} from './RichTextEditor.css';

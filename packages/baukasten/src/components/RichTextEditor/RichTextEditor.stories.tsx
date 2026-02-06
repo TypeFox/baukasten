@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { RichTextEditor } from './RichTextEditor';
-import type { RichTextTrigger, RichTextSegment } from './RichTextEditor';
+import type { RichTextTrigger, RichTextSegment, RichTextDecorator } from './RichTextEditor';
+import { decoratorHighlight, decoratorLink, decoratorWarning, decoratorError, decoratorSuccess } from './RichTextEditor.css';
 import { Icon } from '../Icon';
 
 const meta = {
@@ -1109,6 +1110,240 @@ export const NotionBlockEditor: Story = {
       description: {
         story:
           'A Notion-style block editor demonstrating slash commands. Type "/" to see block options like Heading 1, Heading 2, Heading 3, bulleted/numbered lists, quotes, code blocks, and dividers. Selecting an option inserts the corresponding markdown prefix, and the serialized output shows the markdown-formatted text.',
+      },
+    },
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Decorator stories
+// ---------------------------------------------------------------------------
+
+/**
+ * Editor with regex-based decorators that highlight URLs and hashtags.
+ */
+export const WithDecorators: Story = {
+  render: () => {
+    const textDecorators: RichTextDecorator[] = [
+      // Highlight URLs
+      {
+        match: /https?:\/\/[^\s]+/g,
+        className: decoratorLink,
+      },
+      // Highlight #hashtags (but not the # trigger for channels)
+      {
+        match: /#[a-zA-Z]\w*/g,
+        className: decoratorHighlight,
+      },
+      // Highlight **bold** patterns
+      {
+        match: /\*\*[^*]+\*\*/g,
+        style: { fontWeight: 'bold' },
+      },
+    ];
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+        <div
+          style={{
+            padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+            backgroundColor: 'var(--bk-color-background-secondary)',
+            borderRadius: 'var(--bk-radius-md)',
+            fontSize: 'var(--bk-font-size-sm)',
+            color: 'var(--bk-color-foreground-muted)',
+          }}
+        >
+          Try typing: <code style={{ backgroundColor: 'var(--bk-color-background)', padding: '0 4px', borderRadius: '2px' }}>https://example.com</code>,{' '}
+          <code style={{ backgroundColor: 'var(--bk-color-background)', padding: '0 4px', borderRadius: '2px' }}>#hashtag</code>, or{' '}
+          <code style={{ backgroundColor: 'var(--bk-color-background)', padding: '0 4px', borderRadius: '2px' }}>**bold text**</code>
+        </div>
+        <RichTextEditor
+          placeholder="Type URLs, #hashtags, or **bold** text..."
+          decorators={textDecorators}
+          fullWidth
+          defaultValue="Check out https://example.com and #react for more info. This is **important**!"
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Regex-based decorators that highlight text patterns as you type. URLs are styled as links, #hashtags get a subtle highlight, and **bold** markers make text bold. Decorators are purely visual — the onChange output is plain text.',
+      },
+    },
+  },
+};
+
+/**
+ * Editor with built-in decorator presets.
+ */
+export const DecoratorPresets: Story = {
+  render: () => {
+    const textDecorators: RichTextDecorator[] = [
+      { match: /\bTODO\b/g, className: decoratorWarning },
+      { match: /\bFIXME\b/g, className: decoratorError },
+      { match: /\bNOTE\b/g, className: decoratorHighlight },
+      { match: /\bDONE\b/g, className: decoratorSuccess },
+    ];
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+        <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)', flexWrap: 'wrap' }}>
+          <span className={decoratorHighlight} style={{ padding: '2px 6px', fontSize: 'var(--bk-font-size-sm)' }}>NOTE</span>
+          <span className={decoratorWarning} style={{ padding: '2px 6px', fontSize: 'var(--bk-font-size-sm)' }}>TODO</span>
+          <span className={decoratorError} style={{ padding: '2px 6px', fontSize: 'var(--bk-font-size-sm)' }}>FIXME</span>
+          <span className={decoratorSuccess} style={{ padding: '2px 6px', fontSize: 'var(--bk-font-size-sm)' }}>DONE</span>
+        </div>
+        <RichTextEditor
+          placeholder="Type TODO, FIXME, NOTE, or DONE..."
+          decorators={textDecorators}
+          fullWidth
+          defaultValue="TODO: Implement the login page\nFIXME: Memory leak in dashboard\nNOTE: This API is deprecated\nDONE: Set up CI/CD pipeline"
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Built-in decorator preset classes: `decoratorHighlight` (info), `decoratorWarning`, `decoratorError`, `decoratorSuccess`. These can be imported and used as `className` values on decorator definitions.',
+      },
+    },
+  },
+};
+
+/**
+ * Editor with function-based decorator matching.
+ */
+export const FunctionDecorators: Story = {
+  render: () => {
+    const textDecorators: RichTextDecorator[] = [
+      {
+        // Custom function that highlights words longer than 8 characters
+        match: (text: string) => {
+          const ranges: { start: number; end: number }[] = [];
+          const regex = /\b\w{9,}\b/g;
+          let m: RegExpExecArray | null;
+          while ((m = regex.exec(text)) !== null) {
+            ranges.push({ start: m.index, end: m.index + m[0].length });
+          }
+          return ranges;
+        },
+        style: {
+          textDecoration: 'underline',
+          textDecorationStyle: 'wavy',
+          textDecorationColor: 'var(--bk-color-warning)',
+          textUnderlineOffset: '3px',
+        },
+      },
+    ];
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+        <div
+          style={{
+            padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+            backgroundColor: 'var(--bk-color-background-secondary)',
+            borderRadius: 'var(--bk-radius-md)',
+            fontSize: 'var(--bk-font-size-sm)',
+            color: 'var(--bk-color-foreground-muted)',
+          }}
+        >
+          Words longer than 8 characters are underlined with a wavy warning style.
+        </div>
+        <RichTextEditor
+          placeholder="Type some text with long words..."
+          decorators={textDecorators}
+          fullWidth
+          defaultValue="The implementation of this sophisticated architecture requires extraordinary attention to detail."
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Function-based decorator matching. Instead of a regex, pass a function `(text: string) => { start, end }[]` that returns custom match ranges. This example highlights words longer than 8 characters.',
+      },
+    },
+  },
+};
+
+function DecoratorsWithMentionsExample() {
+  const [lastChange, setLastChange] = useState<{
+    text: string;
+    segments: RichTextSegment[];
+  } | null>(null);
+
+  const triggers: RichTextTrigger[] = [
+    { trigger: '@', suggestions: people },
+  ];
+
+  const textDecorators: RichTextDecorator[] = [
+    { match: /https?:\/\/[^\s]+/g, className: decoratorLink },
+    { match: /\bTODO\b/g, className: decoratorWarning },
+    { match: /\bFIXME\b/g, className: decoratorError },
+  ];
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+      <div
+        style={{
+          padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
+          backgroundColor: 'var(--bk-color-background-secondary)',
+          borderRadius: 'var(--bk-radius-md)',
+          fontSize: 'var(--bk-font-size-sm)',
+          color: 'var(--bk-color-foreground-muted)',
+        }}
+      >
+        Type <code style={{ backgroundColor: 'var(--bk-color-background)', padding: '0 4px', borderRadius: '2px' }}>@</code> for mentions,{' '}
+        <code style={{ backgroundColor: 'var(--bk-color-background)', padding: '0 4px', borderRadius: '2px' }}>TODO</code> /{' '}
+        <code style={{ backgroundColor: 'var(--bk-color-background)', padding: '0 4px', borderRadius: '2px' }}>FIXME</code> for keyword highlights, and URLs for link decoration.
+      </div>
+      <RichTextEditor
+        placeholder='Decorators + @mentions work together...'
+        triggers={triggers}
+        decorators={textDecorators}
+        fullWidth
+        onChange={(text, segments) => setLastChange({ text, segments })}
+      />
+      {lastChange && (
+        <div
+          style={{
+            padding: 'var(--bk-spacing-2)',
+            backgroundColor: 'var(--bk-color-background-secondary)',
+            borderRadius: 'var(--bk-radius-sm)',
+            fontSize: 'var(--bk-font-size-xs)',
+            fontFamily: 'var(--bk-font-family-mono)',
+          }}
+        >
+          <div style={{ marginBottom: 'var(--bk-spacing-1)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+            Text: {JSON.stringify(lastChange.text)}
+          </div>
+          <div>
+            Segments: {JSON.stringify(lastChange.segments, null, 2)}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Decorators and @mentions working together. Decorators highlight keywords and URLs
+ * while triggers enable @mention autocomplete — they don't interfere with each other.
+ */
+export const DecoratorsWithMentions: Story = {
+  render: () => <DecoratorsWithMentionsExample />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Demonstrates decorators and triggers coexisting. Type "@" to insert mentions (which are atomic chips), and text patterns like `TODO`, `FIXME`, and URLs are highlighted via decorators. The two systems work hand-in-hand without interference.',
       },
     },
   },

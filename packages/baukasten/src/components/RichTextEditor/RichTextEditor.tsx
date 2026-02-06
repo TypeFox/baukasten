@@ -270,6 +270,384 @@ function findActiveTrigger(
 }
 
 // ---------------------------------------------------------------------------
+// Caret save/restore utilities
+// ---------------------------------------------------------------------------
+
+/**
+ * Compute a flat character offset for the caret within a container,
+ * skipping over mention chips (counted as a single unit with their textContent length).
+ * Decorator spans are transparent — we walk into them.
+ */
+function getCaretOffset(container: HTMLElement): number | null {
+  const sel = window.getSelection();
+  if (!sel || sel.rangeCount === 0) return null;
+
+  const range = sel.getRangeAt(0);
+  const node = range.startContainer;
+  const offset = range.startOffset;
+
+  // If the selection is directly on the container element (not a text node),
+  // convert the child-index offset to a text offset
+  if (node === container) {
+    let charOffset = 0;
+    for (let i = 0; i < offset && i < container.childNodes.length; i++) {
+      charOffset += getNodeTextLength(container.childNodes[i]);
+    }
+    return charOffset;
+  }
+
+  if (!container.contains(node)) return null;
+
+  let charOffset = 0;
+
+  // Walk through container children in order, summing text lengths until
+  // we reach the node that contains the caret.
+  const walker = document.createTreeWalker(
+    container,
+    NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
+    {
+      acceptNode(n: Node) {
+        // Skip into decorator spans, but treat mention chips as leaves
+        if (n.nodeType === Node.ELEMENT_NODE) {
+          const el = n as HTMLElement;
+          if (el.dataset.mention === 'true') {
+            return NodeFilter.FILTER_ACCEPT; // count it but don't descend
+          }
+          if (el.dataset.decorator === 'true' || el.tagName === 'DIV' || el.tagName === 'P' || el.tagName === 'BR' || el.tagName === 'SPAN') {
+            return NodeFilter.FILTER_SKIP; // skip element itself, but descend into children
+          }
+          return NodeFilter.FILTER_SKIP;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    },
+  );
+
+  let current: Node | null;
+  while ((current = walker.nextNode())) {
+    if (current === node) {
+      // This is the text node containing the caret
+      charOffset += offset;
+      return charOffset;
+    }
+
+    if (current.nodeType === Node.ELEMENT_NODE) {
+      const el = current as HTMLElement;
+      if (el.dataset.mention === 'true') {
+        // If the caret is *inside* or *after* a mention chip, and the
+        // anchor node is inside this chip, count partial
+        if (el.contains(node)) {
+          charOffset += (el.textContent || '').length;
+          return charOffset;
+        }
+        charOffset += (el.textContent || '').length;
+        // Skip all descendants of the mention in the walker
+        // (TreeWalker won't descend because we returned ACCEPT for mentions)
+      }
+    } else if (current.nodeType === Node.TEXT_NODE) {
+      charOffset += (current.textContent || '').length;
+    }
+  }
+
+  return charOffset + offset;
+}
+
+/** Get the total text length of a node (for offset calculation) */
+function getNodeTextLength(node: Node): number {
+  if (node.nodeType === Node.TEXT_NODE) {
+    return (node.textContent || '').length;
+  }
+  if (node.nodeType === Node.ELEMENT_NODE) {
+    const el = node as HTMLElement;
+    if (el.dataset.mention === 'true') {
+      return (el.textContent || '').length;
+    }
+    if (el.tagName === 'BR') {
+      return 1;
+    }
+    let len = 0;
+    for (const child of Array.from(el.childNodes)) {
+      len += getNodeTextLength(child);
+    }
+    return len;
+  }
+  return 0;
+}
+
+/**
+ * Restore caret to a given flat character offset within the container.
+ */
+function restoreCaretOffset(container: HTMLElement, targetOffset: number) {
+  const sel = window.getSelection();
+  if (!sel) return;
+
+  let remaining = targetOffset;
+
+  const walker = document.createTreeWalker(
+    container,
+    NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
+    {
+      acceptNode(n: Node) {
+        if (n.nodeType === Node.ELEMENT_NODE) {
+          const el = n as HTMLElement;
+          if (el.dataset.mention === 'true') return NodeFilter.FILTER_ACCEPT;
+          return NodeFilter.FILTER_SKIP;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    },
+  );
+
+  let current: Node | null;
+  while ((current = walker.nextNode())) {
+    if (current.nodeType === Node.TEXT_NODE) {
+      const len = (current.textContent || '').length;
+      if (remaining <= len) {
+        const range = document.createRange();
+        range.setStart(current, remaining);
+        range.collapse(true);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        return;
+      }
+      remaining -= len;
+    } else if (current.nodeType === Node.ELEMENT_NODE) {
+      const el = current as HTMLElement;
+      if (el.dataset.mention === 'true') {
+        const len = (el.textContent || '').length;
+        if (remaining <= len) {
+          // Place caret right after the mention
+          const range = document.createRange();
+          range.setStartAfter(el);
+          range.collapse(true);
+          sel.removeAllRanges();
+          sel.addRange(range);
+          return;
+        }
+        remaining -= len;
+      }
+    }
+  }
+
+  // If we ran out of content, place caret at the end
+  const range = document.createRange();
+  range.selectNodeContents(container);
+  range.collapse(false);
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+
+// ---------------------------------------------------------------------------
+// Decorator logic
+// ---------------------------------------------------------------------------
+
+/**
+ * Strip all decorator <span data-decorator="true"> wrappers, replacing them
+ * with their child nodes (unwrapping). This normalizes the DOM back to plain
+ * text + mention chips so that trigger detection and offset math work on
+ * a clean tree. Adjacent text nodes are merged via normalize().
+ */
+function stripDecorators(container: HTMLElement) {
+  const decoratorSpans = container.querySelectorAll('[data-decorator="true"]');
+  for (const span of Array.from(decoratorSpans)) {
+    const parent = span.parentNode;
+    if (!parent) continue;
+    // Move all children out before the span
+    while (span.firstChild) {
+      parent.insertBefore(span.firstChild, span);
+    }
+    parent.removeChild(span);
+  }
+  // Merge adjacent text nodes
+  container.normalize();
+}
+
+interface TextRun {
+  node: Text;
+  /** Offset of this text node's first character within the container's full plain text */
+  start: number;
+}
+
+/**
+ * Collect all text nodes inside the container that are NOT inside mention chips,
+ * along with their character offset within the full plain text.
+ */
+function collectTextRuns(container: HTMLElement): { runs: TextRun[]; fullText: string } {
+  const runs: TextRun[] = [];
+  let offset = 0;
+
+  function walk(node: Node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent || '';
+      if (text.length > 0) {
+        runs.push({ node: node as Text, start: offset });
+        offset += text.length;
+      }
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      const el = node as HTMLElement;
+      if (el.dataset.mention === 'true') {
+        // Mention chip — skip, but count its text for offset tracking
+        offset += (el.textContent || '').length;
+        return;
+      }
+      for (const child of Array.from(el.childNodes)) {
+        walk(child);
+      }
+    }
+  }
+
+  for (const child of Array.from(container.childNodes)) {
+    walk(child);
+  }
+
+  const fullText = runs.map((r) => r.node.textContent || '').join('');
+  return { runs, fullText };
+}
+
+/**
+ * Compute match ranges from a single decorator against the full plain text
+ * (text excluding mention chip content).
+ */
+function computeMatchRanges(
+  decorator: RichTextDecorator,
+  fullText: string,
+): { start: number; end: number }[] {
+  if (typeof decorator.match === 'function') {
+    return decorator.match(fullText);
+  }
+
+  // RegExp — ensure global flag
+  const regex = decorator.match;
+  const flags = regex.flags.includes('g') ? regex.flags : regex.flags + 'g';
+  const globalRegex = new RegExp(regex.source, flags);
+
+  const ranges: { start: number; end: number }[] = [];
+  let m: RegExpExecArray | null;
+  while ((m = globalRegex.exec(fullText)) !== null) {
+    if (m[0].length === 0) {
+      globalRegex.lastIndex++;
+      continue;
+    }
+    ranges.push({ start: m.index, end: m.index + m[0].length });
+  }
+  return ranges;
+}
+
+/**
+ * Apply all decorators to the container.
+ *
+ * Strategy:
+ * 1. Strip any existing decorator spans (clean slate).
+ * 2. Collect plain text runs (text nodes not in mentions).
+ * 3. For each decorator, compute matches against the concatenated plain text.
+ * 4. Map each match range to the actual text node(s) it spans.
+ * 5. Wrap matched text in <span data-decorator="true"> with the decorator's
+ *    className and inline style.
+ *
+ * Matches are applied in document order, non-overlapping. If two decorators
+ * match overlapping ranges, the first decorator in the array wins.
+ */
+function applyDecorators(container: HTMLElement, decorators: RichTextDecorator[]) {
+  if (decorators.length === 0) return;
+
+  // 1. Already stripped before calling this function (in the handleInput flow)
+
+  // 2. Collect text runs
+  const { runs, fullText } = collectTextRuns(container);
+  if (fullText.length === 0 || runs.length === 0) return;
+
+  // 3. Collect all match ranges from all decorators, tagged with their decorator index
+  const allMatches: { start: number; end: number; decoratorIdx: number }[] = [];
+  for (let i = 0; i < decorators.length; i++) {
+    const ranges = computeMatchRanges(decorators[i], fullText);
+    for (const r of ranges) {
+      allMatches.push({ ...r, decoratorIdx: i });
+    }
+  }
+
+  if (allMatches.length === 0) return;
+
+  // Sort by start position, then by decorator index (earlier decorator wins)
+  allMatches.sort((a, b) => a.start - b.start || a.decoratorIdx - b.decoratorIdx);
+
+  // Remove overlapping matches (first one wins)
+  const resolved: typeof allMatches = [];
+  let lastEnd = 0;
+  for (const match of allMatches) {
+    if (match.start >= lastEnd) {
+      resolved.push(match);
+      lastEnd = match.end;
+    }
+  }
+
+  // 4 & 5. Wrap matches — process in *reverse* document order so that earlier
+  //         offsets remain valid as we mutate later ones.
+  for (let i = resolved.length - 1; i >= 0; i--) {
+    const match = resolved[i];
+    const decorator = decorators[match.decoratorIdx];
+
+    wrapRange(runs, match.start, match.end, decorator);
+  }
+}
+
+/**
+ * Wrap a character range [start, end) across text runs with a decorator span.
+ */
+function wrapRange(
+  runs: TextRun[],
+  start: number,
+  end: number,
+  decorator: RichTextDecorator,
+) {
+  // Find which text runs are affected
+  for (const run of runs) {
+    const runEnd = run.start + (run.node.textContent || '').length;
+
+    // Skip runs that are entirely before or after the match
+    if (runEnd <= start) continue;
+    if (run.start >= end) break;
+
+    // Compute the slice of this text node that falls within [start, end)
+    const sliceStart = Math.max(0, start - run.start);
+    const sliceEnd = Math.min((run.node.textContent || '').length, end - run.start);
+
+    if (sliceStart >= sliceEnd) continue;
+
+    const textNode = run.node;
+    const parent = textNode.parentNode;
+    if (!parent) continue;
+
+    // If only a middle portion needs wrapping, we need to split the text node
+    // Split: [before][wrapped][after]
+
+    // Split off "after" first (so offsets for "before" remain valid)
+    let wrappedNode: Text = textNode;
+    if (sliceEnd < (textNode.textContent || '').length) {
+      textNode.splitText(sliceEnd);
+      // textNode is now just [0..sliceEnd), the rest is a new sibling
+    }
+    if (sliceStart > 0) {
+      wrappedNode = textNode.splitText(sliceStart);
+      // textNode is now [0..sliceStart), wrappedNode is [sliceStart..sliceEnd)
+    }
+
+    // Create the decorator span
+    const span = document.createElement('span');
+    span.dataset.decorator = 'true';
+    if (decorator.className) {
+      span.className = decorator.className;
+    }
+    if (decorator.style) {
+      Object.assign(span.style, decorator.style);
+    }
+
+    // Replace the wrappedNode with the span containing it
+    parent.replaceChild(span, wrappedNode);
+    span.appendChild(wrappedNode);
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
 
@@ -278,6 +656,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
   defaultValue,
   onChange,
   triggers = [],
+  decorators = [],
   placeholder: placeholderText,
   rows = 4,
   disabled = false,
@@ -397,6 +776,28 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
   }, [triggers, dropdownOpen, refs]);
 
   // -----------------------------------------------------------------------
+  // Decorator application
+  // -----------------------------------------------------------------------
+  const runDecorators = useCallback(() => {
+    const el = editorRef.current;
+    if (!el || decorators.length === 0) return;
+
+    // Save caret position as a flat character offset
+    const caretOff = getCaretOffset(el);
+
+    // Strip existing decorator spans so we start from a clean DOM
+    stripDecorators(el);
+
+    // Apply decorators (wraps matched text in <span data-decorator>)
+    applyDecorators(el, decorators);
+
+    // Restore caret
+    if (caretOff !== null) {
+      restoreCaretOffset(el, caretOff);
+    }
+  }, [decorators]);
+
+  // -----------------------------------------------------------------------
   // Insert mention
   // -----------------------------------------------------------------------
   const insertMention = useCallback(
@@ -463,17 +864,38 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
       // don't reliably trigger input events, and suppressing can cause subsequent keystrokes
       // to be missed if they happen to fire an input event immediately after.
       emitChange();
+
+      // Re-apply decorators on the updated content
+      if (decorators.length > 0) {
+        runDecorators();
+      }
     },
-    [activeTrigger, triggerRangeRef, emitChange],
+    [activeTrigger, triggerRangeRef, emitChange, decorators, runDecorators],
   );
 
   // -----------------------------------------------------------------------
   // Event handlers
   // -----------------------------------------------------------------------
   const handleInput = useCallback(() => {
+    const el = editorRef.current;
+    if (!el) return;
+
+    // 1. Strip decorators so emitChange + detectTrigger see clean text nodes
+    if (decorators.length > 0) {
+      stripDecorators(el);
+    }
+
+    // 2. Serialize and emit onChange (on clean DOM)
     emitChange();
+
+    // 3. Detect triggers (on clean DOM — text nodes are intact)
     detectTrigger();
-  }, [emitChange, detectTrigger]);
+
+    // 4. Re-apply decorators (wraps text in spans, restoring caret)
+    if (decorators.length > 0) {
+      runDecorators();
+    }
+  }, [emitChange, detectTrigger, decorators, runDecorators]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -520,14 +942,22 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
         e.preventDefault();
         const el = editorRef.current;
         if (el) {
+          // Strip decorators so serialization sees clean text nodes
+          if (decorators.length > 0) {
+            stripDecorators(el);
+          }
           const segments = serializeContent(el);
           const text = segmentsToText(segments);
           onSubmit(text, segments);
+          // Re-apply decorators if the editor content wasn't cleared
+          if (decorators.length > 0) {
+            runDecorators();
+          }
         }
         return;
       }
     },
-    [onKeyDown, dropdownOpen, filteredSuggestions, highlightedIndex, insertMention, onSubmit],
+    [onKeyDown, dropdownOpen, filteredSuggestions, highlightedIndex, insertMention, onSubmit, decorators, runDecorators],
   );
 
   const handlePaste = useCallback((e: React.ClipboardEvent) => {
@@ -577,16 +1007,27 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
     lastTextRef.current = controlledValue ?? '';
     const textTrimmed = (controlledValue ?? '').trim();
     setIsEmpty(textTrimmed.length === 0);
-  }, [controlledValue, isControlled]);
 
-  // Set defaultValue on mount
+    // Apply decorators to new content
+    if (decorators.length > 0) {
+      applyDecorators(el, decorators);
+    }
+  }, [controlledValue, isControlled, decorators]);
+
+  // Set defaultValue on mount and apply initial decorators
   useEffect(() => {
     if (isControlled) return;
     const el = editorRef.current;
-    if (!el || !defaultValue) return;
-    el.textContent = defaultValue;
-    lastTextRef.current = defaultValue;
-    setIsEmpty(defaultValue.trim().length === 0);
+    if (!el) return;
+    if (defaultValue) {
+      el.textContent = defaultValue;
+      lastTextRef.current = defaultValue;
+      setIsEmpty(defaultValue.trim().length === 0);
+    }
+    // Apply decorators to initial content
+    if (decorators.length > 0 && el.textContent) {
+      applyDecorators(el, decorators);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
