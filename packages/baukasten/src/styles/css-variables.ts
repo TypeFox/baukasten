@@ -39,11 +39,16 @@ export const cssVariables = `
 /**
  * Complete CSS including variables and global styles
  * This includes scrollbar styling and utility classes
+ *
+ * Global styles are wrapped in @layer baukasten for easy overriding
+ * CSS variables remain outside the layer (they don't need cascade protection)
  */
 export const cssVariablesWithGlobalStyles = `
 ${cssVariables}
 
+@layer baukasten {
 ${globalStylesContent}
+}
 `;
 
 /**
