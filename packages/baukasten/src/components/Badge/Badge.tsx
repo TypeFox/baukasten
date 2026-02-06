@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { type Size } from '../../styles';
 import { badge } from './Badge.css';
 
@@ -81,11 +82,12 @@ export const Badge: React.FC<BadgeProps> = ({
   variant = 'default',
   size = 'md',
   outline = false,
+  className,
   ...props
 }) => {
   return (
     <span
-      className={badge({ variant, size, outline })}
+      className={clsx(badge({ variant, size, outline }), className)}
       {...props}
     >
       {children}

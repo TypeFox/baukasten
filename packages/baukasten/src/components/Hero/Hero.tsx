@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { heroContainer, heroTitle, heroDescription } from './Hero.css';
 
 /**
@@ -117,11 +118,12 @@ export const Hero: React.FC<HeroProps> = ({
   size = 'md',
   background = 'default',
   children,
+  className,
   ...props
 }) => {
   return (
     <div
-      className={heroContainer({ align, size, background })}
+      className={clsx(heroContainer({ align, size, background }), className)}
       {...props}
     >
       <h1 className={heroTitle}>{title}</h1>

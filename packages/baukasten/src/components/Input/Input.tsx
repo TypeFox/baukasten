@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { inputWrapper, input, errorText } from './Input.css';
 import { type Size } from '../../styles';
 
@@ -66,6 +67,7 @@ export const Input: React.FC<InputProps> = ({
   size = 'md',
   error,
   fullWidth = false,
+  className,
   ...props
 }) => {
   // Only show error text if error is a string (not just boolean)
@@ -74,7 +76,7 @@ export const Input: React.FC<InputProps> = ({
   return (
     <div className={inputWrapper({ fullWidth })}>
       <input
-        className={input({ size, hasError: !!error })}
+        className={clsx(input({ size, hasError: !!error }), className)}
         {...props}
       />
       {errorMessage && <span className={errorText}>{errorMessage}</span>}

@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { type Size } from '../../styles';
 import { button } from './Button.css';
 
@@ -111,11 +112,12 @@ export const Button: React.FC<ButtonProps> = ({
   outline = false,
   circular = false,
   children,
+  className,
   ...props
 }) => {
   return (
     <button
-      className={button({ variant, size, width, outline, circular })}
+      className={clsx(button({ variant, size, width, outline, circular }), className)}
       {...props}
     >
       {children}

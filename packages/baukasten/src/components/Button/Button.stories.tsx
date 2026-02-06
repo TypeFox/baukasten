@@ -445,3 +445,60 @@ export const Showcase: Story = {
     },
   },
 };
+
+/**
+ * Demonstrating that custom classNames are properly merged with built-in styles.
+ */
+export const WithCustomClassName: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+      <style>
+        {`
+          .custom-rotate {
+            transform: rotate(-2deg);
+          }
+          .custom-shadow {
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+          }
+          .custom-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+          }
+          .custom-border {
+            border: 2px dashed yellow !important;
+          }
+        `}
+      </style>
+      <div>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+          Custom className merging
+        </h4>
+        <p style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-text-secondary)' }}>
+          Custom classes are merged with built-in styles, allowing you to extend the button appearance.
+        </p>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <Button variant="primary">Normal Button</Button>
+          <Button variant="primary" className="custom-rotate">With Rotation</Button>
+          <Button variant="primary" className="custom-shadow">With Shadow</Button>
+          <Button variant="secondary" className="custom-gradient">With Gradient</Button>
+          <Button variant="ghost" className="custom-border">With Dashed Border</Button>
+        </div>
+      </div>
+      <div>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+          Multiple custom classes
+        </h4>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <Button variant="primary" className="custom-rotate custom-shadow">Rotate + Shadow</Button>
+          <Button variant="secondary" className="custom-gradient custom-shadow">Gradient + Shadow</Button>
+        </div>
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Custom classNames are properly merged with the built-in button styles using `clsx`. This allows you to extend or override specific styles without losing the base button functionality.',
+      },
+    },
+  },
+};

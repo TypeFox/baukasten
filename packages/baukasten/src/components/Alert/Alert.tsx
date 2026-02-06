@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import clsx from 'clsx';
 import { Icon } from '../Icon';
 import type { CodiconName } from '../Icon/codicon-names';
 import {
@@ -113,6 +114,7 @@ export const Alert: React.FC<AlertProps> = ({
   icon,
   closable = false,
   onClose,
+  className,
   ...props
 }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -129,7 +131,7 @@ export const Alert: React.FC<AlertProps> = ({
   }
 
   return (
-    <div className={alert({ variant })} role="alert" {...props}>
+    <div className={clsx(alert({ variant }), className)} role="alert" {...props}>
       {displayIcon && (
         <div className={alertIcon({ variant })}>
           {displayIcon}
