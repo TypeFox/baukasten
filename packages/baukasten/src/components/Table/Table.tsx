@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from 'react';
+import clsx from 'clsx';
 import { type Size } from '../../styles';
 import * as styles from './Table.css';
 
@@ -243,6 +244,7 @@ export const Table: React.FC<TableProps> & {
   caption,
   captionSide = 'top',
   children,
+  className,
   ...props
 }) => {
     const contextValue: TableContextValue = {
@@ -253,7 +255,7 @@ export const Table: React.FC<TableProps> & {
 
     const table = (
       <table
-        className={styles.table({ fullWidth, bordered })}
+        className={clsx(styles.table({ fullWidth, bordered }), className)}
         {...props}
       >
         {caption && <caption className={styles.caption({ captionSide })}>{caption}</caption>}
@@ -289,12 +291,13 @@ export const Table: React.FC<TableProps> & {
 const TableHead: React.FC<TableHeadProps> = ({
   sticky = false,
   children,
+  className,
   ...props
 }) => {
   const { bordered } = useContext(TableContext);
 
   return (
-    <thead className={styles.tableHead({ sticky, bordered })} {...props}>
+    <thead className={clsx(styles.tableHead({ sticky, bordered }), className)} {...props}>
       {children}
     </thead>
   );
@@ -315,6 +318,7 @@ const TableBody: React.FC<TableBodyProps> = ({
   emptyComponent,
   colSpan = DEFAULT_COLSPAN,
   children,
+  className,
   ...props
 }) => {
   const { variant } = useContext(TableContext);
@@ -322,7 +326,7 @@ const TableBody: React.FC<TableBodyProps> = ({
   // Show loading state
   if (loading) {
     return (
-      <tbody className={styles.tableBody} {...props}>
+      <tbody className={clsx(styles.tableBody, className)} {...props}>
         <tr className={styles.tableRow({ variant, selected: false, hoverable: false })}>
           <td
             className={styles.tableCell({ align: 'center', bordered: false, size: 'md' })}
@@ -339,7 +343,7 @@ const TableBody: React.FC<TableBodyProps> = ({
   // Show empty state
   if (empty || (!children || (React.Children.count(children) === 0))) {
     return (
-      <tbody className={styles.tableBody} {...props}>
+      <tbody className={clsx(styles.tableBody, className)} {...props}>
         <tr className={styles.tableRow({ variant, selected: false, hoverable: false })}>
           <td
             className={styles.tableCell({ align: 'center', bordered: false, size: 'md' })}
@@ -354,7 +358,7 @@ const TableBody: React.FC<TableBodyProps> = ({
   }
 
   return (
-    <tbody className={styles.tableBody} {...props}>
+    <tbody className={clsx(styles.tableBody, className)} {...props}>
       {children}
     </tbody>
   );
@@ -365,12 +369,13 @@ const TableBody: React.FC<TableBodyProps> = ({
  */
 const TableFooter: React.FC<React.HTMLAttributes<HTMLTableSectionElement>> = ({
   children,
+  className,
   ...props
 }) => {
   const { bordered } = useContext(TableContext);
 
   return (
-    <tfoot className={styles.tableFooter({ bordered })} {...props}>
+    <tfoot className={clsx(styles.tableFooter({ bordered }), className)} {...props}>
       {children}
     </tfoot>
   );
@@ -383,13 +388,14 @@ const TableRow: React.FC<TableRowProps> = ({
   selected = false,
   hoverable = true,
   children,
+  className,
   ...props
 }) => {
   const { variant } = useContext(TableContext);
 
   const rowClassName = variant === 'zebra'
-    ? `${styles.tableRow({ variant, selected, hoverable })} ${styles.zebraRow}`
-    : styles.tableRow({ variant, selected, hoverable });
+    ? clsx(styles.tableRow({ variant, selected, hoverable }), styles.zebraRow, className)
+    : clsx(styles.tableRow({ variant, selected, hoverable }), className);
 
   return (
     <tr
@@ -407,17 +413,18 @@ const TableRow: React.FC<TableRowProps> = ({
 const TableCell: React.FC<TableCellProps> = ({
   align = 'left',
   children,
+  className,
   ...props
 }) => {
   const { bordered, size } = useContext(TableContext);
 
   return (
     <td
-      className={styles.tableCell({
+      className={clsx(styles.tableCell({
         align,
         bordered,
         size,
-      })}
+      }), className)}
       {...props}
     >
       {children}
@@ -435,6 +442,7 @@ const TableHeaderCell: React.FC<TableHeaderCellProps> = ({
   onSort,
   children,
   scope = 'col',
+  className,
   ...props
 }) => {
   const { bordered, size } = useContext(TableContext);
@@ -449,12 +457,12 @@ const TableHeaderCell: React.FC<TableHeaderCellProps> = ({
   return (
     <th
       scope={scope}
-      className={styles.tableHeaderCell({
+      className={clsx(styles.tableHeaderCell({
         align,
         sortable,
         bordered,
         size,
-      })}
+      }), className)}
       onClick={sortable ? onSort : undefined}
       onKeyDown={sortable ? handleKeyDown : undefined}
       tabIndex={sortable ? 0 : undefined}

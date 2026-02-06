@@ -36,12 +36,14 @@ const distDir = join(rootDir, 'dist');
 
 /**
  * Combine all tokens into a full CSS string
+ * CSS variables remain outside the layer (they don't need cascade protection)
+ * Global styles are wrapped in @layer baukasten for easy overriding
  */
 function buildFullCSS(): string {
   return `/**
  * Baukasten UI - CSS Variables and Global Styles
  * Generated automatically - do not edit manually
- * 
+ *
  * This file contains all design tokens and global styles for the Baukasten UI library.
  */
 
@@ -53,7 +55,9 @@ ${typographyTokens}
 
 ${effectsTokens}
 
+@layer baukasten {
 ${globalStylesContent}
+}
 `;
 }
 
@@ -104,8 +108,11 @@ function addHeader(css: string, variant: 'vscode' | 'theia' | 'web'): string {
   return `/**
  * Baukasten UI - ${variant.toUpperCase()} Variant
  * ${descriptions[variant]}
- * 
+ *
  * Generated automatically - do not edit manually
+ *
+ * Global styles are wrapped in @layer baukasten for easy overriding.
+ * CSS variables remain outside the layer (they don't need cascade protection).
  */
 
 ${css}`;
@@ -121,7 +128,7 @@ function main() {
     mkdirSync(distDir, { recursive: true });
   }
 
-  // Build the base CSS
+  // Build the base CSS (layer wrapping is done at source level in css-variables.ts)
   const baseCss = buildFullCSS();
 
   // Generate VSCode variant (uses --vscode-* variables)

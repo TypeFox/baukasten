@@ -161,15 +161,16 @@ export const StatusBarItem: React.FC<StatusBarItemProps> = ({
   onClick,
   active = false,
   tooltip,
+  className,
   ...props
 }) => {
   return (
     <div
-      className={styles.statusBarItem({
+      className={clsx(styles.statusBarItem({
         variant,
         clickable: !!onClick,
         active,
-      })}
+      }), className)}
       onClick={onClick}
       title={tooltip}
       role={onClick ? 'button' : undefined}
