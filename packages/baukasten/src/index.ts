@@ -29,6 +29,15 @@ export type { InputProps } from "./components/Input";
 export { TextArea } from "./components/TextArea";
 export type { TextAreaProps, TextAreaResize } from "./components/TextArea";
 
+export { RichTextEditor } from "./components/RichTextEditor";
+export type {
+  RichTextEditorProps,
+  RichTextTrigger,
+  RichTextSuggestion,
+  RichTextDecorator,
+  RichTextSegment,
+} from "./components/RichTextEditor";
+
 export { Checkbox } from "./components/Checkbox";
 export type { CheckboxProps, CheckboxVariant } from "./components/Checkbox";
 
