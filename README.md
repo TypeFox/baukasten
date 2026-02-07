@@ -2,6 +2,8 @@
 
 A UI toolkit for building native-feel web applicaiton, that runs on browser, Eclipse Theia or VSCode.
 
+[![Build All Packages](https://github.com/TypeFox/baukasten/actions/workflows/build-pr.yml/badge.svg?branch=main)](https://github.com/TypeFox/baukasten/actions/workflows/build-pr.yml)
+
 ## Project Structure
 
 This is a monorepo managed with npm workspaces:
@@ -30,7 +32,7 @@ baukasten/
 1. Clone the repository:
 
    ```bash
-   git clone [<repository-url>](https://github.com/TypeFox/baukasten)
+   git clone [https://github.com/TypeFox/baukasten](https://github.com/TypeFox/baukasten)
    cd baukasten
    ```
 
