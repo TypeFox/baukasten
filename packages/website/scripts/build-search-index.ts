@@ -70,8 +70,7 @@ function getCategoryFromPath(filePath: string): string {
 
 // Get title from path
 function getTitleFromPath(filePath: string): string {
-    const segments = filePath.split('/');
-    const lastSegment = segments[segments.length - 2]; // page.tsx's parent folder
+    const lastSegment = path.basename(path.dirname(filePath)); // page.tsx's parent folder
 
     if (lastSegment === 'app') return 'Introduction';
 
