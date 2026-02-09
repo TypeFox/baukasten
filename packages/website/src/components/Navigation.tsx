@@ -1,9 +1,11 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Menu, MenuItem, Icon, Badge, Heading, Text, Paragraph } from 'baukasten-ui';
+import { Menu, MenuItem, Icon, Badge, Heading, Text, Paragraph, Button } from 'baukasten-ui';
 import ThemePicker from './ThemePicker';
+import SearchModal from './SearchModal';
 
 const components = [
   { name: 'Accordion', path: '/components/accordion' },
@@ -67,9 +69,24 @@ const gettingStarted = [
 
 export default function Navigation() {
   const pathname = usePathname();
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  // Handle Cmd/Ctrl + K keyboard shortcut
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <>
+      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
       <style>{`
         .nav-scrollbar::-webkit-scrollbar { width: 8px; }
         .nav-scrollbar::-webkit-scrollbar-track { background: transparent; }
@@ -152,6 +169,44 @@ export default function Navigation() {
             </div>
           </div>
           <ThemePicker />
+
+          {/* Search Button */}
+          <Button
+            onClick={() => setSearchOpen(true)}
+            width='block'
+
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 'var(--bk-spacing-3)',
+              padding: 'var(--bk-spacing-3) var(--bk-spacing-4)',
+              marginTop: 'var(--bk-spacing-3)',
+              borderRadius: 'var(--bk-radius-md)',
+              backgroundColor: 'var(--vscode-input-background)',
+              border: '1px solid var(--vscode-input-border)',
+              color: 'var(--vscode-input-placeholderForeground)',
+              fontSize: 'var(--vscode-font-size)',
+              fontFamily: 'var(--vscode-font-family)',
+              transition: 'all 0.15s ease',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.borderColor = 'var(--vscode-focusBorder)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.borderColor = 'var(--vscode-input-border)';
+            }}
+          >
+            <Icon name="search" style={{ fontSize: '14px' }} />
+            <span style={{ flex: 1, textAlign: 'left' }}>Search...</span>
+            <kbd style={{
+              padding: '2px 6px',
+              borderRadius: 'var(--bk-radius-sm)',
+              backgroundColor: 'var(--vscode-badge-background)',
+              color: 'var(--vscode-badge-foreground)',
+              fontSize: 'calc(var(--vscode-font-size) * 0.8)',
+              fontFamily: 'var(--vscode-font-family)',
+            }}>⌘K</kbd>
+          </Button>
         </div>
 
         {/* Navigation Sections */}

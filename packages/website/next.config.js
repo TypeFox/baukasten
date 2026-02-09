@@ -7,6 +7,9 @@ const nextConfig = {
     styledComponents: true,
   },
   transpilePackages: ['baukasten-ui', 'baukasten-ui-web-wrapper'],
+  env: {
+    NEXT_PUBLIC_BASE_PATH: '/baukasten',
+  },
 }
 
 module.exports = nextConfig

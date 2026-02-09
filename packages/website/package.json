@@ -3,14 +3,17 @@
   "version": "0.2.6",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run build:search && next dev",
+    "build": "npm run build:search && next build",
+    "build:search": "npx tsx scripts/build-search-index.ts",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/flexsearch": "^0.7.6",
     "baukasten-ui": "*",
     "baukasten-ui-web-wrapper": "*",
+    "flexsearch": "^0.8.212",
     "next": "^16.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
