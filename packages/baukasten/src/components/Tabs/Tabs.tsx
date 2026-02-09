@@ -389,7 +389,7 @@ export const Tab: React.FC<TabProps> = ({
     }
   };
 
-  const handleClose = (e: React.MouseEvent) => {
+  const handleClose = (e: React.SyntheticEvent) => {
     e.stopPropagation();
     onClose?.(value);
   };
@@ -423,7 +423,7 @@ export const Tab: React.FC<TabProps> = ({
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
-              handleClose(e as any);
+              handleClose(e);
             }
           }}
           role="button"
