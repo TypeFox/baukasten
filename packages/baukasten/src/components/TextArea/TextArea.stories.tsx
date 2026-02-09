@@ -54,17 +54,25 @@ const meta = {
     resize: {
       control: 'select',
       options: ['none', 'vertical', 'horizontal', 'both'],
-      description: 'Resize behavior for the textarea',
+      description: 'Resize behavior for the textarea. When minRows/maxRows is set, defaults to "none"',
       table: {
         defaultValue: { summary: 'vertical' },
       },
     },
     rows: {
       control: 'number',
-      description: 'Number of visible text rows',
+      description: 'Number of visible text rows (static height, ignored when minRows/maxRows is set)',
       table: {
         defaultValue: { summary: '4' },
       },
+    },
+    minRows: {
+      control: 'number',
+      description: 'Minimum number of rows for auto-grow behavior. Setting this enables auto-grow.',
+    },
+    maxRows: {
+      control: 'number',
+      description: 'Maximum number of rows for auto-grow behavior. Setting this enables auto-grow.',
     },
   },
 } satisfies Meta<typeof TextArea>;
@@ -187,6 +195,65 @@ export const RowOptions: Story = {
     docs: {
       description: {
         story: 'Control the initial visible height using the rows prop. Default is 4 rows. Users can resize vertically if resize is enabled.',
+      },
+    },
+  },
+};
+
+/**
+ * Auto-grow textareas that expand as content is added.
+ */
+export const AutoGrow: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '400px' }}>
+      <div>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+          minRows={2}, maxRows={6}
+        </h4>
+        <TextArea
+          minRows={2}
+          maxRows={6}
+          placeholder="Type to see auto-grow. Starts at 2 rows, grows up to 6 rows, then scrolls."
+          fullWidth
+        />
+      </div>
+      <div>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+          minRows={1}, maxRows={4} (Compact)
+        </h4>
+        <TextArea
+          minRows={1}
+          maxRows={4}
+          placeholder="Single line that grows to 4 rows max"
+          fullWidth
+        />
+      </div>
+      <div>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+          minRows={3}, no maxRows (Unlimited)
+        </h4>
+        <TextArea
+          minRows={3}
+          placeholder="Starts at 3 rows, grows indefinitely with content"
+          fullWidth
+        />
+      </div>
+      <div>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+          maxRows={5} only (starts at default 4 rows)
+        </h4>
+        <TextArea
+          maxRows={5}
+          placeholder="Uses default 4 rows as min, max at 5 rows"
+          fullWidth
+        />
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Auto-grow textareas automatically expand as content is added. Use `minRows` to set the starting height and `maxRows` to limit growth. When maxRows is exceeded, the textarea becomes scrollable. Setting either `minRows` or `maxRows` enables auto-grow behavior.',
       },
     },
   },
@@ -399,6 +466,18 @@ export const Showcase: Story = {
           <TextArea rows={2} placeholder="Compact (2 rows)" fullWidth />
           <TextArea rows={4} placeholder="Default (4 rows)" fullWidth />
           <TextArea rows={8} placeholder="Tall (8 rows)" fullWidth />
+        </div>
+      </div>
+
+      {/* Auto-Grow */}
+      <div>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+          Auto-Grow
+        </h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+          <TextArea minRows={2} maxRows={6} placeholder="Grows from 2 to 6 rows" fullWidth />
+          <TextArea minRows={1} maxRows={4} placeholder="Compact: 1 to 4 rows" fullWidth />
+          <TextArea minRows={3} placeholder="Unlimited growth from 3 rows" fullWidth />
         </div>
       </div>
 
