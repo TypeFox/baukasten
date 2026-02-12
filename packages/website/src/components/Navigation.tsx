@@ -19,6 +19,7 @@ const components = [
   { name: 'ContextMenu', path: '/components/contextmenu' },
   { name: 'DataTable', path: '/components/datatable' },
   { name: 'Divider', path: '/components/divider' },
+  { name: 'Drawer', path: '/components/drawer' },
   { name: 'Dropdown', path: '/components/dropdown' },
   { name: 'FileUpload', path: '/components/fileupload' },
   { name: 'Forms', path: '/components/forms' },

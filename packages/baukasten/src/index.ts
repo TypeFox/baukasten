@@ -76,6 +76,16 @@ export type {
   BackdropVariant,
 } from "./components/Modal";
 
+export { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from "./components/Drawer";
+export type {
+  DrawerProps,
+  DrawerHeaderProps,
+  DrawerBodyProps,
+  DrawerFooterProps,
+  DrawerPlacement,
+  DrawerSize,
+} from "./components/Drawer";
+
 export { Label } from "./components/Label";
 export type { LabelProps, LabelVariant } from "./components/Label";
 
