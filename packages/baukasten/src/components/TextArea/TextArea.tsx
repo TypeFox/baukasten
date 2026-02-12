@@ -171,6 +171,9 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
     const minHeight = lineHeight * effectiveMinRows + verticalPadding;
     const maxHeight = effectiveMaxRows ? lineHeight * effectiveMaxRows + verticalPadding : Infinity;
 
+    // Neutralize any CSS min-height so it doesn't inflate scrollHeight
+    textarea.style.minHeight = '0';
+
     // Reset height to auto to get the correct scrollHeight
     textarea.style.height = 'auto';
 
@@ -179,6 +182,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
     const newHeight = Math.min(Math.max(scrollHeight, minHeight), maxHeight);
 
     textarea.style.height = `${newHeight}px`;
+    textarea.style.minHeight = `${minHeight}px`;
 
     // Set overflow based on whether content exceeds maxHeight
     if (effectiveMaxRows && scrollHeight > maxHeight) {

@@ -248,6 +248,17 @@ export const AutoGrow: Story = {
           fullWidth
         />
       </div>
+      <div>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+          minRows={1}, maxRows={1}
+        </h4>
+        <TextArea
+          minRows={1}
+          maxRows={1}
+          placeholder="This one is a little awkward!"
+          fullWidth
+        />
+      </div>
     </div>
   ),
   parameters: {
