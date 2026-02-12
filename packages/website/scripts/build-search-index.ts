@@ -87,6 +87,7 @@ function getTitleFromPath(filePath: string): string {
         'contextmenu': 'ContextMenu',
         'datatable': 'DataTable',
         'divider': 'Divider',
+        'drawer': 'Drawer',
         'dropdown': 'Dropdown',
         'fileupload': 'FileUpload',
         'forms': 'Forms',

@@ -70,6 +70,16 @@ export type { FileUploadProps, FileUploadVariant } from "./components/FileUpload
 
 // ─── Layout ─────────────────────────────────────────────────────────────────
 
+export { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from "./components/Drawer";
+export type {
+    DrawerProps,
+    DrawerHeaderProps,
+    DrawerBodyProps,
+    DrawerFooterProps,
+    DrawerPlacement,
+    DrawerSize,
+} from "./components/Drawer";
+
 export { Accordion, AccordionItem } from "./components/Accordion";
 export type { AccordionProps, AccordionItemProps } from "./components/Accordion";
 

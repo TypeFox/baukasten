@@ -14,6 +14,7 @@ const coreComponents = [
   { name: 'Button', path: '/components/button' },
   { name: 'Checkbox', path: '/components/checkbox' },
   { name: 'Divider', path: '/components/divider' },
+  { name: 'Drawer', path: '/components/drawer' },
   { name: 'Dropdown', path: '/components/dropdown' },
   { name: 'Forms', path: '/components/forms' },
   { name: 'Icon', path: '/components/icon' },
