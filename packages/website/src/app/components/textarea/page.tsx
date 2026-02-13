@@ -8,8 +8,10 @@ const textAreaProps: PropDefinition[] = [
     { name: 'size', type: '"xs" | "sm" | "md" | "lg" | "xl"', default: '"md"', description: 'Size of the textarea' },
     { name: 'error', type: 'string | boolean', description: 'Error state or message. String displays error below, boolean only shows error border' },
     { name: 'fullWidth', type: 'boolean', default: 'false', description: 'Whether the textarea should take full width of its container' },
-    { name: 'resize', type: '"none" | "vertical" | "horizontal" | "both"', default: '"vertical"', description: 'Resize behavior for the textarea' },
-    { name: 'rows', type: 'number', default: '4', description: 'Number of visible text rows' },
+    { name: 'resize', type: '"none" | "vertical" | "horizontal" | "both"', default: '"vertical"', description: 'Resize behavior for the textarea. Defaults to "none" when minRows/maxRows is set' },
+    { name: 'rows', type: 'number', default: '4', description: 'Number of visible text rows (static height, ignored when auto-grow is enabled)' },
+    { name: 'minRows', type: 'number', description: 'Minimum number of rows for auto-grow behavior. Setting this enables auto-grow' },
+    { name: 'maxRows', type: 'number', description: 'Maximum number of rows for auto-grow behavior. Setting this enables auto-grow' },
     { name: 'placeholder', type: 'string', description: 'Placeholder text shown when textarea is empty' },
     { name: 'disabled', type: 'boolean', default: 'false', description: 'Whether the textarea is disabled' },
 ];
@@ -123,6 +125,86 @@ function App() {
                 code={`<TextArea rows={2} placeholder="Compact" />
 <TextArea rows={4} placeholder="Default" />
 <TextArea rows={8} placeholder="Tall" />`}
+            />
+
+            <Showcase
+                title="Auto-Grow"
+                description="Auto-grow textareas automatically expand as content is added. Use minRows to set the starting height and maxRows to limit growth. When maxRows is exceeded, the textarea becomes scrollable. Setting either minRows or maxRows enables auto-grow behavior."
+                preview={
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
+                        <div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                                Grows from 2 to 6 rows
+                            </div>
+                            <TextArea
+                                minRows={2}
+                                maxRows={6}
+                                placeholder="Type to see auto-grow. Starts at 2 rows, grows up to 6 rows, then scrolls."
+                                fullWidth
+                            />
+                        </div>
+                        <div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                                Compact: 1 to 4 rows
+                            </div>
+                            <TextArea
+                                minRows={1}
+                                maxRows={4}
+                                placeholder="Single line that grows to 4 rows max"
+                                fullWidth
+                            />
+                        </div>
+                        <div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                                Unlimited growth from 3 rows
+                            </div>
+                            <TextArea
+                                minRows={3}
+                                placeholder="Starts at 3 rows, grows indefinitely with content"
+                                fullWidth
+                            />
+                        </div>
+                        <div>
+                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                                Uses default 4 rows as min, max at 5
+                            </div>
+                            <TextArea
+                                maxRows={5}
+                                placeholder="Only maxRows set"
+                                fullWidth
+                            />
+                        </div>
+                    </div>
+                }
+                code={`// Grows from 2 to 6 rows
+<TextArea
+  minRows={2}
+  maxRows={6}
+  placeholder="Type to see auto-grow..."
+  fullWidth
+/>
+
+// Compact: 1 to 4 rows
+<TextArea
+  minRows={1}
+  maxRows={4}
+  placeholder="Single line that grows..."
+  fullWidth
+/>
+
+// Unlimited growth from 3 rows
+<TextArea
+  minRows={3}
+  placeholder="Grows indefinitely..."
+  fullWidth
+/>
+
+// Only maxRows set (uses default 4 as min)
+<TextArea
+  maxRows={5}
+  placeholder="Max at 5 rows"
+  fullWidth
+/>`}
             />
 
             <Showcase
@@ -340,7 +422,10 @@ function App() {
                         <strong>Row count:</strong> Use 2-3 rows for short inputs, 4-6 for medium content, 8+ for long form content
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Resize:</strong> Use <code>resize="vertical"</code> (default) for most cases. Use <code>resize="none"</code> for fixed-height fields like titles
+                        <strong>Auto-grow:</strong> Use <code>minRows</code> and <code>maxRows</code> for chat inputs, comments, or any variable-length content. Great for improving UX by adapting to content
+                    </li>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                        <strong>Resize:</strong> Use <code>resize="vertical"</code> (default) for most cases. Use <code>resize="none"</code> for fixed-height fields like titles. Auto-grow textareas default to <code>resize="none"</code>
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Full width:</strong> Always use <code>fullWidth</code> in form layouts for consistent sizing
