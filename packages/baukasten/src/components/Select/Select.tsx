@@ -214,7 +214,7 @@ export interface SelectProps<T = string> {
  * **Features:**
  * - Keyboard navigation (Arrow keys, Enter, Escape, Tab, Home, End)
  * - Auto-positioning (opens top or bottom based on available space)
- * - Searchable options with description-based filtering
+ * - Searchable options with label-based filtering
  * - Custom render functions for complete control over appearance
  * - Multiselect support with checkboxes
  * - Size variants
@@ -697,7 +697,6 @@ export function Select<T = string>({
                           <Checkbox
                             checked={isSelected}
                             disabled={option.disabled}
-                            onChange={() => selectOption(option)}
                             onClick={(e) => e.stopPropagation()}
                             tabIndex={-1}
                           />
