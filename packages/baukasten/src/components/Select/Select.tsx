@@ -349,7 +349,7 @@ export function Select<T = string>({
 
   // Filter options based on search
   const defaultFilterOption = useCallback((option: SelectOption<T>, search: string) => {
-    const searchText = option.description || option.label || '';
+    const searchText = option.label || '';
     return searchText.toLowerCase().includes(search.toLowerCase());
   }, []);
 
