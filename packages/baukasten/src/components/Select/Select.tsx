@@ -612,7 +612,7 @@ export function Select<T = string>({
         <span className={selectOptionClassName}>
           {hasMultipleValues ? (
             <span className={styles.selectValueContent}>
-              {currentValues.length === 1 ? selectedOptions[0]?.label : `${currentValues.length} selected`}
+              {currentValues.length === 1 ? (selectedOptions[0]?.label ?? '1 selected') : `${currentValues.length} selected`}
             </span>
           ) : selectedOption ? (
             <span className={styles.selectValueContent}>
