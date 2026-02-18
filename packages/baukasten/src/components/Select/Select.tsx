@@ -434,6 +434,9 @@ export function Select<T = string>({
         setInternalValue(newValues);
       }
 
+      // NOTE: In `multiple` mode, `currentValues` and thus `newValues` are always arrays of `T`.
+      // The union type used in the `onChange` callback prevents TypeScript from inferring this,
+      // so we assert `T[]` here while relying on the runtime invariant enforced by `multiple === true`.
       onChange?.(newValues as T[]);
       // Don't close dropdown in multi-select mode
     } else {
