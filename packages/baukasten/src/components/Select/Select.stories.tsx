@@ -119,6 +119,13 @@ const meta = {
       control: 'text',
       description: 'Error message to display',
     },
+    multiple: {
+      control: 'boolean',
+      description: 'Enable multiple selection',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
     maxDropdownHeight: {
       control: 'text',
       description: 'Maximum height for the dropdown',
@@ -186,6 +193,67 @@ export const Sizes: Story = {
     docs: {
       description: {
         story: 'Five size options available: **xs**, **sm**, **md** (default), **lg**, **xl**. Options inside the dropdown scale accordingly.',
+      },
+    },
+  },
+};
+
+/**
+ * Multi-select with checkboxes for selecting multiple options.
+ */
+const MultiSelectStory = () => {
+  const [selected, setSelected] = useState<string[]>([]);
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)', minWidth: '300px' }}>
+      <Select
+        multiple
+        options={languageOptions}
+        value={selected}
+        onChange={(value) => {
+          if (Array.isArray(value)) {
+            setSelected(value);
+          }
+        }}
+        placeholder="Select programming languages..."
+        searchable
+        searchPlaceholder="Search languages..."
+      />
+      <div style={{
+        padding: 'var(--bk-padding-md)',
+        backgroundColor: 'var(--bk-color-background-secondary)',
+        borderRadius: 'var(--bk-radius-sm)',
+        fontSize: 'var(--bk-font-size-sm)',
+      }}>
+        <div><strong>Selected ({selected.length}):</strong></div>
+        {selected.length > 0 ? (
+          <div style={{ marginTop: 'var(--bk-spacing-1)' }}>
+            {selected.map((val) => {
+              const option = languageOptions.find((opt) => opt.value === val);
+              return (
+                <div key={val} style={{ color: 'var(--bk-color-foreground-muted)' }}>
+                  • {option?.label}
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div style={{ color: 'var(--bk-color-foreground-muted)', marginTop: 'var(--bk-spacing-1)' }}>
+            None selected
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export const MultiSelect: Story = {
+  render: () => <MultiSelectStory />,
+  args: { options: [] },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Multi-select mode enabled with `multiple={true}`. Users can select multiple options using checkboxes. The dropdown stays open after selection. The trigger shows "N selected" when multiple items are chosen. Works with searchable option.',
       },
     },
   },
@@ -957,7 +1025,11 @@ const ControlledSelectStory = () => {
       <Select
         options={languageOptions}
         value={value}
-        onChange={setValue}
+        onChange={(val) => {
+          if (!Array.isArray(val)) {
+            setValue(val);
+          }
+        }}
         placeholder="Choose a language..."
       />
       <div style={{
@@ -1027,7 +1099,7 @@ const FormExampleStory = () => {
         <Select
           options={languageOptions}
           value={formData.language}
-          onChange={(value) => setFormData({ ...formData, language: value })}
+          onChange={(value) => setFormData({ ...formData, language: Array.isArray(value) ? value[0] || '' : value })}
           placeholder="Select a language..."
           searchable
           fullWidth
@@ -1046,7 +1118,7 @@ const FormExampleStory = () => {
         <Select
           options={countryOptions}
           value={formData.country}
-          onChange={(value) => setFormData({ ...formData, country: value })}
+          onChange={(value) => setFormData({ ...formData, country: Array.isArray(value) ? value[0] || '' : value })}
           placeholder="Select a country..."
           searchable
           fullWidth
@@ -1065,7 +1137,7 @@ const FormExampleStory = () => {
         <Select
           options={experienceOptions}
           value={formData.experience}
-          onChange={(value) => setFormData({ ...formData, experience: value })}
+          onChange={(value) => setFormData({ ...formData, experience: Array.isArray(value) ? value[0] || '' : value })}
           placeholder="Select experience level..."
           fullWidth
         />
@@ -1132,6 +1204,108 @@ export const LongList: Story = {
 };
 
 /**
+ * Multiple selection example in a form.
+ */
+const MultiSelectFormStory = () => {
+  const [formData, setFormData] = useState({
+    languages: [] as string[],
+    frameworks: [] as string[],
+  });
+
+  const frameworkOptions: SelectOption[] = [
+    { value: 'react', label: 'React' },
+    { value: 'vue', label: 'Vue' },
+    { value: 'angular', label: 'Angular' },
+    { value: 'svelte', label: 'Svelte' },
+    { value: 'nextjs', label: 'Next.js' },
+  ];
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 'var(--bk-spacing-4)',
+      padding: 'var(--bk-spacing-4)',
+      backgroundColor: 'var(--bk-color-background-secondary)',
+      borderRadius: 'var(--bk-radius-md)',
+      minWidth: '400px',
+    }}>
+      <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+        Technical Skills
+      </h3>
+
+      <div>
+        <label style={{
+          display: 'block',
+          marginBottom: 'var(--bk-spacing-1)',
+          fontSize: 'var(--bk-font-size-sm)',
+          fontWeight: 'var(--bk-font-weight-medium)',
+        }}>
+          Programming Languages
+        </label>
+        <Select
+          multiple
+          options={languageOptions}
+          value={formData.languages}
+          onChange={(value) => setFormData({ ...formData, languages: Array.isArray(value) ? value : [] })}
+          placeholder="Select languages..."
+          searchable
+          fullWidth
+        />
+      </div>
+
+      <div>
+        <label style={{
+          display: 'block',
+          marginBottom: 'var(--bk-spacing-1)',
+          fontSize: 'var(--bk-font-size-sm)',
+          fontWeight: 'var(--bk-font-weight-medium)',
+        }}>
+          Frameworks
+        </label>
+        <Select
+          multiple
+          options={frameworkOptions}
+          value={formData.frameworks}
+          onChange={(value) => setFormData({ ...formData, frameworks: Array.isArray(value) ? value : [] })}
+          placeholder="Select frameworks..."
+          searchable
+          fullWidth
+        />
+      </div>
+
+      <div style={{
+        marginTop: 'var(--bk-spacing-2)',
+        padding: 'var(--bk-padding-md)',
+        backgroundColor: 'var(--bk-color-background)',
+        borderRadius: 'var(--bk-radius-sm)',
+        fontSize: 'var(--bk-font-size-sm)',
+      }}>
+        <div>
+          <strong>Languages ({formData.languages.length}):</strong> {formData.languages.length > 0 ? formData.languages.join(', ') : 'Not selected'}
+        </div>
+        <div style={{ marginTop: 'var(--bk-spacing-1)' }}>
+          <strong>Frameworks ({formData.frameworks.length}):</strong> {formData.frameworks.length > 0 ? formData.frameworks.join(', ') : 'Not selected'}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const MultiSelectForm: Story = {
+  render: () => <MultiSelectFormStory />,
+  args: { options: [] },
+  parameters: {
+    layout: 'padded',
+    docs: {
+      description: {
+        story: 'Example of using multiple multi-select components in a form. Each select independently manages its array of selected values.',
+      },
+    },
+  },
+};
+
+/**
  * Comprehensive showcase of all select features and variations.
  */
 export const Showcase: Story = {
@@ -1150,6 +1324,14 @@ export const Showcase: Story = {
           <Select options={basicOptions} size="lg" placeholder="Large" />
           <Select options={basicOptions} size="xl" placeholder="Extra Large" />
         </div>
+      </div>
+
+      {/* Multi-Select */}
+      <div>
+        <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+          Multi-Select
+        </h3>
+        <MultiSelectStory />
       </div>
 
       {/* Custom Render */}
