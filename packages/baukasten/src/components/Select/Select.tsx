@@ -16,6 +16,7 @@ import {
 } from '@floating-ui/react';
 import { type Size } from '../../styles';
 import { Icon } from '../Icon';
+import { Checkbox } from '../Checkbox';
 import { usePortalRoot } from '../../context';
 import * as styles from './Select.css';
 
@@ -81,19 +82,19 @@ export interface SelectProps<T = string> {
   options: SelectOption<T>[];
 
   /**
-   * Currently selected value
+   * Currently selected value (or array for multiselect)
    */
-  value?: T;
+  value?: T | T[];
 
   /**
-   * Default value (for uncontrolled component)
+   * Default value (or array for multiselect)
    */
-  defaultValue?: T;
+  defaultValue?: T | T[];
 
   /**
-   * Callback when value changes
+   * Callback when value changes (receives single value or array)
    */
-  onChange?: (value: T) => void;
+  onChange?: (value: T | T[]) => void;
 
   /**
    * Callback when dropdown opens
@@ -153,8 +154,15 @@ export interface SelectProps<T = string> {
   error?: string;
 
   /**
+   * Whether to enable multiple selection
+   * When enabled, value should be an array and onChange receives an array
+   * @default false
+   */
+  multiple?: boolean;
+
+  /**
    * Custom filter function for searchable select
-   * @default Matches against description if available, otherwise label
+   * @default Matches against label
    */
   filterOption?: (option: SelectOption<T>, searchValue: string) => boolean;
 
@@ -208,6 +216,7 @@ export interface SelectProps<T = string> {
  * - Auto-positioning (opens top or bottom based on available space)
  * - Searchable options with description-based filtering
  * - Custom render functions for complete control over appearance
+ * - Multiselect support with checkboxes
  * - Size variants
  * - Error state support
  * - Accessible (ARIA attributes)
@@ -269,6 +278,7 @@ export function Select<T = string>({
   searchable = false,
   searchPlaceholder = 'Search...',
   error,
+  multiple = false,
   filterOption,
   renderOption,
   renderValue,
@@ -278,9 +288,18 @@ export function Select<T = string>({
   dropdownClassName,
 }: SelectProps<T>) {
   // Controlled vs uncontrolled value
-  const [internalValue, setInternalValue] = useState<T | undefined>(defaultValue);
+  const [internalValue, setInternalValue] = useState<T | T[] | undefined>(
+    multiple ? (Array.isArray(defaultValue) ? defaultValue : []) : defaultValue
+  );
   const isControlled = controlledValue !== undefined;
   const currentValue = isControlled ? controlledValue : internalValue;
+
+  // Normalize current value to array for multi-select
+  const currentValues = useMemo(() => {
+    if (!multiple) return [];
+    if (Array.isArray(currentValue)) return currentValue;
+    return [];
+  }, [currentValue, multiple]);
 
   // Dropdown state
   const [isOpen, setIsOpen] = useState(false);
@@ -360,10 +379,16 @@ export function Select<T = string>({
     return options.filter(option => activeFilterOption(option, searchValue));
   }, [options, searchValue, searchable, activeFilterOption]);
 
-  // Get selected option
+  // Get selected option(s)
   const selectedOption = useMemo(() => {
+    if (multiple) return undefined;
     return options.find(option => option.value === currentValue);
-  }, [options, currentValue]);
+  }, [options, currentValue, multiple]);
+
+  const selectedOptions = useMemo(() => {
+    if (!multiple) return [];
+    return options.filter(option => currentValues.includes(option.value));
+  }, [options, currentValues, multiple]);
 
   // Check if we should show description panel
   // Only show if: enabled, not using custom render, and at least one option has description
@@ -399,13 +424,28 @@ export function Select<T = string>({
     e?.stopPropagation();
     e?.preventDefault();
 
-    if (!isControlled) {
-      setInternalValue(option.value);
-    }
+    if (multiple) {
+      // Multi-select mode
+      const newValues = currentValues.includes(option.value)
+        ? currentValues.filter(v => v !== option.value)
+        : [...currentValues, option.value];
 
-    onChange?.(option.value);
-    closeDropdown();
-  }, [isControlled, onChange, closeDropdown]);
+      if (!isControlled) {
+        setInternalValue(newValues);
+      }
+
+      onChange?.(newValues as T[]);
+      // Don't close dropdown in multi-select mode
+    } else {
+      // Single-select mode
+      if (!isControlled) {
+        setInternalValue(option.value);
+      }
+
+      onChange?.(option.value);
+      closeDropdown();
+    }
+  }, [isControlled, onChange, closeDropdown, multiple, currentValues]);
 
   // Keyboard navigation for trigger
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
@@ -539,9 +579,17 @@ export function Select<T = string>({
   // Get portal root from context (for multi-window support)
   const portalRoot = usePortalRoot();
 
+  const hasMultipleValues = multiple && currentValues.length > 0;
+
   const containerClassName = className
     ? `${styles.selectContainer({ fullWidth })} ${className}`
     : styles.selectContainer({ fullWidth });
+
+  const selectOptionClassName = hasMultipleValues
+    ? styles.selectValue
+    : selectedOption
+      ? styles.selectValue
+      : `${styles.selectValue} ${styles.selectValuePlaceholder}`;
 
   return (
     <div className={containerClassName}>
@@ -561,8 +609,12 @@ export function Select<T = string>({
         aria-label="Select"
         {...getReferenceProps()}
       >
-        <span className={selectedOption ? styles.selectValue : `${styles.selectValue} ${styles.selectValuePlaceholder}`}>
-          {selectedOption ? (
+        <span className={selectOptionClassName}>
+          {hasMultipleValues ? (
+            <span className={styles.selectValueContent}>
+              {currentValues.length === 1 ? selectedOptions[0]?.label : `${currentValues.length} selected`}
+            </span>
+          ) : selectedOption ? (
             <span className={styles.selectValueContent}>
               {renderValue ? renderValue(selectedOption) : (
                 renderOption ? renderOption(selectedOption, true) : selectedOption.label
@@ -615,39 +667,51 @@ export function Select<T = string>({
                 {filteredOptions.length === 0 ? (
                   <div className={styles.emptyMessage}>No options found</div>
                 ) : (
-                  filteredOptions.map((option, index) => (
-                    <div
-                      key={String(option.value)}
-                      ref={(el) => {
-                        if (el) {
-                          optionsRefs.current.set(index, el);
-                        } else {
-                          optionsRefs.current.delete(index);
-                        }
-                      }}
-                      className={styles.option({
-                        size,
-                        isHighlighted: index === highlightedIndex,
-                        isDisabled: option.disabled || false,
-                      })}
-                      onClick={(e) => selectOption(option, e)}
-                      onMouseEnter={() => setHighlightedIndex(index)}
-                      role="option"
-                      aria-selected={option.value === currentValue}
-                      aria-disabled={option.disabled}
-                    >
-                      {renderOption ? (
-                        renderOption(option, option.value === currentValue)
-                      ) : (
-                        <>
-                          <span className={styles.optionLabel}>{option.label}</span>
-                          {option.defaultLabel && (
-                            <span className={styles.optionDefaultLabel}>{option.defaultLabel}</span>
-                          )}
-                        </>
-                      )}
-                    </div>
-                  ))
+                  filteredOptions.map((option, index) => {
+                    const isSelected = multiple ? currentValues.includes(option.value) : option.value === currentValue;
+                    return (
+                      <div
+                        key={String(option.value)}
+                        ref={(el) => {
+                          if (el) {
+                            optionsRefs.current.set(index, el);
+                          } else {
+                            optionsRefs.current.delete(index);
+                          }
+                        }}
+                        className={styles.option({
+                          size,
+                          isHighlighted: index === highlightedIndex,
+                          isDisabled: option.disabled || false,
+                        })}
+                        onClick={(e) => selectOption(option, e)}
+                        onMouseEnter={() => setHighlightedIndex(index)}
+                        role="option"
+                        aria-selected={isSelected}
+                        aria-disabled={option.disabled}
+                      >
+                        {multiple && (
+                          <Checkbox
+                            checked={isSelected}
+                            disabled={option.disabled}
+                            onChange={() => selectOption(option)}
+                            onClick={(e) => e.stopPropagation()}
+                            tabIndex={-1}
+                          />
+                        )}
+                        {renderOption ? (
+                          renderOption(option, isSelected)
+                        ) : (
+                          <>
+                            <span className={styles.optionLabel}>{option.label}</span>
+                            {option.defaultLabel && (
+                              <span className={styles.optionDefaultLabel}>{option.defaultLabel}</span>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    );
+                  })
                 )}
               </div>
 
