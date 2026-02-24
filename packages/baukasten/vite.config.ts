@@ -38,10 +38,15 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
+      entry: {
+        index: resolve(__dirname, "src/index.ts"),
+        core: resolve(__dirname, "src/core.ts"),
+        extra: resolve(__dirname, "src/extra.ts"),
+      },
       name: "Baukasten",
       formats: ["es", "cjs"],
-      fileName: (format) => `index.${format === "es" ? "mjs" : "js"}`,
+      fileName: (format, entryName) =>
+        `${entryName}.${format === "es" ? "mjs" : "js"}`,
       cssFileName: "baukasten-base",
     },
     rollupOptions: {
@@ -50,6 +55,7 @@ export default defineConfig({
         "react-dom",
         "react/jsx-runtime",
         "react/jsx-dev-runtime",
+        "@tanstack/react-table",
       ],
       output: {
         globals: {

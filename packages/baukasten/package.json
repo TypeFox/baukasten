@@ -23,6 +23,16 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
+    "./core": {
+      "types": "./dist/core.d.ts",
+      "import": "./dist/core.mjs",
+      "require": "./dist/core.js"
+    },
+    "./extra": {
+      "types": "./dist/extra.d.ts",
+      "import": "./dist/extra.mjs",
+      "require": "./dist/extra.js"
+    },
     "./styles": {
       "import": "./dist/styles.mjs",
       "require": "./dist/styles.js"
@@ -52,15 +62,21 @@
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "@tanstack/react-table": "^8.21.3"
+  },
+  "peerDependenciesMeta": {
+    "@tanstack/react-table": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.16",
-    "@tanstack/react-table": "^8.21.3",
     "@vscode/codicons": "^0.0.41",
     "clsx": "^2.1.1"
   },
   "devDependencies": {
+    "@tanstack/react-table": "^8.21.3",
     "@storybook/addon-essentials": "^8.4.0",
     "@storybook/addon-interactions": "^8.4.0",
     "@storybook/addon-links": "^8.4.0",

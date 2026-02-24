@@ -162,6 +162,7 @@ Current components (exported from `baukasten`):
 
 **Form Controls:**
 - **Button** - Versatile button with variants (primary, secondary, ghost, outline) and sizes
+- **IconButton** - Square icon-only button matching Button height, for toolbar and compact actions
 - **ButtonGroup** - Group of related buttons
 - **Input** - Text input with label and error state support
 - **TextArea** - Multi-line text input
@@ -228,9 +229,17 @@ Current components (exported from `baukasten`):
 - **Storybook 8** - Component documentation
 
 ### Package Exports
-Main package (`baukasten`) exports:
-- `.` - All components and types
-- `./styles` - Design token utilities
+Main package (`baukasten-ui`) provides three entry points:
+- `baukasten-ui` (`.`) — All components and types (re-exports core + extra)
+- `baukasten-ui/core` (`./core`) — Fundamental primitives (Button, Input, Icon, Typography, etc.)
+- `baukasten-ui/extra` (`./extra`) — Higher-level compositions (DataTable, Tabs, Menu, etc.)
+- `baukasten-ui/styles` (`./styles`) — Design token utilities
+
+**Core components** (22 families): Icon, IconButton, Button, Input, TextArea, Checkbox, Radio/RadioGroup, Select, Slider, Label, FieldLabel, FormGroup, FormHelper, Typography (Heading/Text/Paragraph/Code/Link/Image), Badge, Table, Alert, Spinner, ProgressBar, Tooltip, Modal, Divider, Dropdown, PortalProvider, Styles, GlobalStyles
+
+**Extra components** (14 families): DataTable, Tabs, Breadcrumbs, Pagination, Menu, ContextMenu, ButtonGroup, FileUpload, Accordion, SplitPane, StatusBar, Hero, Avatar
+
+`@tanstack/react-table` is an **optional peer dependency** — only needed when importing DataTable from extra.
 
 ### VSCode Integration
 - Uses `@vscode/codicons` for icons
@@ -244,7 +253,8 @@ Main package (`baukasten`) exports:
    - Create component directory in `packages/baukasten/src/components/`
    - Implement component with design tokens
    - Create Storybook stories following the guidelines
-   - Export from `packages/baukasten/src/index.ts`
+   - Export from `packages/baukasten/src/core.ts` (if fundamental primitive) or `packages/baukasten/src/extra.ts` (if higher-level / composed)
+   - `src/index.ts` re-exports both automatically
 3. **Test in examples**:
    - Web example for browser testing
 4. **Build**: `npm run build` before committing
