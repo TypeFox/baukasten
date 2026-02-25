@@ -67,9 +67,9 @@ export interface SelectOption<T = string> {
 }
 
 /**
- * Select component props
+ * Base props shared between single-select and multi-select modes
  */
-export interface SelectProps<T = string> {
+export interface SelectBaseProps<T = string> {
   /**
    * Unique identifier for the select trigger element
    * Used for label association (htmlFor) in FormGroup
@@ -80,21 +80,6 @@ export interface SelectProps<T = string> {
    * Array of options to display
    */
   options: SelectOption<T>[];
-
-  /**
-   * Currently selected value (or array for multiselect)
-   */
-  value?: T | T[];
-
-  /**
-   * Default value (or array for multiselect)
-   */
-  defaultValue?: T | T[];
-
-  /**
-   * Callback when value changes (receives single value or array)
-   */
-  onChange?: (value: T | T[]) => void;
 
   /**
    * Callback when dropdown opens
@@ -154,13 +139,6 @@ export interface SelectProps<T = string> {
   error?: string;
 
   /**
-   * Whether to enable multiple selection
-   * When enabled, value should be an array and onChange receives an array
-   * @default false
-   */
-  multiple?: boolean;
-
-  /**
    * Custom filter function for searchable select
    * @default Matches against label
    */
@@ -203,6 +181,65 @@ export interface SelectProps<T = string> {
    */
   dropdownClassName?: string;
 }
+
+/**
+ * Props for single-select mode (default)
+ */
+export interface SingleSelectProps<T = string> {
+  /**
+   * Whether to enable multiple selection
+   * @default false
+   */
+  multiple?: false;
+
+  /**
+   * Currently selected value
+   */
+  value?: T;
+
+  /**
+   * Default value for uncontrolled usage
+   */
+  defaultValue?: T;
+
+  /**
+   * Callback when value changes (receives the selected value)
+   */
+  onChange?: (value: T) => void;
+}
+
+/**
+ * Props for multi-select mode
+ */
+export interface MultiSelectProps<T = string> {
+  /**
+   * Enable multiple selection
+   */
+  multiple: true;
+
+  /**
+   * Currently selected values (array)
+   */
+  value?: T[];
+
+  /**
+   * Default values for uncontrolled usage (array)
+   */
+  defaultValue?: T[];
+
+  /**
+   * Callback when values change (receives array of selected values)
+   */
+  onChange?: (value: T[]) => void;
+}
+
+/**
+ * Select component props
+ *
+ * Uses a discriminated union on `multiple` so that `value`, `defaultValue`,
+ * and `onChange` are correctly typed for single-select vs multi-select usage.
+ */
+export type SelectProps<T = string> = SelectBaseProps<T> & (SingleSelectProps<T> | MultiSelectProps<T>);
 
 
 /**
@@ -262,35 +299,49 @@ export interface SelectProps<T = string> {
  * />
  * ```
  */
-export function Select<T = string>({
-  id,
-  options,
-  value: controlledValue,
-  defaultValue,
-  onChange,
-  onOpen,
-  onClose,
-  placeholder = 'Select an option...',
-  size = 'md',
-  position = 'auto',
-  disabled = false,
-  fullWidth = false,
-  searchable = false,
-  searchPlaceholder = 'Search...',
-  error,
-  multiple = false,
-  filterOption,
-  renderOption,
-  renderValue,
-  maxDropdownHeight = '300px',
-  showDescriptionPanel = true,
-  className,
-  dropdownClassName,
-}: SelectProps<T>) {
+export function Select<T = string>(props: SelectProps<T>) {
+  const {
+    id,
+    options,
+    onOpen,
+    onClose,
+    placeholder = 'Select an option...',
+    size = 'md',
+    position = 'auto',
+    disabled = false,
+    fullWidth = false,
+    searchable = false,
+    searchPlaceholder = 'Search...',
+    error,
+    filterOption,
+    renderOption,
+    renderValue,
+    maxDropdownHeight = '300px',
+    showDescriptionPanel = true,
+    className,
+    dropdownClassName,
+  } = props;
+
+  // Extract variant-specific props with broader internal types.
+  // TypeScript cannot narrow generic discriminated unions inside function bodies,
+  // so we widen to the union of both branches here. The external `SelectProps<T>`
+  // discriminated union still enforces correct usage at every call site.
+  const multiple = (props.multiple ?? false) as boolean;
+  const controlledValue = props.value as T | T[] | undefined;
+  const defaultValue = props.defaultValue as T | T[] | undefined;
+  const onChange = props.onChange as ((value: T | T[]) => void) | undefined;
+
   // Controlled vs uncontrolled value
-  const [internalValue, setInternalValue] = useState<T | T[] | undefined>(
-    multiple ? (Array.isArray(defaultValue) ? defaultValue : []) : defaultValue
-  );
+  const [internalValue, setInternalValue] = useState<T | T[] | undefined>(() => {
+    if (multiple) {
+      if (Array.isArray(defaultValue)) return defaultValue;
+      if (defaultValue !== undefined) {
+        return [defaultValue] as unknown as T[];
+      }
+      return [] as unknown as T[];
+    }
+    return defaultValue;
+  });
   const isControlled = controlledValue !== undefined;
   const currentValue = isControlled ? controlledValue : internalValue;
 
@@ -434,10 +485,10 @@ export function Select<T = string>({
         setInternalValue(newValues);
       }
 
-      // NOTE: In `multiple` mode, `currentValues` and thus `newValues` are always arrays of `T`.
-      // The union type used in the `onChange` callback prevents TypeScript from inferring this,
-      // so we assert `T[]` here while relying on the runtime invariant enforced by `multiple === true`.
-      onChange?.(newValues as T[]);
+      // In `multiple` mode, `newValues` is always `T[]`.
+      // The internal `onChange` type is widened to `(value: T | T[]) => void`;
+      // the external discriminated union guarantees callers always receive `T[]`.
+      onChange?.(newValues);
       // Don't close dropdown in multi-select mode
     } else {
       // Single-select mode
