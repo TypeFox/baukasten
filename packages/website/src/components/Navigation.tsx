@@ -26,6 +26,7 @@ const coreComponents = [
   { name: 'Slider', path: '/components/slider' },
   { name: 'Spinner', path: '/components/spinner' },
   { name: 'Table', path: '/components/table' },
+  { name: 'Tag', path: '/components/tag' },
   { name: 'TextArea', path: '/components/textarea' },
   { name: 'Tooltip', path: '/components/tooltip' },
   { name: 'Typography', path: '/components/typography' },

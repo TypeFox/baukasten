@@ -33,3 +33,4 @@ storybook-static/
 # Temp
 .temp/
 .cache/
+packages/website/public/search-index.json

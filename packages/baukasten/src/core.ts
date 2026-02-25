@@ -106,6 +106,9 @@ export type {
 export { Badge } from "./components/Badge";
 export type { BadgeProps } from "./components/Badge";
 
+export { Tag } from "./components/Tag";
+export type { TagProps, TagVariant } from "./components/Tag";
+
 export { Table } from "./components/Table";
 export type {
     TableProps,

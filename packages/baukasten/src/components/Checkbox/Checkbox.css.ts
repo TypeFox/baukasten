@@ -117,7 +117,7 @@ export const checkboxIndicator = recipe({
     {
       variants: { variant: 'checkbox', checked: true },
       style: {
-        borderColor: 'var(--bk-color-checkbox-checked-border)',
+        borderColor: 'transparent',
       },
     },
 
@@ -155,8 +155,8 @@ export const checkboxIndicator = recipe({
  */
 export const checkboxCheckmark = recipe({
   base: {
-    width: '70%',
-    height: '70%',
+    width: '100%',
+    height: '100%',
     fill: 'none',
     stroke: 'var(--bk-color-checkbox-foreground)',
     strokeWidth: 'var(--bk-border-width-2)',

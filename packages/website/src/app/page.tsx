@@ -2,6 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
+import ToolkitGallery from '@/components/ToolkitGallery';
 import Link from 'next/link';
 import { Button, Heading, Paragraph, Icon, Badge, Text, CodiconName } from 'baukasten-ui/core';
 
@@ -379,6 +380,27 @@ export default function Home() {
             </Paragraph>
           </div>
         </div>
+      </div>
+
+      {/* Component Showcase */}
+      <div style={{ marginBottom: 'var(--bk-spacing-12)' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'var(--bk-spacing-8)' }}>
+          <Heading level={2} style={{
+            marginBottom: 'var(--bk-spacing-4)',
+            fontSize: 'calc(var(--vscode-font-size) * 2)',
+          }}>
+            Component Toolkit
+          </Heading>
+          <Paragraph style={{
+            color: 'var(--vscode-descriptionForeground)',
+            fontSize: 'calc(var(--vscode-font-size) * 1.1)',
+            maxWidth: '700px',
+            margin: '0 auto',
+          }}>
+            A rich set of UI primitives — from form controls and data tables to navigation and feedback components
+          </Paragraph>
+        </div>
+        <ToolkitGallery />
       </div>
 
       {/* Features */}

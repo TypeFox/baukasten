@@ -123,14 +123,14 @@ The project supports two environments:
 
 **VSCode Webview** (native environment):
 ```tsx
-import { GlobalStyles } from "baukasten-ui";
+import { GlobalStyles } from "baukasten-ui/core";
 // No wrapper needed - uses native VSCode theme
 <GlobalStyles />
 ```
 
 **Web Application** (browser demos/Storybook):
 ```tsx
-import { GlobalStyles } from "baukasten-ui";
+import { GlobalStyles } from "baukasten-ui/core";
 import { VSCodeThemeWrapper } from "baukasten-ui-web-wrapper";
 // Wrapper simulates VSCode theming
 <>
@@ -158,19 +158,19 @@ Reference: `packages/baukasten/src/components/Button/Button.stories.tsx`
 
 ## Available Components
 
-Current components (exported from `baukasten`):
+Components are split across two entry points:
+
+### Core Components (`baukasten-ui/core`)
 
 **Form Controls:**
 - **Button** - Versatile button with variants (primary, secondary, ghost, outline) and sizes
 - **IconButton** - Square icon-only button matching Button height, for toolbar and compact actions
-- **ButtonGroup** - Group of related buttons
 - **Input** - Text input with label and error state support
 - **TextArea** - Multi-line text input
 - **Select** - Dropdown selection component
 - **Checkbox** - Checkbox with label support
 - **Radio** - Radio button and RadioGroup components
 - **Slider** - Range slider input
-- **FileUpload** - File upload component with drag & drop
 
 **Form Helpers:**
 - **Label** - Form label component
@@ -188,16 +188,8 @@ Current components (exported from `baukasten`):
 
 **Data Display:**
 - **Badge** - Status indicator component
+- **Tag** - Categorization and labeling component with rounded-rectangle shape
 - **Table** - Basic table components with sorting and variants
-- **DataTable** - Advanced data table with virtualization, sorting, filtering
-- **Avatar** - User avatar with image/initials fallback
-
-**Navigation:**
-- **Tabs** - Tabbed navigation component
-- **Breadcrumbs** - Breadcrumb navigation
-- **Menu** - Dropdown menu component
-- **ContextMenu** - Right-click context menu
-- **Pagination** - Page navigation controls
 
 **Feedback:**
 - **Alert** - Alert messages with variants (info, success, warning, danger)
@@ -208,17 +200,39 @@ Current components (exported from `baukasten`):
 
 **Layout:**
 - **Divider** - Horizontal/vertical divider
-- **SplitPane** - Resizable split pane layout
-- **Accordion** - Collapsible content panels
 - **Dropdown** - Generic dropdown container
 
 **Specialized:**
 - **Icon** - VSCode Codicons integration
-- **StatusBar** - VSCode-style status bar
-- **Hero** - Hero section component
 
 **Context Providers:**
 - **PortalProvider** - Configures portal root for multi-window support (Theia secondary windows)
+- **GlobalStyles** - Global CSS reset and design token injection
+
+### Extra Components (`baukasten-ui/extra`)
+
+**Form Controls:**
+- **ButtonGroup** - Group of related buttons
+- **FileUpload** - File upload component with drag & drop
+
+**Data Display:**
+- **DataTable** - Advanced data table with virtualization, sorting, filtering
+- **Avatar** - User avatar with image/initials fallback
+
+**Navigation:**
+- **Tabs** - Tabbed navigation component
+- **Breadcrumbs** - Breadcrumb navigation
+- **Menu** - Dropdown menu component
+- **ContextMenu** - Right-click context menu
+- **Pagination** - Page navigation controls
+
+**Layout:**
+- **SplitPane** - Resizable split pane layout
+- **Accordion** - Collapsible content panels
+
+**Specialized:**
+- **StatusBar** - VSCode-style status bar
+- **Hero** - Hero section component
 
 ## Key Technical Details
 
@@ -235,11 +249,23 @@ Main package (`baukasten-ui`) provides three entry points:
 - `baukasten-ui/extra` (`./extra`) — Higher-level compositions (DataTable, Tabs, Menu, etc.)
 - `baukasten-ui/styles` (`./styles`) — Design token utilities
 
-**Core components** (22 families): Icon, IconButton, Button, Input, TextArea, Checkbox, Radio/RadioGroup, Select, Slider, Label, FieldLabel, FormGroup, FormHelper, Typography (Heading/Text/Paragraph/Code/Link/Image), Badge, Table, Alert, Spinner, ProgressBar, Tooltip, Modal, Divider, Dropdown, PortalProvider, Styles, GlobalStyles
+**Core components** (23 families): Icon, IconButton, Button, Input, TextArea, Checkbox, Radio/RadioGroup, Select, Slider, Label, FieldLabel, FormGroup, FormHelper, Typography (Heading/Text/Paragraph/Code/Link/Image), Badge, Tag, Table, Alert, Spinner, ProgressBar, Tooltip, Modal, Divider, Dropdown, PortalProvider, Styles, GlobalStyles
 
 **Extra components** (14 families): DataTable, Tabs, Breadcrumbs, Pagination, Menu, ContextMenu, ButtonGroup, FileUpload, Accordion, SplitPane, StatusBar, Hero, Avatar
 
 `@tanstack/react-table` is an **optional peer dependency** — only needed when importing DataTable from extra.
+
+### Core / Extra Split Criteria
+
+| Criterion                | Core                                                  | Extra                                        |
+| ------------------------ | ----------------------------------------------------- | -------------------------------------------- |
+| **Usage frequency**      | Used in 80%+ of UIs                                   | Used in specific scenarios                   |
+| **Complexity**           | Atomic / molecular                                    | Composed from multiple core components       |
+| **External deps**        | Only `clsx`, `@floating-ui/react`, `@vscode/codicons` | `@tanstack/react-table` or future heavy deps |
+| **Cross-component deps** | May depend on Icon and styles only                    | May depend on any core component             |
+| **Self-contained**       | Can work alone with just styles                       | Needs core components at runtime             |
+
+**Key rule**: Extra can import from Core. Core **never** imports from Extra.
 
 ### VSCode Integration
 - Uses `@vscode/codicons` for icons
@@ -619,7 +645,8 @@ Portal-based components (Select, Dropdown, Tooltip, ContextMenu, ButtonGroup) us
 The `PortalProvider` context allows specifying a custom root element for all portal-based components:
 
 ```tsx
-import { PortalProvider, Select } from 'baukasten-ui';
+import { PortalProvider, Select, Dropdown, Button } from 'baukasten-ui/core';
+import { Menu } from 'baukasten-ui/extra';
 
 function SecondaryWindowContent() {
 const rootRef = useRef<HTMLDivElement>(null);
