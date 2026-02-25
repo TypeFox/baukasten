@@ -13,6 +13,7 @@ export const badge = recipe({
     borderRadius: 'var(--bk-radius-full)',
     whiteSpace: 'nowrap',
     gap: 'var(--bk-gap-xs)',
+    boxSizing: 'border-box',
 
     // Typography
     fontWeight: 'var(--bk-font-weight-medium)',
@@ -30,26 +31,31 @@ export const badge = recipe({
         padding: 'var(--bk-spacing-0-5) var(--bk-spacing-1)',
         fontSize: 'var(--bk-font-size-xs)',
         lineHeight: 'var(--bk-line-height-tight)',
+        minWidth: 'calc(var(--bk-font-size-xs) * var(--bk-line-height-tight) + 2 * var(--bk-spacing-0-5) + 2 * var(--bk-border-width-1))',
       },
       sm: {
         padding: 'var(--bk-spacing-0-5) var(--bk-spacing-1-5)',
         fontSize: 'var(--bk-font-size-sm)',
         lineHeight: 'var(--bk-line-height-tight)',
+        minWidth: 'calc(var(--bk-font-size-sm) * var(--bk-line-height-tight) + 2 * var(--bk-spacing-0-5) + 2 * var(--bk-border-width-1))',
       },
       md: {
         padding: 'var(--bk-spacing-1) var(--bk-spacing-2)',
         fontSize: 'var(--bk-font-size-sm)',
         lineHeight: 'var(--bk-line-height-normal)',
+        minWidth: 'calc(var(--bk-font-size-sm) * var(--bk-line-height-normal) + 2 * var(--bk-spacing-1) + 2 * var(--bk-border-width-1))',
       },
       lg: {
         padding: 'var(--bk-spacing-1-5) var(--bk-spacing-2-5)',
         fontSize: 'var(--bk-font-size-md)',
         lineHeight: 'var(--bk-line-height-normal)',
+        minWidth: 'calc(var(--bk-font-size-md) * var(--bk-line-height-normal) + 2 * var(--bk-spacing-1-5) + 2 * var(--bk-border-width-1))',
       },
       xl: {
         padding: 'var(--bk-spacing-2) var(--bk-spacing-3)',
         fontSize: 'var(--bk-font-size-base)',
         lineHeight: 'var(--bk-line-height-normal)',
+        minWidth: 'calc(var(--bk-font-size-base) * var(--bk-line-height-normal) + 2 * var(--bk-spacing-2) + 2 * var(--bk-border-width-1))',
       },
     },
 

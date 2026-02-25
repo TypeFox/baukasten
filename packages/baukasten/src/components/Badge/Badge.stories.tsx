@@ -317,6 +317,74 @@ export const UsageExamples: Story = {
 };
 
 /**
+ * Single character badges render as circles at all sizes.
+ */
+export const SingleCharacter: Story = {
+  args: {
+    children: '',
+  },
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+      <div>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+          Single Digits
+        </h4>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <Badge variant="error" size="xs">5</Badge>
+          <Badge variant="error" size="sm">5</Badge>
+          <Badge variant="error" size="md">5</Badge>
+          <Badge variant="error" size="lg">5</Badge>
+          <Badge variant="error" size="xl">5</Badge>
+        </div>
+      </div>
+      <div>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+          Single Letters
+        </h4>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <Badge variant="info" size="xs">A</Badge>
+          <Badge variant="info" size="sm">B</Badge>
+          <Badge variant="info" size="md">C</Badge>
+          <Badge variant="info" size="lg">D</Badge>
+          <Badge variant="info" size="xl">E</Badge>
+        </div>
+      </div>
+      <div>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+          Single Character Variants
+        </h4>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <Badge variant="default">1</Badge>
+          <Badge variant="success">2</Badge>
+          <Badge variant="warning">3</Badge>
+          <Badge variant="error">4</Badge>
+          <Badge variant="info">5</Badge>
+        </div>
+      </div>
+      <div>
+        <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+          Single Character Outline
+        </h4>
+        <div style={{ display: 'flex', gap: 'var(--bk-gap-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <Badge variant="default" outline>1</Badge>
+          <Badge variant="success" outline>2</Badge>
+          <Badge variant="warning" outline>3</Badge>
+          <Badge variant="error" outline>4</Badge>
+          <Badge variant="info" outline>5</Badge>
+        </div>
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Single digit and letter badges render as circles. The badge automatically maintains equal width and height for short content, creating a perfectly round shape with `border-radius: full`.',
+      },
+    },
+  },
+};
+
+/**
  * Comprehensive showcase of all badge variants, sizes, and styles.
  */
 export const Showcase: Story = {
