@@ -101,6 +101,12 @@ const selectProps: PropDefinition[] = [
         description: 'Custom render function for the selected value display',
     },
     {
+        name: 'multiple',
+        type: 'boolean',
+        default: 'false',
+        description: 'Enable multiple selection. When true, value should be an array and onChange receives an array',
+    },
+    {
         name: 'maxDropdownHeight',
         type: 'string',
         default: '"300px"',
@@ -263,6 +269,139 @@ function FormExample() {
                     value={formData.experience}
                     onChange={(value) => setFormData({ ...formData, experience: value as string })}
                     placeholder="Select experience level..."
+                    fullWidth
+                />
+            </div>
+
+            <div style={{
+                marginTop: 'var(--bk-spacing-2)',
+                padding: 'var(--bk-spacing-3)',
+                backgroundColor: 'var(--vscode-input-background)',
+                borderRadius: 'var(--bk-radius-sm)',
+                fontSize: 'var(--bk-font-size-xs)',
+                fontFamily: 'var(--vscode-editor-font-family)',
+            }}>
+                <div style={{ marginBottom: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                    Form Data:
+                </div>
+                <pre style={{ margin: 0 }}>{JSON.stringify(formData, null, 2)}</pre>
+            </div>
+        </div>
+    );
+}
+
+// Multi-select example
+function MultiSelectExample() {
+    const [selected, setSelected] = useState<string[]>([]);
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', minWidth: '350px' }}>
+            <Select
+                multiple
+                options={languageOptions}
+                value={selected}
+                onChange={(value) => {
+                    if (Array.isArray(value)) {
+                        setSelected(value);
+                    }
+                }}
+                placeholder="Select programming languages..."
+                searchable
+                searchPlaceholder="Search languages..."
+            />
+            <div style={{
+                padding: 'var(--bk-spacing-3)',
+                backgroundColor: 'var(--vscode-input-background)',
+                borderRadius: 'var(--bk-radius-sm)',
+                fontSize: 'var(--bk-font-size-sm)',
+            }}>
+                <div style={{ marginBottom: 'var(--bk-spacing-1)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                    Selected ({selected.length}):
+                </div>
+                {selected.length > 0 ? (
+                    <div>
+                        {selected.map((val) => {
+                            const option = languageOptions.find((opt) => opt.value === val);
+                            return (
+                                <div key={val} style={{ color: 'var(--vscode-descriptionForeground)' }}>
+                                    • {option?.label}
+                                </div>
+                            );
+                        })}
+                    </div>
+                ) : (
+                    <div style={{ color: 'var(--vscode-descriptionForeground)' }}>
+                        None selected
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+
+// Multi-select form example
+function MultiSelectFormExample() {
+    const [formData, setFormData] = useState({
+        languages: [] as string[],
+        frameworks: [] as string[],
+    });
+
+    const frameworkOptions: SelectOption[] = [
+        { value: 'react', label: 'React' },
+        { value: 'vue', label: 'Vue' },
+        { value: 'angular', label: 'Angular' },
+        { value: 'svelte', label: 'Svelte' },
+        { value: 'nextjs', label: 'Next.js' },
+    ];
+
+    return (
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'var(--bk-spacing-4)',
+            padding: 'var(--bk-spacing-4)',
+            backgroundColor: 'var(--vscode-textBlockQuote-background)',
+            borderRadius: 'var(--bk-radius-md)',
+            maxWidth: '500px',
+        }}>
+            <Heading level={4}>Technical Skills</Heading>
+
+            <div>
+                <label style={{
+                    display: 'block',
+                    marginBottom: 'var(--bk-spacing-1)',
+                    fontSize: 'var(--bk-font-size-sm)',
+                    fontWeight: 'var(--bk-font-weight-medium)',
+                }}>
+                    Programming Languages
+                </label>
+                <Select
+                    multiple
+                    options={languageOptions}
+                    value={formData.languages}
+                    onChange={(value) => setFormData({ ...formData, languages: Array.isArray(value) ? value : [] })}
+                    placeholder="Select languages..."
+                    searchable
+                    fullWidth
+                />
+            </div>
+
+            <div>
+                <label style={{
+                    display: 'block',
+                    marginBottom: 'var(--bk-spacing-1)',
+                    fontSize: 'var(--bk-font-size-sm)',
+                    fontWeight: 'var(--bk-font-weight-medium)',
+                }}>
+                    Frameworks
+                </label>
+                <Select
+                    multiple
+                    options={frameworkOptions}
+                    value={formData.frameworks}
+                    onChange={(value) => setFormData({ ...formData, frameworks: Array.isArray(value) ? value : [] })}
+                    placeholder="Select frameworks..."
+                    searchable
                     fullWidth
                 />
             </div>
@@ -626,6 +765,89 @@ function App() {
         Selected value: <strong>{value}</strong>
       </div>
     </>
+  );
+}`}
+            />
+
+            <Showcase
+                title="Multi-Select"
+                description="Enable multiple selection with the multiple prop. Users can select multiple options using checkboxes. The dropdown stays open after selection, and the trigger shows the count of selected items."
+                preview={<MultiSelectExample />}
+                code={`import { useState } from 'react';
+import { Select } from 'baukasten-ui/core';
+import type { SelectOption } from 'baukasten-ui/core';
+
+const languageOptions: SelectOption[] = [
+  { value: 'js', label: 'JavaScript', description: 'Dynamic scripting language' },
+  { value: 'ts', label: 'TypeScript', description: 'Typed superset of JavaScript' },
+  { value: 'py', label: 'Python', description: 'High-level general purpose language' },
+  { value: 'rust', label: 'Rust', description: 'Memory-safe systems language' },
+];
+
+function App() {
+  const [selected, setSelected] = useState<string[]>([]);
+
+  return (
+    <Select
+      multiple
+      options={languageOptions}
+      value={selected}
+      onChange={setSelected}
+      placeholder="Select programming languages..."
+      searchable
+      searchPlaceholder="Search languages..."
+    />
+  );
+}`}
+            />
+
+            <Showcase
+                title="Multi-Select in Forms"
+                description="Multi-select components work seamlessly in forms. Each select independently manages its array of selected values. Combine with searchable for easy selection from large option lists."
+                preview={<MultiSelectFormExample />}
+                code={`import { useState } from 'react';
+import { Select } from 'baukasten-ui/core';
+
+function TechnicalSkillsForm() {
+  const [formData, setFormData] = useState({
+    languages: [],
+    frameworks: [],
+  });
+
+  return (
+    <div>
+      <h4>Technical Skills</h4>
+
+      <div>
+        <label>Programming Languages</label>
+        <Select
+          multiple
+          options={languageOptions}
+          value={formData.languages}
+          onChange={(value) =>
+            setFormData({ ...formData, languages: value })
+          }
+          placeholder="Select languages..."
+          searchable
+          fullWidth
+        />
+      </div>
+
+      <div>
+        <label>Frameworks</label>
+        <Select
+          multiple
+          options={frameworkOptions}
+          value={formData.frameworks}
+          onChange={(value) =>
+            setFormData({ ...formData, frameworks: value })
+          }
+          placeholder="Select frameworks..."
+          searchable
+          fullWidth
+        />
+      </div>
+    </div>
   );
 }`}
             />
