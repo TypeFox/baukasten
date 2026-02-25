@@ -42,6 +42,9 @@ export type {
 export { Select } from "./components/Select";
 export type {
   SelectProps,
+  SelectBaseProps,
+  SingleSelectProps,
+  MultiSelectProps,
   SelectOption,
   SelectPosition,
 } from "./components/Select";
