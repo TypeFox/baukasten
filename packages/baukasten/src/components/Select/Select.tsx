@@ -157,7 +157,8 @@ export interface SelectBaseProps<T = string> {
   renderValue?: (option: SelectOption<T>) => React.ReactNode;
 
   /**
-   * Maximum height for the dropdown menu
+   * Maximum height for the options list within the dropdown.
+   * The description panel (if visible) extends beyond this height.
    * @default '300px'
    */
   maxDropdownHeight?: string;
@@ -393,7 +394,7 @@ export function Select<T = string>(props: SelectProps<T>) {
       floatingSize({
         apply({ rects, availableHeight, elements }) {
           Object.assign(elements.floating.style, {
-            minWidth: `${rects.reference.width}px`,
+            width: `${rects.reference.width}px`,
             maxHeight: `${availableHeight}px`,
           });
         },
@@ -694,7 +695,6 @@ export function Select<T = string>(props: SelectProps<T>) {
           >
             <div
               className={styles.dropdownPortal}
-              style={{ maxHeight: maxDropdownHeight }}
               role="listbox"
               data-status={status}
             >
@@ -715,7 +715,7 @@ export function Select<T = string>(props: SelectProps<T>) {
                 </div>
               )}
 
-              <div className={styles.optionsContainer}>
+              <div className={styles.optionsContainer} style={{ maxHeight: maxDropdownHeight }}>
                 {filteredOptions.length === 0 ? (
                   <div className={styles.emptyMessage}>No options found</div>
                 ) : (
@@ -766,9 +766,9 @@ export function Select<T = string>(props: SelectProps<T>) {
                 )}
               </div>
 
-              {shouldShowDescriptionPanel && (
+              {shouldShowDescriptionPanel && displayedDescription && (
                 <div className={styles.descriptionPanel}>
-                  {displayedDescription || '\u00A0'}
+                  {displayedDescription}
                 </div>
               )}
             </div>
