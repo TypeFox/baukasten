@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { SplitPane, Heading } from 'baukasten-ui';
+import { Heading } from 'baukasten-ui/core';
+import { SplitPane } from 'baukasten-ui/extra';
 
 const splitPaneProps: PropDefinition[] = [
     {
@@ -202,7 +203,7 @@ function VSCodeLayoutExample() {
                                         <div style={{ marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
                                             SplitPane.tsx
                                         </div>
-                                        <div>{"import { SplitPane } from 'baukasten-ui';"}</div>
+                                        <div>{"import { SplitPane } from 'baukasten-ui/extra';"}</div>
                                         <div>{""}</div>
                                         <div>{"const Layout = () => ("}</div>
                                         <div>{"  <SplitPane orientation=\"horizontal\">"}</div>
@@ -260,7 +261,7 @@ export default function SplitPanePage() {
                         </SplitPane>
                     </ExampleContainer>
                 }
-                code={`import { SplitPane } from 'baukasten-ui';
+                code={`import { SplitPane } from 'baukasten-ui/extra';
 
 function App() {
   return (
@@ -492,7 +493,7 @@ function App() {
                 title="VSCode-Style Layout"
                 description="Complete VSCode-style layout with resizable sidebar, split editor groups, and bottom panel. All dividers are draggable and highlight in blue during interaction."
                 preview={<VSCodeLayoutExample />}
-                code={`import { SplitPane } from 'baukasten-ui';
+                code={`import { SplitPane } from 'baukasten-ui/extra';
 
 function IDELayout() {
   return (

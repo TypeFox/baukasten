@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
-import { Code, Button, Badge, Icon, Alert } from 'baukasten-ui';
+import { Code, Button, Badge, Icon, Alert } from 'baukasten-ui/core';
 
 export default function ThemingGuidePage() {
     return (
@@ -547,7 +547,7 @@ applyTheme(darkModern);`}
                 </p>
                 <CodeBlock
                     language="tsx"
-                    code={`import { Button } from 'baukasten-ui';
+                    code={`import { Button } from 'baukasten-ui/core';
 
 function CustomButton() {
   return (

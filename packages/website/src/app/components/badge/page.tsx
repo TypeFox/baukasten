@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, Variant, VariantGrid, PropDefinition } from '@/components/ComponentShowcase';
-import { Badge, Icon } from 'baukasten-ui';
+import { Badge, Icon } from 'baukasten-ui/core';
 
 const badgeProps: PropDefinition[] = [
   {
@@ -43,7 +43,7 @@ export default function BadgePage() {
         preview={
           <Badge>Default Badge</Badge>
         }
-        code={`import { Badge } from 'baukasten-ui';
+        code={`import { Badge } from 'baukasten-ui/core';
 
 function App() {
   return <Badge>Default Badge</Badge>;

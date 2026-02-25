@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
-import { Heading, Alert, Icon, Code } from 'baukasten-ui';
+import { Heading, Alert, Icon, Code } from 'baukasten-ui/core';
 
 const Section = ({ children }: { children: React.ReactNode }) => (
   <section style={{ marginBottom: 'var(--bk-padding-2xl)' }}>{children}</section>
@@ -114,7 +114,7 @@ export default function InstallationPage() {
 import 'baukasten-ui/dist/baukasten-base.css';
 import 'baukasten-ui/dist/baukasten-vscode.css';
 
-import { Button } from 'baukasten-ui';
+import { Button } from 'baukasten-ui/core';
 
 function App() {
   return (
@@ -140,7 +140,7 @@ function App() {
 import 'baukasten-ui/dist/baukasten-base.css';
 import 'baukasten-ui/dist/baukasten-theia.css';
 
-import { Button } from 'baukasten-ui';
+import { Button } from 'baukasten-ui/core';
 
 function App() {
   return (
@@ -163,7 +163,7 @@ function App() {
 import 'baukasten-ui/dist/baukasten-base.css';
 import 'baukasten-ui/dist/baukasten-web.css';
 
-import { Button } from 'baukasten-ui';
+import { Button } from 'baukasten-ui/core';
 
 function App() {
   return (
@@ -190,7 +190,7 @@ function App() {
         </Paragraph>
         <CodeBlock
           code={`import 'baukasten-ui/dist/baukasten-base.css';
-import { Button } from 'baukasten-ui';
+import { Button } from 'baukasten-ui/core';
 import { VSCodeThemeWrapper } from 'baukasten-ui-web-wrapper';
 
 function App() {
@@ -249,7 +249,7 @@ export default function RootLayout({ children }) {
           Import individual components as needed:
         </Paragraph>
         <CodeBlock
-          code={`import { Button, Input, Badge } from 'baukasten-ui';
+          code={`import { Button, Input, Badge } from 'baukasten-ui/core';
 
 function MyComponent() {
   return (
@@ -296,7 +296,7 @@ const CustomDiv = () => (
         </Paragraph>
         <CodeBlock
           code={`// DEPRECATED - Use CSS imports instead
-import { GlobalStyles, Button } from 'baukasten-ui';
+import { GlobalStyles, Button } from 'baukasten-ui/core';
 
 function App() {
   return (

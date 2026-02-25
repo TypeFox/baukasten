@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Menu, MenuItem, MenuDivider, SubMenu, Icon, Badge, Dropdown, Button } from 'baukasten-ui';
+import { Icon, Badge, Dropdown, Button } from 'baukasten-ui/core';
+import { Menu, MenuItem, MenuDivider, SubMenu } from 'baukasten-ui/extra';
 
 const menuProps: PropDefinition[] = [
     {
@@ -160,7 +161,8 @@ export default function MenuPage() {
                         <MenuItem icon={<Icon name="trash" />}>Delete</MenuItem>
                     </Menu>
                 }
-                code={`import { Menu, MenuItem, MenuDivider, Icon } from 'baukasten-ui';
+                code={`import { Icon } from 'baukasten-ui/core';
+import { Menu, MenuItem, MenuDivider } from 'baukasten-ui/extra';
 
 function App() {
   return (
@@ -623,7 +625,8 @@ function App() {
                         </Dropdown>
                     </div>
                 }
-                code={`import { Dropdown, Button, Menu, MenuItem, SubMenu } from 'baukasten-ui';
+                code={`import { Dropdown, Button } from 'baukasten-ui/core';
+import { Menu, MenuItem, SubMenu } from 'baukasten-ui/extra';
 
 // Action menu dropdown
 <Dropdown
@@ -668,7 +671,8 @@ function App() {
                 description="Menu items support onClick handlers for interactive behavior. Use the selected prop to highlight the active item."
                 preview={<InteractiveExample />}
                 code={`import { useState } from 'react';
-import { Menu, MenuItem, MenuDivider, Icon } from 'baukasten-ui';
+import { Icon } from 'baukasten-ui/core';
+import { Menu, MenuItem, MenuDivider } from 'baukasten-ui/extra';
 
 function InteractiveExample() {
   const [selectedItem, setSelectedItem] = useState('edit');

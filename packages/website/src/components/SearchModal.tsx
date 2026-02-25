@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { Modal, Icon, Text } from 'baukasten-ui';
+import { Modal, Icon, Text } from 'baukasten-ui/core';
 
 interface SearchDocument {
     id: string;

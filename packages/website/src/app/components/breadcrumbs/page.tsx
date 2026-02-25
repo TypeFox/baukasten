@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Breadcrumbs, Icon, Heading } from 'baukasten-ui';
-import type { BreadcrumbItem } from 'baukasten-ui';
+import { Icon, Heading } from 'baukasten-ui/core';
+import { Breadcrumbs } from 'baukasten-ui/extra';
+import type { BreadcrumbItem } from 'baukasten-ui/extra';
 
 const breadcrumbsProps: PropDefinition[] = [
     {
@@ -177,8 +178,8 @@ export default function BreadcrumbsPage() {
                         <Breadcrumbs items={basicItems} />
                     </div>
                 }
-                code={`import { Breadcrumbs } from 'baukasten-ui';
-import type { BreadcrumbItem } from 'baukasten-ui';
+                code={`import { Breadcrumbs } from 'baukasten-ui/extra';
+import type { BreadcrumbItem } from 'baukasten-ui/extra';
 
 const items: BreadcrumbItem[] = [
   { label: 'Home', href: '/' },
@@ -481,7 +482,8 @@ function App() {
                 description="Real-world example showing breadcrumbs in a file browser interface with click navigation. Click any breadcrumb to navigate to that level."
                 preview={<FileBrowserExample />}
                 code={`import { useState } from 'react';
-import { Breadcrumbs, Icon } from 'baukasten-ui';
+import { Icon } from 'baukasten-ui/core';
+import { Breadcrumbs } from 'baukasten-ui/extra';
 
 function FileBrowser() {
   const [currentPath, setCurrentPath] = useState([

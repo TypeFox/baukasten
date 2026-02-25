@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { FieldLabel, FormGroup, FormHelper, Input, TextArea, Select, Checkbox, Label, Button, Heading } from 'baukasten-ui';
+import { FieldLabel, FormGroup, FormHelper, Input, TextArea, Select, Checkbox, Label, Button, Heading } from 'baukasten-ui/core';
 
 const fieldLabelProps: PropDefinition[] = [
     { name: 'htmlFor', type: 'string', required: true, description: 'ID of the form element this label is for' },
@@ -45,7 +45,7 @@ export default function FormsPage() {
                         </div>
                     </div>
                 }
-                code={`import { FieldLabel, Input } from 'baukasten-ui';
+                code={`import { FieldLabel, Input } from 'baukasten-ui/core';
 
 // Basic label
 <FieldLabel htmlFor="username">Username</FieldLabel>
@@ -88,7 +88,7 @@ export default function FormsPage() {
                         </div>
                     </div>
                 }
-                code={`import { FormHelper, Input } from 'baukasten-ui';
+                code={`import { FormHelper, Input } from 'baukasten-ui/core';
 
 // Default helper text
 <Input id="username" />
@@ -137,7 +137,7 @@ export default function FormsPage() {
                         </FormGroup>
                     </div>
                 }
-                code={`import { FormGroup, FieldLabel, Input, TextArea, FormHelper } from 'baukasten-ui';
+                code={`import { FormGroup, FieldLabel, Input, TextArea, FormHelper } from 'baukasten-ui/core';
 
 function Form() {
   return (
@@ -290,7 +290,7 @@ function Form() {
   Checkbox,
   Label,
   Button,
-} from 'baukasten-ui';
+} from 'baukasten-ui/core';
 
 function RegistrationForm() {
   return (

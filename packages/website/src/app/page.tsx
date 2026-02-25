@@ -3,7 +3,7 @@
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
 import Link from 'next/link';
-import { Button, Heading, Paragraph, Icon, Badge, Text, CodiconName } from 'baukasten-ui';
+import { Button, Heading, Paragraph, Icon, Badge, Text, CodiconName } from 'baukasten-ui/core';
 
 const components = [
   'Button',
@@ -245,7 +245,7 @@ export default function Home() {
             Import
           </Text>
           <CodeBlock
-            code="import { Button } from 'baukasten-ui'"
+            code="import { Button } from 'baukasten-ui/core'"
             language="typescript"
           />
         </div>

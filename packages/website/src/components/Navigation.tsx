@@ -3,44 +3,48 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Menu, MenuItem, Icon, Badge, Heading, Text, Paragraph, Button } from 'baukasten-ui';
+import { Icon, Badge, Heading, Text, Paragraph, Button } from 'baukasten-ui/core';
+import { Menu, MenuItem } from 'baukasten-ui/extra';
 import ThemePicker from './ThemePicker';
 import SearchModal from './SearchModal';
 
-const components = [
-  { name: 'Accordion', path: '/components/accordion' },
+const coreComponents = [
   { name: 'Alert', path: '/components/alert' },
-  { name: 'Avatar', path: '/components/avatar' },
   { name: 'Badge', path: '/components/badge' },
-  { name: 'Breadcrumbs', path: '/components/breadcrumbs' },
   { name: 'Button', path: '/components/button' },
-  { name: 'ButtonGroup', path: '/components/buttongroup' },
   { name: 'Checkbox', path: '/components/checkbox' },
-  { name: 'ContextMenu', path: '/components/contextmenu' },
-  { name: 'DataTable', path: '/components/datatable' },
   { name: 'Divider', path: '/components/divider' },
   { name: 'Dropdown', path: '/components/dropdown' },
-  { name: 'FileUpload', path: '/components/fileupload' },
   { name: 'Forms', path: '/components/forms' },
-  { name: 'Hero', path: '/components/hero' },
   { name: 'Icon', path: '/components/icon' },
   { name: 'Input', path: '/components/input' },
   { name: 'Label', path: '/components/label' },
-  { name: 'Menu', path: '/components/menu' },
   { name: 'Modal', path: '/components/modal' },
-  { name: 'Pagination', path: '/components/pagination' },
   { name: 'ProgressBar', path: '/components/progressbar' },
   { name: 'Radio', path: '/components/radio' },
   { name: 'Select', path: '/components/select' },
   { name: 'Slider', path: '/components/slider' },
   { name: 'Spinner', path: '/components/spinner' },
-  { name: 'SplitPane', path: '/components/splitpane' },
-  { name: 'StatusBar', path: '/components/statusbar' },
   { name: 'Table', path: '/components/table' },
-  { name: 'Tabs', path: '/components/tabs' },
   { name: 'TextArea', path: '/components/textarea' },
   { name: 'Tooltip', path: '/components/tooltip' },
   { name: 'Typography', path: '/components/typography' },
+];
+
+const extraComponents = [
+  { name: 'Accordion', path: '/components/accordion' },
+  { name: 'Avatar', path: '/components/avatar' },
+  { name: 'Breadcrumbs', path: '/components/breadcrumbs' },
+  { name: 'ButtonGroup', path: '/components/buttongroup' },
+  { name: 'ContextMenu', path: '/components/contextmenu' },
+  { name: 'DataTable', path: '/components/datatable' },
+  { name: 'FileUpload', path: '/components/fileupload' },
+  { name: 'Hero', path: '/components/hero' },
+  { name: 'Menu', path: '/components/menu' },
+  { name: 'Pagination', path: '/components/pagination' },
+  { name: 'SplitPane', path: '/components/splitpane' },
+  { name: 'StatusBar', path: '/components/statusbar' },
+  { name: 'Tabs', path: '/components/tabs' },
 ];
 
 const foundations = [
@@ -326,10 +330,36 @@ export default function Navigation() {
               marginBottom: 'var(--bk-spacing-3)',
               paddingLeft: 'var(--bk-spacing-4)',
             }}>
-              Components ({components.length})
+              Core Components ({coreComponents.length})
             </Text>
             <Menu size="md">
-              {components.map(component => (
+              {coreComponents.map(component => (
+                <Link key={component.path} href={component.path} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <MenuItem
+                    selected={pathname === component.path}
+                  >
+                    {component.name}
+                  </MenuItem>
+                </Link>
+              ))}
+            </Menu>
+          </div>
+
+          <div className="nav-section" style={{ marginBottom: 'var(--bk-spacing-6)' }}>
+            <Text style={{
+              display: 'block',
+              fontSize: 'calc(var(--vscode-font-size) * 0.85)',
+              fontWeight: 600,
+              color: 'var(--vscode-descriptionForeground)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              marginBottom: 'var(--bk-spacing-3)',
+              paddingLeft: 'var(--bk-spacing-4)',
+            }}>
+              Extra Components ({extraComponents.length})
+            </Text>
+            <Menu size="md">
+              {extraComponents.map(component => (
                 <Link key={component.path} href={component.path} style={{ textDecoration: 'none', color: 'inherit' }}>
                   <MenuItem
                     selected={pathname === component.path}

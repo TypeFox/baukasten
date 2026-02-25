@@ -2,7 +2,8 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, Variant, VariantGrid, PropDefinition } from '@/components/ComponentShowcase';
-import { Accordion, AccordionItem, Icon, Badge, Paragraph, Text, Code } from 'baukasten-ui';
+import { Icon, Badge, Paragraph, Text, Code } from 'baukasten-ui/core';
+import { Accordion, AccordionItem } from 'baukasten-ui/extra';
 
 const accordionProps: PropDefinition[] = [
   {
@@ -91,7 +92,7 @@ export default function AccordionPage() {
             </Accordion>
           </div>
         }
-        code={`import { Accordion, AccordionItem } from 'baukasten-ui';
+        code={`import { Accordion, AccordionItem } from 'baukasten-ui/extra';
 
 function App() {
   return (

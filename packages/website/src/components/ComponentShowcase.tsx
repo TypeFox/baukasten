@@ -1,18 +1,8 @@
 'use client';
 
 import CodeBlock from './CodeBlock';
-import {
-  Heading,
-  Paragraph,
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
-  Table,
-  Code,
-  Badge
-} from 'baukasten-ui';
+import { Heading, Paragraph, Table, Code, Badge } from 'baukasten-ui/core';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from 'baukasten-ui/extra';
 
 export interface PropDefinition {
   name: string;

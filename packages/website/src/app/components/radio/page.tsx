@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Radio, RadioGroup, Label, Heading, Paragraph } from 'baukasten-ui';
+import { Radio, RadioGroup, Label, Heading, Paragraph } from 'baukasten-ui/core';
 
 const radioProps: PropDefinition[] = [
     {
@@ -297,7 +297,7 @@ export default function RadioPage() {
                         </Label>
                     </div>
                 }
-                code={`import { Radio, Label } from 'baukasten-ui';
+                code={`import { Radio, Label } from 'baukasten-ui/core';
 
 function App() {
   return (
@@ -435,7 +435,7 @@ function App() {
                 title="RadioGroup - Controlled"
                 description="RadioGroup is the recommended way to manage radio button state. It provides shared name, value, and onChange to all Radio children via context, simplifying state management."
                 preview={<ThemeSelectionExample />}
-                code={`import { Radio, RadioGroup, Label } from 'baukasten-ui';
+                code={`import { Radio, RadioGroup, Label } from 'baukasten-ui/core';
 import { useState } from 'react';
 
 function ThemeSelection() {
@@ -482,7 +482,7 @@ function ThemeSelection() {
                         </RadioGroup>
                     </div>
                 }
-                code={`import { Radio, RadioGroup, Label } from 'baukasten-ui';
+                code={`import { Radio, RadioGroup, Label } from 'baukasten-ui/core';
 
 function PlanSelection() {
   return (
@@ -644,7 +644,7 @@ function PlanSelection() {
                 title="Settings Form Example"
                 description="Real-world example showing multiple RadioGroups in a settings form. Each group manages its own state independently, with both vertical and horizontal orientations."
                 preview={<SettingsFormExample />}
-                code={`import { Radio, RadioGroup, Label } from 'baukasten-ui';
+                code={`import { Radio, RadioGroup, Label } from 'baukasten-ui/core';
 import { useState } from 'react';
 
 function SettingsForm() {

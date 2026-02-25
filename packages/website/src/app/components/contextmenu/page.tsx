@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { ContextMenu, Icon, Badge } from 'baukasten-ui';
-import { MenuItem, MenuDivider, SubMenu } from 'baukasten-ui';
+import { Icon, Badge } from 'baukasten-ui/core';
+import { ContextMenu, MenuItem, MenuDivider, SubMenu } from 'baukasten-ui/extra';
 
 const contextMenuProps: PropDefinition[] = [
 	{
@@ -152,7 +152,8 @@ export default function ContextMenuPage() {
 						<TriggerBox>Right-click me!</TriggerBox>
 					</ContextMenu>
 				}
-				code={`import { ContextMenu, MenuItem, MenuDivider, Icon } from 'baukasten-ui';
+				code={`import { Icon } from 'baukasten-ui/core';
+import { ContextMenu, MenuItem, MenuDivider } from 'baukasten-ui/extra';
 
 function App() {
   return (
@@ -381,7 +382,8 @@ function App() {
 				description="Handle menu item clicks with onClick handlers. The menu automatically closes after clicking an item."
 				preview={<InteractiveExample />}
 				code={`import { useState } from 'react';
-import { ContextMenu, MenuItem, MenuDivider, Icon } from 'baukasten-ui';
+import { Icon } from 'baukasten-ui/core';
+import { ContextMenu, MenuItem, MenuDivider } from 'baukasten-ui/extra';
 
 function InteractiveExample() {
   const [lastAction, setLastAction] = useState('No action yet');
