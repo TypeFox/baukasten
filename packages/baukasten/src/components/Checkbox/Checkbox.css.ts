@@ -113,14 +113,6 @@ export const checkboxIndicator = recipe({
     { variants: { variant: 'switch', size: 'lg' }, style: { width: 'var(--bk-spacing-9)', height: 'var(--bk-spacing-5)', minWidth: 'var(--bk-spacing-9)' } },
     { variants: { variant: 'switch', size: 'xl' }, style: { width: 'var(--bk-spacing-10)', height: 'var(--bk-spacing-6)', minWidth: 'var(--bk-spacing-10)' } },
 
-    // Checked state for checkbox variant
-    {
-      variants: { variant: 'checkbox', checked: true },
-      style: {
-        borderColor: 'transparent',
-      },
-    },
-
     // Checked state for switch variant
     {
       variants: { variant: 'switch', checked: true },
