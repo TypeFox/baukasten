@@ -214,6 +214,7 @@ export interface SingleSelectProps<T = string> {
 export interface MultiSelectProps<T = string> {
   /**
    * Enable multiple selection
+   * When enabled, value should be an array and onChange receives an array
    */
   multiple: true;
 
@@ -236,8 +237,9 @@ export interface MultiSelectProps<T = string> {
 /**
  * Select component props
  *
- * Uses a discriminated union on `multiple` so that `value`, `defaultValue`,
- * and `onChange` are correctly typed for single-select vs multi-select usage.
+ * Uses a discriminated union on the `multiple` prop so that `value`,
+ * `defaultValue`, and `onChange` are correctly typed for single-select
+ * (`T`) vs multi-select (`T[]`) usage.
  */
 export type SelectProps<T = string> = SelectBaseProps<T> & (SingleSelectProps<T> | MultiSelectProps<T>);
 
@@ -322,10 +324,9 @@ export function Select<T = string>(props: SelectProps<T>) {
     dropdownClassName,
   } = props;
 
-  // Extract variant-specific props with broader internal types.
-  // TypeScript cannot narrow generic discriminated unions inside function bodies,
-  // so we widen to the union of both branches here. The external `SelectProps<T>`
-  // discriminated union still enforces correct usage at every call site.
+  // Extract discriminated union props with internal working types.
+  // Type safety for consumers is enforced by the SelectProps discriminated union;
+  // internally we use wider types to avoid TS narrowing limitations with generics.
   const multiple = (props.multiple ?? false) as boolean;
   const controlledValue = props.value as T | T[] | undefined;
   const defaultValue = props.defaultValue as T | T[] | undefined;
@@ -485,9 +486,6 @@ export function Select<T = string>(props: SelectProps<T>) {
         setInternalValue(newValues);
       }
 
-      // In `multiple` mode, `newValues` is always `T[]`.
-      // The internal `onChange` type is widened to `(value: T | T[]) => void`;
-      // the external discriminated union guarantees callers always receive `T[]`.
       onChange?.(newValues);
       // Don't close dropdown in multi-select mode
     } else {
