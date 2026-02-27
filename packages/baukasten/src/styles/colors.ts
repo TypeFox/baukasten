@@ -92,6 +92,7 @@ export const colorTokens = `
     --bk-color-focus: var(--vscode-focusBorder, #007fd4);
     --bk-color-selected: var(--vscode-list-activeSelectionBackground, #094771);
     --bk-color-selected-foreground: var(--vscode-list-activeSelectionForeground, #ffffff);
+    --bk-color-menu-selectionBackground: var(--vscode-menu-selectionBackground, #0078d4);
 
     /* ========================================================================
      * INPUT COLORS

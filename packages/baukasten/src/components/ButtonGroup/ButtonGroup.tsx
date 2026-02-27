@@ -221,7 +221,7 @@ const ButtonGroupDropdown: React.FC<ButtonGroupDropdownProps> = ({
   const floatingPlacement: Placement = placement as Placement;
 
   // Floating UI setup
-  const { refs, floatingStyles, context, isPositioned } = useFloating({
+  const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: (open) => {
       if (disabled) return;
@@ -250,7 +250,7 @@ const ButtonGroupDropdown: React.FC<ButtonGroupDropdownProps> = ({
       }),
     ],
   });
-
+  
   // Floating UI interactions
   const click = useClick(context, { enabled: !disabled });
   const dismiss = useDismiss(context);
@@ -313,7 +313,6 @@ const ButtonGroupDropdown: React.FC<ButtonGroupDropdownProps> = ({
               ref={refs.setFloating}
               style={{
                 ...floatingStyles,
-                visibility: isPositioned ? 'visible' : 'hidden',
                 zIndex: 'var(--bk-z-index-popover)',
               }}
               {...getFloatingProps()}

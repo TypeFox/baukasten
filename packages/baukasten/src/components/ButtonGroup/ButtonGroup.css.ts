@@ -37,14 +37,14 @@ globalStyle(
   `${buttonGroup.classNames.base} > button[class]:not(:first-child):not(:last-child)`,
   {
     borderRadius: 0,
-  }
+  },
 );
 
 globalStyle(
   `${buttonGroup.classNames.base} > div > button[class]:not(:first-child):not(:last-child)`,
   {
     borderRadius: 0,
-  }
+  },
 );
 
 /**
@@ -61,7 +61,7 @@ globalStyle(
   {
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
-  }
+  },
 );
 
 /**
@@ -90,7 +90,7 @@ globalStyle(
   `${buttonGroup.classNames.base} > div:not(:last-child) > button[class]`,
   {
     borderRight: "none",
-  }
+  },
 );
 
 /**
@@ -107,17 +107,20 @@ globalStyle(`${buttonGroup.classNames.variants.fullWidth.true} > div`, {
 /**
  * Add separator line between buttons when showSeparator is true
  */
-globalStyle(`${buttonGroup.classNames.variants.showSeparator.true} > button:not(:last-child)::after`, {
-  content: "",
-  position: "absolute",
-  right: 0,
-  top: "20%",
-  bottom: "20%",
-  width: "var(--bk-border-width-1)",
-  backgroundColor: "currentColor",
-  opacity: 0.2,
-  pointerEvents: "none",
-});
+globalStyle(
+  `${buttonGroup.classNames.variants.showSeparator.true} > button:not(:last-child)::after`,
+  {
+    content: "",
+    position: "absolute",
+    right: 0,
+    top: "20%",
+    bottom: "20%",
+    width: "var(--bk-border-width-1)",
+    backgroundColor: "currentColor",
+    opacity: 0.2,
+    pointerEvents: "none",
+  },
+);
 
 globalStyle(
   `${buttonGroup.classNames.variants.showSeparator.true} > div:not(:last-child) > button::after`,
@@ -131,7 +134,7 @@ globalStyle(
     backgroundColor: "currentColor",
     opacity: 0.2,
     pointerEvents: "none",
-  }
+  },
 );
 
 /**
@@ -166,7 +169,16 @@ globalStyle(`${dropdownTriggerWrapper.classNames.base} > button`, {
   paddingLeft: 0,
   paddingRight: 0,
   justifyContent: "center",
+  borderRight: "none",
 });
+
+globalStyle(
+  `${dropdownTriggerWrapper.classNames.base}:not(:first-child) > button`,
+  {
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
+  },
+);
 
 globalStyle(`${dropdownTriggerWrapper.classNames.variants.size.xs} > button`, {
   width: "var(--bk-size-xs)",
@@ -200,7 +212,8 @@ export const dropdownPortalContent = style({
   boxShadow: "var(--bk-shadow-lg)",
   opacity: 0,
   transform: "scale(0.95)",
-  transition: "opacity var(--bk-transition-fast) ease, transform var(--bk-transition-fast) ease",
+  transition:
+    "opacity var(--bk-transition-fast) ease, transform var(--bk-transition-fast) ease",
   overflow: "auto",
   maxHeight: "var(--bk-spacing-80)",
   selectors: {
