@@ -4,6 +4,9 @@ import { DataTable } from './DataTable';
 import { createSelectColumn, type ColumnDef, type SortingState, type PaginationState, type RowSelectionState } from './DataTable.utils';
 import { Badge } from '../Badge';
 import { Button } from '../Button';
+import { Icon } from '../Icon';
+import { Input } from '../Input';
+import { Label } from '../Label';
 
 // Sample data type
 interface User {
@@ -347,6 +350,79 @@ export const WithGlobalFilter: Story = {
         docs: {
             description: {
                 story: 'Enable global filtering to search across all columns.',
+            },
+        },
+    },
+};
+
+/**
+ * Custom global filter / search bar
+ */
+const CustomGlobalFilterExample = () => {
+    const [globalFilter, setGlobalFilter] = useState('');
+
+    return (
+        <DataTable
+            data={sampleData.slice(0, 20)}
+            columns={basicColumns}
+            enableGlobalFilter
+            globalFilter={globalFilter}
+            onGlobalFilterChange={setGlobalFilter}
+            enablePagination
+            initialPageSize={10}
+            renderGlobalFilter={({ value, onChange }) => (
+                <Label size='md' style={{ width: 'fit-content' }}>
+                    <Icon name="search" />
+                    <Input
+                        value={value}
+                        onChange={(e) => onChange(e.target.value)}
+                        placeholder="Custom search"
+                        fullWidth
+                    />
+                    {
+                        value && (
+                            <Button variant="ghost" onClick={() => onChange('')}>
+                                <Icon name="x" />
+                                Clear
+                            </Button>
+                        )
+                    }
+                </Label >
+            )}
+        />
+    );
+};
+
+export const CustomGlobalFilter: Story = {
+    render: () => <CustomGlobalFilterExample />,
+    parameters: {
+        docs: {
+            description: {
+                story: `
+Use \`renderGlobalFilter\` to fully customize the search bar UI while keeping the filtering logic intact.
+
+\`\`\`tsx
+<DataTable
+  enableGlobalFilter
+  renderGlobalFilter={({ value, onChange }) => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
+      <Icon name="search" />
+      <Input
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder="Custom search..."
+        size="md"
+      />
+      {value && (
+        <Button size="sm" variant="ghost" onClick={() => onChange('')}>
+          Clear
+        </Button>
+      )}
+    </div>
+  )}
+/>
+\`\`\`
+                `,
             },
         },
     },
