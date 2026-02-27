@@ -320,6 +320,9 @@ export function DataTable<TData>({
     style,
     'aria-label': ariaLabel,
 }: DataTableProps<TData>) {
+    // Ensure data is always an array to prevent TanStack Table errors
+    const safeData = data ?? [];
+
     // Internal state for uncontrolled mode
     const [internalSorting, setInternalSorting] = useState<SortingState>([]);
     const [internalPagination, setInternalPagination] = useState<PaginationState>({
@@ -337,7 +340,7 @@ export function DataTable<TData>({
 
     // Create the table instance
     const table = useReactTable({
-        data,
+        data: safeData,
         columns,
         state: {
             sorting,

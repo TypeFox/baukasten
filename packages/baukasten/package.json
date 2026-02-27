@@ -52,6 +52,7 @@
     "build": "tsc --project tsconfig.build.json && vite build && npm run build:css",
     "build:css": "npx tsx scripts/generate-css.ts",
     "preview": "vite preview",
+    "watch": "vite build --watch --mode development",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
