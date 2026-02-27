@@ -172,6 +172,7 @@ export const tableHeaderCell = recipe({
                         backgroundColor: 'transparent',
                         transition: 'var(--bk-transition-colors)',
                         pointerEvents: 'none',
+                        zIndex: -1,
                     },
                     '&:hover::after': {
                         backgroundColor: 'var(--bk-color-hover)',

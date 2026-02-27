@@ -185,6 +185,20 @@ export interface DataTableProps<TData> {
     globalFilterPlaceholder?: string;
 
     /**
+     * Custom render function for the global filter/search bar.
+     * Receives the current filter value and an onChange handler.
+     * When provided, replaces the default search input entirely.
+     *
+     * @example
+     * ```tsx
+     * renderGlobalFilter={({ value, onChange }) => (
+     *   <Input value={value} onChange={(e) => onChange(e.target.value)} placeholder="Custom search..." />
+     * )}
+     * ```
+     */
+    renderGlobalFilter?: (props: { value: string; onChange: (value: string) => void }) => React.ReactNode;
+
+    /**
      * Whether the table has sticky headers
      * @default false
      */
@@ -306,6 +320,7 @@ export function DataTable<TData>({
     globalFilter: controlledGlobalFilter,
     onGlobalFilterChange,
     globalFilterPlaceholder = 'Search...',
+    renderGlobalFilter,
     stickyHeader = false,
     maxHeight,
     fillHeight = false,
@@ -466,21 +481,32 @@ export function DataTable<TData>({
             {/* Toolbar with global filter */}
             {enableGlobalFilter && (
                 <div className={styles.toolbar}>
-                    <Label size="sm">
-                        <span className="label">
-                            <Icon name="search" />
-                        </span>
-                        <Input
-                            placeholder={globalFilterPlaceholder}
-                            value={globalFilterValue}
-                            onChange={(e) => {
-                                const value = e.target.value;
+                    {renderGlobalFilter
+                        ? renderGlobalFilter({
+                            value: globalFilterValue,
+                            onChange: (value) => {
                                 setInternalGlobalFilter(value);
                                 onGlobalFilterChange?.(value);
-                            }}
-                            size="sm"
-                        />
-                    </Label>
+                            },
+                        })
+                        : (
+                            <Label size="sm">
+                                <span className="label">
+                                    <Icon name="search" />
+                                </span>
+                                <Input
+                                    placeholder={globalFilterPlaceholder}
+                                    value={globalFilterValue}
+                                    onChange={(e) => {
+                                        const value = e.target.value;
+                                        setInternalGlobalFilter(value);
+                                        onGlobalFilterChange?.(value);
+                                    }}
+                                    size="sm"
+                                />
+                            </Label>
+                        )
+                    }
                 </div>
             )}
 
