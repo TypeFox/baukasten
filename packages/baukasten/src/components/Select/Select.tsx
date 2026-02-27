@@ -366,7 +366,7 @@ export function Select<T = string>(props: SelectProps<T>) {
   const placement: Placement = position === 'top' ? 'top-start' : 'bottom-start';
 
   // Floating UI setup
-  const { refs, floatingStyles, context, isPositioned } = useFloating({
+  const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: (open) => {
       setIsOpen(open);
@@ -688,7 +688,6 @@ export function Select<T = string>(props: SelectProps<T>) {
             className={`${styles.floatingWrapper}${dropdownClassName ? ` ${dropdownClassName}` : ''}`}
             style={{
               ...floatingStyles,
-              visibility: isPositioned ? 'visible' : 'hidden',
             }}
             {...getFloatingProps()}
           >

@@ -178,7 +178,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   const floatingPlacement: Placement = placement as Placement;
 
   // Floating UI setup
-  const { refs, floatingStyles, context, isPositioned } = useFloating({
+  const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: (open) => {
       if (disabled) return;
@@ -263,7 +263,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
               ref={refs.setFloating}
               style={{
                 ...floatingStyles,
-                visibility: isPositioned ? 'visible' : 'hidden',
                 zIndex: 'var(--bk-z-index-popover)',
               }}
               {...getFloatingProps()}

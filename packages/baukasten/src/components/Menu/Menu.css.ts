@@ -152,6 +152,10 @@ globalStyle(`${menuItemBase}:active:not([aria-disabled="true"])`, {
   backgroundColor: 'var(--bk-color-list-active)',
 });
 
+globalStyle(`${menuItemBase}:focus:not([aria-disabled="true"])`, {
+  backgroundColor: 'var(--bk-color-menu-selectionBackground)',
+});
+
 // SVG icon sizing
 globalStyle(`${menuItemBase} svg`, {
   width: '1em',
