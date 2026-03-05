@@ -163,7 +163,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const floatingPlacement: Placement = placement as Placement;
 
   // Floating UI setup
-  const { refs, floatingStyles, context, isPositioned } = useFloating({
+  const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
     placement: floatingPlacement,
@@ -227,7 +227,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
             ref={refs.setFloating}
             style={{
               ...floatingStyles,
-              visibility: isPositioned ? 'visible' : 'hidden',
               maxWidth,
               zIndex: 'var(--bk-z-index-tooltip)',
             }}

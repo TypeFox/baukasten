@@ -104,7 +104,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
   // Floating UI setup
   // Note: No autoUpdate - context menus should stay fixed at the cursor position
-  const { refs, floatingStyles, context, isPositioned } = useFloating({
+  const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: (open) => {
       setIsOpen(open);
@@ -187,7 +187,6 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
               ref={refs.setFloating}
               style={{
                 ...floatingStyles,
-                visibility: isPositioned ? 'visible' : 'hidden',
                 zIndex: 'var(--bk-z-index-context-menu)',
               }}
               {...getFloatingProps()}

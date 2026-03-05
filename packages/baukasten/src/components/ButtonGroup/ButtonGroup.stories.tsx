@@ -391,6 +391,10 @@ export const DropdownPlacements: Story = {
         <Button variant="secondary" size="xl">Action</Button>
         <ButtonGroup.Dropdown size="xl" variant="secondary" content={<SampleMenu />} placement="top-end" />
       </ButtonGroup>
+      <ButtonGroup>
+        <ButtonGroup.Dropdown size="xl" variant="secondary" content={<SampleMenu />} placement="top-end" />
+        <Button variant="secondary" size="xl">Action</Button>
+      </ButtonGroup>
     </div>
   ),
   parameters: {
