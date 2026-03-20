@@ -64,6 +64,7 @@ export const table = recipe({
         color: 'var(--bk-color-foreground)',
         fontFamily: 'inherit',
         backgroundColor: 'var(--bk-color-background)',
+        outline: 'none',
     },
     variants: {
         fullWidth: {
@@ -172,6 +173,7 @@ export const tableHeaderCell = recipe({
                         backgroundColor: 'transparent',
                         transition: 'var(--bk-transition-colors)',
                         pointerEvents: 'none',
+                        zIndex: -1,
                     },
                     '&:hover::after': {
                         backgroundColor: 'var(--bk-color-hover)',
@@ -214,8 +216,8 @@ export const headerContent = style({
 export const sortIndicator = recipe({
     base: {
         display: 'inline-flex',
+        alignItems: 'center',
         marginLeft: 'var(--bk-spacing-1)',
-        fontSize: '0.75em',
         opacity: 0.5,
         transition: 'var(--bk-transition-base)',
     },
@@ -276,12 +278,8 @@ export const tableRow = recipe({
     },
     variants: {
         variant: {
-            default: {
-                backgroundColor: 'var(--bk-color-background)',
-            },
-            zebra: {
-                backgroundColor: 'transparent',
-            },
+            default: {},
+            zebra: {},
         },
         selected: {
             true: {
@@ -325,7 +323,7 @@ export const zebraRow = style({});
 /**
  * Zebra striping for even rows
  */
-globalStyle(`tbody tr${zebraRow}:nth-child(even)`, {
+globalStyle(`tbody tr${zebraRow}:nth-child(even):not([data-selected])`, {
     backgroundColor: 'var(--bk-color-background-secondary)',
 });
 
@@ -347,11 +345,21 @@ export const tableCell = recipe({
             false: {},
         },
         size: cellSizes,
+        truncate: {
+            true: {
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                maxWidth: 0, // Forces the cell to respect the column width in fixed table layout
+            },
+            false: {},
+        },
     },
     defaultVariants: {
         align: 'left',
         bordered: true,
         size: 'md',
+        truncate: false,
     },
 });
 
