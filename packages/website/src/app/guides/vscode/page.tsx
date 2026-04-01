@@ -3,7 +3,7 @@
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
 import Link from 'next/link';
-import { Heading, Alert, Icon, Divider } from 'baukasten-ui';
+import { Heading, Alert, Icon, Divider } from 'baukasten-ui/core';
 
 const Section = ({ children }: { children: React.ReactNode }) => (
     <section style={{ marginBottom: 'var(--bk-spacing-12)' }}>{children}</section>
@@ -45,7 +45,7 @@ export default function VSCodeGuidePage() {
                     In your webview React application, import the styles and components:
                 </Paragraph>
                 <CodeBlock
-                    code={`import { GlobalStyles, Button, Input, Alert } from 'baukasten-ui';
+                    code={`import { GlobalStyles, Button, Input, Alert } from 'baukasten-ui/core';
 
 function App() {
   return (

@@ -2,7 +2,7 @@
 
 import { PropDefinition, Showcase } from '@/components/ComponentShowcase';
 import PageLayout from '@/components/PageLayout';
-import { Input, Heading, Text as UIText } from 'baukasten-ui';
+import { Input, Heading, Text as UIText } from 'baukasten-ui/core';
 
 const inputProps: PropDefinition[] = [
     {
@@ -64,7 +64,7 @@ export default function InputPage() {
                 title="Basic Usage"
                 description="The default input with medium size."
                 preview={<Input placeholder="Enter text..." />}
-                code={`import { Input } from 'baukasten-ui';
+                code={`import { Input } from 'baukasten-ui/core';
 
 function App() {
   return <Input placeholder="Enter text..." />;
@@ -148,7 +148,7 @@ function App() {
                         </div>
                     </div>
                 }
-                code={`import { Input, Text as UIText } from 'baukasten-ui';
+                code={`import { Input, Text as UIText } from 'baukasten-ui/core';
 
 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%' }}>
   <div>
@@ -203,7 +203,7 @@ function App() {
                         </div>
                     </div>
                 }
-                code={`import { Input, Text as UIText } from 'baukasten-ui';
+                code={`import { Input, Text as UIText } from 'baukasten-ui/core';
 
 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%' }}>
   <div>
@@ -244,7 +244,7 @@ function App() {
                         </div>
                     </div>
                 }
-                code={`import { Input, Text as UIText } from 'baukasten-ui';
+                code={`import { Input, Text as UIText } from 'baukasten-ui/core';
 
 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%' }}>
   <div>
@@ -299,7 +299,7 @@ function App() {
                         </div>
                     </div>
                 }
-                code={`import { Input, Heading } from 'baukasten-ui';
+                code={`import { Input, Heading } from 'baukasten-ui/core';
 
 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', width: '100%' }}>
   <div>

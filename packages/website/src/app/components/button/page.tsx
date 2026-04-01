@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, Variant, VariantGrid, PropDefinition } from '@/components/ComponentShowcase';
-import { Button } from 'baukasten-ui';
+import { Button } from 'baukasten-ui/core';
 
 const buttonProps: PropDefinition[] = [
   {
@@ -64,7 +64,7 @@ export default function ButtonPage() {
         title="Basic Usage"
         description="The default button with primary variant."
         preview={<Button>Click me</Button>}
-        code={`import { Button } from 'baukasten-ui';
+        code={`import { Button } from 'baukasten-ui/core';
 
 function App() {
   return <Button>Click me</Button>;

@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Heading, Text, Paragraph, Code, Link } from 'baukasten-ui';
+import { Heading, Text, Paragraph, Code, Link } from 'baukasten-ui/core';
 
 const headingProps: PropDefinition[] = [
     { name: 'level', type: '1 | 2 | 3 | 4 | 5 | 6', default: '1', description: 'Semantic heading level (h1-h6)' },
@@ -64,7 +64,7 @@ export default function TypographyPage() {
                         <Heading level={6}>Heading Level 6</Heading>
                     </div>
                 }
-                code={`import { Heading } from 'baukasten-ui';
+                code={`import { Heading } from 'baukasten-ui/core';
 
 function App() {
   return (
@@ -112,7 +112,7 @@ function App() {
                         </div>
                     </div>
                 }
-                code={`import { Text } from 'baukasten-ui';
+                code={`import { Text } from 'baukasten-ui/core';
 
 // Weight and style
 <Text>Default text</Text>
@@ -183,7 +183,7 @@ function App() {
                         </Paragraph>
                     </div>
                 }
-                code={`import { Paragraph } from 'baukasten-ui';
+                code={`import { Paragraph } from 'baukasten-ui/core';
 
 // Default paragraph
 <Paragraph>
@@ -236,7 +236,7 @@ Line 9
 Line 10`}</Code>
                     </div>
                 }
-                code={`import { Code, Text } from 'baukasten-ui';
+                code={`import { Code, Text } from 'baukasten-ui/core';
 
 // Inline code
 <Text>Use the <Code>console.log()</Code> function.</Text>
@@ -302,7 +302,7 @@ Line 10`}</Code>
                         </Paragraph>
                     </div>
                 }
-                code={`import { Link, Paragraph } from 'baukasten-ui';
+                code={`import { Link, Paragraph } from 'baukasten-ui/core';
 
 // Default link
 <Link href="#default">Default link</Link>
@@ -350,7 +350,7 @@ Line 10`}</Code>
 
                         <Heading level={3}>Basic Example</Heading>
                         <Code block>
-                            {`import { Button, Input } from 'baukasten-ui';
+                            {`import { Button, Input } from 'baukasten-ui/core';
 
 function App() {
   return <Button>Click me</Button>;
@@ -362,7 +362,7 @@ function App() {
                         </Paragraph>
                     </div>
                 }
-                code={`import { Heading, Paragraph, Code, Link } from 'baukasten-ui';
+                code={`import { Heading, Paragraph, Code, Link } from 'baukasten-ui/core';
 
 function Article() {
   return (
@@ -379,7 +379,7 @@ function Article() {
 
       <Heading level={3}>Basic Example</Heading>
       <Code block>
-        {\`import { Button } from 'baukasten-ui';
+        {\`import { Button } from 'baukasten-ui/core';
         
 function App() {
   return <Button>Click me</Button>;

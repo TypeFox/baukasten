@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { StatusBar, StatusBarSection, StatusBarItem, Icon, Badge, Heading, Dropdown, Menu, MenuItem, MenuDivider } from 'baukasten-ui';
+import { Icon, Badge, Heading, Dropdown } from 'baukasten-ui/core';
+import { StatusBar, StatusBarSection, StatusBarItem, Menu, MenuItem, MenuDivider } from 'baukasten-ui/extra';
 
 const statusBarProps: PropDefinition[] = [
     {
@@ -421,7 +422,8 @@ export default function StatusBarPage() {
                         </StatusBar>
                     </div>
                 }
-                code={`import { StatusBar, StatusBarSection, StatusBarItem, Icon } from 'baukasten-ui';
+                code={`import { Icon } from 'baukasten-ui/core';
+import { StatusBar, StatusBarSection, StatusBarItem } from 'baukasten-ui/extra';
 
 function App() {
   return (
@@ -501,7 +503,8 @@ function App() {
                 description="Add onClick handlers to make status bar items interactive. Items become clickable with hover states and support keyboard navigation. Click items to see state changes!"
                 preview={<InteractiveStatusBar />}
                 code={`import { useState } from 'react';
-import { StatusBar, StatusBarSection, StatusBarItem, Icon } from 'baukasten-ui';
+import { Icon } from 'baukasten-ui/core';
+import { StatusBar, StatusBarSection, StatusBarItem } from 'baukasten-ui/extra';
 
 function App() {
   const [branch, setBranch] = useState('main');
@@ -678,7 +681,8 @@ function App() {
                 title="With Dropdowns"
                 description="Status bar items can trigger dropdowns that open upward using placement='top-start' or 'top-end'. Essential for status bars at the bottom of the screen. Click items to open menus."
                 preview={<DropdownExample />}
-                code={`import { Dropdown, Menu, MenuItem } from 'baukasten-ui';
+                code={`import { Dropdown } from 'baukasten-ui/core';
+import { Menu, MenuItem } from 'baukasten-ui/extra';
 
 function App() {
   const [selectedBranch, setSelectedBranch] = useState('main');

@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase, Variant, VariantGrid, PropDefinition } from '@/components/ComponentShowcase';
-import { Badge, Icon } from 'baukasten-ui';
+import { Badge, Icon } from 'baukasten-ui/core';
 
 const badgeProps: PropDefinition[] = [
   {
@@ -43,7 +43,7 @@ export default function BadgePage() {
         preview={
           <Badge>Default Badge</Badge>
         }
-        code={`import { Badge } from 'baukasten-ui';
+        code={`import { Badge } from 'baukasten-ui/core';
 
 function App() {
   return <Badge>Default Badge</Badge>;
@@ -285,6 +285,51 @@ function App() {
   <span>Inbox</span>
   <Badge variant="info" size="sm">42</Badge>
 </div>`}
+      />
+
+      <Showcase
+        title="Single Character Badges"
+        description="Badges with single digits or letters render as circles, perfect for compact counters and indicators."
+        preview={
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+              <Badge variant="error" size="xs">5</Badge>
+              <Badge variant="error" size="sm">5</Badge>
+              <Badge variant="error" size="md">5</Badge>
+              <Badge variant="error" size="lg">5</Badge>
+              <Badge variant="error" size="xl">5</Badge>
+            </div>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+              <Badge variant="info">A</Badge>
+              <Badge variant="success">B</Badge>
+              <Badge variant="warning">C</Badge>
+              <Badge variant="error">1</Badge>
+              <Badge variant="default">2</Badge>
+            </div>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+              <Badge variant="info" outline>A</Badge>
+              <Badge variant="success" outline>B</Badge>
+              <Badge variant="warning" outline>C</Badge>
+              <Badge variant="error" outline>1</Badge>
+              <Badge variant="default" outline>2</Badge>
+            </div>
+          </div>
+        }
+        code={`// Single digits at different sizes
+<Badge variant="error" size="xs">5</Badge>
+<Badge variant="error" size="sm">5</Badge>
+<Badge variant="error" size="md">5</Badge>
+<Badge variant="error" size="lg">5</Badge>
+<Badge variant="error" size="xl">5</Badge>
+
+// Single letters with different variants
+<Badge variant="info">A</Badge>
+<Badge variant="success">B</Badge>
+<Badge variant="warning">C</Badge>
+
+// Single character outline style
+<Badge variant="info" outline>A</Badge>
+<Badge variant="success" outline>B</Badge>`}
       />
 
       <Showcase

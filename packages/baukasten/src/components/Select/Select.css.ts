@@ -256,8 +256,8 @@ export const searchInput = style({
  */
 export const optionsContainer = style({
     padding: 'var(--bk-spacing-1) 0',
-    minWidth: '100%',
-    width: 'max-content',
+    width: '100%',
+    overflowX: 'hidden',
     overflowY: 'auto',
     flex: '1 1 auto',
 });

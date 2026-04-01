@@ -3,7 +3,7 @@
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
 import Link from 'next/link';
-import { Heading, Alert, Icon, Divider } from 'baukasten-ui';
+import { Heading, Alert, Icon, Divider } from 'baukasten-ui/core';
 
 const Section = ({ children }: { children: React.ReactNode }) => (
     <section style={{ marginBottom: 'var(--bk-spacing-12)' }}>{children}</section>
@@ -56,7 +56,7 @@ import 'baukasten-ui/dist/baukasten-theia.css';`}
                     Then use components in your application:
                 </Paragraph>
                 <CodeBlock
-                    code={`import { Button, Input, Select, Alert } from 'baukasten-ui';
+                    code={`import { Button, Input, Select, Alert } from 'baukasten-ui/core';
 
 function MyTheiaWidget() {
   return (
@@ -120,7 +120,7 @@ function MyTheiaWidget() {
                 </Paragraph>
                 <CodeBlock
                     code={`import { useRef, useState, useEffect } from 'react';
-import { PortalProvider, Select, Dropdown, Tooltip, Button } from 'baukasten-ui';
+import { PortalProvider, Select, Dropdown, Tooltip, Button } from 'baukasten-ui/core';
 
 function SecondaryWindowContent() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -234,7 +234,7 @@ function SecondaryWindowContent() {
                     A hook to access the portal root element. Useful if you're building custom portal-based components:
                 </Paragraph>
                 <CodeBlock
-                    code={`import { usePortalRoot } from 'baukasten-ui';
+                    code={`import { usePortalRoot } from 'baukasten-ui/core';
 import { FloatingPortal } from '@floating-ui/react';
 
 function CustomFloatingComponent() {

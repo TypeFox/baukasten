@@ -2,7 +2,7 @@
 
 import PageLayout from '@/components/PageLayout';
 import CodeBlock from '@/components/CodeBlock';
-import { Code, Button } from 'baukasten-ui';
+import { Code, Button } from 'baukasten-ui/core';
 
 interface ColorToken {
   name: string;
