@@ -23,8 +23,19 @@ export type DrawerPlacement = 'top' | 'right' | 'bottom' | 'left';
  * Drawer size options
  * - Standard sizes: xs, sm, md, lg, xl
  * - fullscreen: Covers the entire viewport edge
+ * - Custom CSS value: any valid CSS length (e.g. '400px', '70vh', '50vw')
  */
-export type DrawerSize = Size | 'fullscreen';
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type DrawerSize = Size | 'fullscreen' | (string & {});
+
+/** Known preset size keys handled by the CSS recipe */
+const PRESET_SIZES = new Set(['xs', 'sm', 'md', 'lg', 'xl', 'fullscreen']);
+
+type RecipeSize = Size | 'fullscreen' | 'custom';
+
+function toRecipeSize(size: DrawerSize): RecipeSize {
+  return PRESET_SIZES.has(size) ? (size as RecipeSize) : 'custom';
+}
 
 /**
  * Backdrop visual style
@@ -337,7 +348,14 @@ export const Drawer: React.FC<DrawerProps> = ({
       />
       <div
         ref={drawerRef}
-        className={clsx(drawerContainer({ placement, size, animationState }), className)}
+        className={clsx(drawerContainer({ placement, size: toRecipeSize(size), animationState }), className)}
+        style={
+          !PRESET_SIZES.has(size)
+            ? (placement === 'left' || placement === 'right'
+              ? { width: size, maxWidth: '100vw' }
+              : { height: size, maxHeight: '100vh' })
+            : undefined
+        }
         role="dialog"
         aria-modal="true"
         tabIndex={-1}

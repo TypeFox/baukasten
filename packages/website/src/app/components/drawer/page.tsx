@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Drawer, DrawerHeader, DrawerBody, DrawerFooter, Button, Icon, Input, FormGroup, FieldLabel, Heading, Paragraph, Text, Menu, MenuItem, MenuDivider, Select, type SelectOption } from 'baukasten-ui';
+import { Drawer, DrawerHeader, DrawerBody, DrawerFooter, Button, Icon, Input, FormGroup, FieldLabel, Heading, Paragraph, Text, Menu, MenuItem, MenuDivider, Select, type SelectOption, type DrawerSize } from 'baukasten-ui';
 
 const drawerProps: PropDefinition[] = [
     {
@@ -26,9 +26,9 @@ const drawerProps: PropDefinition[] = [
     },
     {
         name: 'size',
-        type: '"xs" | "sm" | "md" | "lg" | "xl" | "fullscreen"',
+        type: '"xs" | "sm" | "md" | "lg" | "xl" | "fullscreen" | string',
         default: '"md"',
-        description: 'Size of the drawer (width for left/right, height for top/bottom)',
+        description: 'Size of the drawer (width for left/right, height for top/bottom). Accepts preset sizes or any valid CSS length (e.g. "400px", "70vh", "50vw").',
     },
     {
         name: 'backdropVariant',
@@ -251,6 +251,7 @@ export default function DrawerPage() {
     const [fullscreenDrawer, setFullscreenDrawer] = useState(false);
     const [backdropDrawer, setBackdropDrawer] = useState<'solid' | 'blur' | 'transparent' | null>(null);
     const [scrollDrawer, setScrollDrawer] = useState(false);
+    const [customSizeDrawer, setCustomSizeDrawer] = useState<string | null>(null);
 
     return (
         <PageLayout
@@ -454,6 +455,63 @@ function App() {
   <DrawerBody>
     {/* Your fullscreen content */}
   </DrawerBody>
+</Drawer>`}
+            />
+
+            <Showcase
+                title="Custom Size"
+                description="Pass any valid CSS length as the size prop for precise control. Works for both left/right (sets width) and top/bottom (sets height) drawers."
+                preview={
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap' }}>
+                        {(['400px', '70vh', '50vw', '30rem'] as string[]).map((size) => (
+                            <Button key={size} size="sm" onClick={() => setCustomSizeDrawer(size)}>
+                                {size}
+                            </Button>
+                        ))}
+                        {(['400px', '70vh', '50vw', '30rem'] as string[]).map((size) => (
+                            <Drawer
+                                key={size}
+                                open={customSizeDrawer === size}
+                                onClose={() => setCustomSizeDrawer(null)}
+                                size={size as DrawerSize}
+                            >
+                                <DrawerHeader onClose={() => setCustomSizeDrawer(null)}>
+                                    Custom size: {size}
+                                </DrawerHeader>
+                                <DrawerBody>
+                                    <Paragraph>This drawer uses a custom CSS size value: <Text weight="bold">{size}</Text>.</Paragraph>
+                                    <Paragraph>Any valid CSS length can be used — px, vh, vw, rem, calc(), etc.</Paragraph>
+                                </DrawerBody>
+                                <DrawerFooter>
+                                    <Button onClick={() => setCustomSizeDrawer(null)}>Close</Button>
+                                </DrawerFooter>
+                            </Drawer>
+                        ))}
+                    </div>
+                }
+                code={`// Exact pixel size
+<Drawer open={isOpen} onClose={handleClose} size="400px">
+  <DrawerBody>400px wide drawer.</DrawerBody>
+</Drawer>
+
+// Viewport-relative height (top/bottom placement)
+<Drawer open={isOpen} onClose={handleClose} placement="bottom" size="70vh">
+  <DrawerBody>70% of viewport height.</DrawerBody>
+</Drawer>
+
+// Viewport-relative width
+<Drawer open={isOpen} onClose={handleClose} size="50vw">
+  <DrawerBody>50% of viewport width.</DrawerBody>
+</Drawer>
+
+// Rem-based
+<Drawer open={isOpen} onClose={handleClose} size="30rem">
+  <DrawerBody>30rem wide drawer.</DrawerBody>
+</Drawer>
+
+// Calc expression
+<Drawer open={isOpen} onClose={handleClose} size="calc(100vw - 4rem)">
+  <DrawerBody>Full width minus 4rem.</DrawerBody>
 </Drawer>`}
             />
 

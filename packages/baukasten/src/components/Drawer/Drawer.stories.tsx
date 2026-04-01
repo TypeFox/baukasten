@@ -16,7 +16,7 @@ import { Menu, MenuItem, MenuDivider } from '../Menu';
  *
  * ## Features
  * - **Placements**: top, right, bottom, left
- * - **Sizes**: xs, sm, md, lg, xl, fullscreen
+ * - **Sizes**: xs, sm, md, lg, xl, fullscreen, or any CSS length (e.g. `400px`, `70vh`, `50vw`)
  * - **Backdrop Variants**: solid, blur, transparent
  * - **Slide Animation**: Smooth CSS transition in/out
  * - **Keyboard Navigation**: ESC to close (configurable)
@@ -68,11 +68,10 @@ const meta = {
       },
     },
     size: {
-      control: 'select',
-      options: ['xs', 'sm', 'md', 'lg', 'xl', 'fullscreen'],
-      description: 'Size of the drawer (width for left/right, height for top/bottom)',
+      control: 'text',
+      description: 'Size of the drawer (width for left/right, height for top/bottom). Accepts preset sizes (xs, sm, md, lg, xl, fullscreen) or any valid CSS length (e.g. "400px", "70vh", "50vw").',
       table: {
-        type: { summary: 'xs | sm | md | lg | xl | fullscreen' },
+        type: { summary: 'xs | sm | md | lg | xl | fullscreen | string' },
         defaultValue: { summary: 'md' },
       },
     },
@@ -274,7 +273,7 @@ export const Sizes: CustomRenderStory = {
   parameters: {
     docs: {
       description: {
-        story: 'Available sizes: xs (280px), sm (320px), md (400px), lg (560px), xl (720px). Size controls width for left/right drawers and height for top/bottom drawers.',
+        story: 'Available preset sizes: xs (280px), sm (320px), md (400px), lg (560px), xl (720px). Size controls width for left/right drawers and height for top/bottom drawers. You can also pass any CSS length value (e.g. `"400px"`, `"70vh"`, `"50vw"`) for custom sizing.',
       },
     },
   },
@@ -321,6 +320,56 @@ export const Fullscreen: CustomRenderStory = {
     docs: {
       description: {
         story: 'Fullscreen drawer takes up 100% of the viewport width (for left/right) or height (for top/bottom).',
+      },
+    },
+  },
+};
+
+/**
+ * Custom CSS size values: pass any valid CSS length as the size prop.
+ * Examples: '400px', '70vh', '50vw', '30rem', 'calc(100vw - 4rem)'
+ */
+const CustomSizeComponent = () => {
+  const [openSize, setOpenSize] = useState<string | null>(null);
+  const customSizes = ['400px', '70vh', '50vw', '30rem', 'calc(100vw - 4rem)'] as const;
+
+  return (
+    <div style={{ display: 'flex', gap: '1rem', padding: '2rem', flexWrap: 'wrap' }}>
+      {customSizes.map((size) => (
+        <React.Fragment key={size}>
+          <Button onClick={() => setOpenSize(size)}>
+            {size}
+          </Button>
+          <Drawer
+            open={openSize === size}
+            onClose={() => setOpenSize(null)}
+            size={size}
+          >
+            <DrawerHeader onClose={() => setOpenSize(null)}>
+              Custom size: {size}
+            </DrawerHeader>
+            <DrawerBody>
+              <Paragraph>This drawer uses a custom CSS size value: <Text weight="bold">{size}</Text>.</Paragraph>
+              <Paragraph>
+                Any valid CSS length can be passed — px, vh, vw, rem, calc(), etc.
+              </Paragraph>
+            </DrawerBody>
+            <DrawerFooter>
+              <Button onClick={() => setOpenSize(null)}>Close</Button>
+            </DrawerFooter>
+          </Drawer>
+        </React.Fragment>
+      ))}
+    </div>
+  );
+};
+
+export const CustomSize: CustomRenderStory = {
+  render: () => <CustomSizeComponent />,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Pass any valid CSS length value as `size` for custom sizing — e.g. `"400px"`, `"70vh"`, `"50vw"`, `"30rem"`, `"calc(100vw - 4rem)"`. For left/right drawers the value sets the width; for top/bottom it sets the height.',
       },
     },
   },

@@ -109,6 +109,7 @@ export const drawerContainer = recipe({
       lg: {},
       xl: {},
       fullscreen: {},
+      custom: {},
     },
 
     animationState: {
