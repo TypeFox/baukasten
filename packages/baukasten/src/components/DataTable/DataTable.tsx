@@ -320,6 +320,9 @@ export function DataTable<TData>({
     style,
     'aria-label': ariaLabel,
 }: DataTableProps<TData>) {
+    // Ensure data is always an array to prevent TanStack Table errors
+    const safeData = data ?? [];
+
     // Internal state for uncontrolled mode
     const [internalSorting, setInternalSorting] = useState<SortingState>([]);
     const [internalPagination, setInternalPagination] = useState<PaginationState>({
@@ -337,7 +340,7 @@ export function DataTable<TData>({
 
     // Create the table instance
     const table = useReactTable({
-        data,
+        data: safeData,
         columns,
         state: {
             sorting,
@@ -420,10 +423,10 @@ export function DataTable<TData>({
                 <div className={styles.headerContent}>
                     {header.isPlaceholder
                         ? null
-                        : flexRender(header.column.columnDef.header, header.getContext())}
+                        : flexRender(header.column.columnDef.header, header.getContext()) as React.ReactNode}
                     {canSort && (
                         <span className={styles.sortIndicator({ active: !!isSorted })}>
-                            {isSorted === 'asc' ? '▲' : isSorted === 'desc' ? '▼' : '▲'}
+                            <Icon name={isSorted === 'desc' ? 'chevron-down' : 'chevron-up'} />
                         </span>
                     )}
                 </div>
@@ -434,6 +437,8 @@ export function DataTable<TData>({
                         })}
                         onMouseDown={header.getResizeHandler()}
                         onTouchStart={header.getResizeHandler()}
+                        onClick={(e) => e.stopPropagation()}
+                        onDoubleClick={(e) => e.stopPropagation()}
                     />
                 )}
             </th>
@@ -448,18 +453,68 @@ export function DataTable<TData>({
                     align: (cell.column.columnDef.meta as { align?: DataTableColumnAlign })?.align ?? 'left',
                     bordered,
                     size,
+                    truncate: enableColumnResizing,
                 })}
                 style={{
                     width: cell.column.getSize(),
                 }}
             >
-                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                {flexRender(cell.column.columnDef.cell, cell.getContext()) as React.ReactNode}
             </td>
         );
     };
 
     const rows = table.getRowModel().rows;
     const isEmpty = rows.length === 0 && !loading;
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLTableElement>) => {
+        if (!enableRowSelection) {
+            return;
+        }
+
+        if (e.key === ' ') {
+            e.preventDefault();
+            const selectedIds = Object.keys(table.getState().rowSelection);
+            if (selectedIds.length === 1) {
+                const currentRow = rows.find((r) => r.id === selectedIds[0]);
+                if (currentRow) {
+                    if (enableMultiRowSelection) {
+                        currentRow.toggleSelected();
+                    } else {
+                        table.setRowSelection(currentRow.getIsSelected() ? {} : { [currentRow.id]: true });
+                    }
+                }
+            }
+            return;
+        }
+
+        if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') {
+            return;
+        }
+        e.preventDefault();
+
+        const selectedIds = Object.keys(table.getState().rowSelection);
+        const currentIndex = selectedIds.length === 1
+            ? rows.findIndex((r) => r.id === selectedIds[0])
+            : -1;
+
+        let nextIndex: number;
+        if (e.key === 'ArrowDown') {
+            nextIndex = currentIndex < rows.length - 1 ? currentIndex + 1 : currentIndex;
+        } else {
+            nextIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+        }
+
+        const nextRow = rows[nextIndex];
+        if (nextRow) {
+            table.setRowSelection({ [nextRow.id]: true });
+            onRowSelectionChange?.({ [nextRow.id]: true });
+            // Scroll the newly selected row into view
+            const tableEl = e.currentTarget;
+            const rowEl = tableEl.querySelector<HTMLElement>(`tr[data-rowid="${nextRow.id}"]`);
+            rowEl?.scrollIntoView({ block: 'nearest' });
+        }
+    };
 
     return (
         <div className={`${styles.dataTableWrapper({ fillHeight })} ${className ?? ''}`} style={style}>
@@ -502,6 +557,8 @@ export function DataTable<TData>({
                     style={{
                         tableLayout: enableColumnResizing ? 'fixed' : undefined,
                     }}
+                    onKeyDown={enableRowSelection ? handleKeyDown : undefined}
+                    tabIndex={enableRowSelection ? 0 : undefined}
                 >
                     <thead className={styles.tableHead({ sticky: stickyHeader })}>
                         {table.getHeaderGroups().map((headerGroup) => (
@@ -534,13 +591,27 @@ export function DataTable<TData>({
                             rows.map((row) => (
                                 <tr
                                     key={row.id}
+                                    data-rowid={row.id}
+                                    data-selected={row.getIsSelected() || undefined}
                                     className={`${styles.tableRow({
                                         variant,
                                         selected: row.getIsSelected(),
                                         hoverable: !!onRowClick || !!enableRowSelection,
                                     })} ${variant === 'zebra' ? styles.zebraRow : ''}`.trim()}
-                                    onClick={onRowClick ? () => onRowClick(row) : undefined}
-                                    style={{ cursor: onRowClick ? 'pointer' : undefined }}
+                                    onClick={(e) => {
+                                        if (enableRowSelection) {
+                                            if (enableMultiRowSelection && (e.ctrlKey || e.metaKey)) {
+                                                // Multi-select: toggle individual row
+                                                row.toggleSelected();
+                                            } else {
+                                                // Single call to set selection to only this row,
+                                                // avoids stale state from separate reset + toggle calls
+                                                table.setRowSelection({ [row.id]: true });
+                                            }
+                                        }
+                                        onRowClick?.(row);
+                                    }}
+                                    style={{ cursor: (onRowClick || enableRowSelection) ? 'pointer' : undefined }}
                                 >
                                     {row.getVisibleCells().map(renderCell)}
                                 </tr>
