@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.875 6.75" width="100%" fill="#e94b7d" fill-rule="evenodd" stroke="white" stroke-width="0.75" paint-order="stroke" stroke-linejoin="round" stroke-linecap="round">
+  <defs>
+    <path id="roof" d="M 0 0 h 26.125 v 0.75 h -26.125 Z"/>
+    <path id="b" d="M 0 0 h 1 v 1 h 1.5 v 3.75 h -2.5 Z
+    M 1 1.75 h 0.5 v 2.25 h -0.5 Z"/>
+    <path id="a" d="M 0 1 h 2.5 v 3.75 h -2.5 v -2.25 h 1.5 v -0.75 h -1.5 Z
+    M 1 3.25 h 0.5 v 0.75 h -0.5 Z"/>
+    <path id="u" d="M 0 1 h 1 v 3 h 0.5 v -3 h 1 v 3.75 h -2.5 Z"/>
+    <path id="k" d="M 0 0 h 1 v 2.5 h 0.5 v -1.5 h 1 v 3.75 h -1 v -1.5 h -0.5 v 1.5 h -1 Z"/>
+    <path id="s" d="M 0 1 h 2.5 v 1.25 h -1 v -0.5 h -0.5 v 0.75 h 1.5 v 2.25 h -2.5 v -1.25 h 1 v 0.5 h 0.5 v -0.75 h -1.5 Z"/>
+    <path id="t" d="M 0 1 h 0.375 v -1 h 1 v 1 h 0.75 v 0.75 h -0.75 v 2.25 h 0.75 v 0.75 h -1.75 v -3 h -0.375 Z"/>
+  </defs>
+  <use href="#roof" transform="translate(0.375, 0.375)" />
+  <use href="#b" transform="translate(0.375, 1.625)" />
+  <use href="#a" transform="translate(3.375, 1.625)" />
+  <use href="#u" transform="translate(6.375, 1.625)" />
+  <use href="#k" transform="translate(9.375, 1.625)" />
+  <use href="#a" transform="translate(12.375, 1.625)" />
+  <use href="#s" transform="translate(15.375, 1.625)" />
+  <use href="#t" transform="translate(18.375, 1.625)" />
+  <use href="#a" transform="translate(23.5, 7.375) rotate(180)" />
+  <use href="#u" transform="translate(26.5, 7.375) rotate(180)" />
+</svg>
