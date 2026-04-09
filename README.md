@@ -1,4 +1,8 @@
-# Baukasten UI
+<p align="center">
+  <img src="./packages/website/public/baukasten.svg" alt="Baukasten UI" width="400" />
+</p>
+
+<h1 align="center">Baukasten UI</h1>
 
 A UI toolkit for building native-feel web applicaiton, that runs on browser, Eclipse Theia or VSCode. 
 

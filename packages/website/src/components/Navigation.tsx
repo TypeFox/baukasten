@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Icon, Badge, Heading, Text, Paragraph, Button } from 'baukasten-ui/core';
+import { Icon, Text, Paragraph, Button } from 'baukasten-ui/core';
 import { Menu, MenuItem } from 'baukasten-ui/extra';
 import ThemePicker from './ThemePicker';
 import SearchModal from './SearchModal';
@@ -76,6 +76,26 @@ const gettingStarted = [
 export default function Navigation() {
   const pathname = usePathname();
   const [searchOpen, setSearchOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+
+  // Persist sidebar scroll position across navigation
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+
+    // Restore saved scroll position when pathname changes
+    const saved = sessionStorage.getItem('nav-scroll');
+    if (saved !== null) {
+      nav.scrollTop = parseInt(saved, 10);
+    }
+
+    const handleScroll = () => {
+      sessionStorage.setItem('nav-scroll', String(nav.scrollTop));
+    };
+
+    nav.addEventListener('scroll', handleScroll, { passive: true });
+    return () => nav.removeEventListener('scroll', handleScroll);
+  }, [pathname]);
 
   // Handle Cmd/Ctrl + K keyboard shortcut
   useEffect(() => {
@@ -105,7 +125,7 @@ export default function Navigation() {
         }
         .nav-section:last-child { margin-bottom: 0; }
       `}</style>
-      <nav className="nav-scrollbar" style={{
+      <nav ref={navRef} className="nav-scrollbar" style={{
         width: '280px',
         height: '100vh',
         position: 'fixed',
@@ -140,39 +160,12 @@ export default function Navigation() {
             gap: 'var(--bk-spacing-3)',
             marginBottom: 'var(--bk-spacing-2)',
           }}>
-            <div style={{
-              width: '36px',
-              height: '36px',
-              background: 'linear-gradient(135deg, var(--vscode-button-background) 0%, var(--vscode-button-hoverBackground) 100%)',
-              borderRadius: 'var(--bk-radius-md)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-            }}>
-              <Icon name="symbol-color" style={{
-                color: 'var(--vscode-button-foreground)',
-                fontSize: '20px',
-              }} />
-            </div>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <Heading level={4} style={{
-                margin: 0,
-                fontSize: 'calc(var(--vscode-font-size) * 1.15)',
-                fontWeight: 700,
-                letterSpacing: '-0.01em',
-              }}>
-                Baukasten
-              </Heading>
-              <Text style={{
-                display: 'block',
-                fontSize: 'calc(var(--vscode-font-size) * 0.85)',
-                color: 'var(--vscode-descriptionForeground)',
-                marginTop: '2px',
-              }}>
-                React UI Toolkit
-              </Text>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/baukasten.min.svg`}
+              alt="Baukasten Logo"
+              style={{ display: 'block', width: '100%', height: 'auto' }}
+            />
           </div>
           <ThemePicker />
 
