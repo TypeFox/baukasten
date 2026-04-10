@@ -13,11 +13,19 @@
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
-export { DataTable, createSelectColumn, useDataTable } from './components/DataTable';
+export { DataTable, createSelectColumn, useDataTable, useDataTableData, applyDataTransaction, mergeTransactions } from "./components/DataTable";
 export type {
+    AsyncTransactionsFlushedEvent,
     DataTableProps,
     DataTableVariant,
     DataTableColumnAlign,
+    DataTableRef,
+    DataTableTransaction,
+    DataTableTransactionResult,
+    DataTableTransactionWarning,
+    UndoableDataTableTransactionResult,
+    UseDataTableDataOptions,
+    UseDataTableDataReturn,
     ColumnDef,
     SortingState,
     PaginationState,

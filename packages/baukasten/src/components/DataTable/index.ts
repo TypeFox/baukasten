@@ -10,3 +10,16 @@ export type {
     ColumnResizeMode,
     Row,
 } from './DataTable.utils';
+
+export { useDataTableData, applyDataTransaction } from './useDataTableData';
+export { mergeTransactions } from './mergeTransactions';
+export type {
+    AsyncTransactionsFlushedEvent,
+    DataTableTransaction,
+    DataTableTransactionResult,
+    DataTableTransactionWarning,
+    DataTableRef,
+    UndoableDataTableTransactionResult,
+    UseDataTableDataOptions,
+    UseDataTableDataReturn,
+} from './DataTable.types';

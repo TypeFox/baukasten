@@ -1,13 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { DataTable } from './DataTable';
-import {
-    createSelectColumn,
-    type ColumnDef,
-    type SortingState,
-    type PaginationState,
-    type RowSelectionState,
-} from './DataTable.utils';
+import { createSelectColumn, type ColumnDef, type SortingState, type PaginationState, type RowSelectionState } from './DataTable.utils';
+import { useDataTableData, type DataTableRef } from './index';
 import { Badge } from '../Badge';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
@@ -1121,6 +1116,391 @@ export const Interactive: Story = {
         docs: {
             description: {
                 story: 'Use the controls to experiment with different DataTable configurations.',
+            },
+        },
+    },
+};
+
+// ─── Managed mode (transaction API) stories ──────────────────────────────────
+
+interface Person {
+    id: string;
+    name: string;
+    role: string;
+    status: 'active' | 'inactive';
+}
+
+const personColumns: ColumnDef<Person, unknown>[] = [
+    { accessorKey: 'id', header: 'ID', size: 60 },
+    { accessorKey: 'name', header: 'Name' },
+    { accessorKey: 'role', header: 'Role' },
+    {
+        accessorKey: 'status',
+        header: 'Status',
+        cell: ({ getValue }) => {
+            const s = getValue() as string;
+            return <Badge variant={s === 'active' ? 'success' : 'default'}>{s}</Badge>;
+        },
+    },
+];
+
+const initialPeople: Person[] = [
+    { id: '1', name: 'Alice', role: 'Admin', status: 'active' },
+    { id: '2', name: 'Bob', role: 'Developer', status: 'active' },
+    { id: '3', name: 'Charlie', role: 'Designer', status: 'inactive' },
+];
+
+let nextId = 4;
+
+/**
+ * Managed mode — transactions via ref
+ */
+const ManagedModeExample = () => {
+    const tableRef = useRef<DataTableRef<Person>>(null);
+    const [log, setLog] = useState<string[]>([]);
+
+    const addLog = (msg: string) =>
+        setLog((prev) => [`${new Date().toLocaleTimeString()}: ${msg}`, ...prev.slice(0, 9)]);
+
+    const handleAdd = () => {
+        const id = String(nextId++);
+        const result = tableRef.current?.applyTransaction({
+            add: [{ id, name: `User ${id}`, role: 'Developer', status: 'active' }],
+        });
+        addLog(`Added row id=${id} → total added: ${result?.add.length}`);
+    };
+
+    const handleRemove = () => {
+        const result = tableRef.current?.applyTransaction({
+            remove: [{ id: '1', name: '', role: '', status: 'active' }],
+        });
+        if (result?.remove.length) {
+            addLog(`Removed row id=1`);
+        } else {
+            addLog(`Row id=1 not found (warnings: ${result?.warnings.length})`);
+        }
+    };
+
+    const handleUpdate = () => {
+        const result = tableRef.current?.applyTransaction({
+            update: [{ id: '2', name: 'Bob (Updated)', role: 'Tech Lead', status: 'active' }],
+        });
+        if (result?.update.length) {
+            addLog(`Updated row id=2`);
+        } else {
+            addLog(`Row id=2 not found (warnings: ${result?.warnings.length})`);
+        }
+    };
+
+    const handleUndo = () => {
+        // Store last result to be able to undo — demonstrated via setData reset here
+        tableRef.current?.setData(initialPeople);
+        nextId = 4;
+        addLog('Reset to initial data via setData()');
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)', flexWrap: 'wrap' }}>
+                <Button size="sm" onClick={handleAdd}>
+                    <Icon name="plus" /> Add row
+                </Button>
+                <Button size="sm" variant="secondary" onClick={handleUpdate}>
+                    Update Bob (id=2)
+                </Button>
+                <Button size="sm" variant="secondary" onClick={handleRemove}>
+                    Remove Alice (id=1)
+                </Button>
+                <Button size="sm" variant="ghost" onClick={handleUndo}>
+                    Reset data
+                </Button>
+            </div>
+
+            <DataTable
+                ref={tableRef}
+                initialData={initialPeople}
+                columns={personColumns}
+                getRowId={(row) => row.id}
+                bordered
+            />
+
+            {log.length > 0 && (
+                <div style={{
+                    padding: 'var(--bk-spacing-3)',
+                    backgroundColor: 'var(--bk-color-background-secondary)',
+                    borderRadius: 'var(--bk-radius-md)',
+                    fontFamily: 'monospace',
+                    fontSize: 'var(--bk-font-size-xs)',
+                }}>
+                    <strong>Transaction log:</strong>
+                    {log.map((entry, i) => <div key={i}>{entry}</div>)}
+                </div>
+            )}
+        </div>
+    );
+};
+
+export const ManagedModeTransactions: Story = {
+    render: () => <ManagedModeExample />,
+    parameters: {
+        docs: {
+            description: {
+                story: `
+**Managed mode** — the table owns its data internally. Use a \`ref\` to apply transactions imperatively without lifting state.
+
+\`\`\`tsx
+const tableRef = useRef<DataTableRef<Person>>(null);
+
+// Add a row
+tableRef.current?.applyTransaction({ add: [newRow] });
+
+// Update a row (matched by getRowId)
+tableRef.current?.applyTransaction({ update: [updatedRow] });
+
+// Remove a row
+tableRef.current?.applyTransaction({ remove: [{ id: '1' }] });
+
+// Replace all data
+tableRef.current?.setData(newDataArray);
+
+<DataTable
+  ref={tableRef}
+  initialData={people}
+  columns={columns}
+  getRowId={(row) => row.id}
+/>
+\`\`\`
+
+The transaction API processes operations in order: **remove → update → add**.
+Unmatched rows produce warnings in the result object instead of throwing.
+`,
+            },
+        },
+    },
+};
+
+/**
+ * Managed mode with undo
+ */
+const ManagedModeUndoExample = () => {
+    const tableRef = useRef<DataTableRef<Person>>(null);
+    const undoRef = useRef<(() => void) | null>(null);
+    const [canUndo, setCanUndo] = useState(false);
+    const [lastAction, setLastAction] = useState<string>('');
+
+    const handleAddRandom = () => {
+        const id = String(nextId++);
+        const result = tableRef.current?.applyTransaction({
+            add: [{ id, name: `User ${id}`, role: 'Analyst', status: 'active' }],
+        }, true);
+        if (result) {
+            undoRef.current = result.undo;
+            setCanUndo(true);
+            setLastAction(`Added "User ${id}"`);
+        }
+    };
+
+    const handleRemoveFirst = () => {
+        const data = tableRef.current?.getRowData() ?? [];
+        if (!data.length) return;
+        const result = tableRef.current?.applyTransaction({ remove: [data[0]] }, true);
+        if (result?.remove.length) {
+            undoRef.current = result.undo;
+            setCanUndo(true);
+            setLastAction(`Removed "${data[0].name}"`);
+        }
+    };
+
+    const handleUndo = () => {
+        undoRef.current?.();
+        undoRef.current = null;
+        setCanUndo(false);
+        setLastAction('');
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)', alignItems: 'center', flexWrap: 'wrap' }}>
+                <Button size="sm" onClick={handleAddRandom}>
+                    <Icon name="plus" /> Add row
+                </Button>
+                <Button size="sm" variant="secondary" onClick={handleRemoveFirst}>
+                    Remove first row
+                </Button>
+                <Button size="sm" variant="ghost" onClick={handleUndo} disabled={!canUndo}>
+                    ↩ Undo{lastAction ? `: ${lastAction}` : ''}
+                </Button>
+            </div>
+
+            <DataTable
+                ref={tableRef}
+                initialData={initialPeople}
+                columns={personColumns}
+                getRowId={(row) => row.id}
+                bordered
+            />
+        </div>
+    );
+};
+
+export const ManagedModeWithUndo: Story = {
+    render: () => <ManagedModeUndoExample />,
+    parameters: {
+        docs: {
+            description: {
+                story: `
+Every \`applyTransaction()\` call returns an \`undo()\` function that restores the data to its state before the transaction.
+
+\`\`\`tsx
+const result = tableRef.current?.applyTransaction({ remove: [row] });
+
+// Later — revert this specific transaction:
+result.undo();
+\`\`\`
+`,
+            },
+        },
+    },
+};
+
+/**
+ * External hook (controlled mode + useDataTableData)
+ */
+const ExternalHookExample = () => {
+    const { data, applyTransaction } = useDataTableData<Person>({
+        initialData: initialPeople,
+        getRowId: (row) => row.id,
+        onDataChange: (d, tx) => {
+            console.log('onDataChange', d.length, 'rows', tx);
+        },
+    });
+
+    const handleAdd = () => {
+        const id = String(nextId++);
+        applyTransaction({ add: [{ id, name: `User ${id}`, role: 'Manager', status: 'active' }] });
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
+                <Button size="sm" onClick={handleAdd}>
+                    <Icon name="plus" /> Add row
+                </Button>
+            </div>
+            <DataTable
+                data={data}
+                columns={personColumns}
+                getRowId={(row) => row.id}
+                bordered
+            />
+        </div>
+    );
+};
+
+export const ExternalHookControlled: Story = {
+    render: () => <ExternalHookExample />,
+    parameters: {
+        docs: {
+            description: {
+                story: `
+Use the **\`useDataTableData\`** hook externally when you need to share transaction state across multiple components, or prefer lifting state out of the table.
+
+\`\`\`tsx
+const { data, applyTransaction } = useDataTableData<Person>({
+  initialData: people,
+  getRowId: (row) => row.id,
+  onDataChange: (data, tx) => syncToBackend(data),
+});
+
+// Pass data as a prop — controlled mode
+<DataTable data={data} columns={columns} />
+\`\`\`
+`,
+            },
+        },
+    },
+};
+
+// ─── Async Transactions Story ────────────────────────────────────────
+
+let asyncNextId = 100;
+
+function AsyncTransactionsExample() {
+    const ref = useRef<DataTableRef<Person>>(null);
+    const [log, setLog] = useState<string[]>([]);
+
+    const addLog = (msg: string) => setLog((prev) => [...prev.slice(-9), msg]);
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <Button
+                    onClick={() => {
+                        const id = String(asyncNextId++);
+                        ref.current?.applyTransactionAsync({
+                            add: [{ id, name: `Async-${id}`, role: 'Analyst', status: 'active' }],
+                        }).then((res) => {
+                            addLog(`Flushed: added ${res.add.length} row(s)`);
+                        });
+                        addLog(`Queued add for id=${id}`);
+                    }}
+                >
+                    Queue Add (async)
+                </Button>
+                <Button
+                    onClick={() => {
+                        ref.current?.applyTransactionAsync(
+                            { remove: [{ id: '1', name: '', role: '', status: 'active' }] },
+                            true,
+                        ).then((res) => {
+                            addLog(`Flushed: removed ${res.remove.length} row(s)`);
+                        });
+                        addLog('Queued undoable remove for id=1');
+                    }}
+                >
+                    Queue Remove id=1 (undoable)
+                </Button>
+                <Button
+                    variant="secondary"
+                    onClick={() => {
+                        ref.current?.flushAsyncTransactions();
+                        addLog('Manual flush triggered');
+                    }}
+                >
+                    Flush Now
+                </Button>
+            </div>
+            <DataTable
+                ref={ref}
+                initialData={initialPeople}
+                columns={personColumns}
+                getRowId={(r) => r.id}
+                onAsyncTransactionsFlushed={(event) => {
+                    addLog(`onFlushed — add:${event.result.add.length} upd:${event.result.update.length} rem:${event.result.remove.length} undo:${event.undo ? 'yes' : 'no'}`);
+                }}
+            />
+            <div style={{ fontFamily: 'monospace', fontSize: 12, background: 'var(--bk-color-bg-muted, #f5f5f5)', padding: 8, borderRadius: 4, minHeight: 60 }}>
+                <strong>Log:</strong>
+                {log.map((entry, i) => (
+                    <div key={i}>{entry}</div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export const ManagedModeAsyncTransactions: Story = {
+    render: () => <AsyncTransactionsExample />,
+    parameters: {
+        docs: {
+            description: {
+                story: `
+Use **\`applyTransactionAsync\`** to queue multiple transactions that are batched and applied together in the next animation frame. This is ideal for high-frequency updates (e.g., streaming data).
+
+- Multiple queued transactions are **merged** into a single batch (deduplicating updates, removing conflicting updates for removed rows).
+- Call **\`flushAsyncTransactions()\`** to apply immediately instead of waiting for the next frame.
+- The **\`onAsyncTransactionsFlushed\`** callback fires after each batch, with an optional \`undo\` function when **all** transactions in the batch were undoable.
+`,
             },
         },
     },

@@ -1,37 +1,21 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
 import { Badge, Button, Heading } from 'baukasten-ui/core';
-import { DataTable, createSelectColumn } from 'baukasten-ui/extra';
-import type {
-    ColumnDef,
-    SortingState,
-    PaginationState,
-    RowSelectionState,
-} from 'baukasten-ui/extra';
+import { DataTable, createSelectColumn, useDataTableData } from 'baukasten-ui/extra';
+import type { ColumnDef, SortingState, PaginationState, RowSelectionState, DataTableRef } from 'baukasten-ui/extra';
 
 const dataTableProps: PropDefinition[] = [
-    { name: 'data', type: 'TData[]', required: true, description: 'Data array to display' },
-    {
-        name: 'columns',
-        type: 'ColumnDef<TData>[]',
-        required: true,
-        description: 'Column definitions (TanStack Table format)',
-    },
-    {
-        name: 'variant',
-        type: '"default" | "zebra"',
-        default: '"default"',
-        description: 'Visual variant of the table',
-    },
-    {
-        name: 'size',
-        type: '"xs" | "sm" | "md" | "lg" | "xl"',
-        default: '"md"',
-        description: 'Size of table cells',
-    },
+    { name: 'data', type: 'TData[]', description: 'Data array to display (controlled mode). When provided, the table is in controlled mode and initialData is ignored.' },
+    { name: 'initialData', type: 'TData[]', description: 'Initial data for managed mode. When data prop is not provided, the table manages its own data state and exposes a transaction API via ref.' },
+    { name: 'onDataChange', type: '(data: TData[], tx?: DataTableTransaction<TData>) => void', description: 'Called after data changes from transactions or setData (managed mode only).' },
+    { name: 'onAsyncTransactionsFlushed', type: '(event: AsyncTransactionsFlushedEvent<TData>) => void', description: 'Called after a batch of async transactions is flushed (managed mode only).' },
+    { name: 'asyncScheduler', type: '(callback: () => void) => void', default: 'requestAnimationFrame', description: 'Scheduler function for deferring async transaction flushes.' },
+    { name: 'columns', type: 'ColumnDef<TData>[]', required: true, description: 'Column definitions (TanStack Table format)' },
+    { name: 'variant', type: '"default" | "zebra"', default: '"default"', description: 'Visual variant of the table' },
+    { name: 'size', type: '"xs" | "sm" | "md" | "lg" | "xl"', default: '"md"', description: 'Size of table cells' },
     { name: 'bordered', type: 'boolean', default: 'true', description: 'Whether to show borders' },
     {
         name: 'enableRowSelection',
@@ -117,58 +101,19 @@ const dataTableProps: PropDefinition[] = [
         description: 'Enable global filtering',
     },
     { name: 'globalFilter', type: 'string', description: 'Global filter value' },
-    {
-        name: 'onGlobalFilterChange',
-        type: '(value: string) => void',
-        description: 'Callback when global filter changes',
-    },
-    {
-        name: 'globalFilterPlaceholder',
-        type: 'string',
-        default: '"Search..."',
-        description: 'Placeholder for global filter input',
-    },
-    {
-        name: 'stickyHeader',
-        type: 'boolean',
-        default: 'false',
-        description: 'Whether the table has sticky headers',
-    },
+    { name: 'onGlobalFilterChange', type: '(value: string) => void', description: 'Callback when global filter changes' },
+    { name: 'globalFilterPlaceholder', type: 'string', default: '"Search..."', description: 'Placeholder for global filter input' },
+    { name: 'renderGlobalFilter', type: '(props: { value: string; onChange: (value: string) => void }) => ReactNode', description: 'Custom render function for the global filter/search bar. When provided, replaces the default search input.' },
+    { name: 'stickyHeader', type: 'boolean', default: 'false', description: 'Whether the table has sticky headers' },
     { name: 'maxHeight', type: 'number | string', description: 'Max height for scrollable table' },
-    {
-        name: 'loading',
-        type: 'boolean',
-        default: 'false',
-        description: 'Whether the table is loading',
-    },
-    {
-        name: 'loadingIndicator',
-        type: '"line" | "spinner"',
-        default: '"line"',
-        description: 'Loading indicator style',
-    },
+    { name: 'fillHeight', type: 'boolean', default: 'false', description: 'Whether the table should fill parent height and become scrollable. Pagination stays fixed at the bottom.' },
+    { name: 'loading', type: 'boolean', default: 'false', description: 'Whether the table is loading' },
+    { name: 'loadingIndicator', type: '"line" | "spinner"', default: '"line"', description: 'Loading indicator style' },
     { name: 'loadingComponent', type: 'React.ReactNode', description: 'Custom loading component' },
-    {
-        name: 'emptyText',
-        type: 'string',
-        default: '"No data available"',
-        description: 'Empty state text',
-    },
-    {
-        name: 'emptyComponent',
-        type: 'React.ReactNode',
-        description: 'Custom empty state component',
-    },
-    {
-        name: 'getRowId',
-        type: '(row: TData, index: number) => string',
-        description: 'Row ID accessor (for selection state)',
-    },
-    {
-        name: 'onRowClick',
-        type: '(row: Row<TData>) => void',
-        description: 'Callback when a row is clicked',
-    },
+    { name: 'emptyText', type: 'string', default: '"No data available"', description: 'Empty state text' },
+    { name: 'emptyComponent', type: 'React.ReactNode', description: 'Custom empty state component' },
+    { name: 'getRowId', type: '(row: TData, index: number) => string', description: 'Row ID accessor. Required for update/remove matching in managed mode and for stable row selection.' },
+    { name: 'onRowClick', type: '(row: Row<TData>) => void', description: 'Callback when a row is clicked' },
 ];
 
 // Sample data
@@ -332,11 +277,205 @@ function RowSelectionExample() {
     );
 }
 
+// ─── Managed Mode Example ────────────────────────────────────────────
+
+interface ManagedUser {
+    id: string;
+    name: string;
+    role: string;
+    status: 'active' | 'inactive';
+}
+
+const managedColumns: ColumnDef<ManagedUser, unknown>[] = [
+    { accessorKey: 'id', header: 'ID', size: 60 },
+    { accessorKey: 'name', header: 'Name' },
+    { accessorKey: 'role', header: 'Role' },
+    {
+        accessorKey: 'status',
+        header: 'Status',
+        cell: ({ getValue }) => {
+            const s = getValue() as string;
+            return <Badge variant={s === 'active' ? 'success' : 'default'}>{s}</Badge>;
+        },
+    },
+];
+
+const managedInitialData: ManagedUser[] = [
+    { id: '1', name: 'Alice', role: 'Admin', status: 'active' },
+    { id: '2', name: 'Bob', role: 'Developer', status: 'active' },
+    { id: '3', name: 'Charlie', role: 'Designer', status: 'inactive' },
+];
+
+let managedNextId = 4;
+
+function ManagedModeExample() {
+    const tableRef = useRef<DataTableRef<ManagedUser>>(null);
+    const [log, setLog] = useState<string[]>([]);
+
+    const addLog = (msg: string) =>
+        setLog((prev) => [msg, ...prev.slice(0, 4)]);
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)', flexWrap: 'wrap' }}>
+                <Button size="sm" onClick={() => {
+                    const id = String(managedNextId++);
+                    const result = tableRef.current?.applyTransaction({
+                        add: [{ id, name: `User ${id}`, role: 'Developer', status: 'active' }],
+                    });
+                    addLog(`Added row id=${id} (total added: ${result?.add.length})`);
+                }}>Add Row</Button>
+                <Button size="sm" onClick={() => {
+                    const result = tableRef.current?.applyTransaction({
+                        update: [{ id: '2', name: 'Bob (Updated)', role: 'Lead', status: 'active' }],
+                    });
+                    addLog(`Updated ${result?.update.length} row(s)`);
+                }}>Update Bob</Button>
+                <Button size="sm" onClick={() => {
+                    const result = tableRef.current?.applyTransaction({
+                        remove: [{ id: '3', name: '', role: '', status: 'active' }],
+                    });
+                    if (result?.remove.length) {
+                        addLog(`Removed row id=3`);
+                    } else {
+                        addLog(`Row id=3 not found (${result?.warnings.length} warning(s))`);
+                    }
+                }}>Remove Charlie</Button>
+            </div>
+            <DataTable
+                ref={tableRef}
+                initialData={managedInitialData}
+                columns={managedColumns}
+                getRowId={(r) => r.id}
+                onDataChange={(data) => addLog(`onDataChange: ${data.length} rows`)}
+            />
+            <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-xs)', background: 'var(--vscode-textBlockQuote-background)', padding: 'var(--bk-spacing-2)', borderRadius: 'var(--bk-radius-md)', minHeight: 40 }}>
+                {log.map((entry, i) => <div key={i}>{entry}</div>)}
+            </div>
+        </div>
+    );
+}
+
+// ─── Undo Example ────────────────────────────────────────────────────
+
+function UndoExample() {
+    const tableRef = useRef<DataTableRef<ManagedUser>>(null);
+    const [undoStack, setUndoStack] = useState<Array<() => void>>([]);
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)', flexWrap: 'wrap', alignItems: 'center' }}>
+                <Button size="sm" onClick={() => {
+                    const id = String(managedNextId++);
+                    const result = tableRef.current?.applyTransaction({
+                        add: [{ id, name: `User ${id}`, role: 'Analyst', status: 'active' }],
+                    }, true); // undoable!
+                    if (result && 'undo' in result) {
+                        setUndoStack((prev) => [...prev, result.undo]);
+                    }
+                }}>Add Row (undoable)</Button>
+                <Button size="sm" onClick={() => {
+                    const result = tableRef.current?.applyTransaction({
+                        remove: [{ id: '1', name: '', role: '', status: 'active' }],
+                    }, true); // undoable!
+                    if (result && 'undo' in result) {
+                        setUndoStack((prev) => [...prev, result.undo]);
+                    }
+                }}>Remove Alice (undoable)</Button>
+                <Button
+                    size="sm"
+                    variant="secondary"
+                    disabled={undoStack.length === 0}
+                    onClick={() => {
+                        const undo = undoStack[undoStack.length - 1];
+                        undo();
+                        setUndoStack((prev) => prev.slice(0, -1));
+                    }}
+                >
+                    Undo ({undoStack.length})
+                </Button>
+            </div>
+            <DataTable
+                ref={tableRef}
+                initialData={managedInitialData}
+                columns={managedColumns}
+                getRowId={(r) => r.id}
+            />
+        </div>
+    );
+}
+
+// ─── Async Transactions Example ──────────────────────────────────────
+
+function AsyncTransactionsExample() {
+    const tableRef = useRef<DataTableRef<ManagedUser>>(null);
+    const [log, setLog] = useState<string[]>([]);
+
+    const addLog = (msg: string) =>
+        setLog((prev) => [msg, ...prev.slice(0, 6)]);
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)', flexWrap: 'wrap' }}>
+                <Button size="sm" onClick={() => {
+                    const id = String(managedNextId++);
+                    tableRef.current?.applyTransactionAsync({
+                        add: [{ id, name: `Async-${id}`, role: 'Analyst', status: 'active' }],
+                    }).then((res) => {
+                        addLog(`Flushed: added ${res.add.length} row(s)`);
+                    });
+                    addLog(`Queued async add id=${id}`);
+                }}>Queue Add (async)</Button>
+                <Button size="sm" variant="secondary" onClick={() => {
+                    tableRef.current?.flushAsyncTransactions();
+                    addLog('Manual flush triggered');
+                }}>Flush Now</Button>
+            </div>
+            <DataTable
+                ref={tableRef}
+                initialData={managedInitialData}
+                columns={managedColumns}
+                getRowId={(r) => r.id}
+                onAsyncTransactionsFlushed={(event) => {
+                    addLog(`Batch flushed — add:${event.result.add.length} upd:${event.result.update.length} rem:${event.result.remove.length}`);
+                }}
+            />
+            <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-xs)', background: 'var(--vscode-textBlockQuote-background)', padding: 'var(--bk-spacing-2)', borderRadius: 'var(--bk-radius-md)', minHeight: 40 }}>
+                {log.map((entry, i) => <div key={i}>{entry}</div>)}
+            </div>
+        </div>
+    );
+}
+
+// ─── External Hook Example ───────────────────────────────────────────
+
+function ExternalHookExample() {
+    const { data, applyTransaction } = useDataTableData<ManagedUser>({
+        initialData: managedInitialData,
+        getRowId: (row) => row.id,
+    });
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+            <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)', flexWrap: 'wrap' }}>
+                <Button size="sm" onClick={() => {
+                    const id = String(managedNextId++);
+                    applyTransaction({ add: [{ id, name: `Hook-${id}`, role: 'Tester', status: 'active' }] });
+                }}>Add Row</Button>
+            </div>
+            <DataTable
+                data={data}
+                columns={managedColumns}
+            />
+        </div>
+    );
+}
+
 export default function DataTablePage() {
     return (
         <PageLayout
             title="DataTable"
-            description="A powerful, feature-rich table component built on TanStack Table (React Table v8). Supports sorting, pagination, row selection, column resizing, global filtering, and more. Fully integrates with the Baukasten design system."
+            description="A powerful, feature-rich table component built on TanStack Table (React Table v8). Supports two modes: controlled (data prop) and managed (initialData + transaction API via ref). Features include sorting, pagination, row selection, column resizing, global filtering, undoable transactions, and async batching."
         >
             <Showcase
                 title="Basic Usage"
@@ -813,14 +952,134 @@ function App() {
 <DataTable size="xl" data={users} columns={columns} />`}
             />
 
-            <div
-                style={{
-                    marginTop: 'var(--bk-spacing-6)',
-                    padding: 'var(--bk-spacing-4)',
-                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                    borderRadius: 'var(--bk-radius-md)',
-                }}
-            >
+            <Showcase
+                title="Managed Mode (Transaction API)"
+                description="Use initialData instead of data to enable managed mode. The table manages its own state and exposes a transaction API via ref. Use ref.applyTransaction() to add, update, or remove rows."
+                preview={<ManagedModeExample />}
+                code={`import { useRef } from 'react';
+import { DataTable } from 'baukasten-ui/extra';
+import type { DataTableRef } from 'baukasten-ui/extra';
+
+function App() {
+  const tableRef = useRef<DataTableRef<Person>>(null);
+
+  const handleAdd = () => {
+    const result = tableRef.current?.applyTransaction({
+      add: [{ id: '4', name: 'Diana', role: 'Manager', status: 'active' }],
+    });
+    console.log('Added:', result?.add.length);
+  };
+
+  const handleUpdate = () => {
+    tableRef.current?.applyTransaction({
+      update: [{ id: '2', name: 'Bob (Updated)', role: 'Lead', status: 'active' }],
+    });
+  };
+
+  const handleRemove = () => {
+    tableRef.current?.applyTransaction({
+      remove: [{ id: '3', name: '', role: '', status: 'active' }],
+    });
+  };
+
+  return (
+    <DataTable
+      ref={tableRef}
+      initialData={people}
+      columns={columns}
+      getRowId={(r) => r.id}
+      onDataChange={(data, tx) => console.log('Changed:', data.length, tx)}
+    />
+  );
+}`}
+            />
+
+            <Showcase
+                title="Undoable Transactions"
+                description="Pass true as the second argument to applyTransaction() to get an undo function back. Call undo() to revert the table to the state before the transaction."
+                preview={<UndoExample />}
+                code={`const tableRef = useRef<DataTableRef<Person>>(null);
+const [undoStack, setUndoStack] = useState<Array<() => void>>([]);
+
+const handleAdd = () => {
+  const result = tableRef.current?.applyTransaction(
+    { add: [{ id: '4', name: 'Diana', role: 'PM', status: 'active' }] },
+    true, // ← undoable
+  );
+  if (result && 'undo' in result) {
+    setUndoStack((prev) => [...prev, result.undo]);
+  }
+};
+
+const handleUndo = () => {
+  const undo = undoStack[undoStack.length - 1];
+  undo();
+  setUndoStack((prev) => prev.slice(0, -1));
+};
+
+<DataTable
+  ref={tableRef}
+  initialData={people}
+  columns={columns}
+  getRowId={(r) => r.id}
+/>`}
+            />
+
+            <Showcase
+                title="Async Transactions (Batching)"
+                description="Use applyTransactionAsync() to queue multiple transactions that are merged and applied together in the next animation frame. Ideal for high-frequency updates like streaming data. Call flushAsyncTransactions() to apply immediately."
+                preview={<AsyncTransactionsExample />}
+                code={`const tableRef = useRef<DataTableRef<Person>>(null);
+
+// Queue multiple changes — they are batched automatically
+tableRef.current?.applyTransactionAsync({
+  add: [{ id: '5', name: 'Eve', role: 'Dev', status: 'active' }],
+}).then((result) => {
+  console.log('Batch applied:', result.add.length, 'added');
+});
+
+// Force immediate flush
+tableRef.current?.flushAsyncTransactions();
+
+<DataTable
+  ref={tableRef}
+  initialData={people}
+  columns={columns}
+  getRowId={(r) => r.id}
+  onAsyncTransactionsFlushed={(event) => {
+    console.log('Batch flushed:', event.result);
+    if (event.undo) event.undo(); // only if all txs were undoable
+  }}
+/>`}
+            />
+
+            <Showcase
+                title="External Hook (useDataTableData)"
+                description="Use the useDataTableData hook externally when you need to share transaction state across multiple components, or prefer lifting state out of the table. Pass data as a prop for controlled mode."
+                preview={<ExternalHookExample />}
+                code={`import { DataTable, useDataTableData } from 'baukasten-ui/extra';
+
+function App() {
+  const { data, applyTransaction, applyTransactionAsync } = useDataTableData<Person>({
+    initialData: people,
+    getRowId: (row) => row.id,
+    onDataChange: (data, tx) => syncToBackend(data),
+  });
+
+  return (
+    <>
+      <button onClick={() => applyTransaction({
+        add: [{ id: '4', name: 'Diana', role: 'PM', status: 'active' }],
+      })}>Add</button>
+
+      {/* Pass data as a prop — controlled mode */}
+      <DataTable data={data} columns={columns} />
+    </>
+  );
+}`}
+            />
+
+            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     TanStack Table Integration
                 </Heading>
@@ -915,12 +1174,19 @@ function App() {
                         static data, DataTable for complex features
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Pagination:</strong> Always enable pagination for datasets with more
-                        than 20 rows
+                        <strong>Controlled vs Managed:</strong> Use <code>data</code> prop when you manage state externally; use <code>initialData</code> when you want the table to own its data with transaction API via ref
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Row ID:</strong> Provide <code>getRowId</code> when using row
-                        selection to ensure stable row identity
+                        <strong>Pagination:</strong> Always enable pagination for datasets with more than 20 rows
+                    </li>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                        <strong>Row ID:</strong> Provide <code>getRowId</code> when using row selection or managed mode to ensure stable row identity
+                    </li>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                        <strong>Transactions:</strong> Use <code>applyTransaction</code> for immediate updates, <code>applyTransactionAsync</code> for high-frequency batched updates
+                    </li>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                        <strong>Undo:</strong> Pass <code>true</code> as the second argument to <code>applyTransaction</code> to enable undo. For async batches, all transactions in the batch must be undoable.
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Server-side:</strong> Use <code>manualPagination</code> with{' '}

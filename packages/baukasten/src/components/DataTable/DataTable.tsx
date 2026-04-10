@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useImperativeHandle, forwardRef } from 'react';
 import {
     useReactTable,
     getCoreRowModel,
@@ -22,6 +22,8 @@ import { Input } from '../Input';
 import { Label } from '../Label';
 import { Select } from '../Select';
 import { Spinner } from '../Spinner';
+import { useDataTableData } from './useDataTableData';
+import type { AsyncTransactionsFlushedEvent, DataTableRef, DataTableTransaction } from './DataTable.types';
 import * as styles from './DataTable.css';
 
 /**
@@ -39,9 +41,33 @@ export type DataTableColumnAlign = 'left' | 'center' | 'right';
  */
 export interface DataTableProps<TData> {
     /**
-     * Data array to display
+     * Data array to display (controlled mode).
+     * When provided, the table is in controlled mode and `initialData` is ignored.
      */
-    data: TData[];
+    data?: TData[];
+
+    /**
+     * Initial data for managed mode.
+     * When `data` prop is not provided, the table manages its own data state
+     * and exposes a transaction API via ref.
+     */
+    initialData?: TData[];
+
+    /**
+     * Called after data changes from transactions or setData (managed mode only).
+     */
+    onDataChange?: (data: TData[], tx?: DataTableTransaction<TData>) => void;
+
+    /**
+     * Called after a batch of async transactions is flushed (managed mode only).
+     */
+    onAsyncTransactionsFlushed?: (event: AsyncTransactionsFlushedEvent<TData>) => void;
+
+    /**
+     * Scheduler function for deferring async transaction flushes.
+     * @default requestAnimationFrame
+     */
+    asyncScheduler?: (callback: () => void) => void;
 
     /**
      * Column definitions
@@ -279,7 +305,11 @@ export interface DataTableProps<TData> {
  * A powerful, feature-rich table component built on TanStack Table (React Table v8).
  * Supports sorting, pagination, row selection, column resizing, and more.
  *
- * @example
+ * Supports two modes:
+ * - **Controlled mode**: Pass `data` prop. You manage data externally.
+ * - **Managed mode**: Pass `initialData` prop. Use `ref.applyTransaction()` to mutate data.
+ *
+ * @example Controlled mode
  * ```tsx
  * const columns = [
  *   { accessorKey: 'name', header: 'Name' },
@@ -294,51 +324,124 @@ export interface DataTableProps<TData> {
  *   enablePagination
  * />
  * ```
+ *
+ * @example Managed mode with transactions
+ * ```tsx
+ * const tableRef = useRef<DataTableRef<User>>(null);
+ *
+ * tableRef.current?.applyTransaction({
+ *   add: [{ id: '4', name: 'Alice' }],
+ *   remove: [{ id: '1' }],
+ * });
+ *
+ * <DataTable
+ *   ref={tableRef}
+ *   initialData={users}
+ *   columns={columns}
+ *   getRowId={(row) => row.id}
+ * />
+ * ```
  */
-export function DataTable<TData>({
-    data,
-    columns,
-    variant = 'default',
-    size = 'md',
-    bordered = true,
-    enableRowSelection = false,
-    enableMultiRowSelection = true,
-    rowSelection: controlledRowSelection,
-    onRowSelectionChange,
-    enableSorting = false,
-    enableMultiSort = false,
-    sorting: controlledSorting,
-    onSortingChange,
-    enablePagination = false,
-    pageSizeOptions = [10, 20, 50, 100],
-    initialPageSize = 10,
-    pagination: controlledPagination,
-    onPaginationChange,
-    rowCount,
-    manualPagination = false,
-    enableColumnResizing = false,
-    columnResizeMode = 'onChange',
-    enableGlobalFilter = false,
-    globalFilter: controlledGlobalFilter,
-    onGlobalFilterChange,
-    globalFilterPlaceholder = 'Search...',
-    renderGlobalFilter,
-    stickyHeader = false,
-    maxHeight,
-    fillHeight = false,
-    loading = false,
-    loadingIndicator = 'line',
-    loadingComponent,
-    emptyText = 'No data available',
-    emptyComponent,
-    getRowId,
-    onRowClick,
-    className,
-    style,
-    'aria-label': ariaLabel,
-}: DataTableProps<TData>) {
-    // Ensure data is always an array to prevent TanStack Table errors
-    const safeData = data ?? [];
+function DataTableInner<TData>(
+    {
+        data: controlledData,
+        initialData,
+        onDataChange,
+        onAsyncTransactionsFlushed,
+        asyncScheduler,
+        columns,
+        variant = 'default',
+        size = 'md',
+        bordered = true,
+        enableRowSelection = false,
+        enableMultiRowSelection = true,
+        rowSelection: controlledRowSelection,
+        onRowSelectionChange,
+        enableSorting = false,
+        enableMultiSort = false,
+        sorting: controlledSorting,
+        onSortingChange,
+        enablePagination = false,
+        pageSizeOptions = [10, 20, 50, 100],
+        initialPageSize = 10,
+        pagination: controlledPagination,
+        onPaginationChange,
+        rowCount,
+        manualPagination = false,
+        enableColumnResizing = false,
+        columnResizeMode = 'onChange',
+        enableGlobalFilter = false,
+        globalFilter: controlledGlobalFilter,
+        onGlobalFilterChange,
+        globalFilterPlaceholder = 'Search...',
+        renderGlobalFilter,
+        stickyHeader = false,
+        maxHeight,
+        fillHeight = false,
+        loading = false,
+        loadingIndicator = 'line',
+        loadingComponent,
+        emptyText = 'No data available',
+        emptyComponent,
+        getRowId,
+        onRowClick,
+        className,
+        style,
+        'aria-label': ariaLabel,
+    }: DataTableProps<TData>,
+    ref: React.ForwardedRef<DataTableRef<TData>>
+) {
+    // Determine mode: controlled (data prop provided) vs managed (initialData)
+    const isControlled = controlledData !== undefined;
+
+    // Default getRowId falls back to index-based
+    const resolvedGetRowId = getRowId ?? ((_row: TData, index: number) => String(index));
+
+    // Internal managed data (only active when not controlled)
+    const managedData = useDataTableData<TData>({
+        initialData: initialData ?? [],
+        getRowId: resolvedGetRowId,
+        onDataChange,
+        onAsyncTransactionsFlushed,
+        asyncScheduler,
+    });
+
+    // Resolve final data source
+    const safeData = isControlled ? (controlledData ?? []) : managedData.data;
+
+    // Store table ref for imperative handle
+    const tableInstanceRef = useRef<ReturnType<typeof useReactTable<TData>> | null>(null);
+
+    // Expose imperative handle via ref
+    useImperativeHandle(ref, () => ({
+        applyTransaction: ((tx: DataTableTransaction<TData>, undoable?: boolean) => {
+            if (isControlled) {
+                console.warn(
+                    'DataTable: applyTransaction called in controlled mode. ' +
+                    'Use the useDataTableData hook externally instead, or switch to managed mode (initialData prop).'
+                );
+            }
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            return (managedData.applyTransaction as any)(tx, undoable);
+        }) as DataTableRef<TData>['applyTransaction'],
+        applyTransactionAsync: (tx, undoable) => {
+            if (isControlled) {
+                console.warn(
+                    'DataTable: applyTransactionAsync called in controlled mode. ' +
+                    'Use the useDataTableData hook externally instead, or switch to managed mode (initialData prop).'
+                );
+            }
+            return managedData.applyTransactionAsync(tx, undoable);
+        },
+        flushAsyncTransactions: () => managedData.flushAsyncTransactions(),
+        getRowData: () => managedData.getRowData(),
+        getSelectedRows: () => {
+            const tableInst = tableInstanceRef.current;
+            if (!tableInst) return [];
+            return tableInst.getSelectedRowModel().rows.map((r) => r.original);
+        },
+        setData: (newData) => managedData.setData(newData),
+    }), [isControlled, managedData]);
 
     // Internal state for uncontrolled mode
     const [internalSorting, setInternalSorting] = useState<SortingState>([]);
@@ -397,10 +500,13 @@ export function DataTable<TData>({
         getFilteredRowModel: enableGlobalFilter ? getFilteredRowModel() : undefined,
         manualPagination,
         rowCount,
-        getRowId,
+        getRowId: resolvedGetRowId,
         columnResizeMode,
         enableColumnResizing,
     });
+
+    // Store table instance for imperative handle (getSelectedRows)
+    tableInstanceRef.current = table;
 
     // Pagination info (only computed when pagination is enabled)
     const paginationState = table.getState().pagination;
@@ -747,3 +853,13 @@ export function DataTable<TData>({
         </div>
     );
 }
+
+/**
+ * DataTable component with ref forwarding for managed mode.
+ *
+ * Use `forwardRef` wrapper to preserve generic type parameter `TData`.
+ */
+export const DataTable = forwardRef(DataTableInner) as <TData>(
+    props: DataTableProps<TData> & { ref?: React.Ref<DataTableRef<TData>> }
+) => React.ReactElement | null;
+
