@@ -5,13 +5,13 @@ import { type Size } from '../../styles';
 import { usePortalRoot } from '../../context';
 import { Icon } from '../Icon';
 import {
-  backdrop,
-  drawerContainer,
-  drawerHeader,
-  drawerTitle,
-  closeButton,
-  drawerBody,
-  drawerFooter,
+    backdrop,
+    drawerContainer,
+    drawerHeader,
+    drawerTitle,
+    closeButton,
+    drawerBody,
+    drawerFooter,
 } from './Drawer.css';
 
 /**
@@ -34,7 +34,7 @@ const PRESET_SIZES = new Set(['xs', 'sm', 'md', 'lg', 'xl', 'fullscreen']);
 type RecipeSize = Size | 'fullscreen' | 'custom';
 
 function toRecipeSize(size: DrawerSize): RecipeSize {
-  return PRESET_SIZES.has(size) ? (size as RecipeSize) : 'custom';
+    return PRESET_SIZES.has(size) ? (size as RecipeSize) : 'custom';
 }
 
 /**
@@ -64,159 +64,157 @@ const ANIMATION_DURATION = 300;
  * can complete before unmounting.
  */
 function useDrawerAnimation(open: boolean) {
-  const [animationState, setAnimationState] = useState<AnimationState>(
-    open ? 'open' : 'closed'
-  );
+    const [animationState, setAnimationState] = useState<AnimationState>(open ? 'open' : 'closed');
 
-  useEffect(() => {
-    if (open) {
-      // Mount at off-screen position
-      setAnimationState('entering');
+    useEffect(() => {
+        if (open) {
+            // Mount at off-screen position
+            setAnimationState('entering');
 
-      // Double rAF ensures the browser paints the off-screen position
-      // before we transition to the on-screen position
-      const rafId = requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setAnimationState('open');
-        });
-      });
-      return () => cancelAnimationFrame(rafId);
-    } else {
-      // Only animate out if currently visible
-      setAnimationState((prev) => {
-        if (prev === 'open' || prev === 'entering') {
-          return 'exiting';
+            // Double rAF ensures the browser paints the off-screen position
+            // before we transition to the on-screen position
+            const rafId = requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    setAnimationState('open');
+                });
+            });
+            return () => cancelAnimationFrame(rafId);
+        } else {
+            // Only animate out if currently visible
+            setAnimationState((prev) => {
+                if (prev === 'open' || prev === 'entering') {
+                    return 'exiting';
+                }
+                return prev;
+            });
         }
-        return prev;
-      });
-    }
-  }, [open]);
+    }, [open]);
 
-  // Unmount after exit animation completes
-  useEffect(() => {
-    if (animationState === 'exiting') {
-      const timer = setTimeout(() => {
-        setAnimationState('closed');
-      }, ANIMATION_DURATION);
-      return () => clearTimeout(timer);
-    }
-  }, [animationState]);
+    // Unmount after exit animation completes
+    useEffect(() => {
+        if (animationState === 'exiting') {
+            const timer = setTimeout(() => {
+                setAnimationState('closed');
+            }, ANIMATION_DURATION);
+            return () => clearTimeout(timer);
+        }
+    }, [animationState]);
 
-  return {
-    animationState,
-    isMounted: animationState !== 'closed',
-  };
+    return {
+        animationState,
+        isMounted: animationState !== 'closed',
+    };
 }
 
 /**
  * Drawer component props
  */
 export interface DrawerProps {
-  /**
-   * Whether the drawer is open
-   */
-  open: boolean;
+    /**
+     * Whether the drawer is open
+     */
+    open: boolean;
 
-  /**
-   * Callback when the drawer should close
-   */
-  onClose: () => void;
+    /**
+     * Callback when the drawer should close
+     */
+    onClose: () => void;
 
-  /**
-   * Which edge the drawer slides from
-   * @default 'right'
-   */
-  placement?: DrawerPlacement;
+    /**
+     * Which edge the drawer slides from
+     * @default 'right'
+     */
+    placement?: DrawerPlacement;
 
-  /**
-   * Size of the drawer (width for left/right, height for top/bottom)
-   * @default 'md'
-   */
-  size?: DrawerSize;
+    /**
+     * Size of the drawer (width for left/right, height for top/bottom)
+     * @default 'md'
+     */
+    size?: DrawerSize;
 
-  /**
-   * Backdrop visual style
-   * @default 'solid'
-   */
-  backdropVariant?: BackdropVariant;
+    /**
+     * Backdrop visual style
+     * @default 'solid'
+     */
+    backdropVariant?: BackdropVariant;
 
-  /**
-   * Whether clicking the backdrop closes the drawer
-   * @default true
-   */
-  closeOnBackdropClick?: boolean;
+    /**
+     * Whether clicking the backdrop closes the drawer
+     * @default true
+     */
+    closeOnBackdropClick?: boolean;
 
-  /**
-   * Whether pressing Escape closes the drawer
-   * @default true
-   */
-  closeOnEscape?: boolean;
+    /**
+     * Whether pressing Escape closes the drawer
+     * @default true
+     */
+    closeOnEscape?: boolean;
 
-  /**
-   * Drawer content (use DrawerHeader, DrawerBody, DrawerFooter for structure)
-   */
-  children: React.ReactNode;
+    /**
+     * Drawer content (use DrawerHeader, DrawerBody, DrawerFooter for structure)
+     */
+    children: React.ReactNode;
 
-  /**
-   * Additional CSS class name
-   */
-  className?: string;
+    /**
+     * Additional CSS class name
+     */
+    className?: string;
 }
 
 /**
  * DrawerHeader component props
  */
 export interface DrawerHeaderProps {
-  /**
-   * Header content (typically a title)
-   */
-  children: React.ReactNode;
+    /**
+     * Header content (typically a title)
+     */
+    children: React.ReactNode;
 
-  /**
-   * Whether to show the close button
-   * @default true
-   */
-  showCloseButton?: boolean;
+    /**
+     * Whether to show the close button
+     * @default true
+     */
+    showCloseButton?: boolean;
 
-  /**
-   * Callback when close button is clicked
-   */
-  onClose?: () => void;
+    /**
+     * Callback when close button is clicked
+     */
+    onClose?: () => void;
 
-  /**
-   * Additional CSS class name
-   */
-  className?: string;
+    /**
+     * Additional CSS class name
+     */
+    className?: string;
 }
 
 /**
  * DrawerBody component props
  */
 export interface DrawerBodyProps {
-  /**
-   * Body content
-   */
-  children: React.ReactNode;
+    /**
+     * Body content
+     */
+    children: React.ReactNode;
 
-  /**
-   * Additional CSS class name
-   */
-  className?: string;
+    /**
+     * Additional CSS class name
+     */
+    className?: string;
 }
 
 /**
  * DrawerFooter component props
  */
 export interface DrawerFooterProps {
-  /**
-   * Footer content (typically action buttons)
-   */
-  children: React.ReactNode;
+    /**
+     * Footer content (typically action buttons)
+     */
+    children: React.ReactNode;
 
-  /**
-   * Additional CSS class name
-   */
-  className?: string;
+    /**
+     * Additional CSS class name
+     */
+    className?: string;
 }
 
 /**
@@ -267,104 +265,110 @@ export interface DrawerFooterProps {
  * ```
  */
 export const Drawer: React.FC<DrawerProps> = ({
-  open,
-  onClose,
-  placement = 'right',
-  size = 'md',
-  backdropVariant = 'solid',
-  closeOnBackdropClick = true,
-  closeOnEscape = true,
-  children,
-  className,
+    open,
+    onClose,
+    placement = 'right',
+    size = 'md',
+    backdropVariant = 'solid',
+    closeOnBackdropClick = true,
+    closeOnEscape = true,
+    children,
+    className,
 }) => {
-  const drawerRef = useRef<HTMLDivElement>(null);
-  const previousActiveElement = useRef<HTMLElement | null>(null);
+    const drawerRef = useRef<HTMLDivElement>(null);
+    const previousActiveElement = useRef<HTMLElement | null>(null);
 
-  // Get portal root from context (for multi-window support)
-  const portalRoot = usePortalRoot();
-  const { animationState, isMounted } = useDrawerAnimation(open);
+    // Get portal root from context (for multi-window support)
+    const portalRoot = usePortalRoot();
+    const { animationState, isMounted } = useDrawerAnimation(open);
 
-  // Handle backdrop click
-  const handleBackdropClick = useCallback((e: React.MouseEvent) => {
-    if (closeOnBackdropClick && e.target === e.currentTarget) {
-      onClose();
-    }
-  }, [closeOnBackdropClick, onClose]);
+    // Handle backdrop click
+    const handleBackdropClick = useCallback(
+        (e: React.MouseEvent) => {
+            if (closeOnBackdropClick && e.target === e.currentTarget) {
+                onClose();
+            }
+        },
+        [closeOnBackdropClick, onClose],
+    );
 
-  // Handle escape key
-  useEffect(() => {
-    if (!open || !closeOnEscape) return;
+    // Handle escape key
+    useEffect(() => {
+        if (!open || !closeOnEscape) return;
 
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                onClose();
+            }
+        };
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [open, closeOnEscape, onClose]);
+        document.addEventListener('keydown', handleEscape);
+        return () => document.removeEventListener('keydown', handleEscape);
+    }, [open, closeOnEscape, onClose]);
 
-  // Lock body scroll when drawer is mounted
-  useEffect(() => {
-    if (!isMounted) return;
+    // Lock body scroll when drawer is mounted
+    useEffect(() => {
+        if (!isMounted) return;
 
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+        const originalOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
 
-    return () => {
-      document.body.style.overflow = originalOverflow;
-    };
-  }, [isMounted]);
+        return () => {
+            document.body.style.overflow = originalOverflow;
+        };
+    }, [isMounted]);
 
-  // Focus management
-  useEffect(() => {
-    if (open) {
-      // Store the currently focused element
-      previousActiveElement.current = document.activeElement as HTMLElement;
+    // Focus management
+    useEffect(() => {
+        if (open) {
+            // Store the currently focused element
+            previousActiveElement.current = document.activeElement as HTMLElement;
 
-      // Focus the drawer container
-      if (drawerRef.current) {
-        drawerRef.current.focus();
-      }
-    } else {
-      // Restore focus when drawer closes
-      if (previousActiveElement.current) {
-        previousActiveElement.current.focus();
-      }
-    }
-  }, [open]);
-
-  if (!isMounted) return null;
-
-  // Use portal root from context if available, otherwise fallback to document.body
-  const portalTarget = portalRoot ?? document.body;
-
-  return ReactDOM.createPortal(
-    <>
-      <div
-        className={backdrop({ variant: backdropVariant, animationState })}
-        onClick={handleBackdropClick}
-      />
-      <div
-        ref={drawerRef}
-        className={clsx(drawerContainer({ placement, size: toRecipeSize(size), animationState }), className)}
-        style={
-          !PRESET_SIZES.has(size)
-            ? (placement === 'left' || placement === 'right'
-              ? { width: size, maxWidth: '100vw' }
-              : { height: size, maxHeight: '100vh' })
-            : undefined
+            // Focus the drawer container
+            if (drawerRef.current) {
+                drawerRef.current.focus();
+            }
+        } else {
+            // Restore focus when drawer closes
+            if (previousActiveElement.current) {
+                previousActiveElement.current.focus();
+            }
         }
-        role="dialog"
-        aria-modal="true"
-        tabIndex={-1}
-      >
-        {children}
-      </div>
-    </>,
-    portalTarget
-  );
+    }, [open]);
+
+    if (!isMounted) return null;
+
+    // Use portal root from context if available, otherwise fallback to document.body
+    const portalTarget = portalRoot ?? document.body;
+
+    return ReactDOM.createPortal(
+        <>
+            <div
+                className={backdrop({ variant: backdropVariant, animationState })}
+                onClick={handleBackdropClick}
+            />
+            <div
+                ref={drawerRef}
+                className={clsx(
+                    drawerContainer({ placement, size: toRecipeSize(size), animationState }),
+                    className,
+                )}
+                style={
+                    !PRESET_SIZES.has(size)
+                        ? placement === 'left' || placement === 'right'
+                            ? { width: size, maxWidth: '100vw' }
+                            : { height: size, maxHeight: '100vh' }
+                        : undefined
+                }
+                role="dialog"
+                aria-modal="true"
+                tabIndex={-1}
+            >
+                {children}
+            </div>
+        </>,
+        portalTarget,
+    );
 };
 
 /**
@@ -380,21 +384,21 @@ export const Drawer: React.FC<DrawerProps> = ({
  * ```
  */
 export const DrawerHeader: React.FC<DrawerHeaderProps> = ({
-  children,
-  showCloseButton = true,
-  onClose,
-  className,
+    children,
+    showCloseButton = true,
+    onClose,
+    className,
 }) => {
-  return (
-    <div className={clsx(drawerHeader, className)}>
-      <div className={drawerTitle}>{children}</div>
-      {showCloseButton && onClose && (
-        <button className={closeButton} onClick={onClose} aria-label="Close drawer">
-          <Icon name="close" />
-        </button>
-      )}
-    </div>
-  );
+    return (
+        <div className={clsx(drawerHeader, className)}>
+            <div className={drawerTitle}>{children}</div>
+            {showCloseButton && onClose && (
+                <button className={closeButton} onClick={onClose} aria-label="Close drawer">
+                    <Icon name="close" />
+                </button>
+            )}
+        </div>
+    );
 };
 
 /**
@@ -410,7 +414,7 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = ({
  * ```
  */
 export const DrawerBody: React.FC<DrawerBodyProps> = ({ children, className }) => {
-  return <div className={clsx(drawerBody, className)}>{children}</div>;
+    return <div className={clsx(drawerBody, className)}>{children}</div>;
 };
 
 /**
@@ -428,5 +432,5 @@ export const DrawerBody: React.FC<DrawerBodyProps> = ({ children, className }) =
  * ```
  */
 export const DrawerFooter: React.FC<DrawerFooterProps> = ({ children, className }) => {
-  return <div className={clsx(drawerFooter, className)}>{children}</div>;
+    return <div className={clsx(drawerFooter, className)}>{children}</div>;
 };

@@ -1,50 +1,47 @@
-import { recipe } from "@vanilla-extract/recipes";
-import { globalStyle, style } from "@vanilla-extract/css";
+import { recipe } from '@vanilla-extract/recipes';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 /**
  * ButtonGroup wrapper
  */
 export const buttonGroup = recipe({
-  base: {
-    display: "inline-flex",
-    position: "relative",
-  },
-
-  variants: {
-    fullWidth: {
-      true: {
-        width: "100%",
-      },
-      false: {},
+    base: {
+        display: 'inline-flex',
+        position: 'relative',
     },
-    showSeparator: {
-      true: {},
-      false: {},
-    },
-  },
 
-  defaultVariants: {
-    fullWidth: false,
-    showSeparator: false,
-  },
+    variants: {
+        fullWidth: {
+            true: {
+                width: '100%',
+            },
+            false: {},
+        },
+        showSeparator: {
+            true: {},
+            false: {},
+        },
+    },
+
+    defaultVariants: {
+        fullWidth: false,
+        showSeparator: false,
+    },
 });
 
 /**
  * Remove border radius and borders between buttons
  * Using [class] attribute selector for higher specificity without !important
  */
-globalStyle(
-  `${buttonGroup.classNames.base} > button[class]:not(:first-child):not(:last-child)`,
-  {
+globalStyle(`${buttonGroup.classNames.base} > button[class]:not(:first-child):not(:last-child)`, {
     borderRadius: 0,
-  },
-);
+});
 
 globalStyle(
-  `${buttonGroup.classNames.base} > div > button[class]:not(:first-child):not(:last-child)`,
-  {
-    borderRadius: 0,
-  },
+    `${buttonGroup.classNames.base} > div > button[class]:not(:first-child):not(:last-child)`,
+    {
+        borderRadius: 0,
+    },
 );
 
 /**
@@ -52,30 +49,27 @@ globalStyle(
  * Using [class] attribute selector for higher specificity without !important
  */
 globalStyle(`${buttonGroup.classNames.base} > button[class]:first-child`, {
-  borderTopRightRadius: 0,
-  borderBottomRightRadius: 0,
-});
-
-globalStyle(
-  `${buttonGroup.classNames.base} > div:first-child > button[class]`,
-  {
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
-  },
-);
+});
+
+globalStyle(`${buttonGroup.classNames.base} > div:first-child > button[class]`, {
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+});
 
 /**
  * Last button - keep right radius
  * Using [class] attribute selector for higher specificity without !important
  */
 globalStyle(`${buttonGroup.classNames.base} > button[class]:last-child`, {
-  borderTopLeftRadius: 0,
-  borderBottomLeftRadius: 0,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
 });
 
 globalStyle(`${buttonGroup.classNames.base} > div:last-child > button[class]`, {
-  borderTopLeftRadius: 0,
-  borderBottomLeftRadius: 0,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
 });
 
 /**
@@ -83,143 +77,136 @@ globalStyle(`${buttonGroup.classNames.base} > div:last-child > button[class]`, {
  * Using [class] attribute selector for higher specificity without !important
  */
 globalStyle(`${buttonGroup.classNames.base} > button[class]:not(:last-child)`, {
-  borderRight: "none",
+    borderRight: 'none',
 });
 
-globalStyle(
-  `${buttonGroup.classNames.base} > div:not(:last-child) > button[class]`,
-  {
-    borderRight: "none",
-  },
-);
+globalStyle(`${buttonGroup.classNames.base} > div:not(:last-child) > button[class]`, {
+    borderRight: 'none',
+});
 
 /**
  * Full width children
  */
 globalStyle(`${buttonGroup.classNames.variants.fullWidth.true} > button`, {
-  flex: 1,
+    flex: 1,
 });
 
 globalStyle(`${buttonGroup.classNames.variants.fullWidth.true} > div`, {
-  flex: 1,
+    flex: 1,
 });
 
 /**
  * Add separator line between buttons when showSeparator is true
  */
 globalStyle(
-  `${buttonGroup.classNames.variants.showSeparator.true} > button:not(:last-child)::after`,
-  {
-    content: "",
-    position: "absolute",
-    right: 0,
-    top: "20%",
-    bottom: "20%",
-    width: "var(--bk-border-width-1)",
-    backgroundColor: "currentColor",
-    opacity: 0.2,
-    pointerEvents: "none",
-  },
+    `${buttonGroup.classNames.variants.showSeparator.true} > button:not(:last-child)::after`,
+    {
+        content: '',
+        position: 'absolute',
+        right: 0,
+        top: '20%',
+        bottom: '20%',
+        width: 'var(--bk-border-width-1)',
+        backgroundColor: 'currentColor',
+        opacity: 0.2,
+        pointerEvents: 'none',
+    },
 );
 
 globalStyle(
-  `${buttonGroup.classNames.variants.showSeparator.true} > div:not(:last-child) > button::after`,
-  {
-    content: "",
-    position: "absolute",
-    right: 0,
-    top: "20%",
-    bottom: "20%",
-    width: "var(--bk-border-width-1)",
-    backgroundColor: "currentColor",
-    opacity: 0.2,
-    pointerEvents: "none",
-  },
+    `${buttonGroup.classNames.variants.showSeparator.true} > div:not(:last-child) > button::after`,
+    {
+        content: '',
+        position: 'absolute',
+        right: 0,
+        top: '20%',
+        bottom: '20%',
+        width: 'var(--bk-border-width-1)',
+        backgroundColor: 'currentColor',
+        opacity: 0.2,
+        pointerEvents: 'none',
+    },
 );
 
 /**
  * Dropdown trigger wrapper
  */
 export const dropdownTriggerWrapper = recipe({
-  base: {
-    position: "relative",
-    display: "inline-flex",
-  },
-
-  variants: {
-    size: {
-      xs: {},
-      sm: {},
-      md: {},
-      lg: {},
-      xl: {},
+    base: {
+        position: 'relative',
+        display: 'inline-flex',
     },
-  },
 
-  defaultVariants: {
-    size: "md",
-  },
+    variants: {
+        size: {
+            xs: {},
+            sm: {},
+            md: {},
+            lg: {},
+            xl: {},
+        },
+    },
+
+    defaultVariants: {
+        size: 'md',
+    },
 });
 
 /**
  * Make dropdown button more compact with size-specific widths
  */
 globalStyle(`${dropdownTriggerWrapper.classNames.base} > button`, {
-  minWidth: "auto",
-  paddingLeft: 0,
-  paddingRight: 0,
-  justifyContent: "center",
-  borderRight: "none",
+    minWidth: 'auto',
+    paddingLeft: 0,
+    paddingRight: 0,
+    justifyContent: 'center',
+    borderRight: 'none',
 });
 
-globalStyle(
-  `${dropdownTriggerWrapper.classNames.base}:not(:first-child) > button`,
-  {
+globalStyle(`${dropdownTriggerWrapper.classNames.base}:not(:first-child) > button`, {
     borderTopLeftRadius: 0,
     borderBottomLeftRadius: 0,
-  },
-);
+});
 
 globalStyle(`${dropdownTriggerWrapper.classNames.variants.size.xs} > button`, {
-  width: "var(--bk-size-xs)",
+    width: 'var(--bk-size-xs)',
 });
 
 globalStyle(`${dropdownTriggerWrapper.classNames.variants.size.sm} > button`, {
-  width: "var(--bk-size-sm)",
+    width: 'var(--bk-size-sm)',
 });
 
 globalStyle(`${dropdownTriggerWrapper.classNames.variants.size.md} > button`, {
-  width: "var(--bk-size-md)",
+    width: 'var(--bk-size-md)',
 });
 
 globalStyle(`${dropdownTriggerWrapper.classNames.variants.size.lg} > button`, {
-  width: "var(--bk-size-lg)",
+    width: 'var(--bk-size-lg)',
 });
 
 globalStyle(`${dropdownTriggerWrapper.classNames.variants.size.xl} > button`, {
-  width: "var(--bk-size-xl)",
+    width: 'var(--bk-size-xl)',
 });
 
 /**
  * Dropdown content container - positioned by Floating UI
  */
 export const dropdownPortalContent = style({
-  zIndex: "var(--bk-z-index-dropdown)",
-  minWidth: "var(--bk-spacing-20)",
-  backgroundColor: "var(--bk-color-dropdown-list-background)",
-  border: "var(--bk-border-width-1) solid var(--bk-color-dropdown-border)",
-  borderRadius: "var(--bk-radius-md)",
-  boxShadow: "var(--bk-shadow-lg)",
-  opacity: 0,
-  transform: "scale(0.95)",
-  transition:
-    "opacity var(--bk-transition-fast) ease, transform var(--bk-transition-fast) ease",
-  overflow: "auto",
-  maxHeight: "var(--bk-spacing-80)",
-  selectors: {
-    '&[data-status="open"]': {
-      opacity: 1,
-      transform: "scale(1)",
+    zIndex: 'var(--bk-z-index-dropdown)',
+    minWidth: 'var(--bk-spacing-20)',
+    backgroundColor: 'var(--bk-color-dropdown-list-background)',
+    border: 'var(--bk-border-width-1) solid var(--bk-color-dropdown-border)',
+    borderRadius: 'var(--bk-radius-md)',
+    boxShadow: 'var(--bk-shadow-lg)',
+    opacity: 0,
+    transform: 'scale(0.95)',
+    transition: 'opacity var(--bk-transition-fast) ease, transform var(--bk-transition-fast) ease',
+    overflow: 'auto',
+    maxHeight: 'var(--bk-spacing-80)',
+    selectors: {
+        '&[data-status="open"]': {
+            opacity: 1,
+            transform: 'scale(1)',
+        },
     },
-  },
 });

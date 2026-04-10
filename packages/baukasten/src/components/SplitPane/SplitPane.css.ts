@@ -75,7 +75,7 @@ export const dividerWrapper = recipe({
 /**
  * Divider hit area - absolutely positioned to extend beyond the 1px wrapper
  * This ensures cursor works reliably in Safari
- * 
+ *
  * Behavior (VSCode-like):
  * - No highlight on immediate hover
  * - Becomes wider and highlighted after ~300ms hover (controlled via isHovered)

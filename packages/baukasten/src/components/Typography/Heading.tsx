@@ -17,29 +17,29 @@ export type HeadingVariants = RecipeVariants<typeof heading>;
  * Extends all standard HTML heading attributes
  */
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  /**
-   * Semantic heading level (h1-h6)
-   * @default 1
-   */
-  level?: HeadingLevel;
+    /**
+     * Semantic heading level (h1-h6)
+     * @default 1
+     */
+    level?: HeadingLevel;
 
-  /**
-   * Text alignment
-   * @default 'left'
-   */
-  align?: 'left' | 'center' | 'right';
+    /**
+     * Text alignment
+     * @default 'left'
+     */
+    align?: 'left' | 'center' | 'right';
 
-  /**
-   * Whether to add bottom margin
-   * @default true
-   */
-  marginBottom?: boolean;
+    /**
+     * Whether to add bottom margin
+     * @default true
+     */
+    marginBottom?: boolean;
 
-  /**
-   * Whether to add top margin
-   * @default true
-   */
-  marginTop?: boolean;
+    /**
+     * Whether to add top margin
+     * @default true
+     */
+    marginTop?: boolean;
 }
 
 /**
@@ -73,25 +73,22 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
  * ```
  */
 export const Heading: React.FC<HeadingProps> = ({
-  level = 1,
-  align = 'left',
-  marginBottom = true,
-  marginTop = true,
-  className,
-  children,
-  ...props
+    level = 1,
+    align = 'left',
+    marginBottom = true,
+    marginTop = true,
+    className,
+    children,
+    ...props
 }) => {
-  const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  const headingClass = className
-    ? `${heading({ level, align, marginBottom, marginTop })} ${className}`
-    : heading({ level, align, marginBottom, marginTop });
+    const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    const headingClass = className
+        ? `${heading({ level, align, marginBottom, marginTop })} ${className}`
+        : heading({ level, align, marginBottom, marginTop });
 
-  return (
-    <Tag
-      className={headingClass}
-      {...props}
-    >
-      {children}
-    </Tag>
-  );
+    return (
+        <Tag className={headingClass} {...props}>
+            {children}
+        </Tag>
+    );
 };

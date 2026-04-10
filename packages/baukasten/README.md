@@ -5,7 +5,7 @@ A webview UI toolkit for Eclipse Theia and VSCode extensions, built with React a
 ## Installation
 
 ```bash
-npm install baukasten react react-dom 
+npm install baukasten react react-dom
 ```
 
 ## Usage
@@ -20,13 +20,13 @@ import 'baukasten-ui/dist/baukasten-base.css';
 import 'baukasten-ui/dist/baukasten-vscode.css';
 
 function App() {
-  return (
-    <div>
-      <Button variant="primary">Click me</Button>
-      <Input label="Username" placeholder="Enter username" />
-      <Badge variant="success">Active</Badge>
-    </div>
-  );
+    return (
+        <div>
+            <Button variant="primary">Click me</Button>
+            <Input label="Username" placeholder="Enter username" />
+            <Badge variant="success">Active</Badge>
+        </div>
+    );
 }
 ```
 
@@ -43,15 +43,15 @@ import { Button, Input, Badge } from 'baukasten-ui';
 import { VSCodeThemeWrapper } from 'baukasten-ui-web-wrapper';
 
 function App() {
-  return (
-    <VSCodeThemeWrapper>
-      <div>
-        <Button variant="primary">Click me</Button>
-        <Input label="Username" placeholder="Enter username" />
-        <Badge variant="success">Active</Badge>
-      </div>
-    </VSCodeThemeWrapper>
-  );
+    return (
+        <VSCodeThemeWrapper>
+            <div>
+                <Button variant="primary">Click me</Button>
+                <Input label="Username" placeholder="Enter username" />
+                <Badge variant="success">Active</Badge>
+            </div>
+        </VSCodeThemeWrapper>
+    );
 }
 ```
 
@@ -86,9 +86,9 @@ import 'baukasten-ui/dist/baukasten-base.css';
 // Then choose ONE platform-specific file:
 import 'baukasten-ui/dist/baukasten-vscode.css'; // For VS Code
 // OR
-import 'baukasten-ui/dist/baukasten-theia.css';  // For Eclipse Theia
+import 'baukasten-ui/dist/baukasten-theia.css'; // For Eclipse Theia
 // OR
-import 'baukasten-ui/dist/baukasten-web.css';    // For standalone web apps
+import 'baukasten-ui/dist/baukasten-web.css'; // For standalone web apps
 ```
 
 ## Usage in Eclipse Theia
@@ -103,12 +103,12 @@ import 'baukasten-ui/dist/baukasten-base.css';
 import 'baukasten-ui/dist/baukasten-theia.css';
 
 function App() {
-  return (
-    <div>
-      <Button variant="primary">Click me</Button>
-      <Input label="Username" placeholder="Enter username" />
-    </div>
-  );
+    return (
+        <div>
+            <Button variant="primary">Click me</Button>
+            <Input label="Username" placeholder="Enter username" />
+        </div>
+    );
 }
 ```
 
@@ -123,32 +123,32 @@ import 'baukasten-ui/dist/baukasten-base.css';
 import 'baukasten-ui/dist/baukasten-theia.css';
 
 function SecondaryWindowContent() {
-  const rootRef = useRef<HTMLDivElement>(null);
-  const [ready, setReady] = useState(false);
-  
-  // Wait for ref to be available
-  useEffect(() => setReady(true), []);
-  
-  return (
-    <div ref={rootRef} style={{ height: '100%' }}>
-      {ready && (
-        <PortalProvider root={rootRef.current}>
-          {/* All portal content will now render in this window */}
-          <Select
-            options={[
-              { value: '1', label: 'Option 1' },
-              { value: '2', label: 'Option 2' },
-            ]}
-            placeholder="Select an option"
-          />
-          
-          <Dropdown trigger={<Button>Open Menu</Button>}>
-            <div>Menu content</div>
-          </Dropdown>
-        </PortalProvider>
-      )}
-    </div>
-  );
+    const rootRef = useRef<HTMLDivElement>(null);
+    const [ready, setReady] = useState(false);
+
+    // Wait for ref to be available
+    useEffect(() => setReady(true), []);
+
+    return (
+        <div ref={rootRef} style={{ height: '100%' }}>
+            {ready && (
+                <PortalProvider root={rootRef.current}>
+                    {/* All portal content will now render in this window */}
+                    <Select
+                        options={[
+                            { value: '1', label: 'Option 1' },
+                            { value: '2', label: 'Option 2' },
+                        ]}
+                        placeholder="Select an option"
+                    />
+
+                    <Dropdown trigger={<Button>Open Menu</Button>}>
+                        <div>Menu content</div>
+                    </Dropdown>
+                </PortalProvider>
+            )}
+        </div>
+    );
 }
 ```
 
@@ -157,6 +157,7 @@ function SecondaryWindowContent() {
 By default, portal-based components render floating content (dropdowns, tooltips) to the main window's `document.body`. In Theia's secondary windows, this causes the content to appear on the wrong window. The `PortalProvider` redirects portal content to the correct window.
 
 **Components that use portals:**
+
 - `Select` - dropdown options
 - `Dropdown` - dropdown content
 - `Tooltip` - tooltip popups
@@ -171,7 +172,7 @@ A versatile button component with multiple variants and sizes.
 
 ```tsx
 <Button variant="primary" size="medium">
-  Click me
+    Click me
 </Button>
 ```
 
@@ -180,11 +181,7 @@ A versatile button component with multiple variants and sizes.
 A text input component with label and error support.
 
 ```tsx
-<Input 
-  label="Email" 
-  placeholder="Enter email"
-  error="Invalid email"
-/>
+<Input label="Email" placeholder="Enter email" error="Invalid email" />
 ```
 
 ### Badge
@@ -214,4 +211,3 @@ npm run build
 ## License
 
 MIT
-

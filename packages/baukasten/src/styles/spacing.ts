@@ -75,8 +75,26 @@ export const spacingTokens = `
  * TypeScript type definitions for spacing tokens
  */
 export type SpacingScale =
-  | '0' | '0-5' | '1' | '1-5' | '2' | '2-5' | '3' | '3-5' | '4'
-  | '5' | '6' | '7' | '8' | '9' | '10' | '12' | '14' | '16' | '20' | '24';
+    | '0'
+    | '0-5'
+    | '1'
+    | '1-5'
+    | '2'
+    | '2-5'
+    | '3'
+    | '3-5'
+    | '4'
+    | '5'
+    | '6'
+    | '7'
+    | '8'
+    | '9'
+    | '10'
+    | '12'
+    | '14'
+    | '16'
+    | '20'
+    | '24';
 
 export type GapSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -86,7 +104,7 @@ export type ComponentSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
  * Helper function to get a spacing token variable reference
  * @param scale - The spacing scale value
  * @returns CSS variable reference string
- * 
+ *
  * @example
  * ```tsx
  * const Container = styled.div`
@@ -96,7 +114,7 @@ export type ComponentSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
  * ```
  */
 export const getSpacing = (scale: SpacingScale): string => {
-  return `var(--bk-spacing-${scale})`;
+    return `var(--bk-spacing-${scale})`;
 };
 
 /**
@@ -105,7 +123,7 @@ export const getSpacing = (scale: SpacingScale): string => {
  * @returns CSS variable reference string
  */
 export const getGap = (size: GapSize): string => {
-  return `var(--bk-gap-${size})`;
+    return `var(--bk-gap-${size})`;
 };
 
 /**
@@ -115,8 +133,7 @@ export const getGap = (size: GapSize): string => {
  * @returns CSS variable reference string
  */
 export const getComponentSize = (size: ComponentSize, circular: boolean = false): string => {
-  return circular ? `var(--bk-size-circular-${size})` : `var(--bk-size-${size})`;
+    return circular ? `var(--bk-size-circular-${size})` : `var(--bk-size-${size})`;
 };
 
 export default spacingTokens;
-

@@ -4,24 +4,24 @@ import { recipe } from '@vanilla-extract/recipes';
  * RadioGroup container
  */
 export const radioGroup = recipe({
-  base: {
-    display: 'flex',
-    gap: 'var(--bk-gap-md)',
-  },
-
-  variants: {
-    orientation: {
-      vertical: {
-        flexDirection: 'column',
-      },
-      horizontal: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-      },
+    base: {
+        display: 'flex',
+        gap: 'var(--bk-gap-md)',
     },
-  },
 
-  defaultVariants: {
-    orientation: 'vertical',
-  },
+    variants: {
+        orientation: {
+            vertical: {
+                flexDirection: 'column',
+            },
+            horizontal: {
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+            },
+        },
+    },
+
+    defaultVariants: {
+        orientation: 'vertical',
+    },
 });

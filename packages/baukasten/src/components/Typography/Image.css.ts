@@ -6,224 +6,225 @@ const SHIMMER_DURATION = '1.5s'; // Smooth loading animation speed
 
 // Keyframes for loading skeleton
 const shimmer = keyframes({
-  '0%': {
-    backgroundPosition: '200% 0',
-  },
-  '100%': {
-    backgroundPosition: '-200% 0',
-  },
+    '0%': {
+        backgroundPosition: '200% 0',
+    },
+    '100%': {
+        backgroundPosition: '-200% 0',
+    },
 });
 
 // Radius mapping
 export const radiusMap = {
-  none: '0',
-  sm: 'var(--bk-radius-sm)',
-  md: 'var(--bk-radius-md)',
-  lg: 'var(--bk-radius-lg)',
-  full: 'var(--bk-radius-full)',
+    none: '0',
+    sm: 'var(--bk-radius-sm)',
+    md: 'var(--bk-radius-md)',
+    lg: 'var(--bk-radius-lg)',
+    full: 'var(--bk-radius-full)',
 } as const;
 
 export const imageWrapper = recipe({
-  base: {
-    margin: 0,
-    position: 'relative',
-    display: 'inline-block',
-    maxWidth: '100%',
-  },
-
-  variants: {
-    hasAspectRatio: {
-      true: {
-        width: '100%',
-      },
-      false: {},
+    base: {
+        margin: 0,
+        position: 'relative',
+        display: 'inline-block',
+        maxWidth: '100%',
     },
 
-    captionPosition: {
-      bottom: {},
-      overlay: {
-        selectors: {
-          '&::after': {
-            content: '',
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: '50%', // Cover bottom half for caption readability
-            background: 'linear-gradient(to top, var(--bk-color-overlay-gradient-start), transparent)',
-            pointerEvents: 'none',
-            borderRadius: 'inherit',
-          },
+    variants: {
+        hasAspectRatio: {
+            true: {
+                width: '100%',
+            },
+            false: {},
         },
-      },
-    },
-  },
 
-  defaultVariants: {
-    hasAspectRatio: false,
-    captionPosition: 'bottom',
-  },
+        captionPosition: {
+            bottom: {},
+            overlay: {
+                selectors: {
+                    '&::after': {
+                        content: '',
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        height: '50%', // Cover bottom half for caption readability
+                        background:
+                            'linear-gradient(to top, var(--bk-color-overlay-gradient-start), transparent)',
+                        pointerEvents: 'none',
+                        borderRadius: 'inherit',
+                    },
+                },
+            },
+        },
+    },
+
+    defaultVariants: {
+        hasAspectRatio: false,
+        captionPosition: 'bottom',
+    },
 });
 
 export const image = recipe({
-  base: {
-    display: 'block',
-    width: '100%',
-    height: '100%',
-    transition: 'var(--bk-transition-base)',
-  },
-
-  variants: {
-    fit: {
-      cover: {
-        objectFit: 'cover',
-      },
-      contain: {
-        objectFit: 'contain',
-      },
-      fill: {
-        objectFit: 'fill',
-      },
-      none: {
-        objectFit: 'none',
-      },
-      'scale-down': {
-        objectFit: 'scale-down',
-      },
+    base: {
+        display: 'block',
+        width: '100%',
+        height: '100%',
+        transition: 'var(--bk-transition-base)',
     },
 
-    radius: {
-      none: {
-        borderRadius: radiusMap.none,
-      },
-      sm: {
-        borderRadius: radiusMap.sm,
-      },
-      md: {
-        borderRadius: radiusMap.md,
-      },
-      lg: {
-        borderRadius: radiusMap.lg,
-      },
-      full: {
-        borderRadius: radiusMap.full,
-      },
+    variants: {
+        fit: {
+            cover: {
+                objectFit: 'cover',
+            },
+            contain: {
+                objectFit: 'contain',
+            },
+            fill: {
+                objectFit: 'fill',
+            },
+            none: {
+                objectFit: 'none',
+            },
+            'scale-down': {
+                objectFit: 'scale-down',
+            },
+        },
+
+        radius: {
+            none: {
+                borderRadius: radiusMap.none,
+            },
+            sm: {
+                borderRadius: radiusMap.sm,
+            },
+            md: {
+                borderRadius: radiusMap.md,
+            },
+            lg: {
+                borderRadius: radiusMap.lg,
+            },
+            full: {
+                borderRadius: radiusMap.full,
+            },
+        },
+
+        bordered: {
+            true: {
+                border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
+            },
+            false: {},
+        },
+
+        shadow: {
+            true: {
+                boxShadow: 'var(--bk-shadow-md)',
+            },
+            false: {},
+        },
+
+        isLoading: {
+            true: {
+                opacity: 0,
+            },
+            false: {},
+        },
+
+        hasError: {
+            true: {
+                opacity: 0,
+            },
+            false: {},
+        },
     },
 
-    bordered: {
-      true: {
-        border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
-      },
-      false: {},
+    defaultVariants: {
+        fit: 'cover',
+        radius: 'none',
+        bordered: false,
+        shadow: false,
+        isLoading: false,
+        hasError: false,
     },
-
-    shadow: {
-      true: {
-        boxShadow: 'var(--bk-shadow-md)',
-      },
-      false: {},
-    },
-
-    isLoading: {
-      true: {
-        opacity: 0,
-      },
-      false: {},
-    },
-
-    hasError: {
-      true: {
-        opacity: 0,
-      },
-      false: {},
-    },
-  },
-
-  defaultVariants: {
-    fit: 'cover',
-    radius: 'none',
-    bordered: false,
-    shadow: false,
-    isLoading: false,
-    hasError: false,
-  },
 });
 
 export const loadingSkeleton = style({
-  position: 'absolute',
-  inset: 0,
-  background: `linear-gradient(
+    position: 'absolute',
+    inset: 0,
+    background: `linear-gradient(
     90deg,
     var(--bk-color-background-secondary) 0%,
     var(--bk-color-background-tertiary) 50%,
     var(--bk-color-background-secondary) 100%
   )`,
-  backgroundSize: '200% 100%',
-  animation: `${shimmer} ${SHIMMER_DURATION} infinite`,
+    backgroundSize: '200% 100%',
+    animation: `${shimmer} ${SHIMMER_DURATION} infinite`,
 });
 
 export const loadingSkeletonRadius = styleVariants(radiusMap, (radius) => ({
-  borderRadius: radius,
+    borderRadius: radius,
 }));
 
 export const errorContainer = style({
-  position: 'absolute',
-  inset: 0,
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: 'var(--bk-color-background-secondary)',
-  color: 'var(--bk-color-secondary-foreground)',
-  padding: 'var(--bk-spacing-4)',
-  textAlign: 'center',
-  fontSize: 'var(--bk-font-size-sm)',
-  gap: 'var(--bk-spacing-2)',
+    position: 'absolute',
+    inset: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'var(--bk-color-background-secondary)',
+    color: 'var(--bk-color-secondary-foreground)',
+    padding: 'var(--bk-spacing-4)',
+    textAlign: 'center',
+    fontSize: 'var(--bk-font-size-sm)',
+    gap: 'var(--bk-spacing-2)',
 });
 
 export const errorContainerRadius = styleVariants(radiusMap, (radius) => ({
-  borderRadius: radius,
+    borderRadius: radius,
 }));
 
 export const caption = recipe({
-  base: {
-    fontSize: 'var(--bk-font-size-sm)',
-    color: 'var(--bk-color-secondary-foreground)',
-    lineHeight: 'var(--bk-line-height-normal)',
-  },
-
-  variants: {
-    position: {
-      bottom: {
-        marginTop: 'var(--bk-spacing-2)',
-        padding: '0 var(--bk-spacing-1)',
-      },
-      overlay: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        padding: 'var(--bk-spacing-3)',
-        color: 'var(--bk-color-overlay-foreground)',
-        zIndex: 'var(--bk-z-index-overlay-content)',
-      },
+    base: {
+        fontSize: 'var(--bk-font-size-sm)',
+        color: 'var(--bk-color-secondary-foreground)',
+        lineHeight: 'var(--bk-line-height-normal)',
     },
 
-    align: {
-      left: {
-        textAlign: 'left',
-      },
-      center: {
-        textAlign: 'center',
-      },
-      right: {
-        textAlign: 'right',
-      },
-    },
-  },
+    variants: {
+        position: {
+            bottom: {
+                marginTop: 'var(--bk-spacing-2)',
+                padding: '0 var(--bk-spacing-1)',
+            },
+            overlay: {
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                padding: 'var(--bk-spacing-3)',
+                color: 'var(--bk-color-overlay-foreground)',
+                zIndex: 'var(--bk-z-index-overlay-content)',
+            },
+        },
 
-  defaultVariants: {
-    position: 'bottom',
-    align: 'center',
-  },
+        align: {
+            left: {
+                textAlign: 'left',
+            },
+            center: {
+                textAlign: 'center',
+            },
+            right: {
+                textAlign: 'right',
+            },
+        },
+    },
+
+    defaultVariants: {
+        position: 'bottom',
+        align: 'center',
+    },
 });

@@ -83,7 +83,8 @@ const sliderProps: PropDefinition[] = [
         name: 'marks',
         type: 'boolean | number | SliderMark[]',
         default: 'false',
-        description: 'Display tick marks on the slider. Pass true for marks at every step, a number for custom interval, or an array of marks with optional labels',
+        description:
+            'Display tick marks on the slider. Pass true for marks at every step, a number for custom interval, or an array of marks with optional labels',
     },
 ];
 
@@ -132,33 +133,70 @@ function App() {
                 title="Sizes"
                 description="Five size options from extra small to extra large. Spacing between labels, track, and tick marks automatically scales with the slider size for optimal visual balance."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', width: '400px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-6)',
+                            width: '400px',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-descriptionForeground)',
+                                }}
+                            >
                                 Extra Small (xs)
                             </div>
                             <Slider size="xs" defaultValue={25} showValue showMinMax marks={25} />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-descriptionForeground)',
+                                }}
+                            >
                                 Small (sm)
                             </div>
                             <Slider size="sm" defaultValue={35} showValue showMinMax marks={25} />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-descriptionForeground)',
+                                }}
+                            >
                                 Medium (md) - Default
                             </div>
                             <Slider size="md" defaultValue={50} showValue showMinMax marks={25} />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-descriptionForeground)',
+                                }}
+                            >
                                 Large (lg)
                             </div>
                             <Slider size="lg" defaultValue={65} showValue showMinMax marks={25} />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-descriptionForeground)',
+                                }}
+                            >
                                 Extra Large (xl)
                             </div>
                             <Slider size="xl" defaultValue={85} showValue showMinMax marks={25} />
@@ -176,9 +214,22 @@ function App() {
                 title="Custom Range"
                 description="Configure custom minimum, maximum, and step values."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', width: '400px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-6)',
+                            width: '400px',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-descriptionForeground)',
+                                }}
+                            >
                                 Temperature (-10 to 40°C)
                             </div>
                             <Slider
@@ -192,7 +243,13 @@ function App() {
                             />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-descriptionForeground)',
+                                }}
+                            >
                                 Price ($0-$1000)
                             </div>
                             <Slider
@@ -232,12 +289,15 @@ function App() {
                 title="Custom Formatter"
                 description="Use a custom formatter to display values with units or custom formatting."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '400px' }}>
-                        <Slider
-                            showValue
-                            formatValue={(v) => `${v}%`}
-                            defaultValue={75}
-                        />
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            width: '400px',
+                        }}
+                    >
+                        <Slider showValue formatValue={(v) => `${v}%`} defaultValue={75} />
                         <Slider
                             min={0}
                             max={5}
@@ -268,9 +328,22 @@ function App() {
                 title="Controlled Component"
                 description="Use the slider as a controlled component with state management."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '400px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            width: '400px',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-descriptionForeground)',
+                                }}
+                            >
                                 Volume
                             </div>
                             <Slider
@@ -281,12 +354,14 @@ function App() {
                                 formatValue={(v) => `${v}%`}
                             />
                         </div>
-                        <div style={{
-                            padding: 'var(--bk-spacing-3)',
-                            backgroundColor: 'var(--bk-color-secondary)',
-                            borderRadius: 'var(--bk-radius-md)',
-                            fontSize: 'var(--bk-font-size-sm)',
-                        }}>
+                        <div
+                            style={{
+                                padding: 'var(--bk-spacing-3)',
+                                backgroundColor: 'var(--bk-color-secondary)',
+                                borderRadius: 'var(--bk-radius-md)',
+                                fontSize: 'var(--bk-font-size-sm)',
+                            }}
+                        >
                             Current volume: <strong>{volume}%</strong>
                         </div>
                     </div>
@@ -318,9 +393,7 @@ function App() {
             <Showcase
                 title="Disabled State"
                 description="Sliders can be disabled to prevent interaction."
-                preview={
-                    <Slider disabled defaultValue={50} showValue showMinMax />
-                }
+                preview={<Slider disabled defaultValue={50} showValue showMinMax />}
                 code={`<Slider disabled defaultValue={50} showValue showMinMax />`}
             />
 
@@ -328,15 +401,34 @@ function App() {
                 title="With Tick Marks"
                 description="Display visual tick marks to help users see increments. The slider automatically highlights marks before the current value."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', width: '400px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-6)',
+                            width: '400px',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-descriptionForeground)',
+                                }}
+                            >
                                 Marks at every step (step=10)
                             </div>
                             <Slider defaultValue={50} showValue marks={true} step={10} />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-descriptionForeground)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-descriptionForeground)',
+                                }}
+                            >
                                 Marks every 25 units
                             </div>
                             <Slider defaultValue={50} showValue showMinMax marks={25} step={5} />
@@ -390,20 +482,24 @@ function App() {
                 title="Volume Control with Marks"
                 description="A practical example showing a volume slider with tick marks every 10 units."
                 preview={
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: 'var(--bk-spacing-4)',
-                        width: '450px',
-                        padding: 'var(--bk-spacing-4)',
-                        backgroundColor: 'var(--bk-color-secondary)',
-                        borderRadius: 'var(--bk-radius-lg)',
-                    }}>
-                        <h4 style={{
-                            margin: 0,
-                            fontSize: 'var(--bk-font-size-base)',
-                            fontWeight: 'var(--bk-font-weight-semibold)',
-                        }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            width: '450px',
+                            padding: 'var(--bk-spacing-4)',
+                            backgroundColor: 'var(--bk-color-secondary)',
+                            borderRadius: 'var(--bk-radius-lg)',
+                        }}
+                    >
+                        <h4
+                            style={{
+                                margin: 0,
+                                fontSize: 'var(--bk-font-size-base)',
+                                fontWeight: 'var(--bk-font-weight-semibold)',
+                            }}
+                        >
                             Volume Control
                         </h4>
                         <Slider
@@ -418,13 +514,15 @@ function App() {
                             fullWidth
                             size="lg"
                         />
-                        <div style={{
-                            padding: 'var(--bk-spacing-3)',
-                            backgroundColor: 'var(--bk-color-info)',
-                            borderRadius: 'var(--bk-radius-md)',
-                            fontSize: 'var(--bk-font-size-sm)',
-                            textAlign: 'center',
-                        }}>
+                        <div
+                            style={{
+                                padding: 'var(--bk-spacing-3)',
+                                backgroundColor: 'var(--bk-color-info)',
+                                borderRadius: 'var(--bk-radius-md)',
+                                fontSize: 'var(--bk-font-size-sm)',
+                                textAlign: 'center',
+                            }}
+                        >
                             Current Volume: <strong>{volume}%</strong>
                         </div>
                     </div>
@@ -448,116 +546,145 @@ function App() {
             <Showcase
                 title="Performance Optimization"
                 description="Use onChangeCommitted for expensive operations like API calls. It only fires when dragging ends, while onChange fires continuously during drag."
-                preview={
-                    (() => {
-                        const [value, setValue] = useState(50);
-                        const [updateCount, setUpdateCount] = useState(0);
-                        const [commitCount, setCommitCount] = useState(0);
+                preview={(() => {
+                    const [value, setValue] = useState(50);
+                    const [updateCount, setUpdateCount] = useState(0);
+                    const [commitCount, setCommitCount] = useState(0);
 
-                        return (
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '450px' }}>
-                                <div style={{
+                    return (
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-4)',
+                                width: '450px',
+                            }}
+                        >
+                            <div
+                                style={{
                                     padding: 'var(--bk-spacing-4)',
                                     backgroundColor: 'var(--bk-color-secondary)',
                                     borderRadius: 'var(--bk-radius-lg)',
-                                }}>
-                                    <h4 style={{
+                                }}
+                            >
+                                <h4
+                                    style={{
                                         margin: '0 0 var(--bk-spacing-3) 0',
                                         fontSize: 'var(--bk-font-size-base)',
                                         fontWeight: 'var(--bk-font-weight-semibold)',
-                                    }}>
-                                        Performance Demo
-                                    </h4>
-                                    <p style={{
+                                    }}
+                                >
+                                    Performance Demo
+                                </h4>
+                                <p
+                                    style={{
                                         margin: '0 0 var(--bk-spacing-4) 0',
                                         fontSize: 'var(--bk-font-size-sm)',
                                         color: 'var(--bk-color-descriptionForeground)',
-                                    }}>
-                                        Drag the slider and watch the counters
-                                    </p>
+                                    }}
+                                >
+                                    Drag the slider and watch the counters
+                                </p>
 
-                                    <Slider
-                                        value={value}
-                                        onChange={(v) => {
-                                            setValue(v);
-                                            setUpdateCount((c) => c + 1);
-                                        }}
-                                        onChangeCommitted={() => {
-                                            setCommitCount((c) => c + 1);
-                                        }}
-                                        showValue
-                                        showMinMax
-                                        marks={10}
-                                        step={5}
-                                        fullWidth
-                                    />
-                                </div>
+                                <Slider
+                                    value={value}
+                                    onChange={(v) => {
+                                        setValue(v);
+                                        setUpdateCount((c) => c + 1);
+                                    }}
+                                    onChangeCommitted={() => {
+                                        setCommitCount((c) => c + 1);
+                                    }}
+                                    showValue
+                                    showMinMax
+                                    marks={10}
+                                    step={5}
+                                    fullWidth
+                                />
+                            </div>
 
-                                <div style={{
+                            <div
+                                style={{
                                     display: 'grid',
                                     gridTemplateColumns: '1fr 1fr',
                                     gap: 'var(--bk-spacing-3)',
-                                }}>
-                                    <div style={{
+                                }}
+                            >
+                                <div
+                                    style={{
                                         padding: 'var(--bk-spacing-3)',
                                         backgroundColor: 'var(--bk-color-info)',
                                         borderRadius: 'var(--bk-radius-md)',
                                         textAlign: 'center',
-                                    }}>
-                                        <div style={{
+                                    }}
+                                >
+                                    <div
+                                        style={{
                                             fontSize: 'var(--bk-font-size-xs)',
                                             fontWeight: 'var(--bk-font-weight-medium)',
                                             marginBottom: 'var(--bk-spacing-1)',
-                                        }}>
-                                            onChange
-                                        </div>
-                                        <div style={{
+                                        }}
+                                    >
+                                        onChange
+                                    </div>
+                                    <div
+                                        style={{
                                             fontSize: 'var(--bk-font-size-xl)',
                                             fontWeight: 'var(--bk-font-weight-bold)',
-                                        }}>
-                                            {updateCount}
-                                        </div>
-                                        <div style={{
+                                        }}
+                                    >
+                                        {updateCount}
+                                    </div>
+                                    <div
+                                        style={{
                                             fontSize: 'var(--bk-font-size-xs)',
                                             color: 'var(--bk-color-descriptionForeground)',
                                             marginTop: 'var(--bk-spacing-1)',
-                                        }}>
-                                            updates
-                                        </div>
+                                        }}
+                                    >
+                                        updates
                                     </div>
+                                </div>
 
-                                    <div style={{
+                                <div
+                                    style={{
                                         padding: 'var(--bk-spacing-3)',
                                         backgroundColor: 'var(--bk-color-success)',
                                         borderRadius: 'var(--bk-radius-md)',
                                         textAlign: 'center',
-                                    }}>
-                                        <div style={{
+                                    }}
+                                >
+                                    <div
+                                        style={{
                                             fontSize: 'var(--bk-font-size-xs)',
                                             fontWeight: 'var(--bk-font-weight-medium)',
                                             marginBottom: 'var(--bk-spacing-1)',
-                                        }}>
-                                            onChangeCommitted
-                                        </div>
-                                        <div style={{
+                                        }}
+                                    >
+                                        onChangeCommitted
+                                    </div>
+                                    <div
+                                        style={{
                                             fontSize: 'var(--bk-font-size-xl)',
                                             fontWeight: 'var(--bk-font-weight-bold)',
-                                        }}>
-                                            {commitCount}
-                                        </div>
-                                        <div style={{
+                                        }}
+                                    >
+                                        {commitCount}
+                                    </div>
+                                    <div
+                                        style={{
                                             fontSize: 'var(--bk-font-size-xs)',
                                             color: 'var(--bk-color-descriptionForeground)',
                                             marginTop: 'var(--bk-spacing-1)',
-                                        }}>
-                                            commits
-                                        </div>
+                                        }}
+                                    >
+                                        commits
                                     </div>
                                 </div>
                             </div>
-                        );
-                    })()
-                }
+                        </div>
+                    );
+                })()}
                 code={`const [value, setValue] = useState(50);
 const [updateCount, setUpdateCount] = useState(0);
 const [commitCount, setCommitCount] = useState(0);
@@ -588,40 +715,50 @@ const [commitCount, setCommitCount] = useState(0);
                 title="Settings Panel Example"
                 description="A practical example showing multiple sliders in a settings panel."
                 preview={
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: 'var(--bk-spacing-4)',
-                        width: '450px',
-                        padding: 'var(--bk-spacing-4)',
-                        backgroundColor: 'var(--bk-color-secondary)',
-                        borderRadius: 'var(--bk-radius-lg)',
-                    }}>
-                        <h4 style={{
-                            margin: 0,
-                            fontSize: 'var(--bk-font-size-base)',
-                            fontWeight: 'var(--bk-font-weight-semibold)',
-                        }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            width: '450px',
+                            padding: 'var(--bk-spacing-4)',
+                            backgroundColor: 'var(--bk-color-secondary)',
+                            borderRadius: 'var(--bk-radius-lg)',
+                        }}
+                    >
+                        <h4
+                            style={{
+                                margin: 0,
+                                fontSize: 'var(--bk-font-size-base)',
+                                fontWeight: 'var(--bk-font-weight-semibold)',
+                            }}
+                        >
                             Display Settings
                         </h4>
 
                         <div>
-                            <div style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                                marginBottom: 'var(--bk-spacing-2)',
-                            }}>
-                                <label style={{
-                                    fontSize: 'var(--bk-font-size-sm)',
-                                    fontWeight: 'var(--bk-font-weight-medium)',
-                                }}>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                }}
+                            >
+                                <label
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        fontWeight: 'var(--bk-font-weight-medium)',
+                                    }}
+                                >
                                     Brightness
                                 </label>
-                                <span style={{
-                                    fontSize: 'var(--bk-font-size-sm)',
-                                    color: 'var(--bk-color-descriptionForeground)',
-                                }}>
+                                <span
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        color: 'var(--bk-color-descriptionForeground)',
+                                    }}
+                                >
                                     {brightness}%
                                 </span>
                             </div>

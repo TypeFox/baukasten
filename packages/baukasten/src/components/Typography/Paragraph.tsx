@@ -93,9 +93,9 @@ export const Paragraph: React.FC<ParagraphProps> = ({
     // Merge maxLines inline style with className
     const combinedStyle: React.CSSProperties = maxLines
         ? {
-            WebkitLineClamp: maxLines,
-            ...style,
-        }
+              WebkitLineClamp: maxLines,
+              ...style,
+          }
         : style || {};
 
     const paragraphClass = className
@@ -103,11 +103,7 @@ export const Paragraph: React.FC<ParagraphProps> = ({
         : paragraph({ size, align, lineHeight, marginBottom, hasMaxLines: !!maxLines });
 
     return (
-        <p
-            className={paragraphClass}
-            style={combinedStyle}
-            {...props}
-        >
+        <p className={paragraphClass} style={combinedStyle} {...props}>
             {children}
         </p>
     );

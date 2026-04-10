@@ -10,62 +10,62 @@ export type RadioGroupOrientation = 'vertical' | 'horizontal';
  * RadioGroup component props
  */
 export interface RadioGroupProps {
-  /**
-   * Children (Radio components wrapped in Labels)
-   */
-  children: React.ReactNode;
+    /**
+     * Children (Radio components wrapped in Labels)
+     */
+    children: React.ReactNode;
 
-  /**
-   * Name attribute for all radios in the group
-   */
-  name: string;
+    /**
+     * Name attribute for all radios in the group
+     */
+    name: string;
 
-  /**
-   * Currently selected value
-   */
-  value?: string | number;
+    /**
+     * Currently selected value
+     */
+    value?: string | number;
 
-  /**
-   * Default value (for uncontrolled usage)
-   */
-  defaultValue?: string | number;
+    /**
+     * Default value (for uncontrolled usage)
+     */
+    defaultValue?: string | number;
 
-  /**
-   * Callback when selection changes
-   */
-  onChange?: (value: string | number) => void;
+    /**
+     * Callback when selection changes
+     */
+    onChange?: (value: string | number) => void;
 
-  /**
-   * Whether all radios in the group are disabled
-   * @default false
-   */
-  disabled?: boolean;
+    /**
+     * Whether all radios in the group are disabled
+     * @default false
+     */
+    disabled?: boolean;
 
-  /**
-   * Layout orientation of the radio group
-   * @default 'vertical'
-   */
-  orientation?: RadioGroupOrientation;
+    /**
+     * Layout orientation of the radio group
+     * @default 'vertical'
+     */
+    orientation?: RadioGroupOrientation;
 
-  /**
-   * Additional CSS class
-   */
-  className?: string;
+    /**
+     * Additional CSS class
+     */
+    className?: string;
 
-  /**
-   * Inline styles
-   */
-  style?: React.CSSProperties;
+    /**
+     * Inline styles
+     */
+    style?: React.CSSProperties;
 }
 
 /**
  * Context for RadioGroup to provide shared props to Radio components
  */
 interface RadioGroupContextValue {
-  name: string;
-  value?: string | number;
-  onChange?: (value: string | number) => void;
-  disabled?: boolean;
+    name: string;
+    value?: string | number;
+    onChange?: (value: string | number) => void;
+    disabled?: boolean;
 }
 
 const RadioGroupContext = createContext<RadioGroupContextValue | null>(null);
@@ -74,7 +74,7 @@ const RadioGroupContext = createContext<RadioGroupContextValue | null>(null);
  * Hook to access RadioGroup context from Radio components
  */
 export const useRadioGroup = () => {
-  return useContext(RadioGroupContext);
+    return useContext(RadioGroupContext);
 };
 
 /**
@@ -150,61 +150,59 @@ export const useRadioGroup = () => {
  * ```
  */
 export const RadioGroup: React.FC<RadioGroupProps> = ({
-  children,
-  name,
-  value: controlledValue,
-  defaultValue,
-  onChange,
-  disabled = false,
-  orientation = 'vertical',
-  className,
-  style,
-}) => {
-  // Support uncontrolled mode
-  const [uncontrolledValue, setUncontrolledValue] = React.useState<string | number | undefined>(defaultValue);
-  const isControlled = controlledValue !== undefined;
-  const value = isControlled ? controlledValue : uncontrolledValue;
-
-  const handleChange = (newValue: string | number) => {
-    if (!isControlled) {
-      setUncontrolledValue(newValue);
-    }
-    onChange?.(newValue);
-  };
-
-  const contextValue: RadioGroupContextValue = {
+    children,
     name,
-    value,
-    onChange: handleChange,
-    disabled,
-  };
+    value: controlledValue,
+    defaultValue,
+    onChange,
+    disabled = false,
+    orientation = 'vertical',
+    className,
+    style,
+}) => {
+    // Support uncontrolled mode
+    const [uncontrolledValue, setUncontrolledValue] = React.useState<string | number | undefined>(
+        defaultValue,
+    );
+    const isControlled = controlledValue !== undefined;
+    const value = isControlled ? controlledValue : uncontrolledValue;
 
-  // Clone children to inject group props
-  const enhancedChildren = React.Children.map(children, (child) => {
-    if (!React.isValidElement(child)) {
-      return child;
-    }
+    const handleChange = (newValue: string | number) => {
+        if (!isControlled) {
+            setUncontrolledValue(newValue);
+        }
+        onChange?.(newValue);
+    };
 
-    // If child is a Label, we need to find the Radio inside it
-    // and inject the group context props
-    return child;
-  });
+    const contextValue: RadioGroupContextValue = {
+        name,
+        value,
+        onChange: handleChange,
+        disabled,
+    };
 
-  const groupClassName = className
-    ? `${radioGroup({ orientation })} ${className}`
-    : radioGroup({ orientation });
+    // Clone children to inject group props
+    const enhancedChildren = React.Children.map(children, (child) => {
+        if (!React.isValidElement(child)) {
+            return child;
+        }
 
-  return (
-    <RadioGroupContext.Provider value={contextValue}>
-      <div
-        role="radiogroup"
-        className={groupClassName}
-        style={style}
-      >
-        {enhancedChildren}
-      </div>
-    </RadioGroupContext.Provider>
-  );
+        // If child is a Label, we need to find the Radio inside it
+        // and inject the group context props
+        return child;
+    });
+
+    const groupClassName = className
+        ? `${radioGroup({ orientation })} ${className}`
+        : radioGroup({ orientation });
+
+    return (
+        <RadioGroupContext.Provider value={contextValue}>
+            <div role="radiogroup" className={groupClassName} style={style}>
+                {enhancedChildren}
+            </div>
+        </RadioGroupContext.Provider>
+    );
 };
 
 RadioGroup.displayName = 'RadioGroup';

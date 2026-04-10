@@ -8,21 +8,68 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from 'baukasten-ui/extra';
 
 const tabsProps: PropDefinition[] = [
     { name: 'value', type: 'string', description: 'Currently active tab value (controlled mode)' },
-    { name: 'defaultValue', type: 'string', description: 'Default active tab value (uncontrolled mode)' },
-    { name: 'onChange', type: '(value: string) => void', description: 'Callback when active tab changes' },
-    { name: 'orientation', type: '"horizontal" | "vertical"', default: '"horizontal"', description: 'Orientation of the tabs' },
-    { name: 'variant', type: '"line" | "lifted" | "pills"', default: '"line"', description: 'Visual variant of the tabs' },
-    { name: 'indicatorPosition', type: '"start" | "end"', default: '"end"', description: 'Position of the active indicator (start: top/left, end: bottom/right)' },
-    { name: 'size', type: '"xs" | "sm" | "md" | "lg" | "xl"', default: '"md"', description: 'Size of the tabs' },
+    {
+        name: 'defaultValue',
+        type: 'string',
+        description: 'Default active tab value (uncontrolled mode)',
+    },
+    {
+        name: 'onChange',
+        type: '(value: string) => void',
+        description: 'Callback when active tab changes',
+    },
+    {
+        name: 'orientation',
+        type: '"horizontal" | "vertical"',
+        default: '"horizontal"',
+        description: 'Orientation of the tabs',
+    },
+    {
+        name: 'variant',
+        type: '"line" | "lifted" | "pills"',
+        default: '"line"',
+        description: 'Visual variant of the tabs',
+    },
+    {
+        name: 'indicatorPosition',
+        type: '"start" | "end"',
+        default: '"end"',
+        description: 'Position of the active indicator (start: top/left, end: bottom/right)',
+    },
+    {
+        name: 'size',
+        type: '"xs" | "sm" | "md" | "lg" | "xl"',
+        default: '"md"',
+        description: 'Size of the tabs',
+    },
 ];
 
 const tabProps: PropDefinition[] = [
-    { name: 'value', type: 'string', required: true, description: 'Unique value identifying this tab' },
+    {
+        name: 'value',
+        type: 'string',
+        required: true,
+        description: 'Unique value identifying this tab',
+    },
     { name: 'children', type: 'React.ReactNode', required: true, description: 'Tab label content' },
     { name: 'icon', type: 'CodiconName', description: 'Optional VSCode Codicon name' },
-    { name: 'closable', type: 'boolean', default: 'false', description: 'Whether the tab can be closed' },
-    { name: 'onClose', type: '(value: string) => void', description: 'Callback when close button is clicked' },
-    { name: 'disabled', type: 'boolean', default: 'false', description: 'Whether the tab is disabled' },
+    {
+        name: 'closable',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether the tab can be closed',
+    },
+    {
+        name: 'onClose',
+        type: '(value: string) => void',
+        description: 'Callback when close button is clicked',
+    },
+    {
+        name: 'disabled',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether the tab is disabled',
+    },
 ];
 
 // Example for closable tabs
@@ -35,7 +82,7 @@ function ClosableTabsExample() {
     const [activeTab, setActiveTab] = useState('file1');
 
     const handleClose = (value: string) => {
-        const newTabs = tabs.filter(tab => tab.value !== value);
+        const newTabs = tabs.filter((tab) => tab.value !== value);
         setTabs(newTabs);
 
         // If closing active tab, switch to another tab
@@ -46,7 +93,13 @@ function ClosableTabsExample() {
 
     if (tabs.length === 0) {
         return (
-            <div style={{ padding: 'var(--bk-spacing-8)', textAlign: 'center', color: 'var(--vscode-descriptionForeground)' }}>
+            <div
+                style={{
+                    padding: 'var(--bk-spacing-8)',
+                    textAlign: 'center',
+                    color: 'var(--vscode-descriptionForeground)',
+                }}
+            >
                 All tabs closed. Refresh to reset.
             </div>
         );
@@ -55,7 +108,7 @@ function ClosableTabsExample() {
     return (
         <Tabs value={activeTab} onChange={setActiveTab}>
             <TabList>
-                {tabs.map(tab => (
+                {tabs.map((tab) => (
                     <Tab
                         key={tab.value}
                         value={tab.value}
@@ -68,10 +121,12 @@ function ClosableTabsExample() {
                 ))}
             </TabList>
             <TabPanels>
-                {tabs.map(tab => (
+                {tabs.map((tab) => (
                     <TabPanel key={tab.value} value={tab.value}>
                         <h3 style={{ marginBottom: 'var(--bk-spacing-2)' }}>{tab.label}</h3>
-                        <p>Content for {tab.label}. Click the close button (×) to remove this tab.</p>
+                        <p>
+                            Content for {tab.label}. Click the close button (×) to remove this tab.
+                        </p>
                     </TabPanel>
                 ))}
             </TabPanels>
@@ -101,22 +156,45 @@ function ControlledExample() {
 
     return (
         <div>
-            <div style={{ marginBottom: 'var(--bk-spacing-3)', display: 'flex', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
-                <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+            <div
+                style={{
+                    marginBottom: 'var(--bk-spacing-3)',
+                    display: 'flex',
+                    gap: 'var(--bk-spacing-2)',
+                    alignItems: 'center',
+                }}
+            >
+                <span
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        color: 'var(--vscode-descriptionForeground)',
+                    }}
+                >
                     External controls:
                 </span>
                 <Button size="sm" onClick={goToPreviousStep} disabled={activeTab === 'step1'}>
                     Previous
                 </Button>
-                <Button size="sm" variant="primary" onClick={goToNextStep} disabled={activeTab === 'step3'}>
+                <Button
+                    size="sm"
+                    variant="primary"
+                    onClick={goToNextStep}
+                    disabled={activeTab === 'step3'}
+                >
                     Next
                 </Button>
             </div>
             <Tabs value={activeTab} onChange={setActiveTab}>
                 <TabList>
-                    <Tab value="step1" icon="circle-large-filled">Step 1</Tab>
-                    <Tab value="step2" icon="circle-large-outline">Step 2</Tab>
-                    <Tab value="step3" icon="circle-large-outline">Step 3</Tab>
+                    <Tab value="step1" icon="circle-large-filled">
+                        Step 1
+                    </Tab>
+                    <Tab value="step2" icon="circle-large-outline">
+                        Step 2
+                    </Tab>
+                    <Tab value="step3" icon="circle-large-outline">
+                        Step 3
+                    </Tab>
                 </TabList>
                 <TabPanels>
                     <TabPanel value="step1">
@@ -132,13 +210,20 @@ function ControlledExample() {
                         <p>Provide your contact information.</p>
                         <div style={{ marginTop: 'var(--bk-spacing-3)' }}>
                             <FieldLabel htmlFor="email">Email</FieldLabel>
-                            <Input id="email" type="email" placeholder="john@example.com" fullWidth />
+                            <Input
+                                id="email"
+                                type="email"
+                                placeholder="john@example.com"
+                                fullWidth
+                            />
                         </div>
                     </TabPanel>
                     <TabPanel value="step3">
                         <h3>Step 3: Complete</h3>
                         <p>Review and submit your information.</p>
-                        <Button variant="primary" style={{ marginTop: 'var(--bk-spacing-3)' }}>Submit</Button>
+                        <Button variant="primary" style={{ marginTop: 'var(--bk-spacing-3)' }}>
+                            Submit
+                        </Button>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
@@ -206,9 +291,21 @@ function App() {
                 title="Variants"
                 description="Three visual variants available: line (VSCode-style with indicator line), lifted (classic tabbed interface with borders), and pills (modern filled pills)."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Line (Default) - VSCode Style
                             </div>
                             <Tabs defaultValue="tab1" variant="line">
@@ -218,14 +315,26 @@ function App() {
                                     <Tab value="tab3">Settings</Tab>
                                 </TabList>
                                 <TabPanels>
-                                    <TabPanel value="tab1">Clean line indicator at the bottom.</TabPanel>
-                                    <TabPanel value="tab2">Perfect for professional interfaces.</TabPanel>
-                                    <TabPanel value="tab3">Default variant with subtle active state.</TabPanel>
+                                    <TabPanel value="tab1">
+                                        Clean line indicator at the bottom.
+                                    </TabPanel>
+                                    <TabPanel value="tab2">
+                                        Perfect for professional interfaces.
+                                    </TabPanel>
+                                    <TabPanel value="tab3">
+                                        Default variant with subtle active state.
+                                    </TabPanel>
                                 </TabPanels>
                             </Tabs>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Lifted - Classic Tabbed Interface
                             </div>
                             <Tabs defaultValue="tab1" variant="lifted">
@@ -235,14 +344,24 @@ function App() {
                                     <Tab value="tab3">Settings</Tab>
                                 </TabList>
                                 <TabPanels>
-                                    <TabPanel value="tab1">Active tab has a border that connects to content area.</TabPanel>
+                                    <TabPanel value="tab1">
+                                        Active tab has a border that connects to content area.
+                                    </TabPanel>
                                     <TabPanel value="tab2">Creates a "lifted" effect.</TabPanel>
-                                    <TabPanel value="tab3">Classic tabbed interface style.</TabPanel>
+                                    <TabPanel value="tab3">
+                                        Classic tabbed interface style.
+                                    </TabPanel>
                                 </TabPanels>
                             </Tabs>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Pills - Modern Tag Style
                             </div>
                             <Tabs defaultValue="tab1" variant="pills">
@@ -252,8 +371,12 @@ function App() {
                                     <Tab value="tab3">Settings</Tab>
                                 </TabList>
                                 <TabPanels>
-                                    <TabPanel value="tab1">No borders, just subtle rounded corners.</TabPanel>
-                                    <TabPanel value="tab2">Active tab has a filled background.</TabPanel>
+                                    <TabPanel value="tab1">
+                                        No borders, just subtle rounded corners.
+                                    </TabPanel>
+                                    <TabPanel value="tab2">
+                                        Active tab has a filled background.
+                                    </TabPanel>
                                     <TabPanel value="tab3">Modern, clean appearance.</TabPanel>
                                 </TabPanels>
                             </Tabs>
@@ -280,9 +403,21 @@ function App() {
                 title="Orientations"
                 description="Tabs support both horizontal (default) and vertical orientations. Horizontal tabs are common for content sections, while vertical tabs work well for navigation menus."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Horizontal (Default)
                             </div>
                             <Tabs defaultValue="home" orientation="horizontal">
@@ -294,7 +429,10 @@ function App() {
                                 <TabPanels>
                                     <TabPanel value="home">
                                         <h3>Home Content</h3>
-                                        <p>This is the home tab content with horizontal orientation.</p>
+                                        <p>
+                                            This is the home tab content with horizontal
+                                            orientation.
+                                        </p>
                                     </TabPanel>
                                     <TabPanel value="profile">
                                         <h3>Profile Content</h3>
@@ -308,10 +446,20 @@ function App() {
                             </Tabs>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Vertical
                             </div>
-                            <Tabs defaultValue="dashboard" orientation="vertical" style={{ height: '300px' }}>
+                            <Tabs
+                                defaultValue="dashboard"
+                                orientation="vertical"
+                                style={{ height: '300px' }}
+                            >
                                 <TabList>
                                     <Tab value="dashboard">Dashboard</Tab>
                                     <Tab value="analytics">Analytics</Tab>
@@ -363,11 +511,24 @@ function App() {
                 title="Sizes"
                 description="Five size options available: xs, sm, md (default), lg, and xl. Sizes affect padding, font size, and min-height."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
-                        {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map(size => (
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
+                        {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
                             <div key={size}>
-                                <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
-                                    {size.toUpperCase()}{size === 'md' ? ' (default)' : ''}
+                                <div
+                                    style={{
+                                        marginBottom: 'var(--bk-spacing-2)',
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        fontWeight: 'var(--bk-font-weight-medium)',
+                                    }}
+                                >
+                                    {size.toUpperCase()}
+                                    {size === 'md' ? ' (default)' : ''}
                                 </div>
                                 <Tabs defaultValue="tab1" size={size}>
                                     <TabList>
@@ -376,9 +537,15 @@ function App() {
                                         <Tab value="tab3">Tab 3</Tab>
                                     </TabList>
                                     <TabPanels>
-                                        <TabPanel value="tab1">{size.toUpperCase()} size tab content</TabPanel>
-                                        <TabPanel value="tab2">{size.toUpperCase()} size tab content</TabPanel>
-                                        <TabPanel value="tab3">{size.toUpperCase()} size tab content</TabPanel>
+                                        <TabPanel value="tab1">
+                                            {size.toUpperCase()} size tab content
+                                        </TabPanel>
+                                        <TabPanel value="tab2">
+                                            {size.toUpperCase()} size tab content
+                                        </TabPanel>
+                                        <TabPanel value="tab3">
+                                            {size.toUpperCase()} size tab content
+                                        </TabPanel>
                                     </TabPanels>
                                 </Tabs>
                             </div>
@@ -398,40 +565,76 @@ function App() {
                 preview={
                     <Tabs defaultValue="file1">
                         <TabList>
-                            <Tab value="file1" icon="file">index.tsx</Tab>
-                            <Tab value="file2" icon="file">styles.css</Tab>
-                            <Tab value="file3" icon="file">config.json</Tab>
-                            <Tab value="file4" icon="symbol-method">utils.ts</Tab>
+                            <Tab value="file1" icon="file">
+                                index.tsx
+                            </Tab>
+                            <Tab value="file2" icon="file">
+                                styles.css
+                            </Tab>
+                            <Tab value="file3" icon="file">
+                                config.json
+                            </Tab>
+                            <Tab value="file4" icon="symbol-method">
+                                utils.ts
+                            </Tab>
                         </TabList>
                         <TabPanels>
                             <TabPanel value="file1">
-                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
-                                    <div style={{ color: 'var(--vscode-descriptionForeground)' }}>// index.tsx</div>
+                                <div
+                                    style={{
+                                        fontFamily: 'monospace',
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                    }}
+                                >
+                                    <div style={{ color: 'var(--vscode-descriptionForeground)' }}>
+                                        // index.tsx
+                                    </div>
                                     <div>import React from 'react';</div>
-                                    <div>import {'{'} App {'}'} from './App';</div>
+                                    <div>
+                                        import {'{'} App {'}'} from './App';
+                                    </div>
                                 </div>
                             </TabPanel>
                             <TabPanel value="file2">
-                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
-                                    <div style={{ color: 'var(--vscode-descriptionForeground)' }}>/* styles.css */</div>
+                                <div
+                                    style={{
+                                        fontFamily: 'monospace',
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                    }}
+                                >
+                                    <div style={{ color: 'var(--vscode-descriptionForeground)' }}>
+                                        /* styles.css */
+                                    </div>
                                     <div>.container {'{'}</div>
-                                    <div>  padding: 20px;</div>
+                                    <div> padding: 20px;</div>
                                     <div>{'}'}</div>
                                 </div>
                             </TabPanel>
                             <TabPanel value="file3">
-                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
+                                <div
+                                    style={{
+                                        fontFamily: 'monospace',
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                    }}
+                                >
                                     <div>{'{'}</div>
-                                    <div>  "name": "my-app",</div>
-                                    <div>  "version": "1.0.0"</div>
+                                    <div> "name": "my-app",</div>
+                                    <div> "version": "1.0.0"</div>
                                     <div>{'}'}</div>
                                 </div>
                             </TabPanel>
                             <TabPanel value="file4">
-                                <div style={{ fontFamily: 'monospace', fontSize: 'var(--bk-font-size-sm)' }}>
-                                    <div style={{ color: 'var(--vscode-descriptionForeground)' }}>// utils.ts</div>
+                                <div
+                                    style={{
+                                        fontFamily: 'monospace',
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                    }}
+                                >
+                                    <div style={{ color: 'var(--vscode-descriptionForeground)' }}>
+                                        // utils.ts
+                                    </div>
                                     <div>export const formatDate = (date: Date) =&gt; {'{'}</div>
-                                    <div>  return date.toISOString();</div>
+                                    <div> return date.toISOString();</div>
                                     <div>{'}'}</div>
                                 </div>
                             </TabPanel>
@@ -510,9 +713,13 @@ function App() {
                     <Tabs defaultValue="available">
                         <TabList>
                             <Tab value="available">Available</Tab>
-                            <Tab value="disabled1" disabled>Disabled Tab</Tab>
+                            <Tab value="disabled1" disabled>
+                                Disabled Tab
+                            </Tab>
                             <Tab value="another">Another Available</Tab>
-                            <Tab value="disabled2" disabled icon="lock">Locked</Tab>
+                            <Tab value="disabled2" disabled icon="lock">
+                                Locked
+                            </Tab>
                         </TabList>
                         <TabPanels>
                             <TabPanel value="available">
@@ -546,29 +753,57 @@ function App() {
                 title="Indicator Position"
                 description="Control where the active indicator appears: start (top for horizontal, left for vertical) or end (bottom for horizontal, right for vertical). Works with all variants."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Horizontal - Indicator at End (Bottom - Default)
                             </div>
-                            <Tabs defaultValue="tab1" orientation="horizontal" indicatorPosition="end">
+                            <Tabs
+                                defaultValue="tab1"
+                                orientation="horizontal"
+                                indicatorPosition="end"
+                            >
                                 <TabList>
                                     <Tab value="tab1">Tab 1</Tab>
                                     <Tab value="tab2">Tab 2</Tab>
                                     <Tab value="tab3">Tab 3</Tab>
                                 </TabList>
                                 <TabPanels>
-                                    <TabPanel value="tab1">Indicator at the bottom (most common)</TabPanel>
+                                    <TabPanel value="tab1">
+                                        Indicator at the bottom (most common)
+                                    </TabPanel>
                                     <TabPanel value="tab2">Content 2</TabPanel>
                                     <TabPanel value="tab3">Content 3</TabPanel>
                                 </TabPanels>
                             </Tabs>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Horizontal - Indicator at Start (Top)
                             </div>
-                            <Tabs defaultValue="tab1" orientation="horizontal" indicatorPosition="start">
+                            <Tabs
+                                defaultValue="tab1"
+                                orientation="horizontal"
+                                indicatorPosition="start"
+                            >
                                 <TabList>
                                     <Tab value="tab1">Tab 1</Tab>
                                     <Tab value="tab2">Tab 2</Tab>
@@ -637,14 +872,28 @@ function App() {
                 preview={
                     <Tabs defaultValue="general">
                         <TabList>
-                            <Tab value="general" icon="settings-gear">General</Tab>
-                            <Tab value="appearance" icon="symbol-color">Appearance</Tab>
-                            <Tab value="editor" icon="edit">Editor</Tab>
+                            <Tab value="general" icon="settings-gear">
+                                General
+                            </Tab>
+                            <Tab value="appearance" icon="symbol-color">
+                                Appearance
+                            </Tab>
+                            <Tab value="editor" icon="edit">
+                                Editor
+                            </Tab>
                         </TabList>
                         <TabPanels>
                             <TabPanel value="general">
-                                <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>General Settings</h3>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                                <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>
+                                    General Settings
+                                </h3>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: 'var(--bk-spacing-3)',
+                                    }}
+                                >
                                     <Label variant="checkbox">
                                         <Checkbox />
                                         <span>Enable auto-save</span>
@@ -661,20 +910,43 @@ function App() {
                             </TabPanel>
                             <TabPanel value="appearance">
                                 <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>Appearance</h3>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: 'var(--bk-spacing-3)',
+                                    }}
+                                >
                                     <div>
                                         <FieldLabel htmlFor="font-family">Font Family</FieldLabel>
-                                        <Input id="font-family" defaultValue="Consolas, Monaco, monospace" fullWidth />
+                                        <Input
+                                            id="font-family"
+                                            defaultValue="Consolas, Monaco, monospace"
+                                            fullWidth
+                                        />
                                     </div>
                                     <div>
                                         <FieldLabel htmlFor="font-size">Font Size</FieldLabel>
-                                        <Input id="font-size" type="number" defaultValue="14" fullWidth />
+                                        <Input
+                                            id="font-size"
+                                            type="number"
+                                            defaultValue="14"
+                                            fullWidth
+                                        />
                                     </div>
                                 </div>
                             </TabPanel>
                             <TabPanel value="editor">
-                                <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>Editor Settings</h3>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                                <h3 style={{ marginBottom: 'var(--bk-spacing-3)' }}>
+                                    Editor Settings
+                                </h3>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: 'var(--bk-spacing-3)',
+                                    }}
+                                >
                                     <Label variant="checkbox">
                                         <Checkbox defaultChecked />
                                         <span>Show line numbers</span>
@@ -685,7 +957,12 @@ function App() {
                                     </Label>
                                     <div>
                                         <FieldLabel htmlFor="tab-size">Tab Size</FieldLabel>
-                                        <Input id="tab-size" type="number" defaultValue="2" fullWidth />
+                                        <Input
+                                            id="tab-size"
+                                            type="number"
+                                            defaultValue="2"
+                                            fullWidth
+                                        />
                                     </div>
                                 </div>
                             </TabPanel>
@@ -712,71 +989,130 @@ function App() {
 </Tabs>`}
             />
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Behavior & Implementation
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Controlled vs Uncontrolled:</strong> Use <code>defaultValue</code> for uncontrolled mode (component manages state) or <code>value</code> + <code>onChange</code> for controlled mode (you manage state)
+                        <strong>Controlled vs Uncontrolled:</strong> Use <code>defaultValue</code>{' '}
+                        for uncontrolled mode (component manages state) or <code>value</code> +{' '}
+                        <code>onChange</code> for controlled mode (you manage state)
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Tab Selection:</strong> Only the panel matching the active tab value is rendered. Use the same value for Tab and TabPanel to link them
+                        <strong>Tab Selection:</strong> Only the panel matching the active tab value
+                        is rendered. Use the same value for Tab and TabPanel to link them
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Close Behavior:</strong> When implementing closable tabs, handle the <code>onClose</code> callback to update your tabs array and manage active tab switching
+                        <strong>Close Behavior:</strong> When implementing closable tabs, handle the{' '}
+                        <code>onClose</code> callback to update your tabs array and manage active
+                        tab switching
                     </li>
                     <li>
-                        <strong>Context-based:</strong> Uses React Context internally to share state between components. All sub-components must be used within a Tabs wrapper
+                        <strong>Context-based:</strong> Uses React Context internally to share state
+                        between components. All sub-components must be used within a Tabs wrapper
                     </li>
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        TabList has <code>role="tablist"</code> and appropriate <code>aria-orientation</code>
+                        TabList has <code>role="tablist"</code> and appropriate{' '}
+                        <code>aria-orientation</code>
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Each Tab has <code>role="tab"</code> with <code>aria-selected</code> indicating active state
+                        Each Tab has <code>role="tab"</code> with <code>aria-selected</code>{' '}
+                        indicating active state
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Each TabPanel has <code>role="tabpanel"</code> with <code>aria-hidden</code> for inactive panels
+                        Each TabPanel has <code>role="tabpanel"</code> with <code>aria-hidden</code>{' '}
+                        for inactive panels
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Active tabs have <code>tabIndex={0}</code>, inactive tabs have <code>tabIndex={-1}</code>
+                        Active tabs have <code>tabIndex={0}</code>, inactive tabs have{' '}
+                        <code>tabIndex={-1}</code>
                     </li>
                     <li>
-                        Disabled tabs have <code>aria-disabled="true"</code> and cannot receive focus
+                        Disabled tabs have <code>aria-disabled="true"</code> and cannot receive
+                        focus
                     </li>
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Variants:</strong> Use line variant for professional interfaces, lifted for classic tabs, pills for modern designs
+                        <strong>Variants:</strong> Use line variant for professional interfaces,
+                        lifted for classic tabs, pills for modern designs
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Orientation:</strong> Use horizontal for content sections and vertical for navigation sidebars
+                        <strong>Orientation:</strong> Use horizontal for content sections and
+                        vertical for navigation sidebars
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Icons:</strong> Add icons to provide visual context, especially for file tabs or categorized content
+                        <strong>Icons:</strong> Add icons to provide visual context, especially for
+                        file tabs or categorized content
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Closable Tabs:</strong> Use for editor-like interfaces where users can open/close documents
+                        <strong>Closable Tabs:</strong> Use for editor-like interfaces where users
+                        can open/close documents
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Controlled Mode:</strong> Use when you need to control tab state externally (wizards, forms, URL-based routing)
+                        <strong>Controlled Mode:</strong> Use when you need to control tab state
+                        externally (wizards, forms, URL-based routing)
                     </li>
                     <li>
-                        <strong>Tab Labels:</strong> Keep tab labels concise. Use 1-2 words when possible
+                        <strong>Tab Labels:</strong> Keep tab labels concise. Use 1-2 words when
+                        possible
                     </li>
                 </ul>
             </div>

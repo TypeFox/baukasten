@@ -13,7 +13,8 @@ const meta: Meta<typeof Avatar> = {
         layout: 'centered',
         docs: {
             description: {
-                component: 'A versatile avatar component that displays user images, initials, or a fallback. Supports circular and square shapes with optional tooltips.',
+                component:
+                    'A versatile avatar component that displays user images, initials, or a fallback. Supports circular and square shapes with optional tooltips.',
             },
         },
     },
@@ -101,13 +102,41 @@ export const Sizes: Story = {
 export const Shapes: Story = {
     render: () => (
         <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)', alignItems: 'center' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-2)',
+                    alignItems: 'center',
+                }}
+            >
                 <Avatar name="John Doe" shape="circular" size="lg" />
-                <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>Circular</span>
+                <span
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        color: 'var(--bk-color-foreground-muted)',
+                    }}
+                >
+                    Circular
+                </span>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-2)',
+                    alignItems: 'center',
+                }}
+            >
                 <Avatar name="John Doe" shape="square" size="lg" />
-                <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>Square</span>
+                <span
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        color: 'var(--bk-color-foreground-muted)',
+                    }}
+                >
+                    Square
+                </span>
             </div>
         </div>
     ),
@@ -119,13 +148,51 @@ export const Shapes: Story = {
 export const WithImages: Story = {
     render: () => (
         <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)', alignItems: 'center' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
-                <Avatar name="Jane Smith" src="https://i.pravatar.cc/150?img=1" shape="circular" size="lg" />
-                <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>Circular</span>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-2)',
+                    alignItems: 'center',
+                }}
+            >
+                <Avatar
+                    name="Jane Smith"
+                    src="https://i.pravatar.cc/150?img=1"
+                    shape="circular"
+                    size="lg"
+                />
+                <span
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        color: 'var(--bk-color-foreground-muted)',
+                    }}
+                >
+                    Circular
+                </span>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
-                <Avatar name="Jane Smith" src="https://i.pravatar.cc/150?img=1" shape="square" size="lg" />
-                <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>Square</span>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-2)',
+                    alignItems: 'center',
+                }}
+            >
+                <Avatar
+                    name="Jane Smith"
+                    src="https://i.pravatar.cc/150?img=1"
+                    shape="square"
+                    size="lg"
+                />
+                <span
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        color: 'var(--bk-color-foreground-muted)',
+                    }}
+                >
+                    Square
+                </span>
             </div>
         </div>
     ),
@@ -153,7 +220,13 @@ export const AvatarGroup: Story = {
     render: () => (
         <div style={{ display: 'flex', gap: 'var(--bk-spacing-6)', flexDirection: 'column' }}>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Team Members
                 </h4>
                 <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
@@ -166,7 +239,13 @@ export const AvatarGroup: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Project Team (Square)
                 </h4>
                 <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
@@ -184,22 +263,85 @@ export const AvatarGroup: Story = {
  */
 export const InitialsPatterns: Story = {
     render: () => (
-        <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
+        <div
+            style={{
+                display: 'flex',
+                gap: 'var(--bk-spacing-3)',
+                flexWrap: 'wrap',
+                alignItems: 'center',
+            }}
+        >
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-2)',
+                    alignItems: 'center',
+                }}
+            >
                 <Avatar name="John" size="md" />
-                <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Single name</span>
+                <span
+                    style={{
+                        fontSize: 'var(--bk-font-size-xs)',
+                        color: 'var(--bk-color-foreground-muted)',
+                    }}
+                >
+                    Single name
+                </span>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-2)',
+                    alignItems: 'center',
+                }}
+            >
                 <Avatar name="John Doe" size="md" />
-                <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Two names</span>
+                <span
+                    style={{
+                        fontSize: 'var(--bk-font-size-xs)',
+                        color: 'var(--bk-color-foreground-muted)',
+                    }}
+                >
+                    Two names
+                </span>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-2)',
+                    alignItems: 'center',
+                }}
+            >
                 <Avatar name="John Michael Doe" size="md" />
-                <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Three names</span>
+                <span
+                    style={{
+                        fontSize: 'var(--bk-font-size-xs)',
+                        color: 'var(--bk-color-foreground-muted)',
+                    }}
+                >
+                    Three names
+                </span>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', alignItems: 'center' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-2)',
+                    alignItems: 'center',
+                }}
+            >
                 <Avatar name="María José García López" size="md" />
-                <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>Four names</span>
+                <span
+                    style={{
+                        fontSize: 'var(--bk-font-size-xs)',
+                        color: 'var(--bk-color-foreground-muted)',
+                    }}
+                >
+                    Four names
+                </span>
             </div>
         </div>
     ),
@@ -212,7 +354,12 @@ export const CustomTooltips: Story = {
     render: () => (
         <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', alignItems: 'center' }}>
             <Avatar name="John Doe" tooltip="CEO & Founder" size="lg" />
-            <Avatar name="Jane Smith" tooltip="Senior Developer" src="https://i.pravatar.cc/150?img=11" size="lg" />
+            <Avatar
+                name="Jane Smith"
+                tooltip="Senior Developer"
+                src="https://i.pravatar.cc/150?img=11"
+                size="lg"
+            />
             <Avatar name="Bob Johnson" tooltip="Product Manager" size="lg" />
             <Avatar name="Alice Williams" showTooltip={false} size="lg" />
         </div>
@@ -235,68 +382,119 @@ export const WithoutTooltip: Story = {
  */
 export const Interactive: Story = {
     render: () => (
-        <div style={{
-            display: 'flex',
-            gap: 'var(--bk-spacing-6)',
-            padding: 'var(--bk-spacing-6)',
-            flexWrap: 'wrap',
-        }}>
-            <div style={{
+        <div
+            style={{
                 display: 'flex',
-                flexDirection: 'column',
-                gap: 'var(--bk-spacing-4)',
-                padding: 'var(--bk-spacing-4)',
-                background: 'var(--bk-color-background-secondary)',
-                borderRadius: 'var(--bk-radius-lg)',
-                minWidth: '300px',
-            }}>
-                <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                gap: 'var(--bk-spacing-6)',
+                padding: 'var(--bk-spacing-6)',
+                flexWrap: 'wrap',
+            }}
+        >
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-4)',
+                    padding: 'var(--bk-spacing-4)',
+                    background: 'var(--bk-color-background-secondary)',
+                    borderRadius: 'var(--bk-radius-lg)',
+                    minWidth: '300px',
+                }}
+            >
+                <h3
+                    style={{
+                        margin: 0,
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     User Profile
                 </h3>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
                     <Avatar name="Sarah Johnson" src="https://i.pravatar.cc/150?img=12" size="xl" />
                     <div>
-                        <div style={{ fontWeight: 'var(--bk-font-weight-semibold)', fontSize: 'var(--bk-font-size-base)' }}>
+                        <div
+                            style={{
+                                fontWeight: 'var(--bk-font-weight-semibold)',
+                                fontSize: 'var(--bk-font-size-base)',
+                            }}
+                        >
                             Sarah Johnson
                         </div>
-                        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
+                        <div
+                            style={{
+                                fontSize: 'var(--bk-font-size-sm)',
+                                color: 'var(--bk-color-foreground-muted)',
+                            }}
+                        >
                             Senior Software Engineer
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 'var(--bk-spacing-4)',
-                padding: 'var(--bk-spacing-4)',
-                background: 'var(--bk-color-background-secondary)',
-                borderRadius: 'var(--bk-radius-lg)',
-                minWidth: '300px',
-            }}>
-                <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-4)',
+                    padding: 'var(--bk-spacing-4)',
+                    background: 'var(--bk-color-background-secondary)',
+                    borderRadius: 'var(--bk-radius-lg)',
+                    minWidth: '300px',
+                }}
+            >
+                <h3
+                    style={{
+                        margin: 0,
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Team Members
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}
+                >
                     {[
                         { name: 'John Doe', role: 'Team Lead', img: 13 },
                         { name: 'Emily Chen', role: 'Frontend Developer', img: 14 },
                         { name: 'Michael Brown', role: 'Backend Developer', img: 15 },
                         { name: 'Anna White', role: 'Designer' },
                     ].map((member) => (
-                        <div key={member.name} style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
+                        <div
+                            key={member.name}
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 'var(--bk-spacing-2)',
+                            }}
+                        >
                             <Avatar
                                 name={member.name}
-                                src={member.img ? `https://i.pravatar.cc/150?img=${member.img}` : undefined}
+                                src={
+                                    member.img
+                                        ? `https://i.pravatar.cc/150?img=${member.img}`
+                                        : undefined
+                                }
                                 size="sm"
                                 tooltip={`${member.name} - ${member.role}`}
                             />
                             <div style={{ flex: 1 }}>
-                                <div style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                                <div
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        fontWeight: 'var(--bk-font-weight-medium)',
+                                    }}
+                                >
                                     {member.name}
                                 </div>
-                                <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
+                                <div
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-xs)',
+                                        color: 'var(--bk-color-foreground-muted)',
+                                    }}
+                                >
                                     {member.role}
                                 </div>
                             </div>

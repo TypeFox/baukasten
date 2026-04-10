@@ -11,33 +11,33 @@ import { type Size } from '../../styles';
 export type LabelVariant = 'input' | 'textarea' | 'checkbox';
 
 export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
-  /**
-   * Content of the label (can include input, spans, etc.)
-   */
-  children: React.ReactNode;
+    /**
+     * Content of the label (can include input, spans, etc.)
+     */
+    children: React.ReactNode;
 
-  /**
-   * Variant of the label
-   * @default 'input'
-   */
-  variant?: LabelVariant;
+    /**
+     * Variant of the label
+     * @default 'input'
+     */
+    variant?: LabelVariant;
 
-  /**
-   * Size to match the form element inside
-   * @default 'md'
-   */
-  size?: Size;
+    /**
+     * Size to match the form element inside
+     * @default 'md'
+     */
+    size?: Size;
 
-  /**
-   * Whether the label should take full width of its container
-   * @default false
-   */
-  fullWidth?: boolean;
+    /**
+     * Whether the label should take full width of its container
+     * @default false
+     */
+    fullWidth?: boolean;
 
-  /**
-   * Error message displayed below the label
-   */
-  error?: string;
+    /**
+     * Error message displayed below the label
+     */
+    error?: string;
 }
 
 /**
@@ -202,25 +202,26 @@ export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> 
  * ```
  */
 export const Label: React.FC<LabelProps> = ({
-  children,
-  variant = 'input',
-  size = 'md',
-  fullWidth = false,
-  error,
-  ...htmlProps
+    children,
+    variant = 'input',
+    size = 'md',
+    fullWidth = false,
+    error,
+    ...htmlProps
 }) => {
-  const hasError = !!error;
-  const baseClassName = label({ variant, size, fullWidth, hasError });
-  const labelClass = hasError && (variant === 'input' || variant === 'textarea')
-    ? `${baseClassName} ${inputErrorClass}`
-    : baseClassName;
+    const hasError = !!error;
+    const baseClassName = label({ variant, size, fullWidth, hasError });
+    const labelClass =
+        hasError && (variant === 'input' || variant === 'textarea')
+            ? `${baseClassName} ${inputErrorClass}`
+            : baseClassName;
 
-  return (
-    <div className={labelWrapper({ fullWidth, variant })}>
-      <label className={labelClass} {...htmlProps}>
-        {children}
-      </label>
-      {error && <span className={errorText}>{error}</span>}
-    </div>
-  );
+    return (
+        <div className={labelWrapper({ fullWidth, variant })}>
+            <label className={labelClass} {...htmlProps}>
+                {children}
+            </label>
+            {error && <span className={errorText}>{error}</span>}
+        </div>
+    );
 };

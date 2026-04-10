@@ -7,20 +7,52 @@ import { Hero } from 'baukasten-ui/extra';
 
 const heroProps: PropDefinition[] = [
     { name: 'title', type: 'React.ReactNode', required: true, description: 'Main hero title text' },
-    { name: 'description', type: 'React.ReactNode', description: 'Optional description/subtitle text' },
-    { name: 'align', type: '"left" | "center" | "right"', default: '"left"', description: 'Text alignment' },
-    { name: 'size', type: '"sm" | "md" | "lg" | "xl" | "full"', default: '"md"', description: 'Hero height (sm=20vh, md=40vh, lg=60vh, xl=80vh, full=100vh)' },
-    { name: 'background', type: '"default" | "secondary" | "tertiary" | "elevated"', default: '"default"', description: 'Background color using semantic tokens' },
-    { name: 'children', type: 'React.ReactNode', description: 'Optional children rendered below title and description (e.g., CTA buttons)' },
+    {
+        name: 'description',
+        type: 'React.ReactNode',
+        description: 'Optional description/subtitle text',
+    },
+    {
+        name: 'align',
+        type: '"left" | "center" | "right"',
+        default: '"left"',
+        description: 'Text alignment',
+    },
+    {
+        name: 'size',
+        type: '"sm" | "md" | "lg" | "xl" | "full"',
+        default: '"md"',
+        description: 'Hero height (sm=20vh, md=40vh, lg=60vh, xl=80vh, full=100vh)',
+    },
+    {
+        name: 'background',
+        type: '"default" | "secondary" | "tertiary" | "elevated"',
+        default: '"default"',
+        description: 'Background color using semantic tokens',
+    },
+    {
+        name: 'children',
+        type: 'React.ReactNode',
+        description: 'Optional children rendered below title and description (e.g., CTA buttons)',
+    },
 ];
 
-const CTAContainer = ({ align, children }: { align?: 'left' | 'center' | 'right'; children: React.ReactNode }) => (
-    <div style={{
-        display: 'flex',
-        gap: 'var(--bk-spacing-4)',
-        marginTop: 'var(--bk-spacing-6)',
-        justifyContent: align === 'center' ? 'center' : align === 'right' ? 'flex-end' : 'flex-start',
-    }}>
+const CTAContainer = ({
+    align,
+    children,
+}: {
+    align?: 'left' | 'center' | 'right';
+    children: React.ReactNode;
+}) => (
+    <div
+        style={{
+            display: 'flex',
+            gap: 'var(--bk-spacing-4)',
+            marginTop: 'var(--bk-spacing-6)',
+            justifyContent:
+                align === 'center' ? 'center' : align === 'right' ? 'flex-end' : 'flex-start',
+        }}
+    >
         {children}
     </div>
 );
@@ -246,13 +278,7 @@ function App() {
             <Showcase
                 title="Title Only"
                 description="Hero component works beautifully with just a title. Omit the description prop for a minimal, focused design."
-                preview={
-                    <Hero
-                        title="Simple. Powerful. Beautiful."
-                        align="center"
-                        size="md"
-                    />
-                }
+                preview={<Hero title="Simple. Powerful. Beautiful." align="center" size="md" />}
                 code={`<Hero
   title="Simple. Powerful. Beautiful."
   align="center"
@@ -273,8 +299,8 @@ function App() {
                         />
                         <div style={{ padding: 'var(--bk-spacing-6)' }}>
                             <p style={{ color: 'var(--vscode-foreground)' }}>
-                                Your content goes here. The hero component works great as a section divider
-                                or category header within your application.
+                                Your content goes here. The hero component works great as a section
+                                divider or category header within your application.
                             </p>
                         </div>
                     </div>
@@ -292,33 +318,66 @@ function App() {
 </>`}
             />
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Semantic Typography
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Title:</strong> Rendered as <code>&lt;h1&gt;</code> with hero-specific typography tokens
+                        <strong>Title:</strong> Rendered as <code>&lt;h1&gt;</code> with
+                        hero-specific typography tokens
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Description:</strong> Rendered as <code>&lt;p&gt;</code> with hero description styling
+                        <strong>Description:</strong> Rendered as <code>&lt;p&gt;</code> with hero
+                        description styling
                     </li>
                     <li>
-                        <strong>Responsive:</strong> Typography automatically scales with design system tokens
+                        <strong>Responsive:</strong> Typography automatically scales with design
+                        system tokens
                     </li>
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Title uses semantic <code>&lt;h1&gt;</code> element for proper document structure
+                        Title uses semantic <code>&lt;h1&gt;</code> element for proper document
+                        structure
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Background colors use semantic tokens that respect theme contrast requirements
+                        Background colors use semantic tokens that respect theme contrast
+                        requirements
                     </li>
                     <li>
                         All text maintains proper color contrast ratios across light and dark themes
@@ -326,28 +385,50 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Size selection:</strong> Use <code>full</code> or <code>xl</code> for landing pages, <code>md</code> or <code>lg</code> for major sections, <code>sm</code> for section headers
+                        <strong>Size selection:</strong> Use <code>full</code> or <code>xl</code>{' '}
+                        for landing pages, <code>md</code> or <code>lg</code> for major sections,{' '}
+                        <code>sm</code> for section headers
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Alignment:</strong> Use <code>center</code> for landing pages, <code>left</code> for content sections, <code>right</code> sparingly for visual interest
+                        <strong>Alignment:</strong> Use <code>center</code> for landing pages,{' '}
+                        <code>left</code> for content sections, <code>right</code> sparingly for
+                        visual interest
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Background:</strong> Use different backgrounds to create visual hierarchy and separate major sections
+                        <strong>Background:</strong> Use different backgrounds to create visual
+                        hierarchy and separate major sections
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>CTA buttons:</strong> Place primary action first, limit to 1-3 buttons for clarity
+                        <strong>CTA buttons:</strong> Place primary action first, limit to 1-3
+                        buttons for clarity
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Title length:</strong> Keep titles concise - 3-8 words work best for hero sections
+                        <strong>Title length:</strong> Keep titles concise - 3-8 words work best for
+                        hero sections
                     </li>
                     <li>
-                        <strong>Description:</strong> Use description for context, but keep it brief (1-2 sentences max)
+                        <strong>Description:</strong> Use description for context, but keep it brief
+                        (1-2 sentences max)
                     </li>
                 </ul>
             </div>

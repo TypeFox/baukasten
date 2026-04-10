@@ -1,10 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
 import {
-  progressBarWrapper,
-  progressBarContainer,
-  progressBarFill,
-  progressBarLabel,
+    progressBarWrapper,
+    progressBarContainer,
+    progressBarFill,
+    progressBarLabel,
 } from './ProgressBar.css';
 
 /**
@@ -19,56 +19,56 @@ const DEFAULT_HEIGHT = 'var(--bk-spacing-2)'; // 8px
  * ProgressBar component props
  */
 export interface ProgressBarProps {
-  /**
-   * Progress value from 0 to 100
-   * If undefined, shows indeterminate loading state
-   */
-  value?: number;
+    /**
+     * Progress value from 0 to 100
+     * If undefined, shows indeterminate loading state
+     */
+    value?: number;
 
-  /**
-   * Visual variant of the progress bar
-   * @default 'primary'
-   */
-  variant?: ProgressBarVariant;
+    /**
+     * Visual variant of the progress bar
+     * @default 'primary'
+     */
+    variant?: ProgressBarVariant;
 
-  /**
-   * Height of the progress bar
-   * @default 'var(--bk-spacing-2)' (8px)
-   */
-  height?: string;
+    /**
+     * Height of the progress bar
+     * @default 'var(--bk-spacing-2)' (8px)
+     */
+    height?: string;
 
-  /**
-   * Whether to show percentage label
-   * @default false
-   */
-  showLabel?: boolean;
+    /**
+     * Whether to show percentage label
+     * @default false
+     */
+    showLabel?: boolean;
 
-  /**
-   * Whether to show striped pattern
-   * @default false
-   */
-  striped?: boolean;
+    /**
+     * Whether to show striped pattern
+     * @default false
+     */
+    striped?: boolean;
 
-  /**
-   * Whether to animate stripes (requires striped=true)
-   * @default false
-   */
-  animated?: boolean;
+    /**
+     * Whether to animate stripes (requires striped=true)
+     * @default false
+     */
+    animated?: boolean;
 
-  /**
-   * Additional CSS class
-   */
-  className?: string;
+    /**
+     * Additional CSS class
+     */
+    className?: string;
 
-  /**
-   * Inline styles
-   */
-  style?: React.CSSProperties;
+    /**
+     * Inline styles
+     */
+    style?: React.CSSProperties;
 
-  /**
-   * Accessible label for screen readers
-   */
-  'aria-label'?: string;
+    /**
+     * Accessible label for screen readers
+     */
+    'aria-label'?: string;
 }
 
 /**
@@ -118,46 +118,45 @@ export interface ProgressBarProps {
  * ```
  */
 export const ProgressBar: React.FC<ProgressBarProps> = ({
-  value,
-  variant = 'default',
-  height = DEFAULT_HEIGHT,
-  showLabel = false,
-  striped = false,
-  animated = false,
-  className,
-  style,
-  'aria-label': ariaLabel,
+    value,
+    variant = 'default',
+    height = DEFAULT_HEIGHT,
+    showLabel = false,
+    striped = false,
+    animated = false,
+    className,
+    style,
+    'aria-label': ariaLabel,
 }) => {
-  // Clamp value between 0 and 100
-  const clampedValue = value !== undefined ? Math.min(Math.max(value, 0), 100) : undefined;
-  const isIndeterminate = clampedValue === undefined;
+    // Clamp value between 0 and 100
+    const clampedValue = value !== undefined ? Math.min(Math.max(value, 0), 100) : undefined;
+    const isIndeterminate = clampedValue === undefined;
 
-  return (
-    <div className={clsx(progressBarWrapper, className)} style={style}>
-      <div
-        className={progressBarContainer}
-        style={{ height }}
-        role="progressbar"
-        aria-valuenow={clampedValue}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-label={ariaLabel || (isIndeterminate ? 'Loading...' : `${clampedValue}%`)}
-        aria-valuetext={isIndeterminate ? 'Loading...' : `${clampedValue}%`}
-      >
-        <div
-          className={progressBarFill({
-            variant,
-            indeterminate: isIndeterminate,
-            striped,
-            animated,
-          })}
-          style={clampedValue !== undefined ? { width: `${clampedValue}%` } : undefined}
-        />
-      </div>
-      {showLabel && !isIndeterminate && (
-        <span className={progressBarLabel}>{clampedValue}%</span>
-      )}
-    </div>
-  );
+    return (
+        <div className={clsx(progressBarWrapper, className)} style={style}>
+            <div
+                className={progressBarContainer}
+                style={{ height }}
+                role="progressbar"
+                aria-valuenow={clampedValue}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-label={ariaLabel || (isIndeterminate ? 'Loading...' : `${clampedValue}%`)}
+                aria-valuetext={isIndeterminate ? 'Loading...' : `${clampedValue}%`}
+            >
+                <div
+                    className={progressBarFill({
+                        variant,
+                        indeterminate: isIndeterminate,
+                        striped,
+                        animated,
+                    })}
+                    style={clampedValue !== undefined ? { width: `${clampedValue}%` } : undefined}
+                />
+            </div>
+            {showLabel && !isIndeterminate && (
+                <span className={progressBarLabel}>{clampedValue}%</span>
+            )}
+        </div>
+    );
 };
-

@@ -2,7 +2,7 @@
  * Semantic color tokens for the design system
  * These provide platform-agnostic color variables that map to VSCode variables by default
  * but can be easily customized for web or other platforms
- * 
+ *
  * All tokens include fallback values for standalone web usage.
  * The CSS generation script uses these same definitions to generate platform-specific CSS files.
  */
@@ -207,111 +207,111 @@ export const colorTokens = `
  * Useful for type-safe theme customization
  */
 export type ColorToken =
-  // Brand
-  | "primary"
-  | "primary-hover"
-  | "primary-active"
-  | "primary-foreground"
-  | "secondary"
-  | "secondary-hover"
-  | "secondary-active"
-  | "secondary-foreground"
-  // Semantic
-  | "success"
-  | "success-hover"
-  | "success-foreground"
-  | "warning"
-  | "warning-hover"
-  | "warning-foreground"
-  | "danger"
-  | "danger-hover"
-  | "danger-foreground"
-  | "info"
-  | "info-hover"
-  | "info-foreground"
-  // Neutral
-  | "background"
-  | "background-secondary"
-  | "background-tertiary"
-  | "background-elevated"
-  | "foreground"
-  | "foreground-muted"
-  | "foreground-disabled"
-  | "border"
-  | "border-focus"
-  | "border-hover"
-  // Overlays/Backdrops
-  | "overlay"
-  | "overlay-light"
-  | "backdrop"
-  | "backdrop-blur"
-  | "overlay-gradient-start"
-  | "overlay-foreground"
-  | "stripe-overlay"
-  // Interactive
-  | "hover"
-  | "active"
-  | "focus"
-  | "selected"
-  | "selected-foreground"
-  // Input
-  | "input-background"
-  | "input-foreground"
-  | "input-border"
-  | "input-placeholder"
-  | "input-focus-border"
-  | "input-error"
-  | "input-error-background"
-  | "input-error-foreground"
-  | "input-warning"
-  | "input-warning-background"
-  | "input-warning-foreground"
-  | "input-info"
-  | "input-info-background"
-  | "input-info-foreground"
-  // Badge
-  | "badge-background"
-  | "badge-foreground"
-  // Link
-  | "link"
-  | "link-hover"
-  | "link-active"
-  // Code
-  | "code-background"
-  | "code-foreground"
-  // Dropdown
-  | "dropdown-background"
-  | "dropdown-foreground"
-  | "dropdown-border"
-  | "dropdown-list-background"
-  // Checkbox
-  | "checkbox-background"
-  | "checkbox-foreground"
-  | "checkbox-border"
-  | "checkbox-checked-background"
-  | "checkbox-checked-border"
-  // List
-  | "list-hover"
-  | "list-active"
-  | "list-active-foreground"
-  | "list-focus"
-  | "list-focus-outline"
-  // Scrollbar
-  | "scrollbar"
-  | "scrollbar-hover"
-  | "scrollbar-active"
-  // Divider
-  | "divider"
-  // Shadow
-  | "shadow"
-  // Status Bar
-  | "statusbar-background"
-  | "statusbar-foreground"
-  | "statusbar-border"
-  | "statusbar-item-hover"
-  | "statusbar-item-active"
-  | "statusbar-item-error"
-  | "statusbar-item-warning";
+    // Brand
+    | 'primary'
+    | 'primary-hover'
+    | 'primary-active'
+    | 'primary-foreground'
+    | 'secondary'
+    | 'secondary-hover'
+    | 'secondary-active'
+    | 'secondary-foreground'
+    // Semantic
+    | 'success'
+    | 'success-hover'
+    | 'success-foreground'
+    | 'warning'
+    | 'warning-hover'
+    | 'warning-foreground'
+    | 'danger'
+    | 'danger-hover'
+    | 'danger-foreground'
+    | 'info'
+    | 'info-hover'
+    | 'info-foreground'
+    // Neutral
+    | 'background'
+    | 'background-secondary'
+    | 'background-tertiary'
+    | 'background-elevated'
+    | 'foreground'
+    | 'foreground-muted'
+    | 'foreground-disabled'
+    | 'border'
+    | 'border-focus'
+    | 'border-hover'
+    // Overlays/Backdrops
+    | 'overlay'
+    | 'overlay-light'
+    | 'backdrop'
+    | 'backdrop-blur'
+    | 'overlay-gradient-start'
+    | 'overlay-foreground'
+    | 'stripe-overlay'
+    // Interactive
+    | 'hover'
+    | 'active'
+    | 'focus'
+    | 'selected'
+    | 'selected-foreground'
+    // Input
+    | 'input-background'
+    | 'input-foreground'
+    | 'input-border'
+    | 'input-placeholder'
+    | 'input-focus-border'
+    | 'input-error'
+    | 'input-error-background'
+    | 'input-error-foreground'
+    | 'input-warning'
+    | 'input-warning-background'
+    | 'input-warning-foreground'
+    | 'input-info'
+    | 'input-info-background'
+    | 'input-info-foreground'
+    // Badge
+    | 'badge-background'
+    | 'badge-foreground'
+    // Link
+    | 'link'
+    | 'link-hover'
+    | 'link-active'
+    // Code
+    | 'code-background'
+    | 'code-foreground'
+    // Dropdown
+    | 'dropdown-background'
+    | 'dropdown-foreground'
+    | 'dropdown-border'
+    | 'dropdown-list-background'
+    // Checkbox
+    | 'checkbox-background'
+    | 'checkbox-foreground'
+    | 'checkbox-border'
+    | 'checkbox-checked-background'
+    | 'checkbox-checked-border'
+    // List
+    | 'list-hover'
+    | 'list-active'
+    | 'list-active-foreground'
+    | 'list-focus'
+    | 'list-focus-outline'
+    // Scrollbar
+    | 'scrollbar'
+    | 'scrollbar-hover'
+    | 'scrollbar-active'
+    // Divider
+    | 'divider'
+    // Shadow
+    | 'shadow'
+    // Status Bar
+    | 'statusbar-background'
+    | 'statusbar-foreground'
+    | 'statusbar-border'
+    | 'statusbar-item-hover'
+    | 'statusbar-item-active'
+    | 'statusbar-item-error'
+    | 'statusbar-item-warning';
 
 /**
  * Helper function to get a color token variable reference
@@ -327,7 +327,7 @@ export type ColorToken =
  * ```
  */
 export const getColorToken = (token: ColorToken): string => {
-  return `var(--bk-color-${token})`;
+    return `var(--bk-color-${token})`;
 };
 
 export default colorTokens;

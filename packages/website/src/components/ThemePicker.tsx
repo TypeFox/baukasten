@@ -7,12 +7,14 @@ export default function ThemePicker() {
     const { themeMode, setTheme } = useTheme();
 
     return (
-        <div style={{
-            display: 'flex',
-            gap: 'var(--bk-spacing-2)',
-            padding: '0 var(--bk-spacing-4)',
-            marginTop: 'var(--bk-spacing-4)',
-        }}>
+        <div
+            style={{
+                display: 'flex',
+                gap: 'var(--bk-spacing-2)',
+                padding: '0 var(--bk-spacing-4)',
+                marginTop: 'var(--bk-spacing-4)',
+            }}
+        >
             <Button
                 variant={themeMode === 'light' ? 'primary' : 'secondary'}
                 onClick={() => setTheme('light')}

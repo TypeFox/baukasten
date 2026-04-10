@@ -1,8 +1,4 @@
-import {
-    useReactTable,
-    type ColumnDef,
-    type Table as TanStackTable,
-} from '@tanstack/react-table';
+import { useReactTable, type ColumnDef, type Table as TanStackTable } from '@tanstack/react-table';
 import { Checkbox } from '../Checkbox';
 
 /**
@@ -39,7 +35,7 @@ export function createSelectColumn<TData>(): ColumnDef<TData, unknown> {
  * Useful for external control of the table
  */
 export function useDataTable<TData>(
-    options: Parameters<typeof useReactTable<TData>>[0]
+    options: Parameters<typeof useReactTable<TData>>[0],
 ): TanStackTable<TData> {
     return useReactTable(options);
 }
@@ -53,4 +49,3 @@ export type {
     ColumnResizeMode,
     Row,
 } from '@tanstack/react-table';
-

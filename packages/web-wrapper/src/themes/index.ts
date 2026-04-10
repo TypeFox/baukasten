@@ -8,28 +8,25 @@
  * 3. Import and add it to the themes array below
  */
 
-export type { VSCodeTheme } from "./types";
-export { lightModern } from "./light-modern";
-export { darkModern } from "./dark-modern";
+export type { VSCodeTheme } from './types';
+export { lightModern } from './light-modern';
+export { darkModern } from './dark-modern';
 
-import { VSCodeTheme } from "./types";
+import { VSCodeTheme } from './types';
 
-import { lightModern } from "./light-modern";
-import { darkModern } from "./dark-modern";
+import { lightModern } from './light-modern';
+import { darkModern } from './dark-modern';
 
 /**
  * All available themes
  */
-export const themes: VSCodeTheme[] = [
-  lightModern,
-  darkModern,
-];
+export const themes: VSCodeTheme[] = [lightModern, darkModern];
 
 /**
  * Get a theme by its ID
  */
 export const getThemeById = (id: string): VSCodeTheme | undefined => {
-  return themes.find((theme) => theme.id === id);
+    return themes.find((theme) => theme.id === id);
 };
 
 /**

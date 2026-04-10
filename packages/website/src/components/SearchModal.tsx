@@ -28,10 +28,10 @@ function searchDocuments(documents: SearchDocument[], query: string): SearchDocu
     if (!query.trim()) return documents;
 
     const lowerQuery = query.toLowerCase();
-    const terms = lowerQuery.split(/\s+/).filter(t => t.length > 0);
+    const terms = lowerQuery.split(/\s+/).filter((t) => t.length > 0);
 
     // Score each document
-    const scored = documents.map(doc => {
+    const scored = documents.map((doc) => {
         let score = 0;
         const titleLower = doc.title.toLowerCase();
         const descLower = (doc.description || '').toLowerCase();
@@ -63,9 +63,9 @@ function searchDocuments(documents: SearchDocument[], query: string): SearchDocu
 
     // Filter and sort by score
     return scored
-        .filter(item => item.score > 0)
+        .filter((item) => item.score > 0)
         .sort((a, b) => b.score - a.score)
-        .map(item => item.doc);
+        .map((item) => item.doc);
 }
 
 export default function SearchModal({ open, onClose }: SearchModalProps) {
@@ -128,7 +128,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
     // Group results by category
     const groupedResults = useMemo(() => {
         const groups: Record<string, SearchResult[]> = {};
-        results.forEach(item => {
+        results.forEach((item) => {
             if (!groups[item.category]) {
                 groups[item.category] = [];
             }
@@ -157,7 +157,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
     useEffect(() => {
         if (resultsContainerRef.current) {
             const selectedElement = resultsContainerRef.current.querySelector(
-                `[data-result-index="${selectedIndex}"]`
+                `[data-result-index="${selectedIndex}"]`,
             ) as HTMLElement;
             if (selectedElement) {
                 selectedElement.scrollIntoView({
@@ -169,27 +169,30 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
     }, [selectedIndex]);
 
     // Handle keyboard navigation
-    const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-        switch (e.key) {
-            case 'ArrowDown':
-                e.preventDefault();
-                setSelectedIndex(prev => Math.min(prev + 1, results.length - 1));
-                break;
-            case 'ArrowUp':
-                e.preventDefault();
-                setSelectedIndex(prev => Math.max(prev - 1, 0));
-                break;
-            case 'Enter':
-                e.preventDefault();
-                if (results[selectedIndex]) {
-                    navigateTo(results[selectedIndex].path);
-                }
-                break;
-            case 'Escape':
-                onClose();
-                break;
-        }
-    }, [results, selectedIndex, onClose]);
+    const handleKeyDown = useCallback(
+        (e: React.KeyboardEvent) => {
+            switch (e.key) {
+                case 'ArrowDown':
+                    e.preventDefault();
+                    setSelectedIndex((prev) => Math.min(prev + 1, results.length - 1));
+                    break;
+                case 'ArrowUp':
+                    e.preventDefault();
+                    setSelectedIndex((prev) => Math.max(prev - 1, 0));
+                    break;
+                case 'Enter':
+                    e.preventDefault();
+                    if (results[selectedIndex]) {
+                        navigateTo(results[selectedIndex].path);
+                    }
+                    break;
+                case 'Escape':
+                    onClose();
+                    break;
+            }
+        },
+        [results, selectedIndex, onClose],
+    );
 
     const navigateTo = (path: string) => {
         router.push(path);
@@ -197,9 +200,12 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
     };
 
     // Get flat index for an item
-    const getFlatIndex = useCallback((item: SearchResult) => {
-        return results.indexOf(item);
-    }, [results]);
+    const getFlatIndex = useCallback(
+        (item: SearchResult) => {
+            return results.indexOf(item);
+        },
+        [results],
+    );
 
     // Highlight matching text
     const highlightMatch = useCallback((text: string, searchQuery: string) => {
@@ -207,14 +213,21 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
 
         const parts = text.split(new RegExp(`(${searchQuery})`, 'gi'));
         return parts.map((part, i) =>
-            part.toLowerCase() === searchQuery.toLowerCase()
-                ? <mark key={i} style={{
-                    backgroundColor: 'var(--vscode-editor-findMatchHighlightBackground)',
-                    color: 'inherit',
-                    borderRadius: '2px',
-                    padding: '0 2px',
-                }}>{part}</mark>
-                : part
+            part.toLowerCase() === searchQuery.toLowerCase() ? (
+                <mark
+                    key={i}
+                    style={{
+                        backgroundColor: 'var(--vscode-editor-findMatchHighlightBackground)',
+                        color: 'inherit',
+                        borderRadius: '2px',
+                        padding: '0 2px',
+                    }}
+                >
+                    {part}
+                </mark>
+            ) : (
+                part
+            ),
         );
     }, []);
 
@@ -222,18 +235,23 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
         <Modal open={open} onClose={onClose} size="md">
             <div style={{ padding: 0 }}>
                 {/* Search Header */}
-                <div style={{
-                    padding: 'var(--bk-spacing-4)',
-                    borderBottom: '1px solid var(--vscode-panel-border)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 'var(--bk-spacing-3)',
-                }}>
-                    <Icon name="search" style={{
-                        color: 'var(--vscode-descriptionForeground)',
-                        fontSize: '18px',
-                        flexShrink: 0,
-                    }} />
+                <div
+                    style={{
+                        padding: 'var(--bk-spacing-4)',
+                        borderBottom: '1px solid var(--vscode-panel-border)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 'var(--bk-spacing-3)',
+                    }}
+                >
+                    <Icon
+                        name="search"
+                        style={{
+                            color: 'var(--vscode-descriptionForeground)',
+                            fontSize: '18px',
+                            flexShrink: 0,
+                        }}
+                    />
                     <input
                         ref={inputRef}
                         type="text"
@@ -251,19 +269,25 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                             fontFamily: 'var(--vscode-font-family)',
                         }}
                     />
-                    <div style={{
-                        display: 'flex',
-                        gap: 'var(--bk-spacing-1)',
-                        flexShrink: 0,
-                    }}>
-                        <kbd style={{
-                            padding: '2px 6px',
-                            borderRadius: 'var(--bk-radius-sm)',
-                            backgroundColor: 'var(--vscode-badge-background)',
-                            color: 'var(--vscode-badge-foreground)',
-                            fontSize: 'calc(var(--vscode-font-size) * 0.85)',
-                            fontFamily: 'var(--vscode-font-family)',
-                        }}>ESC</kbd>
+                    <div
+                        style={{
+                            display: 'flex',
+                            gap: 'var(--bk-spacing-1)',
+                            flexShrink: 0,
+                        }}
+                    >
+                        <kbd
+                            style={{
+                                padding: '2px 6px',
+                                borderRadius: 'var(--bk-radius-sm)',
+                                backgroundColor: 'var(--vscode-badge-background)',
+                                color: 'var(--vscode-badge-foreground)',
+                                fontSize: 'calc(var(--vscode-font-size) * 0.85)',
+                                fontFamily: 'var(--vscode-font-family)',
+                            }}
+                        >
+                            ESC
+                        </kbd>
                     </div>
                 </div>
 
@@ -276,42 +300,64 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                     }}
                 >
                     {isLoading ? (
-                        <div style={{
-                            padding: 'var(--bk-spacing-8)',
-                            textAlign: 'center',
-                            color: 'var(--vscode-descriptionForeground)',
-                        }}>
-                            <Icon name="loading" style={{ fontSize: '24px', marginBottom: 'var(--bk-spacing-3)' }} />
+                        <div
+                            style={{
+                                padding: 'var(--bk-spacing-8)',
+                                textAlign: 'center',
+                                color: 'var(--vscode-descriptionForeground)',
+                            }}
+                        >
+                            <Icon
+                                name="loading"
+                                style={{ fontSize: '24px', marginBottom: 'var(--bk-spacing-3)' }}
+                            />
                             <Text style={{ display: 'block' }}>Loading search index...</Text>
                         </div>
                     ) : results.length === 0 ? (
-                        <div style={{
-                            padding: 'var(--bk-spacing-8)',
-                            textAlign: 'center',
-                            color: 'var(--vscode-descriptionForeground)',
-                        }}>
-                            <Icon name="search" style={{ fontSize: '32px', marginBottom: 'var(--bk-spacing-3)', opacity: 0.5 }} />
+                        <div
+                            style={{
+                                padding: 'var(--bk-spacing-8)',
+                                textAlign: 'center',
+                                color: 'var(--vscode-descriptionForeground)',
+                            }}
+                        >
+                            <Icon
+                                name="search"
+                                style={{
+                                    fontSize: '32px',
+                                    marginBottom: 'var(--bk-spacing-3)',
+                                    opacity: 0.5,
+                                }}
+                            />
                             <Text style={{ display: 'block' }}>No results found for "{query}"</Text>
-                            <Text style={{ display: 'block', fontSize: 'calc(var(--vscode-font-size) * 0.9)', marginTop: 'var(--bk-spacing-2)' }}>
+                            <Text
+                                style={{
+                                    display: 'block',
+                                    fontSize: 'calc(var(--vscode-font-size) * 0.9)',
+                                    marginTop: 'var(--bk-spacing-2)',
+                                }}
+                            >
                                 Try different keywords or browse the navigation
                             </Text>
                         </div>
                     ) : (
                         Object.entries(groupedResults).map(([category, items]) => (
                             <div key={category}>
-                                <Text style={{
-                                    display: 'block',
-                                    padding: 'var(--bk-spacing-3) var(--bk-spacing-4)',
-                                    fontSize: 'calc(var(--vscode-font-size) * 0.85)',
-                                    fontWeight: 600,
-                                    color: 'var(--vscode-descriptionForeground)',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.05em',
-                                    backgroundColor: 'var(--vscode-sideBar-background)',
-                                    position: 'sticky',
-                                    top: 0,
-                                    zIndex: 1,
-                                }}>
+                                <Text
+                                    style={{
+                                        display: 'block',
+                                        padding: 'var(--bk-spacing-3) var(--bk-spacing-4)',
+                                        fontSize: 'calc(var(--vscode-font-size) * 0.85)',
+                                        fontWeight: 600,
+                                        color: 'var(--vscode-descriptionForeground)',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.05em',
+                                        backgroundColor: 'var(--vscode-sideBar-background)',
+                                        position: 'sticky',
+                                        top: 0,
+                                        zIndex: 1,
+                                    }}
+                                >
                                     {category}
                                 </Text>
                                 {items.map((item) => {
@@ -329,38 +375,62 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                                                 display: 'flex',
                                                 flexDirection: 'column',
                                                 gap: 'var(--bk-spacing-1)',
-                                                backgroundColor: isSelected ? 'var(--vscode-list-activeSelectionBackground)' : 'transparent',
-                                                color: isSelected ? 'var(--vscode-list-activeSelectionForeground)' : 'var(--vscode-foreground)',
+                                                backgroundColor: isSelected
+                                                    ? 'var(--vscode-list-activeSelectionBackground)'
+                                                    : 'transparent',
+                                                color: isSelected
+                                                    ? 'var(--vscode-list-activeSelectionForeground)'
+                                                    : 'var(--vscode-foreground)',
                                                 transition: 'background-color 0.1s ease',
                                             }}
                                         >
-                                            <div style={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                gap: 'var(--bk-spacing-3)',
-                                            }}>
-                                                <Icon name="symbol-class" style={{
-                                                    color: isSelected ? 'var(--vscode-list-activeSelectionForeground)' : 'var(--vscode-descriptionForeground)',
-                                                    fontSize: '16px',
-                                                    flexShrink: 0,
-                                                }} />
+                                            <div
+                                                style={{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: 'var(--bk-spacing-3)',
+                                                }}
+                                            >
+                                                <Icon
+                                                    name="symbol-class"
+                                                    style={{
+                                                        color: isSelected
+                                                            ? 'var(--vscode-list-activeSelectionForeground)'
+                                                            : 'var(--vscode-descriptionForeground)',
+                                                        fontSize: '16px',
+                                                        flexShrink: 0,
+                                                    }}
+                                                />
                                                 <span style={{ flex: 1, fontWeight: 500 }}>
                                                     {highlightMatch(item.title, query)}
                                                 </span>
                                                 {isSelected && (
-                                                    <Icon name="arrow-right" style={{ fontSize: '14px', opacity: 0.7, flexShrink: 0 }} />
+                                                    <Icon
+                                                        name="arrow-right"
+                                                        style={{
+                                                            fontSize: '14px',
+                                                            opacity: 0.7,
+                                                            flexShrink: 0,
+                                                        }}
+                                                    />
                                                 )}
                                             </div>
                                             {item.description && (
-                                                <Text style={{
-                                                    fontSize: 'calc(var(--vscode-font-size) * 0.9)',
-                                                    color: isSelected ? 'var(--vscode-list-activeSelectionForeground)' : 'var(--vscode-descriptionForeground)',
-                                                    opacity: isSelected ? 0.9 : 1,
-                                                    marginLeft: 'calc(16px + var(--bk-spacing-3))',
-                                                    overflow: 'hidden',
-                                                    textOverflow: 'ellipsis',
-                                                    whiteSpace: 'nowrap',
-                                                }}>
+                                                <Text
+                                                    style={{
+                                                        fontSize:
+                                                            'calc(var(--vscode-font-size) * 0.9)',
+                                                        color: isSelected
+                                                            ? 'var(--vscode-list-activeSelectionForeground)'
+                                                            : 'var(--vscode-descriptionForeground)',
+                                                        opacity: isSelected ? 0.9 : 1,
+                                                        marginLeft:
+                                                            'calc(16px + var(--bk-spacing-3))',
+                                                        overflow: 'hidden',
+                                                        textOverflow: 'ellipsis',
+                                                        whiteSpace: 'nowrap',
+                                                    }}
+                                                >
                                                     {highlightMatch(item.description, query)}
                                                 </Text>
                                             )}
@@ -373,39 +443,65 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                 </div>
 
                 {/* Footer with keyboard hints */}
-                <div style={{
-                    padding: 'var(--bk-spacing-3) var(--bk-spacing-4)',
-                    borderTop: '1px solid var(--vscode-panel-border)',
-                    backgroundColor: 'var(--vscode-sideBar-background)',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    fontSize: 'calc(var(--vscode-font-size) * 0.85)',
-                    color: 'var(--vscode-descriptionForeground)',
-                }}>
+                <div
+                    style={{
+                        padding: 'var(--bk-spacing-3) var(--bk-spacing-4)',
+                        borderTop: '1px solid var(--vscode-panel-border)',
+                        backgroundColor: 'var(--vscode-sideBar-background)',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        fontSize: 'calc(var(--vscode-font-size) * 0.85)',
+                        color: 'var(--vscode-descriptionForeground)',
+                    }}
+                >
                     <div style={{ display: 'flex', gap: 'var(--bk-spacing-4)' }}>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
-                            <kbd style={{
-                                padding: '2px 6px',
-                                borderRadius: 'var(--bk-radius-sm)',
-                                backgroundColor: 'var(--vscode-badge-background)',
-                                color: 'var(--vscode-badge-foreground)',
-                            }}>↑</kbd>
-                            <kbd style={{
-                                padding: '2px 6px',
-                                borderRadius: 'var(--bk-radius-sm)',
-                                backgroundColor: 'var(--vscode-badge-background)',
-                                color: 'var(--vscode-badge-foreground)',
-                            }}>↓</kbd>
+                        <span
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            <kbd
+                                style={{
+                                    padding: '2px 6px',
+                                    borderRadius: 'var(--bk-radius-sm)',
+                                    backgroundColor: 'var(--vscode-badge-background)',
+                                    color: 'var(--vscode-badge-foreground)',
+                                }}
+                            >
+                                ↑
+                            </kbd>
+                            <kbd
+                                style={{
+                                    padding: '2px 6px',
+                                    borderRadius: 'var(--bk-radius-sm)',
+                                    backgroundColor: 'var(--vscode-badge-background)',
+                                    color: 'var(--vscode-badge-foreground)',
+                                }}
+                            >
+                                ↓
+                            </kbd>
                             navigate
                         </span>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
-                            <kbd style={{
-                                padding: '2px 6px',
-                                borderRadius: 'var(--bk-radius-sm)',
-                                backgroundColor: 'var(--vscode-badge-background)',
-                                color: 'var(--vscode-badge-foreground)',
-                            }}>↵</kbd>
+                        <span
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            <kbd
+                                style={{
+                                    padding: '2px 6px',
+                                    borderRadius: 'var(--bk-radius-sm)',
+                                    backgroundColor: 'var(--vscode-badge-background)',
+                                    color: 'var(--vscode-badge-foreground)',
+                                }}
+                            >
+                                ↵
+                            </kbd>
                             select
                         </span>
                     </div>

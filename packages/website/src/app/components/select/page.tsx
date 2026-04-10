@@ -104,7 +104,8 @@ const selectProps: PropDefinition[] = [
         name: 'multiple',
         type: 'boolean',
         default: 'false',
-        description: 'Enable multiple selection. When true, value should be an array and onChange receives an array',
+        description:
+            'Enable multiple selection. When true, value should be an array and onChange receives an array',
     },
     {
         name: 'maxDropdownHeight',
@@ -116,7 +117,8 @@ const selectProps: PropDefinition[] = [
         name: 'showDescriptionPanel',
         type: 'boolean',
         default: 'true',
-        description: 'Whether to show description panel at bottom of dropdown (only when descriptions exist)',
+        description:
+            'Whether to show description panel at bottom of dropdown (only when descriptions exist)',
     },
     {
         name: 'className',
@@ -140,7 +142,8 @@ const selectOptionProps: PropDefinition[] = [
     {
         name: 'description',
         type: 'string',
-        description: 'Optional description used for search filtering and displayed in description panel',
+        description:
+            'Optional description used for search filtering and displayed in description panel',
     },
     {
         name: 'disabled',
@@ -165,7 +168,12 @@ const basicOptions: SelectOption[] = [
 
 const languageOptions: SelectOption[] = [
     { value: 'js', label: 'JavaScript', description: 'JavaScript - Dynamic scripting language' },
-    { value: 'ts', label: 'TypeScript', description: 'TypeScript - Typed superset of JavaScript', defaultLabel: 'recommended' },
+    {
+        value: 'ts',
+        label: 'TypeScript',
+        description: 'TypeScript - Typed superset of JavaScript',
+        defaultLabel: 'recommended',
+    },
     { value: 'py', label: 'Python', description: 'Python - High-level general purpose language' },
     { value: 'java', label: 'Java', description: 'Java - Object-oriented enterprise language' },
     { value: 'cpp', label: 'C++', description: 'C++ - Systems programming language' },
@@ -206,24 +214,28 @@ function FormExample() {
     ];
 
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'var(--bk-spacing-4)',
-            padding: 'var(--bk-spacing-4)',
-            backgroundColor: 'var(--vscode-textBlockQuote-background)',
-            borderRadius: 'var(--bk-radius-md)',
-            maxWidth: '500px',
-        }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-4)',
+                padding: 'var(--bk-spacing-4)',
+                backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                borderRadius: 'var(--bk-radius-md)',
+                maxWidth: '500px',
+            }}
+        >
             <Heading level={4}>Developer Profile</Heading>
 
             <div>
-                <label style={{
-                    display: 'block',
-                    marginBottom: 'var(--bk-spacing-1)',
-                    fontSize: 'var(--bk-font-size-sm)',
-                    fontWeight: 'var(--bk-font-weight-medium)',
-                }}>
+                <label
+                    style={{
+                        display: 'block',
+                        marginBottom: 'var(--bk-spacing-1)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Primary Language *
                 </label>
                 <Select
@@ -237,12 +249,14 @@ function FormExample() {
             </div>
 
             <div>
-                <label style={{
-                    display: 'block',
-                    marginBottom: 'var(--bk-spacing-1)',
-                    fontSize: 'var(--bk-font-size-sm)',
-                    fontWeight: 'var(--bk-font-weight-medium)',
-                }}>
+                <label
+                    style={{
+                        display: 'block',
+                        marginBottom: 'var(--bk-spacing-1)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Country
                 </label>
                 <Select
@@ -256,12 +270,14 @@ function FormExample() {
             </div>
 
             <div>
-                <label style={{
-                    display: 'block',
-                    marginBottom: 'var(--bk-spacing-1)',
-                    fontSize: 'var(--bk-font-size-sm)',
-                    fontWeight: 'var(--bk-font-weight-medium)',
-                }}>
+                <label
+                    style={{
+                        display: 'block',
+                        marginBottom: 'var(--bk-spacing-1)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Experience Level
                 </label>
                 <Select
@@ -273,15 +289,22 @@ function FormExample() {
                 />
             </div>
 
-            <div style={{
-                marginTop: 'var(--bk-spacing-2)',
-                padding: 'var(--bk-spacing-3)',
-                backgroundColor: 'var(--vscode-input-background)',
-                borderRadius: 'var(--bk-radius-sm)',
-                fontSize: 'var(--bk-font-size-xs)',
-                fontFamily: 'var(--vscode-editor-font-family)',
-            }}>
-                <div style={{ marginBottom: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-2)',
+                    padding: 'var(--bk-spacing-3)',
+                    backgroundColor: 'var(--vscode-input-background)',
+                    borderRadius: 'var(--bk-radius-sm)',
+                    fontSize: 'var(--bk-font-size-xs)',
+                    fontFamily: 'var(--vscode-editor-font-family)',
+                }}
+            >
+                <div
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Form Data:
                 </div>
                 <pre style={{ margin: 0 }}>{JSON.stringify(formData, null, 2)}</pre>
@@ -295,7 +318,14 @@ function MultiSelectExample() {
     const [selected, setSelected] = useState<string[]>([]);
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', minWidth: '350px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-3)',
+                minWidth: '350px',
+            }}
+        >
             <Select
                 multiple
                 options={languageOptions}
@@ -309,13 +339,20 @@ function MultiSelectExample() {
                 searchable
                 searchPlaceholder="Search languages..."
             />
-            <div style={{
-                padding: 'var(--bk-spacing-3)',
-                backgroundColor: 'var(--vscode-input-background)',
-                borderRadius: 'var(--bk-radius-sm)',
-                fontSize: 'var(--bk-font-size-sm)',
-            }}>
-                <div style={{ marginBottom: 'var(--bk-spacing-1)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+            <div
+                style={{
+                    padding: 'var(--bk-spacing-3)',
+                    backgroundColor: 'var(--vscode-input-background)',
+                    borderRadius: 'var(--bk-radius-sm)',
+                    fontSize: 'var(--bk-font-size-sm)',
+                }}
+            >
+                <div
+                    style={{
+                        marginBottom: 'var(--bk-spacing-1)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Selected ({selected.length}):
                 </div>
                 {selected.length > 0 ? (
@@ -323,7 +360,10 @@ function MultiSelectExample() {
                         {selected.map((val) => {
                             const option = languageOptions.find((opt) => opt.value === val);
                             return (
-                                <div key={val} style={{ color: 'var(--vscode-descriptionForeground)' }}>
+                                <div
+                                    key={val}
+                                    style={{ color: 'var(--vscode-descriptionForeground)' }}
+                                >
                                     • {option?.label}
                                 </div>
                             );
@@ -355,31 +395,37 @@ function MultiSelectFormExample() {
     ];
 
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'var(--bk-spacing-4)',
-            padding: 'var(--bk-spacing-4)',
-            backgroundColor: 'var(--vscode-textBlockQuote-background)',
-            borderRadius: 'var(--bk-radius-md)',
-            maxWidth: '500px',
-        }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-4)',
+                padding: 'var(--bk-spacing-4)',
+                backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                borderRadius: 'var(--bk-radius-md)',
+                maxWidth: '500px',
+            }}
+        >
             <Heading level={4}>Technical Skills</Heading>
 
             <div>
-                <label style={{
-                    display: 'block',
-                    marginBottom: 'var(--bk-spacing-1)',
-                    fontSize: 'var(--bk-font-size-sm)',
-                    fontWeight: 'var(--bk-font-weight-medium)',
-                }}>
+                <label
+                    style={{
+                        display: 'block',
+                        marginBottom: 'var(--bk-spacing-1)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Programming Languages
                 </label>
                 <Select
                     multiple
                     options={languageOptions}
                     value={formData.languages}
-                    onChange={(value) => setFormData({ ...formData, languages: Array.isArray(value) ? value : [] })}
+                    onChange={(value) =>
+                        setFormData({ ...formData, languages: Array.isArray(value) ? value : [] })
+                    }
                     placeholder="Select languages..."
                     searchable
                     fullWidth
@@ -387,34 +433,45 @@ function MultiSelectFormExample() {
             </div>
 
             <div>
-                <label style={{
-                    display: 'block',
-                    marginBottom: 'var(--bk-spacing-1)',
-                    fontSize: 'var(--bk-font-size-sm)',
-                    fontWeight: 'var(--bk-font-weight-medium)',
-                }}>
+                <label
+                    style={{
+                        display: 'block',
+                        marginBottom: 'var(--bk-spacing-1)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Frameworks
                 </label>
                 <Select
                     multiple
                     options={frameworkOptions}
                     value={formData.frameworks}
-                    onChange={(value) => setFormData({ ...formData, frameworks: Array.isArray(value) ? value : [] })}
+                    onChange={(value) =>
+                        setFormData({ ...formData, frameworks: Array.isArray(value) ? value : [] })
+                    }
                     placeholder="Select frameworks..."
                     searchable
                     fullWidth
                 />
             </div>
 
-            <div style={{
-                marginTop: 'var(--bk-spacing-2)',
-                padding: 'var(--bk-spacing-3)',
-                backgroundColor: 'var(--vscode-input-background)',
-                borderRadius: 'var(--bk-radius-sm)',
-                fontSize: 'var(--bk-font-size-xs)',
-                fontFamily: 'var(--vscode-editor-font-family)',
-            }}>
-                <div style={{ marginBottom: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-2)',
+                    padding: 'var(--bk-spacing-3)',
+                    backgroundColor: 'var(--vscode-input-background)',
+                    borderRadius: 'var(--bk-radius-sm)',
+                    fontSize: 'var(--bk-font-size-xs)',
+                    fontFamily: 'var(--vscode-editor-font-family)',
+                }}
+            >
+                <div
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Form Data:
                 </div>
                 <pre style={{ margin: 0 }}>{JSON.stringify(formData, null, 2)}</pre>
@@ -468,7 +525,14 @@ function App() {
                 title="Sizes"
                 description="Five size options available: xs, sm, md (default), lg, and xl. Options inside the dropdown scale accordingly."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', minWidth: '300px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            minWidth: '300px',
+                        }}
+                    >
                         <Select options={basicOptions} size="xs" placeholder="Extra Small" />
                         <Select options={basicOptions} size="sm" placeholder="Small" />
                         <Select options={basicOptions} size="md" placeholder="Medium (default)" />
@@ -494,8 +558,15 @@ function App() {
                             placeholder="Search programming languages..."
                             searchPlaceholder="Try typing 'typed' or 'memory'"
                         />
-                        <p style={{ marginTop: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
-                            Search matches against descriptions. Hover over options to see descriptions in the panel below.
+                        <p
+                            style={{
+                                marginTop: 'var(--bk-spacing-2)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                color: 'var(--vscode-descriptionForeground)',
+                            }}
+                        >
+                            Search matches against descriptions. Hover over options to see
+                            descriptions in the panel below.
                         </p>
                     </div>
                 }
@@ -533,8 +604,16 @@ function App() {
                     <div style={{ minWidth: '350px' }}>
                         <Select
                             options={[
-                                { value: 'chrome', label: 'Google Chrome', defaultLabel: 'default' },
-                                { value: 'firefox', label: 'Mozilla Firefox', defaultLabel: 'recommended' },
+                                {
+                                    value: 'chrome',
+                                    label: 'Google Chrome',
+                                    defaultLabel: 'default',
+                                },
+                                {
+                                    value: 'firefox',
+                                    label: 'Mozilla Firefox',
+                                    defaultLabel: 'recommended',
+                                },
                                 { value: 'safari', label: 'Safari' },
                                 { value: 'edge', label: 'Microsoft Edge' },
                                 { value: 'brave', label: 'Brave Browser' },
@@ -542,7 +621,13 @@ function App() {
                             placeholder="Select your browser..."
                             defaultValue="chrome"
                         />
-                        <p style={{ marginTop: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
+                        <p
+                            style={{
+                                marginTop: 'var(--bk-spacing-2)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                color: 'var(--vscode-descriptionForeground)',
+                            }}
+                        >
                             Default labels appear on the right in muted text
                         </p>
                     </div>
@@ -565,9 +650,22 @@ function App() {
                 title="Custom Render with Icons"
                 description="Use renderOption and renderValue for complete control over appearance. You can add icons, badges, colors, or any custom JSX."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', minWidth: '300px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            minWidth: '300px',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 With Icons
                             </div>
                             <Select
@@ -579,7 +677,13 @@ function App() {
                                 placeholder="Choose a language..."
                                 defaultValue="ts"
                                 renderOption={(option) => (
-                                    <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
+                                    <span
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: 'var(--bk-spacing-2)',
+                                        }}
+                                    >
                                         <Icon name="symbol-method" />
                                         {option.label}
                                     </span>
@@ -587,7 +691,13 @@ function App() {
                             />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 With Status Colors
                             </div>
                             <Select
@@ -604,13 +714,21 @@ function App() {
                                         completed: '#2196f3',
                                     };
                                     return (
-                                        <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-2)' }}>
-                                            <span style={{
-                                                width: '8px',
-                                                height: '8px',
-                                                borderRadius: '50%',
-                                                backgroundColor: colors[option.value as string],
-                                            }} />
+                                        <span
+                                            style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: 'var(--bk-spacing-2)',
+                                            }}
+                                        >
+                                            <span
+                                                style={{
+                                                    width: '8px',
+                                                    height: '8px',
+                                                    borderRadius: '50%',
+                                                    backgroundColor: colors[option.value as string],
+                                                }}
+                                            />
                                             {option.label}
                                         </span>
                                     );
@@ -660,19 +778,34 @@ function App() {
                 title="States"
                 description="Select supports various states: disabled (entire select), error (with error message), and disabled options (individual options can be disabled)."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', minWidth: '300px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            minWidth: '300px',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Disabled Select
                             </div>
-                            <Select
-                                options={basicOptions}
-                                disabled
-                                defaultValue="option2"
-                            />
+                            <Select options={basicOptions} disabled defaultValue="option2" />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Error State
                             </div>
                             <Select
@@ -682,7 +815,13 @@ function App() {
                             />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 With Disabled Options
                             </div>
                             <Select
@@ -723,7 +862,14 @@ const optionsWithDisabled: SelectOption[] = [
                 title="Controlled Select"
                 description="Control the select value with React state. Use the value prop and onChange callback for controlled behavior."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', minWidth: '300px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            minWidth: '300px',
+                        }}
+                    >
                         {(() => {
                             const [value, setValue] = useState('ts');
                             return (
@@ -734,12 +880,14 @@ const optionsWithDisabled: SelectOption[] = [
                                         onChange={(val) => setValue(val as string)}
                                         placeholder="Choose a language..."
                                     />
-                                    <div style={{
-                                        padding: 'var(--bk-spacing-3)',
-                                        backgroundColor: 'var(--vscode-input-background)',
-                                        borderRadius: 'var(--bk-radius-sm)',
-                                        fontSize: 'var(--bk-font-size-sm)',
-                                    }}>
+                                    <div
+                                        style={{
+                                            padding: 'var(--bk-spacing-3)',
+                                            backgroundColor: 'var(--vscode-input-background)',
+                                            borderRadius: 'var(--bk-radius-sm)',
+                                            fontSize: 'var(--bk-font-size-sm)',
+                                        }}
+                                    >
                                         Selected value: <strong>{value || 'none'}</strong>
                                     </div>
                                 </>
@@ -856,9 +1004,23 @@ function TechnicalSkillsForm() {
                 title="Full Width & Positioning"
                 description="Use the fullWidth prop to make the select take 100% of its container width. Control dropdown position with the position prop: auto (default, calculates best position), top (always above), or bottom (always below)."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%', maxWidth: '500px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            width: '100%',
+                            maxWidth: '500px',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Full Width
                             </div>
                             <Select
@@ -869,7 +1031,13 @@ function TechnicalSkillsForm() {
                             />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Position: Bottom
                             </div>
                             <Select

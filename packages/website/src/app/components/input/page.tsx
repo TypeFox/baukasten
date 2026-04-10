@@ -15,7 +15,8 @@ const inputProps: PropDefinition[] = [
         name: 'error',
         type: 'string | boolean',
         default: 'undefined',
-        description: 'Error state or message. Pass true for error styling only, or a string to show error message below',
+        description:
+            'Error state or message. Pass true for error styling only, or a string to show error message below',
     },
     {
         name: 'fullWidth',
@@ -75,7 +76,14 @@ function App() {
                 title="Sizes"
                 description="Five size options from extra small to extra large."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '100%' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '100%',
+                        }}
+                    >
                         <Input size="xs" placeholder="Extra Small" fullWidth />
                         <Input size="sm" placeholder="Small" fullWidth />
                         <Input size="md" placeholder="Medium (Default)" fullWidth />
@@ -96,7 +104,14 @@ function App() {
                 title="Input Types"
                 description="Supports all standard HTML input types for various data formats."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '100%' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '100%',
+                        }}
+                    >
                         <Input type="text" placeholder="Text input" fullWidth />
                         <Input type="email" placeholder="Email (you@example.com)" fullWidth />
                         <Input type="password" placeholder="Password" fullWidth />
@@ -119,15 +134,32 @@ function App() {
                 title="States"
                 description="Input supports default, error, and disabled states."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            width: '100%',
+                        }}
+                    >
                         <div>
-                            <UIText block size="sm" weight="medium" style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                            <UIText
+                                block
+                                size="sm"
+                                weight="medium"
+                                style={{ marginBottom: 'var(--bk-spacing-2)' }}
+                            >
                                 Default State
                             </UIText>
                             <Input placeholder="Enter your username" fullWidth />
                         </div>
                         <div>
-                            <UIText block size="sm" weight="medium" style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                            <UIText
+                                block
+                                size="sm"
+                                weight="medium"
+                                style={{ marginBottom: 'var(--bk-spacing-2)' }}
+                            >
                                 With Error
                             </UIText>
                             <Input
@@ -137,14 +169,15 @@ function App() {
                             />
                         </div>
                         <div>
-                            <UIText block size="sm" weight="medium" style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                            <UIText
+                                block
+                                size="sm"
+                                weight="medium"
+                                style={{ marginBottom: 'var(--bk-spacing-2)' }}
+                            >
                                 Disabled State
                             </UIText>
-                            <Input
-                                placeholder="This field is disabled"
-                                disabled
-                                fullWidth
-                            />
+                            <Input placeholder="This field is disabled" disabled fullWidth />
                         </div>
                     </div>
                 }
@@ -184,22 +217,35 @@ function App() {
                 title="Error Handling"
                 description="Error prop accepts boolean for styling only, or a string to display an error message."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            width: '100%',
+                        }}
+                    >
                         <div>
-                            <UIText block size="sm" weight="medium" style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                            <UIText
+                                block
+                                size="sm"
+                                weight="medium"
+                                style={{ marginBottom: 'var(--bk-spacing-2)' }}
+                            >
                                 Error State Only (boolean)
                             </UIText>
                             <Input placeholder="Email" error={true} fullWidth />
                         </div>
                         <div>
-                            <UIText block size="sm" weight="medium" style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                            <UIText
+                                block
+                                size="sm"
+                                weight="medium"
+                                style={{ marginBottom: 'var(--bk-spacing-2)' }}
+                            >
                                 Error with Message (string)
                             </UIText>
-                            <Input
-                                placeholder="Email"
-                                error="This field is required"
-                                fullWidth
-                            />
+                            <Input placeholder="Email" error="This field is required" fullWidth />
                         </div>
                     </div>
                 }
@@ -229,15 +275,32 @@ function App() {
                 title="Width Options"
                 description="Control input width with fullWidth prop or use default inline width."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            width: '100%',
+                        }}
+                    >
                         <div>
-                            <UIText block size="sm" weight="medium" style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                            <UIText
+                                block
+                                size="sm"
+                                weight="medium"
+                                style={{ marginBottom: 'var(--bk-spacing-2)' }}
+                            >
                                 Default Width (Inline)
                             </UIText>
                             <Input placeholder="Auto width" />
                         </div>
                         <div>
-                            <UIText block size="sm" weight="medium" style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                            <UIText
+                                block
+                                size="sm"
+                                weight="medium"
+                                style={{ marginBottom: 'var(--bk-spacing-2)' }}
+                            >
                                 Full Width
                             </UIText>
                             <Input placeholder="This spans full width" fullWidth />
@@ -266,22 +329,51 @@ function App() {
                 title="Form Examples"
                 description="Common form patterns using Input components."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', width: '100%' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-6)',
+                            width: '100%',
+                        }}
+                    >
                         <div>
-                            <Heading level={4} marginTop={false} marginBottom={false} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
+                            <Heading
+                                level={4}
+                                marginTop={false}
+                                marginBottom={false}
+                                style={{ marginBottom: 'var(--bk-spacing-3)' }}
+                            >
                                 Login Form
                             </Heading>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: 'var(--bk-spacing-3)',
+                                }}
+                            >
                                 <Input type="email" placeholder="Email" fullWidth />
                                 <Input type="password" placeholder="Password" fullWidth />
                             </div>
                         </div>
 
                         <div>
-                            <Heading level={4} marginTop={false} marginBottom={false} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
+                            <Heading
+                                level={4}
+                                marginTop={false}
+                                marginBottom={false}
+                                style={{ marginBottom: 'var(--bk-spacing-3)' }}
+                            >
                                 Form with Validation
                             </Heading>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: 'var(--bk-spacing-3)',
+                                }}
+                            >
                                 <Input placeholder="Username" fullWidth />
                                 <Input
                                     type="email"

@@ -10,12 +10,16 @@ const Section = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Paragraph = ({ children }: { children: React.ReactNode }) => (
-    <p style={{
-        fontSize: 'var(--bk-font-size-md)',
-        color: 'var(--bk-color-text-secondary)',
-        margin: '0 0 var(--bk-spacing-4) 0',
-        lineHeight: 'var(--bk-line-height-relaxed)',
-    }}>{children}</p>
+    <p
+        style={{
+            fontSize: 'var(--bk-font-size-md)',
+            color: 'var(--bk-color-text-secondary)',
+            margin: '0 0 var(--bk-spacing-4) 0',
+            lineHeight: 'var(--bk-line-height-relaxed)',
+        }}
+    >
+        {children}
+    </p>
 );
 
 export default function TheiaGuidePage() {
@@ -24,26 +28,24 @@ export default function TheiaGuidePage() {
             title="Usage in Eclipse Theia"
             description="Learn how to use Baukasten components in Eclipse Theia applications, including multi-window support."
         >
-            <Alert variant="info" icon={<Icon name="window" />} style={{ marginBottom: 'var(--bk-spacing-8)' }}>
-                Baukasten supports Eclipse Theia applications with special handling for multi-window scenarios where secondary/popup windows are common.
+            <Alert
+                variant="info"
+                icon={<Icon name="window" />}
+                style={{ marginBottom: 'var(--bk-spacing-8)' }}
+            >
+                Baukasten supports Eclipse Theia applications with special handling for multi-window
+                scenarios where secondary/popup windows are common.
             </Alert>
 
             <Section>
                 <Heading level={2}>Installation</Heading>
-                <Paragraph>
-                    Install Baukasten in your Theia application:
-                </Paragraph>
-                <CodeBlock
-                    code="npm install baukasten-ui react react-dom"
-                    language="bash"
-                />
+                <Paragraph>Install Baukasten in your Theia application:</Paragraph>
+                <CodeBlock code="npm install baukasten-ui react react-dom" language="bash" />
             </Section>
 
             <Section>
                 <Heading level={2}>Basic Setup</Heading>
-                <Paragraph>
-                    Import the base styles and Theia-specific CSS variables:
-                </Paragraph>
+                <Paragraph>Import the base styles and Theia-specific CSS variables:</Paragraph>
                 <CodeBlock
                     code={`// Import base styles (required)
 import 'baukasten-ui/dist/baukasten-base.css';
@@ -52,9 +54,7 @@ import 'baukasten-ui/dist/baukasten-base.css';
 import 'baukasten-ui/dist/baukasten-theia.css';`}
                     language="tsx"
                 />
-                <Paragraph>
-                    Then use components in your application:
-                </Paragraph>
+                <Paragraph>Then use components in your application:</Paragraph>
                 <CodeBlock
                     code={`import { Button, Input, Select, Alert } from 'baukasten-ui/core';
 
@@ -88,35 +88,60 @@ function MyTheiaWidget() {
 
             <Section>
                 <Heading level={2}>Multi-Window Support</Heading>
-                <Alert variant="warning" icon={<Icon name="warning" />} style={{ marginBottom: 'var(--bk-spacing-6)' }}>
-                    <strong>Important:</strong> If you're using Baukasten in Theia secondary/popup windows, you need to use <code style={{
-                        backgroundColor: 'var(--vscode-textCodeBlock-background)',
-                        padding: '2px 6px',
-                        borderRadius: 'var(--bk-radius-sm)',
-                    }}>PortalProvider</code> to ensure dropdowns and tooltips render correctly.
+                <Alert
+                    variant="warning"
+                    icon={<Icon name="warning" />}
+                    style={{ marginBottom: 'var(--bk-spacing-6)' }}
+                >
+                    <strong>Important:</strong> If you're using Baukasten in Theia secondary/popup
+                    windows, you need to use{' '}
+                    <code
+                        style={{
+                            backgroundColor: 'var(--vscode-textCodeBlock-background)',
+                            padding: '2px 6px',
+                            borderRadius: 'var(--bk-radius-sm)',
+                        }}
+                    >
+                        PortalProvider
+                    </code>{' '}
+                    to ensure dropdowns and tooltips render correctly.
                 </Alert>
 
                 <Heading level={3}>The Problem</Heading>
                 <Paragraph>
-                    Portal-based components like Select, Dropdown, Tooltip, and ContextMenu render their floating
-                    content using React portals. By default, these portals target the main window's <code style={{
-                        backgroundColor: 'var(--vscode-textCodeBlock-background)',
-                        padding: '2px 6px',
-                        borderRadius: 'var(--bk-radius-sm)',
-                    }}>document.body</code>.
+                    Portal-based components like Select, Dropdown, Tooltip, and ContextMenu render
+                    their floating content using React portals. By default, these portals target the
+                    main window's{' '}
+                    <code
+                        style={{
+                            backgroundColor: 'var(--vscode-textCodeBlock-background)',
+                            padding: '2px 6px',
+                            borderRadius: 'var(--bk-radius-sm)',
+                        }}
+                    >
+                        document.body
+                    </code>
+                    .
                 </Paragraph>
                 <Paragraph>
-                    In Theia's multi-window scenarios, when a component is rendered in a secondary window but its
-                    portal content goes to the main window's body, dropdowns appear on the wrong window!
+                    In Theia's multi-window scenarios, when a component is rendered in a secondary
+                    window but its portal content goes to the main window's body, dropdowns appear
+                    on the wrong window!
                 </Paragraph>
 
                 <Heading level={3}>The Solution: PortalProvider</Heading>
                 <Paragraph>
-                    Wrap your secondary window content with <code style={{
-                        backgroundColor: 'var(--vscode-textCodeBlock-background)',
-                        padding: '2px 6px',
-                        borderRadius: 'var(--bk-radius-sm)',
-                    }}>PortalProvider</code> to redirect portal content to the correct window:
+                    Wrap your secondary window content with{' '}
+                    <code
+                        style={{
+                            backgroundColor: 'var(--vscode-textCodeBlock-background)',
+                            padding: '2px 6px',
+                            borderRadius: 'var(--bk-radius-sm)',
+                        }}
+                    >
+                        PortalProvider
+                    </code>{' '}
+                    to redirect portal content to the correct window:
                 </Paragraph>
                 <CodeBlock
                     code={`import { useRef, useState, useEffect } from 'react';
@@ -167,37 +192,76 @@ function SecondaryWindowContent() {
             <Section>
                 <Heading level={2}>Components Using Portals</Heading>
                 <Paragraph>
-                    These components render floating content via portals and respect <code style={{
-                        backgroundColor: 'var(--vscode-textCodeBlock-background)',
-                        padding: '2px 6px',
-                        borderRadius: 'var(--bk-radius-sm)',
-                    }}>PortalProvider</code>:
+                    These components render floating content via portals and respect{' '}
+                    <code
+                        style={{
+                            backgroundColor: 'var(--vscode-textCodeBlock-background)',
+                            padding: '2px 6px',
+                            borderRadius: 'var(--bk-radius-sm)',
+                        }}
+                    >
+                        PortalProvider
+                    </code>
+                    :
                 </Paragraph>
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                    gap: 'var(--bk-spacing-4)',
-                    marginTop: 'var(--bk-spacing-4)',
-                }}>
+                <div
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                        gap: 'var(--bk-spacing-4)',
+                        marginTop: 'var(--bk-spacing-4)',
+                    }}
+                >
                     {[
-                        { name: 'Select', desc: 'Dropdown options list', path: '/components/select' },
-                        { name: 'Dropdown', desc: 'Generic dropdown container', path: '/components/dropdown' },
+                        {
+                            name: 'Select',
+                            desc: 'Dropdown options list',
+                            path: '/components/select',
+                        },
+                        {
+                            name: 'Dropdown',
+                            desc: 'Generic dropdown container',
+                            path: '/components/dropdown',
+                        },
                         { name: 'Tooltip', desc: 'Hover tooltips', path: '/components/tooltip' },
-                        { name: 'ContextMenu', desc: 'Right-click menus', path: '/components/contextmenu' },
-                        { name: 'ButtonGroup', desc: 'Split button dropdowns', path: '/components/buttongroup' },
-                    ].map(item => (
+                        {
+                            name: 'ContextMenu',
+                            desc: 'Right-click menus',
+                            path: '/components/contextmenu',
+                        },
+                        {
+                            name: 'ButtonGroup',
+                            desc: 'Split button dropdowns',
+                            path: '/components/buttongroup',
+                        },
+                    ].map((item) => (
                         <Link key={item.name} href={item.path} style={{ textDecoration: 'none' }}>
-                            <div style={{
-                                backgroundColor: 'var(--vscode-sideBar-background)',
-                                border: '1px solid var(--vscode-panel-border)',
-                                borderRadius: 'var(--bk-radius-md)',
-                                padding: 'var(--bk-spacing-4)',
-                                transition: 'border-color 0.2s',
-                            }}
-                                onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--vscode-focusBorder)'}
-                                onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--vscode-panel-border)'}>
-                                <Heading level={4} style={{ margin: '0 0 var(--bk-spacing-1) 0' }}>{item.name}</Heading>
-                                <span style={{ color: 'var(--vscode-descriptionForeground)', fontSize: 'var(--bk-font-size-sm)' }}>
+                            <div
+                                style={{
+                                    backgroundColor: 'var(--vscode-sideBar-background)',
+                                    border: '1px solid var(--vscode-panel-border)',
+                                    borderRadius: 'var(--bk-radius-md)',
+                                    padding: 'var(--bk-spacing-4)',
+                                    transition: 'border-color 0.2s',
+                                }}
+                                onMouseEnter={(e) =>
+                                    (e.currentTarget.style.borderColor =
+                                        'var(--vscode-focusBorder)')
+                                }
+                                onMouseLeave={(e) =>
+                                    (e.currentTarget.style.borderColor =
+                                        'var(--vscode-panel-border)')
+                                }
+                            >
+                                <Heading level={4} style={{ margin: '0 0 var(--bk-spacing-1) 0' }}>
+                                    {item.name}
+                                </Heading>
+                                <span
+                                    style={{
+                                        color: 'var(--vscode-descriptionForeground)',
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                    }}
+                                >
                                     {item.desc}
                                 </span>
                             </div>
@@ -231,7 +295,8 @@ function SecondaryWindowContent() {
 
                 <Heading level={3}>usePortalRoot Hook</Heading>
                 <Paragraph>
-                    A hook to access the portal root element. Useful if you're building custom portal-based components:
+                    A hook to access the portal root element. Useful if you're building custom
+                    portal-based components:
                 </Paragraph>
                 <CodeBlock
                     code={`import { usePortalRoot } from 'baukasten-ui/core';
@@ -253,42 +318,83 @@ function CustomFloatingComponent() {
             <Section>
                 <Heading level={2}>Backward Compatibility</Heading>
                 <Paragraph>
-                    If <code style={{
-                        backgroundColor: 'var(--vscode-textCodeBlock-background)',
-                        padding: '2px 6px',
-                        borderRadius: 'var(--bk-radius-sm)',
-                    }}>PortalProvider</code> is not used, components fall back to their default behavior (rendering
-                    to <code style={{
-                        backgroundColor: 'var(--vscode-textCodeBlock-background)',
-                        padding: '2px 6px',
-                        borderRadius: 'var(--bk-radius-sm)',
-                    }}>document.body</code>). This means:
+                    If{' '}
+                    <code
+                        style={{
+                            backgroundColor: 'var(--vscode-textCodeBlock-background)',
+                            padding: '2px 6px',
+                            borderRadius: 'var(--bk-radius-sm)',
+                        }}
+                    >
+                        PortalProvider
+                    </code>{' '}
+                    is not used, components fall back to their default behavior (rendering to{' '}
+                    <code
+                        style={{
+                            backgroundColor: 'var(--vscode-textCodeBlock-background)',
+                            padding: '2px 6px',
+                            borderRadius: 'var(--bk-radius-sm)',
+                        }}
+                    >
+                        document.body
+                    </code>
+                    ). This means:
                 </Paragraph>
-                <ul style={{
-                    color: 'var(--bk-color-text-secondary)',
-                    lineHeight: 'var(--bk-line-height-relaxed)',
-                    paddingLeft: 'var(--bk-spacing-6)',
-                }}>
-                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>Existing code continues to work without changes</li>
-                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>Single-window applications don't need <code style={{
-                        backgroundColor: 'var(--vscode-textCodeBlock-background)',
-                        padding: '2px 6px',
-                        borderRadius: 'var(--bk-radius-sm)',
-                    }}>PortalProvider</code></li>
-                    <li>Only add <code style={{
-                        backgroundColor: 'var(--vscode-textCodeBlock-background)',
-                        padding: '2px 6px',
-                        borderRadius: 'var(--bk-radius-sm)',
-                    }}>PortalProvider</code> when using secondary windows in Theia</li>
+                <ul
+                    style={{
+                        color: 'var(--bk-color-text-secondary)',
+                        lineHeight: 'var(--bk-line-height-relaxed)',
+                        paddingLeft: 'var(--bk-spacing-6)',
+                    }}
+                >
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                        Existing code continues to work without changes
+                    </li>
+                    <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                        Single-window applications don't need{' '}
+                        <code
+                            style={{
+                                backgroundColor: 'var(--vscode-textCodeBlock-background)',
+                                padding: '2px 6px',
+                                borderRadius: 'var(--bk-radius-sm)',
+                            }}
+                        >
+                            PortalProvider
+                        </code>
+                    </li>
+                    <li>
+                        Only add{' '}
+                        <code
+                            style={{
+                                backgroundColor: 'var(--vscode-textCodeBlock-background)',
+                                padding: '2px 6px',
+                                borderRadius: 'var(--bk-radius-sm)',
+                            }}
+                        >
+                            PortalProvider
+                        </code>{' '}
+                        when using secondary windows in Theia
+                    </li>
                 </ul>
             </Section>
 
             <Divider style={{ margin: 'var(--bk-spacing-8) 0' }} />
 
-            <Alert variant="success" icon={<Icon name="check" />} title="You're Ready for Multi-Window!">
+            <Alert
+                variant="success"
+                icon={<Icon name="check" />}
+                title="You're Ready for Multi-Window!"
+            >
                 <Paragraph>
-                    Your Theia application is now ready to use Baukasten components in both main and secondary windows.
-                    For more component details, explore the <Link href="/components/select" style={{ color: 'var(--vscode-textLink-foreground)' }}>component documentation</Link>.
+                    Your Theia application is now ready to use Baukasten components in both main and
+                    secondary windows. For more component details, explore the{' '}
+                    <Link
+                        href="/components/select"
+                        style={{ color: 'var(--vscode-textLink-foreground)' }}
+                    >
+                        component documentation
+                    </Link>
+                    .
                 </Paragraph>
             </Alert>
         </PageLayout>

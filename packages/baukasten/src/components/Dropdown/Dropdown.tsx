@@ -1,20 +1,20 @@
 import React, { useState, useCallback } from 'react';
 import clsx from 'clsx';
 import {
-  useFloating,
-  autoUpdate,
-  offset,
-  flip,
-  shift,
-  size,
-  useClick,
-  useDismiss,
-  useRole,
-  useInteractions,
-  useTransitionStatus,
-  FloatingPortal,
-  FloatingFocusManager,
-  type Placement,
+    useFloating,
+    autoUpdate,
+    offset,
+    flip,
+    shift,
+    size,
+    useClick,
+    useDismiss,
+    useRole,
+    useInteractions,
+    useTransitionStatus,
+    FloatingPortal,
+    FloatingFocusManager,
+    type Placement,
 } from '@floating-ui/react';
 import { usePortalRoot } from '../../context';
 import { dropdownWrapper, triggerWrapper, portalContent } from './Dropdown.css';
@@ -32,68 +32,67 @@ export type DropdownPlacement = 'bottom-start' | 'bottom-end' | 'top-start' | 't
  * Dropdown component props
  */
 export interface DropdownProps {
-  /**
-   * The trigger element that opens the dropdown
-   */
-  trigger: React.ReactNode;
+    /**
+     * The trigger element that opens the dropdown
+     */
+    trigger: React.ReactNode;
 
-  /**
-   * The content to display in the dropdown
-   */
-  children: React.ReactNode;
+    /**
+     * The content to display in the dropdown
+     */
+    children: React.ReactNode;
 
-  /**
-   * Whether the dropdown is open (controlled mode)
-   */
-  open?: boolean;
+    /**
+     * Whether the dropdown is open (controlled mode)
+     */
+    open?: boolean;
 
-  /**
-   * Callback when the dropdown open state changes
-   */
-  onOpenChange?: (open: boolean) => void;
+    /**
+     * Callback when the dropdown open state changes
+     */
+    onOpenChange?: (open: boolean) => void;
 
-  /**
-   * Placement of the dropdown relative to the trigger
-   * @default 'bottom-start'
-   */
-  placement?: DropdownPlacement;
+    /**
+     * Placement of the dropdown relative to the trigger
+     * @default 'bottom-start'
+     */
+    placement?: DropdownPlacement;
 
-  /**
-   * Whether to close the dropdown when clicking inside it
-   * @default true
-   */
-  closeOnClick?: boolean;
+    /**
+     * Whether to close the dropdown when clicking inside it
+     * @default true
+     */
+    closeOnClick?: boolean;
 
-  /**
-   * Whether the dropdown is disabled
-   * @default false
-   */
-  disabled?: boolean;
+    /**
+     * Whether the dropdown is disabled
+     * @default false
+     */
+    disabled?: boolean;
 
-  /**
-   * Minimum width for the dropdown content
-   * @default '10rem' (160px)
-   */
-  minWidth?: string | number;
+    /**
+     * Minimum width for the dropdown content
+     * @default '10rem' (160px)
+     */
+    minWidth?: string | number;
 
-  /**
-   * Maximum width for the dropdown content
-   * @default '24rem' (384px)
-   */
-  maxWidth?: string | number;
+    /**
+     * Maximum width for the dropdown content
+     * @default '24rem' (384px)
+     */
+    maxWidth?: string | number;
 
-  /**
-   * Whether to use modal focus management (traps focus within dropdown)
-   * @default false
-   */
-  modal?: boolean;
+    /**
+     * Whether to use modal focus management (traps focus within dropdown)
+     * @default false
+     */
+    modal?: boolean;
 
-  /**
-   * Additional CSS class name for the trigger wrapper
-   */
-  className?: string;
+    /**
+     * Additional CSS class name for the trigger wrapper
+     */
+    className?: string;
 }
-
 
 // Constants matching design tokens (for Floating UI numeric values)
 const OFFSET_SPACING = 4; // var(--bk-spacing-1)
@@ -157,127 +156,124 @@ const TRANSITION_DURATION = 150; // var(--bk-transition-fast) = 150ms
  * ```
  */
 export const Dropdown: React.FC<DropdownProps> = ({
-  trigger,
-  children,
-  open: controlledOpen,
-  onOpenChange,
-  placement = 'bottom-start',
-  closeOnClick = true,
-  disabled = false,
-  minWidth = '10rem',
-  maxWidth = '24rem',
-  modal = false,
-  className,
+    trigger,
+    children,
+    open: controlledOpen,
+    onOpenChange,
+    placement = 'bottom-start',
+    closeOnClick = true,
+    disabled = false,
+    minWidth = '10rem',
+    maxWidth = '24rem',
+    modal = false,
+    className,
 }) => {
-  // Use internal state if not controlled
-  const [internalOpen, setInternalOpen] = useState(false);
-  const isControlled = controlledOpen !== undefined;
-  const isOpen = isControlled ? controlledOpen : internalOpen;
+    // Use internal state if not controlled
+    const [internalOpen, setInternalOpen] = useState(false);
+    const isControlled = controlledOpen !== undefined;
+    const isOpen = isControlled ? controlledOpen : internalOpen;
 
-  // Convert placement to Floating UI Placement type
-  const floatingPlacement: Placement = placement as Placement;
+    // Convert placement to Floating UI Placement type
+    const floatingPlacement: Placement = placement as Placement;
 
-  // Floating UI setup
-  const { refs, floatingStyles, context } = useFloating({
-    open: isOpen,
-    onOpenChange: (open) => {
-      if (disabled) return;
+    // Floating UI setup
+    const { refs, floatingStyles, context } = useFloating({
+        open: isOpen,
+        onOpenChange: (open) => {
+            if (disabled) return;
 
-      if (isControlled) {
-        onOpenChange?.(open);
-      } else {
-        setInternalOpen(open);
-        onOpenChange?.(open);
-      }
-    },
-    placement: floatingPlacement,
-    whileElementsMounted: autoUpdate,
-    middleware: [
-      offset(OFFSET_SPACING),
-      flip({ padding: PADDING_SPACING }),
-      shift({ padding: PADDING_SPACING }),
-      size({
-        apply({ availableHeight, elements }) {
-          Object.assign(elements.floating.style, {
-            minWidth: typeof minWidth === 'number' ? `${minWidth}px` : minWidth,
-            maxWidth: typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth,
-            maxHeight: `${availableHeight}px`, // Prevent overflow
-          });
+            if (isControlled) {
+                onOpenChange?.(open);
+            } else {
+                setInternalOpen(open);
+                onOpenChange?.(open);
+            }
         },
-        padding: PADDING_SPACING,
-      }),
-    ],
-  });
+        placement: floatingPlacement,
+        whileElementsMounted: autoUpdate,
+        middleware: [
+            offset(OFFSET_SPACING),
+            flip({ padding: PADDING_SPACING }),
+            shift({ padding: PADDING_SPACING }),
+            size({
+                apply({ availableHeight, elements }) {
+                    Object.assign(elements.floating.style, {
+                        minWidth: typeof minWidth === 'number' ? `${minWidth}px` : minWidth,
+                        maxWidth: typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth,
+                        maxHeight: `${availableHeight}px`, // Prevent overflow
+                    });
+                },
+                padding: PADDING_SPACING,
+            }),
+        ],
+    });
 
-  // Floating UI interactions
-  const click = useClick(context, { enabled: !disabled });
-  const dismiss = useDismiss(context);
-  const role = useRole(context);
+    // Floating UI interactions
+    const click = useClick(context, { enabled: !disabled });
+    const dismiss = useDismiss(context);
+    const role = useRole(context);
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([
-    click,
-    dismiss,
-    role,
-  ]);
+    const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss, role]);
 
-  // Transition status for exit animations
-  const { isMounted, status } = useTransitionStatus(context, {
-    duration: TRANSITION_DURATION,
-  });
+    // Transition status for exit animations
+    const { isMounted, status } = useTransitionStatus(context, {
+        duration: TRANSITION_DURATION,
+    });
 
-  // Handle click inside content
-  const handleContentClick = useCallback((e: React.MouseEvent) => {
-    // Stop event propagation to prevent parent handlers from interfering
-    e.stopPropagation();
+    // Handle click inside content
+    const handleContentClick = useCallback(
+        (e: React.MouseEvent) => {
+            // Stop event propagation to prevent parent handlers from interfering
+            e.stopPropagation();
 
-    if (closeOnClick) {
-      if (isControlled) {
-        onOpenChange?.(false);
-      } else {
-        setInternalOpen(false);
-        onOpenChange?.(false);
-      }
-    }
-  }, [closeOnClick, isControlled, onOpenChange]);
+            if (closeOnClick) {
+                if (isControlled) {
+                    onOpenChange?.(false);
+                } else {
+                    setInternalOpen(false);
+                    onOpenChange?.(false);
+                }
+            }
+        },
+        [closeOnClick, isControlled, onOpenChange],
+    );
 
-  // Get portal root from context (for multi-window support)
-  const portalRoot = usePortalRoot();
+    // Get portal root from context (for multi-window support)
+    const portalRoot = usePortalRoot();
 
-  return (
-    <>
-      <div
-        ref={refs.setReference}
-        className={clsx(dropdownWrapper, className)}
-        {...getReferenceProps()}
-      >
-        <div className={triggerWrapper({ disabled })}>
-          {trigger}
-        </div>
-      </div>
-
-      {/* Portal with transition support for exit animations */}
-      {isMounted && (
-        <FloatingPortal root={portalRoot}>
-          <FloatingFocusManager context={context} modal={modal}>
+    return (
+        <>
             <div
-              ref={refs.setFloating}
-              style={{
-                ...floatingStyles,
-                zIndex: 'var(--bk-z-index-popover)',
-              }}
-              {...getFloatingProps()}
+                ref={refs.setReference}
+                className={clsx(dropdownWrapper, className)}
+                {...getReferenceProps()}
             >
-              <div
-                className={portalContent}
-                data-status={status}
-                onClick={handleContentClick}
-              >
-                {children}
-              </div>
+                <div className={triggerWrapper({ disabled })}>{trigger}</div>
             </div>
-          </FloatingFocusManager>
-        </FloatingPortal>
-      )}
-    </>
-  );
+
+            {/* Portal with transition support for exit animations */}
+            {isMounted && (
+                <FloatingPortal root={portalRoot}>
+                    <FloatingFocusManager context={context} modal={modal}>
+                        <div
+                            ref={refs.setFloating}
+                            style={{
+                                ...floatingStyles,
+                                zIndex: 'var(--bk-z-index-popover)',
+                            }}
+                            {...getFloatingProps()}
+                        >
+                            <div
+                                className={portalContent}
+                                data-status={status}
+                                onClick={handleContentClick}
+                            >
+                                {children}
+                            </div>
+                        </div>
+                    </FloatingFocusManager>
+                </FloatingPortal>
+            )}
+        </>
+    );
 };

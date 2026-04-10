@@ -5,19 +5,22 @@ Example implementations showcasing the baukasten component library.
 ## Getting Started
 
 1. Install dependencies from the root:
-   ```bash
-   npm install
-   ```
+
+    ```bash
+    npm install
+    ```
 
 2. Start the development server:
-   ```bash
-   npm run example
-   ```
 
-   Or from this directory:
-   ```bash
-   npm run dev
-   ```
+    ```bash
+    npm run example
+    ```
+
+    Or from this directory:
+
+    ```bash
+    npm run dev
+    ```
 
 3. Open your browser to `http://localhost:3000`
 
@@ -38,4 +41,3 @@ npm run build
 ```
 
 The built files will be in the `dist` directory.
-

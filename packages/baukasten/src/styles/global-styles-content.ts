@@ -1,10 +1,10 @@
 /**
  * Global styles content for the design system
- * 
+ *
  * This file contains shared CSS content that is used by both:
  * - The runtime GlobalStyles React component
  * - The build-time CSS generation script
- * 
+ *
  * This ensures consistency between the static CSS files and the dynamic component.
  */
 

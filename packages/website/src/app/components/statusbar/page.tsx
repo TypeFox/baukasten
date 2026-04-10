@@ -4,7 +4,14 @@ import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
 import { Icon, Badge, Heading, Dropdown } from 'baukasten-ui/core';
-import { StatusBar, StatusBarSection, StatusBarItem, Menu, MenuItem, MenuDivider } from 'baukasten-ui/extra';
+import {
+    StatusBar,
+    StatusBarSection,
+    StatusBarItem,
+    Menu,
+    MenuItem,
+    MenuDivider,
+} from 'baukasten-ui/extra';
 
 const statusBarProps: PropDefinition[] = [
     {
@@ -90,17 +97,27 @@ function InteractiveStatusBar() {
 
     return (
         <div style={{ width: '100%' }}>
-            <div style={{
-                marginBottom: 'var(--bk-spacing-3)',
-                padding: 'var(--bk-spacing-3)',
-                backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--bk-radius-sm)',
-                fontSize: 'var(--bk-font-size-sm)',
-            }}>
+            <div
+                style={{
+                    marginBottom: 'var(--bk-spacing-3)',
+                    padding: 'var(--bk-spacing-3)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-sm)',
+                    fontSize: 'var(--bk-font-size-sm)',
+                }}
+            >
                 <div>Click on status bar items to interact!</div>
-                <div style={{ marginTop: 'var(--bk-spacing-1)', color: 'var(--vscode-descriptionForeground)' }}>
+                <div
+                    style={{
+                        marginTop: 'var(--bk-spacing-1)',
+                        color: 'var(--vscode-descriptionForeground)',
+                    }}
+                >
                     Branch: <strong>{branch}</strong> | Errors: <strong>{errors}</strong> |
-                    Warnings: <strong>{warnings}</strong> | Position: <strong>Ln {line}, Col {col}</strong>
+                    Warnings: <strong>{warnings}</strong> | Position:{' '}
+                    <strong>
+                        Ln {line}, Col {col}
+                    </strong>
                 </div>
             </div>
             <StatusBar>
@@ -119,7 +136,7 @@ function InteractiveStatusBar() {
                     <StatusBarItem
                         icon={<Icon name="error" />}
                         variant="error"
-                        onClick={() => setErrors(e => (e + 1) % 10)}
+                        onClick={() => setErrors((e) => (e + 1) % 10)}
                         tooltip="Click to cycle errors"
                     >
                         {errors}
@@ -127,7 +144,7 @@ function InteractiveStatusBar() {
                     <StatusBarItem
                         icon={<Icon name="warning" />}
                         variant="warning"
-                        onClick={() => setWarnings(w => (w + 1) % 10)}
+                        onClick={() => setWarnings((w) => (w + 1) % 10)}
                         tooltip="Click to cycle warnings"
                     >
                         {warnings}
@@ -136,8 +153,8 @@ function InteractiveStatusBar() {
                 <StatusBarSection align="right">
                     <StatusBarItem
                         onClick={() => {
-                            setLine(l => l + 1);
-                            setCol(c => c + 1);
+                            setLine((l) => l + 1);
+                            setCol((c) => c + 1);
                         }}
                         tooltip="Click to increment position"
                     >
@@ -195,49 +212,51 @@ function ActiveStateExample() {
 // Editor context example
 function EditorContextExample() {
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: '400px',
-            border: '1px solid var(--vscode-panel-border)',
-            borderRadius: 'var(--bk-radius-md)',
-            overflow: 'hidden',
-        }}>
-            <div style={{
-                padding: 'var(--bk-spacing-3)',
-                borderBottom: '1px solid var(--vscode-panel-border)',
-                backgroundColor: 'var(--vscode-editor-background)',
-            }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                height: '400px',
+                border: '1px solid var(--vscode-panel-border)',
+                borderRadius: 'var(--bk-radius-md)',
+                overflow: 'hidden',
+            }}
+        >
+            <div
+                style={{
+                    padding: 'var(--bk-spacing-3)',
+                    borderBottom: '1px solid var(--vscode-panel-border)',
+                    backgroundColor: 'var(--vscode-editor-background)',
+                }}
+            >
                 <h4 style={{ margin: 0, fontSize: 'var(--bk-font-size-md)' }}>Editor Window</h4>
             </div>
-            <div style={{
-                flex: 1,
-                padding: 'var(--bk-spacing-4)',
-                backgroundColor: 'var(--vscode-editor-background)',
-                fontFamily: 'var(--vscode-editor-font-family)',
-                fontSize: 'var(--vscode-editor-font-size)',
-                overflow: 'auto',
-            }}>
+            <div
+                style={{
+                    flex: 1,
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-editor-background)',
+                    fontFamily: 'var(--vscode-editor-font-family)',
+                    fontSize: 'var(--vscode-editor-font-size)',
+                    overflow: 'auto',
+                }}
+            >
                 <div>const greeting = "Hello, World!";</div>
                 <div>console.log(greeting);</div>
                 <div></div>
                 <div>{`function add(a: number, b: number) {`}</div>
-                <div>  return a + b;</div>
+                <div> return a + b;</div>
                 <div>{'}'}</div>
             </div>
             <StatusBar>
                 <StatusBarSection align="left">
-                    <StatusBarItem icon={<Icon name="git-branch" />}>
-                        main
-                    </StatusBarItem>
+                    <StatusBarItem icon={<Icon name="git-branch" />}>main</StatusBarItem>
                     <StatusBarItem icon={<Icon name="pass" />} variant="success">
                         No Issues
                     </StatusBarItem>
                 </StatusBarSection>
                 <StatusBarSection align="right">
-                    <StatusBarItem tooltip="Line 3, Column 8">
-                        Ln 3, Col 8
-                    </StatusBarItem>
+                    <StatusBarItem tooltip="Line 3, Column 8">Ln 3, Col 8</StatusBarItem>
                     <StatusBarItem>UTF-8</StatusBarItem>
                     <StatusBarItem>TypeScript</StatusBarItem>
                 </StatusBarSection>
@@ -253,26 +272,37 @@ function DropdownExample() {
     const [selectedLanguage, setSelectedLanguage] = useState('TypeScript');
 
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: '300px',
-            border: '1px solid var(--vscode-panel-border)',
-            borderRadius: 'var(--bk-radius-md)',
-            overflow: 'hidden',
-        }}>
-            <div style={{
-                flex: 1,
-                padding: 'var(--bk-spacing-4)',
-                backgroundColor: 'var(--vscode-editor-background)',
-            }}>
-                <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '300px',
+                border: '1px solid var(--vscode-panel-border)',
+                borderRadius: 'var(--bk-radius-md)',
+                overflow: 'hidden',
+            }}
+        >
+            <div
+                style={{
+                    flex: 1,
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-editor-background)',
+                }}
+            >
+                <div
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        color: 'var(--vscode-descriptionForeground)',
+                    }}
+                >
                     Click on status bar items to open dropdowns (upward positioning)
                 </div>
-                <div style={{ marginTop: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}>
-                    Branch: <strong>{selectedBranch}</strong> |
-                    Encoding: <strong>{selectedEncoding}</strong> |
-                    Language: <strong>{selectedLanguage}</strong>
+                <div
+                    style={{ marginTop: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)' }}
+                >
+                    Branch: <strong>{selectedBranch}</strong> | Encoding:{' '}
+                    <strong>{selectedEncoding}</strong> | Language:{' '}
+                    <strong>{selectedLanguage}</strong>
                 </div>
             </div>
             <StatusBar>
@@ -280,7 +310,10 @@ function DropdownExample() {
                     <Dropdown
                         placement="top-start"
                         trigger={
-                            <StatusBarItem icon={<Icon name="git-branch" />} tooltip="Switch Branch">
+                            <StatusBarItem
+                                icon={<Icon name="git-branch" />}
+                                tooltip="Switch Branch"
+                            >
                                 {selectedBranch}
                             </StatusBarItem>
                         }
@@ -308,9 +341,7 @@ function DropdownExample() {
                                 feature/new
                             </MenuItem>
                             <MenuDivider />
-                            <MenuItem icon={<Icon name="add" />}>
-                                Create New Branch...
-                            </MenuItem>
+                            <MenuItem icon={<Icon name="add" />}>Create New Branch...</MenuItem>
                         </Menu>
                     </Dropdown>
                     <StatusBarItem icon={<Icon name="pass" />} variant="success">
@@ -318,9 +349,7 @@ function DropdownExample() {
                     </StatusBarItem>
                 </StatusBarSection>
                 <StatusBarSection align="right">
-                    <StatusBarItem tooltip="Line 10, Column 5">
-                        Ln 10, Col 5
-                    </StatusBarItem>
+                    <StatusBarItem tooltip="Line 10, Column 5">Ln 10, Col 5</StatusBarItem>
                     <Dropdown
                         placement="top-end"
                         trigger={
@@ -598,11 +627,11 @@ function App() {
                 preview={
                     <StatusBar>
                         <StatusBarSection align="left">
-                            <StatusBarItem icon={<Icon name="git-branch" />}>
-                                main
-                            </StatusBarItem>
+                            <StatusBarItem icon={<Icon name="git-branch" />}>main</StatusBarItem>
                             <StatusBarItem icon={<Icon name="sync" />}>
-                                <Badge variant="info" size="sm">3</Badge>
+                                <Badge variant="info" size="sm">
+                                    3
+                                </Badge>
                             </StatusBarItem>
                         </StatusBarSection>
                         <StatusBarSection align="right">
@@ -613,7 +642,9 @@ function App() {
                                 34 Warnings
                             </StatusBarItem>
                             <StatusBarItem icon={<Icon name="bell" />}>
-                                <Badge variant="warning" size="sm">5</Badge>
+                                <Badge variant="warning" size="sm">
+                                    5
+                                </Badge>
                             </StatusBarItem>
                         </StatusBarSection>
                     </StatusBar>
@@ -742,39 +773,48 @@ function App() {
                 preview={
                     <StatusBar>
                         <StatusBarSection align="left">
-                            <StatusBarItem icon={<Icon name="remote" />} tooltip="Connected to Remote">
+                            <StatusBarItem
+                                icon={<Icon name="remote" />}
+                                tooltip="Connected to Remote"
+                            >
                                 SSH: server.local
                             </StatusBarItem>
                             <StatusBarItem icon={<Icon name="git-branch" />} tooltip="main">
                                 main
                             </StatusBarItem>
-                            <StatusBarItem icon={<Icon name="sync" />} tooltip="Synchronize Changes">
+                            <StatusBarItem
+                                icon={<Icon name="sync" />}
+                                tooltip="Synchronize Changes"
+                            >
                                 <Icon name="arrow-up" />1 <Icon name="arrow-down" />2
                             </StatusBarItem>
-                            <StatusBarItem icon={<Icon name="error" />} variant="error" tooltip="2 Errors">
+                            <StatusBarItem
+                                icon={<Icon name="error" />}
+                                variant="error"
+                                tooltip="2 Errors"
+                            >
                                 2
                             </StatusBarItem>
-                            <StatusBarItem icon={<Icon name="warning" />} variant="warning" tooltip="4 Warnings">
+                            <StatusBarItem
+                                icon={<Icon name="warning" />}
+                                variant="warning"
+                                tooltip="4 Warnings"
+                            >
                                 4
                             </StatusBarItem>
                         </StatusBarSection>
                         <StatusBarSection align="right">
-                            <StatusBarItem tooltip="Go to Line/Column">
-                                Ln 42, Col 15
-                            </StatusBarItem>
-                            <StatusBarItem tooltip="Indent Using Spaces">
-                                Spaces: 2
-                            </StatusBarItem>
-                            <StatusBarItem tooltip="Select Encoding">
-                                UTF-8
-                            </StatusBarItem>
-                            <StatusBarItem tooltip="Select End of Line Sequence">
-                                LF
-                            </StatusBarItem>
+                            <StatusBarItem tooltip="Go to Line/Column">Ln 42, Col 15</StatusBarItem>
+                            <StatusBarItem tooltip="Indent Using Spaces">Spaces: 2</StatusBarItem>
+                            <StatusBarItem tooltip="Select Encoding">UTF-8</StatusBarItem>
+                            <StatusBarItem tooltip="Select End of Line Sequence">LF</StatusBarItem>
                             <StatusBarItem tooltip="Select Language Mode">
                                 TypeScript React
                             </StatusBarItem>
-                            <StatusBarItem icon={<Icon name="feedback" />} tooltip="Send Feedback" />
+                            <StatusBarItem
+                                icon={<Icon name="feedback" />}
+                                tooltip="Send Feedback"
+                            />
                             <StatusBarItem icon={<Icon name="bell" />} tooltip="Notifications" />
                         </StatusBarSection>
                     </StatusBar>
@@ -823,68 +863,81 @@ function App() {
                 ]}
             />
 
-            <div style={{
-                marginTop: 'var(--bk-spacing-6)',
-                padding: 'var(--bk-spacing-4)',
-                backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--bk-radius-md)',
-            }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{
-                    fontSize: 'var(--bk-font-size-sm)',
-                    lineHeight: 1.6,
-                    color: 'var(--vscode-descriptionForeground)',
-                    marginLeft: 'var(--bk-spacing-4)',
-                }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Clickable items have <code>role="button"</code> and <code>tabIndex={0}</code>
+                        Clickable items have <code>role="button"</code> and{' '}
+                        <code>tabIndex={0}</code>
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Keyboard support: <code>Enter</code> and <code>Space</code> to activate clickable items
+                        Keyboard support: <code>Enter</code> and <code>Space</code> to activate
+                        clickable items
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Tooltips use native <code>title</code> attribute for screen reader support
                     </li>
-                    <li>
-                        Color variants use semantic colors that work with VSCode themes
-                    </li>
+                    <li>Color variants use semantic colors that work with VSCode themes</li>
                 </ul>
             </div>
 
-            <div style={{
-                marginTop: 'var(--bk-spacing-6)',
-                padding: 'var(--bk-spacing-4)',
-                backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--bk-radius-md)',
-            }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{
-                    fontSize: 'var(--bk-font-size-sm)',
-                    lineHeight: 1.6,
-                    color: 'var(--vscode-descriptionForeground)',
-                    marginLeft: 'var(--bk-spacing-4)',
-                }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Position:</strong> Use as a fixed bottom bar or at the bottom of a container
+                        <strong>Position:</strong> Use as a fixed bottom bar or at the bottom of a
+                        container
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Left Section:</strong> Display contextual information (git branch, errors, warnings, connection status)
+                        <strong>Left Section:</strong> Display contextual information (git branch,
+                        errors, warnings, connection status)
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Right Section:</strong> Display editor/file information (cursor position, encoding, language, line endings)
+                        <strong>Right Section:</strong> Display editor/file information (cursor
+                        position, encoding, language, line endings)
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Tooltips:</strong> Always add tooltips to items for clarity
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Dropdowns:</strong> Use <code>placement="top-start"</code> or <code>"top-end"</code> for status bar dropdowns
+                        <strong>Dropdowns:</strong> Use <code>placement="top-start"</code> or{' '}
+                        <code>"top-end"</code> for status bar dropdowns
                     </li>
                     <li>
-                        <strong>Variants:</strong> Use semantic colors sparingly to highlight important information
+                        <strong>Variants:</strong> Use semantic colors sparingly to highlight
+                        important information
                     </li>
                 </ul>
             </div>

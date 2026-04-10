@@ -67,35 +67,35 @@ const getInitials = (name: string): string => {
 
 /**
  * Avatar component
- * 
+ *
  * A versatile avatar component that displays user images, initials, or a fallback.
  * Supports circular and square shapes with optional tooltips. When no image is provided,
  * it automatically displays initials from the name.
- * 
+ *
  * @example
  * ```tsx
  * // With image
  * <Avatar name="John Doe" src="/path/to/image.jpg" />
- * 
+ *
  * // With initials (no image)
  * <Avatar name="John Doe" />
- * 
+ *
  * // Square shape
  * <Avatar name="Jane Smith" shape="square" />
- * 
+ *
  * // Different sizes
  * <Avatar name="John Doe" size="sm" />
  * <Avatar name="John Doe" size="lg" />
- * 
+ *
  * // With custom tooltip
  * <Avatar name="John Doe" tooltip="Project Manager" />
- * 
+ *
  * // Without tooltip
  * <Avatar name="John Doe" showTooltip={false} />
- * 
+ *
  * // All together
- * <Avatar 
- *   name="John Doe" 
+ * <Avatar
+ *   name="John Doe"
  *   src="/path/to/image.jpg"
  *   size="lg"
  *   shape="square"

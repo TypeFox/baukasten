@@ -25,4 +25,3 @@ npm run example:web
 
 - Prototyping VSCode extension UIs in the browser
 - Component demos and testing
-

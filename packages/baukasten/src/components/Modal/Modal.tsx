@@ -5,13 +5,13 @@ import { type Size } from '../../styles';
 import { usePortalRoot } from '../../context';
 import { Icon } from '../Icon';
 import {
-  backdrop,
-  modalContainer,
-  modalHeader,
-  modalTitle,
-  closeButton,
-  modalBody,
-  modalFooter,
+    backdrop,
+    modalContainer,
+    modalHeader,
+    modalTitle,
+    closeButton,
+    modalBody,
+    modalFooter,
 } from './Modal.css';
 
 /**
@@ -33,108 +33,106 @@ export type BackdropVariant = 'solid' | 'blur' | 'transparent';
  * Modal component props
  */
 export interface ModalProps {
-  /**
-   * Whether the modal is open
-   */
-  open: boolean;
+    /**
+     * Whether the modal is open
+     */
+    open: boolean;
 
-  /**
-   * Callback when the modal should close
-   */
-  onClose: () => void;
+    /**
+     * Callback when the modal should close
+     */
+    onClose: () => void;
 
-  /**
-   * Size of the modal
-   * @default 'md'
-   */
-  size?: ModalSize;
+    /**
+     * Size of the modal
+     * @default 'md'
+     */
+    size?: ModalSize;
 
-  /**
-   * Backdrop visual style
-   * @default 'solid'
-   */
-  backdropVariant?: BackdropVariant;
+    /**
+     * Backdrop visual style
+     * @default 'solid'
+     */
+    backdropVariant?: BackdropVariant;
 
-  /**
-   * Whether clicking the backdrop closes the modal
-   * @default true
-   */
-  closeOnBackdropClick?: boolean;
+    /**
+     * Whether clicking the backdrop closes the modal
+     * @default true
+     */
+    closeOnBackdropClick?: boolean;
 
+    /**
+     * Whether pressing Escape closes the modal
+     * @default true
+     */
+    closeOnEscape?: boolean;
 
-  /**
-   * Whether pressing Escape closes the modal
-   * @default true
-   */
-  closeOnEscape?: boolean;
+    /**
+     * Modal content (use ModalHeader, ModalBody, ModalFooter for structure)
+     */
+    children: React.ReactNode;
 
-  /**
-   * Modal content (use ModalHeader, ModalBody, ModalFooter for structure)
-   */
-  children: React.ReactNode;
-
-  /**
-   * Additional CSS class name
-   */
-  className?: string;
+    /**
+     * Additional CSS class name
+     */
+    className?: string;
 }
 
 /**
  * ModalHeader component props
  */
 export interface ModalHeaderProps {
-  /**
-   * Header content (typically a title)
-   */
-  children: React.ReactNode;
+    /**
+     * Header content (typically a title)
+     */
+    children: React.ReactNode;
 
-  /**
-   * Whether to show the close button
-   * @default true
-   */
-  showCloseButton?: boolean;
+    /**
+     * Whether to show the close button
+     * @default true
+     */
+    showCloseButton?: boolean;
 
-  /**
-   * Callback when close button is clicked
-   */
-  onClose?: () => void;
+    /**
+     * Callback when close button is clicked
+     */
+    onClose?: () => void;
 
-  /**
-   * Additional CSS class name
-   */
-  className?: string;
+    /**
+     * Additional CSS class name
+     */
+    className?: string;
 }
 
 /**
  * ModalBody component props
  */
 export interface ModalBodyProps {
-  /**
-   * Body content
-   */
-  children: React.ReactNode;
+    /**
+     * Body content
+     */
+    children: React.ReactNode;
 
-  /**
-   * Additional CSS class name
-   */
-  className?: string;
+    /**
+     * Additional CSS class name
+     */
+    className?: string;
 }
 
 /**
  * ModalFooter component props
  */
 export interface ModalFooterProps {
-  /**
-   * Footer content (typically action buttons)
-   */
-  children: React.ReactNode;
+    /**
+     * Footer content (typically action buttons)
+     */
+    children: React.ReactNode;
 
-  /**
-   * Additional CSS class name
-   */
-  className?: string;
+    /**
+     * Additional CSS class name
+     */
+    className?: string;
 }
-
 
 /**
  * Modal component
@@ -194,92 +192,95 @@ export interface ModalFooterProps {
  * ```
  */
 export const Modal: React.FC<ModalProps> = ({
-  open,
-  onClose,
-  size = 'md',
-  backdropVariant = 'solid',
-  closeOnBackdropClick = true,
-  closeOnEscape = true,
-  children,
-  className,
+    open,
+    onClose,
+    size = 'md',
+    backdropVariant = 'solid',
+    closeOnBackdropClick = true,
+    closeOnEscape = true,
+    children,
+    className,
 }) => {
-  const modalRef = useRef<HTMLDivElement>(null);
-  const previousActiveElement = useRef<HTMLElement | null>(null);
+    const modalRef = useRef<HTMLDivElement>(null);
+    const previousActiveElement = useRef<HTMLElement | null>(null);
 
-  // Get portal root from context (for multi-window support)
-  const portalRoot = usePortalRoot();
+    // Get portal root from context (for multi-window support)
+    const portalRoot = usePortalRoot();
 
-  // Handle backdrop click
-  const handleBackdropClick = useCallback((e: React.MouseEvent) => {
-    if (closeOnBackdropClick && e.target === e.currentTarget) {
-      onClose();
-    }
-  }, [closeOnBackdropClick, onClose]);
+    // Handle backdrop click
+    const handleBackdropClick = useCallback(
+        (e: React.MouseEvent) => {
+            if (closeOnBackdropClick && e.target === e.currentTarget) {
+                onClose();
+            }
+        },
+        [closeOnBackdropClick, onClose],
+    );
 
-  // Handle escape key
-  useEffect(() => {
-    if (!open || !closeOnEscape) return;
+    // Handle escape key
+    useEffect(() => {
+        if (!open || !closeOnEscape) return;
 
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                onClose();
+            }
+        };
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [open, closeOnEscape, onClose]);
+        document.addEventListener('keydown', handleEscape);
+        return () => document.removeEventListener('keydown', handleEscape);
+    }, [open, closeOnEscape, onClose]);
 
-  // Lock body scroll when modal is open
-  useEffect(() => {
-    if (!open) return;
+    // Lock body scroll when modal is open
+    useEffect(() => {
+        if (!open) return;
 
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+        const originalOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
 
-    return () => {
-      document.body.style.overflow = originalOverflow;
-    };
-  }, [open]);
+        return () => {
+            document.body.style.overflow = originalOverflow;
+        };
+    }, [open]);
 
-  // Focus management
-  useEffect(() => {
-    if (open) {
-      // Store the currently focused element
-      previousActiveElement.current = document.activeElement as HTMLElement;
+    // Focus management
+    useEffect(() => {
+        if (open) {
+            // Store the currently focused element
+            previousActiveElement.current = document.activeElement as HTMLElement;
 
-      // Focus the modal container
-      if (modalRef.current) {
-        modalRef.current.focus();
-      }
-    } else {
-      // Restore focus when modal closes
-      if (previousActiveElement.current) {
-        previousActiveElement.current.focus();
-      }
-    }
-  }, [open]);
+            // Focus the modal container
+            if (modalRef.current) {
+                modalRef.current.focus();
+            }
+        } else {
+            // Restore focus when modal closes
+            if (previousActiveElement.current) {
+                previousActiveElement.current.focus();
+            }
+        }
+    }, [open]);
 
-  if (!open) return null;
+    if (!open) return null;
 
-  // Use portal root from context if available, otherwise fallback to document.body
-  const portalTarget = portalRoot ?? document.body;
+    // Use portal root from context if available, otherwise fallback to document.body
+    const portalTarget = portalRoot ?? document.body;
 
-  return ReactDOM.createPortal(
-    <>
-      <div className={backdrop({ variant: backdropVariant })} onClick={handleBackdropClick} />
-      <div
-        ref={modalRef}
-        className={clsx(modalContainer({ size }), className)}
-        role="dialog"
-        aria-modal="true"
-        tabIndex={-1}
-      >
-        {children}
-      </div>
-    </>,
-    portalTarget
-  );
+    return ReactDOM.createPortal(
+        <>
+            <div className={backdrop({ variant: backdropVariant })} onClick={handleBackdropClick} />
+            <div
+                ref={modalRef}
+                className={clsx(modalContainer({ size }), className)}
+                role="dialog"
+                aria-modal="true"
+                tabIndex={-1}
+            >
+                {children}
+            </div>
+        </>,
+        portalTarget,
+    );
 };
 
 /**
@@ -295,21 +296,21 @@ export const Modal: React.FC<ModalProps> = ({
  * ```
  */
 export const ModalHeader: React.FC<ModalHeaderProps> = ({
-  children,
-  showCloseButton = true,
-  onClose,
-  className,
+    children,
+    showCloseButton = true,
+    onClose,
+    className,
 }) => {
-  return (
-    <div className={clsx(modalHeader, className)}>
-      <div className={modalTitle}>{children}</div>
-      {showCloseButton && onClose && (
-        <button className={closeButton} onClick={onClose} aria-label="Close modal">
-          <Icon name="close" />
-        </button>
-      )}
-    </div>
-  );
+    return (
+        <div className={clsx(modalHeader, className)}>
+            <div className={modalTitle}>{children}</div>
+            {showCloseButton && onClose && (
+                <button className={closeButton} onClick={onClose} aria-label="Close modal">
+                    <Icon name="close" />
+                </button>
+            )}
+        </div>
+    );
 };
 
 /**
@@ -325,7 +326,7 @@ export const ModalHeader: React.FC<ModalHeaderProps> = ({
  * ```
  */
 export const ModalBody: React.FC<ModalBodyProps> = ({ children, className }) => {
-  return <div className={clsx(modalBody, className)}>{children}</div>;
+    return <div className={clsx(modalBody, className)}>{children}</div>;
 };
 
 /**
@@ -343,5 +344,5 @@ export const ModalBody: React.FC<ModalBodyProps> = ({ children, className }) => 
  * ```
  */
 export const ModalFooter: React.FC<ModalFooterProps> = ({ children, className }) => {
-  return <div className={clsx(modalFooter, className)}>{children}</div>;
+    return <div className={clsx(modalFooter, className)}>{children}</div>;
 };

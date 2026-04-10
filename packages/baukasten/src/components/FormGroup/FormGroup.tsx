@@ -10,30 +10,30 @@ export type FormGroupOrientation = 'horizontal' | 'vertical';
  * FormGroup component props
  */
 export interface FormGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Form group content (typically FieldLabel and form elements)
-   */
-  children: React.ReactNode;
+    /**
+     * Form group content (typically FieldLabel and form elements)
+     */
+    children: React.ReactNode;
 
-  /**
-   * Layout orientation
-   * - `horizontal`: VSCode-style two-column layout (label left, input right)
-   * - `vertical`: Traditional stacked layout (label above input)
-   * @default 'horizontal'
-   */
-  orientation?: FormGroupOrientation;
+    /**
+     * Layout orientation
+     * - `horizontal`: VSCode-style two-column layout (label left, input right)
+     * - `vertical`: Traditional stacked layout (label above input)
+     * @default 'horizontal'
+     */
+    orientation?: FormGroupOrientation;
 
-  /**
-   * Whether to use compact spacing
-   * @default false
-   */
-  compact?: boolean;
+    /**
+     * Whether to use compact spacing
+     * @default false
+     */
+    compact?: boolean;
 
-  /**
-   * Custom label width (only applies to horizontal orientation)
-   * @default '30%'
-   */
-  labelWidth?: string;
+    /**
+     * Custom label width (only applies to horizontal orientation)
+     * @default '30%'
+     */
+    labelWidth?: string;
 }
 
 /**
@@ -122,29 +122,25 @@ export interface FormGroupProps extends React.HTMLAttributes<HTMLDivElement> {
  * ```
  */
 export const FormGroup: React.FC<FormGroupProps> = ({
-  children,
-  orientation = 'horizontal',
-  compact = false,
-  labelWidth = '30%',
-  ...htmlProps
+    children,
+    orientation = 'horizontal',
+    compact = false,
+    labelWidth = '30%',
+    ...htmlProps
 }) => {
-  const baseClassName = formGroup({ orientation, compact });
-  const className = orientation === 'horizontal'
-    ? `${baseClassName} ${horizontalClass}`
-    : baseClassName;
+    const baseClassName = formGroup({ orientation, compact });
+    const className =
+        orientation === 'horizontal' ? `${baseClassName} ${horizontalClass}` : baseClassName;
 
-  // Use inline style for labelWidth (runtime value)
-  const style = orientation === 'horizontal'
-    ? { gridTemplateColumns: `${labelWidth} 1fr`, ...htmlProps.style }
-    : htmlProps.style;
+    // Use inline style for labelWidth (runtime value)
+    const style =
+        orientation === 'horizontal'
+            ? { gridTemplateColumns: `${labelWidth} 1fr`, ...htmlProps.style }
+            : htmlProps.style;
 
-  return (
-    <div
-      className={className}
-      style={style}
-      {...htmlProps}
-    >
-      {children}
-    </div>
-  );
+    return (
+        <div className={className} style={style} {...htmlProps}>
+            {children}
+        </div>
+    );
 };

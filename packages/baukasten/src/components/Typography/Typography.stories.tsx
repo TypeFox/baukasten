@@ -12,11 +12,21 @@ const storyStyles = `
 `;
 
 // Functional components replacing styled components
-const Container = ({ children }: { children: React.ReactNode }) => <div className="typo-container">{children}</div>;
-const Section = ({ children }: { children: React.ReactNode }) => <div className="typo-section">{children}</div>;
-const SectionTitle = ({ children }: { children: React.ReactNode }) => <h3 className="typo-section-title">{children}</h3>;
-const Example = ({ children }: { children: React.ReactNode }) => <div className="typo-example">{children}</div>;
-const ExampleLabel = ({ children }: { children: React.ReactNode }) => <div className="typo-example-label">{children}</div>;
+const Container = ({ children }: { children: React.ReactNode }) => (
+    <div className="typo-container">{children}</div>
+);
+const Section = ({ children }: { children: React.ReactNode }) => (
+    <div className="typo-section">{children}</div>
+);
+const SectionTitle = ({ children }: { children: React.ReactNode }) => (
+    <h3 className="typo-section-title">{children}</h3>
+);
+const Example = ({ children }: { children: React.ReactNode }) => (
+    <div className="typo-example">{children}</div>
+);
+const ExampleLabel = ({ children }: { children: React.ReactNode }) => (
+    <div className="typo-example-label">{children}</div>
+);
 
 // Comprehensive Typography showcase
 const TypographyShowcase = () => (
@@ -47,13 +57,21 @@ const TypographyShowcase = () => (
                 </Example>
 
                 <Example>
-                    <ExampleLabel>{'<Heading level={2} style={{ fontSize: "2.5rem" }}>Custom Size</Heading>'}</ExampleLabel>
-                    <Heading level={2} style={{ fontSize: '2.5rem' }}>H2 with Custom Size</Heading>
+                    <ExampleLabel>
+                        {'<Heading level={2} style={{ fontSize: "2.5rem" }}>Custom Size</Heading>'}
+                    </ExampleLabel>
+                    <Heading level={2} style={{ fontSize: '2.5rem' }}>
+                        H2 with Custom Size
+                    </Heading>
                 </Example>
 
                 <Example>
-                    <ExampleLabel>{'<Heading level={1} align="center">Centered</Heading>'}</ExampleLabel>
-                    <Heading level={1} align="center">Centered Heading</Heading>
+                    <ExampleLabel>
+                        {'<Heading level={1} align="center">Centered</Heading>'}
+                    </ExampleLabel>
+                    <Heading level={1} align="center">
+                        Centered Heading
+                    </Heading>
                 </Example>
             </Section>
 
@@ -63,18 +81,18 @@ const TypographyShowcase = () => (
                 <Example>
                     <ExampleLabel>{'<Paragraph>Default paragraph</Paragraph>'}</ExampleLabel>
                     <Paragraph>
-                        This is a default paragraph with normal line height and spacing. It demonstrates
-                        how body text should look in typical use cases. The paragraph component provides
-                        consistent styling across your application.
+                        This is a default paragraph with normal line height and spacing. It
+                        demonstrates how body text should look in typical use cases. The paragraph
+                        component provides consistent styling across your application.
                     </Paragraph>
                 </Example>
 
                 <Example>
                     <ExampleLabel>{'<Paragraph size="lg" lineHeight="relaxed">'}</ExampleLabel>
                     <Paragraph size="lg" lineHeight="relaxed">
-                        This is a larger paragraph with relaxed line height. It's ideal for long-form
-                        content where readability is paramount. The increased spacing makes it easier
-                        to read longer passages of text.
+                        This is a larger paragraph with relaxed line height. It's ideal for
+                        long-form content where readability is paramount. The increased spacing
+                        makes it easier to read longer passages of text.
                     </Paragraph>
                 </Example>
 
@@ -86,7 +104,9 @@ const TypographyShowcase = () => (
                 </Example>
 
                 <Example>
-                    <ExampleLabel>{'<Paragraph maxLines={2}>Truncated...</Paragraph>'}</ExampleLabel>
+                    <ExampleLabel>
+                        {'<Paragraph maxLines={2}>Truncated...</Paragraph>'}
+                    </ExampleLabel>
                     <Paragraph maxLines={2}>
                         This paragraph will be truncated after two lines. Any text beyond the second
                         line will be hidden with an ellipsis. This is useful for previews or cards
@@ -102,13 +122,21 @@ const TypographyShowcase = () => (
                 <Example>
                     <ExampleLabel>Inline text variations</ExampleLabel>
                     <div>
-                        <Text>Default text</Text> | <Text weight="bold">Bold text</Text> | <Text italic>Italic text</Text> | <Text color="primary">Primary color</Text> | <Text color="muted">Muted text</Text>
+                        <Text>Default text</Text> | <Text weight="bold">Bold text</Text> |{' '}
+                        <Text italic>Italic text</Text> | <Text color="primary">Primary color</Text>{' '}
+                        | <Text color="muted">Muted text</Text>
                     </div>
                 </Example>
 
                 <Example>
                     <ExampleLabel>Text sizes</ExampleLabel>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-2)',
+                        }}
+                    >
                         <Text size="xs">Extra small text (xs)</Text>
                         <Text size="sm">Small text (sm)</Text>
                         <Text size="md">Medium text (md)</Text>
@@ -120,7 +148,13 @@ const TypographyShowcase = () => (
 
                 <Example>
                     <ExampleLabel>Semantic colors</ExampleLabel>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-2)',
+                        }}
+                    >
                         <Text color="default">Default text</Text>
                         <Text color="primary">Primary text</Text>
                         <Text color="success">Success text</Text>
@@ -149,7 +183,8 @@ const TypographyShowcase = () => (
                 <Example>
                     <ExampleLabel>Inline code</ExampleLabel>
                     <Paragraph>
-                        Use the <Code>console.log()</Code> function to print output. You can also use <Code>const</Code> and <Code>let</Code> for variables.
+                        Use the <Code>console.log()</Code> function to print output. You can also
+                        use <Code>const</Code> and <Code>let</Code> for variables.
                     </Paragraph>
                 </Example>
 
@@ -193,19 +228,41 @@ function example8() { return "line 8"; }`}
 
                 <Example>
                     <ExampleLabel>Link variants</ExampleLabel>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-2)',
+                        }}
+                    >
                         <Link href="#default">Default link (hover for underline)</Link>
-                        <Link href="#muted" variant="muted">Muted link variant</Link>
-                        <Link href="#primary" variant="primary">Primary link variant</Link>
+                        <Link href="#muted" variant="muted">
+                            Muted link variant
+                        </Link>
+                        <Link href="#primary" variant="primary">
+                            Primary link variant
+                        </Link>
                     </div>
                 </Example>
 
                 <Example>
                     <ExampleLabel>Underline options</ExampleLabel>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
-                        <Link href="#always" underline="always">Always underlined</Link>
-                        <Link href="#hover" underline="hover">Underline on hover (default)</Link>
-                        <Link href="#never" underline="never">Never underlined</Link>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-2)',
+                        }}
+                    >
+                        <Link href="#always" underline="always">
+                            Always underlined
+                        </Link>
+                        <Link href="#hover" underline="hover">
+                            Underline on hover (default)
+                        </Link>
+                        <Link href="#never" underline="never">
+                            Never underlined
+                        </Link>
                     </div>
                 </Example>
 
@@ -219,20 +276,39 @@ function example8() { return "line 8"; }`}
                 <Example>
                     <ExampleLabel>Links in paragraphs</ExampleLabel>
                     <Paragraph>
-                        Visit our <Link href="#docs">documentation</Link> to learn more about the API.
-                        You can also check out our <Link href="https://github.com" external>GitHub repository</Link> for
-                        source code and examples.
+                        Visit our <Link href="#docs">documentation</Link> to learn more about the
+                        API. You can also check out our{' '}
+                        <Link href="https://github.com" external>
+                            GitHub repository
+                        </Link>{' '}
+                        for source code and examples.
                     </Paragraph>
                 </Example>
 
                 <Example>
                     <ExampleLabel>Link sizes</ExampleLabel>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
-                        <Link href="#xs" size="xs">Extra small link</Link>
-                        <Link href="#sm" size="sm">Small link</Link>
-                        <Link href="#md" size="md">Medium link</Link>
-                        <Link href="#base" size="base">Base link</Link>
-                        <Link href="#lg" size="lg">Large link</Link>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-2)',
+                        }}
+                    >
+                        <Link href="#xs" size="xs">
+                            Extra small link
+                        </Link>
+                        <Link href="#sm" size="sm">
+                            Small link
+                        </Link>
+                        <Link href="#md" size="md">
+                            Medium link
+                        </Link>
+                        <Link href="#base" size="base">
+                            Base link
+                        </Link>
+                        <Link href="#lg" size="lg">
+                            Large link
+                        </Link>
                     </div>
                 </Example>
             </Section>
@@ -242,10 +318,7 @@ function example8() { return "line 8"; }`}
 
                 <Example>
                     <ExampleLabel>{'<Image src="..." alt="..." />'}</ExampleLabel>
-                    <Image
-                        src="https://picsum.photos/400/300"
-                        alt="Sample image"
-                    />
+                    <Image src="https://picsum.photos/400/300" alt="Sample image" />
                 </Example>
 
                 <Example>
@@ -259,7 +332,9 @@ function example8() { return "line 8"; }`}
                 </Example>
 
                 <Example>
-                    <ExampleLabel>{'<Image aspectRatio="1/1" radius="full" /> - Circular avatar'}</ExampleLabel>
+                    <ExampleLabel>
+                        {'<Image aspectRatio="1/1" radius="full" /> - Circular avatar'}
+                    </ExampleLabel>
                     <div style={{ width: '150px' }}>
                         <Image
                             src="https://picsum.photos/300/300"
@@ -272,7 +347,9 @@ function example8() { return "line 8"; }`}
                 </Example>
 
                 <Example>
-                    <ExampleLabel>{'<Image bordered shadow radius="md" /> - With styling'}</ExampleLabel>
+                    <ExampleLabel>
+                        {'<Image bordered shadow radius="md" /> - With styling'}
+                    </ExampleLabel>
                     <Image
                         src="https://picsum.photos/600/400"
                         alt="Product"
@@ -305,7 +382,13 @@ function example8() { return "line 8"; }`}
 
                 <Example>
                     <ExampleLabel>Different fit options</ExampleLabel>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--bk-spacing-4)' }}>
+                    <div
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(3, 1fr)',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
                         <div>
                             <Image
                                 src="https://picsum.photos/200/300"
@@ -355,8 +438,8 @@ function example8() { return "line 8"; }`}
 
                         <Heading level={2}>Getting Started</Heading>
                         <Paragraph>
-                            First, install the package using <Code>npm install baukasten</Code>. Then
-                            import the components you need in your application.
+                            First, install the package using <Code>npm install baukasten</Code>.
+                            Then import the components you need in your application.
                         </Paragraph>
 
                         <Heading level={3}>Basic Example</Heading>
@@ -385,7 +468,8 @@ const meta = {
         layout: 'centered',
         docs: {
             description: {
-                component: 'A comprehensive typography system with semantic HTML elements. Includes Heading (h1-h6), Paragraph, Text (inline/block), Code (inline/block), Link, and Image components. All components extend their respective HTML props for maximum flexibility.',
+                component:
+                    'A comprehensive typography system with semantic HTML elements. Includes Heading (h1-h6), Paragraph, Text (inline/block), Code (inline/block), Link, and Image components. All components extend their respective HTML props for maximum flexibility.',
             },
         },
     },
@@ -455,8 +539,12 @@ export const Headings: Story = {
                 <Heading level={6}>Heading Level 6</Heading>
 
                 <div style={{ marginTop: 'var(--bk-spacing-8)' }}>
-                    <Heading level={2} style={{ fontSize: 'var(--bk-font-size-5xl)' }}>Custom Sized Heading</Heading>
-                    <Heading level={1} style={{ fontSize: 'var(--bk-font-size-lg)' }}>Small H1</Heading>
+                    <Heading level={2} style={{ fontSize: 'var(--bk-font-size-5xl)' }}>
+                        Custom Sized Heading
+                    </Heading>
+                    <Heading level={1} style={{ fontSize: 'var(--bk-font-size-lg)' }}>
+                        Small H1
+                    </Heading>
                 </div>
             </Container>
         </>
@@ -489,8 +577,8 @@ export const Paragraphs: Story = {
                 </Paragraph>
 
                 <Paragraph size="sm" lineHeight="tight">
-                    This is a smaller paragraph with tight line height, useful for dense content
-                    or secondary information.
+                    This is a smaller paragraph with tight line height, useful for dense content or
+                    secondary information.
                 </Paragraph>
             </Container>
         </>
@@ -512,23 +600,22 @@ export const TextVariants: Story = {
         <>
             <style>{storyStyles}</style>
             <Container>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}
+                >
                     <div>
-                        <Text>Default</Text> | <Text weight="bold">Bold</Text> | <Text italic>Italic</Text> | <Text monospace>Mono</Text>
+                        <Text>Default</Text> | <Text weight="bold">Bold</Text> |{' '}
+                        <Text italic>Italic</Text> | <Text monospace>Mono</Text>
                     </div>
 
                     <div>
-                        <Text color="primary">Primary</Text> |
-                        <Text color="success"> Success</Text> |
-                        <Text color="warning"> Warning</Text> |
-                        <Text color="danger"> Danger</Text>
+                        <Text color="primary">Primary</Text> |<Text color="success"> Success</Text>{' '}
+                        |<Text color="warning"> Warning</Text> |<Text color="danger"> Danger</Text>
                     </div>
 
                     <div>
-                        <Text size="xs">XS</Text> |
-                        <Text size="sm">SM</Text> |
-                        <Text size="md">MD</Text> |
-                        <Text size="lg">LG</Text> |
+                        <Text size="xs">XS</Text> |<Text size="sm">SM</Text> |
+                        <Text size="md">MD</Text> |<Text size="lg">LG</Text> |
                         <Text size="xl">XL</Text>
                     </div>
                 </div>
@@ -586,27 +673,38 @@ export const Links: Story = {
         <>
             <style>{storyStyles}</style>
             <Container>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}
+                >
                     <div>
                         <Link href="#default">Default link</Link>
                     </div>
 
                     <div>
-                        <Link href="#primary" variant="primary">Primary link</Link>
+                        <Link href="#primary" variant="primary">
+                            Primary link
+                        </Link>
                     </div>
 
                     <div>
-                        <Link href="#muted" variant="muted">Muted link</Link>
+                        <Link href="#muted" variant="muted">
+                            Muted link
+                        </Link>
                     </div>
 
                     <div>
-                        <Link href="https://example.com" external>External link</Link>
+                        <Link href="https://example.com" external>
+                            External link
+                        </Link>
                     </div>
 
                     <Paragraph>
                         Links work great in paragraphs too. Check out our{' '}
                         <Link href="#docs">documentation</Link> or visit our{' '}
-                        <Link href="https://github.com" external>GitHub</Link>.
+                        <Link href="https://github.com" external>
+                            GitHub
+                        </Link>
+                        .
                     </Paragraph>
                 </div>
             </Container>
@@ -629,15 +727,14 @@ export const Images: Story = {
         <>
             <style>{storyStyles}</style>
             <Container>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}
+                >
                     <div>
                         <Text weight="bold" block style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                             Basic Image
                         </Text>
-                        <Image
-                            src="https://picsum.photos/600/400"
-                            alt="Sample"
-                        />
+                        <Image src="https://picsum.photos/600/400" alt="Sample" />
                     </div>
 
                     <div>

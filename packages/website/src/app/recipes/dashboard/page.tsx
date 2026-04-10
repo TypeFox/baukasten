@@ -2,7 +2,16 @@
 
 import PageLayout from '@/components/PageLayout';
 import { Showcase } from '@/components/ComponentShowcase';
-import { Button, Icon, Heading, Text, Badge, Divider, Input, type CodiconName } from 'baukasten-ui/core';
+import {
+    Button,
+    Icon,
+    Heading,
+    Text,
+    Badge,
+    Divider,
+    Input,
+    type CodiconName,
+} from 'baukasten-ui/core';
 import { Menu, MenuItem, Avatar } from 'baukasten-ui/extra';
 
 export default function DashboardRecipesPage() {
@@ -15,78 +24,101 @@ export default function DashboardRecipesPage() {
                 title="Classic Sidebar Dashboard"
                 description="Traditional dashboard with a fixed sidebar navigation and main content area. Perfect for admin panels and management interfaces."
                 preview={
-                    <div style={{
-                        minHeight: '600px',
-                        display: 'flex',
-                        backgroundColor: 'var(--bk-color-background)',
-                    }}>
-                        {/* Sidebar */}
-                        <div style={{
-                            width: '240px',
-                            backgroundColor: 'var(--bk-color-background-secondary)',
-                            borderRight: '1px solid var(--bk-color-border)',
+                    <div
+                        style={{
+                            minHeight: '600px',
                             display: 'flex',
-                            flexDirection: 'column',
-                        }}>
+                            backgroundColor: 'var(--bk-color-background)',
+                        }}
+                    >
+                        {/* Sidebar */}
+                        <div
+                            style={{
+                                width: '240px',
+                                backgroundColor: 'var(--bk-color-background-secondary)',
+                                borderRight: '1px solid var(--bk-color-border)',
+                                display: 'flex',
+                                flexDirection: 'column',
+                            }}
+                        >
                             {/* Logo/Header */}
-                            <div style={{
-                                padding: 'var(--bk-spacing-5)',
-                                borderBottom: '1px solid var(--bk-color-border)',
-                            }}>
-                                <div style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: 'var(--bk-spacing-3)',
-                                }}>
-                                    <div style={{
-                                        width: '32px',
-                                        height: '32px',
-                                        background: 'linear-gradient(135deg, var(--bk-color-primary) 0%, var(--bk-color-primary-hover) 100%)',
-                                        borderRadius: 'var(--bk-radius-md)',
+                            <div
+                                style={{
+                                    padding: 'var(--bk-spacing-5)',
+                                    borderBottom: '1px solid var(--bk-color-border)',
+                                }}
+                            >
+                                <div
+                                    style={{
                                         display: 'flex',
                                         alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}>
-                                        <Icon name="dashboard" style={{ color: 'var(--bk-color-primary-foreground)', fontSize: '18px' }} />
+                                        gap: 'var(--bk-spacing-3)',
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            width: '32px',
+                                            height: '32px',
+                                            background:
+                                                'linear-gradient(135deg, var(--bk-color-primary) 0%, var(--bk-color-primary-hover) 100%)',
+                                            borderRadius: 'var(--bk-radius-md)',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                        }}
+                                    >
+                                        <Icon
+                                            name="dashboard"
+                                            style={{
+                                                color: 'var(--bk-color-primary-foreground)',
+                                                fontSize: '18px',
+                                            }}
+                                        />
                                     </div>
-                                    <Heading level={5} style={{ margin: 0 }}>Dashboard</Heading>
+                                    <Heading level={5} style={{ margin: 0 }}>
+                                        Dashboard
+                                    </Heading>
                                 </div>
                             </div>
 
                             {/* Navigation */}
-                            <div style={{ flex: 1, padding: 'var(--bk-spacing-4)', overflowY: 'auto' }}>
+                            <div
+                                style={{
+                                    flex: 1,
+                                    padding: 'var(--bk-spacing-4)',
+                                    overflowY: 'auto',
+                                }}
+                            >
                                 <Menu size="md">
                                     <MenuItem icon={<Icon name="home" />} selected>
                                         Overview
                                     </MenuItem>
-                                    <MenuItem icon={<Icon name="graph" />}>
-                                        Analytics
-                                    </MenuItem>
-                                    <MenuItem icon={<Icon name="database" />}>
-                                        Data
-                                    </MenuItem>
-                                    <MenuItem icon={<Icon name="gear" />}>
-                                        Settings
-                                    </MenuItem>
+                                    <MenuItem icon={<Icon name="graph" />}>Analytics</MenuItem>
+                                    <MenuItem icon={<Icon name="database" />}>Data</MenuItem>
+                                    <MenuItem icon={<Icon name="gear" />}>Settings</MenuItem>
                                 </Menu>
                             </div>
 
                             {/* User Profile */}
-                            <div style={{
-                                padding: 'var(--bk-spacing-4)',
-                                borderTop: '1px solid var(--bk-color-border)',
-                            }}>
-                                <div style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: 'var(--bk-spacing-3)',
-                                    padding: 'var(--bk-spacing-2)',
-                                    borderRadius: 'var(--bk-radius-md)',
-                                    cursor: 'pointer',
-                                    transition: 'background-color 0.15s ease',
+                            <div
+                                style={{
+                                    padding: 'var(--bk-spacing-4)',
+                                    borderTop: '1px solid var(--bk-color-border)',
                                 }}
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: 'var(--bk-spacing-3)',
+                                        padding: 'var(--bk-spacing-2)',
+                                        borderRadius: 'var(--bk-radius-md)',
+                                        cursor: 'pointer',
+                                        transition: 'background-color 0.15s ease',
+                                    }}
                                     onMouseEnter={(e) => {
-                                        e.currentTarget.style.backgroundColor = 'var(--bk-color-hover)';
+                                        e.currentTarget.style.backgroundColor =
+                                            'var(--bk-color-hover)';
                                     }}
                                     onMouseLeave={(e) => {
                                         e.currentTarget.style.backgroundColor = 'transparent';
@@ -94,92 +126,187 @@ export default function DashboardRecipesPage() {
                                 >
                                     <Avatar size="sm" name="John Doe" />
                                     <div style={{ flex: 1, minWidth: 0 }}>
-                                        <Text style={{ display: 'block', fontWeight: 500, fontSize: 'var(--bk-font-size-sm)' }}>
+                                        <Text
+                                            style={{
+                                                display: 'block',
+                                                fontWeight: 500,
+                                                fontSize: 'var(--bk-font-size-sm)',
+                                            }}
+                                        >
                                             John Doe
                                         </Text>
-                                        <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
+                                        <Text
+                                            style={{
+                                                display: 'block',
+                                                fontSize: 'var(--bk-font-size-xs)',
+                                                color: 'var(--bk-color-foreground-muted)',
+                                            }}
+                                        >
                                             john@example.com
                                         </Text>
                                     </div>
-                                    <Icon name="chevron-right" style={{ fontSize: '12px', color: 'var(--bk-color-foreground-muted)' }} />
+                                    <Icon
+                                        name="chevron-right"
+                                        style={{
+                                            fontSize: '12px',
+                                            color: 'var(--bk-color-foreground-muted)',
+                                        }}
+                                    />
                                 </div>
                             </div>
                         </div>
 
                         {/* Main Content */}
-                        <div style={{
-                            flex: 1,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            overflow: 'hidden',
-                        }}>
-                            {/* Header/Toolbar */}
-                            <div style={{
-                                padding: 'var(--bk-spacing-5)',
-                                borderBottom: '1px solid var(--bk-color-border)',
-                                backgroundColor: 'var(--bk-color-background-secondary)',
+                        <div
+                            style={{
+                                flex: 1,
                                 display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                            }}>
+                                flexDirection: 'column',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            {/* Header/Toolbar */}
+                            <div
+                                style={{
+                                    padding: 'var(--bk-spacing-5)',
+                                    borderBottom: '1px solid var(--bk-color-border)',
+                                    backgroundColor: 'var(--bk-color-background-secondary)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                }}
+                            >
                                 <div>
-                                    <Heading level={4} style={{ marginBottom: 'var(--bk-spacing-1)' }}>
+                                    <Heading
+                                        level={4}
+                                        style={{ marginBottom: 'var(--bk-spacing-1)' }}
+                                    >
                                         Overview
                                     </Heading>
-                                    <Text style={{ color: 'var(--bk-color-foreground-muted)', fontSize: 'var(--bk-font-size-sm)' }}>
+                                    <Text
+                                        style={{
+                                            color: 'var(--bk-color-foreground-muted)',
+                                            fontSize: 'var(--bk-font-size-sm)',
+                                        }}
+                                    >
                                         Welcome back! Here's what's happening today.
                                     </Text>
                                 </div>
                                 <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
                                     <Button variant="secondary" size="sm">
-                                        <Icon name="sync" style={{ marginRight: 'var(--bk-spacing-2)' }} />
+                                        <Icon
+                                            name="sync"
+                                            style={{ marginRight: 'var(--bk-spacing-2)' }}
+                                        />
                                         Refresh
                                     </Button>
                                     <Button variant="primary" size="sm">
-                                        <Icon name="add" style={{ marginRight: 'var(--bk-spacing-2)' }} />
+                                        <Icon
+                                            name="add"
+                                            style={{ marginRight: 'var(--bk-spacing-2)' }}
+                                        />
                                         New Item
                                     </Button>
                                 </div>
                             </div>
 
                             {/* Content Area */}
-                            <div style={{
-                                flex: 1,
-                                padding: 'var(--bk-spacing-6)',
-                                overflowY: 'auto',
-                            }}>
+                            <div
+                                style={{
+                                    flex: 1,
+                                    padding: 'var(--bk-spacing-6)',
+                                    overflowY: 'auto',
+                                }}
+                            >
                                 {/* Stats Cards */}
-                                <div style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                                    gap: 'var(--bk-spacing-4)',
-                                    marginBottom: 'var(--bk-spacing-6)',
-                                }}>
+                                <div
+                                    style={{
+                                        display: 'grid',
+                                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                                        gap: 'var(--bk-spacing-4)',
+                                        marginBottom: 'var(--bk-spacing-6)',
+                                    }}
+                                >
                                     {[
-                                        { label: 'Total Users', value: '2,543', icon: 'account' as CodiconName, change: '+12%' },
-                                        { label: 'Revenue', value: '$45.2K', icon: 'graph' as CodiconName, change: '+23%' },
-                                        { label: 'Active Sessions', value: '127', icon: 'pulse' as CodiconName, change: '-5%' },
-                                        { label: 'Conversions', value: '892', icon: 'star' as CodiconName, change: '+8%' },
+                                        {
+                                            label: 'Total Users',
+                                            value: '2,543',
+                                            icon: 'account' as CodiconName,
+                                            change: '+12%',
+                                        },
+                                        {
+                                            label: 'Revenue',
+                                            value: '$45.2K',
+                                            icon: 'graph' as CodiconName,
+                                            change: '+23%',
+                                        },
+                                        {
+                                            label: 'Active Sessions',
+                                            value: '127',
+                                            icon: 'pulse' as CodiconName,
+                                            change: '-5%',
+                                        },
+                                        {
+                                            label: 'Conversions',
+                                            value: '892',
+                                            icon: 'star' as CodiconName,
+                                            change: '+8%',
+                                        },
                                     ].map((stat, index) => (
                                         <div
                                             key={index}
                                             style={{
                                                 padding: 'var(--bk-spacing-5)',
-                                                backgroundColor: 'var(--bk-color-background-secondary)',
+                                                backgroundColor:
+                                                    'var(--bk-color-background-secondary)',
                                                 border: '1px solid var(--bk-color-border)',
                                                 borderRadius: 'var(--bk-radius-md)',
                                             }}
                                         >
-                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--bk-spacing-3)' }}>
-                                                <Icon name={stat.icon} style={{ fontSize: '20px', color: 'var(--bk-color-foreground-muted)' }} />
-                                                <Badge size="xs" variant={stat.change.startsWith('+') ? 'success' : 'error'}>
+                                            <div
+                                                style={{
+                                                    display: 'flex',
+                                                    justifyContent: 'space-between',
+                                                    alignItems: 'flex-start',
+                                                    marginBottom: 'var(--bk-spacing-3)',
+                                                }}
+                                            >
+                                                <Icon
+                                                    name={stat.icon}
+                                                    style={{
+                                                        fontSize: '20px',
+                                                        color: 'var(--bk-color-foreground-muted)',
+                                                    }}
+                                                />
+                                                <Badge
+                                                    size="xs"
+                                                    variant={
+                                                        stat.change.startsWith('+')
+                                                            ? 'success'
+                                                            : 'error'
+                                                    }
+                                                >
                                                     {stat.change}
                                                 </Badge>
                                             </div>
-                                            <Text style={{ display: 'block', fontSize: 'calc(var(--bk-font-size-base) * 1.75)', fontWeight: 600, marginBottom: 'var(--bk-spacing-1)' }}>
+                                            <Text
+                                                style={{
+                                                    display: 'block',
+                                                    fontSize:
+                                                        'calc(var(--bk-font-size-base) * 1.75)',
+                                                    fontWeight: 600,
+                                                    marginBottom: 'var(--bk-spacing-1)',
+                                                }}
+                                            >
                                                 {stat.value}
                                             </Text>
-                                            <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
+                                            <Text
+                                                style={{
+                                                    display: 'block',
+                                                    fontSize: 'var(--bk-font-size-sm)',
+                                                    color: 'var(--bk-color-foreground-muted)',
+                                                }}
+                                            >
                                                 {stat.label}
                                             </Text>
                                         </div>
@@ -187,28 +314,54 @@ export default function DashboardRecipesPage() {
                                 </div>
 
                                 {/* Content Section */}
-                                <div style={{
-                                    padding: 'var(--bk-spacing-5)',
-                                    backgroundColor: 'var(--bk-color-background-secondary)',
-                                    border: '1px solid var(--bk-color-border)',
-                                    borderRadius: 'var(--bk-radius-md)',
-                                }}>
-                                    <Heading level={5} style={{ marginBottom: 'var(--bk-spacing-4)' }}>
+                                <div
+                                    style={{
+                                        padding: 'var(--bk-spacing-5)',
+                                        backgroundColor: 'var(--bk-color-background-secondary)',
+                                        border: '1px solid var(--bk-color-border)',
+                                        borderRadius: 'var(--bk-radius-md)',
+                                    }}
+                                >
+                                    <Heading
+                                        level={5}
+                                        style={{ marginBottom: 'var(--bk-spacing-4)' }}
+                                    >
                                         Recent Activity
                                     </Heading>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: 'var(--bk-spacing-3)',
+                                        }}
+                                    >
                                         {[1, 2, 3].map((item) => (
-                                            <div key={item} style={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                gap: 'var(--bk-spacing-3)',
-                                                padding: 'var(--bk-spacing-3)',
-                                                borderRadius: 'var(--bk-radius-sm)',
-                                                backgroundColor: 'var(--bk-color-background)',
-                                            }}>
-                                                <Icon name="info" style={{ color: 'var(--bk-color-foreground-muted)' }} />
-                                                <Text style={{ flex: 1 }}>Activity item {item} description</Text>
-                                                <Text style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
+                                            <div
+                                                key={item}
+                                                style={{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: 'var(--bk-spacing-3)',
+                                                    padding: 'var(--bk-spacing-3)',
+                                                    borderRadius: 'var(--bk-radius-sm)',
+                                                    backgroundColor: 'var(--bk-color-background)',
+                                                }}
+                                            >
+                                                <Icon
+                                                    name="info"
+                                                    style={{
+                                                        color: 'var(--bk-color-foreground-muted)',
+                                                    }}
+                                                />
+                                                <Text style={{ flex: 1 }}>
+                                                    Activity item {item} description
+                                                </Text>
+                                                <Text
+                                                    style={{
+                                                        fontSize: 'var(--bk-font-size-xs)',
+                                                        color: 'var(--bk-color-foreground-muted)',
+                                                    }}
+                                                >
                                                     2h ago
                                                 </Text>
                                             </div>
@@ -296,40 +449,57 @@ function Dashboard() {
                 title="Modern Dashboard with Top Navigation"
                 description="A contemporary dashboard layout with top navigation bar, perfect for modern web applications."
                 preview={
-                    <div style={{
-                        minHeight: '600px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        backgroundColor: 'var(--bk-color-background)',
-                    }}>
-                        {/* Top Navigation */}
-                        <div style={{
-                            height: '64px',
-                            backgroundColor: 'var(--bk-color-background-secondary)',
-                            borderBottom: '1px solid var(--bk-color-border)',
+                    <div
+                        style={{
+                            minHeight: '600px',
                             display: 'flex',
-                            alignItems: 'center',
-                            padding: '0 var(--bk-spacing-6)',
-                            gap: 'var(--bk-spacing-6)',
-                        }}>
-                            {/* Logo */}
-                            <div style={{
+                            flexDirection: 'column',
+                            backgroundColor: 'var(--bk-color-background)',
+                        }}
+                    >
+                        {/* Top Navigation */}
+                        <div
+                            style={{
+                                height: '64px',
+                                backgroundColor: 'var(--bk-color-background-secondary)',
+                                borderBottom: '1px solid var(--bk-color-border)',
                                 display: 'flex',
                                 alignItems: 'center',
-                                gap: 'var(--bk-spacing-3)',
-                            }}>
-                                <div style={{
-                                    width: '36px',
-                                    height: '36px',
-                                    background: 'linear-gradient(135deg, var(--bk-color-primary) 0%, var(--bk-color-primary-hover) 100%)',
-                                    borderRadius: 'var(--bk-radius-md)',
+                                padding: '0 var(--bk-spacing-6)',
+                                gap: 'var(--bk-spacing-6)',
+                            }}
+                        >
+                            {/* Logo */}
+                            <div
+                                style={{
                                     display: 'flex',
                                     alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}>
-                                    <Icon name="rocket" style={{ color: 'var(--bk-color-primary-foreground)', fontSize: '20px' }} />
+                                    gap: 'var(--bk-spacing-3)',
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        width: '36px',
+                                        height: '36px',
+                                        background:
+                                            'linear-gradient(135deg, var(--bk-color-primary) 0%, var(--bk-color-primary-hover) 100%)',
+                                        borderRadius: 'var(--bk-radius-md)',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    <Icon
+                                        name="rocket"
+                                        style={{
+                                            color: 'var(--bk-color-primary-foreground)',
+                                            fontSize: '20px',
+                                        }}
+                                    />
                                 </div>
-                                <Heading level={5} style={{ margin: 0 }}>AppName</Heading>
+                                <Heading level={5} style={{ margin: 0 }}>
+                                    AppName
+                                </Heading>
                             </div>
 
                             {/* Navigation */}
@@ -341,7 +511,14 @@ function Dashboard() {
                             </Menu>
 
                             {/* Right Side */}
-                            <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
+                            <div
+                                style={{
+                                    marginLeft: 'auto',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 'var(--bk-spacing-3)',
+                                }}
+                            >
                                 <Input
                                     type="text"
                                     placeholder="Search..."
@@ -356,19 +533,26 @@ function Dashboard() {
                         </div>
 
                         {/* Content Area */}
-                        <div style={{
-                            flex: 1,
-                            display: 'grid',
-                            gridTemplateColumns: '1fr 300px',
-                            gap: 0,
-                        }}>
+                        <div
+                            style={{
+                                flex: 1,
+                                display: 'grid',
+                                gridTemplateColumns: '1fr 300px',
+                                gap: 0,
+                            }}
+                        >
                             {/* Main Content */}
-                            <div style={{
-                                padding: 'var(--bk-spacing-6)',
-                                overflowY: 'auto',
-                            }}>
+                            <div
+                                style={{
+                                    padding: 'var(--bk-spacing-6)',
+                                    overflowY: 'auto',
+                                }}
+                            >
                                 <div style={{ marginBottom: 'var(--bk-spacing-6)' }}>
-                                    <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                                    <Heading
+                                        level={3}
+                                        style={{ marginBottom: 'var(--bk-spacing-2)' }}
+                                    >
                                         Welcome back, User!
                                     </Heading>
                                     <Text style={{ color: 'var(--bk-color-foreground-muted)' }}>
@@ -377,31 +561,66 @@ function Dashboard() {
                                 </div>
 
                                 {/* Quick Stats */}
-                                <div style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: 'repeat(3, 1fr)',
-                                    gap: 'var(--bk-spacing-4)',
-                                    marginBottom: 'var(--bk-spacing-6)',
-                                }}>
+                                <div
+                                    style={{
+                                        display: 'grid',
+                                        gridTemplateColumns: 'repeat(3, 1fr)',
+                                        gap: 'var(--bk-spacing-4)',
+                                        marginBottom: 'var(--bk-spacing-6)',
+                                    }}
+                                >
                                     {[
-                                        { label: 'Active Projects', value: '12', icon: 'folder' as CodiconName },
-                                        { label: 'Tasks Completed', value: '85', icon: 'check' as CodiconName },
-                                        { label: 'Team Members', value: '24', icon: 'person' as CodiconName },
+                                        {
+                                            label: 'Active Projects',
+                                            value: '12',
+                                            icon: 'folder' as CodiconName,
+                                        },
+                                        {
+                                            label: 'Tasks Completed',
+                                            value: '85',
+                                            icon: 'check' as CodiconName,
+                                        },
+                                        {
+                                            label: 'Team Members',
+                                            value: '24',
+                                            icon: 'person' as CodiconName,
+                                        },
                                     ].map((stat, index) => (
                                         <div
                                             key={index}
                                             style={{
                                                 padding: 'var(--bk-spacing-4)',
-                                                backgroundColor: 'var(--bk-color-background-secondary)',
+                                                backgroundColor:
+                                                    'var(--bk-color-background-secondary)',
                                                 border: '1px solid var(--bk-color-border)',
                                                 borderRadius: 'var(--bk-radius-md)',
                                             }}
                                         >
-                                            <Icon name={stat.icon} style={{ fontSize: '24px', color: 'var(--bk-color-foreground-muted)', marginBottom: 'var(--bk-spacing-2)' }} />
-                                            <Text style={{ display: 'block', fontSize: 'calc(var(--bk-font-size-base) * 1.5)', fontWeight: 600 }}>
+                                            <Icon
+                                                name={stat.icon}
+                                                style={{
+                                                    fontSize: '24px',
+                                                    color: 'var(--bk-color-foreground-muted)',
+                                                    marginBottom: 'var(--bk-spacing-2)',
+                                                }}
+                                            />
+                                            <Text
+                                                style={{
+                                                    display: 'block',
+                                                    fontSize:
+                                                        'calc(var(--bk-font-size-base) * 1.5)',
+                                                    fontWeight: 600,
+                                                }}
+                                            >
                                                 {stat.value}
                                             </Text>
-                                            <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
+                                            <Text
+                                                style={{
+                                                    display: 'block',
+                                                    fontSize: 'var(--bk-font-size-sm)',
+                                                    color: 'var(--bk-color-foreground-muted)',
+                                                }}
+                                            >
                                                 {stat.label}
                                             </Text>
                                         </div>
@@ -409,62 +628,122 @@ function Dashboard() {
                                 </div>
 
                                 {/* Projects List */}
-                                <div style={{
-                                    padding: 'var(--bk-spacing-5)',
-                                    backgroundColor: 'var(--bk-color-background-secondary)',
-                                    border: '1px solid var(--bk-color-border)',
-                                    borderRadius: 'var(--bk-radius-md)',
-                                }}>
-                                    <Heading level={5} style={{ marginBottom: 'var(--bk-spacing-4)' }}>
+                                <div
+                                    style={{
+                                        padding: 'var(--bk-spacing-5)',
+                                        backgroundColor: 'var(--bk-color-background-secondary)',
+                                        border: '1px solid var(--bk-color-border)',
+                                        borderRadius: 'var(--bk-radius-md)',
+                                    }}
+                                >
+                                    <Heading
+                                        level={5}
+                                        style={{ marginBottom: 'var(--bk-spacing-4)' }}
+                                    >
                                         Recent Projects
                                     </Heading>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
-                                        {['Project Alpha', 'Project Beta', 'Project Gamma'].map((project, index) => (
-                                            <div key={index} style={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'space-between',
-                                                padding: 'var(--bk-spacing-3)',
-                                                borderRadius: 'var(--bk-radius-sm)',
-                                                backgroundColor: 'var(--bk-color-background)',
-                                            }}>
-                                                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
-                                                    <Icon name="folder" style={{ color: 'var(--bk-color-foreground-muted)' }} />
-                                                    <div>
-                                                        <Text style={{ display: 'block', fontWeight: 500 }}>{project}</Text>
-                                                        <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
-                                                            Updated 2h ago
-                                                        </Text>
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: 'var(--bk-spacing-3)',
+                                        }}
+                                    >
+                                        {['Project Alpha', 'Project Beta', 'Project Gamma'].map(
+                                            (project, index) => (
+                                                <div
+                                                    key={index}
+                                                    style={{
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'space-between',
+                                                        padding: 'var(--bk-spacing-3)',
+                                                        borderRadius: 'var(--bk-radius-sm)',
+                                                        backgroundColor:
+                                                            'var(--bk-color-background)',
+                                                    }}
+                                                >
+                                                    <div
+                                                        style={{
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            gap: 'var(--bk-spacing-3)',
+                                                        }}
+                                                    >
+                                                        <Icon
+                                                            name="folder"
+                                                            style={{
+                                                                color: 'var(--bk-color-foreground-muted)',
+                                                            }}
+                                                        />
+                                                        <div>
+                                                            <Text
+                                                                style={{
+                                                                    display: 'block',
+                                                                    fontWeight: 500,
+                                                                }}
+                                                            >
+                                                                {project}
+                                                            </Text>
+                                                            <Text
+                                                                style={{
+                                                                    display: 'block',
+                                                                    fontSize:
+                                                                        'var(--bk-font-size-xs)',
+                                                                    color: 'var(--bk-color-foreground-muted)',
+                                                                }}
+                                                            >
+                                                                Updated 2h ago
+                                                            </Text>
+                                                        </div>
                                                     </div>
+                                                    <Badge size="xs">Active</Badge>
                                                 </div>
-                                                <Badge size="xs">Active</Badge>
-                                            </div>
-                                        ))}
+                                            ),
+                                        )}
                                     </div>
                                 </div>
                             </div>
 
                             {/* Right Sidebar */}
-                            <div style={{
-                                padding: 'var(--bk-spacing-5)',
-                                backgroundColor: 'var(--bk-color-background-secondary)',
-                                borderLeft: '1px solid var(--bk-color-border)',
-                                overflowY: 'auto',
-                            }}>
+                            <div
+                                style={{
+                                    padding: 'var(--bk-spacing-5)',
+                                    backgroundColor: 'var(--bk-color-background-secondary)',
+                                    borderLeft: '1px solid var(--bk-color-border)',
+                                    overflowY: 'auto',
+                                }}
+                            >
                                 <Heading level={5} style={{ marginBottom: 'var(--bk-spacing-4)' }}>
                                     Quick Actions
                                 </Heading>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', marginBottom: 'var(--bk-spacing-6)' }}>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: 'var(--bk-spacing-2)',
+                                        marginBottom: 'var(--bk-spacing-6)',
+                                    }}
+                                >
                                     <Button variant="primary" width="block" size="sm">
-                                        <Icon name="add" style={{ marginRight: 'var(--bk-spacing-2)' }} />
+                                        <Icon
+                                            name="add"
+                                            style={{ marginRight: 'var(--bk-spacing-2)' }}
+                                        />
                                         New Project
                                     </Button>
                                     <Button variant="secondary" width="block" size="sm">
-                                        <Icon name="calendar" style={{ marginRight: 'var(--bk-spacing-2)' }} />
+                                        <Icon
+                                            name="calendar"
+                                            style={{ marginRight: 'var(--bk-spacing-2)' }}
+                                        />
                                         Schedule
                                     </Button>
                                     <Button variant="secondary" width="block" size="sm">
-                                        <Icon name="mail" style={{ marginRight: 'var(--bk-spacing-2)' }} />
+                                        <Icon
+                                            name="mail"
+                                            style={{ marginRight: 'var(--bk-spacing-2)' }}
+                                        />
                                         Messages
                                     </Button>
                                 </div>
@@ -474,17 +753,38 @@ function Dashboard() {
                                 <Heading level={6} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                                     Notifications
                                 </Heading>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: 'var(--bk-spacing-3)',
+                                    }}
+                                >
                                     {[1, 2, 3].map((item) => (
-                                        <div key={item} style={{
-                                            padding: 'var(--bk-spacing-3)',
-                                            borderRadius: 'var(--bk-radius-sm)',
-                                            backgroundColor: 'var(--bk-color-background)',
-                                        }}>
-                                            <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-sm)', marginBottom: 'var(--bk-spacing-1)' }}>
+                                        <div
+                                            key={item}
+                                            style={{
+                                                padding: 'var(--bk-spacing-3)',
+                                                borderRadius: 'var(--bk-radius-sm)',
+                                                backgroundColor: 'var(--bk-color-background)',
+                                            }}
+                                        >
+                                            <Text
+                                                style={{
+                                                    display: 'block',
+                                                    fontSize: 'var(--bk-font-size-sm)',
+                                                    marginBottom: 'var(--bk-spacing-1)',
+                                                }}
+                                            >
                                                 New notification {item}
                                             </Text>
-                                            <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
+                                            <Text
+                                                style={{
+                                                    display: 'block',
+                                                    fontSize: 'var(--bk-font-size-xs)',
+                                                    color: 'var(--bk-color-foreground-muted)',
+                                                }}
+                                            >
                                                 Just now
                                             </Text>
                                         </div>
@@ -547,16 +847,28 @@ function ModernDashboard() {
                 title="Minimal Dashboard"
                 description="A clean, minimal dashboard with floating cards and subtle backgrounds. Great for analytics and monitoring interfaces."
                 preview={
-                    <div style={{
-                        minHeight: '600px',
-                        padding: 'var(--bk-spacing-6)',
-                        backgroundColor: 'var(--bk-color-background)',
-                    }}>
+                    <div
+                        style={{
+                            minHeight: '600px',
+                            padding: 'var(--bk-spacing-6)',
+                            backgroundColor: 'var(--bk-color-background)',
+                        }}
+                    >
                         {/* Header */}
                         <div style={{ marginBottom: 'var(--bk-spacing-8)' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--bk-spacing-2)' }}>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'flex-start',
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                }}
+                            >
                                 <div>
-                                    <Heading level={2} style={{ marginBottom: 'var(--bk-spacing-2)' }}>
+                                    <Heading
+                                        level={2}
+                                        style={{ marginBottom: 'var(--bk-spacing-2)' }}
+                                    >
                                         Dashboard
                                     </Heading>
                                     <Text style={{ color: 'var(--bk-color-foreground-muted)' }}>
@@ -575,17 +887,39 @@ function ModernDashboard() {
                         </div>
 
                         {/* Metrics Grid */}
-                        <div style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-                            gap: 'var(--bk-spacing-4)',
-                            marginBottom: 'var(--bk-spacing-6)',
-                        }}>
+                        <div
+                            style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                                gap: 'var(--bk-spacing-4)',
+                                marginBottom: 'var(--bk-spacing-6)',
+                            }}
+                        >
                             {[
-                                { label: 'Total Revenue', value: '$128.4K', trend: '+12.5%', icon: 'graph-line' as CodiconName },
-                                { label: 'Active Users', value: '3,247', trend: '+8.2%', icon: 'person' as CodiconName },
-                                { label: 'Conversion Rate', value: '3.24%', trend: '-2.1%', icon: 'target' as CodiconName },
-                                { label: 'Avg. Session', value: '4m 32s', trend: '+5.4%', icon: 'clock' as CodiconName },
+                                {
+                                    label: 'Total Revenue',
+                                    value: '$128.4K',
+                                    trend: '+12.5%',
+                                    icon: 'graph-line' as CodiconName,
+                                },
+                                {
+                                    label: 'Active Users',
+                                    value: '3,247',
+                                    trend: '+8.2%',
+                                    icon: 'person' as CodiconName,
+                                },
+                                {
+                                    label: 'Conversion Rate',
+                                    value: '3.24%',
+                                    trend: '-2.1%',
+                                    icon: 'target' as CodiconName,
+                                },
+                                {
+                                    label: 'Avg. Session',
+                                    value: '4m 32s',
+                                    trend: '+5.4%',
+                                    icon: 'clock' as CodiconName,
+                                },
                             ].map((metric, index) => (
                                 <div
                                     key={index}
@@ -596,19 +930,48 @@ function ModernDashboard() {
                                         borderRadius: 'var(--bk-radius-lg)',
                                     }}
                                 >
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 'var(--bk-spacing-4)' }}>
-                                        <Icon name={metric.icon} style={{ fontSize: '20px', color: 'var(--bk-color-foreground-muted)' }} />
-                                        <Text style={{
-                                            fontSize: 'var(--bk-font-size-sm)',
-                                            color: metric.trend.startsWith('+') ? 'var(--bk-color-success)' : 'var(--bk-color-danger)',
-                                        }}>
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            marginBottom: 'var(--bk-spacing-4)',
+                                        }}
+                                    >
+                                        <Icon
+                                            name={metric.icon}
+                                            style={{
+                                                fontSize: '20px',
+                                                color: 'var(--bk-color-foreground-muted)',
+                                            }}
+                                        />
+                                        <Text
+                                            style={{
+                                                fontSize: 'var(--bk-font-size-sm)',
+                                                color: metric.trend.startsWith('+')
+                                                    ? 'var(--bk-color-success)'
+                                                    : 'var(--bk-color-danger)',
+                                            }}
+                                        >
                                             {metric.trend}
                                         </Text>
                                     </div>
-                                    <Text style={{ display: 'block', fontSize: 'calc(var(--bk-font-size-base) * 2)', fontWeight: 700, marginBottom: 'var(--bk-spacing-1)' }}>
+                                    <Text
+                                        style={{
+                                            display: 'block',
+                                            fontSize: 'calc(var(--bk-font-size-base) * 2)',
+                                            fontWeight: 700,
+                                            marginBottom: 'var(--bk-spacing-1)',
+                                        }}
+                                    >
                                         {metric.value}
                                     </Text>
-                                    <Text style={{ display: 'block', fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
+                                    <Text
+                                        style={{
+                                            display: 'block',
+                                            fontSize: 'var(--bk-font-size-sm)',
+                                            color: 'var(--bk-color-foreground-muted)',
+                                        }}
+                                    >
                                         {metric.label}
                                     </Text>
                                 </div>
@@ -616,13 +979,22 @@ function ModernDashboard() {
                         </div>
 
                         {/* Main Content Card */}
-                        <div style={{
-                            padding: 'var(--bk-spacing-6)',
-                            backgroundColor: 'var(--bk-color-background-secondary)',
-                            border: '1px solid var(--bk-color-border)',
-                            borderRadius: 'var(--bk-radius-lg)',
-                        }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--bk-spacing-5)' }}>
+                        <div
+                            style={{
+                                padding: 'var(--bk-spacing-6)',
+                                backgroundColor: 'var(--bk-color-background-secondary)',
+                                border: '1px solid var(--bk-color-border)',
+                                borderRadius: 'var(--bk-radius-lg)',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    marginBottom: 'var(--bk-spacing-5)',
+                                }}
+                            >
                                 <Heading level={5}>Activity Overview</Heading>
                                 <Menu direction="horizontal" size="sm">
                                     <MenuItem selected>Week</MenuItem>
@@ -630,15 +1002,17 @@ function ModernDashboard() {
                                     <MenuItem>Year</MenuItem>
                                 </Menu>
                             </div>
-                            <div style={{
-                                height: '200px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                backgroundColor: 'var(--bk-color-background)',
-                                borderRadius: 'var(--bk-radius-md)',
-                                border: '1px solid var(--bk-color-border)',
-                            }}>
+                            <div
+                                style={{
+                                    height: '200px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    backgroundColor: 'var(--bk-color-background)',
+                                    borderRadius: 'var(--bk-radius-md)',
+                                    border: '1px solid var(--bk-color-border)',
+                                }}
+                            >
                                 <Text style={{ color: 'var(--bk-color-foreground-muted)' }}>
                                     Chart visualization area
                                 </Text>

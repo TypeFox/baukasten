@@ -7,22 +7,79 @@ import { Button, Icon, Heading } from 'baukasten-ui/core';
 import { ButtonGroup, Menu, MenuItem, MenuDivider } from 'baukasten-ui/extra';
 
 const buttonGroupProps: PropDefinition[] = [
-    { name: 'fullWidth', type: 'boolean', default: 'false', description: 'Whether the button group should take full width' },
-    { name: 'showSeparator', type: 'boolean', default: 'false', description: 'Whether to show separator lines between buttons' },
+    {
+        name: 'fullWidth',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether the button group should take full width',
+    },
+    {
+        name: 'showSeparator',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether to show separator lines between buttons',
+    },
 ];
 
 const dropdownProps: PropDefinition[] = [
-    { name: 'content', type: 'React.ReactNode', required: true, description: 'Content to display in the dropdown menu' },
-    { name: 'placement', type: '"bottom-start" | "bottom-end" | "top-start" | "top-end"', default: '"bottom-end"', description: 'Placement of the dropdown relative to the trigger' },
-    { name: 'closeOnClick', type: 'boolean', default: 'true', description: 'Whether to close the dropdown when clicking inside it' },
-    { name: 'open', type: 'boolean', description: 'Whether the dropdown is open (controlled mode)' },
-    { name: 'onOpenChange', type: '(open: boolean) => void', description: 'Callback when the dropdown open state changes' },
-    { name: 'disabled', type: 'boolean', default: 'false', description: 'Whether the dropdown trigger is disabled' },
-    { name: 'variant', type: 'ButtonVariant', default: '"primary"', description: 'Visual style variant of the dropdown button' },
+    {
+        name: 'content',
+        type: 'React.ReactNode',
+        required: true,
+        description: 'Content to display in the dropdown menu',
+    },
+    {
+        name: 'placement',
+        type: '"bottom-start" | "bottom-end" | "top-start" | "top-end"',
+        default: '"bottom-end"',
+        description: 'Placement of the dropdown relative to the trigger',
+    },
+    {
+        name: 'closeOnClick',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether to close the dropdown when clicking inside it',
+    },
+    {
+        name: 'open',
+        type: 'boolean',
+        description: 'Whether the dropdown is open (controlled mode)',
+    },
+    {
+        name: 'onOpenChange',
+        type: '(open: boolean) => void',
+        description: 'Callback when the dropdown open state changes',
+    },
+    {
+        name: 'disabled',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether the dropdown trigger is disabled',
+    },
+    {
+        name: 'variant',
+        type: 'ButtonVariant',
+        default: '"primary"',
+        description: 'Visual style variant of the dropdown button',
+    },
     { name: 'size', type: 'Size', default: '"md"', description: 'Size of the dropdown button' },
-    { name: 'outline', type: 'boolean', default: 'false', description: 'Whether to render with outline style' },
-    { name: 'icon', type: 'React.ReactNode', description: 'Custom icon for the dropdown trigger (default: chevron-down)' },
-    { name: 'ariaLabel', type: 'string', default: '"Open dropdown"', description: 'Aria label for the dropdown trigger button' },
+    {
+        name: 'outline',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether to render with outline style',
+    },
+    {
+        name: 'icon',
+        type: 'React.ReactNode',
+        description: 'Custom icon for the dropdown trigger (default: chevron-down)',
+    },
+    {
+        name: 'ariaLabel',
+        type: 'string',
+        default: '"Open dropdown"',
+        description: 'Aria label for the dropdown trigger button',
+    },
 ];
 
 // Sample menu for examples
@@ -43,7 +100,9 @@ function ControlledDropdownExample() {
     return (
         <div>
             <ButtonGroup>
-                <Button variant="secondary" onClick={() => console.log('Action clicked')}>Action</Button>
+                <Button variant="secondary" onClick={() => console.log('Action clicked')}>
+                    Action
+                </Button>
                 <ButtonGroup.Dropdown
                     variant="secondary"
                     content={
@@ -57,7 +116,13 @@ function ControlledDropdownExample() {
                     onOpenChange={setIsOpen}
                 />
             </ButtonGroup>
-            <div style={{ marginTop: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-2)',
+                    fontSize: 'var(--bk-font-size-sm)',
+                    color: 'var(--vscode-descriptionForeground)',
+                }}
+            >
                 Dropdown is {isOpen ? 'open' : 'closed'}
             </div>
         </div>
@@ -99,7 +164,14 @@ function App() {
                 title="Variants"
                 description="Button groups work with all button variants. Set the variant explicitly on each button for consistent styling within the group."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            alignItems: 'flex-start',
+                        }}
+                    >
                         <ButtonGroup>
                             <Button variant="primary">Cut</Button>
                             <Button variant="primary">Copy</Button>
@@ -143,12 +215,25 @@ function App() {
                 title="Sizes"
                 description="Five size options available: xs, sm, md (default), lg, and xl. Set the size explicitly on each button for consistent sizing."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
-                        {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map(size => (
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            alignItems: 'flex-start',
+                        }}
+                    >
+                        {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
                             <ButtonGroup key={size}>
-                                <Button variant="primary" size={size}>Cut</Button>
-                                <Button variant="primary" size={size}>Copy</Button>
-                                <Button variant="primary" size={size}>Paste</Button>
+                                <Button variant="primary" size={size}>
+                                    Cut
+                                </Button>
+                                <Button variant="primary" size={size}>
+                                    Copy
+                                </Button>
+                                <Button variant="primary" size={size}>
+                                    Paste
+                                </Button>
                             </ButtonGroup>
                         ))}
                     </div>
@@ -176,16 +261,35 @@ function App() {
                 title="Outline Style"
                 description="Outline button groups have transparent backgrounds with colored borders. They fill with solid color on hover."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            alignItems: 'flex-start',
+                        }}
+                    >
                         <ButtonGroup>
-                            <Button variant="primary" outline>Cut</Button>
-                            <Button variant="primary" outline>Copy</Button>
-                            <Button variant="primary" outline>Paste</Button>
+                            <Button variant="primary" outline>
+                                Cut
+                            </Button>
+                            <Button variant="primary" outline>
+                                Copy
+                            </Button>
+                            <Button variant="primary" outline>
+                                Paste
+                            </Button>
                         </ButtonGroup>
                         <ButtonGroup>
-                            <Button variant="secondary" outline>Day</Button>
-                            <Button variant="secondary" outline>Week</Button>
-                            <Button variant="secondary" outline>Month</Button>
+                            <Button variant="secondary" outline>
+                                Day
+                            </Button>
+                            <Button variant="secondary" outline>
+                                Week
+                            </Button>
+                            <Button variant="secondary" outline>
+                                Month
+                            </Button>
                         </ButtonGroup>
                     </div>
                 }
@@ -206,9 +310,21 @@ function App() {
                 title="With Separators"
                 description="Use showSeparator to add visible separator lines between buttons. Works well with outline buttons and segmented controls."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Without Separators (Default)
                             </div>
                             <ButtonGroup>
@@ -218,7 +334,13 @@ function App() {
                             </ButtonGroup>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 With Separators
                             </div>
                             <ButtonGroup showSeparator>
@@ -228,13 +350,25 @@ function App() {
                             </ButtonGroup>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Outline With Separators
                             </div>
                             <ButtonGroup showSeparator>
-                                <Button variant="secondary" outline>Day</Button>
-                                <Button variant="secondary" outline>Week</Button>
-                                <Button variant="secondary" outline>Month</Button>
+                                <Button variant="secondary" outline>
+                                    Day
+                                </Button>
+                                <Button variant="secondary" outline>
+                                    Week
+                                </Button>
+                                <Button variant="secondary" outline>
+                                    Month
+                                </Button>
                             </ButtonGroup>
                         </div>
                     </div>
@@ -258,23 +392,38 @@ function App() {
                 title="Split Button Pattern"
                 description="Use ButtonGroup.Dropdown as the last child to create a split button pattern. The dropdown variant should match the main button for consistent styling."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            alignItems: 'flex-start',
+                        }}
+                    >
                         <ButtonGroup>
-                            <Button variant="primary" onClick={() => console.log('Save clicked')}>Save</Button>
+                            <Button variant="primary" onClick={() => console.log('Save clicked')}>
+                                Save
+                            </Button>
                             <ButtonGroup.Dropdown variant="primary" content={<SampleMenu />} />
                         </ButtonGroup>
                         <ButtonGroup>
-                            <Button variant="secondary" onClick={() => console.log('Deploy clicked')}>
+                            <Button
+                                variant="secondary"
+                                onClick={() => console.log('Deploy clicked')}
+                            >
                                 <Icon name="rocket" />
                                 Deploy
                             </Button>
-                            <ButtonGroup.Dropdown variant="secondary" content={
-                                <Menu>
-                                    <MenuItem>Production</MenuItem>
-                                    <MenuItem>Staging</MenuItem>
-                                    <MenuItem>Development</MenuItem>
-                                </Menu>
-                            } />
+                            <ButtonGroup.Dropdown
+                                variant="secondary"
+                                content={
+                                    <Menu>
+                                        <MenuItem>Production</MenuItem>
+                                        <MenuItem>Staging</MenuItem>
+                                        <MenuItem>Development</MenuItem>
+                                    </Menu>
+                                }
+                            />
                         </ButtonGroup>
                     </div>
                 }
@@ -322,7 +471,14 @@ import { ButtonGroup, Menu, MenuItem } from 'baukasten-ui/extra';
                 title="With Icons"
                 description="Button groups work great with icons for toolbars and controls. Mix text with icons, use icon-only buttons, or create icon-based navigation."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            alignItems: 'flex-start',
+                        }}
+                    >
                         <ButtonGroup>
                             <Button variant="secondary">
                                 <Icon name="bold" />
@@ -352,7 +508,9 @@ import { ButtonGroup, Menu, MenuItem } from 'baukasten-ui/extra';
                             <Button variant="primary" size="sm">
                                 <Icon name="chevron-left" />
                             </Button>
-                            <Button variant="primary" size="sm">1 / 10</Button>
+                            <Button variant="primary" size="sm">
+                                1 / 10
+                            </Button>
                             <Button variant="primary" size="sm">
                                 <Icon name="chevron-right" />
                             </Button>
@@ -400,7 +558,13 @@ import { ButtonGroup, Menu, MenuItem } from 'baukasten-ui/extra';
                 title="Full Width"
                 description="Use the fullWidth prop to make button groups span the full width of their container. Each button automatically gets equal width."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
                         <ButtonGroup fullWidth>
                             <Button variant="primary">Previous</Button>
                             <Button variant="primary">Next</Button>
@@ -411,10 +575,18 @@ import { ButtonGroup, Menu, MenuItem } from 'baukasten-ui/extra';
                             <Button variant="secondary">OK</Button>
                         </ButtonGroup>
                         <ButtonGroup fullWidth>
-                            <Button variant="ghost" outline>Day</Button>
-                            <Button variant="ghost" outline>Week</Button>
-                            <Button variant="ghost" outline>Month</Button>
-                            <Button variant="ghost" outline>Year</Button>
+                            <Button variant="ghost" outline>
+                                Day
+                            </Button>
+                            <Button variant="ghost" outline>
+                                Week
+                            </Button>
+                            <Button variant="ghost" outline>
+                                Month
+                            </Button>
+                            <Button variant="ghost" outline>
+                                Year
+                            </Button>
                         </ButtonGroup>
                     </div>
                 }
@@ -441,15 +613,34 @@ import { ButtonGroup, Menu, MenuItem } from 'baukasten-ui/extra';
                 title="Disabled State"
                 description="Individual buttons can be disabled within a group. You can also disable the dropdown trigger in split button patterns."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            alignItems: 'flex-start',
+                        }}
+                    >
                         <ButtonGroup>
-                            <Button variant="primary" disabled>Cut</Button>
-                            <Button variant="primary" disabled>Copy</Button>
-                            <Button variant="primary" disabled>Paste</Button>
+                            <Button variant="primary" disabled>
+                                Cut
+                            </Button>
+                            <Button variant="primary" disabled>
+                                Copy
+                            </Button>
+                            <Button variant="primary" disabled>
+                                Paste
+                            </Button>
                         </ButtonGroup>
                         <ButtonGroup>
-                            <Button variant="primary" disabled>Save</Button>
-                            <ButtonGroup.Dropdown variant="primary" disabled content={<SampleMenu />} />
+                            <Button variant="primary" disabled>
+                                Save
+                            </Button>
+                            <ButtonGroup.Dropdown
+                                variant="primary"
+                                disabled
+                                content={<SampleMenu />}
+                            />
                         </ButtonGroup>
                     </div>
                 }
@@ -497,9 +688,21 @@ function App() {
                 title="Real-World Examples"
                 description="Common use cases showing how ButtonGroup is used in practice."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-6)',
+                        }}
+                    >
                         <div>
-                            <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <h4
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Text Formatting Toolbar
                             </h4>
                             <ButtonGroup>
@@ -516,18 +719,36 @@ function App() {
                         </div>
 
                         <div>
-                            <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <h4
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 View Switcher (Segmented Control)
                             </h4>
                             <ButtonGroup>
-                                <Button variant="secondary" outline>List</Button>
-                                <Button variant="secondary" outline>Grid</Button>
-                                <Button variant="secondary" outline>Columns</Button>
+                                <Button variant="secondary" outline>
+                                    List
+                                </Button>
+                                <Button variant="secondary" outline>
+                                    Grid
+                                </Button>
+                                <Button variant="secondary" outline>
+                                    Columns
+                                </Button>
                             </ButtonGroup>
                         </div>
 
                         <div>
-                            <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <h4
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Pagination Control
                             </h4>
                             <ButtonGroup>
@@ -542,14 +763,22 @@ function App() {
                         </div>
 
                         <div>
-                            <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <h4
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Zoom Controls
                             </h4>
                             <ButtonGroup>
                                 <Button variant="secondary" size="sm">
                                     <Icon name="zoom-out" />
                                 </Button>
-                                <Button variant="secondary" size="sm">100%</Button>
+                                <Button variant="secondary" size="sm">
+                                    100%
+                                </Button>
                                 <Button variant="secondary" size="sm">
                                     <Icon name="zoom-in" />
                                 </Button>
@@ -590,68 +819,122 @@ function App() {
 </ButtonGroup>`}
             />
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Split Button Pattern
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Primary action:</strong> Place the most common action as the first button
+                        <strong>Primary action:</strong> Place the most common action as the first
+                        button
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Secondary actions:</strong> Related or alternative actions go in the dropdown menu
+                        <strong>Secondary actions:</strong> Related or alternative actions go in the
+                        dropdown menu
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Variant matching:</strong> Always match the dropdown variant with the button variant for visual consistency
+                        <strong>Variant matching:</strong> Always match the dropdown variant with
+                        the button variant for visual consistency
                     </li>
                     <li>
-                        <strong>Menu content:</strong> Use Menu component with MenuItem for dropdown content
+                        <strong>Menu content:</strong> Use Menu component with MenuItem for dropdown
+                        content
                     </li>
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Each button maintains its own focus state and keyboard navigation
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Dropdown trigger has proper <code>aria-expanded</code>, <code>aria-haspopup="menu"</code>, and <code>aria-label</code> attributes
+                        Dropdown trigger has proper <code>aria-expanded</code>,{' '}
+                        <code>aria-haspopup="menu"</code>, and <code>aria-label</code> attributes
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Dropdown closes on <code>Escape</code> key and click outside
                     </li>
                     <li>
-                        Disabled buttons and dropdowns have proper <code>disabled</code> attribute and cannot receive focus
+                        Disabled buttons and dropdowns have proper <code>disabled</code> attribute
+                        and cannot receive focus
                     </li>
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Related actions:</strong> Only group buttons with related or mutually exclusive actions
+                        <strong>Related actions:</strong> Only group buttons with related or
+                        mutually exclusive actions
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Consistent styling:</strong> Use the same variant, size, and outline for all buttons in a group
+                        <strong>Consistent styling:</strong> Use the same variant, size, and outline
+                        for all buttons in a group
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Button count:</strong> Limit to 2-5 buttons per group. More than 5 becomes cluttered
+                        <strong>Button count:</strong> Limit to 2-5 buttons per group. More than 5
+                        becomes cluttered
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Separators:</strong> Use sparingly, only when buttons need clear visual separation
+                        <strong>Separators:</strong> Use sparingly, only when buttons need clear
+                        visual separation
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Full width:</strong> Use for modal actions, forms, or when buttons should be equally emphasized
+                        <strong>Full width:</strong> Use for modal actions, forms, or when buttons
+                        should be equally emphasized
                     </li>
                     <li>
-                        <strong>Icons:</strong> Use icon-only buttons for toolbars, mix with text for primary actions
+                        <strong>Icons:</strong> Use icon-only buttons for toolbars, mix with text
+                        for primary actions
                     </li>
                 </ul>
             </div>

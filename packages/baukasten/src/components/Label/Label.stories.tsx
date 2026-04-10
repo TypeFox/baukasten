@@ -37,7 +37,8 @@ const meta = {
         variant: {
             control: 'select',
             options: ['input', 'textarea', 'checkbox'],
-            description: 'Visual variant: input for text inputs/selects, textarea for textareas, checkbox for checkboxes/switches',
+            description:
+                'Visual variant: input for text inputs/selects, textarea for textareas, checkbox for checkboxes/switches',
             table: {
                 defaultValue: { summary: 'input' },
             },
@@ -52,7 +53,8 @@ const meta = {
         },
         fullWidth: {
             control: 'boolean',
-            description: 'Whether the label should take full width of its container (input variant only)',
+            description:
+                'Whether the label should take full width of its container (input variant only)',
             table: {
                 defaultValue: { summary: 'false' },
             },
@@ -98,7 +100,14 @@ export const WithPrefix: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-3)',
+                width: '300px',
+            }}
+        >
             <Label>
                 <span className="label">https://</span>
                 <Input type="text" placeholder="example.com" />
@@ -135,7 +144,14 @@ export const WithSuffix: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-3)',
+                width: '300px',
+            }}
+        >
             <Label>
                 <Input type="text" placeholder="yourdomain" />
                 <span className="label">.com</span>
@@ -172,7 +188,14 @@ export const WithPrefixAndSuffix: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-3)',
+                width: '300px',
+            }}
+        >
             <Label>
                 <span className="label">$</span>
                 <Input type="number" placeholder="0.00" />
@@ -208,9 +231,22 @@ export const WithSizes: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-3)',
+                width: '300px',
+            }}
+        >
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Extra Small
                 </h4>
                 <Label size="xs">
@@ -219,7 +255,13 @@ export const WithSizes: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Small
                 </h4>
                 <Label size="sm">
@@ -229,7 +271,13 @@ export const WithSizes: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Medium (Default)
                 </h4>
                 <Label size="md">
@@ -238,7 +286,13 @@ export const WithSizes: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Large
                 </h4>
                 <Label size="lg">
@@ -247,7 +301,13 @@ export const WithSizes: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Extra Large
                 </h4>
                 <Label size="xl">
@@ -275,9 +335,22 @@ export const WithVariants: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-3)',
+                width: '300px',
+            }}
+        >
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Primary (Default)
                 </h4>
                 <Label>
@@ -286,7 +359,13 @@ export const WithVariants: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Secondary
                 </h4>
                 <Label>
@@ -296,7 +375,13 @@ export const WithVariants: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Ghost
                 </h4>
                 <Label>
@@ -324,9 +409,22 @@ export const WithIcons: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-3)',
+                width: '300px',
+            }}
+        >
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Search with Icon
                 </h4>
                 <Label size="md">
@@ -337,7 +435,13 @@ export const WithIcons: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Email with Icon
                 </h4>
                 <Label size="md">
@@ -348,7 +452,13 @@ export const WithIcons: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Lock Icon (Password)
                 </h4>
                 <Label size="md">
@@ -359,7 +469,13 @@ export const WithIcons: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Icon Suffix
                 </h4>
                 <Label size="md">
@@ -370,7 +486,13 @@ export const WithIcons: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Search with Keyboard Shortcut
                 </h4>
                 <Label size="md">
@@ -378,23 +500,34 @@ export const WithIcons: Story = {
                         <Icon name="search" />
                     </span>
                     <Input size="md" type="text" placeholder="Search" />
-                    <span className="label" style={{
-                        border: '1px solid var(--bk-color-border)',
-                        borderRadius: 'var(--bk-radius-xs)',
-                        fontSize: 'var(--bk-font-size-xs)',
-                        fontWeight: 'var(--bk-font-weight-medium)',
-                        padding: '0 var(--bk-spacing-1-5)',
-                        opacity: 0.7
-                    }}>
+                    <span
+                        className="label"
+                        style={{
+                            border: '1px solid var(--bk-color-border)',
+                            borderRadius: 'var(--bk-radius-xs)',
+                            fontSize: 'var(--bk-font-size-xs)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                            padding: '0 var(--bk-spacing-1-5)',
+                            opacity: 0.7,
+                        }}
+                    >
                         ⌘K
                     </span>
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Icons Scale with Label Size
                 </h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}
+                >
                     <Label size="xs">
                         <span className="label">
                             <Icon name="search" />
@@ -447,9 +580,22 @@ export const DateAndTime: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-3)',
+                width: '300px',
+            }}
+        >
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Date Picker
                 </h4>
                 <Label size="md">
@@ -460,7 +606,13 @@ export const DateAndTime: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Time Picker
                 </h4>
                 <Label size="md">
@@ -471,7 +623,13 @@ export const DateAndTime: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     DateTime Picker
                 </h4>
                 <Label size="md">
@@ -482,7 +640,13 @@ export const DateAndTime: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Week Picker
                 </h4>
                 <Label size="md">
@@ -491,7 +655,13 @@ export const DateAndTime: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Month Picker
                 </h4>
                 <Label size="md">
@@ -519,9 +689,22 @@ export const WithErrors: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-3)',
+                width: '300px',
+            }}
+        >
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Required Field Error
                 </h4>
                 <Label size="md" error="This field is required">
@@ -529,7 +712,13 @@ export const WithErrors: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Invalid Email Error
                 </h4>
                 <Label size="md" error="Please enter a valid email address">
@@ -540,7 +729,13 @@ export const WithErrors: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Price Validation Error
                 </h4>
                 <Label size="md" error="Price must be greater than 0">
@@ -550,7 +745,13 @@ export const WithErrors: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     URL Validation Error
                 </h4>
                 <Label size="md" error="URL must start with https://">
@@ -578,9 +779,22 @@ export const AdvancedPatterns: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-3)',
+                width: '300px',
+            }}
+        >
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     File Upload
                 </h4>
                 <Label size="md">
@@ -591,7 +805,13 @@ export const AdvancedPatterns: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Color Picker
                 </h4>
                 <Label size="md">
@@ -600,7 +820,13 @@ export const AdvancedPatterns: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Range Slider with Value
                 </h4>
                 <Label size="md">
@@ -610,7 +836,13 @@ export const AdvancedPatterns: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     User @ Domain
                 </h4>
                 <Label size="md">
@@ -620,7 +852,13 @@ export const AdvancedPatterns: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Credit Card
                 </h4>
                 <Label size="md">
@@ -650,9 +888,23 @@ export const UsageExamples: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%', maxWidth: '400px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-4)',
+                width: '100%',
+                maxWidth: '400px',
+            }}
+        >
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Website URL
                 </h4>
                 <Label fullWidth>
@@ -663,7 +915,13 @@ export const UsageExamples: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Social Media Handle
                 </h4>
                 <Label fullWidth>
@@ -673,7 +931,13 @@ export const UsageExamples: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Price Input
                 </h4>
                 <Label fullWidth>
@@ -684,7 +948,13 @@ export const UsageExamples: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Domain Name
                 </h4>
                 <Label fullWidth>
@@ -694,7 +964,13 @@ export const UsageExamples: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Phone Number
                 </h4>
                 <Label fullWidth>
@@ -704,7 +980,13 @@ export const UsageExamples: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Weight Measurement
                 </h4>
                 <Label fullWidth>
@@ -714,25 +996,46 @@ export const UsageExamples: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     API Key (with Status Badge)
                 </h4>
                 <Label fullWidth size="md">
                     <span className="label">
                         <Icon name="key" />
                     </span>
-                    <Input size="md" type="password" placeholder="sk_live_••••••••••••••••" fullWidth />
-                    <Badge size="sm" variant="success">Active</Badge>
+                    <Input
+                        size="md"
+                        type="password"
+                        placeholder="sk_live_••••••••••••••••"
+                        fullWidth
+                    />
+                    <Badge size="sm" variant="success">
+                        Active
+                    </Badge>
                 </Label>
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Premium Feature (with Badge)
                 </h4>
                 <Label fullWidth size="md">
                     <Input size="md" type="text" placeholder="Advanced analytics query" fullWidth />
-                    <Badge size="sm" variant="info">Pro</Badge>
+                    <Badge size="sm" variant="info">
+                        Pro
+                    </Badge>
                 </Label>
             </div>
         </div>
@@ -755,13 +1058,39 @@ export const FormFieldPattern: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '300px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-4)',
+                width: '300px',
+            }}
+        >
             <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--bk-spacing-2)' }}>
-                    <h4 style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)', margin: 0 }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: 'var(--bk-spacing-2)',
+                    }}
+                >
+                    <h4
+                        style={{
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                            margin: 0,
+                        }}
+                    >
                         Username
                     </h4>
-                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-danger)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                    <span
+                        style={{
+                            fontSize: 'var(--bk-font-size-xs)',
+                            color: 'var(--bk-color-danger)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                        }}
+                    >
                         Required
                     </span>
                 </div>
@@ -772,11 +1101,30 @@ export const FormFieldPattern: Story = {
             </div>
 
             <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--bk-spacing-2)' }}>
-                    <h4 style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)', margin: 0 }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: 'var(--bk-spacing-2)',
+                    }}
+                >
+                    <h4
+                        style={{
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                            margin: 0,
+                        }}
+                    >
                         Website URL
                     </h4>
-                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-secondary-foreground)', opacity: 0.7 }}>
+                    <span
+                        style={{
+                            fontSize: 'var(--bk-font-size-xs)',
+                            color: 'var(--bk-color-secondary-foreground)',
+                            opacity: 0.7,
+                        }}
+                    >
                         Optional
                     </span>
                 </div>
@@ -787,7 +1135,13 @@ export const FormFieldPattern: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Price
                 </h4>
                 <Label size="md" fullWidth>
@@ -798,11 +1152,30 @@ export const FormFieldPattern: Story = {
             </div>
 
             <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--bk-spacing-2)' }}>
-                    <h4 style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)', margin: 0 }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: 'var(--bk-spacing-2)',
+                    }}
+                >
+                    <h4
+                        style={{
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                            margin: 0,
+                        }}
+                    >
                         Email Address
                     </h4>
-                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-danger)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                    <span
+                        style={{
+                            fontSize: 'var(--bk-font-size-xs)',
+                            color: 'var(--bk-color-danger)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                        }}
+                    >
                         Required*
                     </span>
                 </div>
@@ -815,11 +1188,30 @@ export const FormFieldPattern: Story = {
             </div>
 
             <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--bk-spacing-2)' }}>
-                    <h4 style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)', margin: 0 }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: 'var(--bk-spacing-2)',
+                    }}
+                >
+                    <h4
+                        style={{
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                            margin: 0,
+                        }}
+                    >
                         Search
                     </h4>
-                    <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-secondary-foreground)', opacity: 0.7 }}>
+                    <span
+                        style={{
+                            fontSize: 'var(--bk-font-size-xs)',
+                            color: 'var(--bk-color-secondary-foreground)',
+                            opacity: 0.7,
+                        }}
+                    >
                         Optional
                     </span>
                 </div>
@@ -828,21 +1220,30 @@ export const FormFieldPattern: Story = {
                         <Icon name="search" />
                     </span>
                     <Input size="md" placeholder="Search..." fullWidth />
-                    <span className="label" style={{
-                        border: '1px solid var(--bk-color-border)',
-                        borderRadius: 'var(--bk-radius-xs)',
-                        fontSize: 'var(--bk-font-size-xs)',
-                        fontWeight: 'var(--bk-font-weight-medium)',
-                        padding: '0 var(--bk-spacing-1-5)',
-                        opacity: 0.7
-                    }}>
+                    <span
+                        className="label"
+                        style={{
+                            border: '1px solid var(--bk-color-border)',
+                            borderRadius: 'var(--bk-radius-xs)',
+                            fontSize: 'var(--bk-font-size-xs)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                            padding: '0 var(--bk-spacing-1-5)',
+                            opacity: 0.7,
+                        }}
+                    >
                         ⌘K
                     </span>
                 </Label>
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     API Key
                 </h4>
                 <Label size="md" fullWidth error="Invalid API key format">
@@ -850,7 +1251,9 @@ export const FormFieldPattern: Story = {
                         <Icon name="key" />
                     </span>
                     <Input size="md" type="password" placeholder="sk_live_..." fullWidth />
-                    <Badge size="sm" variant="error">Expired</Badge>
+                    <Badge size="sm" variant="error">
+                        Expired
+                    </Badge>
                 </Label>
             </div>
         </div>
@@ -873,9 +1276,22 @@ export const WithSelect: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-3)',
+                width: '300px',
+            }}
+        >
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Select with Prefix
                 </h4>
                 <Label size="md">
@@ -893,7 +1309,13 @@ export const WithSelect: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Select with Icon Prefix
                 </h4>
                 <Label size="md">
@@ -912,7 +1334,13 @@ export const WithSelect: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Select with Badge Suffix
                 </h4>
                 <Label size="md">
@@ -926,11 +1354,19 @@ export const WithSelect: Story = {
                         ]}
                         placeholder="Select region"
                     />
-                    <Badge size="sm" variant="success">Online</Badge>
+                    <Badge size="sm" variant="success">
+                        Online
+                    </Badge>
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Select with Error
                 </h4>
                 <Label size="md" error="Please select a valid option">
@@ -947,10 +1383,18 @@ export const WithSelect: Story = {
                 </Label>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Different Sizes
                 </h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}
+                >
                     <Label size="xs">
                         <span className="label">Size:</span>
                         <Select
@@ -1028,9 +1472,23 @@ export const AdvancedSelectPatterns: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%', maxWidth: '500px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-4)',
+                width: '100%',
+                maxWidth: '500px',
+            }}
+        >
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Select with Action Button
                 </h4>
                 <Label size="md">
@@ -1053,7 +1511,13 @@ export const AdvancedSelectPatterns: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Select with Multiple Actions
                 </h4>
                 <Label size="md">
@@ -1079,7 +1543,13 @@ export const AdvancedSelectPatterns: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Select with Status Badge and Action
                 </h4>
                 <Label size="md">
@@ -1095,7 +1565,9 @@ export const AdvancedSelectPatterns: Story = {
                         ]}
                         placeholder="Select database"
                     />
-                    <Badge size="sm" variant="success">Live</Badge>
+                    <Badge size="sm" variant="success">
+                        Live
+                    </Badge>
                     <Button size="xs" variant="ghost">
                         <Icon name="link-external" />
                     </Button>
@@ -1103,7 +1575,13 @@ export const AdvancedSelectPatterns: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Branch Selector (Git-like)
                 </h4>
                 <Label size="md">
@@ -1131,7 +1609,13 @@ export const AdvancedSelectPatterns: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     API Endpoint Configuration
                 </h4>
                 <Label size="md">
@@ -1156,7 +1640,13 @@ export const AdvancedSelectPatterns: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Deployment Target Selector
                 </h4>
                 <Label size="md">
@@ -1165,13 +1655,27 @@ export const AdvancedSelectPatterns: Story = {
                         size="md"
                         searchable
                         options={[
-                            { value: 'prod-us', label: 'Production US', description: 'US Production Cluster' },
-                            { value: 'prod-eu', label: 'Production EU', description: 'EU Production Cluster' },
-                            { value: 'staging', label: 'Staging', description: 'Staging Environment' },
+                            {
+                                value: 'prod-us',
+                                label: 'Production US',
+                                description: 'US Production Cluster',
+                            },
+                            {
+                                value: 'prod-eu',
+                                label: 'Production EU',
+                                description: 'EU Production Cluster',
+                            },
+                            {
+                                value: 'staging',
+                                label: 'Staging',
+                                description: 'Staging Environment',
+                            },
                         ]}
                         placeholder="Select target"
                     />
-                    <Badge size="sm" variant="warning">2 pending</Badge>
+                    <Badge size="sm" variant="warning">
+                        2 pending
+                    </Badge>
                     <Button size="xs" variant="ghost">
                         <Icon name="rocket" />
                         <span style={{ marginLeft: 'var(--bk-spacing-1)' }}>Deploy</span>
@@ -1180,7 +1684,13 @@ export const AdvancedSelectPatterns: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Language Selector with Info
                 </h4>
                 <Label size="lg">
@@ -1197,7 +1707,9 @@ export const AdvancedSelectPatterns: Story = {
                         ]}
                         placeholder="Choose language"
                     />
-                    <Badge size="sm" variant="info">Pro</Badge>
+                    <Badge size="sm" variant="info">
+                        Pro
+                    </Badge>
                     <Button size="xs" variant="ghost">
                         <Icon name="info" />
                     </Button>
@@ -1205,7 +1717,13 @@ export const AdvancedSelectPatterns: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Team Member Selector with Quick Add
                 </h4>
                 <Label size="md">
@@ -1230,7 +1748,13 @@ export const AdvancedSelectPatterns: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     With Error State and Retry
                 </h4>
                 <Label size="md" error="Failed to load options. Click retry to try again.">
@@ -1239,9 +1763,7 @@ export const AdvancedSelectPatterns: Story = {
                     </span>
                     <Select
                         size="md"
-                        options={[
-                            { value: 'loading', label: 'Loading...', disabled: true },
-                        ]}
+                        options={[{ value: 'loading', label: 'Loading...', disabled: true }]}
                         placeholder="Select option"
                         disabled
                     />
@@ -1253,7 +1775,13 @@ export const AdvancedSelectPatterns: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     The Ultimate Kitchen Sink
                 </h4>
                 <Label size="md">
@@ -1270,7 +1798,9 @@ export const AdvancedSelectPatterns: Story = {
                         ]}
                         placeholder="Everything at once"
                     />
-                    <Badge size="sm" variant="success">Active</Badge>
+                    <Badge size="sm" variant="success">
+                        Active
+                    </Badge>
                     <Button size="xs" variant="ghost">
                         <Icon name="eye" />
                     </Button>
@@ -1315,9 +1845,22 @@ export const TextAreaVariant: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '500px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-4)',
+                width: '500px',
+            }}
+        >
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     With Label Text on Top
                 </h4>
                 <Label variant="textarea" fullWidth>
@@ -1327,7 +1870,13 @@ export const TextAreaVariant: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     With Icon and Text
                 </h4>
                 <Label variant="textarea" fullWidth>
@@ -1340,7 +1889,13 @@ export const TextAreaVariant: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     With Error
                 </h4>
                 <Label variant="textarea" fullWidth error="This field is required">
@@ -1350,21 +1905,35 @@ export const TextAreaVariant: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     With Icon, Text, and Badge (Badge pinned to right)
                 </h4>
                 <Label variant="textarea" fullWidth>
                     <span className="label">
                         <Icon name="mail" />
                         Message
-                        <Badge variant="info" size="xs" style={{ marginLeft: 'auto' }}>Optional</Badge>
+                        <Badge variant="info" size="xs" style={{ marginLeft: 'auto' }}>
+                            Optional
+                        </Badge>
                     </span>
                     <TextArea placeholder="Type your message here..." rows={8} />
                 </Label>
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Label Text After TextArea
                 </h4>
                 <Label variant="textarea" fullWidth>
@@ -1377,10 +1946,18 @@ export const TextAreaVariant: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Different Row Heights
                 </h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}
+                >
                     <Label variant="textarea" fullWidth>
                         <span className="label">Short Response (2 rows)</span>
                         <TextArea placeholder="Brief answer..." rows={2} />
@@ -1432,9 +2009,22 @@ export const CheckboxVariant: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '400px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-4)',
+                width: '400px',
+            }}
+        >
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Basic Checkbox Labels
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
@@ -1454,7 +2044,13 @@ export const CheckboxVariant: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Switch Labels
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
@@ -1474,7 +2070,13 @@ export const CheckboxVariant: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Different Sizes
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
@@ -1502,7 +2104,13 @@ export const CheckboxVariant: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Disabled State
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
@@ -1522,27 +2130,52 @@ export const CheckboxVariant: Story = {
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Multiline Label Text
                 </h4>
                 <Label variant="checkbox" size="md">
                     <Checkbox name="privacy" />
                     <span>
-                        I have read and agree to the privacy policy, terms of service, and data processing agreement.
-                        I understand that my data will be processed according to GDPR regulations.
+                        I have read and agree to the privacy policy, terms of service, and data
+                        processing agreement. I understand that my data will be processed according
+                        to GDPR regulations.
                     </span>
                 </Label>
             </div>
 
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Styled Multiline Label Text
                 </h4>
-                <Label variant="checkbox" size="md" style={{ border: '1px solid var(--bk-color-border)', borderRadius: 'var(--bk-radius-sm)', padding: 'var(--bk-spacing-2)' }}>
+                <Label
+                    variant="checkbox"
+                    size="md"
+                    style={{
+                        border: '1px solid var(--bk-color-border)',
+                        borderRadius: 'var(--bk-radius-sm)',
+                        padding: 'var(--bk-spacing-2)',
+                    }}
+                >
                     <Checkbox name="privacy" />
                     <span>
-                        I have read and agree to the <a href="#" style={{ color: 'var(--bk-color-primary)' }}>privacy policy</a>, terms of service, and data processing agreement.
-                        I understand that my data will be processed according to GDPR regulations.
+                        I have read and agree to the{' '}
+                        <a href="#" style={{ color: 'var(--bk-color-primary)' }}>
+                            privacy policy
+                        </a>
+                        , terms of service, and data processing agreement. I understand that my data
+                        will be processed according to GDPR regulations.
                     </span>
                 </Label>
             </div>
@@ -1573,9 +2206,22 @@ export const CheckboxFormExamples: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '400px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-4)',
+                width: '400px',
+            }}
+        >
             <div>
-                <h3 style={{ fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-3)' }}>
+                <h3
+                    style={{
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-3)',
+                    }}
+                >
                     Notification Preferences
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
@@ -1594,10 +2240,21 @@ export const CheckboxFormExamples: Story = {
                 </div>
             </div>
 
-            <div style={{ height: 'var(--bk-border-width-1)', backgroundColor: 'var(--bk-color-divider)' }} />
+            <div
+                style={{
+                    height: 'var(--bk-border-width-1)',
+                    backgroundColor: 'var(--bk-color-divider)',
+                }}
+            />
 
             <div>
-                <h3 style={{ fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-3)' }}>
+                <h3
+                    style={{
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-3)',
+                    }}
+                >
                     Display Settings
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
@@ -1620,10 +2277,21 @@ export const CheckboxFormExamples: Story = {
                 </div>
             </div>
 
-            <div style={{ height: 'var(--bk-border-width-1)', backgroundColor: 'var(--bk-color-divider)' }} />
+            <div
+                style={{
+                    height: 'var(--bk-border-width-1)',
+                    backgroundColor: 'var(--bk-color-divider)',
+                }}
+            />
 
             <div>
-                <h3 style={{ fontSize: 'var(--bk-font-size-base)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-3)' }}>
+                <h3
+                    style={{
+                        fontSize: 'var(--bk-font-size-base)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-3)',
+                    }}
+                >
                     Privacy Consent
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
@@ -1661,13 +2329,30 @@ export const Showcase: Story = {
         children: undefined,
     },
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', maxWidth: '700px' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-6)',
+                padding: 'var(--bk-spacing-4)',
+                maxWidth: '700px',
+            }}
+        >
             {/* Size Progression */}
             <div>
-                <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)', color: 'var(--bk-color-primary)' }}>
+                <h3
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-bold)',
+                        color: 'var(--bk-color-primary)',
+                    }}
+                >
                     🎨 All Sizes
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}
+                >
                     <Label size="xs">
                         <span className="label">$</span>
                         <Input size="xs" type="number" placeholder="0.00" />
@@ -1698,10 +2383,19 @@ export const Showcase: Story = {
 
             {/* Input Types */}
             <div>
-                <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)', color: 'var(--bk-color-primary)' }}>
+                <h3
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-bold)',
+                        color: 'var(--bk-color-primary)',
+                    }}
+                >
                     🎭 Input Types
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}
+                >
                     <Label size="md">
                         <span className="label">
                             <Icon name="mention" />
@@ -1727,22 +2421,34 @@ export const Showcase: Story = {
 
             {/* Icons & Badges */}
             <div>
-                <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)', color: 'var(--bk-color-primary)' }}>
+                <h3
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-bold)',
+                        color: 'var(--bk-color-primary)',
+                    }}
+                >
                     ⚡ Icons, Badges & More
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}
+                >
                     <Label size="md">
                         <span className="label">
                             <Icon name="search" />
                         </span>
                         <Input size="md" type="text" placeholder="Search" />
-                        <span className="label" style={{
-                            border: '1px solid var(--bk-color-border)',
-                            borderRadius: 'var(--bk-radius-xs)',
-                            fontSize: 'var(--bk-font-size-xs)',
-                            fontWeight: 'var(--bk-font-weight-medium)',
-                            opacity: 0.7
-                        }}>
+                        <span
+                            className="label"
+                            style={{
+                                border: '1px solid var(--bk-color-border)',
+                                borderRadius: 'var(--bk-radius-xs)',
+                                fontSize: 'var(--bk-font-size-xs)',
+                                fontWeight: 'var(--bk-font-weight-medium)',
+                                opacity: 0.7,
+                            }}
+                        >
                             ⌘K
                         </span>
                     </Label>
@@ -1751,21 +2457,34 @@ export const Showcase: Story = {
                             <Icon name="key" />
                         </span>
                         <Input size="md" type="password" placeholder="API Key" />
-                        <Badge size="sm" variant="success">Active</Badge>
+                        <Badge size="sm" variant="success">
+                            Active
+                        </Badge>
                     </Label>
                     <Label size="md">
                         <Input size="md" type="text" placeholder="Premium feature" />
-                        <Badge size="sm" variant="info">Pro</Badge>
+                        <Badge size="sm" variant="info">
+                            Pro
+                        </Badge>
                     </Label>
                 </div>
             </div>
 
             {/* Complex Combinations */}
             <div>
-                <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)', color: 'var(--bk-color-primary)' }}>
+                <h3
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-bold)',
+                        color: 'var(--bk-color-primary)',
+                    }}
+                >
                     🎪 Complex Patterns
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}
+                >
                     <Label size="md">
                         <span className="label">https://</span>
                         <Input size="md" placeholder="example" />
@@ -1795,10 +2514,19 @@ export const Showcase: Story = {
 
             {/* Error States */}
             <div>
-                <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)', color: 'var(--bk-color-primary)' }}>
+                <h3
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-bold)',
+                        color: 'var(--bk-color-primary)',
+                    }}
+                >
                     🚨 Error States
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}
+                >
                     <Label size="md" error="This field is required">
                         <Input size="md" placeholder="Required field" />
                     </Label>
@@ -1818,10 +2546,19 @@ export const Showcase: Story = {
 
             {/* Full Width Examples */}
             <div>
-                <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)', color: 'var(--bk-color-primary)' }}>
+                <h3
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-bold)',
+                        color: 'var(--bk-color-primary)',
+                    }}
+                >
                     📏 Full Width
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}
+                >
                     <Label fullWidth size="md">
                         <span className="label">https://</span>
                         <Input size="md" placeholder="yourawesomeproject.com" fullWidth />
@@ -1831,21 +2568,34 @@ export const Showcase: Story = {
                             <Icon name="search" />
                         </span>
                         <Input size="md" placeholder="Search across all projects..." fullWidth />
-                        <Badge size="sm" variant="warning">Beta</Badge>
+                        <Badge size="sm" variant="warning">
+                            Beta
+                        </Badge>
                     </Label>
                 </div>
             </div>
 
             {/* Creative Combinations */}
             <div>
-                <h3 style={{ marginBottom: 'var(--bk-spacing-3)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-bold)', color: 'var(--bk-color-primary)' }}>
+                <h3
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-bold)',
+                        color: 'var(--bk-color-primary)',
+                    }}
+                >
                     🎨 Creative Use Cases
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}
+                >
                     <Label size="md">
                         <span className="label">+1</span>
                         <Input size="md" type="tel" placeholder="(555) 000-0000" />
-                        <Badge size="sm" variant="success">Verified</Badge>
+                        <Badge size="sm" variant="success">
+                            Verified
+                        </Badge>
                     </Label>
                     <Label size="md">
                         <Input size="md" type="text" placeholder="Product weight" />
@@ -1873,4 +2623,3 @@ export const Showcase: Story = {
         },
     },
 };
-

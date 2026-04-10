@@ -5,44 +5,170 @@ import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
 import { Badge, Button, Heading } from 'baukasten-ui/core';
 import { DataTable, createSelectColumn } from 'baukasten-ui/extra';
-import type { ColumnDef, SortingState, PaginationState, RowSelectionState } from 'baukasten-ui/extra';
+import type {
+    ColumnDef,
+    SortingState,
+    PaginationState,
+    RowSelectionState,
+} from 'baukasten-ui/extra';
 
 const dataTableProps: PropDefinition[] = [
     { name: 'data', type: 'TData[]', required: true, description: 'Data array to display' },
-    { name: 'columns', type: 'ColumnDef<TData>[]', required: true, description: 'Column definitions (TanStack Table format)' },
-    { name: 'variant', type: '"default" | "zebra"', default: '"default"', description: 'Visual variant of the table' },
-    { name: 'size', type: '"xs" | "sm" | "md" | "lg" | "xl"', default: '"md"', description: 'Size of table cells' },
+    {
+        name: 'columns',
+        type: 'ColumnDef<TData>[]',
+        required: true,
+        description: 'Column definitions (TanStack Table format)',
+    },
+    {
+        name: 'variant',
+        type: '"default" | "zebra"',
+        default: '"default"',
+        description: 'Visual variant of the table',
+    },
+    {
+        name: 'size',
+        type: '"xs" | "sm" | "md" | "lg" | "xl"',
+        default: '"md"',
+        description: 'Size of table cells',
+    },
     { name: 'bordered', type: 'boolean', default: 'true', description: 'Whether to show borders' },
-    { name: 'enableRowSelection', type: 'boolean | ((row: Row<TData>) => boolean)', default: 'false', description: 'Enable row selection' },
-    { name: 'enableMultiRowSelection', type: 'boolean', default: 'true', description: 'Enable multi-row selection' },
-    { name: 'rowSelection', type: 'RowSelectionState', description: 'Controlled row selection state' },
-    { name: 'onRowSelectionChange', type: '(selection: RowSelectionState) => void', description: 'Callback when row selection changes' },
+    {
+        name: 'enableRowSelection',
+        type: 'boolean | ((row: Row<TData>) => boolean)',
+        default: 'false',
+        description: 'Enable row selection',
+    },
+    {
+        name: 'enableMultiRowSelection',
+        type: 'boolean',
+        default: 'true',
+        description: 'Enable multi-row selection',
+    },
+    {
+        name: 'rowSelection',
+        type: 'RowSelectionState',
+        description: 'Controlled row selection state',
+    },
+    {
+        name: 'onRowSelectionChange',
+        type: '(selection: RowSelectionState) => void',
+        description: 'Callback when row selection changes',
+    },
     { name: 'enableSorting', type: 'boolean', default: 'false', description: 'Enable sorting' },
-    { name: 'enableMultiSort', type: 'boolean', default: 'false', description: 'Enable multi-column sorting' },
+    {
+        name: 'enableMultiSort',
+        type: 'boolean',
+        default: 'false',
+        description: 'Enable multi-column sorting',
+    },
     { name: 'sorting', type: 'SortingState', description: 'Controlled sorting state' },
-    { name: 'onSortingChange', type: '(sorting: SortingState) => void', description: 'Callback when sorting changes' },
-    { name: 'enablePagination', type: 'boolean', default: 'false', description: 'Enable pagination' },
-    { name: 'pageSizeOptions', type: 'number[]', default: '[10, 20, 50, 100]', description: 'Page size options for pagination' },
+    {
+        name: 'onSortingChange',
+        type: '(sorting: SortingState) => void',
+        description: 'Callback when sorting changes',
+    },
+    {
+        name: 'enablePagination',
+        type: 'boolean',
+        default: 'false',
+        description: 'Enable pagination',
+    },
+    {
+        name: 'pageSizeOptions',
+        type: 'number[]',
+        default: '[10, 20, 50, 100]',
+        description: 'Page size options for pagination',
+    },
     { name: 'initialPageSize', type: 'number', default: '10', description: 'Initial page size' },
     { name: 'pagination', type: 'PaginationState', description: 'Controlled pagination state' },
-    { name: 'onPaginationChange', type: '(pagination: PaginationState) => void', description: 'Callback when pagination changes' },
-    { name: 'rowCount', type: 'number', description: 'Total row count (for server-side pagination)' },
-    { name: 'manualPagination', type: 'boolean', default: 'false', description: 'Enable manual pagination (server-side)' },
-    { name: 'enableColumnResizing', type: 'boolean', default: 'false', description: 'Enable column resizing' },
-    { name: 'columnResizeMode', type: 'ColumnResizeMode', default: '"onChange"', description: 'Column resize mode' },
-    { name: 'enableGlobalFilter', type: 'boolean', default: 'false', description: 'Enable global filtering' },
+    {
+        name: 'onPaginationChange',
+        type: '(pagination: PaginationState) => void',
+        description: 'Callback when pagination changes',
+    },
+    {
+        name: 'rowCount',
+        type: 'number',
+        description: 'Total row count (for server-side pagination)',
+    },
+    {
+        name: 'manualPagination',
+        type: 'boolean',
+        default: 'false',
+        description: 'Enable manual pagination (server-side)',
+    },
+    {
+        name: 'enableColumnResizing',
+        type: 'boolean',
+        default: 'false',
+        description: 'Enable column resizing',
+    },
+    {
+        name: 'columnResizeMode',
+        type: 'ColumnResizeMode',
+        default: '"onChange"',
+        description: 'Column resize mode',
+    },
+    {
+        name: 'enableGlobalFilter',
+        type: 'boolean',
+        default: 'false',
+        description: 'Enable global filtering',
+    },
     { name: 'globalFilter', type: 'string', description: 'Global filter value' },
-    { name: 'onGlobalFilterChange', type: '(value: string) => void', description: 'Callback when global filter changes' },
-    { name: 'globalFilterPlaceholder', type: 'string', default: '"Search..."', description: 'Placeholder for global filter input' },
-    { name: 'stickyHeader', type: 'boolean', default: 'false', description: 'Whether the table has sticky headers' },
+    {
+        name: 'onGlobalFilterChange',
+        type: '(value: string) => void',
+        description: 'Callback when global filter changes',
+    },
+    {
+        name: 'globalFilterPlaceholder',
+        type: 'string',
+        default: '"Search..."',
+        description: 'Placeholder for global filter input',
+    },
+    {
+        name: 'stickyHeader',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether the table has sticky headers',
+    },
     { name: 'maxHeight', type: 'number | string', description: 'Max height for scrollable table' },
-    { name: 'loading', type: 'boolean', default: 'false', description: 'Whether the table is loading' },
-    { name: 'loadingIndicator', type: '"line" | "spinner"', default: '"line"', description: 'Loading indicator style' },
+    {
+        name: 'loading',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether the table is loading',
+    },
+    {
+        name: 'loadingIndicator',
+        type: '"line" | "spinner"',
+        default: '"line"',
+        description: 'Loading indicator style',
+    },
     { name: 'loadingComponent', type: 'React.ReactNode', description: 'Custom loading component' },
-    { name: 'emptyText', type: 'string', default: '"No data available"', description: 'Empty state text' },
-    { name: 'emptyComponent', type: 'React.ReactNode', description: 'Custom empty state component' },
-    { name: 'getRowId', type: '(row: TData, index: number) => string', description: 'Row ID accessor (for selection state)' },
-    { name: 'onRowClick', type: '(row: Row<TData>) => void', description: 'Callback when a row is clicked' },
+    {
+        name: 'emptyText',
+        type: 'string',
+        default: '"No data available"',
+        description: 'Empty state text',
+    },
+    {
+        name: 'emptyComponent',
+        type: 'React.ReactNode',
+        description: 'Custom empty state component',
+    },
+    {
+        name: 'getRowId',
+        type: '(row: TData, index: number) => string',
+        description: 'Row ID accessor (for selection state)',
+    },
+    {
+        name: 'onRowClick',
+        type: '(row: Row<TData>) => void',
+        description: 'Callback when a row is clicked',
+    },
 ];
 
 // Sample data
@@ -77,7 +203,8 @@ const basicColumns: ColumnDef<User, unknown>[] = [
         header: 'Status',
         cell: ({ getValue }) => {
             const status = getValue() as string;
-            const variant = status === 'active' ? 'success' : status === 'pending' ? 'warning' : 'default';
+            const variant =
+                status === 'active' ? 'success' : status === 'pending' ? 'warning' : 'default';
             return <Badge variant={variant}>{status}</Badge>;
         },
     },
@@ -90,8 +217,15 @@ const customColumns: ColumnDef<User, unknown>[] = [
         header: 'User',
         cell: ({ row }) => (
             <div>
-                <div style={{ fontWeight: 'var(--bk-font-weight-medium)' }}>{row.original.name}</div>
-                <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
+                <div style={{ fontWeight: 'var(--bk-font-weight-medium)' }}>
+                    {row.original.name}
+                </div>
+                <div
+                    style={{
+                        fontSize: 'var(--bk-font-size-xs)',
+                        color: 'var(--vscode-descriptionForeground)',
+                    }}
+                >
                     {row.original.email}
                 </div>
             </div>
@@ -104,7 +238,8 @@ const customColumns: ColumnDef<User, unknown>[] = [
         meta: { align: 'center' as const },
         cell: ({ getValue }) => {
             const status = getValue() as string;
-            const variant = status === 'active' ? 'success' : status === 'pending' ? 'warning' : 'default';
+            const variant =
+                status === 'active' ? 'success' : status === 'pending' ? 'warning' : 'default';
             return <Badge variant={variant}>{status}</Badge>;
         },
     },
@@ -113,8 +248,12 @@ const customColumns: ColumnDef<User, unknown>[] = [
         header: 'Actions',
         meta: { align: 'right' as const },
         cell: () => (
-            <div style={{ display: 'flex', gap: 'var(--bk-spacing-1)', justifyContent: 'flex-end' }}>
-                <Button size="sm" variant="ghost">Edit</Button>
+            <div
+                style={{ display: 'flex', gap: 'var(--bk-spacing-1)', justifyContent: 'flex-end' }}
+            >
+                <Button size="sm" variant="ghost">
+                    Edit
+                </Button>
             </div>
         ),
         enableSorting: false,
@@ -127,8 +266,16 @@ function ControlledSortingExample() {
 
     return (
         <div>
-            <div style={{ marginBottom: 'var(--bk-spacing-3)', padding: 'var(--bk-spacing-2)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
-                <strong>Current Sort:</strong> {sorting.length > 0
+            <div
+                style={{
+                    marginBottom: 'var(--bk-spacing-3)',
+                    padding: 'var(--bk-spacing-2)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
+                <strong>Current Sort:</strong>{' '}
+                {sorting.length > 0
                     ? `${sorting[0].id} (${sorting[0].desc ? 'desc' : 'asc'})`
                     : 'None'}
             </div>
@@ -147,16 +294,20 @@ function ControlledSortingExample() {
 function RowSelectionExample() {
     const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
-    const columns = useMemo(() => [
-        createSelectColumn<User>(),
-        ...basicColumns,
-    ], []);
+    const columns = useMemo(() => [createSelectColumn<User>(), ...basicColumns], []);
 
     const selectedCount = Object.keys(rowSelection).length;
 
     return (
         <div>
-            <div style={{ marginBottom: 'var(--bk-spacing-3)', padding: 'var(--bk-spacing-2)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginBottom: 'var(--bk-spacing-3)',
+                    padding: 'var(--bk-spacing-2)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <strong>Selected:</strong> {selectedCount} row(s)
                 {selectedCount > 0 && (
                     <Button
@@ -190,12 +341,7 @@ export default function DataTablePage() {
             <Showcase
                 title="Basic Usage"
                 description="Define columns using TanStack Table's column definition format, then pass your data and columns to the DataTable component."
-                preview={
-                    <DataTable
-                        data={sampleData.slice(0, 10)}
-                        columns={basicColumns}
-                    />
-                }
+                preview={<DataTable data={sampleData.slice(0, 10)} columns={basicColumns} />}
                 code={`import { DataTable } from 'baukasten-ui/extra';
 import type { ColumnDef } from 'baukasten-ui/extra';
 
@@ -460,9 +606,21 @@ function App() {
                 title="Loading States"
                 description="Show loading indicator while data is being fetched. Choose between line indicator (default) or spinner overlay."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Line Indicator (Default)
                             </div>
                             <DataTable
@@ -474,7 +632,13 @@ function App() {
                             />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Spinner Overlay
                             </div>
                             <DataTable
@@ -508,9 +672,21 @@ function App() {
                 title="Empty State"
                 description="Customize the empty state message or component when no data is available."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Custom Empty Text
                             </div>
                             <DataTable
@@ -520,19 +696,48 @@ function App() {
                             />
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Custom Empty Component
                             </div>
                             <DataTable
                                 data={[]}
                                 columns={basicColumns}
                                 emptyComponent={
-                                    <div style={{ textAlign: 'center', padding: 'var(--bk-spacing-6)' }}>
-                                        <div style={{ fontSize: 'var(--bk-font-size-3xl)', marginBottom: 'var(--bk-spacing-2)' }}>📭</div>
-                                        <div style={{ fontWeight: 'var(--bk-font-weight-medium)', marginBottom: 'var(--bk-spacing-1)' }}>
+                                    <div
+                                        style={{
+                                            textAlign: 'center',
+                                            padding: 'var(--bk-spacing-6)',
+                                        }}
+                                    >
+                                        <div
+                                            style={{
+                                                fontSize: 'var(--bk-font-size-3xl)',
+                                                marginBottom: 'var(--bk-spacing-2)',
+                                            }}
+                                        >
+                                            📭
+                                        </div>
+                                        <div
+                                            style={{
+                                                fontWeight: 'var(--bk-font-weight-medium)',
+                                                marginBottom: 'var(--bk-spacing-1)',
+                                            }}
+                                        >
                                             No Data Found
                                         </div>
-                                        <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)', marginBottom: 'var(--bk-spacing-3)' }}>
+                                        <div
+                                            style={{
+                                                fontSize: 'var(--bk-font-size-sm)',
+                                                color: 'var(--vscode-descriptionForeground)',
+                                                marginBottom: 'var(--bk-spacing-3)',
+                                            }}
+                                        >
                                             Add some users to get started
                                         </div>
                                         <Button size="sm">Add User</Button>
@@ -572,11 +777,24 @@ function App() {
                 title="Sizes"
                 description="Five size options available: xs, sm, md (default), lg, and xl. Size affects padding and font size of cells."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
-                        {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map(size => (
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
+                        {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
                             <div key={size}>
-                                <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
-                                    {size.toUpperCase()}{size === 'md' ? ' (default)' : ''}
+                                <div
+                                    style={{
+                                        marginBottom: 'var(--bk-spacing-2)',
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        fontWeight: 'var(--bk-font-weight-medium)',
+                                    }}
+                                >
+                                    {size.toUpperCase()}
+                                    {size === 'md' ? ' (default)' : ''}
                                 </div>
                                 <DataTable
                                     data={sampleData.slice(0, 3)}
@@ -595,33 +813,66 @@ function App() {
 <DataTable size="xl" data={users} columns={columns} />`}
             />
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     TanStack Table Integration
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Column definitions:</strong> Use TanStack Table's <code>ColumnDef</code> type for full type safety
+                        <strong>Column definitions:</strong> Use TanStack Table's{' '}
+                        <code>ColumnDef</code> type for full type safety
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Flexible rendering:</strong> Use <code>cell</code> property to render any React component in cells
+                        <strong>Flexible rendering:</strong> Use <code>cell</code> property to
+                        render any React component in cells
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Meta information:</strong> Use <code>meta.align</code> to set column alignment
+                        <strong>Meta information:</strong> Use <code>meta.align</code> to set column
+                        alignment
                     </li>
                     <li>
-                        <strong>Helper functions:</strong> Use <code>createSelectColumn()</code> to easily add checkbox column
+                        <strong>Helper functions:</strong> Use <code>createSelectColumn()</code> to
+                        easily add checkbox column
                     </li>
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Uses semantic <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> elements
+                        Uses semantic <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>,{' '}
+                        <code>&lt;tbody&gt;</code> elements
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Sortable columns are keyboard accessible with proper ARIA attributes
@@ -630,39 +881,62 @@ function App() {
                         Checkboxes have appropriate <code>aria-label</code> attributes
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Pagination buttons have <code>aria-label</code> attributes for screen readers
+                        Pagination buttons have <code>aria-label</code> attributes for screen
+                        readers
                     </li>
                     <li>
-                        Use <code>aria-label</code> prop to provide accessible label for the entire table
+                        Use <code>aria-label</code> prop to provide accessible label for the entire
+                        table
                     </li>
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Simple vs DataTable:</strong> Use basic Table component for simple static data, DataTable for complex features
+                        <strong>Simple vs DataTable:</strong> Use basic Table component for simple
+                        static data, DataTable for complex features
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Pagination:</strong> Always enable pagination for datasets with more than 20 rows
+                        <strong>Pagination:</strong> Always enable pagination for datasets with more
+                        than 20 rows
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Row ID:</strong> Provide <code>getRowId</code> when using row selection to ensure stable row identity
+                        <strong>Row ID:</strong> Provide <code>getRowId</code> when using row
+                        selection to ensure stable row identity
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Server-side:</strong> Use <code>manualPagination</code> with <code>rowCount</code> for server-side pagination
+                        <strong>Server-side:</strong> Use <code>manualPagination</code> with{' '}
+                        <code>rowCount</code> for server-side pagination
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Column sizing:</strong> Set initial <code>size</code> in column definitions when using column resizing
+                        <strong>Column sizing:</strong> Set initial <code>size</code> in column
+                        definitions when using column resizing
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Loading states:</strong> Use line indicator for quick loads, spinner overlay for longer operations
+                        <strong>Loading states:</strong> Use line indicator for quick loads, spinner
+                        overlay for longer operations
                     </li>
                     <li>
-                        <strong>Sticky headers:</strong> Combine with <code>maxHeight</code> for tables with many rows
+                        <strong>Sticky headers:</strong> Combine with <code>maxHeight</code> for
+                        tables with many rows
                     </li>
                 </ul>
             </div>

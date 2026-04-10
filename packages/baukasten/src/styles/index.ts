@@ -15,29 +15,29 @@
  *    - `baukasten-ui/dist/baukasten-vscode.css` - For VS Code extensions
  *    - `baukasten-ui/dist/baukasten-theia.css` - For Eclipse Theia applications
  *    - `baukasten-ui/dist/baukasten-web.css` - For standalone web applications
- * 
+ *
  * Both approaches use the same token definitions.
  */
 
 // Core types
-export * from "./types";
+export * from './types';
 
 // Design tokens
-export * from "./colors";
-export * from "./spacing";
-export * from "./typography";
-export * from "./effects";
+export * from './colors';
+export * from './spacing';
+export * from './typography';
+export * from './effects';
 
 // Combined CSS variables (for programmatic use)
 export {
     cssVariables,
     cssVariablesWithGlobalStyles,
     globalStylesContent,
-    default as defaultCssVariables
-} from "./css-variables";
+    default as defaultCssVariables,
+} from './css-variables';
 
 // Global styles React component
-export { GlobalStyles, default as defaultGlobalStyles } from "./global-styles";
+export { GlobalStyles, default as defaultGlobalStyles } from './global-styles';
 
 // Global styles content (for direct use without React)
-export { globalStylesContent as globalStyles } from "./global-styles-content";
+export { globalStylesContent as globalStyles } from './global-styles-content';

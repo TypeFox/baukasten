@@ -10,16 +10,16 @@ export type FormHelperVariant = 'default' | 'error' | 'warning' | 'success' | 'i
  * FormHelper component props
  */
 export interface FormHelperProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Helper text content
-   */
-  children: React.ReactNode;
+    /**
+     * Helper text content
+     */
+    children: React.ReactNode;
 
-  /**
-   * Visual variant of the helper text
-   * @default 'default'
-   */
-  variant?: FormHelperVariant;
+    /**
+     * Visual variant of the helper text
+     * @default 'default'
+     */
+    variant?: FormHelperVariant;
 }
 
 /**
@@ -77,13 +77,13 @@ export interface FormHelperProps extends React.HTMLAttributes<HTMLDivElement> {
  * ```
  */
 export const FormHelper: React.FC<FormHelperProps> = ({
-  children,
-  variant = 'default',
-  ...htmlProps
+    children,
+    variant = 'default',
+    ...htmlProps
 }) => {
-  return (
-    <div className={formHelper({ variant })} {...htmlProps}>
-      {children}
-    </div>
-  );
+    return (
+        <div className={formHelper({ variant })} {...htmlProps}>
+            {children}
+        </div>
+    );
 };

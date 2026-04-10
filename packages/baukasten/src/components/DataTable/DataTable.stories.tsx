@@ -1,7 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState, useMemo, useEffect } from 'react';
 import { DataTable } from './DataTable';
-import { createSelectColumn, type ColumnDef, type SortingState, type PaginationState, type RowSelectionState } from './DataTable.utils';
+import {
+    createSelectColumn,
+    type ColumnDef,
+    type SortingState,
+    type PaginationState,
+    type RowSelectionState,
+} from './DataTable.utils';
 import { Badge } from '../Badge';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
@@ -54,7 +60,8 @@ const basicColumns: ColumnDef<User, unknown>[] = [
         header: 'Status',
         cell: ({ getValue }) => {
             const status = getValue() as string;
-            const variant = status === 'active' ? 'success' : status === 'pending' ? 'warning' : 'default';
+            const variant =
+                status === 'active' ? 'success' : status === 'pending' ? 'warning' : 'default';
             return <Badge variant={variant}>{status}</Badge>;
         },
     },
@@ -144,7 +151,8 @@ For simple static tables, consider using the basic \`Table\` component instead.
         loadingIndicator: {
             control: 'radio',
             options: ['line', 'spinner'],
-            description: 'Loading indicator style: "line" shows an animated bar under the header, "spinner" shows a centered overlay',
+            description:
+                'Loading indicator style: "line" shows an animated bar under the header, "spinner" shows a centered overlay',
         },
     },
 };
@@ -227,8 +235,16 @@ const ControlledSortingExample = () => {
 
     return (
         <div>
-            <div style={{ marginBottom: 'var(--bk-spacing-3)', padding: 'var(--bk-spacing-2)', backgroundColor: 'var(--bk-color-background-secondary)', borderRadius: 'var(--bk-radius-md)' }}>
-                <strong>Current Sort:</strong> {sorting.length > 0
+            <div
+                style={{
+                    marginBottom: 'var(--bk-spacing-3)',
+                    padding: 'var(--bk-spacing-2)',
+                    backgroundColor: 'var(--bk-color-background-secondary)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
+                <strong>Current Sort:</strong>{' '}
+                {sorting.length > 0
                     ? `${sorting[0].id} (${sorting[0].desc ? 'desc' : 'asc'})`
                     : 'None'}
             </div>
@@ -260,16 +276,20 @@ export const ControlledSorting: Story = {
 const RowSelectionExample = () => {
     const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
-    const columns = useMemo(() => [
-        createSelectColumn<User>(),
-        ...basicColumns,
-    ], []);
+    const columns = useMemo(() => [createSelectColumn<User>(), ...basicColumns], []);
 
     const selectedCount = Object.keys(rowSelection).length;
 
     return (
         <div>
-            <div style={{ marginBottom: 'var(--bk-spacing-3)', padding: 'var(--bk-spacing-2)', backgroundColor: 'var(--bk-color-background-secondary)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginBottom: 'var(--bk-spacing-3)',
+                    padding: 'var(--bk-spacing-2)',
+                    backgroundColor: 'var(--bk-color-background-secondary)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <strong>Selected:</strong> {selectedCount} row(s)
                 {selectedCount > 0 && (
                     <Button
@@ -371,7 +391,7 @@ const CustomGlobalFilterExample = () => {
             enablePagination
             initialPageSize={10}
             renderGlobalFilter={({ value, onChange }) => (
-                <Label size='md' style={{ width: 'fit-content' }}>
+                <Label size="md" style={{ width: 'fit-content' }}>
                     <Icon name="search" />
                     <Input
                         value={value}
@@ -379,15 +399,13 @@ const CustomGlobalFilterExample = () => {
                         placeholder="Custom search"
                         fullWidth
                     />
-                    {
-                        value && (
-                            <Button variant="ghost" onClick={() => onChange('')}>
-                                <Icon name="x" />
-                                Clear
-                            </Button>
-                        )
-                    }
-                </Label >
+                    {value && (
+                        <Button variant="ghost" onClick={() => onChange('')}>
+                            <Icon name="x" />
+                            Clear
+                        </Button>
+                    )}
+                </Label>
             )}
         />
     );
@@ -477,12 +495,14 @@ export const StickyHeader: Story = {
  */
 const FillHeightExample = () => {
     return (
-        <div style={{
-            height: '400px',
-            border: '2px dashed var(--bk-color-border)',
-            borderRadius: 'var(--bk-radius-md)',
-            padding: 'var(--bk-spacing-2)',
-        }}>
+        <div
+            style={{
+                height: '400px',
+                border: '2px dashed var(--bk-color-border)',
+                borderRadius: 'var(--bk-radius-md)',
+                padding: 'var(--bk-spacing-2)',
+            }}
+        >
             <DataTable
                 data={sampleData.slice(0, 30)}
                 columns={basicColumns}
@@ -575,11 +595,29 @@ export const CustomEmptyState: Story = {
         columns: basicColumns,
         emptyComponent: (
             <div style={{ textAlign: 'center', padding: 'var(--bk-spacing-6)' }}>
-                <div style={{ fontSize: 'var(--bk-font-size-3xl)', marginBottom: 'var(--bk-spacing-2)' }}>📭</div>
-                <div style={{ fontWeight: 'var(--bk-font-weight-medium)', marginBottom: 'var(--bk-spacing-1)' }}>
+                <div
+                    style={{
+                        fontSize: 'var(--bk-font-size-3xl)',
+                        marginBottom: 'var(--bk-spacing-2)',
+                    }}
+                >
+                    📭
+                </div>
+                <div
+                    style={{
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                        marginBottom: 'var(--bk-spacing-1)',
+                    }}
+                >
                     No Data Found
                 </div>
-                <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-secondary-foreground)', marginBottom: 'var(--bk-spacing-3)' }}>
+                <div
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        color: 'var(--bk-color-secondary-foreground)',
+                        marginBottom: 'var(--bk-spacing-3)',
+                    }}
+                >
                     Add some users to get started
                 </div>
                 <Button size="sm">Add User</Button>
@@ -597,7 +635,14 @@ const RowClickExample = () => {
     return (
         <div>
             {clickedRow && (
-                <div style={{ marginBottom: 'var(--bk-spacing-3)', padding: 'var(--bk-spacing-2)', backgroundColor: 'var(--bk-color-background-secondary)', borderRadius: 'var(--bk-radius-md)' }}>
+                <div
+                    style={{
+                        marginBottom: 'var(--bk-spacing-3)',
+                        padding: 'var(--bk-spacing-2)',
+                        backgroundColor: 'var(--bk-color-background-secondary)',
+                        borderRadius: 'var(--bk-radius-md)',
+                    }}
+                >
                     <strong>Clicked:</strong> {clickedRow.name} ({clickedRow.email})
                 </div>
             )}
@@ -631,8 +676,15 @@ const customColumns: ColumnDef<User, unknown>[] = [
         header: 'User',
         cell: ({ row }) => (
             <div>
-                <div style={{ fontWeight: 'var(--bk-font-weight-medium)' }}>{row.original.name}</div>
-                <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-secondary-foreground)' }}>
+                <div style={{ fontWeight: 'var(--bk-font-weight-medium)' }}>
+                    {row.original.name}
+                </div>
+                <div
+                    style={{
+                        fontSize: 'var(--bk-font-size-xs)',
+                        color: 'var(--bk-color-secondary-foreground)',
+                    }}
+                >
                     {row.original.email}
                 </div>
             </div>
@@ -657,7 +709,8 @@ const customColumns: ColumnDef<User, unknown>[] = [
         meta: { align: 'center' },
         cell: ({ getValue }) => {
             const status = getValue() as string;
-            const variant = status === 'active' ? 'success' : status === 'pending' ? 'warning' : 'default';
+            const variant =
+                status === 'active' ? 'success' : status === 'pending' ? 'warning' : 'default';
             return <Badge variant={variant}>{status}</Badge>;
         },
     },
@@ -666,9 +719,15 @@ const customColumns: ColumnDef<User, unknown>[] = [
         header: 'Actions',
         meta: { align: 'right' },
         cell: () => (
-            <div style={{ display: 'flex', gap: 'var(--bk-spacing-1)', justifyContent: 'flex-end' }}>
-                <Button size="sm" variant="ghost">Edit</Button>
-                <Button size="sm" variant="ghost">Delete</Button>
+            <div
+                style={{ display: 'flex', gap: 'var(--bk-spacing-1)', justifyContent: 'flex-end' }}
+            >
+                <Button size="sm" variant="ghost">
+                    Edit
+                </Button>
+                <Button size="sm" variant="ghost">
+                    Delete
+                </Button>
             </div>
         ),
         enableSorting: false,
@@ -793,10 +852,7 @@ const AllFeaturesExample = () => {
     const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
     const [globalFilter, setGlobalFilter] = useState('');
 
-    const columns = useMemo(() => [
-        createSelectColumn<User>(),
-        ...customColumns,
-    ], []);
+    const columns = useMemo(() => [createSelectColumn<User>(), ...customColumns], []);
 
     return (
         <DataTable
@@ -846,7 +902,13 @@ export const Sizes: Story = {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
             {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
                 <div key={size}>
-                    <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                    <h4
+                        style={{
+                            marginBottom: 'var(--bk-spacing-2)',
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                        }}
+                    >
                         Size: {size.toUpperCase()}
                     </h4>
                     <DataTable
@@ -915,7 +977,12 @@ const headerGroupColumns: ColumnDef<User, unknown>[] = [
                 header: 'Active',
                 cell: ({ getValue }) => {
                     const status = getValue() as string;
-                    const variant = status === 'active' ? 'success' : status === 'pending' ? 'warning' : 'default';
+                    const variant =
+                        status === 'active'
+                            ? 'success'
+                            : status === 'pending'
+                              ? 'warning'
+                              : 'default';
                     return <Badge variant={variant}>{status}</Badge>;
                 },
             },
@@ -1058,4 +1125,3 @@ export const Interactive: Story = {
         },
     },
 };
-

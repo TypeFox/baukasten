@@ -7,11 +7,11 @@ import { style, globalStyle } from '@vanilla-extract/css';
  * Uses adjacent sibling selector to add borders between items.
  */
 export const accordion = style({
-  display: 'flex',
-  flexDirection: 'column',
-  border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
-  borderRadius: 'var(--bk-radius-md)',
-  overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+    border: 'var(--bk-border-width-1) solid var(--bk-color-border)',
+    borderRadius: 'var(--bk-radius-md)',
+    overflow: 'hidden',
 });
 
 /**
@@ -19,5 +19,5 @@ export const accordion = style({
  * Uses globalStyle since we're targeting child elements
  */
 globalStyle(`${accordion} > * + *`, {
-  borderTop: 'var(--bk-border-width-1) solid var(--bk-color-border)',
+    borderTop: 'var(--bk-border-width-1) solid var(--bk-color-border)',
 });

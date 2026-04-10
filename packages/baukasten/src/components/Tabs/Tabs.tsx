@@ -28,218 +28,228 @@ export type TabsIndicatorPosition = 'start' | 'end';
  * Tabs component props
  */
 export interface TabsProps {
-  /**
-   * Currently active tab value (controlled mode)
-   */
-  value?: string;
+    /**
+     * Currently active tab value (controlled mode)
+     */
+    value?: string;
 
-  /**
-   * Default active tab value (uncontrolled mode)
-   * @default first tab's value
-   */
-  defaultValue?: string;
+    /**
+     * Default active tab value (uncontrolled mode)
+     * @default first tab's value
+     */
+    defaultValue?: string;
 
-  /**
-   * Callback when active tab changes
-   */
-  onChange?: (value: string) => void;
+    /**
+     * Callback when active tab changes
+     */
+    onChange?: (value: string) => void;
 
-  /**
-   * Orientation of the tabs
-   * @default 'horizontal'
-   */
-  orientation?: TabsOrientation;
+    /**
+     * Orientation of the tabs
+     * @default 'horizontal'
+     */
+    orientation?: TabsOrientation;
 
-  /**
-   * Visual variant of the tabs
-   * @default 'line'
-   */
-  variant?: TabsVariant;
+    /**
+     * Visual variant of the tabs
+     * @default 'line'
+     */
+    variant?: TabsVariant;
 
-  /**
-   * Position of the active indicator
-   * @default 'end'
-   */
-  indicatorPosition?: TabsIndicatorPosition;
+    /**
+     * Position of the active indicator
+     * @default 'end'
+     */
+    indicatorPosition?: TabsIndicatorPosition;
 
-  /**
-   * Size of the tabs
-   * @default 'md'
-   */
-  size?: Size;
+    /**
+     * Size of the tabs
+     * @default 'md'
+     */
+    size?: Size;
 
-  /**
-   * Children (TabList and TabPanels)
-   */
-  children: React.ReactNode;
+    /**
+     * Children (TabList and TabPanels)
+     */
+    children: React.ReactNode;
 
-  /**
-   * Additional CSS class
-   */
-  className?: string;
+    /**
+     * Additional CSS class
+     */
+    className?: string;
 
-  /**
-   * Inline styles
-   */
-  style?: React.CSSProperties;
+    /**
+     * Inline styles
+     */
+    style?: React.CSSProperties;
 }
 
 /**
  * Tab component props
  */
 export interface TabProps {
-  /**
-   * Unique value identifying this tab
-   */
-  value: string;
+    /**
+     * Unique value identifying this tab
+     */
+    value: string;
 
-  /**
-   * Tab label content
-   */
-  children: React.ReactNode;
+    /**
+     * Tab label content
+     */
+    children: React.ReactNode;
 
-  /**
-   * Optional icon name (VSCode Codicon)
-   */
-  icon?: CodiconName;
+    /**
+     * Optional icon name (VSCode Codicon)
+     */
+    icon?: CodiconName;
 
-  /**
-   * Whether the tab can be closed
-   * @default false
-   */
-  closable?: boolean;
+    /**
+     * Whether the tab can be closed
+     * @default false
+     */
+    closable?: boolean;
 
-  /**
-   * Callback when close button is clicked
-   */
-  onClose?: (value: string) => void;
+    /**
+     * Callback when close button is clicked
+     */
+    onClose?: (value: string) => void;
 
-  /**
-   * Whether the tab is disabled
-   * @default false
-   */
-  disabled?: boolean;
+    /**
+     * Whether the tab is disabled
+     * @default false
+     */
+    disabled?: boolean;
 
-  /**
-   * Additional CSS class
-   */
-  className?: string;
+    /**
+     * Additional CSS class
+     */
+    className?: string;
 }
 
 /**
  * TabList component props
  */
 export interface TabListProps {
-  /**
-   * Tab components
-   */
-  children: React.ReactNode;
+    /**
+     * Tab components
+     */
+    children: React.ReactNode;
 
-  /**
-   * Additional CSS class
-   */
-  className?: string;
+    /**
+     * Additional CSS class
+     */
+    className?: string;
 
-  /**
-   * Inline styles
-   */
-  style?: React.CSSProperties;
+    /**
+     * Inline styles
+     */
+    style?: React.CSSProperties;
 }
 
 /**
  * TabPanel component props
  */
 export interface TabPanelProps {
-  /**
-   * Value matching the Tab that controls this panel
-   */
-  value: string;
+    /**
+     * Value matching the Tab that controls this panel
+     */
+    value: string;
 
-  /**
-   * Panel content
-   */
-  children: React.ReactNode;
+    /**
+     * Panel content
+     */
+    children: React.ReactNode;
 
-  /**
-   * Additional CSS class
-   */
-  className?: string;
+    /**
+     * Additional CSS class
+     */
+    className?: string;
 
-  /**
-   * Inline styles
-   */
-  style?: React.CSSProperties;
+    /**
+     * Inline styles
+     */
+    style?: React.CSSProperties;
 }
 
 /**
  * TabPanels component props
  */
 export interface TabPanelsProps {
-  /**
-   * TabPanel components
-   */
-  children: React.ReactNode;
+    /**
+     * TabPanel components
+     */
+    children: React.ReactNode;
 
-  /**
-   * Additional CSS class
-   */
-  className?: string;
+    /**
+     * Additional CSS class
+     */
+    className?: string;
 
-  /**
-   * Inline styles
-   */
-  style?: React.CSSProperties;
+    /**
+     * Inline styles
+     */
+    style?: React.CSSProperties;
 }
 
 /**
  * Context for managing tabs state
  */
 interface TabsContextValue {
-  activeValue: string;
-  setActiveValue: (value: string) => void;
-  orientation: TabsOrientation;
-  variant: TabsVariant;
-  indicatorPosition: TabsIndicatorPosition;
-  size: Size;
-  onClose?: (value: string) => void;
+    activeValue: string;
+    setActiveValue: (value: string) => void;
+    orientation: TabsOrientation;
+    variant: TabsVariant;
+    indicatorPosition: TabsIndicatorPosition;
+    size: Size;
+    onClose?: (value: string) => void;
 }
 
 const TabsContext = createContext<TabsContextValue | null>(null);
 
 const useTabsContext = () => {
-  const context = useContext(TabsContext);
-  if (!context) {
-    throw new Error('Tab components must be used within a Tabs component');
-  }
-  return context;
+    const context = useContext(TabsContext);
+    if (!context) {
+        throw new Error('Tab components must be used within a Tabs component');
+    }
+    return context;
 };
 
 /**
  * Helper function to get indicator position class
  */
 const getLineIndicatorClass = (orientation: TabsOrientation, position: TabsIndicatorPosition) => {
-  const key = `${orientation}-${position}`;
-  switch (key) {
-    case 'horizontal-end': return styles.lineIndicatorHorizontalEnd;
-    case 'horizontal-start': return styles.lineIndicatorHorizontalStart;
-    case 'vertical-end': return styles.lineIndicatorVerticalEnd;
-    case 'vertical-start': return styles.lineIndicatorVerticalStart;
-    default: return '';
-  }
+    const key = `${orientation}-${position}`;
+    switch (key) {
+        case 'horizontal-end':
+            return styles.lineIndicatorHorizontalEnd;
+        case 'horizontal-start':
+            return styles.lineIndicatorHorizontalStart;
+        case 'vertical-end':
+            return styles.lineIndicatorVerticalEnd;
+        case 'vertical-start':
+            return styles.lineIndicatorVerticalStart;
+        default:
+            return '';
+    }
 };
 
 /**
  * Helper function to get lifted border radius class
  */
 const getLiftedClass = (orientation: TabsOrientation, position: TabsIndicatorPosition) => {
-  const key = `${orientation}-${position}`;
-  switch (key) {
-    case 'horizontal-end': return styles.liftedHorizontalEnd;
-    case 'horizontal-start': return styles.liftedHorizontalStart;
-    case 'vertical-end': return styles.liftedVerticalEnd;
-    case 'vertical-start': return styles.liftedVerticalStart;
-    default: return '';
-  }
+    const key = `${orientation}-${position}`;
+    switch (key) {
+        case 'horizontal-end':
+            return styles.liftedHorizontalEnd;
+        case 'horizontal-start':
+            return styles.liftedHorizontalStart;
+        case 'vertical-end':
+            return styles.liftedVerticalEnd;
+        case 'vertical-start':
+            return styles.liftedVerticalStart;
+        default:
+            return '';
+    }
 };
 
 /**
@@ -318,157 +328,163 @@ const getLiftedClass = (orientation: TabsOrientation, position: TabsIndicatorPos
  * ```
  */
 export const Tabs: React.FC<TabsProps> = ({
-  value: controlledValue,
-  defaultValue,
-  onChange,
-  orientation = 'horizontal',
-  variant = 'line',
-  indicatorPosition = 'end',
-  size = 'md',
-  children,
-  className,
-  style,
+    value: controlledValue,
+    defaultValue,
+    onChange,
+    orientation = 'horizontal',
+    variant = 'line',
+    indicatorPosition = 'end',
+    size = 'md',
+    children,
+    className,
+    style,
 }) => {
-  const [uncontrolledValue, setUncontrolledValue] = useState<string>(defaultValue || '');
+    const [uncontrolledValue, setUncontrolledValue] = useState<string>(defaultValue || '');
 
-  const isControlled = controlledValue !== undefined;
-  const activeValue = isControlled ? controlledValue : uncontrolledValue;
+    const isControlled = controlledValue !== undefined;
+    const activeValue = isControlled ? controlledValue : uncontrolledValue;
 
-  const setActiveValue = useCallback((newValue: string) => {
-    if (!isControlled) {
-      setUncontrolledValue(newValue);
-    }
-    onChange?.(newValue);
-  }, [isControlled, onChange]);
+    const setActiveValue = useCallback(
+        (newValue: string) => {
+            if (!isControlled) {
+                setUncontrolledValue(newValue);
+            }
+            onChange?.(newValue);
+        },
+        [isControlled, onChange],
+    );
 
-  return (
-    <TabsContext.Provider value={{ activeValue, setActiveValue, orientation, variant, indicatorPosition, size }}>
-      <div className={clsx(styles.tabs({ orientation }), className)} style={style}>
-        {children}
-      </div>
-    </TabsContext.Provider>
-  );
+    return (
+        <TabsContext.Provider
+            value={{ activeValue, setActiveValue, orientation, variant, indicatorPosition, size }}
+        >
+            <div className={clsx(styles.tabs({ orientation }), className)} style={style}>
+                {children}
+            </div>
+        </TabsContext.Provider>
+    );
 };
 
 /**
  * TabList component - Container for Tab buttons
  */
 export const TabList: React.FC<TabListProps> = ({ children, className, style }) => {
-  const { orientation } = useTabsContext();
+    const { orientation } = useTabsContext();
 
-  return (
-    <div
-      role="tablist"
-      aria-orientation={orientation}
-      className={clsx(styles.tabList({ orientation }), className)}
-      style={style}
-    >
-      {children}
-    </div>
-  );
+    return (
+        <div
+            role="tablist"
+            aria-orientation={orientation}
+            className={clsx(styles.tabList({ orientation }), className)}
+            style={style}
+        >
+            {children}
+        </div>
+    );
 };
 
 /**
  * Tab component - Individual tab button
  */
 export const Tab: React.FC<TabProps> = ({
-  value,
-  children,
-  icon,
-  closable = false,
-  onClose,
-  disabled = false,
-  className,
+    value,
+    children,
+    icon,
+    closable = false,
+    onClose,
+    disabled = false,
+    className,
 }) => {
-  const { activeValue, setActiveValue, orientation, variant, indicatorPosition, size } = useTabsContext();
-  const isActive = activeValue === value;
+    const { activeValue, setActiveValue, orientation, variant, indicatorPosition, size } =
+        useTabsContext();
+    const isActive = activeValue === value;
 
-  const handleClick = () => {
-    if (!disabled) {
-      setActiveValue(value);
-    }
-  };
+    const handleClick = () => {
+        if (!disabled) {
+            setActiveValue(value);
+        }
+    };
 
-  const handleClose = (e: React.SyntheticEvent) => {
-    e.stopPropagation();
-    onClose?.(value);
-  };
+    const handleClose = (e: React.SyntheticEvent) => {
+        e.stopPropagation();
+        onClose?.(value);
+    };
 
-  // Get additional classes based on variant and orientation
-  const tabClassName = clsx(
-    styles.tab({ size, variant, active: isActive, disabled }),
-    variant === 'line' && getLineIndicatorClass(orientation, indicatorPosition),
-    variant === 'lifted' && getLiftedClass(orientation, indicatorPosition),
-    className
-  );
+    // Get additional classes based on variant and orientation
+    const tabClassName = clsx(
+        styles.tab({ size, variant, active: isActive, disabled }),
+        variant === 'line' && getLineIndicatorClass(orientation, indicatorPosition),
+        variant === 'lifted' && getLiftedClass(orientation, indicatorPosition),
+        className,
+    );
 
-  return (
-    <button
-      role="tab"
-      aria-selected={isActive}
-      aria-disabled={disabled}
-      data-active={isActive}
-      tabIndex={isActive ? 0 : -1}
-      onClick={handleClick}
-      className={tabClassName}
-    >
-      <span className={styles.tabContent}>
-        {icon && <Icon name={icon} />}
-        {children}
-      </span>
-      {closable && (
-        <span
-          className={styles.tabCloseButton}
-          onClick={handleClose}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              handleClose(e);
-            }
-          }}
-          role="button"
-          aria-label={`Close ${children}`}
-          tabIndex={-1}
+    return (
+        <button
+            role="tab"
+            aria-selected={isActive}
+            aria-disabled={disabled}
+            data-active={isActive}
+            tabIndex={isActive ? 0 : -1}
+            onClick={handleClick}
+            className={tabClassName}
         >
-          <Icon name="close" />
-        </span>
-      )}
-    </button>
-  );
+            <span className={styles.tabContent}>
+                {icon && <Icon name={icon} />}
+                {children}
+            </span>
+            {closable && (
+                <span
+                    className={styles.tabCloseButton}
+                    onClick={handleClose}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleClose(e);
+                        }
+                    }}
+                    role="button"
+                    aria-label={`Close ${children}`}
+                    tabIndex={-1}
+                >
+                    <Icon name="close" />
+                </span>
+            )}
+        </button>
+    );
 };
 
 /**
  * TabPanels component - Container for TabPanel content
  */
 export const TabPanels: React.FC<TabPanelsProps> = ({ children, className, style }) => {
-  return (
-    <div className={clsx(styles.tabPanels, className)} style={style}>
-      {children}
-    </div>
-  );
+    return (
+        <div className={clsx(styles.tabPanels, className)} style={style}>
+            {children}
+        </div>
+    );
 };
 
 /**
  * TabPanel component - Individual content panel
  */
 export const TabPanel: React.FC<TabPanelProps> = ({ value, children, className, style }) => {
-  const { activeValue } = useTabsContext();
-  const isActive = activeValue === value;
+    const { activeValue } = useTabsContext();
+    const isActive = activeValue === value;
 
-  if (!isActive) {
-    return null;
-  }
+    if (!isActive) {
+        return null;
+    }
 
-  return (
-    <div
-      role="tabpanel"
-      aria-hidden={!isActive}
-      className={clsx(styles.tabPanel, className)}
-      style={style}
-    >
-      {children}
-    </div>
-  );
+    return (
+        <div
+            role="tabpanel"
+            aria-hidden={!isActive}
+            className={clsx(styles.tabPanel, className)}
+            style={style}
+        >
+            {children}
+        </div>
+    );
 };
 
 Tabs.displayName = 'Tabs';
