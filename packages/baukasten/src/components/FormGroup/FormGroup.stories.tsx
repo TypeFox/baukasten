@@ -122,7 +122,7 @@ export const VSCodeStyleForm: Story = {
     children: null,
   },
   render: () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+     
     const [formData, setFormData] = useState({
       username: '',
       email: '',
@@ -229,7 +229,7 @@ export const WithValidation: Story = {
     children: null,
   },
   render: () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+     
     const [errors] = useState({
       username: 'Username is already taken',
       email: '',
@@ -432,7 +432,7 @@ export const WithRadioGroup: Story = {
     children: null,
   },
   render: () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+     
     const [formData, setFormData] = useState({
       theme: 'light',
       deliveryMethod: 'standard',

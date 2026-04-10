@@ -379,9 +379,9 @@ export const AnimatedStripes: Story = {
  */
 export const FileUploadSimulation: Story = {
   render: () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+     
     const [progress, setProgress] = useState(0);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+     
     const [isUploading, setIsUploading] = useState(false);
 
     const startUpload = () => {
@@ -389,7 +389,7 @@ export const FileUploadSimulation: Story = {
       setIsUploading(true);
     };
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+     
     useEffect(() => {
       if (isUploading && progress < 100) {
         const timer = setTimeout(() => {

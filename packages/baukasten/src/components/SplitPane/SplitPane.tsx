@@ -67,6 +67,8 @@ const SplitPaneComponent = ({
   const paneCount = panes.length;
 
   // Initialize pane sizes
+  // Intentionally omitting paneSizes.length and panes from deps — this effect
+  // only runs for initialization when pane count changes.
   useLayoutEffect(() => {
     if (!containerRef.current || paneSizes.length === paneCount) return;
 
@@ -125,6 +127,7 @@ const SplitPaneComponent = ({
     });
 
     setPaneSizes(paneData.map((d) => d.size));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paneCount, actualOrientation, minSize]);
 
   const handleMouseDown = useCallback(

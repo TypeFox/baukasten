@@ -440,9 +440,9 @@ export const WithForm: Story = {
     children: null,
   },
   render: () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+     
     const [email, setEmail] = useState('');
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+     
     const [password, setPassword] = useState('');
 
     return (
@@ -600,7 +600,7 @@ export const ControlledMode: Story = {
     children: null,
   },
   render: () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+     
     const [open, setOpen] = useState(false);
 
     return (

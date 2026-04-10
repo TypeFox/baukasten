@@ -19,10 +19,16 @@
     "website:start": "npm run start --workspace=packages/website",
     "example:web": "npm run dev --workspace=packages/examples/web-example",
     "example:vscode": "npm run watch --workspace=packages/examples/vscode",
-    "build:vscode": "npm run build --workspace=packages/examples/vscode"
+    "build:vscode": "npm run build --workspace=packages/examples/vscode",
+    "lint": "npm run lint --workspace=packages/baukasten",
+    "lint:fix": "npm run lint --workspace=packages/baukasten -- --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "@storybook/react-vite": "^8.6.15",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.2",
     "typescript": "^5.3.3"
   },
   "engines": {
