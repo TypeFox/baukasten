@@ -1,18 +1,18 @@
 import React, { useState, useRef, useCallback, useMemo } from 'react';
 import {
-  useFloating,
-  autoUpdate,
-  offset,
-  flip,
-  shift,
-  size as floatingSize,
-  useClick,
-  useDismiss,
-  useRole,
-  useInteractions,
-  useTransitionStatus,
-  FloatingPortal,
-  type Placement,
+    useFloating,
+    autoUpdate,
+    offset,
+    flip,
+    shift,
+    size as floatingSize,
+    useClick,
+    useDismiss,
+    useRole,
+    useInteractions,
+    useTransitionStatus,
+    FloatingPortal,
+    type Placement,
 } from '@floating-ui/react';
 import { type Size } from '../../styles';
 import { Icon } from '../Icon';
@@ -37,202 +37,202 @@ export type SelectPosition = 'auto' | 'top' | 'bottom';
  * Select option type
  */
 export interface SelectOption<T = string> {
-  /**
-   * The value of the option
-   */
-  value: T;
+    /**
+     * The value of the option
+     */
+    value: T;
 
-  /**
-   * The label displayed for the option (optional if using renderOption)
-   */
-  label?: string;
+    /**
+     * The label displayed for the option (optional if using renderOption)
+     */
+    label?: string;
 
-  /**
-   * Optional description used for search filtering
-   * If provided, search will match against this instead of label
-   */
-  description?: string;
+    /**
+     * Optional description used for search filtering
+     * If provided, search will match against this instead of label
+     */
+    description?: string;
 
-  /**
-   * Whether the option is disabled
-   * @default false
-   */
-  disabled?: boolean;
+    /**
+     * Whether the option is disabled
+     * @default false
+     */
+    disabled?: boolean;
 
-  /**
-   * Optional label shown on the right side (e.g., "default", "recommended")
-   * Displayed in muted text
-   */
-  defaultLabel?: string;
+    /**
+     * Optional label shown on the right side (e.g., "default", "recommended")
+     * Displayed in muted text
+     */
+    defaultLabel?: string;
 }
 
 /**
  * Base props shared between single-select and multi-select modes
  */
 export interface SelectBaseProps<T = string> {
-  /**
-   * Unique identifier for the select trigger element
-   * Used for label association (htmlFor) in FormGroup
-   */
-  id?: string;
+    /**
+     * Unique identifier for the select trigger element
+     * Used for label association (htmlFor) in FormGroup
+     */
+    id?: string;
 
-  /**
-   * Array of options to display
-   */
-  options: SelectOption<T>[];
+    /**
+     * Array of options to display
+     */
+    options: SelectOption<T>[];
 
-  /**
-   * Callback when dropdown opens
-   */
-  onOpen?: () => void;
+    /**
+     * Callback when dropdown opens
+     */
+    onOpen?: () => void;
 
-  /**
-   * Callback when dropdown closes
-   */
-  onClose?: () => void;
+    /**
+     * Callback when dropdown closes
+     */
+    onClose?: () => void;
 
-  /**
-   * Placeholder text when no value is selected
-   * @default 'Select an option...'
-   */
-  placeholder?: string;
+    /**
+     * Placeholder text when no value is selected
+     * @default 'Select an option...'
+     */
+    placeholder?: string;
 
-  /**
-   * Size of the select
-   * @default 'md'
-   */
-  size?: Size;
+    /**
+     * Size of the select
+     * @default 'md'
+     */
+    size?: Size;
 
-  /**
-   * Dropdown position preference
-   * @default 'auto'
-   */
-  position?: SelectPosition;
+    /**
+     * Dropdown position preference
+     * @default 'auto'
+     */
+    position?: SelectPosition;
 
-  /**
-   * Whether the select is disabled
-   * @default false
-   */
-  disabled?: boolean;
+    /**
+     * Whether the select is disabled
+     * @default false
+     */
+    disabled?: boolean;
 
-  /**
-   * Whether the select should take full width of its container
-   * @default false
-   */
-  fullWidth?: boolean;
+    /**
+     * Whether the select should take full width of its container
+     * @default false
+     */
+    fullWidth?: boolean;
 
-  /**
-   * Whether to show a search input in the dropdown
-   * @default false
-   */
-  searchable?: boolean;
+    /**
+     * Whether to show a search input in the dropdown
+     * @default false
+     */
+    searchable?: boolean;
 
-  /**
-   * Placeholder for search input
-   * @default 'Search...'
-   */
-  searchPlaceholder?: string;
+    /**
+     * Placeholder for search input
+     * @default 'Search...'
+     */
+    searchPlaceholder?: string;
 
-  /**
-   * Error message displayed below the select
-   */
-  error?: string;
+    /**
+     * Error message displayed below the select
+     */
+    error?: string;
 
-  /**
-   * Custom filter function for searchable select
-   * @default Matches against label
-   */
-  filterOption?: (option: SelectOption<T>, searchValue: string) => boolean;
+    /**
+     * Custom filter function for searchable select
+     * @default Matches against label
+     */
+    filterOption?: (option: SelectOption<T>, searchValue: string) => boolean;
 
-  /**
-   * Custom render function for options in the dropdown
-   * Allows full control over option appearance
-   */
-  renderOption?: (option: SelectOption<T>, isSelected: boolean) => React.ReactNode;
+    /**
+     * Custom render function for options in the dropdown
+     * Allows full control over option appearance
+     */
+    renderOption?: (option: SelectOption<T>, isSelected: boolean) => React.ReactNode;
 
-  /**
-   * Custom render function for the selected value display
-   * If not provided, uses label or renderOption
-   */
-  renderValue?: (option: SelectOption<T>) => React.ReactNode;
+    /**
+     * Custom render function for the selected value display
+     * If not provided, uses label or renderOption
+     */
+    renderValue?: (option: SelectOption<T>) => React.ReactNode;
 
-  /**
-   * Maximum height for the options list within the dropdown.
-   * The description panel (if visible) extends beyond this height.
-   * @default '300px'
-   */
-  maxDropdownHeight?: string;
+    /**
+     * Maximum height for the options list within the dropdown.
+     * The description panel (if visible) extends beyond this height.
+     * @default '300px'
+     */
+    maxDropdownHeight?: string;
 
-  /**
-   * Whether to show description panel at the bottom of dropdown
-   * Shows the description of the highlighted/selected option
-   * Only visible when at least one option has a description
-   * @default true
-   */
-  showDescriptionPanel?: boolean;
+    /**
+     * Whether to show description panel at the bottom of dropdown
+     * Shows the description of the highlighted/selected option
+     * Only visible when at least one option has a description
+     * @default true
+     */
+    showDescriptionPanel?: boolean;
 
-  /**
-   * Additional CSS class name for the container
-   */
-  className?: string;
+    /**
+     * Additional CSS class name for the container
+     */
+    className?: string;
 
-  /**
-   * Additional CSS class name for the dropdown portal
-   * Useful for customizing dropdown styles when rendered in a portal
-   */
-  dropdownClassName?: string;
+    /**
+     * Additional CSS class name for the dropdown portal
+     * Useful for customizing dropdown styles when rendered in a portal
+     */
+    dropdownClassName?: string;
 }
 
 /**
  * Props for single-select mode (default)
  */
 export interface SingleSelectProps<T = string> {
-  /**
-   * Whether to enable multiple selection
-   * @default false
-   */
-  multiple?: false;
+    /**
+     * Whether to enable multiple selection
+     * @default false
+     */
+    multiple?: false;
 
-  /**
-   * Currently selected value
-   */
-  value?: T;
+    /**
+     * Currently selected value
+     */
+    value?: T;
 
-  /**
-   * Default value for uncontrolled usage
-   */
-  defaultValue?: T;
+    /**
+     * Default value for uncontrolled usage
+     */
+    defaultValue?: T;
 
-  /**
-   * Callback when value changes (receives the selected value)
-   */
-  onChange?: (value: T) => void;
+    /**
+     * Callback when value changes (receives the selected value)
+     */
+    onChange?: (value: T) => void;
 }
 
 /**
  * Props for multi-select mode
  */
 export interface MultiSelectProps<T = string> {
-  /**
-   * Enable multiple selection
-   * When enabled, value should be an array and onChange receives an array
-   */
-  multiple: true;
+    /**
+     * Enable multiple selection
+     * When enabled, value should be an array and onChange receives an array
+     */
+    multiple: true;
 
-  /**
-   * Currently selected values (array)
-   */
-  value?: T[];
+    /**
+     * Currently selected values (array)
+     */
+    value?: T[];
 
-  /**
-   * Default values for uncontrolled usage (array)
-   */
-  defaultValue?: T[];
+    /**
+     * Default values for uncontrolled usage (array)
+     */
+    defaultValue?: T[];
 
-  /**
-   * Callback when values change (receives array of selected values)
-   */
-  onChange?: (value: T[]) => void;
+    /**
+     * Callback when values change (receives array of selected values)
+     */
+    onChange?: (value: T[]) => void;
 }
 
 /**
@@ -242,8 +242,8 @@ export interface MultiSelectProps<T = string> {
  * `defaultValue`, and `onChange` are correctly typed for single-select
  * (`T`) vs multi-select (`T[]`) usage.
  */
-export type SelectProps<T = string> = SelectBaseProps<T> & (SingleSelectProps<T> | MultiSelectProps<T>);
-
+export type SelectProps<T = string> = SelectBaseProps<T> &
+    (SingleSelectProps<T> | MultiSelectProps<T>);
 
 /**
  * Select component
@@ -303,479 +303,500 @@ export type SelectProps<T = string> = SelectBaseProps<T> & (SingleSelectProps<T>
  * ```
  */
 export function Select<T = string>(props: SelectProps<T>) {
-  const {
-    id,
-    options,
-    onOpen,
-    onClose,
-    placeholder = 'Select an option...',
-    size = 'md',
-    position = 'auto',
-    disabled = false,
-    fullWidth = false,
-    searchable = false,
-    searchPlaceholder = 'Search...',
-    error,
-    filterOption,
-    renderOption,
-    renderValue,
-    maxDropdownHeight = '300px',
-    showDescriptionPanel = true,
-    className,
-    dropdownClassName,
-  } = props;
+    const {
+        id,
+        options,
+        onOpen,
+        onClose,
+        placeholder = 'Select an option...',
+        size = 'md',
+        position = 'auto',
+        disabled = false,
+        fullWidth = false,
+        searchable = false,
+        searchPlaceholder = 'Search...',
+        error,
+        filterOption,
+        renderOption,
+        renderValue,
+        maxDropdownHeight = '300px',
+        showDescriptionPanel = true,
+        className,
+        dropdownClassName,
+    } = props;
 
-  // Extract discriminated union props with internal working types.
-  // Type safety for consumers is enforced by the SelectProps discriminated union;
-  // internally we use wider types to avoid TS narrowing limitations with generics.
-  const multiple = (props.multiple ?? false) as boolean;
-  const controlledValue = props.value as T | T[] | undefined;
-  const defaultValue = props.defaultValue as T | T[] | undefined;
-  const onChange = props.onChange as ((value: T | T[]) => void) | undefined;
+    // Extract discriminated union props with internal working types.
+    // Type safety for consumers is enforced by the SelectProps discriminated union;
+    // internally we use wider types to avoid TS narrowing limitations with generics.
+    const multiple = (props.multiple ?? false) as boolean;
+    const controlledValue = props.value as T | T[] | undefined;
+    const defaultValue = props.defaultValue as T | T[] | undefined;
+    const onChange = props.onChange as ((value: T | T[]) => void) | undefined;
 
-  // Controlled vs uncontrolled value
-  const [internalValue, setInternalValue] = useState<T | T[] | undefined>(() => {
-    if (multiple) {
-      if (Array.isArray(defaultValue)) return defaultValue;
-      if (defaultValue !== undefined) {
-        return [defaultValue] as unknown as T[];
-      }
-      return [] as unknown as T[];
-    }
-    return defaultValue;
-  });
-  const isControlled = controlledValue !== undefined;
-  const currentValue = isControlled ? controlledValue : internalValue;
-
-  // Normalize current value to array for multi-select
-  const currentValues = useMemo(() => {
-    if (!multiple) return [];
-    if (Array.isArray(currentValue)) return currentValue;
-    return [];
-  }, [currentValue, multiple]);
-
-  // Dropdown state
-  const [isOpen, setIsOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState('');
-  const [highlightedIndex, setHighlightedIndex] = useState(-1);
-
-  // Refs
-  const searchInputRef = useRef<HTMLInputElement>(null);
-  const optionsRefs = useRef<Map<number, HTMLDivElement | null>>(new Map());
-
-  // Convert position to Floating UI placement
-  const placement: Placement = position === 'top' ? 'top-start' : 'bottom-start';
-
-  // Floating UI setup
-  const { refs, floatingStyles, context } = useFloating({
-    open: isOpen,
-    onOpenChange: (open) => {
-      setIsOpen(open);
-      if (open) {
-        setSearchValue('');
-        setHighlightedIndex(-1);
-        onOpen?.();
-        // Focus search input if searchable
-        if (searchable) {
-          setTimeout(() => searchInputRef.current?.focus(), 0);
+    // Controlled vs uncontrolled value
+    const [internalValue, setInternalValue] = useState<T | T[] | undefined>(() => {
+        if (multiple) {
+            if (Array.isArray(defaultValue)) return defaultValue;
+            if (defaultValue !== undefined) {
+                return [defaultValue] as unknown as T[];
+            }
+            return [] as unknown as T[];
         }
-      } else {
-        setSearchValue('');
-        setHighlightedIndex(-1);
-        onClose?.();
-      }
-    },
-    placement: position === 'auto' ? 'bottom-start' : placement,
-    whileElementsMounted: autoUpdate,
-    middleware: [
-      offset(OFFSET_SPACING),
-      flip({ padding: PADDING_SPACING }),
-      shift({ padding: PADDING_SPACING }),
-      floatingSize({
-        apply({ rects, availableHeight, elements }) {
-          Object.assign(elements.floating.style, {
-            width: `${rects.reference.width}px`,
-            maxHeight: `${availableHeight}px`,
-          });
+        return defaultValue;
+    });
+    const isControlled = controlledValue !== undefined;
+    const currentValue = isControlled ? controlledValue : internalValue;
+
+    // Normalize current value to array for multi-select
+    const currentValues = useMemo(() => {
+        if (!multiple) return [];
+        if (Array.isArray(currentValue)) return currentValue;
+        return [];
+    }, [currentValue, multiple]);
+
+    // Dropdown state
+    const [isOpen, setIsOpen] = useState(false);
+    const [searchValue, setSearchValue] = useState('');
+    const [highlightedIndex, setHighlightedIndex] = useState(-1);
+
+    // Refs
+    const searchInputRef = useRef<HTMLInputElement>(null);
+    const optionsRefs = useRef<Map<number, HTMLDivElement | null>>(new Map());
+
+    // Convert position to Floating UI placement
+    const placement: Placement = position === 'top' ? 'top-start' : 'bottom-start';
+
+    // Floating UI setup
+    const { refs, floatingStyles, context } = useFloating({
+        open: isOpen,
+        onOpenChange: (open) => {
+            setIsOpen(open);
+            if (open) {
+                setSearchValue('');
+                setHighlightedIndex(-1);
+                onOpen?.();
+                // Focus search input if searchable
+                if (searchable) {
+                    setTimeout(() => searchInputRef.current?.focus(), 0);
+                }
+            } else {
+                setSearchValue('');
+                setHighlightedIndex(-1);
+                onClose?.();
+            }
         },
-        padding: PADDING_SPACING,
-      }),
-    ],
-  });
+        placement: position === 'auto' ? 'bottom-start' : placement,
+        whileElementsMounted: autoUpdate,
+        middleware: [
+            offset(OFFSET_SPACING),
+            flip({ padding: PADDING_SPACING }),
+            shift({ padding: PADDING_SPACING }),
+            floatingSize({
+                apply({ rects, availableHeight, elements }) {
+                    Object.assign(elements.floating.style, {
+                        width: `${rects.reference.width}px`,
+                        maxHeight: `${availableHeight}px`,
+                    });
+                },
+                padding: PADDING_SPACING,
+            }),
+        ],
+    });
 
-  // Floating UI interactions
-  const click = useClick(context, { enabled: !disabled });
-  const dismiss = useDismiss(context);
-  const role = useRole(context, { role: 'listbox' });
+    // Floating UI interactions
+    const click = useClick(context, { enabled: !disabled });
+    const dismiss = useDismiss(context);
+    const role = useRole(context, { role: 'listbox' });
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([
-    click,
-    dismiss,
-    role,
-  ]);
+    const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss, role]);
 
-  // Transition status for exit animations
-  const { isMounted, status } = useTransitionStatus(context, {
-    duration: TRANSITION_DURATION,
-  });
+    // Transition status for exit animations
+    const { isMounted, status } = useTransitionStatus(context, {
+        duration: TRANSITION_DURATION,
+    });
 
-  // Filter options based on search
-  const defaultFilterOption = useCallback((option: SelectOption<T>, search: string) => {
-    const searchText = option.label || '';
-    return searchText.toLowerCase().includes(search.toLowerCase());
-  }, []);
+    // Filter options based on search
+    const defaultFilterOption = useCallback((option: SelectOption<T>, search: string) => {
+        const searchText = option.label || '';
+        return searchText.toLowerCase().includes(search.toLowerCase());
+    }, []);
 
-  const activeFilterOption = filterOption || defaultFilterOption;
+    const activeFilterOption = filterOption || defaultFilterOption;
 
-  const filteredOptions = useMemo(() => {
-    if (!searchable || !searchValue) return options;
-    return options.filter(option => activeFilterOption(option, searchValue));
-  }, [options, searchValue, searchable, activeFilterOption]);
+    const filteredOptions = useMemo(() => {
+        if (!searchable || !searchValue) return options;
+        return options.filter((option) => activeFilterOption(option, searchValue));
+    }, [options, searchValue, searchable, activeFilterOption]);
 
-  // Get selected option(s)
-  const selectedOption = useMemo(() => {
-    if (multiple) return undefined;
-    return options.find(option => option.value === currentValue);
-  }, [options, currentValue, multiple]);
+    // Get selected option(s)
+    const selectedOption = useMemo(() => {
+        if (multiple) return undefined;
+        return options.find((option) => option.value === currentValue);
+    }, [options, currentValue, multiple]);
 
-  const selectedOptions = useMemo(() => {
-    if (!multiple) return [];
-    return options.filter(option => currentValues.includes(option.value));
-  }, [options, currentValues, multiple]);
+    const selectedOptions = useMemo(() => {
+        if (!multiple) return [];
+        return options.filter((option) => currentValues.includes(option.value));
+    }, [options, currentValues, multiple]);
 
-  // Check if we should show description panel
-  // Only show if: enabled, not using custom render, and at least one option has description
-  const shouldShowDescriptionPanel = useMemo(() => {
-    return showDescriptionPanel && !renderOption && options.some(opt => opt.description);
-  }, [showDescriptionPanel, renderOption, options]);
+    // Check if we should show description panel
+    // Only show if: enabled, not using custom render, and at least one option has description
+    const shouldShowDescriptionPanel = useMemo(() => {
+        return showDescriptionPanel && !renderOption && options.some((opt) => opt.description);
+    }, [showDescriptionPanel, renderOption, options]);
 
-  // Get description to display (from highlighted option, or selected if no highlight)
-  const displayedDescription = useMemo(() => {
-    if (!shouldShowDescriptionPanel) return null;
+    // Get description to display (from highlighted option, or selected if no highlight)
+    const displayedDescription = useMemo(() => {
+        if (!shouldShowDescriptionPanel) return null;
 
-    // If dropdown is open and we have a highlighted option, show that
-    if (isOpen && highlightedIndex >= 0 && highlightedIndex < filteredOptions.length) {
-      return filteredOptions[highlightedIndex].description || '';
-    }
-
-    // Otherwise show selected option's description
-    return selectedOption?.description || '';
-  }, [shouldShowDescriptionPanel, isOpen, highlightedIndex, filteredOptions, selectedOption]);
-
-  // Close dropdown (manually callable for keyboard events)
-  const closeDropdown = useCallback(() => {
-    setIsOpen(false);
-    // Focus back to trigger button
-    (refs.reference.current as HTMLElement | null)?.focus?.();
-  }, [refs]);
-
-  // Handle option select
-  const selectOption = useCallback((option: SelectOption<T>, e?: React.MouseEvent) => {
-    if (option.disabled) return;
-
-    // Prevent event propagation to avoid interference from parent elements (like Label)
-    e?.stopPropagation();
-    e?.preventDefault();
-
-    if (multiple) {
-      // Multi-select mode
-      const newValues = currentValues.includes(option.value)
-        ? currentValues.filter(v => v !== option.value)
-        : [...currentValues, option.value];
-
-      if (!isControlled) {
-        setInternalValue(newValues);
-      }
-
-      onChange?.(newValues);
-      // Don't close dropdown in multi-select mode
-    } else {
-      // Single-select mode
-      if (!isControlled) {
-        setInternalValue(option.value);
-      }
-
-      onChange?.(option.value);
-      closeDropdown();
-    }
-  }, [isControlled, onChange, closeDropdown, multiple, currentValues]);
-
-  // Keyboard navigation for trigger
-  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-    if (disabled) return;
-
-    switch (e.key) {
-      case 'Enter':
-      case ' ':
-        if (!isOpen) {
-          e.preventDefault();
-          setIsOpen(true);
-        } else if (highlightedIndex >= 0 && highlightedIndex < filteredOptions.length) {
-          e.preventDefault();
-          selectOption(filteredOptions[highlightedIndex]);
+        // If dropdown is open and we have a highlighted option, show that
+        if (isOpen && highlightedIndex >= 0 && highlightedIndex < filteredOptions.length) {
+            return filteredOptions[highlightedIndex].description || '';
         }
-        break;
 
-      case 'Escape':
-        if (isOpen) {
-          e.preventDefault();
-          closeDropdown();
-        }
-        break;
+        // Otherwise show selected option's description
+        return selectedOption?.description || '';
+    }, [shouldShowDescriptionPanel, isOpen, highlightedIndex, filteredOptions, selectedOption]);
 
-      case 'ArrowDown':
-        e.preventDefault();
-        if (!isOpen) {
-          setIsOpen(true);
-        } else {
-          const nextIndex = Math.min(highlightedIndex + 1, filteredOptions.length - 1);
-          setHighlightedIndex(nextIndex);
-          // Scroll into view
-          optionsRefs.current.get(nextIndex)?.scrollIntoView({ block: 'nearest' });
-        }
-        break;
+    // Close dropdown (manually callable for keyboard events)
+    const closeDropdown = useCallback(() => {
+        setIsOpen(false);
+        // Focus back to trigger button
+        (refs.reference.current as HTMLElement | null)?.focus?.();
+    }, [refs]);
 
-      case 'ArrowUp':
-        e.preventDefault();
-        if (isOpen) {
-          const prevIndex = Math.max(highlightedIndex - 1, 0);
-          setHighlightedIndex(prevIndex);
-          // Scroll into view
-          optionsRefs.current.get(prevIndex)?.scrollIntoView({ block: 'nearest' });
-        }
-        break;
+    // Handle option select
+    const selectOption = useCallback(
+        (option: SelectOption<T>, e?: React.MouseEvent) => {
+            if (option.disabled) return;
 
-      case 'Tab':
-        if (isOpen) {
-          closeDropdown();
-        }
-        break;
+            // Prevent event propagation to avoid interference from parent elements (like Label)
+            e?.stopPropagation();
+            e?.preventDefault();
 
-      case 'Home':
-        if (isOpen) {
-          e.preventDefault();
-          setHighlightedIndex(0);
-          optionsRefs.current.get(0)?.scrollIntoView({ block: 'nearest' });
-        }
-        break;
+            if (multiple) {
+                // Multi-select mode
+                const newValues = currentValues.includes(option.value)
+                    ? currentValues.filter((v) => v !== option.value)
+                    : [...currentValues, option.value];
 
-      case 'End':
-        if (isOpen) {
-          e.preventDefault();
-          const lastIndex = filteredOptions.length - 1;
-          setHighlightedIndex(lastIndex);
-          optionsRefs.current.get(lastIndex)?.scrollIntoView({ block: 'nearest' });
-        }
-        break;
-    }
-  }, [disabled, isOpen, highlightedIndex, filteredOptions, closeDropdown, selectOption]);
+                if (!isControlled) {
+                    setInternalValue(newValues);
+                }
 
-  // Keyboard navigation for search input (no space/enter to select)
-  const handleSearchKeyDown = useCallback((e: React.KeyboardEvent) => {
-    switch (e.key) {
-      case 'Enter':
-        // Select highlighted option on Enter
-        if (highlightedIndex >= 0 && highlightedIndex < filteredOptions.length) {
-          e.preventDefault();
-          selectOption(filteredOptions[highlightedIndex]);
-        }
-        break;
+                onChange?.(newValues);
+                // Don't close dropdown in multi-select mode
+            } else {
+                // Single-select mode
+                if (!isControlled) {
+                    setInternalValue(option.value);
+                }
 
-      case 'Escape':
-        e.preventDefault();
-        closeDropdown();
-        break;
+                onChange?.(option.value);
+                closeDropdown();
+            }
+        },
+        [isControlled, onChange, closeDropdown, multiple, currentValues],
+    );
 
-      case 'ArrowDown': {
-        e.preventDefault();
-        const nextIndex = Math.min(highlightedIndex + 1, filteredOptions.length - 1);
-        setHighlightedIndex(nextIndex);
-        optionsRefs.current.get(nextIndex)?.scrollIntoView({ block: 'nearest' });
-        break;
-      }
+    // Keyboard navigation for trigger
+    const handleKeyDown = useCallback(
+        (e: React.KeyboardEvent) => {
+            if (disabled) return;
 
-      case 'ArrowUp': {
-        e.preventDefault();
-        const prevIndex = Math.max(highlightedIndex - 1, 0);
-        setHighlightedIndex(prevIndex);
-        optionsRefs.current.get(prevIndex)?.scrollIntoView({ block: 'nearest' });
-        break;
-      }
+            switch (e.key) {
+                case 'Enter':
+                case ' ':
+                    if (!isOpen) {
+                        e.preventDefault();
+                        setIsOpen(true);
+                    } else if (highlightedIndex >= 0 && highlightedIndex < filteredOptions.length) {
+                        e.preventDefault();
+                        selectOption(filteredOptions[highlightedIndex]);
+                    }
+                    break;
 
-      case 'Home':
-        // Allow Home to work in input (go to start of text) unless Ctrl is pressed
-        if (e.ctrlKey || e.metaKey) {
-          e.preventDefault();
-          setHighlightedIndex(0);
-          optionsRefs.current.get(0)?.scrollIntoView({ block: 'nearest' });
-        }
-        break;
+                case 'Escape':
+                    if (isOpen) {
+                        e.preventDefault();
+                        closeDropdown();
+                    }
+                    break;
 
-      case 'End':
-        // Allow End to work in input (go to end of text) unless Ctrl is pressed
-        if (e.ctrlKey || e.metaKey) {
-          e.preventDefault();
-          const lastIndex = filteredOptions.length - 1;
-          setHighlightedIndex(lastIndex);
-          optionsRefs.current.get(lastIndex)?.scrollIntoView({ block: 'nearest' });
-        }
-        break;
+                case 'ArrowDown':
+                    e.preventDefault();
+                    if (!isOpen) {
+                        setIsOpen(true);
+                    } else {
+                        const nextIndex = Math.min(
+                            highlightedIndex + 1,
+                            filteredOptions.length - 1,
+                        );
+                        setHighlightedIndex(nextIndex);
+                        // Scroll into view
+                        optionsRefs.current.get(nextIndex)?.scrollIntoView({ block: 'nearest' });
+                    }
+                    break;
 
-      case 'Tab':
-        closeDropdown();
-        break;
-    }
-  }, [highlightedIndex, filteredOptions, selectOption, closeDropdown]);
+                case 'ArrowUp':
+                    e.preventDefault();
+                    if (isOpen) {
+                        const prevIndex = Math.max(highlightedIndex - 1, 0);
+                        setHighlightedIndex(prevIndex);
+                        // Scroll into view
+                        optionsRefs.current.get(prevIndex)?.scrollIntoView({ block: 'nearest' });
+                    }
+                    break;
 
-  // Floating UI handles click-outside and position updates automatically via autoUpdate and useDismiss
+                case 'Tab':
+                    if (isOpen) {
+                        closeDropdown();
+                    }
+                    break;
 
-  // Get portal root from context (for multi-window support)
-  const portalRoot = usePortalRoot();
+                case 'Home':
+                    if (isOpen) {
+                        e.preventDefault();
+                        setHighlightedIndex(0);
+                        optionsRefs.current.get(0)?.scrollIntoView({ block: 'nearest' });
+                    }
+                    break;
 
-  const hasMultipleValues = multiple && currentValues.length > 0;
+                case 'End':
+                    if (isOpen) {
+                        e.preventDefault();
+                        const lastIndex = filteredOptions.length - 1;
+                        setHighlightedIndex(lastIndex);
+                        optionsRefs.current.get(lastIndex)?.scrollIntoView({ block: 'nearest' });
+                    }
+                    break;
+            }
+        },
+        [disabled, isOpen, highlightedIndex, filteredOptions, closeDropdown, selectOption],
+    );
 
-  const containerClassName = className
-    ? `${styles.selectContainer({ fullWidth })} ${className}`
-    : styles.selectContainer({ fullWidth });
+    // Keyboard navigation for search input (no space/enter to select)
+    const handleSearchKeyDown = useCallback(
+        (e: React.KeyboardEvent) => {
+            switch (e.key) {
+                case 'Enter':
+                    // Select highlighted option on Enter
+                    if (highlightedIndex >= 0 && highlightedIndex < filteredOptions.length) {
+                        e.preventDefault();
+                        selectOption(filteredOptions[highlightedIndex]);
+                    }
+                    break;
 
-  const selectOptionClassName = hasMultipleValues
-    ? styles.selectValue
-    : selectedOption
-      ? styles.selectValue
-      : `${styles.selectValue} ${styles.selectValuePlaceholder}`;
+                case 'Escape':
+                    e.preventDefault();
+                    closeDropdown();
+                    break;
 
-  return (
-    <div className={containerClassName}>
-      <button
-        ref={refs.setReference}
-        type="button"
-        id={id}
-        className={styles.selectTrigger({
-          size,
-          hasError: !!error,
-          isOpen,
-        })}
-        disabled={disabled}
-        onKeyDown={handleKeyDown}
-        aria-haspopup="listbox"
-        aria-expanded={isOpen}
-        aria-label="Select"
-        {...getReferenceProps()}
-      >
-        <span className={selectOptionClassName}>
-          {hasMultipleValues ? (
-            <span className={styles.selectValueContent}>
-              {currentValues.length === 1 ? (selectedOptions[0]?.label ?? '1 selected') : `${currentValues.length} selected`}
-            </span>
-          ) : selectedOption ? (
-            <span className={styles.selectValueContent}>
-              {renderValue ? renderValue(selectedOption) : (
-                renderOption ? renderOption(selectedOption, true) : selectedOption.label
-              )}
-            </span>
-          ) : (
-            placeholder
-          )}
-        </span>
-        <span className={styles.chevronIcon({ isOpen })}>
-          <Icon name="chevron-down" />
-        </span>
-      </button>
+                case 'ArrowDown': {
+                    e.preventDefault();
+                    const nextIndex = Math.min(highlightedIndex + 1, filteredOptions.length - 1);
+                    setHighlightedIndex(nextIndex);
+                    optionsRefs.current.get(nextIndex)?.scrollIntoView({ block: 'nearest' });
+                    break;
+                }
 
-      {isMounted && (
-        <FloatingPortal root={portalRoot}>
-          <div
-            ref={refs.setFloating}
-            className={`${styles.floatingWrapper}${dropdownClassName ? ` ${dropdownClassName}` : ''}`}
-            style={{
-              ...floatingStyles,
-            }}
-            {...getFloatingProps()}
-          >
-            <div
-              className={styles.dropdownPortal}
-              role="listbox"
-              data-status={status}
+                case 'ArrowUp': {
+                    e.preventDefault();
+                    const prevIndex = Math.max(highlightedIndex - 1, 0);
+                    setHighlightedIndex(prevIndex);
+                    optionsRefs.current.get(prevIndex)?.scrollIntoView({ block: 'nearest' });
+                    break;
+                }
+
+                case 'Home':
+                    // Allow Home to work in input (go to start of text) unless Ctrl is pressed
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        setHighlightedIndex(0);
+                        optionsRefs.current.get(0)?.scrollIntoView({ block: 'nearest' });
+                    }
+                    break;
+
+                case 'End':
+                    // Allow End to work in input (go to end of text) unless Ctrl is pressed
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        const lastIndex = filteredOptions.length - 1;
+                        setHighlightedIndex(lastIndex);
+                        optionsRefs.current.get(lastIndex)?.scrollIntoView({ block: 'nearest' });
+                    }
+                    break;
+
+                case 'Tab':
+                    closeDropdown();
+                    break;
+            }
+        },
+        [highlightedIndex, filteredOptions, selectOption, closeDropdown],
+    );
+
+    // Floating UI handles click-outside and position updates automatically via autoUpdate and useDismiss
+
+    // Get portal root from context (for multi-window support)
+    const portalRoot = usePortalRoot();
+
+    const hasMultipleValues = multiple && currentValues.length > 0;
+
+    const containerClassName = className
+        ? `${styles.selectContainer({ fullWidth })} ${className}`
+        : styles.selectContainer({ fullWidth });
+
+    const selectOptionClassName = hasMultipleValues
+        ? styles.selectValue
+        : selectedOption
+          ? styles.selectValue
+          : `${styles.selectValue} ${styles.selectValuePlaceholder}`;
+
+    return (
+        <div className={containerClassName}>
+            <button
+                ref={refs.setReference}
+                type="button"
+                id={id}
+                className={styles.selectTrigger({
+                    size,
+                    hasError: !!error,
+                    isOpen,
+                })}
+                disabled={disabled}
+                onKeyDown={handleKeyDown}
+                aria-haspopup="listbox"
+                aria-expanded={isOpen}
+                aria-label="Select"
+                {...getReferenceProps()}
             >
-              {searchable && (
-                <div className={styles.searchInputWrapper}>
-                  <input
-                    ref={searchInputRef}
-                    type="text"
-                    className={styles.searchInput}
-                    placeholder={searchPlaceholder}
-                    value={searchValue}
-                    onChange={(e) => {
-                      setSearchValue(e.target.value);
-                      setHighlightedIndex(0);
-                    }}
-                    onKeyDown={handleSearchKeyDown}
-                  />
-                </div>
-              )}
+                <span className={selectOptionClassName}>
+                    {hasMultipleValues ? (
+                        <span className={styles.selectValueContent}>
+                            {currentValues.length === 1
+                                ? (selectedOptions[0]?.label ?? '1 selected')
+                                : `${currentValues.length} selected`}
+                        </span>
+                    ) : selectedOption ? (
+                        <span className={styles.selectValueContent}>
+                            {renderValue
+                                ? renderValue(selectedOption)
+                                : renderOption
+                                  ? renderOption(selectedOption, true)
+                                  : selectedOption.label}
+                        </span>
+                    ) : (
+                        placeholder
+                    )}
+                </span>
+                <span className={styles.chevronIcon({ isOpen })}>
+                    <Icon name="chevron-down" />
+                </span>
+            </button>
 
-              <div className={styles.optionsContainer} style={{ maxHeight: maxDropdownHeight }}>
-                {filteredOptions.length === 0 ? (
-                  <div className={styles.emptyMessage}>No options found</div>
-                ) : (
-                  filteredOptions.map((option, index) => {
-                    const isSelected = multiple ? currentValues.includes(option.value) : option.value === currentValue;
-                    return (
-                      <div
-                        key={String(option.value)}
-                        ref={(el) => {
-                          if (el) {
-                            optionsRefs.current.set(index, el);
-                          } else {
-                            optionsRefs.current.delete(index);
-                          }
+            {isMounted && (
+                <FloatingPortal root={portalRoot}>
+                    <div
+                        ref={refs.setFloating}
+                        className={`${styles.floatingWrapper}${dropdownClassName ? ` ${dropdownClassName}` : ''}`}
+                        style={{
+                            ...floatingStyles,
                         }}
-                        className={styles.option({
-                          size,
-                          isHighlighted: index === highlightedIndex,
-                          isDisabled: option.disabled || false,
-                        })}
-                        onClick={(e) => selectOption(option, e)}
-                        onMouseEnter={() => setHighlightedIndex(index)}
-                        role="option"
-                        aria-selected={isSelected}
-                        aria-disabled={option.disabled}
-                      >
-                        {multiple && (
-                          <Checkbox
-                            checked={isSelected}
-                            disabled={option.disabled}
-                            onClick={(e) => e.stopPropagation()}
-                            tabIndex={-1}
-                          />
-                        )}
-                        {renderOption ? (
-                          renderOption(option, isSelected)
-                        ) : (
-                          <>
-                            <span className={styles.optionLabel}>{option.label}</span>
-                            {option.defaultLabel && (
-                              <span className={styles.optionDefaultLabel}>{option.defaultLabel}</span>
+                        {...getFloatingProps()}
+                    >
+                        <div className={styles.dropdownPortal} role="listbox" data-status={status}>
+                            {searchable && (
+                                <div className={styles.searchInputWrapper}>
+                                    <input
+                                        ref={searchInputRef}
+                                        type="text"
+                                        className={styles.searchInput}
+                                        placeholder={searchPlaceholder}
+                                        value={searchValue}
+                                        onChange={(e) => {
+                                            setSearchValue(e.target.value);
+                                            setHighlightedIndex(0);
+                                        }}
+                                        onKeyDown={handleSearchKeyDown}
+                                    />
+                                </div>
                             )}
-                          </>
-                        )}
-                      </div>
-                    );
-                  })
-                )}
-              </div>
 
-              {shouldShowDescriptionPanel && displayedDescription && (
-                <div className={styles.descriptionPanel}>
-                  {displayedDescription}
-                </div>
-              )}
-            </div>
-          </div>
-        </FloatingPortal>
-      )}
+                            <div
+                                className={styles.optionsContainer}
+                                style={{ maxHeight: maxDropdownHeight }}
+                            >
+                                {filteredOptions.length === 0 ? (
+                                    <div className={styles.emptyMessage}>No options found</div>
+                                ) : (
+                                    filteredOptions.map((option, index) => {
+                                        const isSelected = multiple
+                                            ? currentValues.includes(option.value)
+                                            : option.value === currentValue;
+                                        return (
+                                            <div
+                                                key={String(option.value)}
+                                                ref={(el) => {
+                                                    if (el) {
+                                                        optionsRefs.current.set(index, el);
+                                                    } else {
+                                                        optionsRefs.current.delete(index);
+                                                    }
+                                                }}
+                                                className={styles.option({
+                                                    size,
+                                                    isHighlighted: index === highlightedIndex,
+                                                    isDisabled: option.disabled || false,
+                                                })}
+                                                onClick={(e) => selectOption(option, e)}
+                                                onMouseEnter={() => setHighlightedIndex(index)}
+                                                role="option"
+                                                aria-selected={isSelected}
+                                                aria-disabled={option.disabled}
+                                            >
+                                                {multiple && (
+                                                    <Checkbox
+                                                        checked={isSelected}
+                                                        disabled={option.disabled}
+                                                        onClick={(e) => e.stopPropagation()}
+                                                        tabIndex={-1}
+                                                    />
+                                                )}
+                                                {renderOption ? (
+                                                    renderOption(option, isSelected)
+                                                ) : (
+                                                    <>
+                                                        <span className={styles.optionLabel}>
+                                                            {option.label}
+                                                        </span>
+                                                        {option.defaultLabel && (
+                                                            <span
+                                                                className={
+                                                                    styles.optionDefaultLabel
+                                                                }
+                                                            >
+                                                                {option.defaultLabel}
+                                                            </span>
+                                                        )}
+                                                    </>
+                                                )}
+                                            </div>
+                                        );
+                                    })
+                                )}
+                            </div>
 
-      {error && <span className={styles.errorText}>{error}</span>}
-    </div>
-  );
+                            {shouldShowDescriptionPanel && displayedDescription && (
+                                <div className={styles.descriptionPanel}>
+                                    {displayedDescription}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </FloatingPortal>
+            )}
+
+            {error && <span className={styles.errorText}>{error}</span>}
+        </div>
+    );
 }

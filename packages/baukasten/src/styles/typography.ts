@@ -81,7 +81,7 @@ export type FontFamily = 'sans' | 'mono';
  * Helper function to get a font size token variable reference
  * @param size - The font size
  * @returns CSS variable reference string
- * 
+ *
  * @example
  * ```tsx
  * const Heading = styled.h1`
@@ -90,7 +90,7 @@ export type FontFamily = 'sans' | 'mono';
  * ```
  */
 export const getFontSize = (size: FontSize): string => {
-  return `var(--bk-font-size-${size})`;
+    return `var(--bk-font-size-${size})`;
 };
 
 /**
@@ -99,7 +99,7 @@ export const getFontSize = (size: FontSize): string => {
  * @returns CSS variable reference string
  */
 export const getLineHeight = (height: LineHeight): string => {
-  return `var(--bk-line-height-${height})`;
+    return `var(--bk-line-height-${height})`;
 };
 
 /**
@@ -108,7 +108,7 @@ export const getLineHeight = (height: LineHeight): string => {
  * @returns CSS variable reference string
  */
 export const getFontWeight = (weight: FontWeight): string => {
-  return `var(--bk-font-weight-${weight})`;
+    return `var(--bk-font-weight-${weight})`;
 };
 
 /**
@@ -117,7 +117,7 @@ export const getFontWeight = (weight: FontWeight): string => {
  * @returns CSS variable reference string
  */
 export const getLetterSpacing = (spacing: LetterSpacing): string => {
-  return `var(--bk-letter-spacing-${spacing})`;
+    return `var(--bk-letter-spacing-${spacing})`;
 };
 
 /**
@@ -126,8 +126,7 @@ export const getLetterSpacing = (spacing: LetterSpacing): string => {
  * @returns CSS variable reference string
  */
 export const getFontFamily = (family: FontFamily): string => {
-  return `var(--bk-font-family-${family})`;
+    return `var(--bk-font-family-${family})`;
 };
 
 export default typographyTokens;
-

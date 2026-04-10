@@ -92,37 +92,37 @@ const formatFileSize = (bytes: number): string => {
 
 /**
  * FileUpload component
- * 
+ *
  * A versatile file upload component with drag-and-drop support. Allows users to select
  * files by clicking or dragging. Supports file type restrictions, size limits, and
  * multiple file uploads.
- * 
+ *
  * @example
  * ```tsx
  * // Basic usage
  * <FileUpload onChange={(files) => console.log(files)} />
- * 
+ *
  * // With restrictions
- * <FileUpload 
+ * <FileUpload
  *   accept="image/*"
  *   maxFiles={5}
  *   maxSize={5242880} // 5MB
  *   multiple
  *   onChange={(files) => handleFiles(files)}
  * />
- * 
+ *
  * // Custom styling
- * <FileUpload 
+ * <FileUpload
  *   variant="primary"
  *   size="lg"
  *   label="Upload your documents"
  *   description="PDF, DOC, DOCX up to 10MB"
  * />
- * 
+ *
  * // Controlled component
  * const [files, setFiles] = useState<File[]>([]);
- * 
- * <FileUpload 
+ *
+ * <FileUpload
  *   files={files}
  *   onChange={setFiles}
  *   showFileList
@@ -181,16 +181,19 @@ export const FileUpload: React.FC<FileUploadProps> = ({
             // Call onChange callback
             onChange?.(updatedFiles);
         },
-        [files, maxFiles, maxSize, multiple, onChange, controlledFiles]
+        [files, maxFiles, maxSize, multiple, onChange, controlledFiles],
     );
 
-    const handleDragEnter = useCallback((e: React.DragEvent) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (!disabled) {
-            setIsDragging(true);
-        }
-    }, [disabled]);
+    const handleDragEnter = useCallback(
+        (e: React.DragEvent) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (!disabled) {
+                setIsDragging(true);
+            }
+        },
+        [disabled],
+    );
 
     const handleDragLeave = useCallback((e: React.DragEvent) => {
         e.preventDefault();
@@ -214,7 +217,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
             const droppedFiles = e.dataTransfer.files;
             handleFiles(droppedFiles);
         },
-        [disabled, handleFiles]
+        [disabled, handleFiles],
     );
 
     const handleClick = useCallback(() => {
@@ -229,7 +232,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
             // Reset input value to allow selecting the same file again
             e.target.value = '';
         },
-        [handleFiles]
+        [handleFiles],
     );
 
     const handleRemoveFile = useCallback(
@@ -244,7 +247,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
             // Call onChange callback
             onChange?.(updatedFiles);
         },
-        [files, onChange, controlledFiles]
+        [files, onChange, controlledFiles],
     );
 
     return (
@@ -277,15 +280,37 @@ export const FileUpload: React.FC<FileUploadProps> = ({
                     aria-hidden="true"
                 />
 
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--bk-spacing-3)' }}>
-                    <Icon name="cloud-upload" style={{ fontSize: size === 'xl' ? '48px' : size === 'lg' ? '40px' : '32px' }} />
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: 'var(--bk-spacing-3)',
+                    }}
+                >
+                    <Icon
+                        name="cloud-upload"
+                        style={{
+                            fontSize: size === 'xl' ? '48px' : size === 'lg' ? '40px' : '32px',
+                        }}
+                    />
 
                     <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontWeight: 'var(--bk-font-weight-medium)', marginBottom: 'var(--bk-spacing-1)' }}>
+                        <div
+                            style={{
+                                fontWeight: 'var(--bk-font-weight-medium)',
+                                marginBottom: 'var(--bk-spacing-1)',
+                            }}
+                        >
                             {label}
                         </div>
                         {description && (
-                            <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    color: 'var(--bk-color-foreground-muted)',
+                                }}
+                            >
                                 {description}
                             </div>
                         )}
@@ -299,10 +324,22 @@ export const FileUpload: React.FC<FileUploadProps> = ({
                         <div key={`${file.name}-${index}`} className={fileItem}>
                             <Icon name="file" style={{ flexShrink: 0 }} />
                             <div style={{ flex: 1, minWidth: 0 }}>
-                                <div style={{ fontWeight: 'var(--bk-font-weight-medium)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                <div
+                                    style={{
+                                        fontWeight: 'var(--bk-font-weight-medium)',
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis',
+                                        whiteSpace: 'nowrap',
+                                    }}
+                                >
                                     {file.name}
                                 </div>
-                                <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--bk-color-foreground-muted)' }}>
+                                <div
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-xs)',
+                                        color: 'var(--bk-color-foreground-muted)',
+                                    }}
+                                >
                                     {formatFileSize(file.size)}
                                 </div>
                             </div>

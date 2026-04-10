@@ -34,7 +34,6 @@ export type DataTableVariant = 'default' | 'zebra';
  */
 export type DataTableColumnAlign = 'left' | 'center' | 'right';
 
-
 /**
  * DataTable component props
  */
@@ -196,7 +195,10 @@ export interface DataTableProps<TData> {
      * )}
      * ```
      */
-    renderGlobalFilter?: (props: { value: string; onChange: (value: string) => void }) => React.ReactNode;
+    renderGlobalFilter?: (props: {
+        value: string;
+        onChange: (value: string) => void;
+    }) => React.ReactNode;
 
     /**
      * Whether the table has sticky headers
@@ -366,7 +368,8 @@ export function DataTable<TData>({
         enableRowSelection,
         enableMultiRowSelection,
         onRowSelectionChange: (updater) => {
-            const newSelection = typeof updater === 'function' ? updater(rowSelectionState) : updater;
+            const newSelection =
+                typeof updater === 'function' ? updater(rowSelectionState) : updater;
             setInternalRowSelection(newSelection);
             onRowSelectionChange?.(newSelection);
         },
@@ -389,7 +392,8 @@ export function DataTable<TData>({
         },
         getCoreRowModel: getCoreRowModel(),
         getSortedRowModel: enableSorting ? getSortedRowModel() : undefined,
-        getPaginationRowModel: enablePagination && !manualPagination ? getPaginationRowModel() : undefined,
+        getPaginationRowModel:
+            enablePagination && !manualPagination ? getPaginationRowModel() : undefined,
         getFilteredRowModel: enableGlobalFilter ? getFilteredRowModel() : undefined,
         manualPagination,
         rowCount,
@@ -407,7 +411,9 @@ export function DataTable<TData>({
 
     // Calculate displayed rows range
     const startRow = enablePagination ? currentPage * currentPageSize + 1 : 1;
-    const endRow = enablePagination ? Math.min((currentPage + 1) * currentPageSize, totalRows) : totalRows;
+    const endRow = enablePagination
+        ? Math.min((currentPage + 1) * currentPageSize, totalRows)
+        : totalRows;
 
     // Container style with maxHeight
     const containerStyle: React.CSSProperties = maxHeight
@@ -423,7 +429,9 @@ export function DataTable<TData>({
             <th
                 key={header.id}
                 className={styles.tableHeaderCell({
-                    align: (header.column.columnDef.meta as { align?: DataTableColumnAlign })?.align ?? 'left',
+                    align:
+                        (header.column.columnDef.meta as { align?: DataTableColumnAlign })?.align ??
+                        'left',
                     bordered,
                     size,
                     sortable: canSort,
@@ -438,7 +446,10 @@ export function DataTable<TData>({
                 <div className={styles.headerContent}>
                     {header.isPlaceholder
                         ? null
-                        : flexRender(header.column.columnDef.header, header.getContext()) as React.ReactNode}
+                        : (flexRender(
+                              header.column.columnDef.header,
+                              header.getContext(),
+                          ) as React.ReactNode)}
                     {canSort && (
                         <span className={styles.sortIndicator({ active: !!isSorted })}>
                             <Icon name={isSorted === 'desc' ? 'chevron-down' : 'chevron-up'} />
@@ -465,7 +476,9 @@ export function DataTable<TData>({
             <td
                 key={cell.id}
                 className={styles.tableCell({
-                    align: (cell.column.columnDef.meta as { align?: DataTableColumnAlign })?.align ?? 'left',
+                    align:
+                        (cell.column.columnDef.meta as { align?: DataTableColumnAlign })?.align ??
+                        'left',
                     bordered,
                     size,
                     truncate: enableColumnResizing,
@@ -496,7 +509,9 @@ export function DataTable<TData>({
                     if (enableMultiRowSelection) {
                         currentRow.toggleSelected();
                     } else {
-                        table.setRowSelection(currentRow.getIsSelected() ? {} : { [currentRow.id]: true });
+                        table.setRowSelection(
+                            currentRow.getIsSelected() ? {} : { [currentRow.id]: true },
+                        );
                     }
                 }
             }
@@ -509,9 +524,8 @@ export function DataTable<TData>({
         e.preventDefault();
 
         const selectedIds = Object.keys(table.getState().rowSelection);
-        const currentIndex = selectedIds.length === 1
-            ? rows.findIndex((r) => r.id === selectedIds[0])
-            : -1;
+        const currentIndex =
+            selectedIds.length === 1 ? rows.findIndex((r) => r.id === selectedIds[0]) : -1;
 
         let nextIndex: number;
         if (e.key === 'ArrowDown') {
@@ -532,36 +546,38 @@ export function DataTable<TData>({
     };
 
     return (
-        <div className={`${styles.dataTableWrapper({ fillHeight })} ${className ?? ''}`} style={style}>
+        <div
+            className={`${styles.dataTableWrapper({ fillHeight })} ${className ?? ''}`}
+            style={style}
+        >
             {/* Toolbar with global filter */}
             {enableGlobalFilter && (
                 <div className={styles.toolbar}>
-                    {renderGlobalFilter
-                        ? renderGlobalFilter({
+                    {renderGlobalFilter ? (
+                        renderGlobalFilter({
                             value: globalFilterValue,
                             onChange: (value) => {
                                 setInternalGlobalFilter(value);
                                 onGlobalFilterChange?.(value);
                             },
                         })
-                        : (
-                            <Label size="sm">
-                                <span className="label">
-                                    <Icon name="search" />
-                                </span>
-                                <Input
-                                    placeholder={globalFilterPlaceholder}
-                                    value={globalFilterValue}
-                                    onChange={(e) => {
-                                        const value = e.target.value;
-                                        setInternalGlobalFilter(value);
-                                        onGlobalFilterChange?.(value);
-                                    }}
-                                    size="sm"
-                                />
-                            </Label>
-                        )
-                    }
+                    ) : (
+                        <Label size="sm">
+                            <span className="label">
+                                <Icon name="search" />
+                            </span>
+                            <Input
+                                placeholder={globalFilterPlaceholder}
+                                value={globalFilterValue}
+                                onChange={(e) => {
+                                    const value = e.target.value;
+                                    setInternalGlobalFilter(value);
+                                    onGlobalFilterChange?.(value);
+                                }}
+                                size="sm"
+                            />
+                        </Label>
+                    )}
                 </div>
             )}
 
@@ -595,7 +611,10 @@ export function DataTable<TData>({
                         {/* Loading line indicator - positioned at bottom of header */}
                         {loading && loadingIndicator === 'line' && !loadingComponent && (
                             <tr className={styles.loadingRow}>
-                                <td colSpan={table.getVisibleLeafColumns().length} className={styles.loadingCell}>
+                                <td
+                                    colSpan={table.getVisibleLeafColumns().length}
+                                    className={styles.loadingCell}
+                                >
                                     <div className={styles.loadingLine}>
                                         <div className={styles.loadingBar} />
                                     </div>
@@ -626,7 +645,10 @@ export function DataTable<TData>({
                                     })} ${variant === 'zebra' ? styles.zebraRow : ''}`.trim()}
                                     onClick={(e) => {
                                         if (enableRowSelection) {
-                                            if (enableMultiRowSelection && (e.ctrlKey || e.metaKey)) {
+                                            if (
+                                                enableMultiRowSelection &&
+                                                (e.ctrlKey || e.metaKey)
+                                            ) {
                                                 // Multi-select: toggle individual row
                                                 row.toggleSelected();
                                             } else {
@@ -637,7 +659,12 @@ export function DataTable<TData>({
                                         }
                                         onRowClick?.(row);
                                     }}
-                                    style={{ cursor: (onRowClick || enableRowSelection) ? 'pointer' : undefined }}
+                                    style={{
+                                        cursor:
+                                            onRowClick || enableRowSelection
+                                                ? 'pointer'
+                                                : undefined,
+                                    }}
                                 >
                                     {row.getVisibleCells().map(renderCell)}
                                 </tr>
@@ -687,7 +714,12 @@ export function DataTable<TData>({
                             «
                         </Button>
 
-                        <span style={{ fontSize: 'var(--bk-font-size-sm)', padding: '0 var(--bk-spacing-2)' }}>
+                        <span
+                            style={{
+                                fontSize: 'var(--bk-font-size-sm)',
+                                padding: '0 var(--bk-spacing-2)',
+                            }}
+                        >
                             Page {currentPage + 1} of {pageCount}
                         </span>
 
@@ -715,5 +747,3 @@ export function DataTable<TData>({
         </div>
     );
 }
-
-

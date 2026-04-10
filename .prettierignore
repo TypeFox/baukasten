@@ -1,0 +1,16 @@
+# Build outputs
+dist/
+.storybook-static/
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# Generated files
+*.min.js
+*.min.css
+package-lock.json
+
+# vanilla-extract build cache
+*.vanilla.css

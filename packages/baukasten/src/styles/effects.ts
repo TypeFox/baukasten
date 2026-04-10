@@ -104,13 +104,33 @@ export type Transition = 'fast' | 'base' | 'slow';
 export type TransitionProperty = 'colors' | 'all' | 'transform' | 'opacity';
 
 export type ZIndex =
-  | 'base' | 'overlay-content' | 'dropdown' | 'sticky' | 'fixed'
-  | 'modal-backdrop' | 'modal' | 'popover' | 'context-menu' | 'tooltip' | 'notification';
+    | 'base'
+    | 'overlay-content'
+    | 'dropdown'
+    | 'sticky'
+    | 'fixed'
+    | 'modal-backdrop'
+    | 'modal'
+    | 'popover'
+    | 'context-menu'
+    | 'tooltip'
+    | 'notification';
 
 export type Opacity =
-  | '0' | '10' | '20' | '30' | '40' | '50'
-  | '60' | '70' | '80' | '90' | '100'
-  | 'disabled' | 'hover' | 'muted';
+    | '0'
+    | '10'
+    | '20'
+    | '30'
+    | '40'
+    | '50'
+    | '60'
+    | '70'
+    | '80'
+    | '90'
+    | '100'
+    | 'disabled'
+    | 'hover'
+    | 'muted';
 
 export type BorderWidth = '0' | '1' | '2' | '4' | '8';
 
@@ -118,7 +138,7 @@ export type BorderWidth = '0' | '1' | '2' | '4' | '8';
  * Helper function to get a border radius token variable reference
  * @param radius - The border radius
  * @returns CSS variable reference string
- * 
+ *
  * @example
  * ```tsx
  * const Card = styled.div`
@@ -127,7 +147,7 @@ export type BorderWidth = '0' | '1' | '2' | '4' | '8';
  * ```
  */
 export const getBorderRadius = (radius: BorderRadius): string => {
-  return `var(--bk-radius-${radius})`;
+    return `var(--bk-radius-${radius})`;
 };
 
 /**
@@ -136,7 +156,7 @@ export const getBorderRadius = (radius: BorderRadius): string => {
  * @returns CSS variable reference string
  */
 export const getShadow = (shadow: Shadow): string => {
-  return `var(--bk-shadow-${shadow})`;
+    return `var(--bk-shadow-${shadow})`;
 };
 
 /**
@@ -145,7 +165,7 @@ export const getShadow = (shadow: Shadow): string => {
  * @returns CSS variable reference string
  */
 export const getTransition = (transition: Transition): string => {
-  return `var(--bk-transition-${transition})`;
+    return `var(--bk-transition-${transition})`;
 };
 
 /**
@@ -154,7 +174,7 @@ export const getTransition = (transition: Transition): string => {
  * @returns CSS variable reference string
  */
 export const getTransitionProperty = (property: TransitionProperty): string => {
-  return `var(--bk-transition-${property})`;
+    return `var(--bk-transition-${property})`;
 };
 
 /**
@@ -163,7 +183,7 @@ export const getTransitionProperty = (property: TransitionProperty): string => {
  * @returns CSS variable reference string
  */
 export const getZIndex = (zIndex: ZIndex): string => {
-  return `var(--bk-z-index-${zIndex})`;
+    return `var(--bk-z-index-${zIndex})`;
 };
 
 /**
@@ -172,7 +192,7 @@ export const getZIndex = (zIndex: ZIndex): string => {
  * @returns CSS variable reference string
  */
 export const getOpacity = (opacity: Opacity): string => {
-  return `var(--bk-opacity-${opacity})`;
+    return `var(--bk-opacity-${opacity})`;
 };
 
 /**
@@ -181,8 +201,7 @@ export const getOpacity = (opacity: Opacity): string => {
  * @returns CSS variable reference string
  */
 export const getBorderWidth = (width: BorderWidth): string => {
-  return `var(--bk-border-width-${width})`;
+    return `var(--bk-border-width-${width})`;
 };
 
 export default effectsTokens;
-

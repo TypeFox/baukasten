@@ -1,6 +1,2 @@
-export { SplitPane, Pane } from "./SplitPane";
-export type {
-  SplitPaneProps,
-  PaneProps,
-  SplitPaneOrientation,
-} from "./SplitPane";
+export { SplitPane, Pane } from './SplitPane';
+export type { SplitPaneProps, PaneProps, SplitPaneOrientation } from './SplitPane';

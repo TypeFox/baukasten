@@ -109,16 +109,22 @@ function ThemeSelectionExample() {
 
     return (
         <div style={{ maxWidth: '400px' }}>
-            <div style={{
-                padding: 'var(--bk-spacing-4)',
-                backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--bk-radius-md)',
-            }}>
+            <div
+                style={{
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={4} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Theme Preferences
                 </Heading>
 
-                <RadioGroup name="theme-selection" value={theme} onChange={(value) => setTheme(value as string)}>
+                <RadioGroup
+                    name="theme-selection"
+                    value={theme}
+                    onChange={(value) => setTheme(value as string)}
+                >
                     <Label variant="checkbox" size="md">
                         <Radio value="light" />
                         <span>Light theme</span>
@@ -133,14 +139,21 @@ function ThemeSelectionExample() {
                     </Label>
                 </RadioGroup>
 
-                <div style={{
-                    marginTop: 'var(--bk-spacing-4)',
-                    padding: 'var(--bk-spacing-3)',
-                    backgroundColor: 'var(--vscode-input-background)',
-                    borderRadius: 'var(--bk-radius-sm)',
-                    fontSize: 'var(--bk-font-size-sm)',
-                }}>
-                    <div style={{ color: 'var(--vscode-descriptionForeground)', marginBottom: 'var(--bk-spacing-1)' }}>
+                <div
+                    style={{
+                        marginTop: 'var(--bk-spacing-4)',
+                        padding: 'var(--bk-spacing-3)',
+                        backgroundColor: 'var(--vscode-input-background)',
+                        borderRadius: 'var(--bk-radius-sm)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                    }}
+                >
+                    <div
+                        style={{
+                            color: 'var(--vscode-descriptionForeground)',
+                            marginBottom: 'var(--bk-spacing-1)',
+                        }}
+                    >
                         Selected theme:
                     </div>
                     <strong>{theme}</strong>
@@ -160,28 +173,34 @@ function SettingsFormExample() {
 
     return (
         <div style={{ maxWidth: '500px' }}>
-            <div style={{
-                padding: 'var(--bk-spacing-4)',
-                backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--bk-radius-md)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 'var(--bk-spacing-5)',
-            }}>
+            <div
+                style={{
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-5)',
+                }}
+            >
                 <Heading level={4}>Settings</Heading>
 
                 <div>
-                    <Paragraph style={{
-                        fontSize: 'var(--bk-font-size-sm)',
-                        fontWeight: 'var(--bk-font-weight-semibold)',
-                        marginBottom: 'var(--bk-spacing-2)',
-                    }}>
+                    <Paragraph
+                        style={{
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-semibold)',
+                            marginBottom: 'var(--bk-spacing-2)',
+                        }}
+                    >
                         Notification Preferences
                     </Paragraph>
                     <RadioGroup
                         name="notifications"
                         value={settings.notifications}
-                        onChange={(value) => setSettings({ ...settings, notifications: value as string })}
+                        onChange={(value) =>
+                            setSettings({ ...settings, notifications: value as string })
+                        }
                     >
                         <Label variant="checkbox" size="sm">
                             <Radio value="all" size="sm" />
@@ -199,11 +218,13 @@ function SettingsFormExample() {
                 </div>
 
                 <div>
-                    <Paragraph style={{
-                        fontSize: 'var(--bk-font-size-sm)',
-                        fontWeight: 'var(--bk-font-weight-semibold)',
-                        marginBottom: 'var(--bk-spacing-2)',
-                    }}>
+                    <Paragraph
+                        style={{
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-semibold)',
+                            marginBottom: 'var(--bk-spacing-2)',
+                        }}
+                    >
                         Privacy Settings
                     </Paragraph>
                     <RadioGroup
@@ -227,17 +248,21 @@ function SettingsFormExample() {
                 </div>
 
                 <div>
-                    <Paragraph style={{
-                        fontSize: 'var(--bk-font-size-sm)',
-                        fontWeight: 'var(--bk-font-weight-semibold)',
-                        marginBottom: 'var(--bk-spacing-2)',
-                    }}>
+                    <Paragraph
+                        style={{
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-semibold)',
+                            marginBottom: 'var(--bk-spacing-2)',
+                        }}
+                    >
                         Language
                     </Paragraph>
                     <RadioGroup
                         name="language"
                         value={settings.language}
-                        onChange={(value) => setSettings({ ...settings, language: value as string })}
+                        onChange={(value) =>
+                            setSettings({ ...settings, language: value as string })
+                        }
                         orientation="horizontal"
                     >
                         <Label variant="checkbox" size="sm">
@@ -255,14 +280,21 @@ function SettingsFormExample() {
                     </RadioGroup>
                 </div>
 
-                <div style={{
-                    padding: 'var(--bk-spacing-3)',
-                    backgroundColor: 'var(--vscode-input-background)',
-                    borderRadius: 'var(--bk-radius-sm)',
-                    fontSize: 'var(--bk-font-size-xs)',
-                    fontFamily: 'var(--vscode-editor-font-family)',
-                }}>
-                    <div style={{ color: 'var(--vscode-descriptionForeground)', marginBottom: 'var(--bk-spacing-2)' }}>
+                <div
+                    style={{
+                        padding: 'var(--bk-spacing-3)',
+                        backgroundColor: 'var(--vscode-input-background)',
+                        borderRadius: 'var(--bk-radius-sm)',
+                        fontSize: 'var(--bk-font-size-xs)',
+                        fontFamily: 'var(--vscode-editor-font-family)',
+                    }}
+                >
+                    <div
+                        style={{
+                            color: 'var(--vscode-descriptionForeground)',
+                            marginBottom: 'var(--bk-spacing-2)',
+                        }}
+                    >
                         Current settings:
                     </div>
                     <pre style={{ margin: 0 }}>{JSON.stringify(settings, null, 2)}</pre>
@@ -282,7 +314,13 @@ export default function RadioPage() {
                 title="Basic Usage"
                 description="Radio buttons must be wrapped in a Label component with variant='checkbox' for proper accessibility and alignment. Each radio needs a unique value and a shared name attribute."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                        }}
+                    >
                         <Label variant="checkbox" size="md">
                             <Radio name="basic-example" value="option1" />
                             <span>Option 1</span>
@@ -324,7 +362,13 @@ function App() {
                 title="Sizes"
                 description="Radio buttons come in 5 sizes: xs, sm, md (default), lg, and xl. The Label component's size should match the Radio size for proper alignment."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                        }}
+                    >
                         <Label variant="checkbox" size="xs">
                             <Radio size="xs" name="size-demo" value="xs" />
                             <span>Extra Small</span>
@@ -374,12 +418,20 @@ function App() {
                 description="Radio buttons support checked and disabled states. Disabled radios are visually dimmed and not interactive."
                 preview={
                     <div style={{ display: 'flex', gap: 'var(--bk-spacing-8)' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
-                            <div style={{
-                                fontSize: 'var(--bk-font-size-sm)',
-                                fontWeight: 'var(--bk-font-weight-medium)',
-                                marginBottom: 'var(--bk-spacing-2)',
-                            }}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-3)',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                }}
+                            >
                                 Default States
                             </div>
                             <Label variant="checkbox" size="md">
@@ -391,12 +443,20 @@ function App() {
                                 <span>Checked</span>
                             </Label>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)' }}>
-                            <div style={{
-                                fontSize: 'var(--bk-font-size-sm)',
-                                fontWeight: 'var(--bk-font-weight-medium)',
-                                marginBottom: 'var(--bk-spacing-2)',
-                            }}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-3)',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                }}
+                            >
                                 Disabled States
                             </div>
                             <Label variant="checkbox" size="md">
@@ -404,7 +464,12 @@ function App() {
                                 <span>Disabled unchecked</span>
                             </Label>
                             <Label variant="checkbox" size="md">
-                                <Radio name="state-disabled" value="checked" disabled defaultChecked />
+                                <Radio
+                                    name="state-disabled"
+                                    value="checked"
+                                    disabled
+                                    defaultChecked
+                                />
                                 <span>Disabled checked</span>
                             </Label>
                         </div>
@@ -591,33 +656,66 @@ function PlanSelection() {
                             <Label variant="checkbox" size="md">
                                 <Radio value="basic" />
                                 <span>
-                                    <strong style={{ display: 'block', marginBottom: 'var(--bk-spacing-0-5)' }}>
+                                    <strong
+                                        style={{
+                                            display: 'block',
+                                            marginBottom: 'var(--bk-spacing-0-5)',
+                                        }}
+                                    >
                                         Basic Plan
                                     </strong>
-                                    <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
-                                        Perfect for individuals. Includes 10GB storage and basic features.
+                                    <span
+                                        style={{
+                                            fontSize: 'var(--bk-font-size-sm)',
+                                            color: 'var(--vscode-descriptionForeground)',
+                                        }}
+                                    >
+                                        Perfect for individuals. Includes 10GB storage and basic
+                                        features.
                                     </span>
                                 </span>
                             </Label>
                             <Label variant="checkbox" size="md">
                                 <Radio value="pro" />
                                 <span>
-                                    <strong style={{ display: 'block', marginBottom: 'var(--bk-spacing-0-5)' }}>
+                                    <strong
+                                        style={{
+                                            display: 'block',
+                                            marginBottom: 'var(--bk-spacing-0-5)',
+                                        }}
+                                    >
                                         Pro Plan
                                     </strong>
-                                    <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
-                                        For professionals. Includes 100GB storage, priority support, and advanced features.
+                                    <span
+                                        style={{
+                                            fontSize: 'var(--bk-font-size-sm)',
+                                            color: 'var(--vscode-descriptionForeground)',
+                                        }}
+                                    >
+                                        For professionals. Includes 100GB storage, priority support,
+                                        and advanced features.
                                     </span>
                                 </span>
                             </Label>
                             <Label variant="checkbox" size="md">
                                 <Radio value="enterprise" />
                                 <span>
-                                    <strong style={{ display: 'block', marginBottom: 'var(--bk-spacing-0-5)' }}>
+                                    <strong
+                                        style={{
+                                            display: 'block',
+                                            marginBottom: 'var(--bk-spacing-0-5)',
+                                        }}
+                                    >
                                         Enterprise Plan
                                     </strong>
-                                    <span style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
-                                        For teams. Unlimited storage, dedicated support, and custom integrations.
+                                    <span
+                                        style={{
+                                            fontSize: 'var(--bk-font-size-sm)',
+                                            color: 'var(--vscode-descriptionForeground)',
+                                        }}
+                                    >
+                                        For teams. Unlimited storage, dedicated support, and custom
+                                        integrations.
                                     </span>
                                 </span>
                             </Label>

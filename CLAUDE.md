@@ -110,6 +110,7 @@ ComponentName/
 ```
 
 **For components** (using vanilla-extract):
+
 1. Use semantic tokens from the design system via CSS variables
 2. Export TypeScript types for props
 3. Include comprehensive Storybook stories
@@ -122,21 +123,23 @@ ComponentName/
 The project supports two environments:
 
 **VSCode Webview** (native environment):
+
 ```tsx
-import { GlobalStyles } from "baukasten-ui/core";
+import { GlobalStyles } from 'baukasten-ui/core';
 // No wrapper needed - uses native VSCode theme
-<GlobalStyles />
+<GlobalStyles />;
 ```
 
 **Web Application** (browser demos/Storybook):
+
 ```tsx
-import { GlobalStyles } from "baukasten-ui/core";
-import { VSCodeThemeWrapper } from "baukasten-ui-web-wrapper";
+import { GlobalStyles } from 'baukasten-ui/core';
+import { VSCodeThemeWrapper } from 'baukasten-ui-web-wrapper';
 // Wrapper simulates VSCode theming
 <>
-  <GlobalStyles />
-  <VSCodeThemeWrapper>...</VSCodeThemeWrapper>
-</>
+    <GlobalStyles />
+    <VSCodeThemeWrapper>...</VSCodeThemeWrapper>
+</>;
 ```
 
 ## Storybook Guidelines
@@ -149,6 +152,7 @@ When creating Storybook stories, follow this exact order:
 4. **Showcase** (LAST - required) - Comprehensive overview with `layout: "fullscreen"`
 
 All stories must:
+
 - Use design tokens for spacing/styling
 - Include `tags: ['autodocs']` in meta
 - Have clear descriptions in `parameters.docs.description.story`
@@ -163,6 +167,7 @@ Components are split across two entry points:
 ### Core Components (`baukasten-ui/core`)
 
 **Form Controls:**
+
 - **Button** - Versatile button with variants (primary, secondary, ghost, outline) and sizes
 - **IconButton** - Square icon-only button matching Button height, for toolbar and compact actions
 - **Input** - Text input with label and error state support
@@ -173,12 +178,14 @@ Components are split across two entry points:
 - **Slider** - Range slider input
 
 **Form Helpers:**
+
 - **Label** - Form label component
 - **FieldLabel** - Field label with optional required indicator
 - **FormGroup** - Group form elements with consistent spacing
 - **FormHelper** - Helper text for form fields
 
 **Typography:**
+
 - **Heading** - h1-h6 headings with semantic sizing
 - **Text** - Inline text with size and weight variants
 - **Paragraph** - Block text element
@@ -187,11 +194,13 @@ Components are split across two entry points:
 - **Image** - Responsive images with loading states and captions
 
 **Data Display:**
+
 - **Badge** - Status indicator component
 - **Tag** - Categorization and labeling component with rounded-rectangle shape
 - **Table** - Basic table components with sorting and variants
 
 **Feedback:**
+
 - **Alert** - Alert messages with variants (info, success, warning, danger)
 - **Modal** - Modal dialog component
 - **Tooltip** - Hover tooltips
@@ -199,27 +208,33 @@ Components are split across two entry points:
 - **ProgressBar** - Progress indicator with variants
 
 **Layout:**
+
 - **Divider** - Horizontal/vertical divider
 - **Dropdown** - Generic dropdown container
 
 **Specialized:**
+
 - **Icon** - VSCode Codicons integration
 
 **Context Providers:**
+
 - **PortalProvider** - Configures portal root for multi-window support (Theia secondary windows)
 - **GlobalStyles** - Global CSS reset and design token injection
 
 ### Extra Components (`baukasten-ui/extra`)
 
 **Form Controls:**
+
 - **ButtonGroup** - Group of related buttons
 - **FileUpload** - File upload component with drag & drop
 
 **Data Display:**
+
 - **DataTable** - Advanced data table with virtualization, sorting, filtering
 - **Avatar** - User avatar with image/initials fallback
 
 **Navigation:**
+
 - **Tabs** - Tabbed navigation component
 - **Breadcrumbs** - Breadcrumb navigation
 - **Menu** - Dropdown menu component
@@ -227,23 +242,28 @@ Components are split across two entry points:
 - **Pagination** - Page navigation controls
 
 **Layout:**
+
 - **SplitPane** - Resizable split pane layout
 - **Accordion** - Collapsible content panels
 
 **Specialized:**
+
 - **StatusBar** - VSCode-style status bar
 - **Hero** - Hero section component
 
 ## Key Technical Details
 
 ### Build System
+
 - **Vite** - Build tool and dev server
 - **TypeScript** - Strict mode enabled
 - **vanilla-extract** - Zero-runtime CSS-in-TypeScript styling
 - **Storybook 8** - Component documentation
 
 ### Package Exports
+
 Main package (`baukasten-ui`) provides three entry points:
+
 - `baukasten-ui` (`.`) — All components and types (re-exports core + extra)
 - `baukasten-ui/core` (`./core`) — Fundamental primitives (Button, Input, Icon, Typography, etc.)
 - `baukasten-ui/extra` (`./extra`) — Higher-level compositions (DataTable, Tabs, Menu, etc.)
@@ -268,6 +288,7 @@ Main package (`baukasten-ui`) provides three entry points:
 **Key rule**: Extra can import from Core. Core **never** imports from Extra.
 
 ### VSCode Integration
+
 - Uses `@vscode/codicons` for icons
 - Maps to VSCode CSS variables for seamless integration
 - No runtime dependencies on VSCode API (pure React)
@@ -276,13 +297,13 @@ Main package (`baukasten-ui`) provides three entry points:
 
 1. **Start development**: `npm run storybook` (most common)
 2. **Add new component**:
-   - Create component directory in `packages/baukasten/src/components/`
-   - Implement component with design tokens
-   - Create Storybook stories following the guidelines
-   - Export from `packages/baukasten/src/core.ts` (if fundamental primitive) or `packages/baukasten/src/extra.ts` (if higher-level / composed)
-   - `src/index.ts` re-exports both automatically
+    - Create component directory in `packages/baukasten/src/components/`
+    - Implement component with design tokens
+    - Create Storybook stories following the guidelines
+    - Export from `packages/baukasten/src/core.ts` (if fundamental primitive) or `packages/baukasten/src/extra.ts` (if higher-level / composed)
+    - `src/index.ts` re-exports both automatically
 3. **Test in examples**:
-   - Web example for browser testing
+    - Web example for browser testing
 4. **Build**: `npm run build` before committing
 
 ## Important Files
@@ -312,6 +333,7 @@ Main package (`baukasten-ui`) provides three entry points:
 ### File Naming Convention
 
 **Always use `.css.ts` extension** for style files:
+
 ```
 Button.css.ts  ✅
 Button.styles.ts  ❌
@@ -337,30 +359,30 @@ Use `style` for static styles:
 import { style } from '@vanilla-extract/css';
 
 export const baseButton = style({
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  border: '1px solid transparent',
-  cursor: 'pointer',
-  fontFamily: 'inherit',
-  transition: 'var(--bk-transition-colors)',
-  outline: 'none',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: '1px solid transparent',
+    cursor: 'pointer',
+    fontFamily: 'inherit',
+    transition: 'var(--bk-transition-colors)',
+    outline: 'none',
 
-  // Use CSS variables for design tokens
-  padding: 'var(--bk-padding-md)',
-  fontSize: 'var(--bk-font-size-md)',
-  backgroundColor: 'var(--bk-color-primary)',
-  color: 'var(--bk-color-primary-foreground)',
+    // Use CSS variables for design tokens
+    padding: 'var(--bk-padding-md)',
+    fontSize: 'var(--bk-font-size-md)',
+    backgroundColor: 'var(--bk-color-primary)',
+    color: 'var(--bk-color-primary-foreground)',
 
-  // Pseudo-selectors
-  ':hover:not(:disabled)': {
-    backgroundColor: 'var(--bk-color-primary-hover)',
-  },
+    // Pseudo-selectors
+    ':hover:not(:disabled)': {
+        backgroundColor: 'var(--bk-color-primary-hover)',
+    },
 
-  ':disabled': {
-    opacity: 'var(--bk-opacity-disabled)',
-    cursor: 'not-allowed',
-  },
+    ':disabled': {
+        opacity: 'var(--bk-opacity-disabled)',
+        cursor: 'not-allowed',
+    },
 });
 ```
 
@@ -373,27 +395,39 @@ Use `styleVariants` for simple variant maps:
 import { style, styleVariants } from '@vanilla-extract/css';
 
 const base = style({
-  padding: 'var(--bk-padding-md)',
+    padding: 'var(--bk-padding-md)',
 });
 
 // Simple variants
 export const buttonSize = styleVariants({
-  xs: [base, {
-    fontSize: 'var(--bk-font-size-xs)',
-    minHeight: 'var(--bk-size-xs)',
-  }],
-  sm: [base, {
-    fontSize: 'var(--bk-font-size-sm)',
-    minHeight: 'var(--bk-size-sm)',
-  }],
-  md: [base, {
-    fontSize: 'var(--bk-font-size-md)',
-    minHeight: 'var(--bk-size-md)',
-  }],
-  lg: [base, {
-    fontSize: 'var(--bk-font-size-base)',
-    minHeight: 'var(--bk-size-lg)',
-  }],
+    xs: [
+        base,
+        {
+            fontSize: 'var(--bk-font-size-xs)',
+            minHeight: 'var(--bk-size-xs)',
+        },
+    ],
+    sm: [
+        base,
+        {
+            fontSize: 'var(--bk-font-size-sm)',
+            minHeight: 'var(--bk-size-sm)',
+        },
+    ],
+    md: [
+        base,
+        {
+            fontSize: 'var(--bk-font-size-md)',
+            minHeight: 'var(--bk-size-md)',
+        },
+    ],
+    lg: [
+        base,
+        {
+            fontSize: 'var(--bk-font-size-base)',
+            minHeight: 'var(--bk-size-lg)',
+        },
+    ],
 });
 ```
 
@@ -406,112 +440,112 @@ Use `recipe` for components with multiple variant dimensions:
 import { recipe } from '@vanilla-extract/recipes';
 
 export const button = recipe({
-  base: {
-    // Base styles applied to all variants
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    border: '1px solid transparent',
-    cursor: 'pointer',
-    fontFamily: 'inherit',
-    transition: 'var(--bk-transition-colors)',
-    outline: 'none',
-    whiteSpace: 'nowrap',
-    textDecoration: 'none',
-    gap: 'var(--bk-gap-sm)',
-  },
+    base: {
+        // Base styles applied to all variants
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: '1px solid transparent',
+        cursor: 'pointer',
+        fontFamily: 'inherit',
+        transition: 'var(--bk-transition-colors)',
+        outline: 'none',
+        whiteSpace: 'nowrap',
+        textDecoration: 'none',
+        gap: 'var(--bk-gap-sm)',
+    },
 
-  variants: {
-    // First variant dimension
-    variant: {
-      primary: {
-        backgroundColor: 'var(--bk-color-primary)',
-        color: 'var(--bk-color-primary-foreground)',
-        ':hover:not(:disabled)': {
-          backgroundColor: 'var(--bk-color-primary-hover)',
+    variants: {
+        // First variant dimension
+        variant: {
+            primary: {
+                backgroundColor: 'var(--bk-color-primary)',
+                color: 'var(--bk-color-primary-foreground)',
+                ':hover:not(:disabled)': {
+                    backgroundColor: 'var(--bk-color-primary-hover)',
+                },
+            },
+            secondary: {
+                backgroundColor: 'var(--bk-color-secondary)',
+                color: 'var(--bk-color-secondary-foreground)',
+                ':hover:not(:disabled)': {
+                    backgroundColor: 'var(--bk-color-secondary-hover)',
+                },
+            },
+            ghost: {
+                backgroundColor: 'transparent',
+                color: 'var(--bk-color-foreground)',
+                ':hover:not(:disabled)': {
+                    backgroundColor: 'var(--bk-color-secondary-hover)',
+                },
+            },
         },
-      },
-      secondary: {
-        backgroundColor: 'var(--bk-color-secondary)',
-        color: 'var(--bk-color-secondary-foreground)',
-        ':hover:not(:disabled)': {
-          backgroundColor: 'var(--bk-color-secondary-hover)',
+
+        // Second variant dimension
+        size: {
+            xs: {
+                padding: 'var(--bk-padding-xs)',
+                fontSize: 'var(--bk-font-size-xs)',
+                minHeight: 'var(--bk-size-xs)',
+            },
+            sm: {
+                padding: 'var(--bk-padding-sm)',
+                fontSize: 'var(--bk-font-size-sm)',
+                minHeight: 'var(--bk-size-sm)',
+            },
+            md: {
+                padding: 'var(--bk-padding-md)',
+                fontSize: 'var(--bk-font-size-md)',
+                minHeight: 'var(--bk-size-md)',
+            },
         },
-      },
-      ghost: {
-        backgroundColor: 'transparent',
-        color: 'var(--bk-color-foreground)',
-        ':hover:not(:disabled)': {
-          backgroundColor: 'var(--bk-color-secondary-hover)',
+
+        // Boolean variants
+        outline: {
+            true: {
+                backgroundColor: 'transparent',
+                borderColor: 'var(--bk-color-primary)',
+            },
+            false: {},
         },
-      },
+
+        circular: {
+            true: {
+                borderRadius: 'var(--bk-radius-full)',
+                aspectRatio: '1',
+                padding: '0',
+            },
+            false: {
+                borderRadius: 'var(--bk-radius-sm)',
+            },
+        },
     },
 
-    // Second variant dimension
-    size: {
-      xs: {
-        padding: 'var(--bk-padding-xs)',
-        fontSize: 'var(--bk-font-size-xs)',
-        minHeight: 'var(--bk-size-xs)',
-      },
-      sm: {
-        padding: 'var(--bk-padding-sm)',
-        fontSize: 'var(--bk-font-size-sm)',
-        minHeight: 'var(--bk-size-sm)',
-      },
-      md: {
-        padding: 'var(--bk-padding-md)',
-        fontSize: 'var(--bk-font-size-md)',
-        minHeight: 'var(--bk-size-md)',
-      },
-    },
+    // Compound variants - for variant combinations
+    compoundVariants: [
+        {
+            variants: {
+                variant: 'primary',
+                outline: true,
+            },
+            style: {
+                color: 'var(--bk-color-primary)',
+                borderColor: 'var(--bk-color-primary)',
+                ':hover:not(:disabled)': {
+                    backgroundColor: 'var(--bk-color-primary)',
+                    color: 'var(--bk-color-primary-foreground)',
+                },
+            },
+        },
+    ],
 
-    // Boolean variants
-    outline: {
-      true: {
-        backgroundColor: 'transparent',
-        borderColor: 'var(--bk-color-primary)',
-      },
-      false: {},
-    },
-
-    circular: {
-      true: {
-        borderRadius: 'var(--bk-radius-full)',
-        aspectRatio: '1',
-        padding: '0',
-      },
-      false: {
-        borderRadius: 'var(--bk-radius-sm)',
-      },
-    },
-  },
-
-  // Compound variants - for variant combinations
-  compoundVariants: [
-    {
-      variants: {
+    // Default variants
+    defaultVariants: {
         variant: 'primary',
-        outline: true,
-      },
-      style: {
-        color: 'var(--bk-color-primary)',
-        borderColor: 'var(--bk-color-primary)',
-        ':hover:not(:disabled)': {
-          backgroundColor: 'var(--bk-color-primary)',
-          color: 'var(--bk-color-primary-foreground)',
-        },
-      },
+        size: 'md',
+        outline: false,
+        circular: false,
     },
-  ],
-
-  // Default variants
-  defaultVariants: {
-    variant: 'primary',
-    size: 'md',
-    outline: false,
-    circular: false,
-  },
 });
 ```
 
@@ -553,86 +587,95 @@ export const Button: React.FC<ButtonProps> = ({
 ### Critical Rules for vanilla-extract
 
 1. **Always Use CSS Variables for Design Tokens**
-   ```typescript
-   // ✅ CORRECT
-   backgroundColor: 'var(--bk-color-primary)',
-   padding: 'var(--bk-padding-md)',
 
-   // ❌ WRONG
-   backgroundColor: '#007acc',
-   padding: '8px 16px',
-   ```
+    ```typescript
+    // ✅ CORRECT
+    backgroundColor: 'var(--bk-color-primary)',
+    padding: 'var(--bk-padding-md)',
+
+    // ❌ WRONG
+    backgroundColor: '#007acc',
+    padding: '8px 16px',
+    ```
 
 2. **No Runtime Logic in Style Files**
-   ```typescript
-   // ❌ WRONG - .css.ts files run at build time
-   const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-   // ✅ CORRECT - Use variants or CSS variables
-   export const theme = styleVariants({
-     light: { backgroundColor: 'var(--bk-color-background)' },
-     dark: { backgroundColor: 'var(--bk-color-background-dark)' },
-   });
-   ```
+    ```typescript
+    // ❌ WRONG - .css.ts files run at build time
+    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // ✅ CORRECT - Use variants or CSS variables
+    export const theme = styleVariants({
+        light: { backgroundColor: 'var(--bk-color-background)' },
+        dark: { backgroundColor: 'var(--bk-color-background-dark)' },
+    });
+    ```
 
 3. **Use `recipe` for Components with Variants**
-   - More than 2 variant dimensions → `recipe`
-   - Simple variant map → `styleVariants`
-   - Static styles → `style`
+    - More than 2 variant dimensions → `recipe`
+    - Simple variant map → `styleVariants`
+    - Static styles → `style`
 
 4. **Compound Variants for Conditional Styling**
-   ```typescript
-   compoundVariants: [
-     {
-       variants: { size: 'lg', variant: 'primary' },
-       style: { fontWeight: 'bold' },
-     },
-   ],
-   ```
+
+    ```typescript
+    compoundVariants: [
+      {
+        variants: { size: 'lg', variant: 'primary' },
+        style: { fontWeight: 'bold' },
+      },
+    ],
+    ```
 
 5. **className Prop Pattern**
-   ```typescript
-   // Always allow className override
-   className={button({ variant, size, className })}
-   ```
+
+    ```typescript
+    // Always allow className override
+    className={button({ variant, size, className })}
+    ```
 
 6. **Type Safety**
-   ```typescript
-   import type { RecipeVariants } from '@vanilla-extract/recipes';
 
-   export type ButtonVariants = RecipeVariants<typeof button>;
-   ```
+    ```typescript
+    import type { RecipeVariants } from '@vanilla-extract/recipes';
+
+    export type ButtonVariants = RecipeVariants<typeof button>;
+    ```
 
 7. **Pseudo-selectors and Nested Selectors**
-   ```typescript
-   export const button = style({
-     // Pseudo-classes
-     ':hover': { opacity: 0.8 },
-     ':focus-visible': { outline: '2px solid var(--bk-color-focus)' },
-     ':disabled': { opacity: 0.5 },
 
-     // Nested selectors
-     selectors: {
-       '&:hover:not(:disabled)': { backgroundColor: 'var(--bk-color-hover)' },
-       '& svg': { width: '1em', height: '1em' },
-     },
-   });
-   ```
+    ```typescript
+    export const button = style({
+        // Pseudo-classes
+        ':hover': { opacity: 0.8 },
+        ':focus-visible': { outline: '2px solid var(--bk-color-focus)' },
+        ':disabled': { opacity: 0.5 },
+
+        // Nested selectors
+        selectors: {
+            '&:hover:not(:disabled)': { backgroundColor: 'var(--bk-color-hover)' },
+            '& svg': { width: '1em', height: '1em' },
+        },
+    });
+    ```
 
 8. **Media Queries**
-   ```typescript
-   import { style } from '@vanilla-extract/css';
 
-   export const responsive = style({
-     padding: 'var(--bk-padding-sm)',
+    ```typescript
+    import { style } from '@vanilla-extract/css';
 
-     '@media': {
-       'screen and (min-width: 768px)': {
-         padding: 'var(--bk-padding-md)',
-       },
-     },
-   });
- ```
+    export const responsive = style({
+        padding: 'var(--bk-padding-sm)',
+
+        '@media': {
+            'screen and (min-width: 768px)': {
+                padding: 'var(--bk-padding-md)',
+            },
+        },
+    });
+    ```
+
+````
 
 ## Multi-Window Support (Eclipse Theia)
 
@@ -655,24 +698,25 @@ const [ready, setReady] = useState(false);
 useEffect(() => setReady(true), []);
 
 return (
- <div ref={rootRef} className="secondary-window-container">
-   {ready && (
-     <PortalProvider root={rootRef.current}>
-       {/* All dropdowns, tooltips, etc. will render in this window */}
-       <Select options={options} />
-       <Dropdown trigger={<Button>Menu</Button>}>
-         <Menu>...</Menu>
-       </Dropdown>
-     </PortalProvider>
-   )}
- </div>
+<div ref={rootRef} className="secondary-window-container">
+  {ready && (
+    <PortalProvider root={rootRef.current}>
+      {/* All dropdowns, tooltips, etc. will render in this window */}
+      <Select options={options} />
+      <Dropdown trigger={<Button>Menu</Button>}>
+        <Menu>...</Menu>
+      </Dropdown>
+    </PortalProvider>
+  )}
+</div>
 );
 }
-```
+````
 
 ### Components Using PortalProvider
 
 These components respect the `PortalProvider` context:
+
 - **Select** - Dropdown options list
 - **Dropdown** - Generic dropdown container
 - **Tooltip** - Hover tooltips
@@ -684,4 +728,3 @@ These components respect the `PortalProvider` context:
 1. **Backward Compatible**: If `PortalProvider` is not used, components fall back to default portal behavior (`document.body`)
 2. **Hook**: Use `usePortalRoot()` hook to access the portal root in custom components
 3. **Context Location**: Defined in `packages/baukasten/src/context/PortalProvider.tsx`
-

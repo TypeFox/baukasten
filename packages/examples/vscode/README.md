@@ -53,22 +53,23 @@ vscode/
 
 ## Components Used
 
-| Component | Usage |
-|-----------|-------|
+| Component | Usage                                |
+| --------- | ------------------------------------ |
 | DataTable | Main log display with virtualization |
-| SplitPane | Log table + detail panel layout |
-| Badge | Log level indicators |
-| Input | Search bar |
-| Select | Source filter dropdown |
-| Checkbox | Level filter toggles |
-| Button | Refresh/Clear actions |
-| Accordion | Detail panel sections |
-| Code | Stack trace display |
-| Text | Labels and values |
+| SplitPane | Log table + detail panel layout      |
+| Badge     | Log level indicators                 |
+| Input     | Search bar                           |
+| Select    | Source filter dropdown               |
+| Checkbox  | Level filter toggles                 |
+| Button    | Refresh/Clear actions                |
+| Accordion | Detail panel sections                |
+| Code      | Stack trace display                  |
+| Text      | Labels and values                    |
 
 ## Customization
 
 The mock data generator in `src/webview/data/mockLogs.ts` can be modified to:
+
 - Change log sources
 - Adjust log level distribution
 - Customize message templates

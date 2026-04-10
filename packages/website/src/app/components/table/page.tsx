@@ -6,13 +6,37 @@ import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
 import { Table, Heading, Badge, Icon, Button } from 'baukasten-ui/core';
 
 const tableProps: PropDefinition[] = [
-    { name: 'variant', type: '"default" | "zebra"', default: '"default"', description: 'Visual variant (zebra adds alternating row colors)' },
-    { name: 'size', type: '"xs" | "sm" | "md" | "lg" | "xl"', default: '"md"', description: 'Size of table cells' },
+    {
+        name: 'variant',
+        type: '"default" | "zebra"',
+        default: '"default"',
+        description: 'Visual variant (zebra adds alternating row colors)',
+    },
+    {
+        name: 'size',
+        type: '"xs" | "sm" | "md" | "lg" | "xl"',
+        default: '"md"',
+        description: 'Size of table cells',
+    },
     { name: 'bordered', type: 'boolean', default: 'true', description: 'Whether to show borders' },
-    { name: 'fullWidth', type: 'boolean', default: 'true', description: 'Whether table should take full width' },
-    { name: 'maxHeight', type: 'number | string', description: 'Max height for scrollable table (enables sticky headers)' },
+    {
+        name: 'fullWidth',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether table should take full width',
+    },
+    {
+        name: 'maxHeight',
+        type: 'number | string',
+        description: 'Max height for scrollable table (enables sticky headers)',
+    },
     { name: 'caption', type: 'React.ReactNode', description: 'Table caption for accessibility' },
-    { name: 'captionSide', type: '"top" | "bottom"', default: '"top"', description: 'Position of caption' },
+    {
+        name: 'captionSide',
+        type: '"top" | "bottom"',
+        default: '"top"',
+        description: 'Position of caption',
+    },
 ];
 
 // Sample data
@@ -149,9 +173,21 @@ function App() {
                 title="Variants"
                 description="Two visual variants: default (standard borders) and zebra (alternating row colors for better readability)."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Default
                             </div>
                             <Table variant="default">
@@ -174,7 +210,13 @@ function App() {
                             </Table>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Zebra (Alternating Rows)
                             </div>
                             <Table variant="zebra">
@@ -213,11 +255,24 @@ function App() {
                 title="Sizes"
                 description="Five size options: xs, sm, md (default), lg, and xl. Affects padding and font size of cells."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
-                        {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map(size => (
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
+                        {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
                             <div key={size}>
-                                <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
-                                    {size.toUpperCase()}{size === 'md' ? ' (default)' : ''}
+                                <div
+                                    style={{
+                                        marginBottom: 'var(--bk-spacing-2)',
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        fontWeight: 'var(--bk-font-weight-medium)',
+                                    }}
+                                >
+                                    {size.toUpperCase()}
+                                    {size === 'md' ? ' (default)' : ''}
                                 </div>
                                 <Table size={size}>
                                     <Table.Head>
@@ -317,7 +372,11 @@ function App() {
                                 <Table.Row key={user.id}>
                                     <Table.Cell>{user.name}</Table.Cell>
                                     <Table.Cell align="center">
-                                        <Badge variant={user.status === 'active' ? 'success' : 'default'}>
+                                        <Badge
+                                            variant={
+                                                user.status === 'active' ? 'success' : 'default'
+                                            }
+                                        >
                                             {user.status}
                                         </Badge>
                                     </Table.Cell>
@@ -406,9 +465,21 @@ function App() {
                 title="Loading & Empty States"
                 description="Table.Body supports loading and empty states with customizable messages."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                        }}
+                    >
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Loading State
                             </div>
                             <Table>
@@ -423,7 +494,13 @@ function App() {
                             </Table>
                         </div>
                         <div>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Empty State
                             </div>
                             <Table>
@@ -520,9 +597,15 @@ function App() {
                         </Table.Body>
                         <Table.Footer>
                             <Table.Row>
-                                <Table.Cell><strong>Total</strong></Table.Cell>
-                                <Table.Cell align="right"><strong>8</strong></Table.Cell>
-                                <Table.Cell align="right"><strong>$125.00</strong></Table.Cell>
+                                <Table.Cell>
+                                    <strong>Total</strong>
+                                </Table.Cell>
+                                <Table.Cell align="right">
+                                    <strong>8</strong>
+                                </Table.Cell>
+                                <Table.Cell align="right">
+                                    <strong>$125.00</strong>
+                                </Table.Cell>
                             </Table.Row>
                         </Table.Footer>
                     </Table>
@@ -546,22 +629,39 @@ function App() {
 </Table>`}
             />
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Uses semantic HTML: <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>
+                        Uses semantic HTML: <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>,{' '}
+                        <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Table headers have <code>scope="col"</code> for screen readers
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Sortable columns have <code>role="button"</code>, <code>tabIndex={0}</code>, and <code>aria-sort</code>
+                        Sortable columns have <code>role="button"</code>, <code>tabIndex={0}</code>,
+                        and <code>aria-sort</code>
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Keyboard support: <code>Enter</code> and <code>Space</code> to activate sorting
+                        Keyboard support: <code>Enter</code> and <code>Space</code> to activate
+                        sorting
                     </li>
                     <li>
                         Use <code>caption</code> prop for accessible table descriptions
@@ -569,22 +669,39 @@ function App() {
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Variants:</strong> Use zebra variant for tables with many rows
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Alignment:</strong> Right-align numbers, center-align status indicators
+                        <strong>Alignment:</strong> Right-align numbers, center-align status
+                        indicators
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Sticky Headers:</strong> Use with <code>maxHeight</code> for long tables
+                        <strong>Sticky Headers:</strong> Use with <code>maxHeight</code> for long
+                        tables
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Loading/Empty:</strong> Always show feedback when data is loading or empty
+                        <strong>Loading/Empty:</strong> Always show feedback when data is loading or
+                        empty
                     </li>
                     <li>
                         <strong>Captions:</strong> Add descriptive captions for better accessibility

@@ -35,7 +35,8 @@ const breadcrumbsProps: PropDefinition[] = [
     {
         name: 'maxItems',
         type: 'number',
-        description: 'Maximum number of items to display. When exceeded, middle items will be collapsed with an ellipsis',
+        description:
+            'Maximum number of items to display. When exceeded, middle items will be collapsed with an ellipsis',
     },
     {
         name: 'className',
@@ -60,7 +61,8 @@ const breadcrumbItemProps: PropDefinition[] = [
     {
         name: 'href',
         type: 'string',
-        description: 'Optional href for navigation. If provided, the item will be rendered as a clickable link',
+        description:
+            'Optional href for navigation. If provided, the item will be rendered as a clickable link',
     },
     {
         name: 'onClick',
@@ -101,15 +103,21 @@ const longPath: BreadcrumbItem[] = [
 
 // File Browser Example Component
 function FileBrowserExample() {
-    const [currentPath, setCurrentPath] = useState(['Home', 'workspace', 'src', 'components', 'Breadcrumbs.tsx']);
+    const [currentPath, setCurrentPath] = useState([
+        'Home',
+        'workspace',
+        'src',
+        'components',
+        'Breadcrumbs.tsx',
+    ]);
 
     const items: BreadcrumbItem[] = currentPath.map((label, index) => {
         const getIcon = (name: string) => {
             const iconMap: Record<string, any> = {
-                'Home': 'home',
-                'workspace': 'folder',
-                'src': 'folder-opened',
-                'components': 'folder-opened',
+                Home: 'home',
+                workspace: 'folder',
+                src: 'folder-opened',
+                components: 'folder-opened',
                 'Breadcrumbs.tsx': 'file-code',
             };
             return iconMap[name] || 'folder';
@@ -127,37 +135,42 @@ function FileBrowserExample() {
     });
 
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'var(--bk-spacing-4)',
-            padding: 'var(--bk-spacing-5)',
-            backgroundColor: 'var(--vscode-textBlockQuote-background)',
-            borderRadius: 'var(--bk-radius-md)',
-            minWidth: '500px',
-        }}>
-            <div style={{
+        <div
+            style={{
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                paddingBottom: 'var(--bk-spacing-3)',
-                borderBottom: '1px solid var(--vscode-panel-border)',
-            }}>
-                <Heading level={4} style={{ margin: 0 }}>File Explorer</Heading>
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-4)',
+                padding: 'var(--bk-spacing-5)',
+                backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                borderRadius: 'var(--bk-radius-md)',
+                minWidth: '500px',
+            }}
+        >
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    paddingBottom: 'var(--bk-spacing-3)',
+                    borderBottom: '1px solid var(--vscode-panel-border)',
+                }}
+            >
+                <Heading level={4} style={{ margin: 0 }}>
+                    File Explorer
+                </Heading>
             </div>
 
-            <Breadcrumbs
-                items={items}
-                separator={<Icon name="chevron-right" />}
-            />
+            <Breadcrumbs items={items} separator={<Icon name="chevron-right" />} />
 
-            <div style={{
-                padding: 'var(--bk-spacing-4)',
-                backgroundColor: 'var(--vscode-input-background)',
-                borderRadius: 'var(--bk-radius-sm)',
-                fontSize: 'var(--bk-font-size-sm)',
-                color: 'var(--vscode-descriptionForeground)',
-            }}>
+            <div
+                style={{
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-input-background)',
+                    borderRadius: 'var(--bk-radius-sm)',
+                    fontSize: 'var(--bk-font-size-sm)',
+                    color: 'var(--vscode-descriptionForeground)',
+                }}
+            >
                 Click any breadcrumb to navigate back to that location
             </div>
         </div>
@@ -198,24 +211,47 @@ function App() {
                 title="Variants"
                 description="Two visual variants are available: default (minimal text links) and pill (rounded background badges). The pill variant provides more visual prominence."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)', alignItems: 'flex-start' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
-                            <div style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                            alignItems: 'flex-start',
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Default Variant
                             </div>
-                            <Breadcrumbs
-                                variant="default"
-                                items={basicItems}
-                            />
+                            <Breadcrumbs variant="default" items={basicItems} />
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
-                            <div style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Pill Variant
                             </div>
-                            <Breadcrumbs
-                                variant="pill"
-                                items={basicItems}
-                            />
+                            <Breadcrumbs variant="pill" items={basicItems} />
                         </div>
                     </div>
                 }
@@ -236,11 +272,31 @@ function App() {
                 title="Sizes"
                 description="Five size options are available: xs, sm, md (default), lg, and xl. Choose the size that best fits your UI hierarchy."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
-                        {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map(size => (
-                            <div key={size} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-1)' }}>
-                                <div style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-descriptionForeground)' }}>
-                                    {size.toUpperCase()}{size === 'md' ? ' (default)' : ''}
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            alignItems: 'flex-start',
+                        }}
+                    >
+                        {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
+                            <div
+                                key={size}
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: 'var(--bk-spacing-1)',
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-xs)',
+                                        color: 'var(--vscode-descriptionForeground)',
+                                    }}
+                                >
+                                    {size.toUpperCase()}
+                                    {size === 'md' ? ' (default)' : ''}
                                 </div>
                                 <Breadcrumbs
                                     size={size}
@@ -265,30 +321,84 @@ function App() {
                 title="Custom Separators"
                 description="Customize the separator between breadcrumb items. You can use text, symbols, or icon components."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
-                            <div style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            alignItems: 'flex-start',
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Default (/)
                             </div>
                             <Breadcrumbs separator="/" items={basicItems} />
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
-                            <div style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Greater Than (›)
                             </div>
                             <Breadcrumbs separator="›" items={basicItems} />
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
-                            <div style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Arrow (→)
                             </div>
                             <Breadcrumbs separator="→" items={basicItems} />
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)' }}>
-                            <div style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Chevron Icon
                             </div>
-                            <Breadcrumbs separator={<Icon name="chevron-right" />} items={basicItems} />
+                            <Breadcrumbs
+                                separator={<Icon name="chevron-right" />}
+                                items={basicItems}
+                            />
                         </div>
                     </div>
                 }
@@ -308,11 +418,22 @@ function App() {
                 title="With Icons"
                 description="Add icons to breadcrumb items for better visual recognition. Icons are displayed before the label text and are particularly useful for file system navigation or categorized content."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            alignItems: 'flex-start',
+                        }}
+                    >
                         <Breadcrumbs
                             items={[
                                 { label: 'Home', href: '/', icon: <Icon name="home" /> },
-                                { label: 'Projects', href: '/projects', icon: <Icon name="folder" /> },
+                                {
+                                    label: 'Projects',
+                                    href: '/projects',
+                                    icon: <Icon name="folder" />,
+                                },
                                 { label: 'Settings', icon: <Icon name="settings-gear" /> },
                             ]}
                         />
@@ -340,21 +461,65 @@ function App() {
                 title="Collapsed Items"
                 description="Use maxItems to collapse long breadcrumb paths. Middle items are replaced with an ellipsis (...), showing the first item and the last N-1 items. This is useful for deep hierarchies to prevent horizontal overflow."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', alignItems: 'flex-start', maxWidth: '600px' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', width: '100%' }}>
-                            <div style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            alignItems: 'flex-start',
+                            maxWidth: '600px',
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-2)',
+                                width: '100%',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Full Path (7 items)
                             </div>
                             <Breadcrumbs items={longPath} />
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', width: '100%' }}>
-                            <div style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-2)',
+                                width: '100%',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Collapsed to 4 items
                             </div>
                             <Breadcrumbs items={longPath} maxItems={4} />
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-2)', width: '100%' }}>
-                            <div style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-2)',
+                                width: '100%',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Collapsed to 3 items
                             </div>
                             <Breadcrumbs items={longPath} maxItems={3} />
@@ -385,22 +550,29 @@ function App() {
                 title="With Click Handlers"
                 description="Use onClick handlers for client-side routing (e.g., React Router, Next.js). Click handlers work whether or not an href is provided."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', minWidth: '400px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            minWidth: '400px',
+                        }}
+                    >
                         {(() => {
                             const [lastClicked, setLastClicked] = useState<string>('');
 
                             const items: BreadcrumbItem[] = [
                                 {
                                     label: 'Dashboard',
-                                    onClick: () => setLastClicked('Dashboard')
+                                    onClick: () => setLastClicked('Dashboard'),
                                 },
                                 {
                                     label: 'Projects',
-                                    onClick: () => setLastClicked('Projects')
+                                    onClick: () => setLastClicked('Projects'),
                                 },
                                 {
                                     label: 'Settings',
-                                    onClick: () => setLastClicked('Settings')
+                                    onClick: () => setLastClicked('Settings'),
                                 },
                                 { label: 'Profile' },
                             ];
@@ -409,12 +581,14 @@ function App() {
                                 <>
                                     <Breadcrumbs items={items} />
                                     {lastClicked && (
-                                        <div style={{
-                                            padding: 'var(--bk-spacing-3)',
-                                            backgroundColor: 'var(--vscode-input-background)',
-                                            borderRadius: 'var(--bk-radius-sm)',
-                                            fontSize: 'var(--bk-font-size-sm)',
-                                        }}>
+                                        <div
+                                            style={{
+                                                padding: 'var(--bk-spacing-3)',
+                                                backgroundColor: 'var(--vscode-input-background)',
+                                                borderRadius: 'var(--bk-radius-sm)',
+                                                fontSize: 'var(--bk-font-size-sm)',
+                                            }}
+                                        >
                                             Last clicked: <strong>{lastClicked}</strong>
                                         </div>
                                     )}
@@ -459,7 +633,11 @@ function App() {
                             items={[
                                 { label: 'Home', href: '/', icon: <Icon name="home" /> },
                                 { label: 'Documents', href: '/docs', icon: <Icon name="file" /> },
-                                { label: 'Projects', href: '/docs/projects', icon: <Icon name="folder" /> },
+                                {
+                                    label: 'Projects',
+                                    href: '/docs/projects',
+                                    icon: <Icon name="folder" />,
+                                },
                                 { label: 'README.md', icon: <Icon name="markdown" /> },
                             ]}
                         />
@@ -528,23 +706,28 @@ function FileBrowser() {
                 ]}
             />
 
-            <div style={{
-                marginTop: 'var(--bk-spacing-6)',
-                padding: 'var(--bk-spacing-4)',
-                backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--bk-radius-md)',
-            }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{
-                    fontSize: 'var(--bk-font-size-sm)',
-                    lineHeight: 1.6,
-                    color: 'var(--vscode-descriptionForeground)',
-                    marginLeft: 'var(--bk-spacing-4)',
-                }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Uses semantic HTML with <code>&lt;nav&gt;</code> and <code>&lt;ol&gt;</code> elements
+                        Uses semantic HTML with <code>&lt;nav&gt;</code> and <code>&lt;ol&gt;</code>{' '}
+                        elements
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         Includes <code>aria-label</code> on the navigation (default: "Breadcrumb")
@@ -553,7 +736,8 @@ function FileBrowser() {
                         Current page marked with <code>aria-current="page"</code>
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Separators are marked with <code>aria-hidden="true"</code> to prevent announcement
+                        Separators are marked with <code>aria-hidden="true"</code> to prevent
+                        announcement
                     </li>
                     <li>
                         Links and buttons are keyboard accessible and support standard navigation
@@ -561,21 +745,25 @@ function FileBrowser() {
                 </ul>
             </div>
 
-            <div style={{
-                marginTop: 'var(--bk-spacing-6)',
-                padding: 'var(--bk-spacing-4)',
-                backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--bk-radius-md)',
-            }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Behavior Notes
                 </Heading>
-                <ul style={{
-                    fontSize: 'var(--bk-font-size-sm)',
-                    lineHeight: 1.6,
-                    color: 'var(--vscode-descriptionForeground)',
-                    marginLeft: 'var(--bk-spacing-4)',
-                }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         The last item (current page) is rendered as plain text by default
                     </li>
@@ -583,14 +771,14 @@ function FileBrowser() {
                         Items with <code>href</code> are rendered as <code>&lt;a&gt;</code> links
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        Items with only <code>onClick</code> (no href) are rendered as <code>&lt;button&gt;</code> elements
+                        Items with only <code>onClick</code> (no href) are rendered as{' '}
+                        <code>&lt;button&gt;</code> elements
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        When using <code>maxItems</code>, the first item and last N-1 items are always shown
+                        When using <code>maxItems</code>, the first item and last N-1 items are
+                        always shown
                     </li>
-                    <li>
-                        The ellipsis (...) represents collapsed items and is not interactive
-                    </li>
+                    <li>The ellipsis (...) represents collapsed items and is not interactive</li>
                 </ul>
             </div>
         </PageLayout>

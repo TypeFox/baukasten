@@ -6,7 +6,14 @@ import { tag } from './Tag.css';
 /**
  * Tag variant types
  */
-export type TagVariant = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
+export type TagVariant =
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'info';
 
 /**
  * Tag component props
@@ -76,10 +83,7 @@ export const Tag: React.FC<TagProps> = ({
     ...props
 }) => {
     return (
-        <span
-            className={clsx(tag({ variant, size, outline }), className)}
-            {...props}
-        >
+        <span className={clsx(tag({ variant, size, outline }), className)} {...props}>
             {children}
         </span>
     );

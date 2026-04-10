@@ -11,7 +11,8 @@ const splitPaneProps: PropDefinition[] = [
         name: 'orientation',
         type: '"horizontal" | "vertical"',
         default: '"horizontal"',
-        description: 'Orientation of the split panes (horizontal: left-right, vertical: top-bottom)',
+        description:
+            'Orientation of the split panes (horizontal: left-right, vertical: top-bottom)',
     },
     {
         name: 'minSize',
@@ -47,7 +48,8 @@ const paneProps: PropDefinition[] = [
     {
         name: 'preferredSize',
         type: 'number',
-        description: 'Preferred/initial size in pixels or as a fraction (0-1 for proportional sizing)',
+        description:
+            'Preferred/initial size in pixels or as a fraction (0-1 for proportional sizing)',
     },
     {
         name: 'children',
@@ -59,61 +61,69 @@ const paneProps: PropDefinition[] = [
 
 // Demo content components
 const DemoContent = ({ color, children }: { color: string; children: React.ReactNode }) => (
-    <div style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: color,
-        color: 'var(--vscode-foreground)',
-        fontSize: 'var(--bk-font-size-md)',
-        fontWeight: 'var(--bk-font-weight-medium)',
-        padding: 'var(--bk-spacing-4)',
-        overflow: 'auto',
-        boxSizing: 'border-box',
-        textAlign: 'center',
-    }}>
+    <div
+        style={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: color,
+            color: 'var(--vscode-foreground)',
+            fontSize: 'var(--bk-font-size-md)',
+            fontWeight: 'var(--bk-font-weight-medium)',
+            padding: 'var(--bk-spacing-4)',
+            overflow: 'auto',
+            boxSizing: 'border-box',
+            textAlign: 'center',
+        }}
+    >
         {children}
     </div>
 );
 
 const CodeEditor = ({ children }: { children: React.ReactNode }) => (
-    <div style={{
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'var(--vscode-editor-background)',
-        padding: 'var(--bk-spacing-4)',
-        fontFamily: 'var(--vscode-editor-font-family)',
-        fontSize: 'var(--vscode-editor-font-size)',
-        color: 'var(--vscode-editor-foreground)',
-        overflow: 'auto',
-        boxSizing: 'border-box',
-    }}>
+    <div
+        style={{
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'var(--vscode-editor-background)',
+            padding: 'var(--bk-spacing-4)',
+            fontFamily: 'var(--vscode-editor-font-family)',
+            fontSize: 'var(--vscode-editor-font-size)',
+            color: 'var(--vscode-editor-foreground)',
+            overflow: 'auto',
+            boxSizing: 'border-box',
+        }}
+    >
         {children}
     </div>
 );
 
 const Sidebar = ({ title, children }: { title?: string; children: React.ReactNode }) => (
-    <div style={{
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'var(--vscode-sideBar-background)',
-        padding: 'var(--bk-spacing-4)',
-        color: 'var(--vscode-sideBar-foreground)',
-        overflow: 'auto',
-        boxSizing: 'border-box',
-        borderRight: '1px solid var(--vscode-sideBar-border)',
-    }}>
+    <div
+        style={{
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'var(--vscode-sideBar-background)',
+            padding: 'var(--bk-spacing-4)',
+            color: 'var(--vscode-sideBar-foreground)',
+            overflow: 'auto',
+            boxSizing: 'border-box',
+            borderRight: '1px solid var(--vscode-sideBar-border)',
+        }}
+    >
         {title && (
-            <h4 style={{
-                margin: '0 0 var(--bk-spacing-3) 0',
-                fontSize: 'var(--bk-font-size-sm)',
-                fontWeight: 'var(--bk-font-weight-semibold)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-            }}>
+            <h4
+                style={{
+                    margin: '0 0 var(--bk-spacing-3) 0',
+                    fontSize: 'var(--bk-font-size-sm)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                }}
+            >
                 {title}
             </h4>
         )}
@@ -122,22 +132,26 @@ const Sidebar = ({ title, children }: { title?: string; children: React.ReactNod
 );
 
 const Panel = ({ title, children }: { title?: string; children: React.ReactNode }) => (
-    <div style={{
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'var(--vscode-panel-background)',
-        padding: 'var(--bk-spacing-4)',
-        color: 'var(--vscode-panel-foreground)',
-        overflow: 'auto',
-        boxSizing: 'border-box',
-        borderTop: '1px solid var(--vscode-panel-border)',
-    }}>
+    <div
+        style={{
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'var(--vscode-panel-background)',
+            padding: 'var(--bk-spacing-4)',
+            color: 'var(--vscode-panel-foreground)',
+            overflow: 'auto',
+            boxSizing: 'border-box',
+            borderTop: '1px solid var(--vscode-panel-border)',
+        }}
+    >
         {title && (
-            <div style={{
-                marginBottom: 'var(--bk-spacing-2)',
-                fontSize: 'var(--bk-font-size-sm)',
-                fontWeight: 'var(--bk-font-weight-semibold)',
-            }}>
+            <div
+                style={{
+                    marginBottom: 'var(--bk-spacing-2)',
+                    fontSize: 'var(--bk-font-size-sm)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
+                }}
+            >
                 {title}
             </div>
         )}
@@ -146,14 +160,22 @@ const Panel = ({ title, children }: { title?: string; children: React.ReactNode 
 );
 
 // Container for examples
-const ExampleContainer = ({ children, height = '500px' }: { children: React.ReactNode; height?: string }) => (
-    <div style={{
-        width: '100%',
-        height,
-        border: '1px solid var(--vscode-panel-border)',
-        borderRadius: 'var(--bk-radius-md)',
-        overflow: 'hidden',
-    }}>
+const ExampleContainer = ({
+    children,
+    height = '500px',
+}: {
+    children: React.ReactNode;
+    height?: string;
+}) => (
+    <div
+        style={{
+            width: '100%',
+            height,
+            border: '1px solid var(--vscode-panel-border)',
+            borderRadius: 'var(--bk-radius-md)',
+            overflow: 'hidden',
+        }}
+    >
         {children}
     </div>
 );
@@ -184,44 +206,61 @@ function VSCodeLayoutExample() {
                             <SplitPane orientation="horizontal">
                                 <SplitPane.Pane>
                                     <CodeEditor>
-                                        <div style={{ marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                                        <div
+                                            style={{
+                                                marginBottom: 'var(--bk-spacing-2)',
+                                                color: 'var(--vscode-descriptionForeground)',
+                                            }}
+                                        >
                                             App.tsx
                                         </div>
                                         <div>{"import React from 'react';"}</div>
-                                        <div>{""}</div>
-                                        <div>{"export const App = () => {"}</div>
-                                        <div>{"  return ("}</div>
-                                        <div>{"    <div>"}</div>
-                                        <div>{"      <h1>Hello World</h1>"}</div>
-                                        <div>{"    </div>"}</div>
-                                        <div>{"  );"}</div>
-                                        <div>{"};"}</div>
+                                        <div>{''}</div>
+                                        <div>{'export const App = () => {'}</div>
+                                        <div>{'  return ('}</div>
+                                        <div>{'    <div>'}</div>
+                                        <div>{'      <h1>Hello World</h1>'}</div>
+                                        <div>{'    </div>'}</div>
+                                        <div>{'  );'}</div>
+                                        <div>{'};'}</div>
                                     </CodeEditor>
                                 </SplitPane.Pane>
                                 <SplitPane.Pane>
                                     <CodeEditor>
-                                        <div style={{ marginBottom: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                                        <div
+                                            style={{
+                                                marginBottom: 'var(--bk-spacing-2)',
+                                                color: 'var(--vscode-descriptionForeground)',
+                                            }}
+                                        >
                                             SplitPane.tsx
                                         </div>
-                                        <div>{"import { SplitPane } from 'baukasten-ui/extra';"}</div>
-                                        <div>{""}</div>
-                                        <div>{"const Layout = () => ("}</div>
-                                        <div>{"  <SplitPane orientation=\"horizontal\">"}</div>
-                                        <div>{"    <SplitPane.Pane minSize={200}>"}</div>
-                                        <div>{"      <Sidebar />"}</div>
-                                        <div>{"    </SplitPane.Pane>"}</div>
-                                        <div>{"    <SplitPane.Pane>"}</div>
-                                        <div>{"      <Editor />"}</div>
-                                        <div>{"    </SplitPane.Pane>"}</div>
-                                        <div>{"  </SplitPane>"}</div>
-                                        <div>{");"}</div>
+                                        <div>
+                                            {"import { SplitPane } from 'baukasten-ui/extra';"}
+                                        </div>
+                                        <div>{''}</div>
+                                        <div>{'const Layout = () => ('}</div>
+                                        <div>{'  <SplitPane orientation="horizontal">'}</div>
+                                        <div>{'    <SplitPane.Pane minSize={200}>'}</div>
+                                        <div>{'      <Sidebar />'}</div>
+                                        <div>{'    </SplitPane.Pane>'}</div>
+                                        <div>{'    <SplitPane.Pane>'}</div>
+                                        <div>{'      <Editor />'}</div>
+                                        <div>{'    </SplitPane.Pane>'}</div>
+                                        <div>{'  </SplitPane>'}</div>
+                                        <div>{');'}</div>
                                     </CodeEditor>
                                 </SplitPane.Pane>
                             </SplitPane>
                         </SplitPane.Pane>
                         <SplitPane.Pane minSize={100} maxSize={400} preferredSize={200}>
                             <Panel title="PROBLEMS">
-                                <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--vscode-descriptionForeground)' }}>
+                                <div
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        color: 'var(--vscode-descriptionForeground)',
+                                    }}
+                                >
                                     No problems detected.
                                 </div>
                             </Panel>
@@ -248,7 +287,13 @@ export default function SplitPanePage() {
                             <SplitPane.Pane>
                                 <DemoContent color="color-mix(in srgb, var(--vscode-button-background) 20%, transparent)">
                                     Left Pane
-                                    <div style={{ fontSize: 'var(--bk-font-size-sm)', marginTop: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                                    <div
+                                        style={{
+                                            fontSize: 'var(--bk-font-size-sm)',
+                                            marginTop: 'var(--bk-spacing-2)',
+                                            color: 'var(--vscode-descriptionForeground)',
+                                        }}
+                                    >
                                         Drag the divider →
                                     </div>
                                 </DemoContent>
@@ -282,9 +327,22 @@ function App() {
                 title="Orientations"
                 description="SplitPane supports two orientations: horizontal (left-right split) and vertical (top-bottom split)."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)', width: '100%' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                            width: '100%',
+                        }}
+                    >
                         <div style={{ width: '100%' }}>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Horizontal (default)
                             </div>
                             <ExampleContainer height="300px">
@@ -303,7 +361,13 @@ function App() {
                             </ExampleContainer>
                         </div>
                         <div style={{ width: '100%' }}>
-                            <div style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                            <div
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 'var(--bk-font-weight-medium)',
+                                }}
+                            >
                                 Vertical
                             </div>
                             <ExampleContainer height="300px">
@@ -382,7 +446,13 @@ function App() {
                             <SplitPane.Pane minSize={200}>
                                 <DemoContent color="color-mix(in srgb, var(--vscode-button-background) 20%, transparent)">
                                     Min 200px
-                                    <div style={{ fontSize: 'var(--bk-font-size-sm)', marginTop: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                                    <div
+                                        style={{
+                                            fontSize: 'var(--bk-font-size-sm)',
+                                            marginTop: 'var(--bk-spacing-2)',
+                                            color: 'var(--vscode-descriptionForeground)',
+                                        }}
+                                    >
                                         Try to make me smaller!
                                     </div>
                                 </DemoContent>
@@ -390,7 +460,13 @@ function App() {
                             <SplitPane.Pane minSize={150} maxSize={400}>
                                 <DemoContent color="color-mix(in srgb, var(--vscode-button-secondaryBackground) 40%, transparent)">
                                     150px - 400px
-                                    <div style={{ fontSize: 'var(--bk-font-size-sm)', marginTop: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                                    <div
+                                        style={{
+                                            fontSize: 'var(--bk-font-size-sm)',
+                                            marginTop: 'var(--bk-spacing-2)',
+                                            color: 'var(--vscode-descriptionForeground)',
+                                        }}
+                                    >
                                         I have both min and max!
                                     </div>
                                 </DemoContent>
@@ -422,7 +498,13 @@ function App() {
                             <SplitPane.Pane preferredSize={0.7}>
                                 <DemoContent color="color-mix(in srgb, var(--vscode-button-secondaryBackground) 40%, transparent)">
                                     70% initial
-                                    <div style={{ fontSize: 'var(--bk-font-size-sm)', marginTop: 'var(--bk-spacing-2)', color: 'var(--vscode-descriptionForeground)' }}>
+                                    <div
+                                        style={{
+                                            fontSize: 'var(--bk-font-size-sm)',
+                                            marginTop: 'var(--bk-spacing-2)',
+                                            color: 'var(--vscode-descriptionForeground)',
+                                        }}
+                                    >
                                         (preferredSize: 0.7)
                                     </div>
                                 </DemoContent>
@@ -541,37 +623,58 @@ function IDELayout() {
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     SplitPane.Pane Props
                 </Heading>
-                <div style={{
-                    padding: 'var(--bk-spacing-4)',
-                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                    borderRadius: 'var(--bk-radius-md)',
-                }}>
+                <div
+                    style={{
+                        padding: 'var(--bk-spacing-4)',
+                        backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                        borderRadius: 'var(--bk-radius-md)',
+                    }}
+                >
                     {paneProps.map((prop, index) => (
-                        <div key={index} style={{ marginBottom: index < paneProps.length - 1 ? 'var(--bk-spacing-3)' : 0 }}>
-                            <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)', alignItems: 'baseline', marginBottom: 'var(--bk-spacing-1)' }}>
-                                <code style={{
-                                    fontSize: 'var(--bk-font-size-sm)',
-                                    fontFamily: 'var(--vscode-editor-font-family)',
-                                    color: 'var(--vscode-textLink-foreground)',
-                                }}>
+                        <div
+                            key={index}
+                            style={{
+                                marginBottom:
+                                    index < paneProps.length - 1 ? 'var(--bk-spacing-3)' : 0,
+                            }}
+                        >
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    gap: 'var(--bk-spacing-2)',
+                                    alignItems: 'baseline',
+                                    marginBottom: 'var(--bk-spacing-1)',
+                                }}
+                            >
+                                <code
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        fontFamily: 'var(--vscode-editor-font-family)',
+                                        color: 'var(--vscode-textLink-foreground)',
+                                    }}
+                                >
                                     {prop.name}
                                 </code>
                                 {prop.required && (
-                                    <span style={{
-                                        fontSize: 'var(--bk-font-size-xs)',
-                                        color: 'var(--vscode-errorForeground)',
-                                        fontWeight: 'var(--bk-font-weight-semibold)',
-                                    }}>
+                                    <span
+                                        style={{
+                                            fontSize: 'var(--bk-font-size-xs)',
+                                            color: 'var(--vscode-errorForeground)',
+                                            fontWeight: 'var(--bk-font-weight-semibold)',
+                                        }}
+                                    >
                                         required
                                     </span>
                                 )}
                             </div>
-                            <div style={{
-                                fontSize: 'var(--bk-font-size-xs)',
-                                fontFamily: 'var(--vscode-editor-font-family)',
-                                color: 'var(--vscode-descriptionForeground)',
-                                marginBottom: 'var(--bk-spacing-1)',
-                            }}>
+                            <div
+                                style={{
+                                    fontSize: 'var(--bk-font-size-xs)',
+                                    fontFamily: 'var(--vscode-editor-font-family)',
+                                    color: 'var(--vscode-descriptionForeground)',
+                                    marginBottom: 'var(--bk-spacing-1)',
+                                }}
+                            >
                                 {prop.type}
                                 {prop.default && ` = ${prop.default}`}
                             </div>
@@ -583,74 +686,93 @@ function IDELayout() {
                 </div>
             </div>
 
-            <div style={{
-                marginTop: 'var(--bk-spacing-6)',
-                padding: 'var(--bk-spacing-4)',
-                backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--bk-radius-md)',
-            }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Behavior & Interaction
                 </Heading>
-                <ul style={{
-                    fontSize: 'var(--bk-font-size-sm)',
-                    lineHeight: 1.6,
-                    color: 'var(--vscode-descriptionForeground)',
-                    marginLeft: 'var(--bk-spacing-4)',
-                }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Draggable Dividers:</strong> Click and drag the divider between panes to resize them
+                        <strong>Draggable Dividers:</strong> Click and drag the divider between
+                        panes to resize them
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Hover State:</strong> Dividers highlight after a 200ms delay (VSCode-like behavior) to reduce visual noise
+                        <strong>Hover State:</strong> Dividers highlight after a 200ms delay
+                        (VSCode-like behavior) to reduce visual noise
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Active State:</strong> Dividers turn blue while being dragged
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Cursor Feedback:</strong> Cursor changes to resize cursor when hovering over dividers
+                        <strong>Cursor Feedback:</strong> Cursor changes to resize cursor when
+                        hovering over dividers
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Constraint Enforcement:</strong> Panes respect minSize and maxSize during resizing
+                        <strong>Constraint Enforcement:</strong> Panes respect minSize and maxSize
+                        during resizing
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Responsive Sizing:</strong> Panes resize proportionally when the container size changes
+                        <strong>Responsive Sizing:</strong> Panes resize proportionally when the
+                        container size changes
                     </li>
                     <li>
-                        <strong>Nested Support:</strong> SplitPane components can be nested infinitely for complex layouts
+                        <strong>Nested Support:</strong> SplitPane components can be nested
+                        infinitely for complex layouts
                     </li>
                 </ul>
             </div>
 
-            <div style={{
-                marginTop: 'var(--bk-spacing-6)',
-                padding: 'var(--bk-spacing-4)',
-                backgroundColor: 'var(--vscode-textBlockQuote-background)',
-                borderRadius: 'var(--bk-radius-md)',
-            }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Use Cases
                 </Heading>
-                <ul style={{
-                    fontSize: 'var(--bk-font-size-sm)',
-                    lineHeight: 1.6,
-                    color: 'var(--vscode-descriptionForeground)',
-                    marginLeft: 'var(--bk-spacing-4)',
-                }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Code Editors:</strong> Create VSCode-style layouts with sidebars, editor groups, and panels
+                        <strong>Code Editors:</strong> Create VSCode-style layouts with sidebars,
+                        editor groups, and panels
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>File Explorers:</strong> Split view for directory tree and file preview
+                        <strong>File Explorers:</strong> Split view for directory tree and file
+                        preview
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Data Viewers:</strong> Side-by-side comparison views or master-detail layouts
+                        <strong>Data Viewers:</strong> Side-by-side comparison views or
+                        master-detail layouts
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Dashboard Panels:</strong> Resizable dashboard sections for customizable layouts
+                        <strong>Dashboard Panels:</strong> Resizable dashboard sections for
+                        customizable layouts
                     </li>
                     <li>
-                        <strong>Documentation:</strong> Split view for documentation and live examples
+                        <strong>Documentation:</strong> Split view for documentation and live
+                        examples
                     </li>
                 </ul>
             </div>

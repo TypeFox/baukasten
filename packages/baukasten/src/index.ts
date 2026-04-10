@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 /**
  * baukasten-ui — Full library export
@@ -9,5 +9,5 @@
  *   - "baukasten-ui/extra" — higher-level compositions
  */
 
-export * from "./core";
-export * from "./extra";
+export * from './core';
+export * from './extra';

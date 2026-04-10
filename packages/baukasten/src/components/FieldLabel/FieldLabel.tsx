@@ -5,23 +5,23 @@ import { fieldLabel, requiredIndicator } from './FieldLabel.css';
  * FieldLabel component props
  */
 export interface FieldLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
-  /**
-   * Label text content
-   */
-  children: React.ReactNode;
+    /**
+     * Label text content
+     */
+    children: React.ReactNode;
 
-  /**
-   * Whether the field is required
-   * Shows a red asterisk after the label
-   * @default false
-   */
-  required?: boolean;
+    /**
+     * Whether the field is required
+     * Shows a red asterisk after the label
+     * @default false
+     */
+    required?: boolean;
 
-  /**
-   * Whether the field is disabled
-   * @default false
-   */
-  disabled?: boolean;
+    /**
+     * Whether the field is disabled
+     * @default false
+     */
+    disabled?: boolean;
 }
 
 /**
@@ -69,15 +69,19 @@ export interface FieldLabelProps extends React.LabelHTMLAttributes<HTMLLabelElem
  * ```
  */
 export const FieldLabel: React.FC<FieldLabelProps> = ({
-  children,
-  required = false,
-  disabled = false,
-  ...htmlProps
+    children,
+    required = false,
+    disabled = false,
+    ...htmlProps
 }) => {
-  return (
-    <label className={fieldLabel({ disabled })} {...htmlProps}>
-      {children}
-      {required && <span className={requiredIndicator} aria-label="required">*</span>}
-    </label>
-  );
+    return (
+        <label className={fieldLabel({ disabled })} {...htmlProps}>
+            {children}
+            {required && (
+                <span className={requiredIndicator} aria-label="required">
+                    *
+                </span>
+            )}
+        </label>
+    );
 };

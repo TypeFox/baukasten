@@ -16,13 +16,13 @@ const storyStyles = `
 
 /**
  * The Icon component provides access to VSCode's Codicon icon library.
- * 
+ *
  * **Key Features:**
  * - **Size Inheritance**: Icons automatically inherit their parent's font-size by default
  * - **Explicit Sizing**: Optionally specify a size prop for fixed dimensions
  * - **Color Inheritance**: Icons inherit their parent's color by default
  * - **Animations**: Support for spin and rotation effects
- * 
+ *
  * **Available Icons**: https://microsoft.github.io/vscode-codicons/dist/codicon.html
  */
 const meta = {
@@ -40,11 +40,13 @@ const meta = {
         size: {
             control: 'select',
             options: [undefined, 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'],
-            description: 'Optional size override. When not provided, icons inherit font-size from their parent component',
+            description:
+                'Optional size override. When not provided, icons inherit font-size from their parent component',
         },
         color: {
             control: 'color',
-            description: 'Optional color override. When not provided, icons inherit color from their parent component',
+            description:
+                'Optional color override. When not provided, icons inherit color from their parent component',
         },
         spin: {
             control: 'boolean',
@@ -90,23 +92,33 @@ export const InheritedSize: Story = {
             <style>{storyStyles}</style>
             <div className="icon-story-container">
                 <div className="icon-story-row">
-                    <div style={{ fontSize: '12px' }}><Icon name="check" /></div>
+                    <div style={{ fontSize: '12px' }}>
+                        <Icon name="check" />
+                    </div>
                     <span className="icon-story-label">Parent: 12px (inherited)</span>
                 </div>
                 <div className="icon-story-row">
-                    <div style={{ fontSize: '16px' }}><Icon name="check" /></div>
+                    <div style={{ fontSize: '16px' }}>
+                        <Icon name="check" />
+                    </div>
                     <span className="icon-story-label">Parent: 16px (inherited)</span>
                 </div>
                 <div className="icon-story-row">
-                    <div style={{ fontSize: '20px' }}><Icon name="check" /></div>
+                    <div style={{ fontSize: '20px' }}>
+                        <Icon name="check" />
+                    </div>
                     <span className="icon-story-label">Parent: 20px (inherited)</span>
                 </div>
                 <div className="icon-story-row">
-                    <div style={{ fontSize: '24px' }}><Icon name="check" /></div>
+                    <div style={{ fontSize: '24px' }}>
+                        <Icon name="check" />
+                    </div>
                     <span className="icon-story-label">Parent: 24px (inherited)</span>
                 </div>
                 <div className="icon-story-row">
-                    <div style={{ fontSize: '32px' }}><Icon name="check" /></div>
+                    <div style={{ fontSize: '32px' }}>
+                        <Icon name="check" />
+                    </div>
                     <span className="icon-story-label">Parent: 32px (inherited)</span>
                 </div>
             </div>
@@ -380,7 +392,13 @@ export const WithButtons: Story = {
             <style>{storyStyles}</style>
             <div className="icon-story-container">
                 <div>
-                    <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                    <h4
+                        style={{
+                            marginBottom: 'var(--bk-spacing-2)',
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                        }}
+                    >
                         Icons Inherit Button Size (No size prop!)
                     </h4>
                     <div className="icon-story-button-row">
@@ -407,7 +425,13 @@ export const WithButtons: Story = {
                     </div>
                 </div>
                 <div>
-                    <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                    <h4
+                        style={{
+                            marginBottom: 'var(--bk-spacing-2)',
+                            fontSize: 'var(--bk-font-size-sm)',
+                            fontWeight: 'var(--bk-font-weight-medium)',
+                        }}
+                    >
                         Icon Only Buttons
                     </h4>
                     <div className="icon-story-button-row">
@@ -599,4 +623,3 @@ export const StatusIcons: Story = {
         </>
     ),
 };
-

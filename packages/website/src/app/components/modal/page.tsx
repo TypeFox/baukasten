@@ -3,7 +3,21 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Icon, Input, FormGroup, FieldLabel, FormHelper, Heading, Paragraph, Text } from 'baukasten-ui/core';
+import {
+    Modal,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    Button,
+    Icon,
+    Input,
+    FormGroup,
+    FieldLabel,
+    FormHelper,
+    Heading,
+    Paragraph,
+    Text,
+} from 'baukasten-ui/core';
 
 const modalProps: PropDefinition[] = [
     {
@@ -116,12 +130,12 @@ function BasicExample() {
         <>
             <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
             <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-                <ModalHeader onClose={() => setIsOpen(false)}>
-                    Modal Title
-                </ModalHeader>
+                <ModalHeader onClose={() => setIsOpen(false)}>Modal Title</ModalHeader>
                 <ModalBody>
                     <Paragraph>This is the modal content. You can put any content here.</Paragraph>
-                    <Paragraph>Try clicking outside, pressing ESC, or using the close button.</Paragraph>
+                    <Paragraph>
+                        Try clicking outside, pressing ESC, or using the close button.
+                    </Paragraph>
                 </ModalBody>
                 <ModalFooter>
                     <Button variant="secondary" onClick={() => setIsOpen(false)}>
@@ -151,9 +165,7 @@ function ConfirmationExample() {
                 Delete Item
             </Button>
             <Modal open={isOpen} onClose={() => setIsOpen(false)} size="sm">
-                <ModalHeader onClose={() => setIsOpen(false)}>
-                    Confirm Delete
-                </ModalHeader>
+                <ModalHeader onClose={() => setIsOpen(false)}>Confirm Delete</ModalHeader>
                 <ModalBody>
                     <Paragraph>Are you sure you want to delete this item?</Paragraph>
                     <Paragraph>
@@ -184,9 +196,9 @@ function FormExample() {
     const [errors, setErrors] = useState<Record<string, string>>({});
 
     const handleChange = (field: string, value: string) => {
-        setFormData(prev => ({ ...prev, [field]: value }));
+        setFormData((prev) => ({ ...prev, [field]: value }));
         if (errors[field]) {
-            setErrors(prev => ({ ...prev, [field]: '' }));
+            setErrors((prev) => ({ ...prev, [field]: '' }));
         }
     };
 
@@ -215,13 +227,19 @@ function FormExample() {
         <>
             <Button onClick={() => setIsOpen(true)}>Contact Form</Button>
             <Modal open={isOpen} onClose={() => setIsOpen(false)} size="lg">
-                <ModalHeader onClose={() => setIsOpen(false)}>
-                    Contact Us
-                </ModalHeader>
+                <ModalHeader onClose={() => setIsOpen(false)}>Contact Us</ModalHeader>
                 <ModalBody>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
                         <FormGroup orientation="vertical">
-                            <FieldLabel htmlFor="name" required>Name</FieldLabel>
+                            <FieldLabel htmlFor="name" required>
+                                Name
+                            </FieldLabel>
                             <div>
                                 <Input
                                     id="name"
@@ -231,12 +249,16 @@ function FormExample() {
                                     error={!!errors.name}
                                     fullWidth
                                 />
-                                {errors.name && <FormHelper variant="error">{errors.name}</FormHelper>}
+                                {errors.name && (
+                                    <FormHelper variant="error">{errors.name}</FormHelper>
+                                )}
                             </div>
                         </FormGroup>
 
                         <FormGroup orientation="vertical">
-                            <FieldLabel htmlFor="email" required>Email</FieldLabel>
+                            <FieldLabel htmlFor="email" required>
+                                Email
+                            </FieldLabel>
                             <div>
                                 <Input
                                     id="email"
@@ -247,7 +269,9 @@ function FormExample() {
                                     error={!!errors.email}
                                     fullWidth
                                 />
-                                {errors.email && <FormHelper variant="error">{errors.email}</FormHelper>}
+                                {errors.email && (
+                                    <FormHelper variant="error">{errors.email}</FormHelper>
+                                )}
                             </div>
                         </FormGroup>
 
@@ -289,7 +313,9 @@ function FormExample() {
 
 export default function ModalPage() {
     const [sizesModal, setSizesModal] = useState<string | null>(null);
-    const [backdropModal, setBackdropModal] = useState<'solid' | 'blur' | 'transparent' | null>(null);
+    const [backdropModal, setBackdropModal] = useState<'solid' | 'blur' | 'transparent' | null>(
+        null,
+    );
     const [fullscreenModal, setFullscreenModal] = useState(false);
     const [scrollModal, setScrollModal] = useState(false);
     const [simpleModal, setSimpleModal] = useState(false);
@@ -358,12 +384,16 @@ function App() {
                                 <ModalBody>
                                     <Paragraph>This is a {size} sized modal.</Paragraph>
                                     <Paragraph>
-                                        Max-width: {
-                                            size === 'xs' ? '400px' :
-                                                size === 'sm' ? '500px' :
-                                                    size === 'md' ? '600px' :
-                                                        size === 'lg' ? '800px' : '1000px'
-                                        }
+                                        Max-width:{' '}
+                                        {size === 'xs'
+                                            ? '400px'
+                                            : size === 'sm'
+                                              ? '500px'
+                                              : size === 'md'
+                                                ? '600px'
+                                                : size === 'lg'
+                                                  ? '800px'
+                                                  : '1000px'}
                                     </Paragraph>
                                 </ModalBody>
                                 <ModalFooter>
@@ -409,7 +439,9 @@ function App() {
                 description="Fullscreen mode covers the entire viewport with no border radius. Perfect for media previews, image galleries, or immersive experiences."
                 preview={
                     <>
-                        <Button onClick={() => setFullscreenModal(true)}>Open Fullscreen Modal</Button>
+                        <Button onClick={() => setFullscreenModal(true)}>
+                            Open Fullscreen Modal
+                        </Button>
                         <Modal
                             open={fullscreenModal}
                             onClose={() => setFullscreenModal(false)}
@@ -419,17 +451,21 @@ function App() {
                                 Fullscreen Preview
                             </ModalHeader>
                             <ModalBody>
-                                <div style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    height: '100%',
-                                    gap: 'var(--bk-spacing-4)'
-                                }}>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        height: '100%',
+                                        gap: 'var(--bk-spacing-4)',
+                                    }}
+                                >
                                     <Heading level={2}>Fullscreen Modal</Heading>
                                     <Paragraph>This modal covers the entire viewport.</Paragraph>
-                                    <Paragraph>Perfect for media previews or immersive content.</Paragraph>
+                                    <Paragraph>
+                                        Perfect for media previews or immersive content.
+                                    </Paragraph>
                                 </div>
                             </ModalBody>
                         </Modal>
@@ -471,11 +507,22 @@ function App() {
                                     {variant.charAt(0).toUpperCase() + variant.slice(1)} Backdrop
                                 </ModalHeader>
                                 <ModalBody>
-                                    <Paragraph>This modal uses the <Text weight="bold">{variant}</Text> backdrop variant.</Paragraph>
+                                    <Paragraph>
+                                        This modal uses the <Text weight="bold">{variant}</Text>{' '}
+                                        backdrop variant.
+                                    </Paragraph>
                                     <ul style={{ margin: 0, paddingLeft: 'var(--bk-spacing-5)' }}>
-                                        <li><Text weight="bold">Solid</Text>: Dark semi-transparent</li>
-                                        <li><Text weight="bold">Blur</Text>: Blurred with backdrop-filter</li>
-                                        <li><Text weight="bold">Transparent</Text>: No visible backdrop</li>
+                                        <li>
+                                            <Text weight="bold">Solid</Text>: Dark semi-transparent
+                                        </li>
+                                        <li>
+                                            <Text weight="bold">Blur</Text>: Blurred with
+                                            backdrop-filter
+                                        </li>
+                                        <li>
+                                            <Text weight="bold">Transparent</Text>: No visible
+                                            backdrop
+                                        </li>
                                     </ul>
                                 </ModalBody>
                                 <ModalFooter>
@@ -484,15 +531,20 @@ function App() {
                             </Modal>
                         ))}
                         {/* Background content to see backdrop effect */}
-                        <div style={{
-                            width: '100%',
-                            marginTop: 'var(--bk-spacing-4)',
-                            padding: 'var(--bk-spacing-4)',
-                            border: '1px solid var(--vscode-textBlockQuote-border)',
-                            borderRadius: 'var(--bk-radius-md)'
-                        }}>
+                        <div
+                            style={{
+                                width: '100%',
+                                marginTop: 'var(--bk-spacing-4)',
+                                padding: 'var(--bk-spacing-4)',
+                                border: '1px solid var(--vscode-textBlockQuote-border)',
+                                borderRadius: 'var(--bk-radius-md)',
+                            }}
+                        >
                             <Heading level={4}>Background Content</Heading>
-                            <Paragraph>Open the modals above to see how different backdrop styles affect this content. The blur backdrop will make this text appear blurred.</Paragraph>
+                            <Paragraph>
+                                Open the modals above to see how different backdrop styles affect
+                                this content. The blur backdrop will make this text appear blurred.
+                            </Paragraph>
                         </div>
                     </div>
                 }
@@ -640,9 +692,10 @@ function FormModal() {
                             <ModalBody>
                                 {Array.from({ length: 20 }, (_, i) => (
                                     <Paragraph key={i}>
-                                        Section {i + 1}: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                                        Section {i + 1}: Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                                        et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris.
                                     </Paragraph>
                                 ))}
                             </ModalBody>
@@ -684,11 +737,17 @@ function FormModal() {
                         <Button onClick={() => setSimpleModal(true)}>Open Simple Modal</Button>
                         <Modal open={simpleModal} onClose={() => setSimpleModal(false)} size="sm">
                             <ModalBody>
-                                <div style={{ textAlign: 'center', padding: 'var(--bk-spacing-4)' }}>
-                                    <Heading level={3} marginBottom={false}>Simple Message</Heading>
+                                <div
+                                    style={{ textAlign: 'center', padding: 'var(--bk-spacing-4)' }}
+                                >
+                                    <Heading level={3} marginBottom={false}>
+                                        Simple Message
+                                    </Heading>
                                     <Paragraph>This modal only has a body section.</Paragraph>
                                     <div style={{ marginTop: 'var(--bk-spacing-4)' }}>
-                                        <Button onClick={() => setSimpleModal(false)}>Got it</Button>
+                                        <Button onClick={() => setSimpleModal(false)}>
+                                            Got it
+                                        </Button>
                                     </div>
                                 </div>
                             </ModalBody>
@@ -719,12 +778,12 @@ function FormModal() {
                             closeOnEscape={false}
                             size="sm"
                         >
-                            <ModalHeader showCloseButton={false}>
-                                Action Required
-                            </ModalHeader>
+                            <ModalHeader showCloseButton={false}>Action Required</ModalHeader>
                             <ModalBody>
                                 <Paragraph>This modal requires you to make a choice.</Paragraph>
-                                <Paragraph>You cannot close it by clicking outside or pressing ESC.</Paragraph>
+                                <Paragraph>
+                                    You cannot close it by clicking outside or pressing ESC.
+                                </Paragraph>
                             </ModalBody>
                             <ModalFooter>
                                 <Button variant="secondary" onClick={() => setRequiredModal(false)}>
@@ -770,41 +829,65 @@ function FormModal() {
                     borderRadius: 'var(--bk-radius-md)',
                 }}
             >
-                <h3 style={{ marginTop: 0, marginBottom: 'var(--bk-spacing-3)' }}>Features & Behavior</h3>
-                <ul style={{ marginBottom: 'var(--bk-spacing-4)', paddingLeft: 'var(--bk-spacing-5)' }}>
+                <h3 style={{ marginTop: 0, marginBottom: 'var(--bk-spacing-3)' }}>
+                    Features & Behavior
+                </h3>
+                <ul
+                    style={{
+                        marginBottom: 'var(--bk-spacing-4)',
+                        paddingLeft: 'var(--bk-spacing-5)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Portal Rendering:</strong> Modal renders to <code>document.body</code> using React portals, ensuring proper z-index stacking
+                        <strong>Portal Rendering:</strong> Modal renders to{' '}
+                        <code>document.body</code> using React portals, ensuring proper z-index
+                        stacking
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Focus Management:</strong> Automatically focuses modal on open and restores focus to the previously active element on close
+                        <strong>Focus Management:</strong> Automatically focuses modal on open and
+                        restores focus to the previously active element on close
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Scroll Locking:</strong> Prevents body scroll when modal is open to avoid background scrolling
+                        <strong>Scroll Locking:</strong> Prevents body scroll when modal is open to
+                        avoid background scrolling
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Keyboard Support:</strong> Press <code>ESC</code> to close (configurable with <code>closeOnEscape</code>)
+                        <strong>Keyboard Support:</strong> Press <code>ESC</code> to close
+                        (configurable with <code>closeOnEscape</code>)
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Backdrop Click:</strong> Click outside modal to close (configurable with <code>closeOnBackdropClick</code>)
+                        <strong>Backdrop Click:</strong> Click outside modal to close (configurable
+                        with <code>closeOnBackdropClick</code>)
                     </li>
                     <li>
-                        <strong>Composable Structure:</strong> Use <code>ModalHeader</code>, <code>ModalBody</code>, and <code>ModalFooter</code> for consistent layout
+                        <strong>Composable Structure:</strong> Use <code>ModalHeader</code>,{' '}
+                        <code>ModalBody</code>, and <code>ModalFooter</code> for consistent layout
                     </li>
                 </ul>
 
-                <h3 style={{ marginTop: 'var(--bk-spacing-4)', marginBottom: 'var(--bk-spacing-3)' }}>Accessibility</h3>
+                <h3
+                    style={{
+                        marginTop: 'var(--bk-spacing-4)',
+                        marginBottom: 'var(--bk-spacing-3)',
+                    }}
+                >
+                    Accessibility
+                </h3>
                 <ul style={{ marginBottom: 0, paddingLeft: 'var(--bk-spacing-5)' }}>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>ARIA Attributes:</strong> Uses <code>role="dialog"</code> and <code>aria-modal="true"</code> for screen readers
+                        <strong>ARIA Attributes:</strong> Uses <code>role="dialog"</code> and{' '}
+                        <code>aria-modal="true"</code> for screen readers
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Focus Trap:</strong> Modal automatically receives focus when opened
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Focus Restoration:</strong> Returns focus to trigger element when closed
+                        <strong>Focus Restoration:</strong> Returns focus to trigger element when
+                        closed
                     </li>
                     <li>
-                        <strong>Close Button Label:</strong> Close button includes <code>aria-label="Close modal"</code>
+                        <strong>Close Button Label:</strong> Close button includes{' '}
+                        <code>aria-label="Close modal"</code>
                     </li>
                 </ul>
             </div>

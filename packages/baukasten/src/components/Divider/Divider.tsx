@@ -21,50 +21,50 @@ export type DividerLabelAlign = 'left' | 'center' | 'right';
  * Divider component props
  */
 export interface DividerProps {
-  /**
-   * Orientation of the divider
-   * @default 'horizontal'
-   */
-  orientation?: DividerOrientation;
+    /**
+     * Orientation of the divider
+     * @default 'horizontal'
+     */
+    orientation?: DividerOrientation;
 
-  /**
-   * Border style of the divider line
-   * @default 'solid'
-   */
-  variant?: DividerStyle;
+    /**
+     * Border style of the divider line
+     * @default 'solid'
+     */
+    variant?: DividerStyle;
 
-  /**
-   * Optional label text to display in the divider
-   * Only works with horizontal orientation
-   */
-  label?: React.ReactNode;
+    /**
+     * Optional label text to display in the divider
+     * Only works with horizontal orientation
+     */
+    label?: React.ReactNode;
 
-  /**
-   * Label alignment (when label is provided)
-   * @default 'center'
-   */
-  labelAlign?: DividerLabelAlign;
+    /**
+     * Label alignment (when label is provided)
+     * @default 'center'
+     */
+    labelAlign?: DividerLabelAlign;
 
-  /**
-   * Vertical spacing (for horizontal dividers)
-   * @default 'var(--bk-spacing-4)'
-   */
-  spacing?: string;
+    /**
+     * Vertical spacing (for horizontal dividers)
+     * @default 'var(--bk-spacing-4)'
+     */
+    spacing?: string;
 
-  /**
-   * Custom color for the divider line
-   */
-  color?: string;
+    /**
+     * Custom color for the divider line
+     */
+    color?: string;
 
-  /**
-   * Additional CSS class
-   */
-  className?: string;
+    /**
+     * Additional CSS class
+     */
+    className?: string;
 
-  /**
-   * Inline styles
-   */
-  style?: React.CSSProperties;
+    /**
+     * Inline styles
+     */
+    style?: React.CSSProperties;
 }
 
 /**
@@ -116,75 +116,75 @@ export interface DividerProps {
  * ```
  */
 export const Divider: React.FC<DividerProps> = ({
-  orientation = 'horizontal',
-  variant = 'solid',
-  label,
-  labelAlign = 'center',
-  spacing = 'var(--bk-spacing-4)',
-  color,
-  className,
-  style: inlineStyle,
+    orientation = 'horizontal',
+    variant = 'solid',
+    label,
+    labelAlign = 'center',
+    spacing = 'var(--bk-spacing-4)',
+    color,
+    className,
+    style: inlineStyle,
 }) => {
-  const hasLabel = !!label && orientation === 'horizontal';
+    const hasLabel = !!label && orientation === 'horizontal';
 
-  // Border style mapping
-  const borderStyleMap: Record<DividerStyle, string> = {
-    solid: 'solid',
-    dashed: 'dashed',
-    dotted: 'dotted',
-  };
+    // Border style mapping
+    const borderStyleMap: Record<DividerStyle, string> = {
+        solid: 'solid',
+        dashed: 'dashed',
+        dotted: 'dotted',
+    };
 
-  // Create spacing styles
-  const spacingStyle = orientation === 'horizontal'
-    ? { margin: `${spacing} 0` }
-    : { margin: `0 ${spacing}` };
+    // Create spacing styles
+    const spacingStyle =
+        orientation === 'horizontal' ? { margin: `${spacing} 0` } : { margin: `0 ${spacing}` };
 
-  // Create border styles
-  const borderColor = color || 'var(--bk-color-border)';
-  const borderWidth = 'var(--bk-border-width-1)';
-  const borderStyle = borderStyleMap[variant];
+    // Create border styles
+    const borderColor = color || 'var(--bk-color-border)';
+    const borderWidth = 'var(--bk-border-width-1)';
+    const borderStyle = borderStyleMap[variant];
 
-  const lineBorderStyle = orientation === 'horizontal'
-    ? { borderTop: `${borderWidth} ${borderStyle} ${borderColor}` }
-    : { borderLeft: `${borderWidth} ${borderStyle} ${borderColor}` };
+    const lineBorderStyle =
+        orientation === 'horizontal'
+            ? { borderTop: `${borderWidth} ${borderStyle} ${borderColor}` }
+            : { borderLeft: `${borderWidth} ${borderStyle} ${borderColor}` };
 
-  const baseClassName = dividerContainer({
-    orientation,
-    labelAlign: hasLabel ? labelAlign : undefined
-  });
+    const baseClassName = dividerContainer({
+        orientation,
+        labelAlign: hasLabel ? labelAlign : undefined,
+    });
 
-  return (
-    <div
-      className={clsx(baseClassName, className)}
-      style={{ ...spacingStyle, ...inlineStyle }}
-      role="separator"
-      aria-orientation={orientation}
-    >
-      <div
-        className={dividerLine({
-          orientation,
-          variant,
-          position: hasLabel ? 'first' : 'single',
-          labelAlign: hasLabel ? labelAlign : undefined,
-        })}
-        style={lineBorderStyle}
-      />
-      {hasLabel && (
-        <>
-          <span className={dividerLabel}>{label}</span>
-          <div
-            className={dividerLine({
-              orientation,
-              variant,
-              position: 'last',
-              labelAlign,
-            })}
-            style={lineBorderStyle}
-          />
-        </>
-      )}
-    </div>
-  );
+    return (
+        <div
+            className={clsx(baseClassName, className)}
+            style={{ ...spacingStyle, ...inlineStyle }}
+            role="separator"
+            aria-orientation={orientation}
+        >
+            <div
+                className={dividerLine({
+                    orientation,
+                    variant,
+                    position: hasLabel ? 'first' : 'single',
+                    labelAlign: hasLabel ? labelAlign : undefined,
+                })}
+                style={lineBorderStyle}
+            />
+            {hasLabel && (
+                <>
+                    <span className={dividerLabel}>{label}</span>
+                    <div
+                        className={dividerLine({
+                            orientation,
+                            variant,
+                            position: 'last',
+                            labelAlign,
+                        })}
+                        style={lineBorderStyle}
+                    />
+                </>
+            )}
+        </div>
+    );
 };
 
 Divider.displayName = 'Divider';

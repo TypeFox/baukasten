@@ -87,22 +87,19 @@ export const Code: React.FC<CodeProps> = ({
         ? `${code({ size, block, wrap: shouldWrap })} ${className}`
         : code({ size, block, wrap: shouldWrap });
 
-    const combinedStyle: React.CSSProperties = maxHeight && block
-        ? {
-            maxHeight,
-            overflowY: 'auto',
-            ...style,
-        }
-        : style || {};
+    const combinedStyle: React.CSSProperties =
+        maxHeight && block
+            ? {
+                  maxHeight,
+                  overflowY: 'auto',
+                  ...style,
+              }
+            : style || {};
 
     if (block) {
         return (
             <pre style={{ margin: 0 }}>
-                <code
-                    className={codeClassName}
-                    style={combinedStyle}
-                    {...props}
-                >
+                <code className={codeClassName} style={combinedStyle} {...props}>
                     {children}
                 </code>
             </pre>
@@ -110,11 +107,7 @@ export const Code: React.FC<CodeProps> = ({
     }
 
     return (
-        <code
-            className={codeClassName}
-            style={combinedStyle}
-            {...props}
-        >
+        <code className={codeClassName} style={combinedStyle} {...props}>
             {children}
         </code>
     );

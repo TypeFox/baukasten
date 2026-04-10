@@ -70,26 +70,26 @@ import { Showcase, Variant, VariantGrid } from '@/components/ComponentShowcase';
 import { YourComponent } from 'baukasten-ui';
 
 const props = [
-  {
-    name: 'variant',
-    type: 'string',
-    default: 'primary',
-    description: 'The visual style variant',
-  },
-  // ... more props
+    {
+        name: 'variant',
+        type: 'string',
+        default: 'primary',
+        description: 'The visual style variant',
+    },
+    // ... more props
 ];
 
 export default function YourComponentPage() {
-  return (
-    <PageLayout title="Your Component" description="Component description">
-      <Showcase
-        title="Basic Usage"
-        preview={<YourComponent />}
-        code="<YourComponent />"
-        props={props}
-      />
-    </PageLayout>
-  );
+    return (
+        <PageLayout title="Your Component" description="Component description">
+            <Showcase
+                title="Basic Usage"
+                preview={<YourComponent />}
+                code="<YourComponent />"
+                props={props}
+            />
+        </PageLayout>
+    );
 }
 ```
 

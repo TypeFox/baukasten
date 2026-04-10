@@ -1,7 +1,20 @@
 import React, { useCallback, useState, useEffect, useMemo } from 'react';
 import type { RecipeVariants } from '@vanilla-extract/recipes';
 import { type Size } from '../../styles';
-import { slider, sliderTrack, sliderFill, sliderThumb, sliderWrapper, sliderLabels, sliderMinMax, sliderValue, sliderMarks, sliderMark, sliderMarkTick, sliderMarkLabel } from './Slider.css';
+import {
+    slider,
+    sliderTrack,
+    sliderFill,
+    sliderThumb,
+    sliderWrapper,
+    sliderLabels,
+    sliderMinMax,
+    sliderValue,
+    sliderMarks,
+    sliderMark,
+    sliderMarkTick,
+    sliderMarkLabel,
+} from './Slider.css';
 
 /**
  * Slider variant types extracted from recipes
@@ -26,7 +39,10 @@ export interface SliderMark {
  * Slider component props
  * Extends standard input[type=range] attributes
  */
-export interface SliderProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'type' | 'onChange'> {
+export interface SliderProps extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    'size' | 'type' | 'onChange'
+> {
     /**
      * Size of the slider
      * @default 'md'
@@ -109,10 +125,10 @@ export interface SliderProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
 
 /**
  * Slider component
- * 
+ *
  * A range slider component with customizable appearance and value display.
  * Fully integrates with the design system tokens.
- * 
+ *
  * @example
  * ```tsx
  * // Basic usage
@@ -174,7 +190,7 @@ export const Slider: React.FC<SliderProps> = ({
 }) => {
     // Handle both controlled and uncontrolled modes
     const [internalValue, setInternalValue] = useState(
-        controlledValue ?? defaultValue ?? min + (max - min) / 2
+        controlledValue ?? defaultValue ?? min + (max - min) / 2,
     );
 
     const value = controlledValue ?? internalValue;
@@ -196,7 +212,7 @@ export const Slider: React.FC<SliderProps> = ({
 
             onChange?.(newValue);
         },
-        [controlledValue, onChange]
+        [controlledValue, onChange],
     );
 
     const handleChangeCommitted = useCallback(
@@ -205,7 +221,7 @@ export const Slider: React.FC<SliderProps> = ({
             const newValue = parseFloat(target.value);
             onChangeCommitted?.(newValue);
         },
-        [onChangeCommitted]
+        [onChangeCommitted],
     );
 
     // Calculate percentage for visual fill
@@ -255,14 +271,15 @@ export const Slider: React.FC<SliderProps> = ({
             <div className={sliderLabels}>
                 {showMinMax && <span className={sliderMinMax}>{min}</span>}
                 {showValue && (
-                    <span className={sliderValue({ centered: showMinMax })}>
-                        {displayValue}
-                    </span>
+                    <span className={sliderValue({ centered: showMinMax })}>{displayValue}</span>
                 )}
                 {showMinMax && <span className={sliderMinMax}>{max}</span>}
             </div>
             <div className={sliderTrack({ size, hasMarks })}>
-                <div className={sliderFill({ size, hasMarks })} style={{ width: `${percentage}%` }} />
+                <div
+                    className={sliderFill({ size, hasMarks })}
+                    style={{ width: `${percentage}%` }}
+                />
                 {marksArray.length > 0 && (
                     <div className={sliderMarks}>
                         {marksArray.map((mark, index) => {
@@ -276,7 +293,9 @@ export const Slider: React.FC<SliderProps> = ({
                                 >
                                     <div className={sliderMarkTick({ size, active: isActive })} />
                                     {mark.label && (
-                                        <span className={sliderMarkLabel({ size })}>{mark.label}</span>
+                                        <span className={sliderMarkLabel({ size })}>
+                                            {mark.label}
+                                        </span>
                                     )}
                                 </div>
                             );

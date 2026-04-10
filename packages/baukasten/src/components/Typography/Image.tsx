@@ -184,9 +184,9 @@ export const Image: React.FC<ImageProps> = ({
 
     const wrapperStyle: React.CSSProperties = aspectRatio
         ? {
-            aspectRatio,
-            ...style,
-        }
+              aspectRatio,
+              ...style,
+          }
         : style || {};
 
     return (
@@ -221,9 +221,11 @@ export const Image: React.FC<ImageProps> = ({
             <img
                 {...props}
                 alt={alt}
-                className={className
-                    ? `${image({ fit, radius, bordered, shadow, isLoading, hasError })} ${className}`
-                    : image({ fit, radius, bordered, shadow, isLoading, hasError })}
+                className={
+                    className
+                        ? `${image({ fit, radius, bordered, shadow, isLoading, hasError })} ${className}`
+                        : image({ fit, radius, bordered, shadow, isLoading, hasError })
+                }
                 onLoad={handleLoad}
                 onError={handleError}
             />

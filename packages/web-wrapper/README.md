@@ -19,15 +19,15 @@ When building VSCode extensions, components use CSS variables like `--vscode-but
 ### Basic Usage
 
 ```tsx
-import { VSCodeThemeWrapper } from "baukasten-ui-web-wrapper";
+import { VSCodeThemeWrapper } from 'baukasten-ui-web-wrapper';
 
 function App() {
-  return (
-    <VSCodeThemeWrapper>
-      {/* Your components that use VSCode CSS variables */}
-      <YourComponent />
-    </VSCodeThemeWrapper>
-  );
+    return (
+        <VSCodeThemeWrapper>
+            {/* Your components that use VSCode CSS variables */}
+            <YourComponent />
+        </VSCodeThemeWrapper>
+    );
 }
 ```
 
@@ -35,14 +35,14 @@ function App() {
 
 ```tsx
 // .storybook/preview.tsx
-import { VSCodeThemeWrapper } from "baukasten-ui-web-wrapper";
+import { VSCodeThemeWrapper } from 'baukasten-ui-web-wrapper';
 
 export const decorators = [
-  (Story) => (
-    <VSCodeThemeWrapper>
-      <Story />
-    </VSCodeThemeWrapper>
-  ),
+    (Story) => (
+        <VSCodeThemeWrapper>
+            <Story />
+        </VSCodeThemeWrapper>
+    ),
 ];
 ```
 
@@ -73,33 +73,33 @@ To add a new theme:
 2. Define your theme using the `VSCodeTheme` interface:
 
 ```typescript
-import { VSCodeTheme } from "./types";
+import { VSCodeTheme } from './types';
 
 export const myTheme: VSCodeTheme = {
-  name: "My Theme",
-  id: "my-theme",
-  variables: {
-    "--vscode-editor-background": "#...",
-    "--vscode-editor-foreground": "#...",
-    // ... add all required variables
-  },
+    name: 'My Theme',
+    id: 'my-theme',
+    variables: {
+        '--vscode-editor-background': '#...',
+        '--vscode-editor-foreground': '#...',
+        // ... add all required variables
+    },
 };
 ```
 
 3. Export it in `src/themes/index.ts`:
 
 ```typescript
-export { myTheme } from "./my-theme";
+export { myTheme } from './my-theme';
 ```
 
 4. Add it to the themes array:
 
 ```typescript
 export const themes: VSCodeTheme[] = [
-  darkPlus,
-  lightPlus,
-  myTheme, // Add your theme here
-  // ...
+    darkPlus,
+    lightPlus,
+    myTheme, // Add your theme here
+    // ...
 ];
 ```
 

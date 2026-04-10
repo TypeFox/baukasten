@@ -95,7 +95,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
 }) => {
     return (
         <button
-            type='button'
+            type="button"
             className={clsx(iconButton({ variant, size, outline }), className)}
             {...props}
         >

@@ -24,51 +24,51 @@ export type ButtonWidth = 'block' | 'wide';
  * Extends all standard HTML button attributes
  */
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /**
-   * Visual style variant of the button
-   * @default 'primary'
-   */
-  variant?: ButtonVariant;
+    /**
+     * Visual style variant of the button
+     * @default 'primary'
+     */
+    variant?: ButtonVariant;
 
-  /**
-   * Size of the button
-   * @default 'md'
-   */
-  size?: Size;
+    /**
+     * Size of the button
+     * @default 'md'
+     */
+    size?: Size;
 
-  /**
-   * Width behavior of the button
-   * @default undefined (auto width based on content)
-   */
-  width?: ButtonWidth;
+    /**
+     * Width behavior of the button
+     * @default undefined (auto width based on content)
+     */
+    width?: ButtonWidth;
 
-  /**
-   * Whether to render the button with an outline style
-   * Inverts the background and border colors
-   * @default false
-   */
-  outline?: boolean;
+    /**
+     * Whether to render the button with an outline style
+     * Inverts the background and border colors
+     * @default false
+     */
+    outline?: boolean;
 
-  /**
-   * Whether to render the button as a circle
-   * Useful for icon-only buttons
-   * @default false
-   */
-  circular?: boolean;
+    /**
+     * Whether to render the button as a circle
+     * Useful for icon-only buttons
+     * @default false
+     */
+    circular?: boolean;
 }
 
 /**
  * Button component
- * 
+ *
  * A versatile button component with multiple variants, sizes, and styling options.
  * Fully integrates with VSCode/Theia theme variables for consistent theming.
- * 
+ *
  * **Note**: This component uses CSS custom properties. Make sure to include
  * `GlobalStyles` at the root of your app:
- * 
+ *
  * ```tsx
  * import { GlobalStyles } from 'baukasten-ui';
- * 
+ *
  * function App() {
  *   return (
  *     <>
@@ -78,50 +78,49 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
  *   );
  * }
  * ```
- * 
+ *
  * @example
  * ```tsx
  * // Basic usage
  * <Button>Click me</Button>
- * 
+ *
  * // With variant and size
  * <Button variant="secondary" size="lg">Large Secondary</Button>
- * 
+ *
  * // Outline style
  * <Button outline>Outline Button</Button>
- * 
+ *
  * // Circular icon button
  * <Button circular>
  *   <Icon />
  * </Button>
- * 
+ *
  * // With icon and text
  * <Button>
  *   <Icon />
  *   Save Changes
  * </Button>
- * 
+ *
  * // Full width
  * <Button width="block">Full Width Button</Button>
  * ```
  */
 export const Button: React.FC<ButtonProps> = ({
-  variant = 'primary',
-  size = 'md',
-  width,
-  outline = false,
-  circular = false,
-  children,
-  className,
-  ...props
+    variant = 'primary',
+    size = 'md',
+    width,
+    outline = false,
+    circular = false,
+    children,
+    className,
+    ...props
 }) => {
-  return (
-    <button
-      className={clsx(button({ variant, size, width, outline, circular }), className)}
-      {...props}
-    >
-      {children}
-    </button>
-  );
+    return (
+        <button
+            className={clsx(button({ variant, size, width, outline, circular }), className)}
+            {...props}
+        >
+            {children}
+        </button>
+    );
 };
-

@@ -21,38 +21,38 @@ export type HeroBackground = 'default' | 'secondary' | 'tertiary' | 'elevated';
  * Hero component props
  */
 export interface HeroProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
-  /**
-   * Main hero title text
-   */
-  title: React.ReactNode;
+    /**
+     * Main hero title text
+     */
+    title: React.ReactNode;
 
-  /**
-   * Optional description/subtitle text
-   */
-  description?: React.ReactNode;
+    /**
+     * Optional description/subtitle text
+     */
+    description?: React.ReactNode;
 
-  /**
-   * Text alignment
-   * @default 'left'
-   */
-  align?: HeroAlign;
+    /**
+     * Text alignment
+     * @default 'left'
+     */
+    align?: HeroAlign;
 
-  /**
-   * Hero height
-   * @default 'md'
-   */
-  size?: HeroSize;
+    /**
+     * Hero height
+     * @default 'md'
+     */
+    size?: HeroSize;
 
-  /**
-   * Optional background color (uses semantic color tokens)
-   */
-  background?: HeroBackground;
+    /**
+     * Optional background color (uses semantic color tokens)
+     */
+    background?: HeroBackground;
 
-  /**
-   * Optional children rendered below title and description
-   * Perfect for CTAs, buttons, or additional content
-   */
-  children?: React.ReactNode;
+    /**
+     * Optional children rendered below title and description
+     * Perfect for CTAs, buttons, or additional content
+     */
+    children?: React.ReactNode;
 }
 
 /**
@@ -112,29 +112,22 @@ export interface HeroProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
  * ```
  */
 export const Hero: React.FC<HeroProps> = ({
-  title,
-  description,
-  align = 'left',
-  size = 'md',
-  background = 'default',
-  children,
-  className,
-  ...props
+    title,
+    description,
+    align = 'left',
+    size = 'md',
+    background = 'default',
+    children,
+    className,
+    ...props
 }) => {
-  return (
-    <div
-      className={clsx(heroContainer({ align, size, background }), className)}
-      {...props}
-    >
-      <h1 className={heroTitle}>{title}</h1>
-      {description && (
-        <p className={heroDescription({ align })}>
-          {description}
-        </p>
-      )}
-      {children}
-    </div>
-  );
+    return (
+        <div className={clsx(heroContainer({ align, size, background }), className)} {...props}>
+            <h1 className={heroTitle}>{title}</h1>
+            {description && <p className={heroDescription({ align })}>{description}</p>}
+            {children}
+        </div>
+    );
 };
 
 Hero.displayName = 'Hero';

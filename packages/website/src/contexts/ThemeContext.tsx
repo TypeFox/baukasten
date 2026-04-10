@@ -18,7 +18,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
         if (typeof window !== 'undefined') {
             const stored = localStorage.getItem(THEME_STORAGE_KEY);
-            return (stored === 'light' || stored === 'dark') ? stored : 'light';
+            return stored === 'light' || stored === 'dark' ? stored : 'light';
         }
         return 'light';
     });
@@ -39,7 +39,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
         document.body.style.backgroundColor = theme.variables['--vscode-editor-background'];
         document.body.style.color = theme.variables['--vscode-editor-foreground'];
-        document.body.style.fontFamily = theme.variables['--vscode-editor-font-family'] || "'Segoe UI Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif";
+        document.body.style.fontFamily =
+            theme.variables['--vscode-editor-font-family'] ||
+            "'Segoe UI Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif";
     }, [themeMode]);
 
     const setTheme = (mode: ThemeMode) => {
@@ -48,9 +50,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     };
 
     return (
-        <ThemeContext.Provider value={{ themeMode, setTheme }}>
-            {children}
-        </ThemeContext.Provider>
+        <ThemeContext.Provider value={{ themeMode, setTheme }}>{children}</ThemeContext.Provider>
     );
 }
 

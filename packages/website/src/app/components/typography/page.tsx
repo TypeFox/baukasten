@@ -5,44 +5,163 @@ import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
 import { Heading, Text, Paragraph, Code, Link } from 'baukasten-ui/core';
 
 const headingProps: PropDefinition[] = [
-    { name: 'level', type: '1 | 2 | 3 | 4 | 5 | 6', default: '1', description: 'Semantic heading level (h1-h6)' },
-    { name: 'align', type: '"left" | "center" | "right"', default: '"left"', description: 'Text alignment' },
-    { name: 'marginBottom', type: 'boolean', default: 'true', description: 'Whether to add bottom margin' },
-    { name: 'marginTop', type: 'boolean', default: 'true', description: 'Whether to add top margin' },
+    {
+        name: 'level',
+        type: '1 | 2 | 3 | 4 | 5 | 6',
+        default: '1',
+        description: 'Semantic heading level (h1-h6)',
+    },
+    {
+        name: 'align',
+        type: '"left" | "center" | "right"',
+        default: '"left"',
+        description: 'Text alignment',
+    },
+    {
+        name: 'marginBottom',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether to add bottom margin',
+    },
+    {
+        name: 'marginTop',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether to add top margin',
+    },
 ];
 
 const textProps: PropDefinition[] = [
-    { name: 'size', type: '"xs" | "sm" | "md" | "base" | "lg" | "xl"', default: '"md"', description: 'Visual size of the text' },
-    { name: 'weight', type: '"normal" | "medium" | "semibold" | "bold"', default: '"normal"', description: 'Font weight' },
-    { name: 'color', type: '"default" | "muted" | "primary" | "success" | "warning" | "danger" | "info"', default: '"default"', description: 'Text color variant' },
-    { name: 'block', type: 'boolean', default: 'false', description: 'Whether to render as block element (div) instead of inline (span)' },
-    { name: 'align', type: '"left" | "center" | "right" | "justify"', default: '"left"', description: 'Text alignment (only applies when block=true)' },
-    { name: 'truncate', type: 'boolean', default: 'false', description: 'Whether to truncate text with ellipsis' },
-    { name: 'italic', type: 'boolean', default: 'false', description: 'Whether to make text italic' },
-    { name: 'monospace', type: 'boolean', default: 'false', description: 'Whether to make text monospace' },
+    {
+        name: 'size',
+        type: '"xs" | "sm" | "md" | "base" | "lg" | "xl"',
+        default: '"md"',
+        description: 'Visual size of the text',
+    },
+    {
+        name: 'weight',
+        type: '"normal" | "medium" | "semibold" | "bold"',
+        default: '"normal"',
+        description: 'Font weight',
+    },
+    {
+        name: 'color',
+        type: '"default" | "muted" | "primary" | "success" | "warning" | "danger" | "info"',
+        default: '"default"',
+        description: 'Text color variant',
+    },
+    {
+        name: 'block',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether to render as block element (div) instead of inline (span)',
+    },
+    {
+        name: 'align',
+        type: '"left" | "center" | "right" | "justify"',
+        default: '"left"',
+        description: 'Text alignment (only applies when block=true)',
+    },
+    {
+        name: 'truncate',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether to truncate text with ellipsis',
+    },
+    {
+        name: 'italic',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether to make text italic',
+    },
+    {
+        name: 'monospace',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether to make text monospace',
+    },
 ];
 
 const paragraphProps: PropDefinition[] = [
-    { name: 'size', type: '"xs" | "sm" | "md" | "base" | "lg" | "xl"', default: '"md"', description: 'Visual size of the paragraph text' },
-    { name: 'align', type: '"left" | "center" | "right" | "justify"', default: '"left"', description: 'Text alignment' },
-    { name: 'lineHeight', type: '"tight" | "normal" | "relaxed" | "loose"', default: '"normal"', description: 'Line height' },
-    { name: 'marginBottom', type: 'boolean', default: 'true', description: 'Whether to add bottom margin' },
+    {
+        name: 'size',
+        type: '"xs" | "sm" | "md" | "base" | "lg" | "xl"',
+        default: '"md"',
+        description: 'Visual size of the paragraph text',
+    },
+    {
+        name: 'align',
+        type: '"left" | "center" | "right" | "justify"',
+        default: '"left"',
+        description: 'Text alignment',
+    },
+    {
+        name: 'lineHeight',
+        type: '"tight" | "normal" | "relaxed" | "loose"',
+        default: '"normal"',
+        description: 'Line height',
+    },
+    {
+        name: 'marginBottom',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether to add bottom margin',
+    },
     { name: 'maxLines', type: 'number', description: 'Maximum number of lines before truncating' },
 ];
 
 const codeProps: PropDefinition[] = [
-    { name: 'block', type: 'boolean', default: 'false', description: 'Whether to render as a block (pre) or inline (code) element' },
-    { name: 'size', type: '"xs" | "sm" | "md" | "base"', default: '"sm"', description: 'Visual size of the code text' },
-    { name: 'wrap', type: 'boolean', description: 'Whether to allow line wrapping (default: false for inline, true for block)' },
-    { name: 'maxHeight', type: 'string', description: 'Maximum height for scrolling (only applies to block code)' },
+    {
+        name: 'block',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether to render as a block (pre) or inline (code) element',
+    },
+    {
+        name: 'size',
+        type: '"xs" | "sm" | "md" | "base"',
+        default: '"sm"',
+        description: 'Visual size of the code text',
+    },
+    {
+        name: 'wrap',
+        type: 'boolean',
+        description: 'Whether to allow line wrapping (default: false for inline, true for block)',
+    },
+    {
+        name: 'maxHeight',
+        type: 'string',
+        description: 'Maximum height for scrolling (only applies to block code)',
+    },
 ];
 
 const linkProps: PropDefinition[] = [
     { name: 'href', type: 'string', required: true, description: 'Link destination' },
-    { name: 'size', type: '"xs" | "sm" | "md" | "base" | "lg"', default: '"md"', description: 'Visual size of the link text' },
-    { name: 'variant', type: '"default" | "muted" | "primary"', default: '"default"', description: 'Link variant' },
-    { name: 'underline', type: '"always" | "hover" | "never"', default: '"hover"', description: 'Whether to show underline' },
-    { name: 'external', type: 'boolean', default: 'false', description: 'Whether the link is external (adds external link indicator and target="_blank")' },
+    {
+        name: 'size',
+        type: '"xs" | "sm" | "md" | "base" | "lg"',
+        default: '"md"',
+        description: 'Visual size of the link text',
+    },
+    {
+        name: 'variant',
+        type: '"default" | "muted" | "primary"',
+        default: '"default"',
+        description: 'Link variant',
+    },
+    {
+        name: 'underline',
+        type: '"always" | "hover" | "never"',
+        default: '"hover"',
+        description: 'Whether to show underline',
+    },
+    {
+        name: 'external',
+        type: 'boolean',
+        default: 'false',
+        description:
+            'Whether the link is external (adds external link indicator and target="_blank")',
+    },
 ];
 
 export default function TypographyPage() {
@@ -55,7 +174,13 @@ export default function TypographyPage() {
                 title="Heading Component"
                 description="Semantic heading component (h1-h6) with default styling for each level. All heading levels from 1 to 6 are available."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
                         <Heading level={1}>Heading Level 1</Heading>
                         <Heading level={2}>Heading Level 2</Heading>
                         <Heading level={3}>Heading Level 3</Heading>
@@ -85,10 +210,22 @@ function App() {
                 title="Heading Alignment"
                 description="Control the text alignment of headings using the align prop. Supports left, center, and right alignment."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
-                        <Heading level={2} align="left">Left Aligned Heading</Heading>
-                        <Heading level={2} align="center">Center Aligned Heading</Heading>
-                        <Heading level={2} align="right">Right Aligned Heading</Heading>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
+                        <Heading level={2} align="left">
+                            Left Aligned Heading
+                        </Heading>
+                        <Heading level={2} align="center">
+                            Center Aligned Heading
+                        </Heading>
+                        <Heading level={2} align="right">
+                            Right Aligned Heading
+                        </Heading>
                     </div>
                 }
                 code={`<Heading level={2} align="left">Left Aligned</Heading>
@@ -100,15 +237,28 @@ function App() {
                 title="Text Component"
                 description="Versatile text component for inline or block text. Can be rendered as span (inline) or div (block) with various styling options."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
                         <div>
-                            <Text>Default text</Text> | <Text weight="bold">Bold text</Text> | <Text italic>Italic text</Text> | <Text monospace>Monospace</Text>
+                            <Text>Default text</Text> | <Text weight="bold">Bold text</Text> |{' '}
+                            <Text italic>Italic text</Text> | <Text monospace>Monospace</Text>
                         </div>
                         <div>
-                            <Text color="primary">Primary</Text> | <Text color="success">Success</Text> | <Text color="warning">Warning</Text> | <Text color="danger">Danger</Text> | <Text color="info">Info</Text> | <Text color="muted">Muted</Text>
+                            <Text color="primary">Primary</Text> |{' '}
+                            <Text color="success">Success</Text> |{' '}
+                            <Text color="warning">Warning</Text> |{' '}
+                            <Text color="danger">Danger</Text> | <Text color="info">Info</Text> |{' '}
+                            <Text color="muted">Muted</Text>
                         </div>
                         <div>
-                            <Text size="xs">XS</Text> | <Text size="sm">SM</Text> | <Text size="md">MD</Text> | <Text size="lg">LG</Text> | <Text size="xl">XL</Text>
+                            <Text size="xs">XS</Text> | <Text size="sm">SM</Text> |{' '}
+                            <Text size="md">MD</Text> | <Text size="lg">LG</Text> |{' '}
+                            <Text size="xl">XL</Text>
                         </div>
                     </div>
                 }
@@ -141,12 +291,25 @@ function App() {
                 title="Text Block & Alignment"
                 description="Use block prop to render Text as a div element, enabling alignment options. Truncate prop adds ellipsis for overflow text."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
-                        <Text block align="left">Left aligned block text</Text>
-                        <Text block align="center">Center aligned block text</Text>
-                        <Text block align="right">Right aligned block text</Text>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
+                        <Text block align="left">
+                            Left aligned block text
+                        </Text>
+                        <Text block align="center">
+                            Center aligned block text
+                        </Text>
+                        <Text block align="right">
+                            Right aligned block text
+                        </Text>
                         <Text block truncate style={{ maxWidth: '200px' }}>
-                            This is a very long text that will be truncated with an ellipsis when it overflows
+                            This is a very long text that will be truncated with an ellipsis when it
+                            overflows
                         </Text>
                     </div>
                 }
@@ -165,21 +328,35 @@ function App() {
                 title="Paragraph Component"
                 description="Semantic paragraph component with flexible styling. Supports text alignment, line height control, and line clamping."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                        }}
+                    >
                         <Paragraph>
-                            This is a default paragraph with normal styling. It demonstrates how body text should look in typical use cases with default line height and spacing.
+                            This is a default paragraph with normal styling. It demonstrates how
+                            body text should look in typical use cases with default line height and
+                            spacing.
                         </Paragraph>
 
                         <Paragraph size="lg" lineHeight="relaxed">
-                            This is a larger paragraph with relaxed line height, ideal for long-form content where readability is important.
+                            This is a larger paragraph with relaxed line height, ideal for long-form
+                            content where readability is important.
                         </Paragraph>
 
                         <Paragraph size="sm" lineHeight="tight">
-                            This is a smaller paragraph with tight line height, useful for dense content or secondary information.
+                            This is a smaller paragraph with tight line height, useful for dense
+                            content or secondary information.
                         </Paragraph>
 
                         <Paragraph maxLines={3}>
-                            This is a very long paragraph that will be truncated after three lines with an ellipsis. The rest of the text will be hidden from view. This demonstrates how the maxLines prop works to limit the visible content while maintaining proper styling and adding an ellipsis indicator at the truncation point.
+                            This is a very long paragraph that will be truncated after three lines
+                            with an ellipsis. The rest of the text will be hidden from view. This
+                            demonstrates how the maxLines prop works to limit the visible content
+                            while maintaining proper styling and adding an ellipsis indicator at the
+                            truncation point.
                         </Paragraph>
                     </div>
                 }
@@ -211,9 +388,17 @@ function App() {
                 title="Code Component"
                 description="Display inline or block code snippets with monospace font. Inline renders as <code>, block renders as <pre><code>."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-5)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-5)',
+                        }}
+                    >
                         <div>
-                            <Text>Use the <Code>console.log()</Code> function to debug your code.</Text>
+                            <Text>
+                                Use the <Code>console.log()</Code> function to debug your code.
+                            </Text>
                         </div>
 
                         <Code block>{`function hello() {
@@ -221,7 +406,10 @@ function App() {
   return true;
 }`}</Code>
 
-                        <Code block wrap>{`// With line wrapping enabled: Very long line of code that will wrap instead of scrolling horizontally. This is useful when you want to ensure all code is visible without horizontal scrolling.`}</Code>
+                        <Code
+                            block
+                            wrap
+                        >{`// With line wrapping enabled: Very long line of code that will wrap instead of scrolling horizontally. This is useful when you want to ensure all code is visible without horizontal scrolling.`}</Code>
 
                         <Code block maxHeight="100px">{`// With max height (scroll for more)
 Line 1
@@ -265,40 +453,74 @@ Line 10`}</Code>
                 title="Link Component"
                 description="Versatile anchor/link component with various styling options. Supports different variants, sizes, and underline behaviors."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
                         <div>
                             <Link href="#default">Default link</Link>
                         </div>
 
                         <div>
-                            <Link href="#primary" variant="primary">Primary link</Link>
+                            <Link href="#primary" variant="primary">
+                                Primary link
+                            </Link>
                         </div>
 
                         <div>
-                            <Link href="#muted" variant="muted">Muted link</Link>
+                            <Link href="#muted" variant="muted">
+                                Muted link
+                            </Link>
                         </div>
 
                         <div>
-                            <Link href="https://example.com" external>External link (opens in new tab)</Link>
+                            <Link href="https://example.com" external>
+                                External link (opens in new tab)
+                            </Link>
                         </div>
 
                         <div>
-                            <Link href="#hover" underline="hover">Underline on hover (default)</Link> |{' '}
-                            <Link href="#always" underline="always">Always underlined</Link> |{' '}
-                            <Link href="#never" underline="never">Never underlined</Link>
+                            <Link href="#hover" underline="hover">
+                                Underline on hover (default)
+                            </Link>{' '}
+                            |{' '}
+                            <Link href="#always" underline="always">
+                                Always underlined
+                            </Link>{' '}
+                            |{' '}
+                            <Link href="#never" underline="never">
+                                Never underlined
+                            </Link>
                         </div>
 
                         <div>
-                            <Link href="#xs" size="xs">XS</Link> |{' '}
-                            <Link href="#sm" size="sm">SM</Link> |{' '}
-                            <Link href="#md" size="md">MD</Link> |{' '}
-                            <Link href="#lg" size="lg">LG</Link>
+                            <Link href="#xs" size="xs">
+                                XS
+                            </Link>{' '}
+                            |{' '}
+                            <Link href="#sm" size="sm">
+                                SM
+                            </Link>{' '}
+                            |{' '}
+                            <Link href="#md" size="md">
+                                MD
+                            </Link>{' '}
+                            |{' '}
+                            <Link href="#lg" size="lg">
+                                LG
+                            </Link>
                         </div>
 
                         <Paragraph>
                             Links work great in paragraphs too. Check out our{' '}
                             <Link href="#docs">documentation</Link> or visit our{' '}
-                            <Link href="https://github.com" external>GitHub</Link>.
+                            <Link href="https://github.com" external>
+                                GitHub
+                            </Link>
+                            .
                         </Paragraph>
                     </div>
                 }
@@ -340,12 +562,14 @@ Line 10`}</Code>
                     <div style={{ maxWidth: '600px' }}>
                         <Heading level={1}>Building Better UIs</Heading>
                         <Paragraph size="lg" lineHeight="relaxed">
-                            Learn how to create beautiful and accessible user interfaces using our comprehensive design system.
+                            Learn how to create beautiful and accessible user interfaces using our
+                            comprehensive design system.
                         </Paragraph>
 
                         <Heading level={2}>Getting Started</Heading>
                         <Paragraph>
-                            First, install the package using <Code>npm install baukasten-ui</Code>. Then import the components you need in your application.
+                            First, install the package using <Code>npm install baukasten-ui</Code>.
+                            Then import the components you need in your application.
                         </Paragraph>
 
                         <Heading level={3}>Basic Example</Heading>
@@ -394,71 +618,128 @@ function App() {
 }`}
             />
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Semantic HTML
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Heading:</strong> Renders semantic HTML headings (h1-h6) based on the level prop
+                        <strong>Heading:</strong> Renders semantic HTML headings (h1-h6) based on
+                        the level prop
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Text:</strong> Renders as <code>&lt;span&gt;</code> (inline) or <code>&lt;div&gt;</code> (block) depending on the block prop
+                        <strong>Text:</strong> Renders as <code>&lt;span&gt;</code> (inline) or{' '}
+                        <code>&lt;div&gt;</code> (block) depending on the block prop
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Paragraph:</strong> Always renders as semantic <code>&lt;p&gt;</code> element
+                        <strong>Paragraph:</strong> Always renders as semantic{' '}
+                        <code>&lt;p&gt;</code> element
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Code:</strong> Renders as <code>&lt;code&gt;</code> (inline) or <code>&lt;pre&gt;&lt;code&gt;</code> (block)
+                        <strong>Code:</strong> Renders as <code>&lt;code&gt;</code> (inline) or{' '}
+                        <code>&lt;pre&gt;&lt;code&gt;</code> (block)
                     </li>
                     <li>
-                        <strong>Link:</strong> Always renders as semantic <code>&lt;a&gt;</code> element with proper href attribute
+                        <strong>Link:</strong> Always renders as semantic <code>&lt;a&gt;</code>{' '}
+                        element with proper href attribute
                     </li>
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Accessibility
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Heading levels:</strong> Use proper heading hierarchy (h1 for page title, h2 for sections, etc.)
+                        <strong>Heading levels:</strong> Use proper heading hierarchy (h1 for page
+                        title, h2 for sections, etc.)
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Color contrast:</strong> All color variants meet WCAG 2.1 Level AA contrast requirements
+                        <strong>Color contrast:</strong> All color variants meet WCAG 2.1 Level AA
+                        contrast requirements
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>External links:</strong> Automatically add <code>rel="noopener noreferrer"</code> and <code>target="_blank"</code>
+                        <strong>External links:</strong> Automatically add{' '}
+                        <code>rel="noopener noreferrer"</code> and <code>target="_blank"</code>
                     </li>
                     <li>
-                        <strong>Screen readers:</strong> All components use semantic HTML that works well with assistive technologies
+                        <strong>Screen readers:</strong> All components use semantic HTML that works
+                        well with assistive technologies
                     </li>
                 </ul>
             </div>
 
-            <div style={{ marginTop: 'var(--bk-spacing-6)', padding: 'var(--bk-spacing-4)', backgroundColor: 'var(--vscode-textBlockQuote-background)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginTop: 'var(--bk-spacing-6)',
+                    padding: 'var(--bk-spacing-4)',
+                    backgroundColor: 'var(--vscode-textBlockQuote-background)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 <Heading level={3} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
                     Best Practices
                 </Heading>
-                <ul style={{ fontSize: 'var(--bk-font-size-sm)', lineHeight: 1.6, color: 'var(--vscode-descriptionForeground)', marginLeft: 'var(--bk-spacing-4)' }}>
+                <ul
+                    style={{
+                        fontSize: 'var(--bk-font-size-sm)',
+                        lineHeight: 1.6,
+                        color: 'var(--vscode-descriptionForeground)',
+                        marginLeft: 'var(--bk-spacing-4)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Heading hierarchy:</strong> Always start with h1 and don't skip levels (h1 → h2 → h3, not h1 → h3)
+                        <strong>Heading hierarchy:</strong> Always start with h1 and don't skip
+                        levels (h1 → h2 → h3, not h1 → h3)
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Text vs Paragraph:</strong> Use Text for short inline content, Paragraph for body text and longer content
+                        <strong>Text vs Paragraph:</strong> Use Text for short inline content,
+                        Paragraph for body text and longer content
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Code blocks:</strong> Use <code>block</code> prop for multi-line code, inline for short snippets
+                        <strong>Code blocks:</strong> Use <code>block</code> prop for multi-line
+                        code, inline for short snippets
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Link underlines:</strong> Keep default hover underline for better usability, use <code>underline="never"</code> sparingly
+                        <strong>Link underlines:</strong> Keep default hover underline for better
+                        usability, use <code>underline="never"</code> sparingly
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Line height:</strong> Use <code>relaxed</code> or <code>loose</code> for long-form content, <code>tight</code> for compact layouts
+                        <strong>Line height:</strong> Use <code>relaxed</code> or <code>loose</code>{' '}
+                        for long-form content, <code>tight</code> for compact layouts
                     </li>
                     <li>
-                        <strong>Color usage:</strong> Use semantic colors (success, warning, danger) for meaningful status indication
+                        <strong>Color usage:</strong> Use semantic colors (success, warning, danger)
+                        for meaningful status indication
                     </li>
                 </ul>
             </div>

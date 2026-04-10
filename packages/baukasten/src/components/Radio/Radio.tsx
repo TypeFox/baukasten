@@ -8,17 +8,20 @@ import { radioWrapper, hiddenInput, radioIndicator, radioDot } from './Radio.css
  * Radio component props
  * Extends all standard HTML input radio attributes
  */
-export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
-  /**
-   * Size of the radio button
-   * @default 'md'
-   */
-  size?: Size;
+export interface RadioProps extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    'size' | 'type'
+> {
+    /**
+     * Size of the radio button
+     * @default 'md'
+     */
+    size?: Size;
 
-  /**
-   * Value of the radio button (required for radio groups)
-   */
-  value: string | number;
+    /**
+     * Value of the radio button (required for radio groups)
+     */
+    value: string | number;
 }
 
 /**
@@ -72,53 +75,55 @@ export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
  * <Radio name="standalone" value="value" />
  * ```
  */
-export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(({
-  size = 'md',
-  disabled = false,
-  className,
-  style,
-  value,
-  name: nameProp,
-  checked: checkedProp,
-  onChange: onChangeProp,
-  ...props
-}, ref) => {
-  const group = useRadioGroup();
+export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
+    (
+        {
+            size = 'md',
+            disabled = false,
+            className,
+            style,
+            value,
+            name: nameProp,
+            checked: checkedProp,
+            onChange: onChangeProp,
+            ...props
+        },
+        ref,
+    ) => {
+        const group = useRadioGroup();
 
-  // Use group context values if available, otherwise use props
-  const name = group?.name ?? nameProp;
-  const checked = group ? group.value === value : checkedProp;
-  const isDisabled = disabled || group?.disabled;
+        // Use group context values if available, otherwise use props
+        const name = group?.name ?? nameProp;
+        const checked = group ? group.value === value : checkedProp;
+        const isDisabled = disabled || group?.disabled;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Call group's onChange if in a group, otherwise call component's onChange
-    if (group?.onChange) {
-      group.onChange(value);
-    }
-    onChangeProp?.(e);
-  };
+        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            // Call group's onChange if in a group, otherwise call component's onChange
+            if (group?.onChange) {
+                group.onChange(value);
+            }
+            onChangeProp?.(e);
+        };
 
-  return (
-    <label
-      className={clsx(radioWrapper, className)}
-      style={style}
-    >
-      <input
-        ref={ref}
-        className={hiddenInput}
-        type="radio"
-        disabled={isDisabled}
-        value={value}
-        name={name}
-        checked={checked}
-        onChange={handleChange}
-        {...props}
-      />
-      <div className={radioIndicator({ size })}>
-        <div className={radioDot({ size })} />
-      </div>
-    </label>
-  );
-});
+        return (
+            <label className={clsx(radioWrapper, className)} style={style}>
+                <input
+                    ref={ref}
+                    className={hiddenInput}
+                    type="radio"
+                    disabled={isDisabled}
+                    value={value}
+                    name={name}
+                    checked={checked}
+                    onChange={handleChange}
+                    {...props}
+                />
+                <div className={radioIndicator({ size })}>
+                    <div className={radioDot({ size })} />
+                </div>
+            </label>
+        );
+    },
+);
 
 Radio.displayName = 'Radio';

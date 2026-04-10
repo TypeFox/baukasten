@@ -11,7 +11,8 @@ const meta: Meta<typeof Table> = {
         layout: 'centered',
         docs: {
             description: {
-                component: 'A feature-rich table component with support for sorting, sticky headers, row selection, and more. Fully integrates with the Baukasten design system for seamless VSCode-style tables.',
+                component:
+                    'A feature-rich table component with support for sorting, sticky headers, row selection, and more. Fully integrates with the Baukasten design system for seamless VSCode-style tables.',
             },
         },
     },
@@ -131,7 +132,13 @@ export const Variants: Story = {
     render: () => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Default Variant
                 </h4>
                 <Table variant="default" size="md" bordered>
@@ -154,7 +161,13 @@ export const Variants: Story = {
                 </Table>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Zebra Variant
                 </h4>
                 <Table variant="zebra" size="md" bordered>
@@ -230,7 +243,7 @@ export const ZebraStriping: Story = {
         const products = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({
             id: i,
             name: `Product ${i}`,
-            stock: ((i * 13) % 100),
+            stock: (i * 13) % 100,
             price: ((i * 7.3) % 100).toFixed(2),
             total: ((i * 13.7) % 1000).toFixed(2),
         }));
@@ -470,8 +483,8 @@ const SortableTable = () => {
                 prev.key === key && prev.direction === 'asc'
                     ? 'desc'
                     : prev.key === key && prev.direction === 'desc'
-                        ? null
-                        : 'asc',
+                      ? null
+                      : 'asc',
         }));
     };
 
@@ -517,7 +530,9 @@ const SortableTable = () => {
                     </Table.HeaderCell>
                     <Table.HeaderCell
                         sortable
-                        sortDirection={sortConfig.key === 'department' ? sortConfig.direction : null}
+                        sortDirection={
+                            sortConfig.key === 'department' ? sortConfig.direction : null
+                        }
                         onSort={() => handleSort('department')}
                     >
                         Department
@@ -990,7 +1005,13 @@ export const EmptyState: Story = {
     render: () => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Default Empty Message
                 </h4>
                 <Table variant="default" bordered>
@@ -1005,7 +1026,13 @@ export const EmptyState: Story = {
                 </Table>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Custom Empty Message
                 </h4>
                 <Table variant="default" bordered>
@@ -1020,7 +1047,13 @@ export const EmptyState: Story = {
                 </Table>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Custom Empty Component
                 </h4>
                 <Table variant="default" bordered>
@@ -1035,12 +1068,33 @@ export const EmptyState: Story = {
                         empty
                         emptyComponent={
                             <div style={{ padding: 'var(--bk-spacing-4)', textAlign: 'center' }}>
-                                <div style={{ fontSize: 'var(--bk-font-size-2xl)', marginBottom: 'var(--bk-spacing-2)' }}>📭</div>
-                                <div style={{ fontWeight: 'var(--bk-font-weight-medium)', marginBottom: 'var(--bk-spacing-1)' }}>No Data Found</div>
-                                <div style={{ fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-secondary-foreground)' }}>
+                                <div
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-2xl)',
+                                        marginBottom: 'var(--bk-spacing-2)',
+                                    }}
+                                >
+                                    📭
+                                </div>
+                                <div
+                                    style={{
+                                        fontWeight: 'var(--bk-font-weight-medium)',
+                                        marginBottom: 'var(--bk-spacing-1)',
+                                    }}
+                                >
+                                    No Data Found
+                                </div>
+                                <div
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        color: 'var(--bk-color-secondary-foreground)',
+                                    }}
+                                >
                                     Try adjusting your filters or add new items
                                 </div>
-                                <Button size="sm" style={{ marginTop: 'var(--bk-spacing-3)' }}>Add Item</Button>
+                                <Button size="sm" style={{ marginTop: 'var(--bk-spacing-3)' }}>
+                                    Add Item
+                                </Button>
                             </div>
                         }
                     />
@@ -1064,7 +1118,13 @@ export const LoadingState: Story = {
     render: () => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Default Loading Message
                 </h4>
                 <Table variant="default" bordered>
@@ -1079,7 +1139,13 @@ export const LoadingState: Story = {
                 </Table>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Custom Loading Message
                 </h4>
                 <Table variant="default" bordered>
@@ -1094,7 +1160,13 @@ export const LoadingState: Story = {
                 </Table>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Custom Loading Component
                 </h4>
                 <Table variant="default" bordered>
@@ -1109,8 +1181,22 @@ export const LoadingState: Story = {
                         loading
                         loadingComponent={
                             <div style={{ padding: 'var(--bk-spacing-6)', textAlign: 'center' }}>
-                                <div style={{ display: 'inline-block', animation: 'spin 1s linear infinite' }}>⏳</div>
-                                <div style={{ marginTop: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-medium)' }}>Loading data...</div>
+                                <div
+                                    style={{
+                                        display: 'inline-block',
+                                        animation: 'spin 1s linear infinite',
+                                    }}
+                                >
+                                    ⏳
+                                </div>
+                                <div
+                                    style={{
+                                        marginTop: 'var(--bk-spacing-2)',
+                                        fontWeight: 'var(--bk-font-weight-medium)',
+                                    }}
+                                >
+                                    Loading data...
+                                </div>
                                 <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
                             </div>
                         }
@@ -1135,7 +1221,13 @@ export const WithCaption: Story = {
     render: () => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Caption at Top (Default)
                 </h4>
                 <Table variant="zebra" bordered caption="Q4 2024 Sales Report" captionSide="top">
@@ -1158,10 +1250,21 @@ export const WithCaption: Story = {
                 </Table>
             </div>
             <div>
-                <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <h4
+                    style={{
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Caption at Bottom
                 </h4>
-                <Table variant="default" bordered caption="Data as of December 31, 2024" captionSide="bottom">
+                <Table
+                    variant="default"
+                    bordered
+                    caption="Data as of December 31, 2024"
+                    captionSide="bottom"
+                >
                     <Table.Head>
                         <Table.Row>
                             <Table.HeaderCell>Product</Table.HeaderCell>
@@ -1206,7 +1309,7 @@ const SelectableRowsTable = () => {
 
     const toggleRow = (index: number) => {
         setSelectedRows((prev) =>
-            prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+            prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
         );
     };
 
@@ -1223,7 +1326,14 @@ const SelectableRowsTable = () => {
 
     return (
         <div>
-            <div style={{ marginBottom: 'var(--bk-spacing-3)', padding: 'var(--bk-spacing-2)', backgroundColor: 'var(--bk-color-background-secondary)', borderRadius: 'var(--bk-radius-md)' }}>
+            <div
+                style={{
+                    marginBottom: 'var(--bk-spacing-3)',
+                    padding: 'var(--bk-spacing-2)',
+                    backgroundColor: 'var(--bk-color-background-secondary)',
+                    borderRadius: 'var(--bk-radius-md)',
+                }}
+            >
                 Selected: {selectedRows.length} of {data.length}
             </div>
             <Table variant="default">
@@ -1424,17 +1534,19 @@ const ComplexTableExample = () => {
     }>({ key: '', direction: null });
 
     // Generate consistent data
-    const baseData = useMemo(() =>
-        Array.from({ length: 30 }, (_, i) => ({
-            id: i + 1,
-            product: `Product ${i + 1}`,
-            description: `Description for product ${i + 1} with more details`,
-            category: `Category ${(i % 5) + 1}`,
-            stock: Math.floor((i * 13) % 100), // Deterministic values for consistent sorting
-            price: ((i * 7.3) % 100).toFixed(2),
-            status: i % 3 === 0 ? 'In Stock' : i % 3 === 1 ? 'Low' : 'Out',
-        })),
-        []);
+    const baseData = useMemo(
+        () =>
+            Array.from({ length: 30 }, (_, i) => ({
+                id: i + 1,
+                product: `Product ${i + 1}`,
+                description: `Description for product ${i + 1} with more details`,
+                category: `Category ${(i % 5) + 1}`,
+                stock: Math.floor((i * 13) % 100), // Deterministic values for consistent sorting
+                price: ((i * 7.3) % 100).toFixed(2),
+                status: i % 3 === 0 ? 'In Stock' : i % 3 === 1 ? 'Low' : 'Out',
+            })),
+        [],
+    );
 
     // Sort the data
     const sortedData = useMemo(() => {
@@ -1477,8 +1589,8 @@ const ComplexTableExample = () => {
                 prev.key === key && prev.direction === 'asc'
                     ? 'desc'
                     : prev.key === key && prev.direction === 'desc'
-                        ? null
-                        : 'asc',
+                      ? null
+                      : 'asc',
         }));
     };
 
@@ -1496,7 +1608,9 @@ const ComplexTableExample = () => {
                         </Table.HeaderCell>
                         <Table.HeaderCell
                             sortable
-                            sortDirection={sortConfig.key === 'product' ? sortConfig.direction : null}
+                            sortDirection={
+                                sortConfig.key === 'product' ? sortConfig.direction : null
+                            }
                             onSort={() => handleSort('product')}
                         >
                             Product
@@ -1504,7 +1618,9 @@ const ComplexTableExample = () => {
                         <Table.HeaderCell>Description</Table.HeaderCell>
                         <Table.HeaderCell
                             sortable
-                            sortDirection={sortConfig.key === 'category' ? sortConfig.direction : null}
+                            sortDirection={
+                                sortConfig.key === 'category' ? sortConfig.direction : null
+                            }
                             onSort={() => handleSort('category')}
                         >
                             Category
@@ -1540,7 +1656,11 @@ const ComplexTableExample = () => {
                             <Table.Cell align="center">
                                 <Badge
                                     variant={
-                                        row.status === 'In Stock' ? 'success' : row.status === 'Low' ? 'warning' : 'default'
+                                        row.status === 'In Stock'
+                                            ? 'success'
+                                            : row.status === 'Low'
+                                              ? 'warning'
+                                              : 'default'
                                     }
                                 >
                                     {row.status}
@@ -1676,9 +1796,7 @@ Handle long text content with CSS overflow properties.
         <Table {...args}>
             <Table.Head>
                 <Table.Row>
-                    <Table.HeaderCell style={{ width: '200px' }}>
-                        Name (Truncated)
-                    </Table.HeaderCell>
+                    <Table.HeaderCell style={{ width: '200px' }}>Name (Truncated)</Table.HeaderCell>
                     <Table.HeaderCell style={{ width: '300px' }}>
                         Description (Wrapped)
                     </Table.HeaderCell>
@@ -1705,9 +1823,9 @@ Handle long text content with CSS overflow properties.
                             wordBreak: 'break-word',
                         }}
                     >
-                        This is a long description that will wrap to multiple lines instead of
-                        being truncated. It demonstrates how to handle longer content that needs
-                        to remain fully visible.
+                        This is a long description that will wrap to multiple lines instead of being
+                        truncated. It demonstrates how to handle longer content that needs to remain
+                        fully visible.
                     </Table.Cell>
                     <Table.Cell>
                         <Badge variant="success">Active</Badge>
@@ -1833,16 +1951,20 @@ Control column widths using the \`style\` prop or \`width\` attribute on header 
     },
     render: (args) => (
         <div>
-            <p style={{ marginBottom: 'var(--bk-spacing-4)', color: 'var(--bk-color-foreground-muted)' }}>
-                This table demonstrates different column width strategies: fixed px, percentages, and flexible.
+            <p
+                style={{
+                    marginBottom: 'var(--bk-spacing-4)',
+                    color: 'var(--bk-color-foreground-muted)',
+                }}
+            >
+                This table demonstrates different column width strategies: fixed px, percentages,
+                and flexible.
             </p>
             <Table {...args}>
                 <Table.Head>
                     <Table.Row>
                         {/* Fixed narrow width for ID */}
-                        <Table.HeaderCell style={{ width: '80px' }}>
-                            ID
-                        </Table.HeaderCell>
+                        <Table.HeaderCell style={{ width: '80px' }}>ID</Table.HeaderCell>
 
                         {/* Fixed medium width with minimum */}
                         <Table.HeaderCell style={{ width: '200px', minWidth: '150px' }}>
@@ -1850,14 +1972,10 @@ Control column widths using the \`style\` prop or \`width\` attribute on header 
                         </Table.HeaderCell>
 
                         {/* Flexible width - takes remaining space */}
-                        <Table.HeaderCell>
-                            Description
-                        </Table.HeaderCell>
+                        <Table.HeaderCell>Description</Table.HeaderCell>
 
                         {/* Percentage-based width */}
-                        <Table.HeaderCell style={{ width: '15%' }}>
-                            Status
-                        </Table.HeaderCell>
+                        <Table.HeaderCell style={{ width: '15%' }}>Status</Table.HeaderCell>
 
                         {/* Fixed width for action buttons */}
                         <Table.HeaderCell style={{ width: '120px' }} align="right">
@@ -1895,9 +2013,7 @@ Control column widths using the \`style\` prop or \`width\` attribute on header 
                     <Table.Row>
                         <Table.Cell>003</Table.Cell>
                         <Table.Cell>Bob Johnson</Table.Cell>
-                        <Table.Cell>
-                            Marketing Manager handling digital campaigns
-                        </Table.Cell>
+                        <Table.Cell>Marketing Manager handling digital campaigns</Table.Cell>
                         <Table.Cell>
                             <Badge variant="warning">Pending</Badge>
                         </Table.Cell>
@@ -1991,7 +2107,12 @@ Wrap the table in a container with \`overflow-x: auto\`:
     },
     render: (args) => (
         <div>
-            <p style={{ marginBottom: 'var(--bk-spacing-4)', color: 'var(--bk-color-foreground-muted)' }}>
+            <p
+                style={{
+                    marginBottom: 'var(--bk-spacing-4)',
+                    color: 'var(--bk-color-foreground-muted)',
+                }}
+            >
                 Resize your browser window to see horizontal scrolling on smaller screens
             </p>
             <div style={{ overflowX: 'auto', maxWidth: '100%' }}>
@@ -2052,13 +2173,25 @@ Wrap the table in a container with \`overflow-x: auto\`:
 export const Showcase: Story = {
     render: () => (
         <div style={{ padding: 'var(--bk-spacing-4)', maxWidth: '1200px', margin: '0 auto' }}>
-            <h2 style={{ fontSize: 'var(--bk-font-size-2xl)', fontWeight: 'var(--bk-font-weight-bold)', marginBottom: 'var(--bk-spacing-6)' }}>
+            <h2
+                style={{
+                    fontSize: 'var(--bk-font-size-2xl)',
+                    fontWeight: 'var(--bk-font-weight-bold)',
+                    marginBottom: 'var(--bk-spacing-6)',
+                }}
+            >
                 Table Component Showcase
             </h2>
 
             {/* Variants Section */}
             <section style={{ marginBottom: 'var(--bk-spacing-8)' }}>
-                <h3 style={{ fontSize: 'var(--bk-font-size-xl)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-4)' }}>
+                <h3
+                    style={{
+                        fontSize: 'var(--bk-font-size-xl)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-4)',
+                    }}
+                >
                     Variants
                 </h3>
                 <div style={{ display: 'grid', gap: 'var(--bk-spacing-4)' }}>
@@ -2073,7 +2206,9 @@ export const Showcase: Story = {
                             {['Sorting', 'Filtering', 'Pagination'].map((feature, i) => (
                                 <Table.Row key={i}>
                                     <Table.Cell>{feature}</Table.Cell>
-                                    <Table.Cell><Badge variant="success">Available</Badge></Table.Cell>
+                                    <Table.Cell>
+                                        <Badge variant="success">Available</Badge>
+                                    </Table.Cell>
                                 </Table.Row>
                             ))}
                         </Table.Body>
@@ -2090,7 +2225,9 @@ export const Showcase: Story = {
                             {['Sorting', 'Filtering', 'Pagination'].map((feature, i) => (
                                 <Table.Row key={i}>
                                     <Table.Cell>{feature}</Table.Cell>
-                                    <Table.Cell><Badge variant="success">Available</Badge></Table.Cell>
+                                    <Table.Cell>
+                                        <Badge variant="success">Available</Badge>
+                                    </Table.Cell>
                                 </Table.Row>
                             ))}
                         </Table.Body>
@@ -2100,7 +2237,13 @@ export const Showcase: Story = {
 
             {/* Sizes Section */}
             <section style={{ marginBottom: 'var(--bk-spacing-8)' }}>
-                <h3 style={{ fontSize: 'var(--bk-font-size-xl)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-4)' }}>
+                <h3
+                    style={{
+                        fontSize: 'var(--bk-font-size-xl)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-4)',
+                    }}
+                >
                     Sizes
                 </h3>
                 <div style={{ display: 'grid', gap: 'var(--bk-spacing-3)' }}>
@@ -2125,12 +2268,25 @@ export const Showcase: Story = {
 
             {/* States Section */}
             <section style={{ marginBottom: 'var(--bk-spacing-8)' }}>
-                <h3 style={{ fontSize: 'var(--bk-font-size-xl)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-4)' }}>
+                <h3
+                    style={{
+                        fontSize: 'var(--bk-font-size-xl)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-4)',
+                    }}
+                >
                     States
                 </h3>
                 <div style={{ display: 'grid', gap: 'var(--bk-spacing-4)' }}>
                     <div>
-                        <h4 style={{ fontSize: 'var(--bk-font-size-base)', marginBottom: 'var(--bk-spacing-2)' }}>Empty State</h4>
+                        <h4
+                            style={{
+                                fontSize: 'var(--bk-font-size-base)',
+                                marginBottom: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            Empty State
+                        </h4>
                         <Table variant="default" bordered>
                             <Table.Head>
                                 <Table.Row>
@@ -2143,7 +2299,14 @@ export const Showcase: Story = {
                     </div>
 
                     <div>
-                        <h4 style={{ fontSize: 'var(--bk-font-size-base)', marginBottom: 'var(--bk-spacing-2)' }}>Loading State</h4>
+                        <h4
+                            style={{
+                                fontSize: 'var(--bk-font-size-base)',
+                                marginBottom: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            Loading State
+                        </h4>
                         <Table variant="default" bordered>
                             <Table.Head>
                                 <Table.Row>
@@ -2156,7 +2319,14 @@ export const Showcase: Story = {
                     </div>
 
                     <div>
-                        <h4 style={{ fontSize: 'var(--bk-font-size-base)', marginBottom: 'var(--bk-spacing-2)' }}>Selected Rows</h4>
+                        <h4
+                            style={{
+                                fontSize: 'var(--bk-font-size-base)',
+                                marginBottom: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            Selected Rows
+                        </h4>
                         <Table variant="default" bordered>
                             <Table.Head>
                                 <Table.Row>
@@ -2185,12 +2355,25 @@ export const Showcase: Story = {
 
             {/* Features Section */}
             <section style={{ marginBottom: 'var(--bk-spacing-8)' }}>
-                <h3 style={{ fontSize: 'var(--bk-font-size-xl)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-4)' }}>
+                <h3
+                    style={{
+                        fontSize: 'var(--bk-font-size-xl)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-4)',
+                    }}
+                >
                     Advanced Features
                 </h3>
                 <div style={{ display: 'grid', gap: 'var(--bk-spacing-4)' }}>
                     <div>
-                        <h4 style={{ fontSize: 'var(--bk-font-size-base)', marginBottom: 'var(--bk-spacing-2)' }}>With Footer</h4>
+                        <h4
+                            style={{
+                                fontSize: 'var(--bk-font-size-base)',
+                                marginBottom: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            With Footer
+                        </h4>
                         <Table variant="zebra" bordered>
                             <Table.Head>
                                 <Table.Row>
@@ -2210,15 +2393,26 @@ export const Showcase: Story = {
                             </Table.Body>
                             <Table.Footer>
                                 <Table.Row>
-                                    <Table.Cell><strong>Total</strong></Table.Cell>
-                                    <Table.Cell align="right"><strong>$250</strong></Table.Cell>
+                                    <Table.Cell>
+                                        <strong>Total</strong>
+                                    </Table.Cell>
+                                    <Table.Cell align="right">
+                                        <strong>$250</strong>
+                                    </Table.Cell>
                                 </Table.Row>
                             </Table.Footer>
                         </Table>
                     </div>
 
                     <div>
-                        <h4 style={{ fontSize: 'var(--bk-font-size-base)', marginBottom: 'var(--bk-spacing-2)' }}>With Accessibility Caption</h4>
+                        <h4
+                            style={{
+                                fontSize: 'var(--bk-font-size-base)',
+                                marginBottom: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            With Accessibility Caption
+                        </h4>
                         <Table variant="default" bordered caption="Q4 2024 Financial Report">
                             <Table.Head>
                                 <Table.Row>
@@ -2243,7 +2437,13 @@ export const Showcase: Story = {
 
             {/* Summary */}
             <section>
-                <h3 style={{ fontSize: 'var(--bk-font-size-xl)', fontWeight: 'var(--bk-font-weight-semibold)', marginBottom: 'var(--bk-spacing-4)' }}>
+                <h3
+                    style={{
+                        fontSize: 'var(--bk-font-size-xl)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                        marginBottom: 'var(--bk-spacing-4)',
+                    }}
+                >
                     Complete Feature List
                 </h3>
                 <Table variant="zebra" size="sm">
@@ -2268,10 +2468,15 @@ export const Showcase: Story = {
                             { name: 'Caption', desc: 'Accessibility captions (top/bottom)' },
                             { name: 'Merged Cells', desc: 'Colspan and rowspan support' },
                             { name: 'Responsive', desc: 'Horizontal scroll on small screens' },
-                            { name: 'Accessibility', desc: 'ARIA labels, scope attributes, keyboard support' },
+                            {
+                                name: 'Accessibility',
+                                desc: 'ARIA labels, scope attributes, keyboard support',
+                            },
                         ].map((feature, i) => (
                             <Table.Row key={i}>
-                                <Table.Cell><strong>{feature.name}</strong></Table.Cell>
+                                <Table.Cell>
+                                    <strong>{feature.name}</strong>
+                                </Table.Cell>
                                 <Table.Cell>{feature.desc}</Table.Cell>
                                 <Table.Cell align="center">
                                     <Badge variant="success">✓</Badge>

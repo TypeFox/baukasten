@@ -31,7 +31,7 @@ function extractTextFromJSX(content: string): string {
         /`([^`\\]*)`/g,
     ];
 
-    patterns.forEach(pattern => {
+    patterns.forEach((pattern) => {
         let match;
         while ((match = pattern.exec(content)) !== null) {
             const text = match[1]?.trim();
@@ -76,50 +76,50 @@ function getTitleFromPath(filePath: string): string {
 
     // Capitalize and handle special cases
     const titleMap: Record<string, string> = {
-        'accordion': 'Accordion',
-        'alert': 'Alert',
-        'avatar': 'Avatar',
-        'badge': 'Badge',
-        'breadcrumbs': 'Breadcrumbs',
-        'button': 'Button',
-        'buttongroup': 'ButtonGroup',
-        'checkbox': 'Checkbox',
-        'contextmenu': 'ContextMenu',
-        'datatable': 'DataTable',
-        'divider': 'Divider',
-        'drawer': 'Drawer',
-        'dropdown': 'Dropdown',
-        'fileupload': 'FileUpload',
-        'forms': 'Forms',
-        'hero': 'Hero',
-        'icon': 'Icon',
-        'input': 'Input',
-        'label': 'Label',
-        'menu': 'Menu',
-        'modal': 'Modal',
-        'pagination': 'Pagination',
-        'progressbar': 'ProgressBar',
-        'radio': 'Radio',
-        'select': 'Select',
-        'slider': 'Slider',
-        'spinner': 'Spinner',
-        'splitpane': 'SplitPane',
-        'statusbar': 'StatusBar',
-        'table': 'Table',
-        'tabs': 'Tabs',
-        'textarea': 'TextArea',
-        'tooltip': 'Tooltip',
-        'typography': 'Typography',
-        'colors': 'Colors',
-        'spacing': 'Spacing',
-        'effects': 'Effects',
-        'theming': 'Theming',
-        'vscode': 'Usage in VS Code',
-        'theia': 'Usage in Eclipse Theia',
-        'login': 'Login Pages',
-        'dashboard': 'Dashboard Layouts',
-        'installation': 'Installation',
-        'quickstart': 'Quick Start',
+        accordion: 'Accordion',
+        alert: 'Alert',
+        avatar: 'Avatar',
+        badge: 'Badge',
+        breadcrumbs: 'Breadcrumbs',
+        button: 'Button',
+        buttongroup: 'ButtonGroup',
+        checkbox: 'Checkbox',
+        contextmenu: 'ContextMenu',
+        datatable: 'DataTable',
+        divider: 'Divider',
+        drawer: 'Drawer',
+        dropdown: 'Dropdown',
+        fileupload: 'FileUpload',
+        forms: 'Forms',
+        hero: 'Hero',
+        icon: 'Icon',
+        input: 'Input',
+        label: 'Label',
+        menu: 'Menu',
+        modal: 'Modal',
+        pagination: 'Pagination',
+        progressbar: 'ProgressBar',
+        radio: 'Radio',
+        select: 'Select',
+        slider: 'Slider',
+        spinner: 'Spinner',
+        splitpane: 'SplitPane',
+        statusbar: 'StatusBar',
+        table: 'Table',
+        tabs: 'Tabs',
+        textarea: 'TextArea',
+        tooltip: 'Tooltip',
+        typography: 'Typography',
+        colors: 'Colors',
+        spacing: 'Spacing',
+        effects: 'Effects',
+        theming: 'Theming',
+        vscode: 'Usage in VS Code',
+        theia: 'Usage in Eclipse Theia',
+        login: 'Login Pages',
+        dashboard: 'Dashboard Layouts',
+        installation: 'Installation',
+        quickstart: 'Quick Start',
     };
 
     return titleMap[lastSegment] || lastSegment.charAt(0).toUpperCase() + lastSegment.slice(1);
@@ -128,9 +128,7 @@ function getTitleFromPath(filePath: string): string {
 // Get URL path from file path
 function getUrlPath(filePath: string): string {
     // Remove 'src/app' prefix and 'page.tsx' suffix
-    let urlPath = filePath
-        .replace(/^.*src\/app/, '')
-        .replace(/\/page\.tsx$/, '');
+    let urlPath = filePath.replace(/^.*src\/app/, '').replace(/\/page\.tsx$/, '');
 
     if (!urlPath || urlPath === '') return '/';
     return urlPath;
@@ -142,10 +140,10 @@ function extractKeywords(content: string, category: string): string[] {
 
     // Common keywords by category
     const categoryKeywords: Record<string, string[]> = {
-        'Components': ['react', 'component', 'ui', 'widget'],
-        'Foundations': ['design', 'tokens', 'system'],
-        'Guides': ['guide', 'tutorial', 'howto'],
-        'Recipes': ['example', 'template', 'pattern'],
+        Components: ['react', 'component', 'ui', 'widget'],
+        Foundations: ['design', 'tokens', 'system'],
+        Guides: ['guide', 'tutorial', 'howto'],
+        Recipes: ['example', 'template', 'pattern'],
         'Getting Started': ['install', 'setup', 'start', 'begin'],
     };
 
@@ -158,7 +156,23 @@ function extractKeywords(content: string, category: string): string[] {
     }
 
     // Extract common terms
-    const commonTerms = ['button', 'input', 'modal', 'form', 'table', 'list', 'menu', 'dialog', 'alert', 'notification', 'badge', 'icon', 'text', 'heading', 'paragraph'];
+    const commonTerms = [
+        'button',
+        'input',
+        'modal',
+        'form',
+        'table',
+        'list',
+        'menu',
+        'dialog',
+        'alert',
+        'notification',
+        'badge',
+        'icon',
+        'text',
+        'heading',
+        'paragraph',
+    ];
     for (const term of commonTerms) {
         if (content.toLowerCase().includes(term)) {
             keywords.push(term);
@@ -200,7 +214,9 @@ async function buildSearchIndex() {
 
         // Try to extract description from PageLayout component specifically
         // Look for <PageLayout ... description="..." pattern to avoid matching prop descriptions
-        const pageLayoutDescMatch = content.match(/<PageLayout[^>]*\s+description\s*=\s*["'`]([^"'`]+)["'`]/);
+        const pageLayoutDescMatch = content.match(
+            /<PageLayout[^>]*\s+description\s*=\s*["'`]([^"'`]+)["'`]/,
+        );
         const description = pageLayoutDescMatch ? pageLayoutDescMatch[1] : '';
 
         // Extract text content

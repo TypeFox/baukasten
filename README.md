@@ -4,7 +4,7 @@
 
 <h1 align="center">Baukasten UI</h1>
 
-A UI toolkit for building native-feel web applicaiton, that runs on browser, Eclipse Theia or VSCode. 
+A UI toolkit for building native-feel web applicaiton, that runs on browser, Eclipse Theia or VSCode.
 
 - Website: https://typefox.dev/baukasten
 - Storybook: https://typefox.dev/baukasten/storybook/
@@ -38,15 +38,15 @@ baukasten/
 
 1. Clone the repository:
 
-   ```bash
-   git clone [https://github.com/TypeFox/baukasten](https://github.com/TypeFox/baukasten)
-   cd baukasten
-   ```
+    ```bash
+    git clone [https://github.com/TypeFox/baukasten](https://github.com/TypeFox/baukasten)
+    cd baukasten
+    ```
 
 2. Install dependencies:
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
 ### Development
 
@@ -57,10 +57,10 @@ This project includes pre-configured VSCode launch configurations. Simply:
 1. Open the project in VSCode
 2. Press **F5** to launch the VSCode extension example, or
 3. Use the **Run and Debug** panel to select:
-   - **Launch VSCode Extension Example**
-   - **Attach to Web Example (Chrome)**
-   - **Attach to Storybook (Chrome)**
-   - **Launch All Examples** (runs multiple at once)
+    - **Launch VSCode Extension Example**
+    - **Attach to Web Example (Chrome)**
+    - **Attach to Storybook (Chrome)**
+    - **Launch All Examples** (runs multiple at once)
 
 #### Manual Commands:
 
@@ -105,7 +105,6 @@ npm run website
 ```
 
 Then visit `localhost:3000/baukasten`
-
 
 ### Building
 

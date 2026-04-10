@@ -1,37 +1,41 @@
 {
-  // TypeScript settings
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  
-  // Editor settings
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  
-  // File associations
-  "files.associations": {
-    "*.css": "css"
-  },
-  
-  // Search exclusions
-  "search.exclude": {
-    "**/node_modules": true,
-    "**/dist": true,
-    "**/.storybook-static": true
-  },
-  
-  // File watcher exclusions
-  "files.watcherExclude": {
-    "**/node_modules/**": true,
-    "**/dist/**": true
-  },
-  
-  // NPM scripts
-  "npm.packageManager": "npm",
-  "npm.enableScriptExplorer": true,
-  
-  // Extension recommendations
-  "extensions.ignoreRecommendations": false
-}
+    // TypeScript settings
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
 
+    // Default formatter: Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+
+    // ESLint auto-fix on save (code quality rules only, not formatting)
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+
+    // File associations
+    "files.associations": {
+        "*.css": "css"
+    },
+
+    // Search exclusions
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/dist": true,
+        "**/.storybook-static": true
+    },
+
+    // File watcher exclusions
+    "files.watcherExclude": {
+        "**/node_modules/**": true,
+        "**/dist/**": true
+    },
+
+    // NPM scripts
+    "npm.packageManager": "npm",
+    "npm.enableScriptExplorer": true,
+
+    // Extension recommendations
+    "extensions.ignoreRecommendations": false
+}

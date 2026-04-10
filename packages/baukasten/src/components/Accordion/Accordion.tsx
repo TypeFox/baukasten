@@ -6,23 +6,23 @@ import { accordion } from './Accordion.css';
  * Context for managing accordion group state
  */
 interface AccordionContextValue {
-  /**
-   * Whether only one item can be open at a time
-   */
-  exclusive?: boolean;
-  /**
-   * Currently open item key (for exclusive mode)
-   */
-  openKey?: string | null;
-  /**
-   * Callback when an item is toggled
-   */
-  onToggle?: (key: string) => void;
+    /**
+     * Whether only one item can be open at a time
+     */
+    exclusive?: boolean;
+    /**
+     * Currently open item key (for exclusive mode)
+     */
+    openKey?: string | null;
+    /**
+     * Callback when an item is toggled
+     */
+    onToggle?: (key: string) => void;
 }
 
 const AccordionContext = createContext<AccordionContextValue>({
-  exclusive: false,
-  openKey: null,
+    exclusive: false,
+    openKey: null,
 });
 
 /**
@@ -34,19 +34,19 @@ export const useAccordion = () => useContext(AccordionContext);
  * Accordion component props
  */
 export interface AccordionProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onToggle'> {
-  /**
-   * Whether only one accordion item can be open at a time
-   * @default false
-   */
-  exclusive?: boolean;
-  /**
-   * Default open item key (for controlled exclusive mode)
-   */
-  defaultOpen?: string;
-  /**
-   * Callback when accordion items are toggled
-   */
-  onAccordionChange?: (key: string) => void;
+    /**
+     * Whether only one accordion item can be open at a time
+     * @default false
+     */
+    exclusive?: boolean;
+    /**
+     * Default open item key (for controlled exclusive mode)
+     */
+    defaultOpen?: string;
+    /**
+     * Callback when accordion items are toggled
+     */
+    onAccordionChange?: (key: string) => void;
 }
 
 /**
@@ -92,33 +92,39 @@ export interface AccordionProps extends Omit<React.HTMLAttributes<HTMLDivElement
  * ```
  */
 export const Accordion: React.FC<AccordionProps> = ({
-  exclusive = false,
-  defaultOpen,
-  onAccordionChange,
-  className,
-  children,
-  ...props
+    exclusive = false,
+    defaultOpen,
+    onAccordionChange,
+    className,
+    children,
+    ...props
 }) => {
-  const [openKey, setOpenKey] = React.useState<string | null>(defaultOpen || null);
+    const [openKey, setOpenKey] = React.useState<string | null>(defaultOpen || null);
 
-  const handleToggle = React.useCallback((key: string) => {
-    if (exclusive) {
-      setOpenKey(prev => prev === key ? null : key);
-    }
-    onAccordionChange?.(key);
-  }, [exclusive, onAccordionChange]);
+    const handleToggle = React.useCallback(
+        (key: string) => {
+            if (exclusive) {
+                setOpenKey((prev) => (prev === key ? null : key));
+            }
+            onAccordionChange?.(key);
+        },
+        [exclusive, onAccordionChange],
+    );
 
-  const contextValue = React.useMemo<AccordionContextValue>(() => ({
-    exclusive,
-    openKey: exclusive ? openKey : undefined,
-    onToggle: handleToggle,
-  }), [exclusive, openKey, handleToggle]);
+    const contextValue = React.useMemo<AccordionContextValue>(
+        () => ({
+            exclusive,
+            openKey: exclusive ? openKey : undefined,
+            onToggle: handleToggle,
+        }),
+        [exclusive, openKey, handleToggle],
+    );
 
-  return (
-    <AccordionContext.Provider value={contextValue}>
-      <div className={clsx(accordion, className)} {...props}>
-        {children}
-      </div>
-    </AccordionContext.Provider>
-  );
+    return (
+        <AccordionContext.Provider value={contextValue}>
+            <div className={clsx(accordion, className)} {...props}>
+                {children}
+            </div>
+        </AccordionContext.Provider>
+    );
 };

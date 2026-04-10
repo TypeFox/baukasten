@@ -4,8 +4,8 @@ import dynamic from 'next/dynamic';
 import { ReactNode } from 'react';
 
 const VSCodeThemeWrapper = dynamic(
-    () => import('baukasten-ui-web-wrapper').then(mod => ({ default: mod.VSCodeThemeWrapper })),
-    { ssr: false }
+    () => import('baukasten-ui-web-wrapper').then((mod) => ({ default: mod.VSCodeThemeWrapper })),
+    { ssr: false },
 );
 
 interface ClientThemeWrapperProps {
@@ -13,9 +13,5 @@ interface ClientThemeWrapperProps {
 }
 
 export default function ClientThemeWrapper({ children }: ClientThemeWrapperProps) {
-    return (
-        <VSCodeThemeWrapper showThemeSelector={false}>
-            {children}
-        </VSCodeThemeWrapper>
-    );
+    return <VSCodeThemeWrapper showThemeSelector={false}>{children}</VSCodeThemeWrapper>;
 }

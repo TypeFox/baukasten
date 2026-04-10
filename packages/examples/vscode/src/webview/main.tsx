@@ -5,8 +5,8 @@ import 'baukasten-ui/dist/baukasten-base.css';
 import { App } from './App';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <GlobalStyles />
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <GlobalStyles />
+        <App />
+    </React.StrictMode>,
 );

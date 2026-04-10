@@ -15,7 +15,8 @@ const labelProps: PropDefinition[] = [
         name: 'size',
         type: '"xs" | "sm" | "md" | "lg" | "xl"',
         default: '"md"',
-        description: 'Size to match the form element inside. Should match child component size for proper alignment',
+        description:
+            'Size to match the form element inside. Should match child component size for proper alignment',
     },
     {
         name: 'fullWidth',
@@ -31,7 +32,8 @@ const labelProps: PropDefinition[] = [
     {
         name: 'children',
         type: 'React.ReactNode',
-        description: 'Content of the label - can include inputs, selects, textareas, checkboxes, and label spans',
+        description:
+            'Content of the label - can include inputs, selects, textareas, checkboxes, and label spans',
     },
 ];
 
@@ -45,7 +47,14 @@ export default function LabelPage() {
                 title="Input Variant - Basic Usage"
                 description="The input variant wraps text inputs and selects with prefix or suffix text. The label acts as the container with borders and backgrounds, while the input inherits styling for a cohesive design."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '300px',
+                        }}
+                    >
                         <Label size="md">
                             <span className="label">https://</span>
                             <Input size="md" placeholder="example.com" />
@@ -93,7 +102,14 @@ function App() {
                 title="Input Variant - With Icons"
                 description="Add icons to prefix or suffix positions using the Icon component wrapped in a span with className='label'. Icons automatically scale with the label size."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '300px',
+                        }}
+                    >
                         <Label size="md">
                             <span className="label">
                                 <Icon name="search" />
@@ -133,21 +149,34 @@ function App() {
                 title="Input Variant - With Badges"
                 description="Combine inputs with badges for status indicators, feature flags, or contextual information. Badges work in both prefix and suffix positions."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '350px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '350px',
+                        }}
+                    >
                         <Label size="md">
                             <span className="label">
                                 <Icon name="key" />
                             </span>
                             <Input size="md" type="password" placeholder="API Key" />
-                            <Badge size="sm" variant="success">Active</Badge>
+                            <Badge size="sm" variant="success">
+                                Active
+                            </Badge>
                         </Label>
                         <Label size="md">
                             <Input size="md" placeholder="Advanced analytics" />
-                            <Badge size="sm" variant="info">Pro</Badge>
+                            <Badge size="sm" variant="info">
+                                Pro
+                            </Badge>
                         </Label>
                         <Label size="md">
                             <Input size="md" placeholder="Premium feature" />
-                            <Badge size="sm" variant="warning">Beta</Badge>
+                            <Badge size="sm" variant="warning">
+                                Beta
+                            </Badge>
                         </Label>
                     </div>
                 }
@@ -169,7 +198,14 @@ function App() {
                 title="Input Variant - Sizes"
                 description="Labels support five sizes (xs, sm, md, lg, xl). Always match the Label size prop with the child component's size prop for proper alignment."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '300px',
+                        }}
+                    >
                         <Label size="xs">
                             <span className="label">$</span>
                             <Input size="xs" placeholder="0.00" />
@@ -220,7 +256,14 @@ function App() {
                 title="Input Variant - Error States"
                 description="Display validation errors by providing an error prop. The label border turns red and an error message appears below."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '300px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '300px',
+                        }}
+                    >
                         <Label size="md" error="This field is required">
                             <Input size="md" placeholder="Username" />
                         </Label>
@@ -253,7 +296,14 @@ function App() {
                 title="Input Variant - With Select"
                 description="The input variant works seamlessly with the Select component. Add prefix labels, icons, or badges just like with inputs."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '350px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '350px',
+                        }}
+                    >
                         <Label size="md">
                             <span className="label">Language:</span>
                             <Select
@@ -292,7 +342,9 @@ function App() {
                                 ]}
                                 placeholder="Select region"
                             />
-                            <Badge size="sm" variant="success">Online</Badge>
+                            <Badge size="sm" variant="success">
+                                Online
+                            </Badge>
                         </Label>
                     </div>
                 }
@@ -317,7 +369,15 @@ function App() {
                 title="Input Variant - Complex Patterns"
                 description="Advanced patterns combining multiple inputs, buttons, and decorative elements. Useful for configuration UIs and admin panels."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '100%', maxWidth: '500px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '100%',
+                            maxWidth: '500px',
+                        }}
+                    >
                         <Label size="md">
                             <span className="label">
                                 <Icon name="folder" />
@@ -398,7 +458,15 @@ function App() {
                 title="TextArea Variant"
                 description="The textarea variant uses vertical layout with label elements on top and the textarea below. Perfect for multi-line input fields with descriptive headers."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%', maxWidth: '500px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            width: '100%',
+                            maxWidth: '500px',
+                        }}
+                    >
                         <Label variant="textarea" fullWidth>
                             <span className="label">Description</span>
                             <TextArea placeholder="Enter description..." rows={4} />
@@ -439,19 +507,31 @@ function App() {
                 title="TextArea Variant - With Badges"
                 description="Add badges to the textarea header to indicate optional fields, character limits, or feature flags. Use marginLeft: 'auto' to pin badges to the right."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '100%', maxWidth: '500px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            width: '100%',
+                            maxWidth: '500px',
+                        }}
+                    >
                         <Label variant="textarea" fullWidth>
                             <span className="label">
                                 <Icon name="mail" />
                                 Message
-                                <Badge variant="info" size="xs" style={{ marginLeft: 'auto' }}>Optional</Badge>
+                                <Badge variant="info" size="xs" style={{ marginLeft: 'auto' }}>
+                                    Optional
+                                </Badge>
                             </span>
                             <TextArea placeholder="Type your message here..." rows={6} />
                         </Label>
                         <Label variant="textarea" fullWidth>
                             <span className="label">
                                 Bio
-                                <Badge variant="warning" size="xs" style={{ marginLeft: 'auto' }}>Max 500 chars</Badge>
+                                <Badge variant="warning" size="xs" style={{ marginLeft: 'auto' }}>
+                                    Max 500 chars
+                                </Badge>
                             </span>
                             <TextArea placeholder="Tell us about yourself..." rows={4} />
                         </Label>
@@ -473,7 +553,14 @@ function App() {
                 title="Checkbox Variant"
                 description="The checkbox variant provides simple flex layout for wrapping checkboxes, radio buttons, and switches. Label text automatically scales with the size prop."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '400px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '400px',
+                        }}
+                    >
                         <Label variant="checkbox" size="md">
                             <Checkbox name="terms" />
                             <span>Accept terms and conditions</span>
@@ -512,7 +599,14 @@ function App() {
                 title="Checkbox Variant - Sizes"
                 description="Match the Label size with the Checkbox size for proper alignment. Label text automatically scales with the size prop."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '400px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '400px',
+                        }}
+                    >
                         <Label variant="checkbox" size="xs">
                             <Checkbox size="xs" />
                             <span>Extra small label</span>
@@ -555,19 +649,27 @@ function App() {
                 title="Checkbox Variant - Multiline Text"
                 description="Checkbox labels automatically handle multiline text with proper alignment. The checkbox stays at the first line while text wraps naturally."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-3)', width: '400px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-3)',
+                            width: '400px',
+                        }}
+                    >
                         <Label variant="checkbox" size="md">
                             <Checkbox name="privacy" />
                             <span>
-                                I have read and agree to the privacy policy, terms of service, and data processing agreement.
-                                I understand that my data will be processed according to GDPR regulations.
+                                I have read and agree to the privacy policy, terms of service, and
+                                data processing agreement. I understand that my data will be
+                                processed according to GDPR regulations.
                             </span>
                         </Label>
                         <Label variant="checkbox" size="md">
                             <Checkbox name="marketing" />
                             <span>
-                                I consent to receive marketing communications including newsletters, product updates, and special offers.
-                                I can unsubscribe at any time.
+                                I consent to receive marketing communications including newsletters,
+                                product updates, and special offers. I can unsubscribe at any time.
                             </span>
                         </Label>
                     </div>
@@ -586,13 +688,39 @@ function App() {
                 title="Form Example"
                 description="Complete form field pattern: text label positioned above the Label component containing the input and adornments. Shows required/optional indicators and various field types."
                 preview={
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-4)', width: '400px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                            width: '400px',
+                        }}
+                    >
                         <div>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--bk-spacing-2)' }}>
-                                <h4 style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 600, margin: 0 }}>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                }}
+                            >
+                                <h4
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        fontWeight: 600,
+                                        margin: 0,
+                                    }}
+                                >
                                     Username
                                 </h4>
-                                <span style={{ fontSize: 'var(--bk-font-size-xs)', color: 'var(--vscode-errorForeground)', fontWeight: 600 }}>
+                                <span
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-xs)',
+                                        color: 'var(--vscode-errorForeground)',
+                                        fontWeight: 600,
+                                    }}
+                                >
                                     Required
                                 </span>
                             </div>
@@ -603,8 +731,21 @@ function App() {
                         </div>
 
                         <div>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--bk-spacing-2)' }}>
-                                <h4 style={{ fontSize: 'var(--bk-font-size-sm)', fontWeight: 600, margin: 0 }}>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                }}
+                            >
+                                <h4
+                                    style={{
+                                        fontSize: 'var(--bk-font-size-sm)',
+                                        fontWeight: 600,
+                                        margin: 0,
+                                    }}
+                                >
                                     Website URL
                                 </h4>
                                 <span style={{ fontSize: 'var(--bk-font-size-xs)', opacity: 0.6 }}>
@@ -618,32 +759,62 @@ function App() {
                         </div>
 
                         <div>
-                            <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
+                            <h4
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 600,
+                                }}
+                            >
                                 Email Address
                             </h4>
                             <Label size="md" fullWidth>
                                 <span className="label">
                                     <Icon name="mail" />
                                 </span>
-                                <Input size="md" type="email" placeholder="you@example.com" fullWidth />
+                                <Input
+                                    size="md"
+                                    type="email"
+                                    placeholder="you@example.com"
+                                    fullWidth
+                                />
                             </Label>
                         </div>
 
                         <div>
-                            <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
+                            <h4
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 600,
+                                }}
+                            >
                                 API Key
                             </h4>
                             <Label size="md" fullWidth error="Invalid API key format">
                                 <span className="label">
                                     <Icon name="key" />
                                 </span>
-                                <Input size="md" type="password" placeholder="sk_live_..." fullWidth />
-                                <Badge size="sm" variant="error">Expired</Badge>
+                                <Input
+                                    size="md"
+                                    type="password"
+                                    placeholder="sk_live_..."
+                                    fullWidth
+                                />
+                                <Badge size="sm" variant="error">
+                                    Expired
+                                </Badge>
                             </Label>
                         </div>
 
                         <div>
-                            <h4 style={{ marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-sm)', fontWeight: 600 }}>
+                            <h4
+                                style={{
+                                    marginBottom: 'var(--bk-spacing-2)',
+                                    fontSize: 'var(--bk-font-size-sm)',
+                                    fontWeight: 600,
+                                }}
+                            >
                                 Description
                             </h4>
                             <Label variant="textarea" fullWidth>

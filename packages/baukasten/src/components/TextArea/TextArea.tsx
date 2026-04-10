@@ -8,82 +8,92 @@ import { textAreaWrapper, styledTextArea, errorText } from './TextArea.css';
  */
 export type TextAreaResize = 'none' | 'vertical' | 'horizontal' | 'both';
 
-export interface TextAreaProps extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> {
-  /**
-   * Size of the textarea
-   * @default 'md'
-   */
-  size?: Size;
+export interface TextAreaProps extends Omit<
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    'size'
+> {
+    /**
+     * Size of the textarea
+     * @default 'md'
+     */
+    size?: Size;
 
-  /**
-   * Error state or message
-   * - Pass `true` or any truthy value to show error border styling
-   * - Pass a string to show error border AND display the error message below
-   * - Use with FormHelper for better control over error display
-   */
-  error?: string | boolean;
+    /**
+     * Error state or message
+     * - Pass `true` or any truthy value to show error border styling
+     * - Pass a string to show error border AND display the error message below
+     * - Use with FormHelper for better control over error display
+     */
+    error?: string | boolean;
 
-  /**
-   * Whether the textarea should take full width of its container
-   * @default false
-   */
-  fullWidth?: boolean;
+    /**
+     * Whether the textarea should take full width of its container
+     * @default false
+     */
+    fullWidth?: boolean;
 
-  /**
-   * Resize behavior for the textarea
-   * When minRows or maxRows is set, resize defaults to 'none' for auto-grow behavior
-   * @default 'vertical'
-   */
-  resize?: TextAreaResize;
+    /**
+     * Resize behavior for the textarea
+     * When minRows or maxRows is set, resize defaults to 'none' for auto-grow behavior
+     * @default 'vertical'
+     */
+    resize?: TextAreaResize;
 
-  /**
-   * Number of visible text rows (static height)
-   * When minRows/maxRows are not set, this controls the fixed height
-   * When minRows/maxRows are set, this is ignored in favor of auto-grow
-   * @default 4
-   */
-  rows?: number;
+    /**
+     * Number of visible text rows (static height)
+     * When minRows/maxRows are not set, this controls the fixed height
+     * When minRows/maxRows are set, this is ignored in favor of auto-grow
+     * @default 4
+     */
+    rows?: number;
 
-  /**
-   * Minimum number of rows when auto-grow is enabled
-   * Setting this enables auto-grow behavior
-   */
-  minRows?: number;
+    /**
+     * Minimum number of rows when auto-grow is enabled
+     * Setting this enables auto-grow behavior
+     */
+    minRows?: number;
 
-  /**
-   * Maximum number of rows when auto-grow is enabled
-   * Setting this enables auto-grow behavior
-   */
-  maxRows?: number;
+    /**
+     * Maximum number of rows when auto-grow is enabled
+     * Setting this enables auto-grow behavior
+     */
+    maxRows?: number;
 }
 
 /**
  * Merge multiple refs into a single callback ref
  */
 function mergeRefs<T>(...refs: (React.Ref<T> | undefined)[]): React.RefCallback<T> {
-  return (value) => {
-    refs.forEach((ref) => {
-      if (typeof ref === 'function') {
-        ref(value);
-      } else if (ref != null) {
-        (ref as React.MutableRefObject<T | null>).current = value;
-      }
-    });
-  };
+    return (value) => {
+        refs.forEach((ref) => {
+            if (typeof ref === 'function') {
+                ref(value);
+            } else if (ref != null) {
+                (ref as React.MutableRefObject<T | null>).current = value;
+            }
+        });
+    };
 }
 
 /**
  * Get computed styles for calculating row height
  */
-function getRowHeight(textarea: HTMLTextAreaElement): { lineHeight: number; paddingTop: number; paddingBottom: number; borderTop: number; borderBottom: number } {
-  const computedStyle = window.getComputedStyle(textarea);
-  return {
-    lineHeight: parseFloat(computedStyle.lineHeight) || parseFloat(computedStyle.fontSize) * 1.2,
-    paddingTop: parseFloat(computedStyle.paddingTop) || 0,
-    paddingBottom: parseFloat(computedStyle.paddingBottom) || 0,
-    borderTop: parseFloat(computedStyle.borderTopWidth) || 0,
-    borderBottom: parseFloat(computedStyle.borderBottomWidth) || 0,
-  };
+function getRowHeight(textarea: HTMLTextAreaElement): {
+    lineHeight: number;
+    paddingTop: number;
+    paddingBottom: number;
+    borderTop: number;
+    borderBottom: number;
+} {
+    const computedStyle = window.getComputedStyle(textarea);
+    return {
+        lineHeight:
+            parseFloat(computedStyle.lineHeight) || parseFloat(computedStyle.fontSize) * 1.2,
+        paddingTop: parseFloat(computedStyle.paddingTop) || 0,
+        paddingBottom: parseFloat(computedStyle.paddingBottom) || 0,
+        borderTop: parseFloat(computedStyle.borderTopWidth) || 0,
+        borderBottom: parseFloat(computedStyle.borderBottomWidth) || 0,
+    };
 }
 
 /**
@@ -133,93 +143,107 @@ function getRowHeight(textarea: HTMLTextAreaElement): { lineHeight: number; padd
  * </FormGroup>
  * ```
  */
-export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
-  size = 'md',
-  error,
-  fullWidth = false,
-  resize,
-  rows = 4,
-  minRows,
-  maxRows,
-  className,
-  onChange,
-  value,
-  defaultValue,
-  ...props
-}, forwardedRef) => {
-  const internalRef = useRef<HTMLTextAreaElement>(null);
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+    (
+        {
+            size = 'md',
+            error,
+            fullWidth = false,
+            resize,
+            rows = 4,
+            minRows,
+            maxRows,
+            className,
+            onChange,
+            value,
+            defaultValue,
+            ...props
+        },
+        forwardedRef,
+    ) => {
+        const internalRef = useRef<HTMLTextAreaElement>(null);
 
-  // Determine if auto-grow is enabled
-  const isAutoGrow = minRows !== undefined || maxRows !== undefined;
+        // Determine if auto-grow is enabled
+        const isAutoGrow = minRows !== undefined || maxRows !== undefined;
 
-  // When auto-grow is enabled, default resize to 'none' unless explicitly set
-  const effectiveResize = resize ?? (isAutoGrow ? 'none' : 'vertical');
+        // When auto-grow is enabled, default resize to 'none' unless explicitly set
+        const effectiveResize = resize ?? (isAutoGrow ? 'none' : 'vertical');
 
-  // Calculate the effective minRows and maxRows
-  const effectiveMinRows = minRows ?? rows;
-  const effectiveMaxRows = maxRows;
+        // Calculate the effective minRows and maxRows
+        const effectiveMinRows = minRows ?? rows;
+        const effectiveMaxRows = maxRows;
 
-  // Auto-grow resize function
-  const adjustHeight = useCallback(() => {
-    const textarea = internalRef.current;
-    if (!textarea || !isAutoGrow) return;
+        // Auto-grow resize function
+        const adjustHeight = useCallback(() => {
+            const textarea = internalRef.current;
+            if (!textarea || !isAutoGrow) return;
 
-    const { lineHeight, paddingTop, paddingBottom, borderTop, borderBottom } = getRowHeight(textarea);
-    const verticalPadding = paddingTop + paddingBottom + borderTop + borderBottom;
+            const { lineHeight, paddingTop, paddingBottom, borderTop, borderBottom } =
+                getRowHeight(textarea);
+            const verticalPadding = paddingTop + paddingBottom + borderTop + borderBottom;
 
-    // Calculate min and max heights
-    const minHeight = lineHeight * effectiveMinRows + verticalPadding;
-    const maxHeight = effectiveMaxRows ? lineHeight * effectiveMaxRows + verticalPadding : Infinity;
+            // Calculate min and max heights
+            const minHeight = lineHeight * effectiveMinRows + verticalPadding;
+            const maxHeight = effectiveMaxRows
+                ? lineHeight * effectiveMaxRows + verticalPadding
+                : Infinity;
 
-    // Neutralize any CSS min-height so it doesn't inflate scrollHeight
-    textarea.style.minHeight = '0';
+            // Neutralize any CSS min-height so it doesn't inflate scrollHeight
+            textarea.style.minHeight = '0';
 
-    // Reset height to auto to get the correct scrollHeight
-    textarea.style.height = 'auto';
+            // Reset height to auto to get the correct scrollHeight
+            textarea.style.height = 'auto';
 
-    // Calculate the new height based on content
-    const scrollHeight = textarea.scrollHeight;
-    const newHeight = Math.min(Math.max(scrollHeight, minHeight), maxHeight);
+            // Calculate the new height based on content
+            const scrollHeight = textarea.scrollHeight;
+            const newHeight = Math.min(Math.max(scrollHeight, minHeight), maxHeight);
 
-    textarea.style.height = `${newHeight}px`;
-    textarea.style.minHeight = `${minHeight}px`;
+            textarea.style.height = `${newHeight}px`;
+            textarea.style.minHeight = `${minHeight}px`;
 
-    // Set overflow based on whether content exceeds maxHeight
-    if (effectiveMaxRows && scrollHeight > maxHeight) {
-      textarea.style.overflowY = 'auto';
-    } else {
-      textarea.style.overflowY = 'hidden';
-    }
-  }, [isAutoGrow, effectiveMinRows, effectiveMaxRows]);
+            // Set overflow based on whether content exceeds maxHeight
+            if (effectiveMaxRows && scrollHeight > maxHeight) {
+                textarea.style.overflowY = 'auto';
+            } else {
+                textarea.style.overflowY = 'hidden';
+            }
+        }, [isAutoGrow, effectiveMinRows, effectiveMaxRows]);
 
-  // Adjust height on mount and when value changes
-  useLayoutEffect(() => {
-    adjustHeight();
-  }, [adjustHeight, value, defaultValue]);
+        // Adjust height on mount and when value changes
+        useLayoutEffect(() => {
+            adjustHeight();
+        }, [adjustHeight, value, defaultValue]);
 
-  // Handle onChange to adjust height
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onChange?.(e);
-    adjustHeight();
-  }, [onChange, adjustHeight]);
+        // Handle onChange to adjust height
+        const handleChange = useCallback(
+            (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+                onChange?.(e);
+                adjustHeight();
+            },
+            [onChange, adjustHeight],
+        );
 
-  // Only show error text if error is a string (not just boolean)
-  const errorMessage = typeof error === 'string' ? error : undefined;
+        // Only show error text if error is a string (not just boolean)
+        const errorMessage = typeof error === 'string' ? error : undefined;
 
-  return (
-    <div className={textAreaWrapper({ fullWidth })}>
-      <textarea
-        ref={mergeRefs(internalRef, forwardedRef)}
-        className={clsx(styledTextArea({ size, resize: effectiveResize, hasError: !!error }), className)}
-        rows={isAutoGrow ? effectiveMinRows : rows}
-        onChange={handleChange}
-        value={value}
-        defaultValue={defaultValue}
-        {...props}
-      />
-      {errorMessage && <span className={errorText}>{errorMessage}</span>}
-    </div>
-  );
-});
+        return (
+            <div className={textAreaWrapper({ fullWidth })}>
+                <textarea
+                    ref={mergeRefs(internalRef, forwardedRef)}
+                    className={clsx(
+                        styledTextArea({ size, resize: effectiveResize, hasError: !!error }),
+                        className,
+                    )}
+                    rows={isAutoGrow ? effectiveMinRows : rows}
+                    onChange={handleChange}
+                    value={value}
+                    defaultValue={defaultValue}
+                    {...props}
+                />
+                {errorMessage && <span className={errorText}>{errorMessage}</span>}
+            </div>
+        );
+    },
+);
 
 TextArea.displayName = 'TextArea';

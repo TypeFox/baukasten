@@ -1,7 +1,7 @@
 /**
  * CSS custom properties for the design system
  * Combines all design tokens into a single import
- * 
+ *
  * This module serves as the single source of truth for CSS variables,
  * used by both the runtime GlobalStyles component and the build-time CSS generation.
  */

@@ -16,80 +16,79 @@ export type StatusBarItemVariant = 'default' | 'error' | 'warning' | 'info' | 's
  * StatusBar component props
  */
 export interface StatusBarProps {
-  /**
-   * StatusBar content (typically StatusBarSection components)
-   */
-  children: React.ReactNode;
+    /**
+     * StatusBar content (typically StatusBarSection components)
+     */
+    children: React.ReactNode;
 
-  /**
-   * Additional CSS class name
-   */
-  className?: string;
+    /**
+     * Additional CSS class name
+     */
+    className?: string;
 
-  /**
-   * Additional styles
-   */
-  style?: React.CSSProperties;
+    /**
+     * Additional styles
+     */
+    style?: React.CSSProperties;
 }
 
 /**
  * StatusBarSection component props
  */
 export interface StatusBarSectionProps {
-  /**
-   * Alignment of items in this section
-   * @default 'left'
-   */
-  align?: StatusBarAlign;
+    /**
+     * Alignment of items in this section
+     * @default 'left'
+     */
+    align?: StatusBarAlign;
 
-  /**
-   * StatusBarItem components
-   */
-  children: React.ReactNode;
+    /**
+     * StatusBarItem components
+     */
+    children: React.ReactNode;
 
-  /**
-   * Additional CSS class name
-   */
-  className?: string;
+    /**
+     * Additional CSS class name
+     */
+    className?: string;
 }
 
 /**
  * StatusBarItem component props
  */
 export interface StatusBarItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Icon to display before the text
-   */
-  icon?: React.ReactNode;
+    /**
+     * Icon to display before the text
+     */
+    icon?: React.ReactNode;
 
-  /**
-   * Content to display
-   */
-  children?: React.ReactNode;
+    /**
+     * Content to display
+     */
+    children?: React.ReactNode;
 
-  /**
-   * Visual variant for semantic colors
-   * @default 'default'
-   */
-  variant?: StatusBarItemVariant;
+    /**
+     * Visual variant for semantic colors
+     * @default 'default'
+     */
+    variant?: StatusBarItemVariant;
 
-  /**
-   * Whether the item is clickable
-   */
-  onClick?: () => void;
+    /**
+     * Whether the item is clickable
+     */
+    onClick?: () => void;
 
-  /**
-   * Whether the item is in an active/selected state
-   * @default false
-   */
-  active?: boolean;
+    /**
+     * Whether the item is in an active/selected state
+     * @default false
+     */
+    active?: boolean;
 
-  /**
-   * Tooltip text (uses native title attribute)
-   */
-  tooltip?: string;
+    /**
+     * Tooltip text (uses native title attribute)
+     */
+    tooltip?: string;
 }
-
 
 /**
  * StatusBar component
@@ -119,16 +118,12 @@ export interface StatusBarItemProps extends React.HTMLAttributes<HTMLDivElement>
  * </StatusBar>
  * ```
  */
-export const StatusBar: React.FC<StatusBarProps> = ({
-  children,
-  className,
-  style,
-}) => {
-  return (
-    <div className={clsx(styles.statusBar, className)} style={style}>
-      {children}
-    </div>
-  );
+export const StatusBar: React.FC<StatusBarProps> = ({ children, className, style }) => {
+    return (
+        <div className={clsx(styles.statusBar, className)} style={style}>
+            {children}
+        </div>
+    );
 };
 
 /**
@@ -137,15 +132,11 @@ export const StatusBar: React.FC<StatusBarProps> = ({
  * Container for grouping StatusBarItem components with left or right alignment.
  */
 export const StatusBarSection: React.FC<StatusBarSectionProps> = ({
-  align = 'left',
-  children,
-  className,
+    align = 'left',
+    children,
+    className,
 }) => {
-  return (
-    <div className={clsx(styles.statusBarSection({ align }), className)}>
-      {children}
-    </div>
-  );
+    return <div className={clsx(styles.statusBarSection({ align }), className)}>{children}</div>;
 };
 
 /**
@@ -155,38 +146,45 @@ export const StatusBarSection: React.FC<StatusBarSectionProps> = ({
  * Supports semantic color variants for errors, warnings, etc.
  */
 export const StatusBarItem: React.FC<StatusBarItemProps> = ({
-  icon,
-  children,
-  variant = 'default',
-  onClick,
-  active = false,
-  tooltip,
-  className,
-  ...props
+    icon,
+    children,
+    variant = 'default',
+    onClick,
+    active = false,
+    tooltip,
+    className,
+    ...props
 }) => {
-  return (
-    <div
-      className={clsx(styles.statusBarItem({
-        variant,
-        clickable: !!onClick,
-        active,
-      }), className)}
-      onClick={onClick}
-      title={tooltip}
-      role={onClick ? 'button' : undefined}
-      tabIndex={onClick ? 0 : undefined}
-      onKeyDown={onClick ? (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onClick();
-        }
-      } : undefined}
-      {...props}
-    >
-      {icon && icon}
-      {children && <span>{children}</span>}
-    </div>
-  );
+    return (
+        <div
+            className={clsx(
+                styles.statusBarItem({
+                    variant,
+                    clickable: !!onClick,
+                    active,
+                }),
+                className,
+            )}
+            onClick={onClick}
+            title={tooltip}
+            role={onClick ? 'button' : undefined}
+            tabIndex={onClick ? 0 : undefined}
+            onKeyDown={
+                onClick
+                    ? (e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              onClick();
+                          }
+                      }
+                    : undefined
+            }
+            {...props}
+        >
+            {icon && icon}
+            {children && <span>{children}</span>}
+        </div>
+    );
 };
 
 StatusBar.displayName = 'StatusBar';

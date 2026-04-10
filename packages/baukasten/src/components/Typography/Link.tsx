@@ -76,21 +76,20 @@ export const Link: React.FC<LinkProps> = ({
     ...props
 }) => {
     // Add external link attributes if external prop is true
-    const externalProps = external ? {
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        ...props,
-    } : props;
+    const externalProps = external
+        ? {
+              target: '_blank',
+              rel: 'noopener noreferrer',
+              ...props,
+          }
+        : props;
 
     const linkClass = className
         ? `${link({ size, variant, underline, external })} ${className}`
         : link({ size, variant, underline, external });
 
     return (
-        <a
-            className={linkClass}
-            {...externalProps}
-        >
+        <a className={linkClass} {...externalProps}>
             {children}
         </a>
     );

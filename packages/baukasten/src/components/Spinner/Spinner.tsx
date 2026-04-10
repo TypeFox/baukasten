@@ -7,32 +7,32 @@ import { spinnerWrapper, spinner } from './Spinner.css';
  * Spinner component props
  */
 export interface SpinnerProps {
-  /**
-   * Size of the spinner
-   * @default 'md'
-   */
-  size?: Size;
+    /**
+     * Size of the spinner
+     * @default 'md'
+     */
+    size?: Size;
 
-  /**
-   * Custom color for the spinner (uses semantic token or CSS value)
-   * @default undefined (uses --bk-color-primary)
-   */
-  color?: string;
+    /**
+     * Custom color for the spinner (uses semantic token or CSS value)
+     * @default undefined (uses --bk-color-primary)
+     */
+    color?: string;
 
-  /**
-   * Additional CSS class
-   */
-  className?: string;
+    /**
+     * Additional CSS class
+     */
+    className?: string;
 
-  /**
-   * Inline styles
-   */
-  style?: React.CSSProperties;
+    /**
+     * Inline styles
+     */
+    style?: React.CSSProperties;
 
-  /**
-   * Accessible label for screen readers
-   */
-  'aria-label'?: string;
+    /**
+     * Accessible label for screen readers
+     */
+    'aria-label'?: string;
 }
 
 /**
@@ -71,23 +71,23 @@ export interface SpinnerProps {
  * ```
  */
 export const Spinner: React.FC<SpinnerProps> = ({
-  size = 'md',
-  color,
-  className,
-  style: inlineStyle,
-  'aria-label': ariaLabel,
+    size = 'md',
+    color,
+    className,
+    style: inlineStyle,
+    'aria-label': ariaLabel,
 }) => {
-  return (
-    <div className={clsx(spinnerWrapper, className)} style={inlineStyle}>
-      <div
-        className={spinner({ size })}
-        style={{ borderTopColor: color || 'var(--bk-color-primary)' }}
-        role="status"
-        aria-label={ariaLabel || 'Loading'}
-        aria-live="polite"
-      />
-    </div>
-  );
+    return (
+        <div className={clsx(spinnerWrapper, className)} style={inlineStyle}>
+            <div
+                className={spinner({ size })}
+                style={{ borderTopColor: color || 'var(--bk-color-primary)' }}
+                role="status"
+                aria-label={ariaLabel || 'Loading'}
+                aria-live="polite"
+            />
+        </div>
+    );
 };
 
 Spinner.displayName = 'Spinner';

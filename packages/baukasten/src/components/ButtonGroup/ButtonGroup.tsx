@@ -1,30 +1,26 @@
 import React, { useState, useCallback } from 'react';
 import clsx from 'clsx';
 import {
-  useFloating,
-  autoUpdate,
-  offset,
-  flip,
-  shift,
-  size as floatingSize,
-  useClick,
-  useDismiss,
-  useRole,
-  useInteractions,
-  useTransitionStatus,
-  FloatingPortal,
-  FloatingFocusManager,
-  type Placement,
+    useFloating,
+    autoUpdate,
+    offset,
+    flip,
+    shift,
+    size as floatingSize,
+    useClick,
+    useDismiss,
+    useRole,
+    useInteractions,
+    useTransitionStatus,
+    FloatingPortal,
+    FloatingFocusManager,
+    type Placement,
 } from '@floating-ui/react';
 import { type Size } from '../../styles';
 import { Button, type ButtonVariant } from '../Button';
 import { Icon } from '../Icon';
 import { usePortalRoot } from '../../context';
-import {
-  buttonGroup,
-  dropdownTriggerWrapper,
-  dropdownPortalContent,
-} from './ButtonGroup.css';
+import { buttonGroup, dropdownTriggerWrapper, dropdownPortalContent } from './ButtonGroup.css';
 
 // Constants matching design tokens (for Floating UI numeric values)
 const OFFSET_SPACING = 4; // var(--bk-spacing-1)
@@ -36,91 +32,94 @@ const TRANSITION_DURATION = 150; // var(--bk-transition-fast) = 150ms
  * Groups buttons together with connected styling
  */
 export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Buttons to group together
-   */
-  children: React.ReactNode;
+    /**
+     * Buttons to group together
+     */
+    children: React.ReactNode;
 
-  /**
-   * Whether the button group should take full width
-   * @default false
-   */
-  fullWidth?: boolean;
+    /**
+     * Whether the button group should take full width
+     * @default false
+     */
+    fullWidth?: boolean;
 
-  /**
-   * Whether to show separator lines between buttons
-   * @default false
-   */
-  showSeparator?: boolean;
+    /**
+     * Whether to show separator lines between buttons
+     * @default false
+     */
+    showSeparator?: boolean;
 }
 
 /**
  * ButtonGroup.Dropdown props
  * Special dropdown trigger for split button pattern
  */
-export interface ButtonGroupDropdownProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'content'> {
-  /**
-   * Content to display in the dropdown menu
-   */
-  content: React.ReactNode;
+export interface ButtonGroupDropdownProps extends Omit<
+    React.HTMLAttributes<HTMLDivElement>,
+    'content'
+> {
+    /**
+     * Content to display in the dropdown menu
+     */
+    content: React.ReactNode;
 
-  /**
-   * Placement of the dropdown relative to the trigger
-   * @default 'bottom-end'
-   */
-  placement?: 'bottom-start' | 'bottom-end' | 'top-start' | 'top-end';
+    /**
+     * Placement of the dropdown relative to the trigger
+     * @default 'bottom-end'
+     */
+    placement?: 'bottom-start' | 'bottom-end' | 'top-start' | 'top-end';
 
-  /**
-   * Whether to close the dropdown when clicking inside it
-   * @default true
-   */
-  closeOnClick?: boolean;
+    /**
+     * Whether to close the dropdown when clicking inside it
+     * @default true
+     */
+    closeOnClick?: boolean;
 
-  /**
-   * Whether the dropdown is open (controlled mode)
-   */
-  open?: boolean;
+    /**
+     * Whether the dropdown is open (controlled mode)
+     */
+    open?: boolean;
 
-  /**
-   * Callback when the dropdown open state changes
-   */
-  onOpenChange?: (open: boolean) => void;
+    /**
+     * Callback when the dropdown open state changes
+     */
+    onOpenChange?: (open: boolean) => void;
 
-  /**
-   * Whether the dropdown trigger is disabled
-   * @default false
-   */
-  disabled?: boolean;
+    /**
+     * Whether the dropdown trigger is disabled
+     * @default false
+     */
+    disabled?: boolean;
 
-  /**
-   * Visual style variant of the dropdown button
-   * @default 'primary'
-   */
-  variant?: ButtonVariant;
+    /**
+     * Visual style variant of the dropdown button
+     * @default 'primary'
+     */
+    variant?: ButtonVariant;
 
-  /**
-   * Size of the dropdown button
-   * @default 'md'
-   */
-  size?: Size;
+    /**
+     * Size of the dropdown button
+     * @default 'md'
+     */
+    size?: Size;
 
-  /**
-   * Whether to render with outline style
-   * @default false
-   */
-  outline?: boolean;
+    /**
+     * Whether to render with outline style
+     * @default false
+     */
+    outline?: boolean;
 
-  /**
-   * Custom icon for the dropdown trigger
-   * @default 'chevron-down'
-   */
-  icon?: React.ReactNode;
+    /**
+     * Custom icon for the dropdown trigger
+     * @default 'chevron-down'
+     */
+    icon?: React.ReactNode;
 
-  /**
-   * Aria label for the dropdown trigger button
-   * @default 'Open dropdown'
-   */
-  ariaLabel?: string;
+    /**
+     * Aria label for the dropdown trigger button
+     * @default 'Open dropdown'
+     */
+    ariaLabel?: string;
 }
 
 /**
@@ -174,23 +173,14 @@ export interface ButtonGroupDropdownProps extends Omit<React.HTMLAttributes<HTML
  * ```
  */
 export const ButtonGroup: React.FC<ButtonGroupProps> & {
-  Dropdown: React.FC<ButtonGroupDropdownProps>;
-} = ({
-  children,
-  fullWidth = false,
-  showSeparator = false,
-  className,
-  ...props
-}) => {
+    Dropdown: React.FC<ButtonGroupDropdownProps>;
+} = ({ children, fullWidth = false, showSeparator = false, className, ...props }) => {
     return (
-      <div
-        className={clsx(buttonGroup({ fullWidth, showSeparator }), className)}
-        {...props}
-      >
-        {children}
-      </div>
+        <div className={clsx(buttonGroup({ fullWidth, showSeparator }), className)} {...props}>
+            {children}
+        </div>
     );
-  };
+};
 
 /**
  * ButtonGroup.Dropdown component
@@ -199,137 +189,136 @@ export const ButtonGroup: React.FC<ButtonGroupProps> & {
  * Uses Floating UI for intelligent positioning and viewport collision detection.
  */
 const ButtonGroupDropdown: React.FC<ButtonGroupDropdownProps> = ({
-  content,
-  placement = 'bottom-end',
-  closeOnClick = true,
-  open: controlledOpen,
-  onOpenChange,
-  disabled = false,
-  variant = 'primary',
-  size = 'md',
-  outline = false,
-  icon,
-  ariaLabel = 'Open dropdown',
-  className,
+    content,
+    placement = 'bottom-end',
+    closeOnClick = true,
+    open: controlledOpen,
+    onOpenChange,
+    disabled = false,
+    variant = 'primary',
+    size = 'md',
+    outline = false,
+    icon,
+    ariaLabel = 'Open dropdown',
+    className,
 }) => {
-  // Use internal state if not controlled
-  const [internalOpen, setInternalOpen] = useState(false);
-  const isControlled = controlledOpen !== undefined;
-  const isOpen = isControlled ? controlledOpen : internalOpen;
+    // Use internal state if not controlled
+    const [internalOpen, setInternalOpen] = useState(false);
+    const isControlled = controlledOpen !== undefined;
+    const isOpen = isControlled ? controlledOpen : internalOpen;
 
-  // Convert placement to Floating UI Placement type
-  const floatingPlacement: Placement = placement as Placement;
+    // Convert placement to Floating UI Placement type
+    const floatingPlacement: Placement = placement as Placement;
 
-  // Floating UI setup
-  const { refs, floatingStyles, context } = useFloating({
-    open: isOpen,
-    onOpenChange: (open) => {
-      if (disabled) return;
+    // Floating UI setup
+    const { refs, floatingStyles, context } = useFloating({
+        open: isOpen,
+        onOpenChange: (open) => {
+            if (disabled) return;
 
-      if (isControlled) {
-        onOpenChange?.(open);
-      } else {
-        setInternalOpen(open);
-        onOpenChange?.(open);
-      }
-    },
-    placement: floatingPlacement,
-    whileElementsMounted: autoUpdate,
-    middleware: [
-      offset(OFFSET_SPACING),
-      flip({ padding: PADDING_SPACING }),
-      shift({ padding: PADDING_SPACING }),
-      floatingSize({
-        apply({ availableHeight, elements }) {
-          Object.assign(elements.floating.style, {
-            minWidth: 'var(--bk-spacing-20)',
-            maxHeight: `${availableHeight}px`,
-          });
+            if (isControlled) {
+                onOpenChange?.(open);
+            } else {
+                setInternalOpen(open);
+                onOpenChange?.(open);
+            }
         },
-        padding: PADDING_SPACING,
-      }),
-    ],
-  });
-  
-  // Floating UI interactions
-  const click = useClick(context, { enabled: !disabled });
-  const dismiss = useDismiss(context);
-  const role = useRole(context);
+        placement: floatingPlacement,
+        whileElementsMounted: autoUpdate,
+        middleware: [
+            offset(OFFSET_SPACING),
+            flip({ padding: PADDING_SPACING }),
+            shift({ padding: PADDING_SPACING }),
+            floatingSize({
+                apply({ availableHeight, elements }) {
+                    Object.assign(elements.floating.style, {
+                        minWidth: 'var(--bk-spacing-20)',
+                        maxHeight: `${availableHeight}px`,
+                    });
+                },
+                padding: PADDING_SPACING,
+            }),
+        ],
+    });
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([
-    click,
-    dismiss,
-    role,
-  ]);
+    // Floating UI interactions
+    const click = useClick(context, { enabled: !disabled });
+    const dismiss = useDismiss(context);
+    const role = useRole(context);
 
-  // Transition status for exit animations
-  const { isMounted, status } = useTransitionStatus(context, {
-    duration: TRANSITION_DURATION,
-  });
+    const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss, role]);
 
-  // Handle click inside content
-  const handleContentClick = useCallback((e: React.MouseEvent) => {
-    // Stop event propagation to prevent parent handlers from interfering
-    e.stopPropagation();
+    // Transition status for exit animations
+    const { isMounted, status } = useTransitionStatus(context, {
+        duration: TRANSITION_DURATION,
+    });
 
-    if (closeOnClick) {
-      if (isControlled) {
-        onOpenChange?.(false);
-      } else {
-        setInternalOpen(false);
-        onOpenChange?.(false);
-      }
-    }
-  }, [closeOnClick, isControlled, onOpenChange]);
+    // Handle click inside content
+    const handleContentClick = useCallback(
+        (e: React.MouseEvent) => {
+            // Stop event propagation to prevent parent handlers from interfering
+            e.stopPropagation();
 
-  // Get portal root from context (for multi-window support)
-  const portalRoot = usePortalRoot();
+            if (closeOnClick) {
+                if (isControlled) {
+                    onOpenChange?.(false);
+                } else {
+                    setInternalOpen(false);
+                    onOpenChange?.(false);
+                }
+            }
+        },
+        [closeOnClick, isControlled, onOpenChange],
+    );
 
-  return (
-    <>
-      <div
-        ref={refs.setReference}
-        className={clsx(dropdownTriggerWrapper({ size }), className)}
-        {...getReferenceProps()}
-      >
-        <Button
-          variant={variant}
-          size={size}
-          outline={outline}
-          disabled={disabled}
-          aria-label={ariaLabel}
-          aria-expanded={isOpen}
-          aria-haspopup="menu"
-        >
-          {icon ?? <Icon name="chevron-down" />}
-        </Button>
-      </div>
+    // Get portal root from context (for multi-window support)
+    const portalRoot = usePortalRoot();
 
-      {/* Portal with transition support for exit animations */}
-      {isMounted && (
-        <FloatingPortal root={portalRoot}>
-          <FloatingFocusManager context={context} modal={false}>
+    return (
+        <>
             <div
-              ref={refs.setFloating}
-              style={{
-                ...floatingStyles,
-                zIndex: 'var(--bk-z-index-popover)',
-              }}
-              {...getFloatingProps()}
+                ref={refs.setReference}
+                className={clsx(dropdownTriggerWrapper({ size }), className)}
+                {...getReferenceProps()}
             >
-              <div
-                className={dropdownPortalContent}
-                data-status={status}
-                onClick={handleContentClick}
-              >
-                {content}
-              </div>
+                <Button
+                    variant={variant}
+                    size={size}
+                    outline={outline}
+                    disabled={disabled}
+                    aria-label={ariaLabel}
+                    aria-expanded={isOpen}
+                    aria-haspopup="menu"
+                >
+                    {icon ?? <Icon name="chevron-down" />}
+                </Button>
             </div>
-          </FloatingFocusManager>
-        </FloatingPortal>
-      )}
-    </>
-  );
+
+            {/* Portal with transition support for exit animations */}
+            {isMounted && (
+                <FloatingPortal root={portalRoot}>
+                    <FloatingFocusManager context={context} modal={false}>
+                        <div
+                            ref={refs.setFloating}
+                            style={{
+                                ...floatingStyles,
+                                zIndex: 'var(--bk-z-index-popover)',
+                            }}
+                            {...getFloatingProps()}
+                        >
+                            <div
+                                className={dropdownPortalContent}
+                                data-status={status}
+                                onClick={handleContentClick}
+                            >
+                                {content}
+                            </div>
+                        </div>
+                    </FloatingFocusManager>
+                </FloatingPortal>
+            )}
+        </>
+    );
 };
 
 // Attach Dropdown as a static property

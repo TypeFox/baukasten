@@ -12,7 +12,8 @@ const meta: Meta<typeof FileUpload> = {
         layout: 'centered',
         docs: {
             description: {
-                component: 'A versatile file upload component with drag-and-drop support. Allows users to select files by clicking or dragging. Supports file type restrictions, size limits, and multiple file uploads.',
+                component:
+                    'A versatile file upload component with drag-and-drop support. Allows users to select files by clicking or dragging. Supports file type restrictions, size limits, and multiple file uploads.',
             },
         },
     },
@@ -84,12 +85,27 @@ export const Default: Story = {
  */
 export const Sizes: Story = {
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', minWidth: '600px' }}>
-            <FileUpload size="xs" label="Extra Small Upload" onChange={(files) => console.log(files)} />
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-6)',
+                minWidth: '600px',
+            }}
+        >
+            <FileUpload
+                size="xs"
+                label="Extra Small Upload"
+                onChange={(files) => console.log(files)}
+            />
             <FileUpload size="sm" label="Small Upload" onChange={(files) => console.log(files)} />
             <FileUpload size="md" label="Medium Upload" onChange={(files) => console.log(files)} />
             <FileUpload size="lg" label="Large Upload" onChange={(files) => console.log(files)} />
-            <FileUpload size="xl" label="Extra Large Upload" onChange={(files) => console.log(files)} />
+            <FileUpload
+                size="xl"
+                label="Extra Large Upload"
+                onChange={(files) => console.log(files)}
+            />
         </div>
     ),
 };
@@ -99,10 +115,29 @@ export const Sizes: Story = {
  */
 export const Variants: Story = {
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)', minWidth: '600px' }}>
-            <FileUpload variant="default" label="Default Variant" onChange={(files) => console.log(files)} />
-            <FileUpload variant="primary" label="Primary Variant" onChange={(files) => console.log(files)} />
-            <FileUpload variant="dashed" label="Dashed Variant" onChange={(files) => console.log(files)} />
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-6)',
+                minWidth: '600px',
+            }}
+        >
+            <FileUpload
+                variant="default"
+                label="Default Variant"
+                onChange={(files) => console.log(files)}
+            />
+            <FileUpload
+                variant="primary"
+                label="Primary Variant"
+                onChange={(files) => console.log(files)}
+            />
+            <FileUpload
+                variant="dashed"
+                label="Dashed Variant"
+                onChange={(files) => console.log(files)}
+            />
         </div>
     ),
 };
@@ -233,16 +268,24 @@ export const Controlled: Story = {
  */
 export const ProfilePictureUpload: Story = {
     render: () => (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'var(--bk-spacing-4)',
-            padding: 'var(--bk-spacing-6)',
-            background: 'var(--bk-color-background-secondary)',
-            borderRadius: 'var(--bk-radius-lg)',
-            maxWidth: '500px',
-        }}>
-            <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-4)',
+                padding: 'var(--bk-spacing-6)',
+                background: 'var(--bk-color-background-secondary)',
+                borderRadius: 'var(--bk-radius-lg)',
+                maxWidth: '500px',
+            }}
+        >
+            <h3
+                style={{
+                    margin: 0,
+                    fontSize: 'var(--bk-font-size-lg)',
+                    fontWeight: 'var(--bk-font-weight-semibold)',
+                }}
+            >
                 Upload Profile Picture
             </h3>
             <FileUpload
@@ -264,26 +307,47 @@ export const ProfilePictureUpload: Story = {
  */
 export const DocumentUploadForm: Story = {
     render: () => (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'var(--bk-spacing-6)',
-            padding: 'var(--bk-spacing-6)',
-            background: 'var(--bk-color-background-secondary)',
-            borderRadius: 'var(--bk-radius-lg)',
-            maxWidth: '600px',
-        }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--bk-spacing-6)',
+                padding: 'var(--bk-spacing-6)',
+                background: 'var(--bk-color-background-secondary)',
+                borderRadius: 'var(--bk-radius-lg)',
+                maxWidth: '600px',
+            }}
+        >
             <div>
-                <h3 style={{ margin: 0, marginBottom: 'var(--bk-spacing-2)', fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+                <h3
+                    style={{
+                        margin: 0,
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     Submit Application Documents
                 </h3>
-                <p style={{ margin: 0, fontSize: 'var(--bk-font-size-sm)', color: 'var(--bk-color-foreground-muted)' }}>
+                <p
+                    style={{
+                        margin: 0,
+                        fontSize: 'var(--bk-font-size-sm)',
+                        color: 'var(--bk-color-foreground-muted)',
+                    }}
+                >
                     Upload all required documents for your application
                 </p>
             </div>
 
             <div>
-                <label style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <label
+                    style={{
+                        display: 'block',
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Resume / CV *
                 </label>
                 <FileUpload
@@ -296,7 +360,13 @@ export const DocumentUploadForm: Story = {
             </div>
 
             <div>
-                <label style={{ display: 'block', marginBottom: 'var(--bk-spacing-2)', fontWeight: 'var(--bk-font-weight-medium)' }}>
+                <label
+                    style={{
+                        display: 'block',
+                        marginBottom: 'var(--bk-spacing-2)',
+                        fontWeight: 'var(--bk-font-weight-medium)',
+                    }}
+                >
                     Supporting Documents
                 </label>
                 <FileUpload
@@ -346,16 +416,24 @@ export const Interactive: Story = {
         };
 
         return (
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 'var(--bk-spacing-4)',
-                padding: 'var(--bk-spacing-6)',
-                background: 'var(--bk-color-background-secondary)',
-                borderRadius: 'var(--bk-radius-lg)',
-                minWidth: '600px',
-            }}>
-                <h3 style={{ margin: 0, fontSize: 'var(--bk-font-size-lg)', fontWeight: 'var(--bk-font-weight-semibold)' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--bk-spacing-4)',
+                    padding: 'var(--bk-spacing-6)',
+                    background: 'var(--bk-color-background-secondary)',
+                    borderRadius: 'var(--bk-radius-lg)',
+                    minWidth: '600px',
+                }}
+            >
+                <h3
+                    style={{
+                        margin: 0,
+                        fontSize: 'var(--bk-font-size-lg)',
+                        fontWeight: 'var(--bk-font-weight-semibold)',
+                    }}
+                >
                     File Upload Manager
                 </h3>
 
@@ -377,8 +455,14 @@ export const Interactive: Story = {
                         style={{
                             flex: 1,
                             padding: 'var(--bk-spacing-3)',
-                            background: files.length > 0 && !uploadProgress ? 'var(--bk-color-accent)' : 'var(--bk-color-background-hover)',
-                            color: files.length > 0 && !uploadProgress ? 'var(--bk-color-accent-foreground)' : 'var(--bk-color-foreground-muted)',
+                            background:
+                                files.length > 0 && !uploadProgress
+                                    ? 'var(--bk-color-accent)'
+                                    : 'var(--bk-color-background-hover)',
+                            color:
+                                files.length > 0 && !uploadProgress
+                                    ? 'var(--bk-color-accent-foreground)'
+                                    : 'var(--bk-color-foreground-muted)',
                             border: 'none',
                             borderRadius: 'var(--bk-radius-md)',
                             fontWeight: 'var(--bk-font-weight-medium)',

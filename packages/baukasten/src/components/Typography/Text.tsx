@@ -109,10 +109,7 @@ export const Text: React.FC<TextProps> = ({
         : text({ size, weight, color, align, truncate, italic, monospace });
 
     return (
-        <Component
-            className={textClass}
-            {...props}
-        >
+        <Component className={textClass} {...props}>
             {children}
         </Component>
     );

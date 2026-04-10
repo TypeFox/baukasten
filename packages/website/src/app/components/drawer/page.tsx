@@ -3,7 +3,26 @@
 import { useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Drawer, DrawerHeader, DrawerBody, DrawerFooter, Button, Icon, Input, FormGroup, FieldLabel, Heading, Paragraph, Text, Menu, MenuItem, MenuDivider, Select, type SelectOption, type DrawerSize } from 'baukasten-ui';
+import {
+    Drawer,
+    DrawerHeader,
+    DrawerBody,
+    DrawerFooter,
+    Button,
+    Icon,
+    Input,
+    FormGroup,
+    FieldLabel,
+    Heading,
+    Paragraph,
+    Text,
+    Menu,
+    MenuItem,
+    MenuDivider,
+    Select,
+    type SelectOption,
+    type DrawerSize,
+} from 'baukasten-ui';
 
 const drawerProps: PropDefinition[] = [
     {
@@ -28,7 +47,8 @@ const drawerProps: PropDefinition[] = [
         name: 'size',
         type: '"xs" | "sm" | "md" | "lg" | "xl" | "fullscreen" | string',
         default: '"md"',
-        description: 'Size of the drawer (width for left/right, height for top/bottom). Accepts preset sizes or any valid CSS length (e.g. "400px", "70vh", "50vw").',
+        description:
+            'Size of the drawer (width for left/right, height for top/bottom). Accepts preset sizes or any valid CSS length (e.g. "400px", "70vh", "50vw").',
     },
     {
         name: 'backdropVariant',
@@ -122,12 +142,12 @@ function BasicExample() {
         <>
             <Button onClick={() => setIsOpen(true)}>Open Drawer</Button>
             <Drawer open={isOpen} onClose={() => setIsOpen(false)}>
-                <DrawerHeader onClose={() => setIsOpen(false)}>
-                    Drawer Title
-                </DrawerHeader>
+                <DrawerHeader onClose={() => setIsOpen(false)}>Drawer Title</DrawerHeader>
                 <DrawerBody>
                     <Paragraph>This is the drawer content. You can put any content here.</Paragraph>
-                    <Paragraph>Try clicking outside, pressing ESC, or using the close button.</Paragraph>
+                    <Paragraph>
+                        Try clicking outside, pressing ESC, or using the close button.
+                    </Paragraph>
                 </DrawerBody>
                 <DrawerFooter>
                     <Button variant="secondary" onClick={() => setIsOpen(false)}>
@@ -151,26 +171,36 @@ function NavigationExample() {
             <Button onClick={() => setIsOpen(true)}>
                 <Icon name="menu" /> Menu
             </Button>
-            <Drawer
-                open={isOpen}
-                onClose={() => setIsOpen(false)}
-                placement="left"
-                size="sm"
-            >
-                <DrawerHeader onClose={() => setIsOpen(false)}>
-                    Navigation
-                </DrawerHeader>
+            <Drawer open={isOpen} onClose={() => setIsOpen(false)} placement="left" size="sm">
+                <DrawerHeader onClose={() => setIsOpen(false)}>Navigation</DrawerHeader>
                 <DrawerBody>
                     <Menu>
-                        <MenuItem icon={<Icon name="home" />} onClick={() => setIsOpen(false)}>Home</MenuItem>
-                        <MenuItem icon={<Icon name="dashboard" />} onClick={() => setIsOpen(false)}>Dashboard</MenuItem>
-                        <MenuItem icon={<Icon name="file" />} onClick={() => setIsOpen(false)}>Documents</MenuItem>
-                        <MenuItem icon={<Icon name="calendar" />} onClick={() => setIsOpen(false)}>Calendar</MenuItem>
+                        <MenuItem icon={<Icon name="home" />} onClick={() => setIsOpen(false)}>
+                            Home
+                        </MenuItem>
+                        <MenuItem icon={<Icon name="dashboard" />} onClick={() => setIsOpen(false)}>
+                            Dashboard
+                        </MenuItem>
+                        <MenuItem icon={<Icon name="file" />} onClick={() => setIsOpen(false)}>
+                            Documents
+                        </MenuItem>
+                        <MenuItem icon={<Icon name="calendar" />} onClick={() => setIsOpen(false)}>
+                            Calendar
+                        </MenuItem>
                         <MenuDivider />
-                        <MenuItem icon={<Icon name="settings-gear" />} onClick={() => setIsOpen(false)}>Settings</MenuItem>
-                        <MenuItem icon={<Icon name="account" />} onClick={() => setIsOpen(false)}>Profile</MenuItem>
+                        <MenuItem
+                            icon={<Icon name="settings-gear" />}
+                            onClick={() => setIsOpen(false)}
+                        >
+                            Settings
+                        </MenuItem>
+                        <MenuItem icon={<Icon name="account" />} onClick={() => setIsOpen(false)}>
+                            Profile
+                        </MenuItem>
                         <MenuDivider />
-                        <MenuItem icon={<Icon name="sign-out" />} onClick={() => setIsOpen(false)}>Sign Out</MenuItem>
+                        <MenuItem icon={<Icon name="sign-out" />} onClick={() => setIsOpen(false)}>
+                            Sign Out
+                        </MenuItem>
                     </Menu>
                 </DrawerBody>
             </Drawer>
@@ -199,13 +229,21 @@ function SettingsExample() {
         <>
             <Button onClick={() => setIsOpen(true)}>Open Settings</Button>
             <Drawer open={isOpen} onClose={() => setIsOpen(false)} size="md">
-                <DrawerHeader onClose={() => setIsOpen(false)}>
-                    Settings
-                </DrawerHeader>
+                <DrawerHeader onClose={() => setIsOpen(false)}>Settings</DrawerHeader>
                 <DrawerBody>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-spacing-6)' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-6)',
+                        }}
+                    >
                         <div>
-                            <Heading level={3} marginBottom={false} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
+                            <Heading
+                                level={3}
+                                marginBottom={false}
+                                style={{ marginBottom: 'var(--bk-spacing-3)' }}
+                            >
                                 Profile
                             </Heading>
                             <FormGroup orientation="vertical">
@@ -214,20 +252,37 @@ function SettingsExample() {
                             </FormGroup>
                             <FormGroup orientation="vertical">
                                 <FieldLabel htmlFor="settings-email">Email</FieldLabel>
-                                <Input id="settings-email" type="email" placeholder="your@email.com" fullWidth />
+                                <Input
+                                    id="settings-email"
+                                    type="email"
+                                    placeholder="your@email.com"
+                                    fullWidth
+                                />
                             </FormGroup>
                         </div>
                         <div>
-                            <Heading level={3} marginBottom={false} style={{ marginBottom: 'var(--bk-spacing-3)' }}>
+                            <Heading
+                                level={3}
+                                marginBottom={false}
+                                style={{ marginBottom: 'var(--bk-spacing-3)' }}
+                            >
                                 Preferences
                             </Heading>
                             <FormGroup orientation="vertical">
                                 <FieldLabel>Theme</FieldLabel>
-                                <Select options={themeOptions} placeholder="Select theme..." fullWidth />
+                                <Select
+                                    options={themeOptions}
+                                    placeholder="Select theme..."
+                                    fullWidth
+                                />
                             </FormGroup>
                             <FormGroup orientation="vertical">
                                 <FieldLabel>Language</FieldLabel>
-                                <Select options={languageOptions} placeholder="Select language..." fullWidth />
+                                <Select
+                                    options={languageOptions}
+                                    placeholder="Select language..."
+                                    fullWidth
+                                />
                             </FormGroup>
                         </div>
                     </div>
@@ -249,7 +304,9 @@ export default function DrawerPage() {
     const [placementDrawer, setPlacementDrawer] = useState<string | null>(null);
     const [sizesDrawer, setSizesDrawer] = useState<string | null>(null);
     const [fullscreenDrawer, setFullscreenDrawer] = useState(false);
-    const [backdropDrawer, setBackdropDrawer] = useState<'solid' | 'blur' | 'transparent' | null>(null);
+    const [backdropDrawer, setBackdropDrawer] = useState<'solid' | 'blur' | 'transparent' | null>(
+        null,
+    );
     const [scrollDrawer, setScrollDrawer] = useState(false);
     const [customSizeDrawer, setCustomSizeDrawer] = useState<string | null>(null);
 
@@ -299,7 +356,11 @@ function App() {
                 preview={
                     <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap' }}>
                         {(['left', 'top', 'right', 'bottom'] as const).map((placement) => (
-                            <Button key={placement} size="sm" onClick={() => setPlacementDrawer(placement)}>
+                            <Button
+                                key={placement}
+                                size="sm"
+                                onClick={() => setPlacementDrawer(placement)}
+                            >
                                 {placement.charAt(0).toUpperCase() + placement.slice(1)}
                             </Button>
                         ))}
@@ -315,8 +376,14 @@ function App() {
                                     {placement.charAt(0).toUpperCase() + placement.slice(1)} Drawer
                                 </DrawerHeader>
                                 <DrawerBody>
-                                    <Paragraph>This drawer slides in from the <Text weight="bold">{placement}</Text> edge.</Paragraph>
-                                    <Paragraph>For left/right drawers, the size prop controls width. For top/bottom drawers, it controls height.</Paragraph>
+                                    <Paragraph>
+                                        This drawer slides in from the{' '}
+                                        <Text weight="bold">{placement}</Text> edge.
+                                    </Paragraph>
+                                    <Paragraph>
+                                        For left/right drawers, the size prop controls width. For
+                                        top/bottom drawers, it controls height.
+                                    </Paragraph>
                                 </DrawerBody>
                                 <DrawerFooter>
                                     <Button onClick={() => setPlacementDrawer(null)}>Close</Button>
@@ -373,12 +440,16 @@ function App() {
                                 <DrawerBody>
                                     <Paragraph>This is a {size} sized drawer.</Paragraph>
                                     <Paragraph>
-                                        Width: {
-                                            size === 'xs' ? '280px' :
-                                                size === 'sm' ? '320px' :
-                                                    size === 'md' ? '400px' :
-                                                        size === 'lg' ? '560px' : '720px'
-                                        }
+                                        Width:{' '}
+                                        {size === 'xs'
+                                            ? '280px'
+                                            : size === 'sm'
+                                              ? '320px'
+                                              : size === 'md'
+                                                ? '400px'
+                                                : size === 'lg'
+                                                  ? '560px'
+                                                  : '720px'}
                                     </Paragraph>
                                 </DrawerBody>
                                 <DrawerFooter>
@@ -419,7 +490,9 @@ function App() {
                 description="Fullscreen mode covers the entire viewport width (for left/right) or height (for top/bottom). Useful for immersive content or mobile views."
                 preview={
                     <>
-                        <Button onClick={() => setFullscreenDrawer(true)}>Open Fullscreen Drawer</Button>
+                        <Button onClick={() => setFullscreenDrawer(true)}>
+                            Open Fullscreen Drawer
+                        </Button>
                         <Drawer
                             open={fullscreenDrawer}
                             onClose={() => setFullscreenDrawer(false)}
@@ -429,16 +502,20 @@ function App() {
                                 Fullscreen Drawer
                             </DrawerHeader>
                             <DrawerBody>
-                                <div style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    height: '100%',
-                                    gap: 'var(--bk-spacing-4)'
-                                }}>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        height: '100%',
+                                        gap: 'var(--bk-spacing-4)',
+                                    }}
+                                >
                                     <Heading level={2}>Fullscreen Drawer</Heading>
-                                    <Paragraph>This drawer covers the full viewport width.</Paragraph>
+                                    <Paragraph>
+                                        This drawer covers the full viewport width.
+                                    </Paragraph>
                                 </div>
                             </DrawerBody>
                         </Drawer>
@@ -479,8 +556,14 @@ function App() {
                                     Custom size: {size}
                                 </DrawerHeader>
                                 <DrawerBody>
-                                    <Paragraph>This drawer uses a custom CSS size value: <Text weight="bold">{size}</Text>.</Paragraph>
-                                    <Paragraph>Any valid CSS length can be used — px, vh, vw, rem, calc(), etc.</Paragraph>
+                                    <Paragraph>
+                                        This drawer uses a custom CSS size value:{' '}
+                                        <Text weight="bold">{size}</Text>.
+                                    </Paragraph>
+                                    <Paragraph>
+                                        Any valid CSS length can be used — px, vh, vw, rem, calc(),
+                                        etc.
+                                    </Paragraph>
                                 </DrawerBody>
                                 <DrawerFooter>
                                     <Button onClick={() => setCustomSizeDrawer(null)}>Close</Button>
@@ -522,7 +605,9 @@ function App() {
                     <div style={{ display: 'flex', gap: 'var(--bk-spacing-3)', flexWrap: 'wrap' }}>
                         <Button onClick={() => setBackdropDrawer('solid')}>Solid Backdrop</Button>
                         <Button onClick={() => setBackdropDrawer('blur')}>Blur Backdrop</Button>
-                        <Button onClick={() => setBackdropDrawer('transparent')}>Transparent</Button>
+                        <Button onClick={() => setBackdropDrawer('transparent')}>
+                            Transparent
+                        </Button>
                         {(['solid', 'blur', 'transparent'] as const).map((variant) => (
                             <Drawer
                                 key={variant}
@@ -535,11 +620,22 @@ function App() {
                                     {variant.charAt(0).toUpperCase() + variant.slice(1)} Backdrop
                                 </DrawerHeader>
                                 <DrawerBody>
-                                    <Paragraph>This drawer uses the <Text weight="bold">{variant}</Text> backdrop variant.</Paragraph>
+                                    <Paragraph>
+                                        This drawer uses the <Text weight="bold">{variant}</Text>{' '}
+                                        backdrop variant.
+                                    </Paragraph>
                                     <ul style={{ margin: 0, paddingLeft: 'var(--bk-spacing-5)' }}>
-                                        <li><Text weight="bold">Solid</Text>: Dark semi-transparent</li>
-                                        <li><Text weight="bold">Blur</Text>: Blurred with backdrop-filter</li>
-                                        <li><Text weight="bold">Transparent</Text>: No visible backdrop</li>
+                                        <li>
+                                            <Text weight="bold">Solid</Text>: Dark semi-transparent
+                                        </li>
+                                        <li>
+                                            <Text weight="bold">Blur</Text>: Blurred with
+                                            backdrop-filter
+                                        </li>
+                                        <li>
+                                            <Text weight="bold">Transparent</Text>: No visible
+                                            backdrop
+                                        </li>
                                     </ul>
                                 </DrawerBody>
                                 <DrawerFooter>
@@ -547,15 +643,20 @@ function App() {
                                 </DrawerFooter>
                             </Drawer>
                         ))}
-                        <div style={{
-                            width: '100%',
-                            marginTop: 'var(--bk-spacing-4)',
-                            padding: 'var(--bk-spacing-4)',
-                            border: '1px solid var(--vscode-textBlockQuote-border)',
-                            borderRadius: 'var(--bk-radius-md)'
-                        }}>
+                        <div
+                            style={{
+                                width: '100%',
+                                marginTop: 'var(--bk-spacing-4)',
+                                padding: 'var(--bk-spacing-4)',
+                                border: '1px solid var(--vscode-textBlockQuote-border)',
+                                borderRadius: 'var(--bk-radius-md)',
+                            }}
+                        >
                             <Heading level={4}>Background Content</Heading>
-                            <Paragraph>Open the drawers above to see how different backdrop styles affect this content. The blur backdrop will make this text appear blurred.</Paragraph>
+                            <Paragraph>
+                                Open the drawers above to see how different backdrop styles affect
+                                this content. The blur backdrop will make this text appear blurred.
+                            </Paragraph>
                         </div>
                     </div>
                 }
@@ -677,8 +778,14 @@ function SettingsPanel() {
                 description="Drawer body automatically handles overflow with scrolling. Header and footer remain fixed while the body scrolls."
                 preview={
                     <>
-                        <Button onClick={() => setScrollDrawer(true)}>Open Scrollable Drawer</Button>
-                        <Drawer open={scrollDrawer} onClose={() => setScrollDrawer(false)} size="md">
+                        <Button onClick={() => setScrollDrawer(true)}>
+                            Open Scrollable Drawer
+                        </Button>
+                        <Drawer
+                            open={scrollDrawer}
+                            onClose={() => setScrollDrawer(false)}
+                            size="md"
+                        >
                             <DrawerHeader onClose={() => setScrollDrawer(false)}>
                                 Activity Log
                             </DrawerHeader>
@@ -691,7 +798,9 @@ function SettingsPanel() {
                                             borderBottom: '1px solid var(--bk-color-border)',
                                         }}
                                     >
-                                        <Text weight="semibold" style={{ display: 'block' }}>Event #{i + 1}</Text>
+                                        <Text weight="semibold" style={{ display: 'block' }}>
+                                            Event #{i + 1}
+                                        </Text>
                                         <Text color="muted" size="sm">
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                             Sed do eiusmod tempor incididunt ut labore.
@@ -739,47 +848,73 @@ function SettingsPanel() {
                     borderRadius: 'var(--bk-radius-md)',
                 }}
             >
-                <h3 style={{ marginTop: 0, marginBottom: 'var(--bk-spacing-3)' }}>Features & Behavior</h3>
-                <ul style={{ marginBottom: 'var(--bk-spacing-4)', paddingLeft: 'var(--bk-spacing-5)' }}>
+                <h3 style={{ marginTop: 0, marginBottom: 'var(--bk-spacing-3)' }}>
+                    Features & Behavior
+                </h3>
+                <ul
+                    style={{
+                        marginBottom: 'var(--bk-spacing-4)',
+                        paddingLeft: 'var(--bk-spacing-5)',
+                    }}
+                >
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Slide Animation:</strong> Smooth CSS transition when opening and closing, with direction based on placement
+                        <strong>Slide Animation:</strong> Smooth CSS transition when opening and
+                        closing, with direction based on placement
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Portal Rendering:</strong> Renders to <code>document.body</code> using React portals, ensuring proper z-index stacking
+                        <strong>Portal Rendering:</strong> Renders to <code>document.body</code>{' '}
+                        using React portals, ensuring proper z-index stacking
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Focus Management:</strong> Automatically focuses drawer on open and restores focus to the previously active element on close
+                        <strong>Focus Management:</strong> Automatically focuses drawer on open and
+                        restores focus to the previously active element on close
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Scroll Locking:</strong> Prevents body scroll when drawer is open to avoid background scrolling
+                        <strong>Scroll Locking:</strong> Prevents body scroll when drawer is open to
+                        avoid background scrolling
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Keyboard Support:</strong> Press <code>ESC</code> to close (configurable with <code>closeOnEscape</code>)
+                        <strong>Keyboard Support:</strong> Press <code>ESC</code> to close
+                        (configurable with <code>closeOnEscape</code>)
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Backdrop Click:</strong> Click outside drawer to close (configurable with <code>closeOnBackdropClick</code>)
+                        <strong>Backdrop Click:</strong> Click outside drawer to close (configurable
+                        with <code>closeOnBackdropClick</code>)
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Responsive Sizing:</strong> Left/right drawers respect <code>max-width: 100vw</code>, top/bottom drawers respect <code>max-height: 100vh</code>
+                        <strong>Responsive Sizing:</strong> Left/right drawers respect{' '}
+                        <code>max-width: 100vw</code>, top/bottom drawers respect{' '}
+                        <code>max-height: 100vh</code>
                     </li>
                     <li>
-                        <strong>Composable Structure:</strong> Use <code>DrawerHeader</code>, <code>DrawerBody</code>, and <code>DrawerFooter</code> for consistent layout
+                        <strong>Composable Structure:</strong> Use <code>DrawerHeader</code>,{' '}
+                        <code>DrawerBody</code>, and <code>DrawerFooter</code> for consistent layout
                     </li>
                 </ul>
 
-                <h3 style={{ marginTop: 'var(--bk-spacing-4)', marginBottom: 'var(--bk-spacing-3)' }}>Accessibility</h3>
+                <h3
+                    style={{
+                        marginTop: 'var(--bk-spacing-4)',
+                        marginBottom: 'var(--bk-spacing-3)',
+                    }}
+                >
+                    Accessibility
+                </h3>
                 <ul style={{ marginBottom: 0, paddingLeft: 'var(--bk-spacing-5)' }}>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>ARIA Attributes:</strong> Uses <code>role="dialog"</code> and <code>aria-modal="true"</code> for screen readers
+                        <strong>ARIA Attributes:</strong> Uses <code>role="dialog"</code> and{' '}
+                        <code>aria-modal="true"</code> for screen readers
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
                         <strong>Focus Trap:</strong> Drawer automatically receives focus when opened
                     </li>
                     <li style={{ marginBottom: 'var(--bk-spacing-2)' }}>
-                        <strong>Focus Restoration:</strong> Returns focus to trigger element when closed
+                        <strong>Focus Restoration:</strong> Returns focus to trigger element when
+                        closed
                     </li>
                     <li>
-                        <strong>Close Button Label:</strong> Close button includes <code>aria-label="Close drawer"</code>
+                        <strong>Close Button Label:</strong> Close button includes{' '}
+                        <code>aria-label="Close drawer"</code>
                     </li>
                 </ul>
             </div>
