@@ -1,6 +1,6 @@
 {
     "name": "baukasten-ui-web-wrapper",
-    "version": "0.2.6",
+    "version": "0.3.0",
     "type": "module",
     "description": "Theme wrapper for browser environments",
     "main": "./dist/index.js",
