@@ -38,14 +38,18 @@ function getInitialThemeMode(): ThemeMode {
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
     const [themeMode, setThemeMode] = useState<ThemeMode>(getInitialThemeMode);
+    const [hasUserPreference, setHasUserPreference] = useState<boolean>(
+        () => getStoredThemePreference() !== null,
+    );
 
     // Follow system theme changes only when no explicit user preference is saved.
+    // Re-runs when hasUserPreference changes so the listener is cleaned up once the user sets a preference.
     useEffect(() => {
         if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
             return;
         }
 
-        if (getStoredThemePreference() !== null) {
+        if (hasUserPreference) {
             return;
         }
 
@@ -60,7 +64,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         return () => {
             mediaQuery.removeEventListener('change', updateThemeFromSystem);
         };
-    }, []);
+    }, [hasUserPreference]);
 
     // Apply theme whenever it changes
     useEffect(() => {
@@ -85,6 +89,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     const setTheme = (mode: ThemeMode) => {
         setThemeMode(mode);
+        setHasUserPreference(true);
         localStorage.setItem(THEME_STORAGE_KEY, mode);
     };
 
