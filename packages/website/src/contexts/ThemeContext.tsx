@@ -13,15 +13,54 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const THEME_STORAGE_KEY = 'theme-preference';
+const PREFERS_DARK_QUERY = '(prefers-color-scheme: dark)';
+
+function getStoredThemePreference(): ThemeMode | null {
+    if (typeof window === 'undefined') {
+        return null;
+    }
+
+    const stored = localStorage.getItem(THEME_STORAGE_KEY);
+    return stored === 'light' || stored === 'dark' ? stored : null;
+}
+
+function getBrowserThemePreference(): ThemeMode {
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+        return 'light';
+    }
+
+    return window.matchMedia(PREFERS_DARK_QUERY).matches ? 'dark' : 'light';
+}
+
+function getInitialThemeMode(): ThemeMode {
+    return getStoredThemePreference() ?? getBrowserThemePreference();
+}
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-    const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
-        if (typeof window !== 'undefined') {
-            const stored = localStorage.getItem(THEME_STORAGE_KEY);
-            return stored === 'light' || stored === 'dark' ? stored : 'light';
+    const [themeMode, setThemeMode] = useState<ThemeMode>(getInitialThemeMode);
+
+    // Follow system theme changes only when no explicit user preference is saved.
+    useEffect(() => {
+        if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+            return;
         }
-        return 'light';
-    });
+
+        if (getStoredThemePreference() !== null) {
+            return;
+        }
+
+        const mediaQuery = window.matchMedia(PREFERS_DARK_QUERY);
+        const updateThemeFromSystem = () => {
+            setThemeMode(mediaQuery.matches ? 'dark' : 'light');
+        };
+
+        updateThemeFromSystem();
+        mediaQuery.addEventListener('change', updateThemeFromSystem);
+
+        return () => {
+            mediaQuery.removeEventListener('change', updateThemeFromSystem);
+        };
+    }, []);
 
     // Apply theme whenever it changes
     useEffect(() => {
