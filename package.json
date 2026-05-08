@@ -22,6 +22,7 @@
         "build:vscode": "npm run build --workspace=packages/examples/vscode",
         "lint": "npm run lint --workspace=packages/baukasten",
         "lint:fix": "npm run lint --workspace=packages/baukasten -- --fix",
+        "test": "npm run test --workspaces --if-present",
         "format": "prettier --write .",
         "format:check": "prettier --check ."
     },
