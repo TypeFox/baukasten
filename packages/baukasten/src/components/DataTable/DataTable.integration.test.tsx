@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, act } from '@testing-library/react';
-import { useRef } from 'react';
+import { useRef, createRef } from 'react';
 import { DataTable } from './DataTable';
 import type { DataTableRef } from './DataTable.types';
 import type { ColumnDef } from './DataTable.utils';
@@ -84,34 +84,40 @@ describe('DataTable — controlled mode (data prop)', () => {
         expect(screen.getByText('No results found')).toBeInTheDocument();
     });
 
-    it('warns and does not throw when applyTransaction is called in controlled mode', () => {
-        const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    it('throws when applyTransaction is called in controlled mode', () => {
+        const ref = createRef<DataTableRef<Person>>();
 
-        const TestComponent = () => {
-            const ref = useRef<DataTableRef<Person>>(null);
-            return (
-                <div>
-                    <button onClick={() => ref.current?.applyTransaction({ add: [alice] })}>
-                        Apply
-                    </button>
-                    <DataTable
-                        {...TABLE_TEST_PROPS}
-                        ref={ref}
-                        data={initialPeople}
-                        columns={columns}
-                        getRowId={(r) => r.id}
-                    />
-                </div>
-            );
-        };
+        render(
+            <DataTable
+                {...TABLE_TEST_PROPS}
+                ref={ref}
+                data={initialPeople}
+                columns={columns}
+                getRowId={(r) => r.id}
+            />,
+        );
 
-        render(<TestComponent />);
-        act(() => {
-            screen.getByRole('button', { name: 'Apply' }).click();
-        });
+        expect(() => {
+            ref.current?.applyTransaction({ add: [alice] });
+        }).toThrow('controlled mode');
+    });
 
-        expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('controlled mode'));
-        warnSpy.mockRestore();
+    it('throws when applyTransactionAsync is called in controlled mode', () => {
+        const ref = createRef<DataTableRef<Person>>();
+
+        render(
+            <DataTable
+                {...TABLE_TEST_PROPS}
+                ref={ref}
+                data={initialPeople}
+                columns={columns}
+                getRowId={(r) => r.id}
+            />,
+        );
+
+        expect(() => {
+            ref.current?.applyTransactionAsync({ add: [alice] });
+        }).toThrow('controlled mode');
     });
 });
 

@@ -1,4 +1,11 @@
-import React, { useState, useRef, useImperativeHandle, forwardRef, useCallback } from 'react';
+import React, {
+    useState,
+    useRef,
+    useEffect,
+    useImperativeHandle,
+    forwardRef,
+    useCallback,
+} from 'react';
 import {
     useReactTable,
     getCoreRowModel,
@@ -449,7 +456,7 @@ function DataTableInner<TData>(
         () => ({
             applyTransaction: ((tx: DataTableTransaction<TData>, undoable?: boolean) => {
                 if (isControlled) {
-                    console.warn(
+                    throw new Error(
                         'DataTable: applyTransaction called in controlled mode. ' +
                             'Use the useDataTableData hook externally instead, or switch to managed mode (initialData prop).',
                     );
@@ -459,7 +466,7 @@ function DataTableInner<TData>(
             }) as DataTableRef<TData>['applyTransaction'],
             applyTransactionAsync: (tx, undoable) => {
                 if (isControlled) {
-                    console.warn(
+                    throw new Error(
                         'DataTable: applyTransactionAsync called in controlled mode. ' +
                             'Use the useDataTableData hook externally instead, or switch to managed mode (initialData prop).',
                     );
@@ -467,15 +474,23 @@ function DataTableInner<TData>(
                 return managedData.applyTransactionAsync(tx, undoable);
             },
             flushAsyncTransactions: () => managedData.flushAsyncTransactions(),
-            getRowData: () => managedData.getRowData(),
+            getRowData: () => (isControlled ? (controlledData ?? []) : managedData.getRowData()),
             getSelectedRows: () => {
                 const tableInst = tableInstanceRef.current;
                 if (!tableInst) return [];
                 return tableInst.getSelectedRowModel().rows.map((r) => r.original);
             },
-            setData: (newData) => managedData.setData(newData),
+            setData: (newData) => {
+                if (isControlled) {
+                    throw new Error(
+                        'DataTable: setData called in controlled mode. ' +
+                            'Update the data prop externally instead, or switch to managed mode (initialData prop).',
+                    );
+                }
+                managedData.setData(newData);
+            },
         }),
-        [isControlled, managedData],
+        [controlledData, isControlled, managedData],
     );
 
     // Internal state for uncontrolled mode
@@ -642,13 +657,22 @@ function DataTableInner<TData>(
     const isVirtualized = !disableRowVirtualization && !enablePagination && hasConstrainedHeight;
     const tableContainerRef = useRef<HTMLDivElement>(null);
 
-    if (!disableRowVirtualization && !enablePagination && !hasConstrainedHeight) {
-        console.warn(
-            'DataTable: Row virtualization is enabled by default but requires a constrained scroll area. ' +
-                'Set `maxHeight` or `fillHeight` to enable virtualization, ' +
-                'or set `disableRowVirtualization` to suppress this warning.',
-        );
-    }
+    const hasWarnedVirtualizationRef = useRef(false);
+    useEffect(() => {
+        if (
+            !disableRowVirtualization &&
+            !enablePagination &&
+            !hasConstrainedHeight &&
+            !hasWarnedVirtualizationRef.current
+        ) {
+            hasWarnedVirtualizationRef.current = true;
+            console.warn(
+                'DataTable: Row virtualization is enabled by default but requires a constrained scroll area. ' +
+                    'Set `maxHeight` or `fillHeight` to enable virtualization, ' +
+                    'or set `disableRowVirtualization` to suppress this warning.',
+            );
+        }
+    }, [disableRowVirtualization, enablePagination, hasConstrainedHeight]);
 
     const rowVirtualizer = useVirtualizer({
         count: isVirtualized ? rows.length : 0,
@@ -703,7 +727,6 @@ function DataTableInner<TData>(
         const nextRow = rows[nextIndex];
         if (nextRow) {
             table.setRowSelection({ [nextRow.id]: true });
-            onRowSelectionChange?.({ [nextRow.id]: true });
             // Scroll the newly selected row into view
             if (isVirtualized) {
                 rowVirtualizer.scrollToIndex(nextIndex, { align: 'auto' });
