@@ -1369,13 +1369,13 @@ export const ManagedModeWithUndo: Story = {
         docs: {
             description: {
                 story: `
-Every \`applyTransaction()\` call returns an \`undo()\` function that restores the data to its state before the transaction.
+Pass \`true\` as the second argument to \`applyTransaction()\` when you want an \`undo()\` function that restores the data to its state before the transaction.
 
 \`\`\`tsx
-const result = tableRef.current?.applyTransaction({ remove: [row] });
+const result = tableRef.current?.applyTransaction({ remove: [row] }, true);
 
 // Later — revert this specific transaction:
-result.undo();
+result?.undo?.();
 \`\`\`
 `,
             },
