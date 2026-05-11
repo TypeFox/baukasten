@@ -97,8 +97,14 @@ export interface DataTableRef<TData> {
 export interface UseDataTableDataOptions<TData> {
     /** Initial data to seed the internal state */
     initialData?: TData[];
-    /** Produces a unique string ID for each row. Required for update/remove matching. */
-    getRowId: (row: TData, index: number) => string;
+    /**
+     * Produces a unique string ID for each row. Required for update/remove matching.
+     *
+     * Note: during transaction processing, rows supplied via `update`/`remove` may not be
+     * present in the current data array, so no stable current index is guaranteed.
+     * Implementations must not rely on `index` for correctness; derive IDs from row data.
+     */
+    getRowId: (row: TData, index?: number) => string;
     /** Called after every transaction or setData with the new data and the transaction (if applicable) */
     onDataChange?: (data: TData[], tx?: DataTableTransaction<TData>) => void;
     /** Called after a batch of async transactions is flushed */
