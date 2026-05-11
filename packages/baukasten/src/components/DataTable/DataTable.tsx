@@ -288,7 +288,7 @@ export interface DataTableProps<TData> {
     /**
      * Row ID accessor (for selection state)
      */
-    getRowId?: (row: TData, index: number) => string;
+    getRowId?: (row: TData, index?: number) => string;
 
     /**
      * Callback when a row is clicked
@@ -433,7 +433,7 @@ function DataTableInner<TData>(
     const isControlled = controlledData !== undefined;
 
     // Default getRowId falls back to index-based
-    const resolvedGetRowId = getRowId ?? ((_row: TData, index: number) => String(index));
+    const resolvedGetRowId = getRowId ?? ((_row: TData, index?: number) => String(index));
 
     // Internal managed data (only active when not controlled)
     const managedData = useDataTableData<TData>({
