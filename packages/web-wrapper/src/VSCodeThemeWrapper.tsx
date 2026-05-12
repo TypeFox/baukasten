@@ -5,6 +5,8 @@ interface VSCodeThemeWrapperProps {
     children: ReactNode;
     defaultThemeId?: string;
     showThemeSelector?: boolean;
+    /** Controlled mode: when provided, the wrapper syncs to this theme ID and ignores its own localStorage. */
+    themeId?: string;
 }
 
 const THEME_STORAGE_KEY = 'vscode-theme-wrapper-theme-id';
@@ -35,10 +37,22 @@ export const VSCodeThemeWrapper: React.FC<VSCodeThemeWrapperProps> = ({
     children,
     defaultThemeId,
     showThemeSelector = true,
+    themeId,
 }) => {
+    const isControlled = themeId !== undefined;
+
     const [currentTheme, setCurrentTheme] = useState<VSCodeTheme>(() =>
-        getInitialTheme(defaultThemeId),
+        isControlled
+            ? getThemeById(themeId) || defaultTheme
+            : getInitialTheme(defaultThemeId),
     );
+
+    // Sync internal state when the controlled themeId prop changes
+    useEffect(() => {
+        if (!isControlled) return;
+        const theme = getThemeById(themeId) || defaultTheme;
+        setCurrentTheme(theme);
+    }, [isControlled, themeId]);
 
     useEffect(() => {
         // Apply CSS variables to the root element
@@ -54,13 +68,15 @@ export const VSCodeThemeWrapper: React.FC<VSCodeThemeWrapperProps> = ({
             currentTheme.variables['--vscode-editor-font-family'] ||
             "'Segoe UI Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif";
 
-        // Save theme ID to localStorage whenever it changes
-        try {
-            localStorage.setItem(THEME_STORAGE_KEY, currentTheme.id);
-        } catch (error) {
-            console.warn('Failed to save theme to localStorage:', error);
+        // Only persist to localStorage in uncontrolled mode
+        if (!isControlled) {
+            try {
+                localStorage.setItem(THEME_STORAGE_KEY, currentTheme.id);
+            } catch (error) {
+                console.warn('Failed to save theme to localStorage:', error);
+            }
         }
-    }, [currentTheme]);
+    }, [currentTheme, isControlled]);
 
     const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const theme = getThemeById(event.target.value);
@@ -74,11 +90,11 @@ export const VSCodeThemeWrapper: React.FC<VSCodeThemeWrapperProps> = ({
             style={{
                 ...(showThemeSelector
                     ? {
-                          display: 'flex',
-                          flexDirection: 'column',
-                          padding: '10px',
-                          gap: '16px',
-                      }
+                        display: 'flex',
+                        flexDirection: 'column',
+                        padding: '10px',
+                        gap: '16px',
+                    }
                     : {}),
                 backgroundColor: currentTheme.variables['--vscode-editor-background'],
             }}

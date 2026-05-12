@@ -2,6 +2,7 @@
 
 import { Button, Icon } from 'baukasten-ui/core';
 import { useTheme } from '@/contexts/ThemeContext';
+import { use, useEffect } from 'react';
 
 export default function ThemePicker() {
     const { themeMode, setTheme } = useTheme();
