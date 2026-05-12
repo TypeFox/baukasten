@@ -40,17 +40,20 @@ export const VSCodeThemeWrapper: React.FC<VSCodeThemeWrapperProps> = ({
     themeId,
 }) => {
     const isControlled = themeId !== undefined;
+    const showSelector = showThemeSelector && !isControlled;
 
     const [currentTheme, setCurrentTheme] = useState<VSCodeTheme>(() =>
-        isControlled ? getThemeById(themeId) || defaultTheme : getInitialTheme(defaultThemeId),
+        themeId !== undefined
+            ? getThemeById(themeId) || defaultTheme
+            : getInitialTheme(defaultThemeId),
     );
 
     // Sync internal state when the controlled themeId prop changes
     useEffect(() => {
-        if (!isControlled) return;
+        if (themeId === undefined) return;
         const theme = getThemeById(themeId) || defaultTheme;
         setCurrentTheme(theme);
-    }, [isControlled, themeId]);
+    }, [themeId]);
 
     useEffect(() => {
         // Apply CSS variables to the root element
@@ -77,6 +80,7 @@ export const VSCodeThemeWrapper: React.FC<VSCodeThemeWrapperProps> = ({
     }, [currentTheme, isControlled]);
 
     const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        if (isControlled) return;
         const theme = getThemeById(event.target.value);
         if (theme) {
             setCurrentTheme(theme);
@@ -86,7 +90,7 @@ export const VSCodeThemeWrapper: React.FC<VSCodeThemeWrapperProps> = ({
     return (
         <div
             style={{
-                ...(showThemeSelector
+                ...(showSelector
                     ? {
                           display: 'flex',
                           flexDirection: 'column',
@@ -97,7 +101,7 @@ export const VSCodeThemeWrapper: React.FC<VSCodeThemeWrapperProps> = ({
                 backgroundColor: currentTheme.variables['--vscode-editor-background'],
             }}
         >
-            {showThemeSelector && (
+            {showSelector && (
                 <div
                     style={{
                         display: 'flex',

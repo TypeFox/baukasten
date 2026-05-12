@@ -20,8 +20,12 @@ function getStoredThemePreference(): ThemeMode | null {
         return null;
     }
 
-    const stored = localStorage.getItem(THEME_STORAGE_KEY);
-    return stored === 'light' || stored === 'dark' ? stored : null;
+    try {
+        const stored = localStorage.getItem(THEME_STORAGE_KEY);
+        return stored === 'light' || stored === 'dark' ? stored : null;
+    } catch {
+        return null;
+    }
 }
 
 function applyThemeToDOM(mode: ThemeMode) {
@@ -60,6 +64,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         }
 
         // No stored preference — apply system preference and listen for changes
+        if (typeof window.matchMedia !== 'function') {
+            return;
+        }
+
         const mediaQuery = window.matchMedia(PREFERS_DARK_QUERY);
         const updateThemeFromSystem = () => {
             if (!userSetPreference.current) {
@@ -81,7 +89,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         userSetPreference.current = true;
         setThemeMode(mode);
         applyThemeToDOM(mode);
-        localStorage.setItem(THEME_STORAGE_KEY, mode);
+        try {
+            localStorage.setItem(THEME_STORAGE_KEY, mode);
+        } catch {}
     };
 
     return (
