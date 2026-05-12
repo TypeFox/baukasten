@@ -23,7 +23,8 @@ function getStoredThemePreference(): ThemeMode | null {
     try {
         const stored = localStorage.getItem(THEME_STORAGE_KEY);
         return stored === 'light' || stored === 'dark' ? stored : null;
-    } catch {
+    } catch (error) {
+        console.warn('Failed to read theme preference from localStorage:', error);
         return null;
     }
 }
@@ -91,7 +92,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         applyThemeToDOM(mode);
         try {
             localStorage.setItem(THEME_STORAGE_KEY, mode);
-        } catch {}
+        } catch (error) {
+            console.warn('Failed to persist theme preference:', error);
+        }
     };
 
     return (

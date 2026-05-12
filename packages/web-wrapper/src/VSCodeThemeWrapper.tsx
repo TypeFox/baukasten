@@ -80,7 +80,6 @@ export const VSCodeThemeWrapper: React.FC<VSCodeThemeWrapperProps> = ({
     }, [currentTheme, isControlled]);
 
     const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        if (isControlled) return;
         const theme = getThemeById(event.target.value);
         if (theme) {
             setCurrentTheme(theme);
