@@ -162,26 +162,3 @@ export const VSCodeThemeWrapper: React.FC<VSCodeThemeWrapperProps> = ({
         </div>
     );
 };
-
-// Hook to get current theme (useful for components that need theme info)
-// Incomplete, maybe remove??
-export const useVSCodeTheme = () => {
-    const [theme] = useState<VSCodeTheme>(defaultTheme);
-
-    useEffect(() => {
-        // This is a simple implementation; in production you might want to use Context
-        const root = document.documentElement;
-        const observer = new MutationObserver(() => {
-            // Theme changed, update if needed
-        });
-
-        observer.observe(root, {
-            attributes: true,
-            attributeFilter: ['style'],
-        });
-
-        return () => observer.disconnect();
-    }, []);
-
-    return theme;
-};
