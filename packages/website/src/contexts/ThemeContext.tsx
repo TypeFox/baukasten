@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useRef, ReactNode } from 'react';
 import { lightModern, darkModern } from 'baukasten-ui-web-wrapper';
 
 type ThemeMode = 'light' | 'dark';
@@ -20,42 +20,62 @@ function getStoredThemePreference(): ThemeMode | null {
         return null;
     }
 
-    const stored = localStorage.getItem(THEME_STORAGE_KEY);
-    return stored === 'light' || stored === 'dark' ? stored : null;
-}
-
-function getBrowserThemePreference(): ThemeMode {
-    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
-        return 'light';
+    try {
+        const stored = localStorage.getItem(THEME_STORAGE_KEY);
+        return stored === 'light' || stored === 'dark' ? stored : null;
+    } catch (error) {
+        console.warn('Failed to read theme preference from localStorage:', error);
+        return null;
     }
-
-    return window.matchMedia(PREFERS_DARK_QUERY).matches ? 'dark' : 'light';
 }
 
-function getInitialThemeMode(): ThemeMode {
-    return getStoredThemePreference() ?? getBrowserThemePreference();
+function applyThemeToDOM(mode: ThemeMode) {
+    const theme = mode === 'light' ? lightModern : darkModern;
+    const root = document.documentElement;
+
+    Object.entries(theme.variables).forEach(([key, value]) => {
+        root.style.setProperty(key, value);
+    });
+
+    root.classList.remove('vscode-dark', 'vscode-light');
+    root.classList.add(mode === 'light' ? 'vscode-light' : 'vscode-dark');
+
+    document.body.style.backgroundColor = theme.variables['--vscode-editor-background'];
+    document.body.style.color = theme.variables['--vscode-editor-foreground'];
+    document.body.style.fontFamily =
+        theme.variables['--vscode-editor-font-family'] ||
+        "'Segoe UI Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif";
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-    const [themeMode, setThemeMode] = useState<ThemeMode>(getInitialThemeMode);
-    const [hasUserPreference, setHasUserPreference] = useState<boolean>(
-        () => getStoredThemePreference() !== null,
-    );
+    const [themeMode, setThemeMode] = useState<ThemeMode>('light');
+    const userSetPreference = useRef(false);
 
-    // Follow system theme changes only when no explicit user preference is saved.
-    // Re-runs when hasUserPreference changes so the listener is cleaned up once the user sets a preference.
+    // Read stored/system preference after mount and apply CSS vars immediately to the DOM.
+    // Applying directly here (rather than via a separate effect on themeMode) avoids a race
+    // where the apply-effect fires first with the stale 'light' initial value and overwrites
+    // the correct theme before the re-render from setThemeMode completes.
     useEffect(() => {
-        if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+        const stored = getStoredThemePreference();
+        if (stored !== null) {
+            userSetPreference.current = true;
+            setThemeMode(stored);
+            applyThemeToDOM(stored);
             return;
         }
 
-        if (hasUserPreference) {
+        // No stored preference — apply system preference and listen for changes
+        if (typeof window.matchMedia !== 'function') {
             return;
         }
 
         const mediaQuery = window.matchMedia(PREFERS_DARK_QUERY);
         const updateThemeFromSystem = () => {
-            setThemeMode(mediaQuery.matches ? 'dark' : 'light');
+            if (!userSetPreference.current) {
+                const mode: ThemeMode = mediaQuery.matches ? 'dark' : 'light';
+                setThemeMode(mode);
+                applyThemeToDOM(mode);
+            }
         };
 
         updateThemeFromSystem();
@@ -64,33 +84,17 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         return () => {
             mediaQuery.removeEventListener('change', updateThemeFromSystem);
         };
-    }, [hasUserPreference]);
-
-    // Apply theme whenever it changes
-    useEffect(() => {
-        const theme = themeMode === 'light' ? lightModern : darkModern;
-        const root = document.documentElement;
-
-        // Apply CSS variables
-        Object.entries(theme.variables).forEach(([key, value]) => {
-            root.style.setProperty(key, value);
-        });
-
-        // Add/remove theme classes for components that need them (like CodeBlock)
-        root.classList.remove('vscode-dark', 'vscode-light');
-        root.classList.add(themeMode === 'light' ? 'vscode-light' : 'vscode-dark');
-
-        document.body.style.backgroundColor = theme.variables['--vscode-editor-background'];
-        document.body.style.color = theme.variables['--vscode-editor-foreground'];
-        document.body.style.fontFamily =
-            theme.variables['--vscode-editor-font-family'] ||
-            "'Segoe UI Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif";
-    }, [themeMode]);
+    }, []);
 
     const setTheme = (mode: ThemeMode) => {
+        userSetPreference.current = true;
         setThemeMode(mode);
-        setHasUserPreference(true);
-        localStorage.setItem(THEME_STORAGE_KEY, mode);
+        applyThemeToDOM(mode);
+        try {
+            localStorage.setItem(THEME_STORAGE_KEY, mode);
+        } catch (error) {
+            console.warn('Failed to persist theme preference:', error);
+        }
     };
 
     return (
