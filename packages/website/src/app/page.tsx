@@ -242,7 +242,7 @@ export default function Home() {
                                 }}
                             >
                                 <Icon
-                                    name="paintcan"
+                                    name="robot"
                                     style={{
                                         fontSize: '24px',
                                         color: 'var(--vscode-button-background)',
@@ -255,7 +255,7 @@ export default function Home() {
                                         color: 'var(--vscode-foreground)',
                                     }}
                                 >
-                                    Application UI Focus
+                                    AI Ready
                                 </Text>
                             </div>
                             <Text
@@ -265,7 +265,8 @@ export default function Home() {
                                     lineHeight: 1.6,
                                 }}
                             >
-                                Built for professional, data-intensive Desktop & Web Applications
+                                Get our Agent Skill to speed up Agentic UI Development & achieve
+                                faster design iterations
                             </Text>
                         </div>
                     </div>
@@ -685,6 +686,234 @@ export default function Home() {
                             </Paragraph>
                         </div>
                     ))}
+                </div>
+            </div>
+
+            {/* AI-Ready */}
+            <div style={{ marginBottom: 'var(--bk-spacing-12)' }}>
+                <div style={{ textAlign: 'center', marginBottom: 'var(--bk-spacing-10)' }}>
+                    <Heading
+                        level={2}
+                        style={{
+                            marginBottom: 'var(--bk-spacing-4)',
+                            fontSize: 'calc(var(--vscode-font-size) * 2)',
+                        }}
+                    >
+                        AI-Ready
+                        <Icon
+                            name="sparkle"
+                            style={{
+                                fontSize: 'calc(var(--vscode-font-size) * 1.4)',
+                                color: 'var(--vscode-button-background)',
+                                marginLeft: 'var(--bk-spacing-2)',
+                                verticalAlign: 'middle',
+                            }}
+                        />
+                        <Badge
+                            variant="info"
+                            size="sm"
+                            style={{
+                                marginLeft: 'var(--bk-spacing-2)',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            New
+                        </Badge>
+                    </Heading>
+                    <Paragraph
+                        style={{
+                            color: 'var(--vscode-descriptionForeground)',
+                            fontSize: 'calc(var(--vscode-font-size) * 1.1)',
+                            maxWidth: '720px',
+                            margin: '0 auto',
+                        }}
+                    >
+                        Baukasten ships with an agent skill so coding assistants generate accurate
+                        Baukasten UI out of the box — correct imports, real props, real defaults. No
+                        more invented APIs.
+                    </Paragraph>
+                </div>
+
+                <div
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+                        gap: 'var(--bk-spacing-6)',
+                        alignItems: 'stretch',
+                    }}
+                >
+                    <div
+                        style={{
+                            backgroundColor: 'var(--vscode-editor-background)',
+                            border: '1px solid var(--vscode-panel-border)',
+                            borderRadius: 'var(--bk-radius-md)',
+                            padding: 'var(--bk-spacing-7)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--bk-spacing-4)',
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 'var(--bk-gap-md)',
+                            }}
+                        >
+                            <Icon
+                                name="hubot"
+                                style={{
+                                    fontSize: '32px',
+                                    color: 'var(--vscode-button-background)',
+                                }}
+                            />
+                            <Heading
+                                level={3}
+                                style={{
+                                    margin: 0,
+                                    fontSize: 'calc(var(--vscode-font-size) * 1.2)',
+                                    fontWeight: 600,
+                                }}
+                            >
+                                Built-in Agent skill
+                            </Heading>
+                        </div>
+                        <Paragraph
+                            style={{
+                                color: 'var(--vscode-descriptionForeground)',
+                                lineHeight: 1.7,
+                                margin: 0,
+                                fontSize: 'calc(var(--vscode-font-size) * 0.95)',
+                            }}
+                        >
+                            The <code>write-baukasten</code> skill loads automatically whenever your
+                            coding agent sees an import from <code>baukasten-ui</code>. It carries a
+                            full reference for every component — props, defaults, variants,
+                            patterns, and platform-specific setup — audited against the source.
+                        </Paragraph>
+                        <ul
+                            style={{
+                                listStyle: 'none',
+                                padding: 0,
+                                margin: 0,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 'var(--bk-spacing-2)',
+                            }}
+                        >
+                            {[
+                                'Accurate, source-audited prop tables',
+                                'Knows the core / extra split and CSS setup',
+                                'Steers the assistant away from VSCode-only hacks',
+                                'No setup — just install baukasten-ui',
+                            ].map((line) => (
+                                <li
+                                    key={line}
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'flex-start',
+                                        gap: 'var(--bk-gap-sm)',
+                                        color: 'var(--vscode-foreground)',
+                                        fontSize: 'calc(var(--vscode-font-size) * 0.95)',
+                                    }}
+                                >
+                                    <Icon
+                                        name="check"
+                                        style={{
+                                            fontSize: '16px',
+                                            marginTop: '3px',
+                                            color: 'var(--vscode-button-background)',
+                                            flexShrink: 0,
+                                        }}
+                                    />
+                                    <Text>{line}</Text>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div
+                        style={{
+                            backgroundColor:
+                                'var(--vscode-terminal-background, var(--vscode-editor-background))',
+                            border: '1px solid var(--vscode-panel-border)',
+                            borderRadius: 'var(--bk-radius-md)',
+                            overflow: 'hidden',
+                            display: 'flex',
+                            flexDirection: 'column',
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 'var(--bk-gap-sm)',
+                                padding: 'var(--bk-padding-sm) var(--bk-padding-md)',
+                                backgroundColor:
+                                    'var(--vscode-titleBar-activeBackground, var(--vscode-sideBar-background))',
+                                borderBottom: '1px solid var(--vscode-panel-border)',
+                            }}
+                        >
+                            <span
+                                style={{
+                                    width: 10,
+                                    height: 10,
+                                    borderRadius: '50%',
+                                    backgroundColor: '#ff5f57',
+                                }}
+                            />
+                            <span
+                                style={{
+                                    width: 10,
+                                    height: 10,
+                                    borderRadius: '50%',
+                                    backgroundColor: '#febc2e',
+                                }}
+                            />
+                            <span
+                                style={{
+                                    width: 10,
+                                    height: 10,
+                                    borderRadius: '50%',
+                                    backgroundColor: '#28c840',
+                                }}
+                            />
+                            <Text
+                                size="xs"
+                                color="muted"
+                                style={{ marginLeft: 'var(--bk-spacing-2)' }}
+                            >
+                                claude — baukasten
+                            </Text>
+                        </div>
+                        <pre
+                            style={{
+                                margin: 0,
+                                padding: 'var(--bk-padding-md)',
+                                fontFamily:
+                                    'var(--vscode-editor-font-family, ui-monospace, "SF Mono", Menlo, Consolas, monospace)',
+                                fontSize: '12px',
+                                lineHeight: 1.55,
+                                color: 'var(--vscode-terminal-foreground, var(--vscode-foreground))',
+                                overflowX: 'auto',
+                                whiteSpace: 'pre',
+                                flex: 1,
+                            }}
+                        >
+                            {`❯ Using baukasten, I would like to create a domain
+  specific application, that will run as a VSCode
+  extension.
+  ⎿  ⧉ Selected 1 lines from package.json in Visual Studio Code
+
+⏺ Happy to help scaffold that. Before I start, let
+  me read baukasten skill.
+
+⏺ Skill(write-baukasten)
+  ⎿  Successfully loaded skill
+
+⏺ What domain/purpose should this VSCode extension serve?`}
+                        </pre>
+                    </div>
                 </div>
             </div>
         </PageLayout>

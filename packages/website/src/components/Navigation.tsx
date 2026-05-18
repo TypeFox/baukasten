@@ -47,6 +47,7 @@ const extraComponents = [
     { name: 'SplitPane', path: '/components/splitpane' },
     { name: 'StatusBar', path: '/components/statusbar' },
     { name: 'Tabs', path: '/components/tabs' },
+    { name: 'Tree', path: '/components/tree' },
 ];
 
 const foundations = [

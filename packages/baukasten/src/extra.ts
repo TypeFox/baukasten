@@ -94,3 +94,13 @@ export type { HeroProps } from './components/Hero';
 
 export { Avatar } from './components/Avatar';
 export type { AvatarProps, AvatarShape } from './components/Avatar';
+
+// ─── Tree ───────────────────────────────────────────────────────────────────
+
+export { Tree } from './components/Tree';
+export type {
+    TreeProps,
+    TreeNodeData,
+    TreeEdgeStyle,
+    ExpandIconRenderProps,
+} from './components/Tree';
