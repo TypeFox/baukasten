@@ -24,7 +24,9 @@
         "lint:fix": "npm run lint --workspace=packages/baukasten -- --fix",
         "test": "npm run test --workspaces --if-present",
         "format": "prettier --write .",
-        "format:check": "prettier --check ."
+        "format:check": "prettier --check .",
+        "example:electron": "npm run dev --workspace=packages/electron-demo",
+        "build:electron": "npm run build --workspace=packages/electron-demo"
     },
     "devDependencies": {
         "@storybook/react-vite": "^8.6.15",
