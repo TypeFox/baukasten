@@ -54,6 +54,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// ─── Tree-mutation helpers (module-scope so stories can use them with stable
+//     references inside useCallback) ───────────────────────────────────────────
+
+function insertChild(tree: TreeNodeData[], parentId: string, child: TreeNodeData): TreeNodeData[] {
+    return tree.map((n) => {
+        if (n.id === parentId) {
+            return { ...n, children: [...(n.children ?? []), child] };
+        }
+        if (n.children) {
+            return { ...n, children: insertChild(n.children, parentId, child) };
+        }
+        return n;
+    });
+}
+
+function removeNode(tree: TreeNodeData[], targetId: string): TreeNodeData[] {
+    return tree
+        .filter((n) => n.id !== targetId)
+        .map((n) => (n.children ? { ...n, children: removeNode(n.children, targetId) } : n));
+}
+
 // ─── Sample data ─────────────────────────────────────────────────────────────
 
 const fileTreeNodes: TreeNodeData[] = [
@@ -628,30 +649,6 @@ export const WithActionButtons: Story = {
                 'project/src',
                 'project/src/components',
             ]);
-
-            // Deep-insert a child node under a given parent id
-            const insertChild = (
-                tree: TreeNodeData[],
-                parentId: string,
-                child: TreeNodeData,
-            ): TreeNodeData[] =>
-                tree.map((n) => {
-                    if (n.id === parentId) {
-                        return { ...n, children: [...(n.children ?? []), child] };
-                    }
-                    if (n.children) {
-                        return { ...n, children: insertChild(n.children, parentId, child) };
-                    }
-                    return n;
-                });
-
-            // Deep-remove a node by id
-            const removeNode = (tree: TreeNodeData[], targetId: string): TreeNodeData[] =>
-                tree
-                    .filter((n) => n.id !== targetId)
-                    .map((n) =>
-                        n.children ? { ...n, children: removeNode(n.children, targetId) } : n,
-                    );
 
             const handleAddFolder = useCallback((parentId: string) => {
                 const id = `folder-${++nextId}`;

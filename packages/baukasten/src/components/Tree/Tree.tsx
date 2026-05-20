@@ -239,7 +239,10 @@ export const Tree: React.FC<TreeProps> = ({
     const [internalExpanded, setInternalExpanded] = useState<Set<string>>(
         () => new Set(defaultExpandedKeys),
     );
-    const expandedKeys = isExpandControlled ? new Set(controlledExpandedKeys) : internalExpanded;
+    const expandedKeys = useMemo(
+        () => (isExpandControlled ? new Set(controlledExpandedKeys) : internalExpanded),
+        [isExpandControlled, controlledExpandedKeys, internalExpanded],
+    );
 
     const toggleExpand = useCallback(
         (key: string, node: TreeNodeData) => {
