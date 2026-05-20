@@ -10,17 +10,21 @@ export const typographyTokens = `
   :root {
     /* ========================================================================
      * FONT SIZES
+     * The scale is anchored to the host UI font size — --vscode-font-size in
+     * VS Code, --theia-font-size in Theia — so it tracks whatever size the
+     * user configured. The fallback (0.8125rem / 13px) is used in standalone
+     * web. Every other step is a fixed pixel offset from the md anchor.
      * ======================================================================== */
-    --bk-font-size-xs: 0.6875rem;  /* 11px */
-    --bk-font-size-sm: 0.75rem;    /* 12px */
-    --bk-font-size-md: 0.8125rem;  /* 13px */
-    --bk-font-size-base: 0.875rem; /* 14px */
-    --bk-font-size-lg: 1rem;       /* 16px */
-    --bk-font-size-xl: 1.125rem;   /* 18px */
-    --bk-font-size-2xl: 1.25rem;   /* 20px */
-    --bk-font-size-3xl: 1.5rem;    /* 24px */
-    --bk-font-size-4xl: 1.875rem;  /* 30px */
-    --bk-font-size-5xl: 2.25rem;   /* 36px */
+    --bk-font-size-md: var(--vscode-font-size, 0.8125rem); /* host UI font size; 13px fallback */
+    --bk-font-size-xs: calc(var(--bk-font-size-md) - 2px);   /* 11px default */
+    --bk-font-size-sm: calc(var(--bk-font-size-md) - 1px);   /* 12px default */
+    --bk-font-size-base: calc(var(--bk-font-size-md) + 1px); /* 14px default */
+    --bk-font-size-lg: calc(var(--bk-font-size-md) + 3px);   /* 16px default */
+    --bk-font-size-xl: calc(var(--bk-font-size-md) + 5px);   /* 18px default */
+    --bk-font-size-2xl: calc(var(--bk-font-size-md) + 7px);  /* 20px default */
+    --bk-font-size-3xl: calc(var(--bk-font-size-md) + 11px); /* 24px default */
+    --bk-font-size-4xl: calc(var(--bk-font-size-md) + 17px); /* 30px default */
+    --bk-font-size-5xl: calc(var(--bk-font-size-md) + 23px); /* 36px default */
 
     /* Hero typography - for large, impactful headers */
     --bk-font-size-hero: 3.5rem;         /* 56px */
