@@ -150,9 +150,7 @@ export const TreeNodeComponent: React.FC<TreeNodeComponentProps> = ({
     // connector "stands in" for the missing chevron, leaving the same row
     // gap before the icon that a chevron row has.
     const hasSpacerOnly = !customExpandIcon && !hasChildren;
-    const branchWidth = hasSpacerOnly
-        ? `calc(${branchWidthPx}px + 1em)`
-        : `${branchWidthPx}px`;
+    const branchWidth = hasSpacerOnly ? `calc(${branchWidthPx}px + 1em)` : `${branchWidthPx}px`;
 
     // ── CSS custom properties for edge positioning ──────────────────────
     const edgeVars: React.CSSProperties = showEdges

@@ -141,7 +141,11 @@ const settingsNodes: TreeNodeData[] = [
                 id: 'general/theme',
                 label: 'Theme',
                 icon: <Icon name="symbol-color" />,
-                badge: <Badge variant="info" size="sm">New</Badge>,
+                badge: (
+                    <Badge variant="info" size="sm">
+                        New
+                    </Badge>
+                ),
             },
             {
                 id: 'general/font',
@@ -192,7 +196,11 @@ const settingsNodes: TreeNodeData[] = [
         id: 'extensions',
         label: 'Extensions',
         icon: <Icon name="extensions" />,
-        badge: <Badge variant="default" size="sm">12</Badge>,
+        badge: (
+            <Badge variant="default" size="sm">
+                12
+            </Badge>
+        ),
         children: [
             { id: 'ext/eslint', label: 'ESLint', icon: <Icon name="check" /> },
             { id: 'ext/prettier', label: 'Prettier', icon: <Icon name="check" /> },
@@ -200,7 +208,11 @@ const settingsNodes: TreeNodeData[] = [
                 id: 'ext/gitlens',
                 label: 'GitLens',
                 icon: <Icon name="git-merge" />,
-                badge: <Badge variant="warning" size="sm">Update</Badge>,
+                badge: (
+                    <Badge variant="warning" size="sm">
+                        Update
+                    </Badge>
+                ),
             },
         ],
     },
@@ -369,11 +381,18 @@ export const Controlled: Story = {
                     style={{ width: '300px' }}
                 />
                 <div style={{ minWidth: '200px' }}>
-                    <Heading level={5} marginBottom>State</Heading>
+                    <Heading level={5} marginBottom>
+                        State
+                    </Heading>
                     <Text size="sm" color="muted" block>
                         Selected: {selectedKey ?? '(none)'}
                     </Text>
-                    <Text size="sm" color="muted" block style={{ marginTop: 'var(--bk-spacing-2)' }}>
+                    <Text
+                        size="sm"
+                        color="muted"
+                        block
+                        style={{ marginTop: 'var(--bk-spacing-2)' }}
+                    >
                         Expanded: {expandedKeys.length > 0 ? expandedKeys.join(', ') : '(none)'}
                     </Text>
                 </div>
@@ -433,8 +452,16 @@ export const Sizes: Story = {
                                     label: 'Root',
                                     icon: <Icon name="folder" />,
                                     children: [
-                                        { id: `${size}-a`, label: 'Child A', icon: <Icon name="file" /> },
-                                        { id: `${size}-b`, label: 'Child B', icon: <Icon name="file" /> },
+                                        {
+                                            id: `${size}-a`,
+                                            label: 'Child A',
+                                            icon: <Icon name="file" />,
+                                        },
+                                        {
+                                            id: `${size}-b`,
+                                            label: 'Child B',
+                                            icon: <Icon name="file" />,
+                                        },
                                     ],
                                 },
                             ]}
@@ -656,7 +683,7 @@ export const WithActionButtons: Story = {
             // Recursively attach badge actions to every folder node
             const attachActions = (tree: TreeNodeData[]): TreeNodeData[] =>
                 tree.map((n) => {
-                    const isFolder = !!(n.children);
+                    const isFolder = !!n.children;
                     const patched: TreeNodeData = {
                         ...n,
                         badge: isFolder ? (
@@ -719,8 +746,8 @@ export const Showcase: Story = {
                     Tree Component Showcase
                 </Heading>
                 <Paragraph size="base" color="muted">
-                    A hierarchical tree view with expandable nodes, guide lines, icons, badges,
-                    and keyboard navigation.
+                    A hierarchical tree view with expandable nodes, guide lines, icons, badges, and
+                    keyboard navigation.
                 </Paragraph>
             </div>
 

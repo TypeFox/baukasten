@@ -73,7 +73,8 @@ const treeProps: PropDefinition[] = [
         name: 'expandOnClick',
         type: 'boolean',
         default: 'true',
-        description: 'If true, clicking the whole row toggles expansion. If false, only the icon does.',
+        description:
+            'If true, clicking the whole row toggles expansion. If false, only the icon does.',
     },
     {
         name: 'expandIcon',
@@ -129,9 +130,21 @@ const fileTreeNodes: TreeNodeData[] = [
                 label: 'components',
                 icon: <Icon name="folder" />,
                 children: [
-                    { id: 'src/components/Button.tsx', label: 'Button.tsx', icon: <Icon name="file" /> },
-                    { id: 'src/components/Input.tsx', label: 'Input.tsx', icon: <Icon name="file" /> },
-                    { id: 'src/components/Modal.tsx', label: 'Modal.tsx', icon: <Icon name="file" /> },
+                    {
+                        id: 'src/components/Button.tsx',
+                        label: 'Button.tsx',
+                        icon: <Icon name="file" />,
+                    },
+                    {
+                        id: 'src/components/Input.tsx',
+                        label: 'Input.tsx',
+                        icon: <Icon name="file" />,
+                    },
+                    {
+                        id: 'src/components/Modal.tsx',
+                        label: 'Modal.tsx',
+                        icon: <Icon name="file" />,
+                    },
                 ],
             },
             {
@@ -140,7 +153,11 @@ const fileTreeNodes: TreeNodeData[] = [
                 icon: <Icon name="folder" />,
                 children: [
                     { id: 'src/styles/tokens.ts', label: 'tokens.ts', icon: <Icon name="file" /> },
-                    { id: 'src/styles/global.css', label: 'global.css', icon: <Icon name="file" /> },
+                    {
+                        id: 'src/styles/global.css',
+                        label: 'global.css',
+                        icon: <Icon name="file" />,
+                    },
                 ],
             },
             { id: 'src/index.ts', label: 'index.ts', icon: <Icon name="file" /> },
@@ -169,19 +186,27 @@ function EdgeStyleExample() {
             }}
         >
             <div>
-                <Text size="sm" color="muted">solid</Text>
+                <Text size="sm" color="muted">
+                    solid
+                </Text>
                 <Tree nodes={fileTreeNodes} defaultExpandedKeys={['src']} edgeStyle="solid" />
             </div>
             <div>
-                <Text size="sm" color="muted">dashed</Text>
+                <Text size="sm" color="muted">
+                    dashed
+                </Text>
                 <Tree nodes={fileTreeNodes} defaultExpandedKeys={['src']} edgeStyle="dashed" />
             </div>
             <div>
-                <Text size="sm" color="muted">dotted</Text>
+                <Text size="sm" color="muted">
+                    dotted
+                </Text>
                 <Tree nodes={fileTreeNodes} defaultExpandedKeys={['src']} edgeStyle="dotted" />
             </div>
             <div>
-                <Text size="sm" color="muted">none (default)</Text>
+                <Text size="sm" color="muted">
+                    none (default)
+                </Text>
                 <Tree nodes={fileTreeNodes} defaultExpandedKeys={['src']} edgeStyle="none" />
             </div>
         </div>
@@ -193,7 +218,11 @@ const issueTreeNodes: TreeNodeData[] = [
         id: 'errors',
         label: 'Errors',
         icon: <Icon name="error" color="var(--bk-color-danger)" />,
-        badge: <Badge variant="error" size="sm">3</Badge>,
+        badge: (
+            <Badge variant="error" size="sm">
+                3
+            </Badge>
+        ),
         children: [
             { id: 'err-1', label: 'Cannot read property of undefined', icon: <Icon name="bug" /> },
             { id: 'err-2', label: 'Network request failed', icon: <Icon name="bug" /> },
@@ -204,7 +233,11 @@ const issueTreeNodes: TreeNodeData[] = [
         id: 'warnings',
         label: 'Warnings',
         icon: <Icon name="warning" color="var(--bk-color-warning)" />,
-        badge: <Badge variant="warning" size="sm">2</Badge>,
+        badge: (
+            <Badge variant="warning" size="sm">
+                2
+            </Badge>
+        ),
         children: [
             { id: 'warn-1', label: 'Deprecated API usage', icon: <Icon name="alert" /> },
             { id: 'warn-2', label: 'Missing dependency', icon: <Icon name="alert" /> },
@@ -214,7 +247,11 @@ const issueTreeNodes: TreeNodeData[] = [
         id: 'info',
         label: 'Info',
         icon: <Icon name="info" color="var(--bk-color-info)" />,
-        badge: <Badge variant="info" size="sm">5</Badge>,
+        badge: (
+            <Badge variant="info" size="sm">
+                5
+            </Badge>
+        ),
         children: [],
     },
     {
@@ -240,8 +277,12 @@ function ControlledExample() {
     return (
         <div style={{ width: '100%', maxWidth: 420 }}>
             <div style={{ marginBottom: 'var(--bk-spacing-3)' }}>
-                <Text size="sm" color="muted">Selected: </Text>
-                <Text size="sm" weight="semibold">{selected ?? '(none)'}</Text>
+                <Text size="sm" color="muted">
+                    Selected:{' '}
+                </Text>
+                <Text size="sm" weight="semibold">
+                    {selected ?? '(none)'}
+                </Text>
             </div>
             <Tree
                 nodes={fileTreeNodes}

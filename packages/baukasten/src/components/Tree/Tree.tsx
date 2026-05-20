@@ -157,10 +157,7 @@ export const useTreeContext = () => useContext(TreeContext);
 /**
  * Collect all node IDs in depth-first order (for keyboard navigation).
  */
-function flattenVisibleIds(
-    nodes: TreeNodeData[],
-    expandedKeys: Set<string>,
-): string[] {
+function flattenVisibleIds(nodes: TreeNodeData[], expandedKeys: Set<string>): string[] {
     const result: string[] = [];
     const walk = (list: TreeNodeData[]) => {
         for (const node of list) {
@@ -242,9 +239,7 @@ export const Tree: React.FC<TreeProps> = ({
     const [internalExpanded, setInternalExpanded] = useState<Set<string>>(
         () => new Set(defaultExpandedKeys),
     );
-    const expandedKeys = isExpandControlled
-        ? new Set(controlledExpandedKeys)
-        : internalExpanded;
+    const expandedKeys = isExpandControlled ? new Set(controlledExpandedKeys) : internalExpanded;
 
     const toggleExpand = useCallback(
         (key: string, node: TreeNodeData) => {
@@ -302,8 +297,7 @@ export const Tree: React.FC<TreeProps> = ({
             const visibleIds = flattenVisibleIds(nodes, expandedKeys);
             if (visibleIds.length === 0) return;
 
-            const currentId =
-                document.activeElement?.getAttribute('data-tree-node-id') ?? null;
+            const currentId = document.activeElement?.getAttribute('data-tree-node-id') ?? null;
             const currentIndex = currentId ? visibleIds.indexOf(currentId) : -1;
 
             const focusNode = (id: string) => {
@@ -314,15 +308,13 @@ export const Tree: React.FC<TreeProps> = ({
             switch (e.key) {
                 case 'ArrowDown': {
                     e.preventDefault();
-                    const nextIdx =
-                        currentIndex < visibleIds.length - 1 ? currentIndex + 1 : 0;
+                    const nextIdx = currentIndex < visibleIds.length - 1 ? currentIndex + 1 : 0;
                     focusNode(visibleIds[nextIdx]);
                     break;
                 }
                 case 'ArrowUp': {
                     e.preventDefault();
-                    const prevIdx =
-                        currentIndex > 0 ? currentIndex - 1 : visibleIds.length - 1;
+                    const prevIdx = currentIndex > 0 ? currentIndex - 1 : visibleIds.length - 1;
                     focusNode(visibleIds[prevIdx]);
                     break;
                 }
