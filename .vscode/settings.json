@@ -37,5 +37,13 @@
     "npm.enableScriptExplorer": true,
 
     // Extension recommendations
-    "extensions.ignoreRecommendations": false
+    "extensions.ignoreRecommendations": false,
+
+    // Enforce Prettier for TypeScript files (overrides any user-level formatter settings)
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

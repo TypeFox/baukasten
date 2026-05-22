@@ -1,4 +1,11 @@
-import React, { useState } from 'react';
+import React, {
+    useState,
+    useRef,
+    useEffect,
+    useImperativeHandle,
+    forwardRef,
+    useCallback,
+} from 'react';
 import {
     useReactTable,
     getCoreRowModel,
@@ -15,6 +22,7 @@ import {
     type Header,
     type Cell,
 } from '@tanstack/react-table';
+import { useVirtualizer } from '@tanstack/react-virtual';
 import { type Size } from '../../styles';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
@@ -22,6 +30,12 @@ import { Input } from '../Input';
 import { Label } from '../Label';
 import { Select } from '../Select';
 import { Spinner } from '../Spinner';
+import { useDataTableData } from './useDataTableData';
+import type {
+    AsyncTransactionsFlushedEvent,
+    DataTableRef,
+    DataTableTransaction,
+} from './DataTable.types';
 import * as styles from './DataTable.css';
 
 /**
@@ -39,9 +53,33 @@ export type DataTableColumnAlign = 'left' | 'center' | 'right';
  */
 export interface DataTableProps<TData> {
     /**
-     * Data array to display
+     * Data array to display (controlled mode).
+     * When provided, the table is in controlled mode and `initialData` is ignored.
      */
-    data: TData[];
+    data?: TData[];
+
+    /**
+     * Initial data for managed mode.
+     * When `data` prop is not provided, the table manages its own data state
+     * and exposes a transaction API via ref.
+     */
+    initialData?: TData[];
+
+    /**
+     * Called after data changes from transactions or setData (managed mode only).
+     */
+    onDataChange?: (data: TData[], tx?: DataTableTransaction<TData>) => void;
+
+    /**
+     * Called after a batch of async transactions is flushed (managed mode only).
+     */
+    onAsyncTransactionsFlushed?: (event: AsyncTransactionsFlushedEvent<TData>) => void;
+
+    /**
+     * Scheduler function for deferring async transaction flushes.
+     * @default requestAnimationFrame
+     */
+    asyncScheduler?: (callback: () => void) => void;
 
     /**
      * Column definitions
@@ -250,7 +288,7 @@ export interface DataTableProps<TData> {
     /**
      * Row ID accessor (for selection state)
      */
-    getRowId?: (row: TData, index: number) => string;
+    getRowId?: (row: TData, index?: number) => string;
 
     /**
      * Callback when a row is clicked
@@ -271,6 +309,29 @@ export interface DataTableProps<TData> {
      * Accessible label for the table
      */
     'aria-label'?: string;
+
+    /**
+     * Disable row virtualization. By default, rows are virtualized for performance
+     * with large datasets when the table has a constrained scroll area (`maxHeight` or `fillHeight`).
+     * Set to `true` to render all rows in the DOM even when scrollable.
+     * Virtualization is also automatically disabled when pagination is enabled.
+     * @default false
+     */
+    disableRowVirtualization?: boolean;
+
+    /**
+     * Estimated row height in pixels used by the virtualizer for initial layout.
+     * Rows are measured dynamically after render, so this is only an initial estimate.
+     * @default 35
+     */
+    estimatedRowHeight?: number;
+
+    /**
+     * Number of rows to render outside the visible scroll area (overscan).
+     * Higher values reduce flicker during fast scrolling but render more DOM nodes.
+     * @default 5
+     */
+    overscan?: number;
 }
 
 /**
@@ -279,7 +340,11 @@ export interface DataTableProps<TData> {
  * A powerful, feature-rich table component built on TanStack Table (React Table v8).
  * Supports sorting, pagination, row selection, column resizing, and more.
  *
- * @example
+ * Supports two modes:
+ * - **Controlled mode**: Pass `data` prop. You manage data externally.
+ * - **Managed mode**: Pass `initialData` prop. Use `ref.applyTransaction()` to mutate data.
+ *
+ * @example Controlled mode
  * ```tsx
  * const columns = [
  *   { accessorKey: 'name', header: 'Name' },
@@ -294,51 +359,139 @@ export interface DataTableProps<TData> {
  *   enablePagination
  * />
  * ```
+ *
+ * @example Managed mode with transactions
+ * ```tsx
+ * const tableRef = useRef<DataTableRef<User>>(null);
+ *
+ * tableRef.current?.applyTransaction({
+ *   add: [{ id: '4', name: 'Alice' }],
+ *   remove: [{ id: '1' }],
+ * });
+ *
+ * <DataTable
+ *   ref={tableRef}
+ *   initialData={users}
+ *   columns={columns}
+ *   getRowId={(row) => row.id}
+ * />
+ * ```
  */
-export function DataTable<TData>({
-    data,
-    columns,
-    variant = 'default',
-    size = 'md',
-    bordered = true,
-    enableRowSelection = false,
-    enableMultiRowSelection = true,
-    rowSelection: controlledRowSelection,
-    onRowSelectionChange,
-    enableSorting = false,
-    enableMultiSort = false,
-    sorting: controlledSorting,
-    onSortingChange,
-    enablePagination = false,
-    pageSizeOptions = [10, 20, 50, 100],
-    initialPageSize = 10,
-    pagination: controlledPagination,
-    onPaginationChange,
-    rowCount,
-    manualPagination = false,
-    enableColumnResizing = false,
-    columnResizeMode = 'onChange',
-    enableGlobalFilter = false,
-    globalFilter: controlledGlobalFilter,
-    onGlobalFilterChange,
-    globalFilterPlaceholder = 'Search...',
-    renderGlobalFilter,
-    stickyHeader = false,
-    maxHeight,
-    fillHeight = false,
-    loading = false,
-    loadingIndicator = 'line',
-    loadingComponent,
-    emptyText = 'No data available',
-    emptyComponent,
-    getRowId,
-    onRowClick,
-    className,
-    style,
-    'aria-label': ariaLabel,
-}: DataTableProps<TData>) {
-    // Ensure data is always an array to prevent TanStack Table errors
-    const safeData = data ?? [];
+function DataTableInner<TData>(
+    {
+        data: controlledData,
+        initialData,
+        onDataChange,
+        onAsyncTransactionsFlushed,
+        asyncScheduler,
+        columns,
+        variant = 'default',
+        size = 'md',
+        bordered = true,
+        enableRowSelection = false,
+        enableMultiRowSelection = true,
+        rowSelection: controlledRowSelection,
+        onRowSelectionChange,
+        enableSorting = false,
+        enableMultiSort = false,
+        sorting: controlledSorting,
+        onSortingChange,
+        enablePagination = false,
+        pageSizeOptions = [10, 20, 50, 100],
+        initialPageSize = 10,
+        pagination: controlledPagination,
+        onPaginationChange,
+        rowCount,
+        manualPagination = false,
+        enableColumnResizing = false,
+        columnResizeMode = 'onChange',
+        enableGlobalFilter = false,
+        globalFilter: controlledGlobalFilter,
+        onGlobalFilterChange,
+        globalFilterPlaceholder = 'Search...',
+        renderGlobalFilter,
+        stickyHeader = false,
+        maxHeight,
+        fillHeight = false,
+        loading = false,
+        loadingIndicator = 'line',
+        loadingComponent,
+        emptyText = 'No data available',
+        emptyComponent,
+        getRowId,
+        onRowClick,
+        className,
+        style,
+        'aria-label': ariaLabel,
+        disableRowVirtualization = false,
+        estimatedRowHeight = 35,
+        overscan = 5,
+    }: DataTableProps<TData>,
+    ref: React.ForwardedRef<DataTableRef<TData>>,
+) {
+    // Determine mode: controlled (data prop provided) vs managed (initialData)
+    const isControlled = controlledData !== undefined;
+
+    // Default getRowId falls back to index-based
+    const resolvedGetRowId = getRowId ?? ((_row: TData, index?: number) => String(index));
+
+    // Internal managed data (only active when not controlled)
+    const managedData = useDataTableData<TData>({
+        initialData: initialData ?? [],
+        getRowId: resolvedGetRowId,
+        onDataChange,
+        onAsyncTransactionsFlushed,
+        asyncScheduler,
+    });
+
+    // Resolve final data source
+    const safeData = isControlled ? (controlledData ?? []) : managedData.data;
+
+    // Store table ref for imperative handle
+    const tableInstanceRef = useRef<ReturnType<typeof useReactTable<TData>> | null>(null);
+
+    // Expose imperative handle via ref
+    useImperativeHandle(
+        ref,
+        () => ({
+            applyTransaction: ((tx: DataTableTransaction<TData>, undoable?: boolean) => {
+                if (isControlled) {
+                    throw new Error(
+                        'DataTable: applyTransaction called in controlled mode. ' +
+                            'Use the useDataTableData hook externally instead, or switch to managed mode (initialData prop).',
+                    );
+                }
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                return (managedData.applyTransaction as any)(tx, undoable);
+            }) as DataTableRef<TData>['applyTransaction'],
+            applyTransactionAsync: (tx, undoable) => {
+                if (isControlled) {
+                    throw new Error(
+                        'DataTable: applyTransactionAsync called in controlled mode. ' +
+                            'Use the useDataTableData hook externally instead, or switch to managed mode (initialData prop).',
+                    );
+                }
+                return managedData.applyTransactionAsync(tx, undoable);
+            },
+            flushAsyncTransactions: () => managedData.flushAsyncTransactions(),
+            getRowData: () => (isControlled ? (controlledData ?? []) : managedData.getRowData()),
+            getSelectedRows: () => {
+                const tableInst = tableInstanceRef.current;
+                if (!tableInst) return [];
+                return tableInst.getSelectedRowModel().rows.map((r) => r.original);
+            },
+            setData: (newData) => {
+                if (isControlled) {
+                    throw new Error(
+                        'DataTable: setData called in controlled mode. ' +
+                            'Update the data prop externally instead, or switch to managed mode (initialData prop).',
+                    );
+                }
+                managedData.setData(newData);
+            },
+        }),
+        [controlledData, isControlled, managedData],
+    );
 
     // Internal state for uncontrolled mode
     const [internalSorting, setInternalSorting] = useState<SortingState>([]);
@@ -397,10 +550,13 @@ export function DataTable<TData>({
         getFilteredRowModel: enableGlobalFilter ? getFilteredRowModel() : undefined,
         manualPagination,
         rowCount,
-        getRowId,
+        getRowId: resolvedGetRowId,
         columnResizeMode,
         enableColumnResizing,
     });
+
+    // Store table instance for imperative handle (getSelectedRows)
+    tableInstanceRef.current = table;
 
     // Pagination info (only computed when pagination is enabled)
     const paginationState = table.getState().pagination;
@@ -495,6 +651,40 @@ export function DataTable<TData>({
     const rows = table.getRowModel().rows;
     const isEmpty = rows.length === 0 && !loading;
 
+    // Virtualization: enabled by default when the table has a constrained scroll area.
+    // Requires maxHeight or fillHeight to define the viewport. Disabled when paginating.
+    const hasConstrainedHeight = !!maxHeight || fillHeight;
+    const isVirtualized = !disableRowVirtualization && !enablePagination && hasConstrainedHeight;
+    const tableContainerRef = useRef<HTMLDivElement>(null);
+
+    const hasWarnedVirtualizationRef = useRef(false);
+    useEffect(() => {
+        if (
+            !disableRowVirtualization &&
+            !enablePagination &&
+            !hasConstrainedHeight &&
+            !hasWarnedVirtualizationRef.current
+        ) {
+            hasWarnedVirtualizationRef.current = true;
+            console.warn(
+                'DataTable: Row virtualization is enabled by default but requires a constrained scroll area. ' +
+                    'Set `maxHeight` or `fillHeight` to enable virtualization, ' +
+                    'or set `disableRowVirtualization` to suppress this warning.',
+            );
+        }
+    }, [disableRowVirtualization, enablePagination, hasConstrainedHeight]);
+
+    const rowVirtualizer = useVirtualizer({
+        count: isVirtualized ? rows.length : 0,
+        getScrollElement: () => tableContainerRef.current,
+        estimateSize: useCallback(() => estimatedRowHeight, [estimatedRowHeight]),
+        overscan,
+        enabled: isVirtualized,
+    });
+
+    const virtualRows = isVirtualized ? rowVirtualizer.getVirtualItems() : [];
+    const totalVirtualHeight = isVirtualized ? rowVirtualizer.getTotalSize() : 0;
+
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTableElement>) => {
         if (!enableRowSelection) {
             return;
@@ -537,11 +727,14 @@ export function DataTable<TData>({
         const nextRow = rows[nextIndex];
         if (nextRow) {
             table.setRowSelection({ [nextRow.id]: true });
-            onRowSelectionChange?.({ [nextRow.id]: true });
             // Scroll the newly selected row into view
-            const tableEl = e.currentTarget;
-            const rowEl = tableEl.querySelector<HTMLElement>(`tr[data-rowid="${nextRow.id}"]`);
-            rowEl?.scrollIntoView({ block: 'nearest' });
+            if (isVirtualized) {
+                rowVirtualizer.scrollToIndex(nextIndex, { align: 'auto' });
+            } else {
+                const tableEl = e.currentTarget;
+                const rowEl = tableEl.querySelector<HTMLElement>(`tr[data-rowid="${nextRow.id}"]`);
+                rowEl?.scrollIntoView({ block: 'nearest' });
+            }
         }
     };
 
@@ -583,6 +776,7 @@ export function DataTable<TData>({
 
             {/* Table container */}
             <div
+                ref={tableContainerRef}
                 className={styles.tableContainer({ bordered, fillHeight })}
                 style={{ ...containerStyle, position: 'relative' }}
             >
@@ -632,6 +826,79 @@ export function DataTable<TData>({
                                     {emptyComponent ?? emptyText}
                                 </td>
                             </tr>
+                        ) : isVirtualized ? (
+                            <>
+                                {/* Top spacer to offset virtualized rows */}
+                                {virtualRows.length > 0 && virtualRows[0].start > 0 && (
+                                    <tr aria-hidden="true">
+                                        <td
+                                            colSpan={table.getVisibleLeafColumns().length}
+                                            style={{
+                                                height: virtualRows[0].start,
+                                                padding: 0,
+                                                border: 'none',
+                                            }}
+                                        />
+                                    </tr>
+                                )}
+                                {/* Virtualized visible rows */}
+                                {virtualRows.map((virtualRow) => {
+                                    const row = rows[virtualRow.index];
+                                    return (
+                                        <tr
+                                            key={row.id}
+                                            data-rowid={row.id}
+                                            data-index={virtualRow.index}
+                                            ref={(node) => rowVirtualizer.measureElement(node)}
+                                            data-selected={row.getIsSelected() || undefined}
+                                            className={`${styles.tableRow({
+                                                variant,
+                                                selected: row.getIsSelected(),
+                                                hoverable: !!onRowClick || !!enableRowSelection,
+                                            })} ${variant === 'zebra' ? styles.zebraRow : ''}`.trim()}
+                                            onClick={(e) => {
+                                                if (enableRowSelection) {
+                                                    if (
+                                                        enableMultiRowSelection &&
+                                                        (e.ctrlKey || e.metaKey)
+                                                    ) {
+                                                        row.toggleSelected();
+                                                    } else {
+                                                        table.setRowSelection({ [row.id]: true });
+                                                    }
+                                                }
+                                                onRowClick?.(row);
+                                            }}
+                                            style={{
+                                                cursor:
+                                                    onRowClick || enableRowSelection
+                                                        ? 'pointer'
+                                                        : undefined,
+                                            }}
+                                        >
+                                            {row.getVisibleCells().map(renderCell)}
+                                        </tr>
+                                    );
+                                })}
+                                {/* Bottom spacer to maintain scroll height */}
+                                {virtualRows.length > 0 &&
+                                    (() => {
+                                        const lastItem = virtualRows[virtualRows.length - 1];
+                                        const bottomPad = totalVirtualHeight - lastItem.end;
+                                        return bottomPad > 0 ? (
+                                            <tr aria-hidden="true">
+                                                <td
+                                                    colSpan={table.getVisibleLeafColumns().length}
+                                                    style={{
+                                                        height: bottomPad,
+                                                        padding: 0,
+                                                        border: 'none',
+                                                    }}
+                                                />
+                                            </tr>
+                                        ) : null;
+                                    })()}
+                            </>
                         ) : (
                             rows.map((row) => (
                                 <tr
@@ -747,3 +1014,12 @@ export function DataTable<TData>({
         </div>
     );
 }
+
+/**
+ * DataTable component with ref forwarding for managed mode.
+ *
+ * Use `forwardRef` wrapper to preserve generic type parameter `TData`.
+ */
+export const DataTable = forwardRef(DataTableInner) as <TData>(
+    props: DataTableProps<TData> & { ref?: React.Ref<DataTableRef<TData>> },
+) => React.ReactElement | null;
