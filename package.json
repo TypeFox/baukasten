@@ -23,6 +23,9 @@
         "lint": "npm run lint --workspace=packages/baukasten",
         "lint:fix": "npm run lint --workspace=packages/baukasten -- --fix",
         "test": "npm run test --workspaces --if-present",
+        "prepare-next": "npm run prepare:next --if-present --workspaces",
+        "publish-next": "npm publish --tag next --access public --workspaces",
+        "publish-latest": "npm publish --tag latest --access public --workspaces",
         "format": "prettier --write .",
         "format:check": "prettier --check ."
     },
