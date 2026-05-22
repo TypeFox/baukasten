@@ -10,6 +10,7 @@ export const badge = recipe({
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
+        alignSelf: 'baseline',
         borderRadius: 'var(--bk-radius-full)',
         whiteSpace: 'nowrap',
         gap: 'var(--bk-gap-xs)',
