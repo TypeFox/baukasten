@@ -10,7 +10,12 @@ interface LogTableProps {
   loading?: boolean
 }
 
-export const LogTable: React.FC<LogTableProps> = ({ logs, onSelectLog, loading = false }) => {
+export const LogTable: React.FC<LogTableProps> = ({
+  logs,
+  selectedLogId,
+  onSelectLog,
+  loading = false
+}) => {
   const columns = useMemo<ColumnDef<LogEntry>[]>(
     () => [
       {
@@ -75,9 +80,14 @@ export const LogTable: React.FC<LogTableProps> = ({ logs, onSelectLog, loading =
     []
   )
 
-  const handleRowClick = (row: Row<LogEntry>) => {
+  const handleRowClick = (row: Row<LogEntry>): void => {
     onSelectLog(row.original)
   }
+
+  const rowSelection = useMemo(
+    () => (selectedLogId !== null ? { [selectedLogId]: true } : {}),
+    [selectedLogId]
+  )
 
   return (
     <DataTable
@@ -92,6 +102,9 @@ export const LogTable: React.FC<LogTableProps> = ({ logs, onSelectLog, loading =
       maxHeight="100%"
       loading={loading}
       onRowClick={handleRowClick}
+      enableRowSelection
+      getRowId={(row) => row.id}
+      rowSelection={rowSelection}
     />
   )
 }

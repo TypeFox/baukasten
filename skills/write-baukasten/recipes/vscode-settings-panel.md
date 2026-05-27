@@ -22,6 +22,7 @@ import {
     FormHelper,
     Icon,
     Input,
+    Label,
     Select,
     Slider,
 } from 'baukasten-ui/core';
@@ -89,12 +90,14 @@ export function SettingsPanel() {
 
                         <FormGroup>
                             <FieldLabel>Word Wrap</FieldLabel>
-                            <Checkbox
-                                variant="switch"
-                                checked={draft.wordWrap}
-                                onChange={(e) => update('wordWrap', e.target.checked)}
-                                label="Wrap long lines"
-                            />
+                            <Label variant="checkbox">
+                                <Checkbox
+                                    variant="switch"
+                                    checked={draft.wordWrap}
+                                    onChange={(e) => update('wordWrap', e.target.checked)}
+                                />
+                                <span>Wrap long lines</span>
+                            </Label>
                         </FormGroup>
                     </AccordionItem>
 

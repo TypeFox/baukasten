@@ -19,7 +19,7 @@ const Paragraph = ({
     <p
         style={{
             fontSize: 'var(--bk-font-size-md)',
-            color: 'var(--bk-color-text-secondary)',
+            color: 'var(--bk-color-foreground-muted)',
             margin: '0 0 var(--bk-spacing-4) 0',
             lineHeight: 'var(--bk-line-height-relaxed)',
             ...style,
@@ -97,7 +97,7 @@ export default function AIAgentsGuidePage() {
                 <ul
                     style={{
                         margin: '0 0 var(--bk-spacing-4) var(--bk-spacing-5)',
-                        color: 'var(--bk-color-text-secondary)',
+                        color: 'var(--bk-color-foreground-muted)',
                         lineHeight: 'var(--bk-line-height-relaxed)',
                         columns: 2,
                     }}

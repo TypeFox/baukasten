@@ -2,7 +2,7 @@
 
 Full prop tables and examples for every component in `baukasten-ui/core`. Components are listed in the order they appear in the source.
 
-> **Always use semantic design tokens** (`var(--bk-*)`) — never hardcode colors or sizes, never use `--vscode-*` directly. See [../reference/design-tokens.md](./design-tokens.md) for the token catalog.
+> **Always use semantic design tokens** (`var(--bk-*)`) — never hardcode colors or sizes, never use `--vscode-*` directly. See [./design-tokens.md](./design-tokens.md) for the token catalog.
 
 ---
 

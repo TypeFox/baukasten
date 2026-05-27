@@ -4,7 +4,7 @@ Full prop tables and examples for every component in `baukasten-ui/extra` (excep
 
 `baukasten-ui/extra` provides higher-level compositions that may depend on core components. May require additional peer dependencies in some cases.
 
-> **Always use semantic design tokens** (`var(--bk-*)`). See [../reference/design-tokens.md](./design-tokens.md) for the catalog.
+> **Always use semantic design tokens** (`var(--bk-*)`). See [./design-tokens.md](./design-tokens.md) for the catalog.
 
 ---
 

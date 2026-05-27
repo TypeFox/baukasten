@@ -15,7 +15,7 @@ export const typographyTokens = `
      * user configured. The fallback (0.8125rem / 13px) is used in standalone
      * web. Every other step is a fixed pixel offset from the md anchor.
      * ======================================================================== */
-    --bk-font-size-md: var(--vscode-font-size, 0.8125rem); /* host UI font size; 13px fallback */
+    --bk-font-size-md: var(--vscode-font-size, var(--theia-font-size, 0.8125rem)); /* host UI font size; 13px fallback */
     --bk-font-size-xs: calc(var(--bk-font-size-md) - 2px);   /* 11px default */
     --bk-font-size-sm: calc(var(--bk-font-size-md) - 1px);   /* 12px default */
     --bk-font-size-base: calc(var(--bk-font-size-md) + 1px); /* 14px default */
