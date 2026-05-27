@@ -72,6 +72,7 @@ const gettingStarted = [
     { name: 'Introduction', path: '/' },
     { name: 'Installation', path: '/installation' },
     { name: 'Quick Start', path: '/quickstart' },
+    { name: 'AI Integration', path: '/ai-integration' },
 ];
 
 export default function Navigation() {

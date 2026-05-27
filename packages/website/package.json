@@ -6,7 +6,7 @@
         "dev": "npm run build:search && next dev",
         "build": "npm run build:search && next build",
         "build:search": "npx tsx scripts/build-search-index.ts",
-        "start": "next start",
+        "start": "npm run dev",
         "lint": "next lint"
     },
     "dependencies": {
