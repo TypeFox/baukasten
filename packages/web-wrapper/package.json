@@ -19,6 +19,7 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
+        "prepare:next": "npm --workspaces-update false --no-git-tag-version version \"$(semver $npm_package_version)-next.$(git rev-parse --short HEAD)\"",
         "watch": "vite build --watch",
         "preview": "vite preview"
     },
