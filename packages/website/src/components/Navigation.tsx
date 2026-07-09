@@ -38,6 +38,7 @@ const extraComponents = [
     { name: 'Avatar', path: '/components/avatar' },
     { name: 'Breadcrumbs', path: '/components/breadcrumbs' },
     { name: 'ButtonGroup', path: '/components/buttongroup' },
+    { name: 'Combobox', path: '/components/combobox' },
     { name: 'ContextMenu', path: '/components/contextmenu' },
     { name: 'DataTable', path: '/components/datatable' },
     { name: 'FileUpload', path: '/components/fileupload' },

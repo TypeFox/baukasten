@@ -84,6 +84,7 @@ function getTitleFromPath(filePath: string): string {
         button: 'Button',
         buttongroup: 'ButtonGroup',
         checkbox: 'Checkbox',
+        combobox: 'Combobox',
         contextmenu: 'ContextMenu',
         datatable: 'DataTable',
         divider: 'Divider',
