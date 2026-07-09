@@ -10,6 +10,9 @@ export const comboboxContainer = recipe({
         flexDirection: 'column',
         gap: 'var(--bk-gap-xs)',
         minWidth: 'calc(var(--bk-spacing-20) * 2.5)', // 200px equivalent
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     variants: {
         fullWidth: {
@@ -54,14 +57,15 @@ const controlSizes = styleVariants({
 });
 
 /**
- * Control box - the outer, focusable, react-select-style container that
- * hosts the inline chips, the inline input, and the indicator cluster.
+ * Control box - the outer, focusable, container that hosts the inline chips, the inline input, and the indicator cluster.
  */
 export const control = recipe({
     base: {
         display: 'flex',
+
         alignItems: 'center',
-        gap: 'var(--bk-gap-sm)',
+        justifyContent: 'space-between',
+        position: 'relative',
         backgroundColor: 'var(--bk-color-input-background)',
         color: 'var(--bk-color-input-foreground)',
         border: 'var(--bk-border-width-1) solid var(--bk-color-input-border)',
@@ -69,7 +73,7 @@ export const control = recipe({
         fontFamily: 'inherit',
         cursor: 'text',
         transition: 'var(--bk-transition-colors)',
-        width: '100%',
+        flex: '1 1 0%',
 
         selectors: {
             '&:hover': {
@@ -83,6 +87,12 @@ export const control = recipe({
     },
     variants: {
         size: controlSizes,
+        fullWidth: {
+            true: {
+                width: '100%',
+            },
+            false: {},
+        },
         isOpen: {
             true: {
                 borderColor: 'var(--bk-color-input-focus-border)',
@@ -484,13 +494,6 @@ export const createOption = recipe({
         cursor: 'pointer',
         color: 'var(--bk-color-primary)',
         transition: 'var(--bk-transition-colors)',
-
-        selectors: {
-            '&::before': {
-                content: '"+"',
-                fontWeight: 'var(--bk-font-weight-bold)',
-            },
-        },
     },
     variants: {
         size: optionSizes,

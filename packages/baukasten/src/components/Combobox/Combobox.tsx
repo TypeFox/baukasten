@@ -1000,6 +1000,7 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
                 ref={refs.setReference}
                 className={styles.control({
                     size,
+                    fullWidth,
                     isOpen,
                     hasError: !!error,
                     disabled,

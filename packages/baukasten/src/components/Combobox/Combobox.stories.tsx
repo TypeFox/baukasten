@@ -911,14 +911,12 @@ export const Virtualized: Story = {
 export const FullWidth: Story = {
     args: { options: [] },
     render: () => (
-        <div style={{ width: '100%', maxWidth: '500px' }}>
-            <Combobox
-                options={languageOptions}
-                placeholder="Select a language..."
-                fullWidth
-                clearable
-            />
-        </div>
+        <Combobox
+            options={languageOptions}
+            placeholder="Select a language..."
+            fullWidth
+            clearable
+        />
     ),
     parameters: {
         layout: 'padded',
