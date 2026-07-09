@@ -210,6 +210,7 @@ Full reference: [references/extra-components.md](./references/extra-components.m
 | `Menu` / `MenuItem` / `MenuDivider` / `SubMenu`           | Menu primitives for use inside `Dropdown` or `ContextMenu`.                                                                      |
 | `ContextMenu`                                             | Right-click menu wrapper. Portal-aware.                                                                                          |
 | `ButtonGroup`                                             | Connected button group + `ButtonGroup.Dropdown` for split buttons (note: uses `content` prop, not children).                     |
+| `Combobox`                                                | Typeahead select with inline input, single/multi (discriminated union), chips, creatable, clearable, grouping, virtualization.   |
 | `FileUpload`                                              | Drag-and-drop file picker. Variants: `default` \| `primary` \| `dashed`.                                                         |
 | `Drawer` / `DrawerHeader` / `DrawerBody` / `DrawerFooter` | Slide-in panel from any edge.                                                                                                    |
 | `Accordion` / `AccordionItem`                             | Collapsible panels; optional `exclusive` mode.                                                                                   |
