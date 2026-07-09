@@ -444,6 +444,10 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
         return [];
     }, [currentValue, multiple]);
 
+    // Set for O(1) membership checks - avoids O(n*m) scans when rendering
+    // large option lists against many selected values.
+    const currentValuesSet = useMemo(() => new Set(currentValues), [currentValues]);
+
     // Flatten options (ignoring groups) for value lookups
     const allOptions = useMemo(() => {
         const flat: ComboboxOption<T>[] = [];
@@ -464,8 +468,8 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
 
     const selectedOptions = useMemo(() => {
         if (!multiple) return [];
-        return allOptions.filter((option) => currentValues.includes(option.value));
-    }, [allOptions, currentValues, multiple]);
+        return allOptions.filter((option) => currentValuesSet.has(option.value));
+    }, [allOptions, currentValuesSet, multiple]);
 
     const hasValue = multiple ? currentValues.length > 0 : selectedOption !== undefined;
 
@@ -542,21 +546,26 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
         inputRef.current?.focus();
     }, [handleOpenChange]);
 
-    // Default (case-insensitive label match) filter
-    const defaultFilterOption = useCallback((option: ComboboxOption<T>, input: string) => {
-        const text = option.label ?? String(option.value);
-        return text.toLowerCase().includes(input.toLowerCase());
-    }, []);
-    const activeFilterOption = filterOption ?? defaultFilterOption;
-
     const trimmedInput = inputValue.trim();
+    const lowerInput = inputValue.toLowerCase();
 
     // Flattened visible-item model: single source of truth for rendering,
     // keyboard navigation, virtualization, and aria-activedescendant.
-    const visibleItems = useMemo<FlatItem<T>[]>(() => {
+    // `selectableIndexes` is derived in the same pass to avoid a second full
+    // traversal of the list on every keystroke.
+    const { visibleItems, selectableIndexes } = useMemo(() => {
         const items: FlatItem<T>[] = [];
+        const selectable: number[] = [];
+
+        // Default filter lowercases the input once per pass instead of once
+        // per option (as a per-option callback would).
+        const matchesInput = filterOption
+            ? (option: ComboboxOption<T>) => filterOption(option, inputValue)
+            : (option: ComboboxOption<T>) =>
+                  (option.label ?? String(option.value)).toLowerCase().includes(lowerInput);
 
         const pushOption = (option: ComboboxOption<T>) => {
+            selectable.push(items.length);
             items.push({
                 kind: 'option',
                 option,
@@ -568,7 +577,7 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
         for (const entry of options) {
             if (isGroup(entry)) {
                 const filteredGroupOptions = inputValue
-                    ? entry.options.filter((option) => activeFilterOption(option, inputValue))
+                    ? entry.options.filter(matchesInput)
                     : entry.options;
                 if (filteredGroupOptions.length === 0) continue;
                 items.push({
@@ -578,21 +587,21 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
                 });
                 filteredGroupOptions.forEach(pushOption);
             } else {
-                if (inputValue && !activeFilterOption(entry, inputValue)) continue;
+                if (inputValue && !matchesInput(entry)) continue;
                 pushOption(entry);
             }
         }
 
         if (creatable && trimmedInput) {
+            const lowerTrimmed = trimmedInput.toLowerCase();
             const hasExactMatch = allOptions.some(
-                (option) =>
-                    (option.label ?? String(option.value)).toLowerCase() ===
-                    trimmedInput.toLowerCase(),
+                (option) => (option.label ?? String(option.value)).toLowerCase() === lowerTrimmed,
             );
             const isValid = isValidNewOption
                 ? isValidNewOption(trimmedInput, selectedOptions)
                 : true;
             if (!hasExactMatch && isValid) {
+                selectable.push(items.length);
                 items.push({
                     kind: 'create',
                     input: trimmedInput,
@@ -602,27 +611,19 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
             }
         }
 
-        return items;
+        return { visibleItems: items, selectableIndexes: selectable };
     }, [
         options,
         inputValue,
+        lowerInput,
+        filterOption,
         trimmedInput,
-        activeFilterOption,
         creatable,
         allOptions,
         isValidNewOption,
         selectedOptions,
         comboboxId,
     ]);
-
-    const selectableIndexes = useMemo(
-        () =>
-            visibleItems.reduce<number[]>((acc, item, index) => {
-                if (item.kind !== 'group-heading') acc.push(index);
-                return acc;
-            }, []),
-        [visibleItems],
-    );
 
     // Reset/clamp highlightedIndex to the first selectable item whenever the
     // visible items change (filtering, create row appearing/disappearing,
@@ -693,7 +694,7 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
             if (option.disabled) return;
 
             if (multiple) {
-                const exists = currentValues.includes(option.value);
+                const exists = currentValuesSet.has(option.value);
                 const newValues = exists
                     ? currentValues.filter((v) => v !== option.value)
                     : [...currentValues, option.value];
@@ -708,7 +709,7 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
                 closeDropdown();
             }
         },
-        [multiple, currentValues, isControlled, onChange, closeDropdown],
+        [multiple, currentValues, currentValuesSet, isControlled, onChange, closeDropdown],
     );
 
     const createOption = useCallback(
@@ -919,7 +920,7 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
 
             const option = item.option;
             const isSelected = multiple
-                ? currentValues.includes(option.value)
+                ? currentValuesSet.has(option.value)
                 : option.value === currentValue;
 
             return (
@@ -955,7 +956,7 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
             createOption,
             formatCreateLabel,
             multiple,
-            currentValues,
+            currentValuesSet,
             currentValue,
             renderOption,
             selectOption,
