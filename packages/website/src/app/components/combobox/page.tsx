@@ -108,7 +108,8 @@ const comboboxProps: PropDefinition[] = [
     {
         name: 'virtualized',
         type: 'boolean',
-        description: 'Whether to virtualize the options list. Auto-enabled above virtualizeThreshold',
+        description:
+            'Whether to virtualize the options list. Auto-enabled above virtualizeThreshold',
     },
     {
         name: 'virtualizeThreshold',
@@ -636,11 +637,7 @@ function App() {
                     >
                         <Combobox options={basicOptions} size="xs" placeholder="Extra Small" />
                         <Combobox options={basicOptions} size="sm" placeholder="Small" />
-                        <Combobox
-                            options={basicOptions}
-                            size="md"
-                            placeholder="Medium (default)"
-                        />
+                        <Combobox options={basicOptions} size="md" placeholder="Medium (default)" />
                         <Combobox options={basicOptions} size="lg" placeholder="Large" />
                         <Combobox options={basicOptions} size="xl" placeholder="Extra Large" />
                     </div>
