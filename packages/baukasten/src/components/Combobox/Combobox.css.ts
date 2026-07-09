@@ -9,7 +9,7 @@ export const comboboxContainer = recipe({
         position: 'relative',
         flexDirection: 'column',
         gap: 'var(--bk-gap-xs)',
-        minWidth: 'calc(var(--bk-spacing-20) * 2.5)', // 200px equivalent
+        minWidth: 'calc(var(--bk-spacing-20) * 2.5)',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -62,7 +62,6 @@ const controlSizes = styleVariants({
 export const control = recipe({
     base: {
         display: 'flex',
-
         alignItems: 'center',
         justifyContent: 'space-between',
         position: 'relative',
@@ -74,7 +73,7 @@ export const control = recipe({
         cursor: 'text',
         transition: 'var(--bk-transition-colors)',
         flex: '1 1 0%',
-
+        width: '100%',
         selectors: {
             '&:hover': {
                 borderColor: 'var(--bk-color-border-hover)',
@@ -87,12 +86,6 @@ export const control = recipe({
     },
     variants: {
         size: controlSizes,
-        fullWidth: {
-            true: {
-                width: '100%',
-            },
-            false: {},
-        },
         isOpen: {
             true: {
                 borderColor: 'var(--bk-color-input-focus-border)',
@@ -224,8 +217,8 @@ export const singleValue = style({
  */
 export const input = recipe({
     base: {
-        flex: '1 1 auto',
         minWidth: 'var(--bk-spacing-10)',
+        fieldSizing: 'content',
         border: 'none',
         outline: 'none',
         background: 'transparent',
@@ -285,6 +278,7 @@ export const chevronIcon = recipe({
         alignItems: 'center',
         flexShrink: 0,
         transition: 'transform var(--bk-transition-base)',
+        cursor: 'pointer',
     },
     variants: {
         isOpen: {

@@ -485,7 +485,7 @@ const MultiStory = () => {
                 multiple
                 options={languageOptions}
                 value={selected}
-                onChange={setSelected}
+                onChange={(value) => setSelected(value)}
                 placeholder="Select programming languages..."
                 clearable
             />
@@ -612,7 +612,7 @@ export const Clearable: Story = {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 'var(--bk-gap-md)',
-                minWidth: '320px',
+                width: '520px',
             }}
         >
             <div>
@@ -753,7 +753,7 @@ const CustomRenderStory = () => {
                     multiple
                     options={languageOptions}
                     value={multiValue}
-                    onChange={setMultiValue}
+                    onChange={(value) => setMultiValue(value)}
                     placeholder="Choose languages..."
                     renderChip={(option, remove) => (
                         <Tag key={String(option.value)} variant="primary">
