@@ -19,7 +19,6 @@ import { type Size } from '../../styles';
 import { Icon } from '../Icon';
 import { Tag } from '../Tag';
 import { IconButton } from '../IconButton';
-import { Spinner } from '../Spinner';
 import { usePortalRoot } from '../../context';
 import * as styles from './Combobox.css';
 
@@ -1072,7 +1071,6 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
                 </div>
 
                 <div className={styles.indicators}>
-                    {loading && <Spinner size="xs" />}
                     {clearable && hasValue && !disabled && (
                         <IconButton
                             type="button"
@@ -1085,9 +1083,13 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
                             onClick={clearAll}
                         />
                     )}
-                    <span className={styles.chevronIcon({ isOpen })}>
-                        <Icon name="chevron-down" />
-                    </span>
+                    {loading ? (
+                        <Icon name="loading" spin />
+                    ) : (
+                        <span className={styles.chevronIcon({ isOpen })}>
+                            <Icon name="chevron-down" />
+                        </span>
+                    )}
                 </div>
             </div>
 
