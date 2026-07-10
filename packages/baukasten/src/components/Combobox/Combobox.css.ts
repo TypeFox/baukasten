@@ -32,26 +32,29 @@ export const comboboxContainer = recipe({
 
 /**
  * Control (outer focusable box, used as the Floating UI reference) size variants
+ * Horizontal padding only - vertical padding lives on `controlInner` instead,
+ * so the indicator cluster (clear button / chevron) is only ever as tall as
+ * its own content instead of being stretched by padding meant for the chips.
  */
 const controlSizes = styleVariants({
     xs: {
-        padding: 'var(--bk-spacing-0-5) var(--bk-spacing-2)',
+        padding: '0 var(--bk-spacing-2)',
         minHeight: 'var(--bk-size-xs)',
     },
     sm: {
-        padding: 'var(--bk-spacing-1) var(--bk-spacing-2-5)',
+        padding: '0 var(--bk-spacing-2-5)',
         minHeight: 'var(--bk-size-sm)',
     },
     md: {
-        padding: 'var(--bk-spacing-1-5) var(--bk-spacing-3)',
+        padding: '0 var(--bk-spacing-3)',
         minHeight: 'var(--bk-size-md)',
     },
     lg: {
-        padding: 'var(--bk-spacing-2) var(--bk-spacing-3-5)',
+        padding: '0 var(--bk-spacing-3-5)',
         minHeight: 'var(--bk-size-lg)',
     },
     xl: {
-        padding: 'var(--bk-spacing-2-5) var(--bk-spacing-4)',
+        padding: '0 var(--bk-spacing-4)',
         minHeight: 'var(--bk-size-xl)',
     },
 });
@@ -125,15 +128,52 @@ export const control = recipe({
 });
 
 /**
+ * Font size of a single content row inside `controlInner`, by Combobox
+ * size. Shared by the inline input (`inputSizes` below) and by the embedded
+ * chip override below it, so a chip and the input always compute the exact
+ * same line-box height - matching font-size and line-height rather than
+ * relying on their box models happening to land on the same pixel value.
+ */
+const rowFontSizes = {
+    xs: 'var(--bk-font-size-xs)',
+    sm: 'var(--bk-font-size-sm)',
+    md: 'var(--bk-font-size-md)',
+    lg: 'var(--bk-font-size-base)',
+    xl: 'var(--bk-font-size-lg)',
+} as const;
+
+/**
+ * Vertical padding for `controlInner`, matching what `control` used to apply
+ * on all four sides. Scoping it to the chip/input row (instead of `control`
+ * as a whole) means it grows with wrapped chips without also padding the
+ * indicator cluster.
+ */
+const controlInnerSizes = styleVariants({
+    xs: { padding: 'var(--bk-spacing-0-5) 0' },
+    sm: { padding: 'var(--bk-spacing-1) 0' },
+    md: { padding: 'var(--bk-spacing-1-5) 0' },
+    lg: { padding: 'var(--bk-spacing-2) 0' },
+    xl: { padding: 'var(--bk-spacing-2-5) 0' },
+});
+
+/**
  * Inner wrap row holding chips + the inline input
  */
-export const controlInner = style({
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    gap: 'var(--bk-gap-xs)',
-    flex: '1 1 auto',
-    minWidth: 0,
+export const controlInner = recipe({
+    base: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        gap: 'var(--bk-gap-xs)',
+        flex: '1 1 auto',
+        minWidth: 0,
+    },
+    variants: {
+        size: controlInnerSizes,
+    },
+    defaultVariants: {
+        size: 'md',
+    },
 });
 
 /**
@@ -144,6 +184,53 @@ export const chip = style({
     alignItems: 'center',
     gap: 'var(--bk-gap-xs)',
     maxWidth: '100%',
+});
+
+/**
+ * Tag renders its own vertical padding + border and a font-size one step
+ * smaller than body text - both are correct for a standalone tag, but
+ * stacked on top of `controlInner`'s padding they make a row of chips
+ * taller than a row with just the bare input, even though both sit inside
+ * the same `size` variant. Zeroing the chip's vertical padding/border and
+ * matching its font-size to the input's (`rowFontSizes`) means both rows
+ * compute to the same height instead of only coincidentally matching.
+ * Using [class] attribute selector for higher specificity without
+ * !important (mirrors the ButtonGroup pattern).
+ */
+globalStyle(`${controlInner.classNames.variants.size.xs} > span[class]`, {
+    fontSize: rowFontSizes.xs,
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
+});
+globalStyle(`${controlInner.classNames.variants.size.sm} > span[class]`, {
+    fontSize: rowFontSizes.sm,
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
+});
+globalStyle(`${controlInner.classNames.variants.size.md} > span[class]`, {
+    fontSize: rowFontSizes.md,
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
+});
+globalStyle(`${controlInner.classNames.variants.size.lg} > span[class]`, {
+    fontSize: rowFontSizes.lg,
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
+});
+globalStyle(`${controlInner.classNames.variants.size.xl} > span[class]`, {
+    fontSize: rowFontSizes.xl,
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
 });
 
 /**
@@ -177,11 +264,11 @@ export const chipRemoveButton = style({
  * Inline input size variants (typography only - box model comes from `control`)
  */
 const inputSizes = styleVariants({
-    xs: { fontSize: 'var(--bk-font-size-xs)' },
-    sm: { fontSize: 'var(--bk-font-size-sm)' },
-    md: { fontSize: 'var(--bk-font-size-md)' },
-    lg: { fontSize: 'var(--bk-font-size-base)' },
-    xl: { fontSize: 'var(--bk-font-size-lg)' },
+    xs: { fontSize: rowFontSizes.xs },
+    sm: { fontSize: rowFontSizes.sm },
+    md: { fontSize: rowFontSizes.md },
+    lg: { fontSize: rowFontSizes.lg },
+    xl: { fontSize: rowFontSizes.xl },
 });
 
 /**
@@ -225,6 +312,10 @@ export const input = recipe({
         color: 'inherit',
         fontFamily: 'inherit',
         padding: 0,
+        // Matches the embedded chip's line-height (see the chip override
+        // above `inputSizes`) so a row of chips and a bare input row - at
+        // the same `size` - always compute to the same height.
+        lineHeight: 'var(--bk-line-height-tight)',
 
         selectors: {
             '&:disabled': {

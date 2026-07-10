@@ -1006,7 +1006,7 @@ export function Combobox<T = string>(props: ComboboxProps<T>) {
                 })}
                 {...getReferenceProps({ onClick: handleControlClick })}
             >
-                <div className={styles.controlInner}>
+                <div className={styles.controlInner({ size })}>
                     {multiple &&
                         selectedOptions.map((option) => {
                             const label = option.label ?? String(option.value);
