@@ -311,6 +311,118 @@ interface ButtonGroupDropdownProps {
 </ButtonGroup>
 ```
 
+### Combobox
+
+An advanced, react-select-style combobox with an inline typeahead input. Like `Select`, but the trigger is an editable text input instead of a button — filters options as you type.
+
+```tsx
+import { Combobox } from 'baukasten-ui/extra';
+import type { ComboboxOption, ComboboxOptionGroup, ComboboxOptions } from 'baukasten-ui/extra';
+
+// Option type
+interface ComboboxOption<T = string> {
+  value: T;
+  label?: string;               // optional if using renderOption
+  disabled?: boolean;
+}
+
+// Option group — mix plain options and groups in the same `options` array
+interface ComboboxOptionGroup<T = string> {
+  label: string;
+  options: ComboboxOption<T>[];
+}
+type ComboboxOptions<T = string> = (ComboboxOption<T> | ComboboxOptionGroup<T>)[];
+
+// Props (generic over value type T) — discriminated union on `multiple`
+interface ComboboxProps<T = string> {
+  options: ComboboxOptions<T>;
+  multiple?: boolean;           // default: false — value becomes T[], onChange receives T[]
+  value?: T | T[];              // controlled
+  defaultValue?: T | T[];       // uncontrolled
+  onChange?: (value: T | undefined) => void; // or (value: T[]) => void when multiple
+  placeholder?: string;         // default: 'Select...'
+  size?: Size;                  // default: 'md'
+  position?: 'auto'|'top'|'bottom'; // default: 'auto'
+  disabled?: boolean;
+  fullWidth?: boolean;
+  error?: string;
+  clearable?: boolean;          // default: false — shows an "x" to reset selection
+  creatable?: boolean;          // default: false — allow adding a new option from typed text
+  onCreateOption?: (input: string) => void;
+  isValidNewOption?: (input: string, current: ComboboxOption<T>[]) => boolean;
+  formatCreateLabel?: (input: string) => ReactNode; // default: `Create "input"`
+  filterOption?: (option: ComboboxOption<T>, input: string) => boolean;
+  virtualized?: boolean;        // auto-enabled above virtualizeThreshold when omitted
+  virtualizeThreshold?: number; // default: 100
+  renderOption?: (option: ComboboxOption<T>, isSelected: boolean) => ReactNode;
+  renderGroupHeading?: (group: ComboboxOptionGroup<T>) => ReactNode;
+  renderValue?: (option: ComboboxOption<T>) => ReactNode;   // single-select only
+  renderChip?: (option: ComboboxOption<T>, remove: () => void) => ReactNode; // multi-select only
+  loading?: boolean;
+  loadingMessage?: ReactNode;   // default: 'Loading...'
+  noOptionsMessage?: ReactNode; // default: 'No options found'
+  maxDropdownHeight?: string;   // default: '300px'
+  dropdownClassName?: string;   // custom class for the dropdown portal element
+  id?: string;                  // for label association (FieldLabel htmlFor)
+  onOpen?: () => void;
+  onClose?: () => void;
+}
+
+// Basic
+<Combobox
+  options={[
+    { value: 'ts', label: 'TypeScript' },
+    { value: 'js', label: 'JavaScript' },
+  ]}
+  value={lang}
+  onChange={setLang}
+  placeholder="Select a language..."
+  clearable
+/>
+
+// Multi-select with removable chips
+<Combobox
+  multiple
+  options={languageOptions}
+  value={selectedValues}
+  onChange={setSelectedValues}
+  clearable
+/>
+
+// Creatable — add a new option from typed text
+<Combobox
+  options={options}
+  value={value}
+  onChange={setValue}
+  creatable
+  onCreateOption={(input) => {
+    setOptions((prev) => [...prev, { value: input, label: input }]);
+    setValue(input);
+  }}
+/>
+
+// Grouped options
+const groupedOptions: ComboboxOptions = [
+  { label: 'Frontend', options: [{ value: 'js', label: 'JavaScript' }, { value: 'ts', label: 'TypeScript' }] },
+  { label: 'Backend', options: [{ value: 'node', label: 'Node.js' }, { value: 'go', label: 'Go' }] },
+];
+<Combobox options={groupedOptions} placeholder="Select a technology..." />
+
+// Large lists auto-virtualize above 100 visible items (or force with `virtualized`)
+<Combobox options={fiveHundredItems} placeholder="Search from 500 items..." />
+
+// Custom rendering
+<Combobox
+  options={options}
+  renderOption={(option, isSelected) => (
+    <span>
+      <Icon name="symbol-method" /> {option.label}
+      {isSelected && <Icon name="check" />}
+    </span>
+  )}
+/>
+```
+
 ### FileUpload
 
 File upload with drag & drop.

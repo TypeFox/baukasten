@@ -75,6 +75,18 @@ export type { ButtonGroupProps, ButtonGroupDropdownProps } from './components/Bu
 export { FileUpload } from './components/FileUpload';
 export type { FileUploadProps, FileUploadVariant } from './components/FileUpload';
 
+export { Combobox } from './components/Combobox';
+export type {
+    ComboboxProps,
+    ComboboxBaseProps,
+    SingleComboboxProps,
+    MultiComboboxProps,
+    ComboboxOption,
+    ComboboxOptionGroup,
+    ComboboxOptions,
+    ComboboxPosition,
+} from './components/Combobox';
+
 // ─── Layout ─────────────────────────────────────────────────────────────────
 
 export { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from './components/Drawer';
