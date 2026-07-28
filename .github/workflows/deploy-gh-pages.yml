@@ -2,15 +2,25 @@
 name: Build website and storybook, publish to GitHub Pages
 
 on:
-    # Event for the workflow to run on
     push:
         branches:
             - 'main'
+        # only publish when package.json files change, to sync with the publish workflow
+        paths:
+            - 'package.json'
+            - '**/package.json'
+    # Allow deploying the site manually, without a version bump
+    workflow_dispatch:
 
 permissions:
     contents: read
     pages: write
     id-token: write
+
+# Pages allows only one deployment at a time; queue instead of failing
+concurrency:
+    group: 'pages'
+    cancel-in-progress: false
 
 # List of jobs
 jobs:
@@ -23,8 +33,6 @@ jobs:
         steps:
             # Manual Checkout
             - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
 
             # Set up Node
             - uses: actions/setup-node@v4
