@@ -1,0 +1,42 @@
+name: Publish
+
+permissions:
+    contents: read
+    id-token: write
+
+on:
+    push:
+        branches:
+            - 'main'
+        paths:
+            - '**/package.json'
+
+jobs:
+    publish:
+        name: Baukasten Publish
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build all packages
+              run: npm run build
+
+            - name: Run checks
+              run: npm run lint && npm run format:check
+
+            - name: Publish
+              # Pin the version to a full commit SHA for supply-chain safety
+              uses: TypeFox/gh-publish-npm@7183224bef010236e419a2367208633ff284337a
+              with:
+                  dry-run: ${{ github.event_name == 'pull_request' }}
+                  npm-packages: packages/baukasten,packages/website
+                  ovsx-token: ${{ github.event_name != 'pull_request' && secrets.OVSX_TOKEN || '' }}
