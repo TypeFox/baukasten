@@ -121,7 +121,6 @@ function getTitleFromPath(filePath: string): string {
         login: 'Login Pages',
         dashboard: 'Dashboard Layouts',
         demos: 'Demos',
-        'agent-chat': 'AI Coding Agent',
         installation: 'Installation',
         quickstart: 'Quick Start',
     };

@@ -64,10 +64,7 @@ const guides = [
     { name: 'Usage in Eclipse Theia', path: '/guides/theia' },
 ];
 
-const demos = [
-    { name: 'All Demos', path: '/demos' },
-    { name: 'AI Coding Agent', path: '/demos/agent-chat' },
-];
+const demos = [{ name: 'All Demos', path: '/demos' }];
 
 const recipes = [
     { name: 'Login Pages', path: '/recipes/login' },
