@@ -1,0 +1,628 @@
+/**
+ * Styles for the AI Coding Agent demo.
+ *
+ * Everything here is expressed in Baukasten semantic tokens (--bk-*), never
+ * raw values or VS Code variables — the same rule the component library holds
+ * itself to. The tokens resolve to VS Code theme colors inside a webview and to
+ * the web wrapper's palette in the browser.
+ */
+
+/* ─── Animation ──────────────────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: var(--bk-opacity-100);
+    }
+    50% {
+        opacity: var(--bk-opacity-30);
+    }
+}
+
+@keyframes blink {
+    0%,
+    49% {
+        opacity: var(--bk-opacity-100);
+    }
+    50%,
+    100% {
+        opacity: var(--bk-opacity-0);
+    }
+}
+
+.enter {
+    animation: fadeInUp 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pulse {
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .enter,
+    .pulse,
+    .caret {
+        animation: none;
+    }
+}
+
+/* ─── Scrolling ──────────────────────────────────────────────────────────── */
+
+.scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background: var(--bk-color-scrollbar);
+    border: var(--bk-border-width-2) solid transparent;
+    border-radius: var(--bk-radius-full);
+    background-clip: content-box;
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--bk-color-scrollbar-hover);
+    background-clip: content-box;
+}
+
+/* ─── Shell ──────────────────────────────────────────────────────────────── */
+
+/*
+ * The demo fills its frame: the docs page sizes the iframe (and expands it for
+ * full screen), so the shell itself has no height of its own and carries no
+ * border — the host applies that to the frame.
+ */
+.shell {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /*
+     * Sized against the frame's own viewport rather than the parent chain.
+     * A percentage height needs every ancestor to have a definite height, and
+     * one auto-height wrapper anywhere above silently collapses it to content
+     * height — which stops the chat transcript from ever scrolling and makes
+     * expanding a tool call resize the entire workbench instead.
+     */
+    height: 100dvh;
+    background-color: var(--bk-color-background);
+}
+
+/* Full screen is applied to the iframe by the host page; nothing to do here. */
+.shellFullscreen {
+    height: 100%;
+}
+
+.titleBar {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: var(--bk-gap-md);
+    padding: var(--bk-spacing-2) var(--bk-spacing-3);
+    background-color: var(--bk-color-background-secondary);
+    border-bottom: var(--bk-border-width-1) solid var(--bk-color-border);
+}
+
+.trafficLights {
+    display: flex;
+    gap: var(--bk-spacing-1-5);
+    padding-right: var(--bk-spacing-2);
+}
+
+.light {
+    width: var(--bk-spacing-2-5);
+    height: var(--bk-spacing-2-5);
+    border-radius: var(--bk-radius-full);
+    opacity: var(--bk-opacity-90);
+}
+
+.lightClose {
+    background-color: var(--bk-color-danger);
+}
+
+.lightMinimise {
+    background-color: var(--bk-color-warning);
+}
+
+.lightZoom {
+    background-color: var(--bk-color-success);
+}
+
+.titleText {
+    flex: 1;
+    text-align: center;
+    font-size: var(--bk-font-size-sm);
+    color: var(--bk-color-foreground-muted);
+}
+
+.titleActions {
+    display: flex;
+    align-items: center;
+    gap: var(--bk-gap-xs);
+}
+
+.workbench {
+    flex: 1;
+    min-height: 0;
+}
+
+.statusBarHost {
+    flex-shrink: 0;
+}
+
+/* ─── Explorer ───────────────────────────────────────────────────────────── */
+
+.explorer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--bk-color-background-secondary);
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: var(--bk-gap-sm);
+    padding: var(--bk-spacing-3) var(--bk-spacing-4);
+}
+
+.sectionTitle {
+    flex: 1;
+    font-size: var(--bk-font-size-xs);
+    font-weight: var(--bk-font-weight-semibold);
+    letter-spacing: var(--bk-letter-spacing-wider);
+    text-transform: uppercase;
+    color: var(--bk-color-foreground-muted);
+}
+
+.treeScroll {
+    padding: 0 var(--bk-spacing-2);
+}
+
+.changedLabel {
+    color: var(--bk-color-success);
+    font-weight: var(--bk-font-weight-semibold);
+}
+
+.changedBadge {
+    font-size: var(--bk-font-size-xs);
+    font-weight: var(--bk-font-weight-bold);
+    color: var(--bk-color-success);
+}
+
+.scmPanel {
+    flex-shrink: 0;
+    padding: var(--bk-spacing-3) var(--bk-spacing-4);
+    border-top: var(--bk-border-width-1) solid var(--bk-color-border);
+}
+
+.scmRow {
+    display: flex;
+    align-items: center;
+    gap: var(--bk-gap-sm);
+    font-size: var(--bk-font-size-sm);
+}
+
+.scmFile {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ─── Diff stats ─────────────────────────────────────────────────────────── */
+
+.diffStat {
+    font-family: var(--bk-font-family-mono);
+    font-size: var(--bk-font-size-xs);
+    white-space: nowrap;
+}
+
+.added {
+    color: var(--bk-color-success);
+}
+
+.removed {
+    color: var(--bk-color-danger);
+}
+
+/* ─── Editor ─────────────────────────────────────────────────────────────── */
+
+.editorPane {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--bk-color-background);
+}
+
+.tabBar {
+    display: flex;
+    align-items: stretch;
+    flex-shrink: 0;
+    background-color: var(--bk-color-background-secondary);
+    border-bottom: var(--bk-border-width-1) solid var(--bk-color-border);
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: var(--bk-gap-sm);
+    padding: var(--bk-spacing-2) var(--bk-spacing-4);
+    background-color: var(--bk-color-background);
+    border-top: var(--bk-border-width-1) solid var(--bk-color-focus);
+    border-right: var(--bk-border-width-1) solid var(--bk-color-border);
+}
+
+.tabLabel {
+    font-size: var(--bk-font-size-sm);
+}
+
+.tabHint {
+    font-size: var(--bk-font-size-xs);
+    color: var(--bk-color-foreground-muted);
+}
+
+.diffToolbar {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: var(--bk-gap-sm);
+    padding: var(--bk-spacing-2) var(--bk-spacing-3);
+    border-bottom: var(--bk-border-width-1) solid var(--bk-color-border);
+}
+
+.toolbarLabel {
+    font-size: var(--bk-font-size-sm);
+    font-weight: var(--bk-font-weight-semibold);
+}
+
+.toolbarMuted {
+    font-size: var(--bk-font-size-sm);
+    color: var(--bk-color-foreground-muted);
+}
+
+.toolbarAccent {
+    color: var(--bk-color-focus);
+}
+
+.spacer {
+    flex: 1;
+}
+
+.editorHost {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.editorLoading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--bk-gap-md);
+    height: 100%;
+}
+
+.editorLoadingText {
+    font-size: var(--bk-font-size-sm);
+    color: var(--bk-color-foreground-muted);
+}
+
+/* ─── Chat panel ─────────────────────────────────────────────────────────── */
+
+.chatPanel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
+    background-color: var(--bk-color-background-secondary);
+}
+
+.chatHeader {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: var(--bk-gap-sm);
+    padding: var(--bk-spacing-3) var(--bk-spacing-4);
+    border-bottom: var(--bk-border-width-1) solid var(--bk-color-border);
+}
+
+.chatTitle {
+    font-size: var(--bk-font-size-xs);
+    font-weight: var(--bk-font-weight-semibold);
+    letter-spacing: var(--bk-letter-spacing-wider);
+    text-transform: uppercase;
+}
+
+.transcript {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bk-gap-md);
+    padding: var(--bk-spacing-4);
+}
+
+/*
+ * Entries must keep their natural height and let the transcript scroll.
+ * Without this they inherit flex-shrink: 1 and get squashed once the
+ * conversation outgrows the panel — the Accordion cards clip to their
+ * borders, since their container is overflow: hidden.
+ */
+.transcript > * {
+    flex-shrink: 0;
+}
+
+/* ─── Messages ───────────────────────────────────────────────────────────── */
+
+.userMessage {
+    display: flex;
+    gap: var(--bk-gap-md);
+    padding: var(--bk-spacing-4);
+    background-color: var(--bk-color-background-elevated);
+    border: var(--bk-border-width-1) solid var(--bk-color-border);
+    border-radius: var(--bk-radius-md);
+}
+
+.userBody {
+    flex: 1;
+    min-width: 0;
+}
+
+.chipRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bk-gap-sm);
+    margin-bottom: var(--bk-spacing-3);
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--bk-spacing-1);
+}
+
+.userText {
+    font-size: var(--bk-font-size-md);
+    line-height: var(--bk-line-height-relaxed);
+    color: var(--bk-color-foreground);
+}
+
+.thinkingLive {
+    display: flex;
+    gap: var(--bk-gap-md);
+    padding: var(--bk-spacing-3) var(--bk-spacing-4);
+    border-left: var(--bk-border-width-2) solid var(--bk-color-focus);
+}
+
+.thinkingIcon {
+    color: var(--bk-color-focus);
+}
+
+.thinkingText {
+    font-size: var(--bk-font-size-sm);
+    font-style: italic;
+    line-height: var(--bk-line-height-relaxed);
+    color: var(--bk-color-foreground-muted);
+}
+
+.thinkingSummary {
+    font-size: var(--bk-font-size-sm);
+    color: var(--bk-color-foreground-muted);
+}
+
+/* Row rendered inside AccordionItem's title slot. */
+.toolTitle {
+    display: flex;
+    align-items: center;
+    gap: var(--bk-gap-md);
+    min-width: 0;
+}
+
+.toolStatusDone {
+    color: var(--bk-color-success);
+}
+
+.toolIcon {
+    color: var(--bk-color-foreground-muted);
+}
+
+.toolLabel {
+    font-size: var(--bk-font-size-xs);
+    font-weight: var(--bk-font-weight-semibold);
+    color: var(--bk-color-foreground);
+}
+
+/* `direction: rtl` keeps the tail of a long path visible when it ellipsises. */
+.toolTarget {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    direction: rtl;
+    text-align: left;
+    font-size: var(--bk-font-size-xs);
+}
+
+.assistantText {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bk-gap-md);
+    font-size: var(--bk-font-size-md);
+    line-height: var(--bk-line-height-relaxed);
+    color: var(--bk-color-foreground);
+}
+
+.assistantList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bk-gap-sm);
+    margin: 0;
+    padding-left: var(--bk-spacing-6);
+}
+
+.caret {
+    display: inline-block;
+    width: var(--bk-border-width-2);
+    height: 1em;
+    margin-left: var(--bk-spacing-0-5);
+    vertical-align: text-bottom;
+    background-color: var(--bk-color-focus);
+    animation: blink 1s steps(1) infinite;
+}
+
+.reviewCard {
+    padding: var(--bk-spacing-4);
+    background-color: var(--bk-color-background-elevated);
+    border: var(--bk-border-width-1) solid var(--bk-color-focus);
+    border-radius: var(--bk-radius-md);
+}
+
+.reviewHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--bk-gap-sm);
+    margin-bottom: var(--bk-spacing-3);
+}
+
+.reviewTitle {
+    font-weight: var(--bk-font-weight-semibold);
+    font-size: var(--bk-font-size-md);
+}
+
+.reviewActions {
+    display: flex;
+    gap: var(--bk-gap-sm);
+}
+
+.reviewOutcome {
+    display: flex;
+    align-items: center;
+    gap: var(--bk-gap-sm);
+    font-size: var(--bk-font-size-sm);
+    color: var(--bk-color-foreground-muted);
+}
+
+.outcomeAccepted {
+    color: var(--bk-color-success);
+}
+
+.outcomeRejected {
+    color: var(--bk-color-danger);
+}
+
+/* ─── Composer ───────────────────────────────────────────────────────────── */
+
+.composer {
+    flex-shrink: 0;
+    padding: var(--bk-spacing-3);
+    border-top: var(--bk-border-width-1) solid var(--bk-color-border);
+}
+
+.composerBox {
+    overflow: hidden;
+    background-color: var(--bk-color-input-background);
+    border: var(--bk-border-width-1) solid var(--bk-color-input-border);
+    border-radius: var(--bk-radius-md);
+    transition: var(--bk-transition-colors);
+}
+
+.composerBox:focus-within {
+    border-color: var(--bk-color-input-focus-border);
+}
+
+.composerChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bk-gap-sm);
+    padding: var(--bk-spacing-2) var(--bk-spacing-3) 0;
+}
+
+.composerInput {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+.composerFooter {
+    display: flex;
+    align-items: center;
+    gap: var(--bk-gap-sm);
+    padding: var(--bk-spacing-2) var(--bk-spacing-3);
+}
+
+/* Actions keep their size; only the selects give ground. */
+.composerFooter > button,
+.composerFooter > span {
+    flex-shrink: 0;
+}
+
+/*
+ * Select's own recipe sets `min-width: 200px`, which two-up in a resizable
+ * side panel overflows the row — the triggers collide and the mode select's
+ * chevron is pushed out of view. These are scoped under .composerFooter so
+ * they outrank that base rule regardless of stylesheet order, and use flex
+ * rather than fixed widths so the row survives the pane being dragged narrow.
+ */
+.composerFooter .modeSlot,
+.composerFooter .modelSlot {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+/* The model names are longer, so give that one more of the shared space. */
+.composerFooter .modelSlot {
+    flex-grow: 1.6;
+}
+
+/*
+ * Tokenized tool-call snippet. Monaco emits its own inline colours for the
+ * spans inside, so this only supplies the surrounding chrome — matched to the
+ * Code block used for non-code bodies so the two read as one thing.
+ */
+.snippet {
+    margin: 0;
+    padding: var(--bk-padding-md);
+    max-height: 180px;
+    overflow: auto;
+    background-color: var(--bk-color-code-background);
+    border-radius: var(--bk-radius-sm);
+    font-family: var(--bk-font-family-mono);
+    font-size: var(--bk-font-size-xs);
+    line-height: var(--bk-line-height-relaxed);
+    tab-size: 4;
+}
+
+/* Icon + label rows used by the mode select's trigger and dropdown. */
+.selectOption {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--bk-gap-sm);
+    min-width: 0;
+}
+
+.selectOptionLabel {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

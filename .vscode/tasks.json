@@ -10,6 +10,14 @@
             "detail": "Build the VSCode extension example"
         },
         {
+            "label": "npm: build:db-explorer-example",
+            "type": "npm",
+            "script": "build",
+            "path": "packages/examples/vscode-db-explorer",
+            "problemMatcher": [],
+            "detail": "Build the Database Explorer VSCode extension example"
+        },
+        {
             "label": "npm: dev:web-example",
             "type": "npm",
             "script": "dev",

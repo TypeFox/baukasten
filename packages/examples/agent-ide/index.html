@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Baukasten — AI Coding Agent</title>
+        <style>
+            html,
+            body,
+            #root {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                /* The workbench manages its own scroll regions; the frame
+                   itself must never scroll. */
+                overflow: hidden;
+            }
+
+            /*
+             * Base UI font for anything that does not set its own — without
+             * this the browser default (serif) shows through wherever a rule
+             * sets only size and line-height, such as the chat transcript.
+             * Set on body so portalled dropdowns and tooltips inherit it too.
+             */
+            body {
+                font-family: var(--bk-font-family-sans);
+                font-size: var(--bk-font-size-md);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
+</html>

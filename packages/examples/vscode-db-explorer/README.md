@@ -2,8 +2,10 @@
 
 A VSCode extension demonstrating baukasten UI components arranged as a **database explorer**.
 
-> ⚠️ This is a **static mockup** built for blog/screenshot purposes. Nothing is
-> wired to a real database — all data is hardcoded.
+> ⚠️ This is a **mockup** built for blog/screenshot purposes. Nothing is wired to
+> a real database: the schema is a static definition, and the 1,000 customer rows
+> are generated in the browser by `generateCustomers()` — enough to exercise
+> `DataTable`'s virtualization with realistic-looking data.
 
 ## Layout
 
@@ -41,7 +43,7 @@ vscode-db-explorer/
 │   ├── extension.ts           # VSCode extension entry point
 │   └── webview/
 │       ├── main.tsx           # React entry point
-│       ├── App.tsx            # Mockup UI + hardcoded data
+│       ├── App.tsx            # Mockup UI + generated data
 │       └── App.css            # Layout styles
 ├── package.json               # Extension manifest
 └── vite.config.ts             # Webview bundler

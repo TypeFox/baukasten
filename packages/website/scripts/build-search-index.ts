@@ -63,6 +63,7 @@ function getCategoryFromPath(filePath: string): string {
     if (filePath.includes('/foundations/')) return 'Foundations';
     if (filePath.includes('/guides/')) return 'Guides';
     if (filePath.includes('/recipes/')) return 'Recipes';
+    if (filePath.includes('/demos')) return 'Demos';
     if (filePath.includes('/installation')) return 'Getting Started';
     if (filePath.includes('/quickstart')) return 'Getting Started';
     return 'Getting Started';
@@ -119,6 +120,8 @@ function getTitleFromPath(filePath: string): string {
         theia: 'Usage in Eclipse Theia',
         login: 'Login Pages',
         dashboard: 'Dashboard Layouts',
+        demos: 'Demos',
+        'agent-chat': 'AI Coding Agent',
         installation: 'Installation',
         quickstart: 'Quick Start',
     };
@@ -145,6 +148,7 @@ function extractKeywords(content: string, category: string): string[] {
         Foundations: ['design', 'tokens', 'system'],
         Guides: ['guide', 'tutorial', 'howto'],
         Recipes: ['example', 'template', 'pattern'],
+        Demos: ['demo', 'showcase', 'application', 'example'],
         'Getting Started': ['install', 'setup', 'start', 'begin'],
     };
 

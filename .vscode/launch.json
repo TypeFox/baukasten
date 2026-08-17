@@ -26,6 +26,16 @@
             "args": ["--extensionDevelopmentPath=${workspaceFolder}/packages/examples/vscode"],
             "outFiles": ["${workspaceFolder}/packages/examples/vscode/dist/**/*.js"],
             "preLaunchTask": "npm: build:vscode-example"
+        },
+        {
+            "name": "Launch DB Explorer Extension Example",
+            "type": "extensionHost",
+            "request": "launch",
+            "args": [
+                "--extensionDevelopmentPath=${workspaceFolder}/packages/examples/vscode-db-explorer"
+            ],
+            "outFiles": ["${workspaceFolder}/packages/examples/vscode-db-explorer/dist/**/*.js"],
+            "preLaunchTask": "npm: build:db-explorer-example"
         }
     ],
     "compounds": [
