@@ -36,21 +36,97 @@ interface CustomerRow {
 }
 
 const FIRST = [
-    'Ada', 'Grace', 'Alan', 'Katherine', 'Linus', 'Margaret', 'Dennis', 'Barbara', 'Guido',
-    'Donald', 'Edsger', 'Tim', 'Radia', 'Vint', 'Marie', 'Nikola', 'Rosalind', 'Carl', 'Emmy',
-    'Niels', 'Claude', 'Joan', 'Hedy', 'Shafi', 'Leslie', 'Frances', 'John', 'Anita', 'Ken',
-    'Brian', 'Adele', 'Karen', 'Sophie', 'Ingrid', 'Mateo', 'Lucas', 'Olivia', 'Noah', 'Yuki',
+    'Ada',
+    'Grace',
+    'Alan',
+    'Katherine',
+    'Linus',
+    'Margaret',
+    'Dennis',
+    'Barbara',
+    'Guido',
+    'Donald',
+    'Edsger',
+    'Tim',
+    'Radia',
+    'Vint',
+    'Marie',
+    'Nikola',
+    'Rosalind',
+    'Carl',
+    'Emmy',
+    'Niels',
+    'Claude',
+    'Joan',
+    'Hedy',
+    'Shafi',
+    'Leslie',
+    'Frances',
+    'John',
+    'Anita',
+    'Ken',
+    'Brian',
+    'Adele',
+    'Karen',
+    'Sophie',
+    'Ingrid',
+    'Mateo',
+    'Lucas',
+    'Olivia',
+    'Noah',
+    'Yuki',
 ];
 const LAST = [
-    'Lovelace', 'Hopper', 'Turing', 'Johnson', 'Torvalds', 'Hamilton', 'Ritchie', 'Liskov',
-    'van Rossum', 'Knuth', 'Dijkstra', 'Berners-Lee', 'Perlman', 'Cerf', 'Curie', 'Tesla',
-    'Franklin', 'Sagan', 'Noether', 'Bohr', 'Shannon', 'Clarke', 'Lamarr', 'Goldwasser',
-    'Lamport', 'Allen', 'McCarthy', 'Borg', 'Thompson', 'Kernighan', 'Goldberg', 'Spärck',
-    'Wing', 'Daubechies', 'Rossi', 'Silva', 'Kim', 'Tanaka', 'Müller', 'Nakamura',
+    'Lovelace',
+    'Hopper',
+    'Turing',
+    'Johnson',
+    'Torvalds',
+    'Hamilton',
+    'Ritchie',
+    'Liskov',
+    'van Rossum',
+    'Knuth',
+    'Dijkstra',
+    'Berners-Lee',
+    'Perlman',
+    'Cerf',
+    'Curie',
+    'Tesla',
+    'Franklin',
+    'Sagan',
+    'Noether',
+    'Bohr',
+    'Shannon',
+    'Clarke',
+    'Lamarr',
+    'Goldwasser',
+    'Lamport',
+    'Allen',
+    'McCarthy',
+    'Borg',
+    'Thompson',
+    'Kernighan',
+    'Goldberg',
+    'Spärck',
+    'Wing',
+    'Daubechies',
+    'Rossi',
+    'Silva',
+    'Kim',
+    'Tanaka',
+    'Müller',
+    'Nakamura',
 ];
 const COUNTRIES = ['US', 'GB', 'FI', 'NL', 'DE', 'FR', 'JP', 'CA', 'AU', 'BR', 'IN', 'SE'];
 const STATUSES: CustomerRow['status'][] = [
-    'active', 'active', 'active', 'active', 'inactive', 'inactive', 'churned',
+    'active',
+    'active',
+    'active',
+    'active',
+    'inactive',
+    'inactive',
+    'churned',
 ];
 
 function generateCustomers(count: number): CustomerRow[] {
@@ -62,9 +138,7 @@ function generateCustomers(count: number): CustomerRow[] {
         const handle = `${first}.${last}`.toLowerCase().replace(/[^a-z.]/g, '');
         const status = STATUSES[Math.floor(Math.random() * STATUSES.length)];
         const total_orders =
-            status === 'churned'
-                ? Math.floor(Math.random() * 5)
-                : Math.floor(Math.random() * 240);
+            status === 'churned' ? Math.floor(Math.random() * 5) : Math.floor(Math.random() * 240);
         const lifetime_value = Math.round(total_orders * (40 + Math.random() * 180) * 100) / 100;
         const year = 2017 + Math.floor(Math.random() * 7);
         const month = String(1 + Math.floor(Math.random() * 12)).padStart(2, '0');
@@ -97,14 +171,70 @@ interface FieldDef {
 }
 
 const FIELDS: FieldDef[] = [
-    { name: 'id', type: 'bigint', nullable: false, default: "nextval('customers_id_seq')", key: 'PK', icon: 'key' },
-    { name: 'email', type: 'varchar', nullable: false, default: '—', key: 'UQ', icon: 'symbol-string' },
-    { name: 'full_name', type: 'varchar', nullable: false, default: '—', key: null, icon: 'symbol-string' },
-    { name: 'country', type: 'char', nullable: true, default: "'US'", key: null, icon: 'symbol-string' },
-    { name: 'status', type: 'enum', nullable: false, default: "'active'", key: null, icon: 'symbol-enum' },
-    { name: 'total_orders', type: 'int4', nullable: false, default: '0', key: null, icon: 'symbol-numeric' },
-    { name: 'lifetime_value', type: 'numeric', nullable: false, default: '0.00', key: null, icon: 'symbol-numeric' },
-    { name: 'created_at', type: 'timestamptz', nullable: false, default: 'now()', key: null, icon: 'calendar' },
+    {
+        name: 'id',
+        type: 'bigint',
+        nullable: false,
+        default: "nextval('customers_id_seq')",
+        key: 'PK',
+        icon: 'key',
+    },
+    {
+        name: 'email',
+        type: 'varchar',
+        nullable: false,
+        default: '—',
+        key: 'UQ',
+        icon: 'symbol-string',
+    },
+    {
+        name: 'full_name',
+        type: 'varchar',
+        nullable: false,
+        default: '—',
+        key: null,
+        icon: 'symbol-string',
+    },
+    {
+        name: 'country',
+        type: 'char',
+        nullable: true,
+        default: "'US'",
+        key: null,
+        icon: 'symbol-string',
+    },
+    {
+        name: 'status',
+        type: 'enum',
+        nullable: false,
+        default: "'active'",
+        key: null,
+        icon: 'symbol-enum',
+    },
+    {
+        name: 'total_orders',
+        type: 'int4',
+        nullable: false,
+        default: '0',
+        key: null,
+        icon: 'symbol-numeric',
+    },
+    {
+        name: 'lifetime_value',
+        type: 'numeric',
+        nullable: false,
+        default: '0.00',
+        key: null,
+        icon: 'symbol-numeric',
+    },
+    {
+        name: 'created_at',
+        type: 'timestamptz',
+        nullable: false,
+        default: 'now()',
+        key: null,
+        icon: 'calendar',
+    },
 ];
 
 const TYPE_OPTIONS = [
@@ -129,7 +259,12 @@ const countBadge = (n: string) => (
     </span>
 );
 
-const node = (id: string, label: string, icon: CodiconName, badge?: React.ReactNode): TreeNodeData => ({
+const node = (
+    id: string,
+    label: string,
+    icon: CodiconName,
+    badge?: React.ReactNode,
+): TreeNodeData => ({
     id,
     label,
     icon: <Icon name={icon} />,
@@ -210,14 +345,28 @@ const mono: React.CSSProperties = {
 };
 
 const customerColumns: ColumnDef<CustomerRow>[] = [
-    { accessorKey: 'id', header: 'id', size: 70, cell: ({ getValue }) => <span style={mono}>{getValue() as number}</span> },
-    { accessorKey: 'email', header: 'email', size: 230, cell: ({ getValue }) => <span style={mono}>{getValue() as string}</span> },
+    {
+        accessorKey: 'id',
+        header: 'id',
+        size: 70,
+        cell: ({ getValue }) => <span style={mono}>{getValue() as number}</span>,
+    },
+    {
+        accessorKey: 'email',
+        header: 'email',
+        size: 230,
+        cell: ({ getValue }) => <span style={mono}>{getValue() as string}</span>,
+    },
     { accessorKey: 'full_name', header: 'full_name', size: 170 },
     {
         accessorKey: 'country',
         header: 'country',
         size: 90,
-        cell: ({ getValue }) => <Tag size="xs" variant="secondary">{getValue() as string}</Tag>,
+        cell: ({ getValue }) => (
+            <Tag size="xs" variant="secondary">
+                {getValue() as string}
+            </Tag>
+        ),
     },
     {
         accessorKey: 'status',
@@ -225,14 +374,22 @@ const customerColumns: ColumnDef<CustomerRow>[] = [
         size: 100,
         cell: ({ getValue }) => {
             const s = getValue() as CustomerRow['status'];
-            return <Badge variant={STATUS_VARIANT[s]} size="xs">{s}</Badge>;
+            return (
+                <Badge variant={STATUS_VARIANT[s]} size="xs">
+                    {s}
+                </Badge>
+            );
         },
     },
     {
         accessorKey: 'total_orders',
         header: 'total_orders',
         size: 110,
-        cell: ({ getValue }) => <span style={{ ...mono, display: 'block', textAlign: 'right' }}>{getValue() as number}</span>,
+        cell: ({ getValue }) => (
+            <span style={{ ...mono, display: 'block', textAlign: 'right' }}>
+                {getValue() as number}
+            </span>
+        ),
     },
     {
         accessorKey: 'lifetime_value',
@@ -244,7 +401,12 @@ const customerColumns: ColumnDef<CustomerRow>[] = [
             </span>
         ),
     },
-    { accessorKey: 'created_at', header: 'created_at', size: 120, cell: ({ getValue }) => <span style={mono}>{getValue() as string}</span> },
+    {
+        accessorKey: 'created_at',
+        header: 'created_at',
+        size: 120,
+        cell: ({ getValue }) => <span style={mono}>{getValue() as string}</span>,
+    },
 ];
 
 // ─── Structure panel (Supabase-style field cards) ─────────────────────────────
@@ -266,12 +428,22 @@ const FieldCard: React.FC<{
                 </Badge>
             )}
             <div className="grow" />
-            <IconButton variant="ghost" size="xs" icon={<Icon name="ellipsis" />} aria-label="Field options" />
+            <IconButton
+                variant="ghost"
+                size="xs"
+                icon={<Icon name="ellipsis" />}
+                aria-label="Field options"
+            />
         </div>
 
         <div className="fieldCardRow">
             <span className="fieldCardLabel">Type</span>
-            <Select size="sm" options={TYPE_OPTIONS} value={type} onChange={(v) => onTypeChange(v as string)} />
+            <Select
+                size="sm"
+                options={TYPE_OPTIONS}
+                value={type}
+                onChange={(v) => onTypeChange(v as string)}
+            />
         </div>
 
         <div className="fieldCardRow">
@@ -298,11 +470,10 @@ const FieldCard: React.FC<{
 
 export const App: React.FC = () => {
     const data = useMemo(() => generateCustomers(TOTAL_ROWS), []);
-    const [fieldState, setFieldState] = useState<Record<string, { type: string; nullable: boolean }>>(
-        () =>
-            Object.fromEntries(
-                FIELDS.map((f) => [f.name, { type: f.type, nullable: f.nullable }]),
-            ),
+    const [fieldState, setFieldState] = useState<
+        Record<string, { type: string; nullable: boolean }>
+    >(() =>
+        Object.fromEntries(FIELDS.map((f) => [f.name, { type: f.type, nullable: f.nullable }])),
     );
 
     return (
@@ -329,10 +500,30 @@ export const App: React.FC = () => {
                 </Button>
 
                 <div className="toolbarActions">
-                    <IconButton variant="ghost" size="sm" icon={<Icon name="refresh" />} aria-label="Refresh" />
-                    <IconButton variant="ghost" size="sm" icon={<Icon name="filter" />} aria-label="Filter" />
-                    <IconButton variant="ghost" size="sm" icon={<Icon name="save" />} aria-label="Export" />
-                    <IconButton variant="ghost" size="sm" icon={<Icon name="ellipsis" />} aria-label="More" />
+                    <IconButton
+                        variant="ghost"
+                        size="sm"
+                        icon={<Icon name="refresh" />}
+                        aria-label="Refresh"
+                    />
+                    <IconButton
+                        variant="ghost"
+                        size="sm"
+                        icon={<Icon name="filter" />}
+                        aria-label="Filter"
+                    />
+                    <IconButton
+                        variant="ghost"
+                        size="sm"
+                        icon={<Icon name="save" />}
+                        aria-label="Export"
+                    />
+                    <IconButton
+                        variant="ghost"
+                        size="sm"
+                        icon={<Icon name="ellipsis" />}
+                        aria-label="More"
+                    />
                 </div>
             </div>
 
@@ -346,14 +537,23 @@ export const App: React.FC = () => {
                                 <Icon name="list-tree" />
                                 <span>EXPLORER</span>
                                 <div className="grow" />
-                                <IconButton variant="ghost" size="xs" icon={<Icon name="refresh" />} aria-label="Refresh schema" />
+                                <IconButton
+                                    variant="ghost"
+                                    size="xs"
+                                    icon={<Icon name="refresh" />}
+                                    aria-label="Refresh schema"
+                                />
                             </div>
                             <div className="sidebarBody">
                                 <Tree
                                     nodes={TREE_NODES}
                                     edgeStyle="solid"
                                     size="sm"
-                                    defaultExpandedKeys={['db-ecommerce', 'schema-public', 'grp-tables']}
+                                    defaultExpandedKeys={[
+                                        'db-ecommerce',
+                                        'schema-public',
+                                        'grp-tables',
+                                    ]}
                                     defaultSelectedKey="tbl-customers"
                                 />
                             </div>
@@ -392,7 +592,12 @@ export const App: React.FC = () => {
                                 <Icon name="list-flat" />
                                 <span>STRUCTURE — customers</span>
                                 <div className="grow" />
-                                <IconButton variant="ghost" size="xs" icon={<Icon name="add" />} aria-label="Add column" />
+                                <IconButton
+                                    variant="ghost"
+                                    size="xs"
+                                    icon={<Icon name="add" />}
+                                    aria-label="Add column"
+                                />
                             </div>
                             <div className="structureBody">
                                 {FIELDS.map((field) => (
@@ -402,12 +607,18 @@ export const App: React.FC = () => {
                                         type={fieldState[field.name].type}
                                         nullable={fieldState[field.name].nullable}
                                         onTypeChange={(type) =>
-                                            setFieldState((s) => ({ ...s, [field.name]: { ...s[field.name], type } }))
+                                            setFieldState((s) => ({
+                                                ...s,
+                                                [field.name]: { ...s[field.name], type },
+                                            }))
                                         }
                                         onNullableChange={(v) =>
                                             setFieldState((s) => ({
                                                 ...s,
-                                                [field.name]: { ...s[field.name], nullable: v === 'YES' },
+                                                [field.name]: {
+                                                    ...s[field.name],
+                                                    nullable: v === 'YES',
+                                                },
                                             }))
                                         }
                                     />
@@ -424,7 +635,10 @@ export const App: React.FC = () => {
                     <StatusBarItem variant="success" icon={<Icon name="circle-filled" />}>
                         Connected
                     </StatusBarItem>
-                    <StatusBarItem icon={<Icon name="server-environment" />} tooltip="localhost:5432">
+                    <StatusBarItem
+                        icon={<Icon name="server-environment" />}
+                        tooltip="localhost:5432"
+                    >
                         localhost:5432
                     </StatusBarItem>
                     <StatusBarItem icon={<Icon name="database" />}>ecommerce_prod</StatusBarItem>

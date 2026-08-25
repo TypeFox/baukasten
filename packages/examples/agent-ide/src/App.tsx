@@ -67,10 +67,7 @@ export default function App() {
 
     const handleFullscreenChange = useCallback((fullscreen: boolean) => {
         if (window.parent === window) return;
-        window.parent.postMessage(
-            { type: FULLSCREEN_MESSAGE, fullscreen },
-            window.location.origin,
-        );
+        window.parent.postMessage({ type: FULLSCREEN_MESSAGE, fullscreen }, window.location.origin);
     }, []);
 
     return <Workbench themeMode={themeMode} onFullscreenChange={handleFullscreenChange} />;

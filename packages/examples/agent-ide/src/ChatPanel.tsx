@@ -182,10 +182,7 @@ function UserMessage({ step }: { step: UserStep }) {
                     {step.context.map((chip) => (
                         <Tag key={chip} size="xs" variant="secondary">
                             <span className={styles.chip}>
-                                <Icon
-                                    name={chip.startsWith('#') ? 'tag' : 'file-code'}
-                                    size="xs"
-                                />
+                                <Icon name={chip.startsWith('#') ? 'tag' : 'file-code'} size="xs" />
                                 {chip}
                             </span>
                         </Tag>

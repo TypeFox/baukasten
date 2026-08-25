@@ -26,19 +26,29 @@ export function App() {
         <>
             <GlobalStyles />
             <VSCodeThemeWrapper>
-                <div style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 520 }}>
+                <div
+                    style={{
+                        padding: 24,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 16,
+                        maxWidth: 520,
+                    }}
+                >
                     <Heading level={2}>
                         Baukasten <Icon name="heart" /> Preact <Badge variant="success">PoC</Badge>
                     </Heading>
 
                     <Paragraph>
                         Every component below is rendered by <Text weight="bold">Preact</Text>, with{' '}
-                        <Text weight="bold">react/react-dom</Text> aliased to <Text weight="bold">preact/compat</Text>.
+                        <Text weight="bold">react/react-dom</Text> aliased to{' '}
+                        <Text weight="bold">preact/compat</Text>.
                     </Paragraph>
 
                     <Alert variant="info" title="State works">
-                        Hooks ({name ? `hello, ${name}` : 'type your name'}, checkbox {checked ? 'on' : 'off'}, fruit:{' '}
-                        {fruit}) prove Preact's hook dispatcher is driving Baukasten.
+                        Hooks ({name ? `hello, ${name}` : 'type your name'}, checkbox{' '}
+                        {checked ? 'on' : 'off'}, fruit: {fruit}) prove Preact's hook dispatcher is
+                        driving Baukasten.
                     </Alert>
 
                     <Input

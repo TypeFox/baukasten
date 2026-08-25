@@ -51,18 +51,17 @@ vscode-db-explorer/
 
 ## Components Used
 
-| Component                          | Usage                                  |
-| ---------------------------------- | -------------------------------------- |
-| Tree                               | Schema browser sidebar                 |
-| DataTable                          | Table rows + column structure          |
-| Tabs                               | Data / Structure / SQL views           |
-| SplitPane                          | Sidebar + editor layout                |
-| Breadcrumbs                        | Database → schema → table path         |
-| StatusBar                          | Connection + query info                |
-| Badge                              | Row status, PK/UQ indicators           |
-| Tag                                | Active filter chips                    |
-| Button / IconButton               | Toolbar actions                        |
-| Input                              | Row filter                             |
-| Code                               | SQL query                              |
-| Icon                               | Codicons throughout                    |
-```
+| Component           | Usage                          |
+| ------------------- | ------------------------------ |
+| Tree                | Schema browser sidebar         |
+| DataTable           | Table rows + column structure  |
+| Tabs                | Data / Structure / SQL views   |
+| SplitPane           | Sidebar + editor layout        |
+| Breadcrumbs         | Database → schema → table path |
+| StatusBar           | Connection + query info        |
+| Badge               | Row status, PK/UQ indicators   |
+| Tag                 | Active filter chips            |
+| Button / IconButton | Toolbar actions                |
+| Input               | Row filter                     |
+| Code                | SQL query                      |
+| Icon                | Codicons throughout            |

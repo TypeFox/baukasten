@@ -204,8 +204,16 @@ export const FILE_TREE: DemoFileNode[] = [
                         label: 'telemetry',
                         icon: 'folder-opened',
                         children: [
-                            { id: 'src/services/telemetry/queue.ts', label: 'queue.ts', icon: 'file-code' },
-                            { id: 'src/services/telemetry/types.ts', label: 'types.ts', icon: 'file-code' },
+                            {
+                                id: 'src/services/telemetry/queue.ts',
+                                label: 'queue.ts',
+                                icon: 'file-code',
+                            },
+                            {
+                                id: 'src/services/telemetry/types.ts',
+                                label: 'types.ts',
+                                icon: 'file-code',
+                            },
                             {
                                 id: DEMO_FILE,
                                 label: 'uploader.ts',
@@ -292,13 +300,7 @@ export interface ReviewStep {
     delay: number;
 }
 
-export type RunStep =
-    | UserStep
-    | ThinkingStep
-    | ToolStep
-    | AssistantStep
-    | DiffStep
-    | ReviewStep;
+export type RunStep = UserStep | ThinkingStep | ToolStep | AssistantStep | DiffStep | ReviewStep;
 
 export const TOOL_META: Record<ToolKind, { icon: CodiconName; label: string }> = {
     read: { icon: 'file-code', label: 'Read' },

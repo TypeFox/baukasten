@@ -80,10 +80,7 @@ export function useAgentRun(autoStart = true): AgentRunState {
                 await wait(step.delay);
                 if (!alive()) return;
 
-                setEntries((prev) => [
-                    ...prev,
-                    { id: index, step, status: 'running', typed: '' },
-                ]);
+                setEntries((prev) => [...prev, { id: index, step, status: 'running', typed: '' }]);
 
                 const settle = () => {
                     setEntries((prev) =>

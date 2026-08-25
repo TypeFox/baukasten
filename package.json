@@ -7,7 +7,7 @@
         "packages/examples/*"
     ],
     "scripts": {
-        "build": "npm run build --workspaces",
+        "build": "npm run build:lib && npm run build:demos && npm run build:website && npm run build:examples",
         "build:web-wrapper": "npm run build --workspace=packages/web-wrapper",
         "build:baukasten": "npm run build --workspace=packages/baukasten",
         "build:website": "npm run build --workspace=packages/website",
@@ -32,7 +32,10 @@
         "example:agent-ide": "npm run dev --workspace=packages/examples/agent-ide",
         "build:agent-ide": "npm run build --workspace=packages/examples/agent-ide",
         "example:preact": "npm run dev --workspace=packages/examples/preact",
-        "build:preact": "npm run build --workspace=packages/examples/preact"
+        "build:preact": "npm run build --workspace=packages/examples/preact",
+        "build:lib": "npm run build:baukasten && npm run build:web-wrapper",
+        "build:demos": "npm run build:agent-ide && npm run build:preact",
+        "build:examples": "npm run build:vscode && npm run build:db-explorer && npm run build:electron && npm run build --workspace=packages/examples/web-example"
     },
     "devDependencies": {
         "@storybook/react-vite": "^8.6.15",
