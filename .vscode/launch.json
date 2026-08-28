@@ -11,6 +11,15 @@
             "preLaunchTask": "npm: dev:web-example"
         },
         {
+            "name": "Attach to Agent IDE Example (Chrome)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3210",
+            "webRoot": "${workspaceFolder}/packages/examples/agent-ide",
+            "sourceMaps": true,
+            "preLaunchTask": "npm: dev:agent-ide-example"
+        },
+        {
             "name": "Attach to Storybook (Chrome)",
             "type": "chrome",
             "request": "launch",

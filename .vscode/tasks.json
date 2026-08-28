@@ -43,6 +43,39 @@
             "detail": "Start the web example dev server"
         },
         {
+            "label": "npm: build:baukasten",
+            "type": "npm",
+            "script": "build:baukasten",
+            "problemMatcher": [],
+            "detail": "Build the baukasten-ui package (required before running examples)"
+        },
+        {
+            "label": "npm: dev:agent-ide-example",
+            "type": "npm",
+            "script": "dev",
+            "path": "packages/examples/agent-ide",
+            "isBackground": true,
+            "dependsOn": ["npm: build:baukasten"],
+            "problemMatcher": {
+                "owner": "typescript",
+                "fileLocation": "relative",
+                "pattern": {
+                    "regexp": "^([^\\s].*)\\((\\d+|\\d+,\\d+|\\d+,\\d+,\\d+,\\d+)\\):\\s+(error|warning|info)\\s+(TS\\d+)\\s*:\\s*(.*)$",
+                    "file": 1,
+                    "location": 2,
+                    "severity": 3,
+                    "code": 4,
+                    "message": 5
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*VITE.*",
+                    "endsPattern": "Local:.*http://localhost:3210.*"
+                }
+            },
+            "detail": "Start the agent-ide example dev server"
+        },
+        {
             "label": "npm: storybook",
             "type": "npm",
             "script": "storybook",
