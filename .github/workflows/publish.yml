@@ -1,0 +1,53 @@
+name: Publish
+
+permissions:
+    contents: read
+    id-token: write
+
+on:
+    push:
+        branches:
+            - 'main'
+        paths:
+            - 'package.json'
+            - '**/package.json'
+
+# Never let two publish runs race each other
+concurrency:
+    group: publish
+    cancel-in-progress: false
+
+jobs:
+    publish:
+        name: Baukasten Publish
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+            - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+              with:
+                  node-version: '20'
+                  # Required by the publish action for --provenance
+                  registry-url: 'https://registry.npmjs.org'
+
+            # Node 20 ships npm 10.x; OIDC trusted publishing needs npm >= 11.5.1
+            - name: Upgrade npm
+              run: npm install -g npm@latest
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Run checks
+              run: npm run lint && npm run format:check
+
+            - name: Build all packages
+              run: npm run build
+
+            - name: Publish
+              # Pin the version to a full commit SHA for supply-chain safety
+              uses: TypeFox/gh-publish-npm@7183224bef010236e419a2367208633ff284337a
+              with:
+                  # Newline-separated. Only non-private, npm-published packages belong here.
+                  npm-packages: |
+                      packages/baukasten
+                      packages/web-wrapper
