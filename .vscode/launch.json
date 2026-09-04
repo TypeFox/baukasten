@@ -11,6 +11,15 @@
             "preLaunchTask": "npm: dev:web-example"
         },
         {
+            "name": "Attach to Agent IDE Example (Chrome)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3210",
+            "webRoot": "${workspaceFolder}/packages/examples/agent-ide",
+            "sourceMaps": true,
+            "preLaunchTask": "npm: dev:agent-ide-example"
+        },
+        {
             "name": "Attach to Storybook (Chrome)",
             "type": "chrome",
             "request": "launch",
@@ -26,6 +35,16 @@
             "args": ["--extensionDevelopmentPath=${workspaceFolder}/packages/examples/vscode"],
             "outFiles": ["${workspaceFolder}/packages/examples/vscode/dist/**/*.js"],
             "preLaunchTask": "npm: build:vscode-example"
+        },
+        {
+            "name": "Launch DB Explorer Extension Example",
+            "type": "extensionHost",
+            "request": "launch",
+            "args": [
+                "--extensionDevelopmentPath=${workspaceFolder}/packages/examples/vscode-db-explorer"
+            ],
+            "outFiles": ["${workspaceFolder}/packages/examples/vscode-db-explorer/dist/**/*.js"],
+            "preLaunchTask": "npm: build:db-explorer-example"
         }
     ],
     "compounds": [
