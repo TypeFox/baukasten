@@ -1,5 +1,6 @@
 {
     "name": "@baukasten/vscode-example",
+    "private": true,
     "displayName": "Baukasten Log Viewer",
     "description": "A VSCode extension demo showcasing baukasten UI components with a Log Viewer",
     "version": "0.3.0",
