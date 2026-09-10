@@ -1,9 +1,9 @@
 'use client';
 
-import { useRef, useState, type MouseEvent } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
-import { Icon, Badge, Text, Input } from 'baukasten-ui/core';
+import { Icon, Badge, Button, Text, Input } from 'baukasten-ui/core';
 import { Tree, ContextMenu, MenuItem, MenuDivider } from 'baukasten-ui/extra';
 import type { TreeNodeData } from 'baukasten-ui/extra';
 
@@ -80,6 +80,44 @@ const treeProps: PropDefinition[] = [
         name: 'expandIcon',
         type: '(props: ExpandIconRenderProps) => React.ReactNode',
         description: 'Custom expand/collapse icon renderer. Return null to hide it.',
+    },
+    {
+        name: '---',
+        type: '---',
+        description: 'Scrolling and windowing:',
+    },
+    {
+        name: 'maxHeight',
+        type: 'number | string',
+        description:
+            'Maximum height of the scroll area. Giving the tree a bounded height is what enables row windowing — only the rows in view are mounted.',
+    },
+    {
+        name: 'fillHeight',
+        type: 'boolean',
+        default: 'false',
+        description:
+            "Fill the parent's height instead of growing with content. Also enables windowing; the parent must have a resolved height.",
+    },
+    {
+        name: 'estimatedRowHeight',
+        type: 'number',
+        default: 'from size',
+        description:
+            'Height assumed for a row that has not been measured yet. Rows are measured once mounted, so this only affects how accurate the scroll extent is ahead of the reader.',
+    },
+    {
+        name: 'overscan',
+        type: 'number',
+        default: '8',
+        description: 'Rows rendered above and below the viewport.',
+    },
+    {
+        name: 'disableVirtualization',
+        type: 'boolean',
+        default: 'false',
+        description:
+            'Render every visible row instead of only the windowed slice. maxHeight and fillHeight still bound and scroll the tree.',
     },
 ];
 
@@ -311,6 +349,83 @@ function CustomExpandIconExample() {
     );
 }
 
+function LargeTreeExample() {
+    // 12 + 144 + 1,728 + 20,736 = 22,620 nodes, four levels deep.
+    const nodes = useMemo(() => {
+        const build = (depth: number, prefix: string): TreeNodeData[] =>
+            depth === 0
+                ? []
+                : Array.from({ length: 12 }, (_, i) => {
+                      const id = `${prefix}/${i}`;
+                      const children = build(depth - 1, id);
+                      return {
+                          id,
+                          label: children.length ? `dir-${i}` : `file-${i}.ts`,
+                          icon: <Icon name={children.length ? 'folder' : 'file'} />,
+                          ...(children.length ? { children } : {}),
+                      };
+                  });
+        return build(4, 'root');
+    }, []);
+
+    const [expanded, setExpanded] = useState<string[]>([]);
+    const [mounted, setMounted] = useState(0);
+    const treeRef = useRef<HTMLDivElement>(null);
+
+    // Read straight from the DOM after each commit — the count is the point of
+    // this example, and it stays flat however many branches are open.
+    useEffect(() => {
+        setMounted(treeRef.current?.querySelectorAll('[data-tree-node-id]').length ?? 0);
+    }, [expanded]);
+
+    const expandAll = () => {
+        const keys: string[] = [];
+        const walk = (list: TreeNodeData[]) => {
+            for (const node of list) {
+                if (node.children?.length) {
+                    keys.push(node.id);
+                    walk(node.children);
+                }
+            }
+        };
+        walk(nodes);
+        setExpanded(keys);
+    };
+
+    return (
+        <div style={{ width: '100%', maxWidth: 420 }}>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 'var(--bk-gap-md)',
+                    marginBottom: 'var(--bk-spacing-3)',
+                }}
+            >
+                <Button size="xs" variant="secondary" onClick={expandAll}>
+                    Expand all
+                </Button>
+                <Button size="xs" variant="secondary" onClick={() => setExpanded([])}>
+                    Collapse all
+                </Button>
+                <Text size="sm" color="muted">
+                    22,620 nodes · <strong>{mounted}</strong> rows in the DOM
+                </Text>
+            </div>
+
+            <div ref={treeRef}>
+                <Tree
+                    nodes={nodes}
+                    edgeStyle="solid"
+                    maxHeight={320}
+                    expandedKeys={expanded}
+                    onExpandChange={setExpanded}
+                />
+            </div>
+        </div>
+    );
+}
+
 // ─── File-manager example (double-click rename + context menu) ───────────────
 
 interface FsNode {
@@ -379,11 +494,11 @@ function FileManagerExample() {
     const [contextNode, setContextNode] = useState<FsNode | null>(null);
     const idCounter = useRef(0);
 
-    const commitRename = (id: string, value: string) => {
+    const commitRename = useCallback((id: string, value: string) => {
         const name = value.trim();
         if (name) setTree((t) => renameFsNode(t, id, name));
         setRenamingId(null);
-    };
+    }, []);
 
     // Tree exposes no per-node event props by design — resolve the row
     // from the data-tree-node-id attribute that every row renders.
@@ -405,31 +520,37 @@ function FileManagerExample() {
 
     // Map the file-system model to Tree nodes. The row being renamed
     // swaps its label for an inline Input.
-    const toTreeNodes = (nodes: FsNode[]): TreeNodeData[] =>
-        nodes.map((n) => ({
-            id: n.id,
-            icon: <Icon name={n.kind === 'folder' ? 'folder' : 'file'} />,
-            label:
-                n.id === renamingId ? (
-                    <Input
-                        size="xs"
-                        autoFocus
-                        defaultValue={n.name}
-                        onFocus={(e) => e.currentTarget.select()}
-                        onClick={(e) => e.stopPropagation()}
-                        onDoubleClick={(e) => e.stopPropagation()}
-                        onKeyDown={(e) => {
-                            e.stopPropagation();
-                            if (e.key === 'Enter') commitRename(n.id, e.currentTarget.value);
-                            if (e.key === 'Escape') setRenamingId(null);
-                        }}
-                        onBlur={(e) => commitRename(n.id, e.currentTarget.value)}
-                    />
-                ) : (
-                    n.name
-                ),
-            children: n.children ? toTreeNodes(n.children) : undefined,
-        }));
+    //
+    // Memoised: Tree memoises each row against its node object, so rebuilding
+    // these on every render would re-render the whole visible tree.
+    const treeNodes = useMemo(() => {
+        const toTreeNodes = (nodes: FsNode[]): TreeNodeData[] =>
+            nodes.map((n) => ({
+                id: n.id,
+                icon: <Icon name={n.kind === 'folder' ? 'folder' : 'file'} />,
+                label:
+                    n.id === renamingId ? (
+                        <Input
+                            size="xs"
+                            autoFocus
+                            defaultValue={n.name}
+                            onFocus={(e) => e.currentTarget.select()}
+                            onClick={(e) => e.stopPropagation()}
+                            onDoubleClick={(e) => e.stopPropagation()}
+                            onKeyDown={(e) => {
+                                e.stopPropagation();
+                                if (e.key === 'Enter') commitRename(n.id, e.currentTarget.value);
+                                if (e.key === 'Escape') setRenamingId(null);
+                            }}
+                            onBlur={(e) => commitRename(n.id, e.currentTarget.value)}
+                        />
+                    ) : (
+                        n.name
+                    ),
+                children: n.children ? toTreeNodes(n.children) : undefined,
+            }));
+        return toTreeNodes(tree);
+    }, [tree, renamingId, commitRename]);
 
     return (
         <div style={{ width: '100%', maxWidth: 420 }}>
@@ -480,7 +601,7 @@ function FileManagerExample() {
                 }
             >
                 <Tree
-                    nodes={toTreeNodes(tree)}
+                    nodes={treeNodes}
                     edgeStyle="solid"
                     expandedKeys={expanded}
                     onExpandChange={setExpanded}
@@ -507,7 +628,7 @@ export default function TreePage() {
     return (
         <PageLayout
             title="Tree"
-            description="A hierarchical tree view for file explorers, settings hierarchies, and nested navigation. Supports expand/collapse, single selection, keyboard navigation, guide edges, icons, and badges."
+            description="A hierarchical tree view for file explorers, settings hierarchies, and nested navigation. Supports expand/collapse, single selection, keyboard navigation, guide edges, icons, and badges. Give it a bounded height and it scrolls, mounting only the rows in view — a tree of tens of thousands of nodes costs the same as a small one."
         >
             <Showcase
                 title="Basic Usage"
@@ -585,6 +706,33 @@ const [selected, setSelected] = useState<string | null>(null);
             />
 
             <Showcase
+                title="Large Trees"
+                description="Give the tree a bounded height — maxHeight, or fillHeight inside a sized parent — and it becomes a scroll area that mounts only the rows in view (plus overscan). Expand every directory below and the row count in the DOM barely moves. Pass disableVirtualization to keep the scrolling but mount every visible row, for Ctrl-F over the whole tree."
+                preview={<LargeTreeExample />}
+                code={`// 12 + 144 + 1,728 + 20,736 = 22,620 nodes, four levels deep
+const nodes = useMemo(() => buildLargeTree(), []);
+
+const [expanded, setExpanded] = useState<string[]>([]);
+
+<Tree
+  nodes={nodes}
+  edgeStyle="solid"
+  maxHeight={320}
+  expandedKeys={expanded}
+  onExpandChange={setExpanded}
+/>
+
+// Or fill a sized parent instead of capping the height:
+<div style={{ height: '100%' }}>
+  <Tree nodes={nodes} fillHeight />
+</div>
+
+// Taller rows than the default? Tell the scrollbar up front — rows are
+// measured once mounted, so this only affects the extent ahead of the reader.
+<Tree nodes={nodes} maxHeight={320} estimatedRowHeight={32} />`}
+            />
+
+            <Showcase
                 title="Custom Expand Icon"
                 description="Replace the default chevron with a custom renderer. Return null to hide the icon for leaf nodes."
                 preview={<CustomExpandIconExample />}
@@ -602,7 +750,7 @@ const [selected, setSelected] = useState<string | null>(null);
                 title="File Manager: Rename & Context Menu"
                 description="Double-click a row to rename it inline; right-click for context-aware actions — New Folder / New File on folders, Delete on files. Tree has no per-node event handlers by design: onDoubleClick and onContextMenu live on the Tree container (it forwards standard HTML attributes), and the clicked row is resolved from the data-tree-node-id attribute every row renders."
                 preview={<FileManagerExample />}
-                code={`import { useRef, useState, type MouseEvent } from 'react';
+                code={`import { useCallback, useMemo, useRef, useState, type MouseEvent } from 'react';
 import { Icon, Input, Text } from 'baukasten-ui/core';
 import { Tree, ContextMenu, MenuItem, MenuDivider } from 'baukasten-ui/extra';
 import type { TreeNodeData } from 'baukasten-ui/extra';
@@ -655,11 +803,11 @@ function FileManager({ initialTree }: { initialTree: FsNode[] }) {
   const [contextNode, setContextNode] = useState<FsNode | null>(null);
   const idCounter = useRef(0);
 
-  const commitRename = (id: string, value: string) => {
+  const commitRename = useCallback((id: string, value: string) => {
     const name = value.trim();
     if (name) setTree((t) => renameFsNode(t, id, name));
     setRenamingId(null);
-  };
+  }, []);
 
   // Tree exposes no per-node event props by design — resolve the row
   // from the data-tree-node-id attribute that every row renders.
@@ -681,31 +829,37 @@ function FileManager({ initialTree }: { initialTree: FsNode[] }) {
 
   // Map the file-system model to Tree nodes. The row being renamed
   // swaps its label for an inline Input.
-  const toTreeNodes = (nodes: FsNode[]): TreeNodeData[] =>
-    nodes.map((n) => ({
-      id: n.id,
-      icon: <Icon name={n.kind === 'folder' ? 'folder' : 'file'} />,
-      label:
-        n.id === renamingId ? (
-          <Input
-            size="xs"
-            autoFocus
-            defaultValue={n.name}
-            onFocus={(e) => e.currentTarget.select()}
-            onClick={(e) => e.stopPropagation()}
-            onDoubleClick={(e) => e.stopPropagation()}
-            onKeyDown={(e) => {
-              e.stopPropagation();
-              if (e.key === 'Enter') commitRename(n.id, e.currentTarget.value);
-              if (e.key === 'Escape') setRenamingId(null);
-            }}
-            onBlur={(e) => commitRename(n.id, e.currentTarget.value)}
-          />
-        ) : (
-          n.name
-        ),
-      children: n.children ? toTreeNodes(n.children) : undefined,
-    }));
+  //
+  // Memoised: Tree memoises each row against its node object, so rebuilding
+  // these on every render would re-render the whole visible tree.
+  const treeNodes = useMemo(() => {
+    const toTreeNodes = (nodes: FsNode[]): TreeNodeData[] =>
+      nodes.map((n) => ({
+        id: n.id,
+        icon: <Icon name={n.kind === 'folder' ? 'folder' : 'file'} />,
+        label:
+          n.id === renamingId ? (
+            <Input
+              size="xs"
+              autoFocus
+              defaultValue={n.name}
+              onFocus={(e) => e.currentTarget.select()}
+              onClick={(e) => e.stopPropagation()}
+              onDoubleClick={(e) => e.stopPropagation()}
+              onKeyDown={(e) => {
+                e.stopPropagation();
+                if (e.key === 'Enter') commitRename(n.id, e.currentTarget.value);
+                if (e.key === 'Escape') setRenamingId(null);
+              }}
+              onBlur={(e) => commitRename(n.id, e.currentTarget.value)}
+            />
+          ) : (
+            n.name
+          ),
+        children: n.children ? toTreeNodes(n.children) : undefined,
+      }));
+    return toTreeNodes(tree);
+  }, [tree, renamingId, commitRename]);
 
   return (
     <ContextMenu
@@ -752,7 +906,7 @@ function FileManager({ initialTree }: { initialTree: FsNode[] }) {
       }
     >
       <Tree
-        nodes={toTreeNodes(tree)}
+        nodes={treeNodes}
         edgeStyle="solid"
         expandedKeys={expanded}
         onExpandChange={setExpanded}
