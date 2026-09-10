@@ -2,19 +2,15 @@ import { recipe } from '@vanilla-extract/recipes';
 import { style, globalStyle } from '@vanilla-extract/css';
 
 /**
- * Tree node wrapper — wraps the row + its children sub-tree.
- */
-export const treeNodeWrapper = style({
-    display: 'flex',
-    flexDirection: 'column',
-});
-
-/**
- * Tree node row — the clickable/focusable horizontal strip.
+ * Tree node row — the clickable/focusable horizontal strip, and the whole of a
+ * node: rows are siblings in one flat list, so there is no per-node wrapper and
+ * no children container. `position: relative` lets a row draw its own guides.
  */
 export const treeNodeRow = recipe({
     base: {
         display: 'flex',
+        position: 'relative',
+        boxSizing: 'border-box',
         alignItems: 'center',
         borderRadius: 'var(--bk-radius-sm)',
         transition: 'var(--bk-transition-colors)',
@@ -188,272 +184,83 @@ export const nodeBadge = style({
     fontSize: '0.875em',
 });
 
-// ─── Children container with tree-edge guides ────────────────────────────────
+// ─── Windowed placement ──────────────────────────────────────────────────────
 
 /**
- * Children wrapper — rendered beneath the parent row.
- * Uses CSS Grid animation for smooth expand/collapse.
+ * Applied to a row only while the tree is windowed. The mounted rows are an
+ * arbitrary slice — row 4,000 may be the first — so they are lifted out of flow
+ * and placed by `translateY` rather than stacking at the top of the canvas.
  */
-export const childrenContainer = recipe({
-    base: {
-        display: 'grid',
-        position: 'relative',
-        transition:
-            'grid-template-rows var(--bk-transition-slow), opacity var(--bk-transition-base)',
-    },
-
-    variants: {
-        isOpen: {
-            true: {
-                gridTemplateRows: '1fr',
-                opacity: 1,
-            },
-            false: {
-                gridTemplateRows: '0fr',
-                opacity: 0,
-            },
-        },
-    },
-
-    defaultVariants: {
-        isOpen: false,
-    },
-});
-
-/**
- * Inner children wrapper — required for CSS Grid animation.
- */
-export const childrenInner = style({
-    overflow: 'hidden',
-    minHeight: 0,
+export const treeRowWindowed = style({
+    position: 'absolute',
+    top: 0,
+    left: 0,
 });
 
 // ─── Edge guide styles ───────────────────────────────────────────────────────
 
 /**
- * Each child node is wrapped in an edge-guide container that draws the
- * connector lines from parent to child.  The indent is applied here.
+ * Vertical guide line, drawn as a real element inside the row it belongs to and
+ * positioned by an inline `left`. Rows are siblings rather than nested, so each
+ * one draws the ancestor columns passing through it.
+ *
+ * Worth knowing: with `dashed` / `dotted` the dash pattern restarts at each row
+ * boundary, since this is many one-row borders rather than one tall one.
+ *
+ * `span: 'full'` runs the line through the whole row, for a column that
+ * continues below. `span: 'half'` stops at the vertical centre where the elbow
+ * meets it — the last-child corner.
  */
-export const edgeGuideContainer = recipe({
+export const edgeGuideVertical = recipe({
     base: {
-        position: 'relative',
+        position: 'absolute',
+        top: 0,
+        width: 0,
+        pointerEvents: 'none',
+        borderLeftWidth: 'var(--bk-border-width-1)',
+        borderLeftColor: 'var(--bk-tree-edge-color)',
     },
 
     variants: {
         edgeStyle: {
-            solid: {},
-            dashed: {},
-            dotted: {},
-            none: {},
+            solid: { borderLeftStyle: 'solid' },
+            dashed: { borderLeftStyle: 'dashed' },
+            dotted: { borderLeftStyle: 'dotted' },
+            none: { display: 'none' },
+        },
+        span: {
+            full: { bottom: 0 },
+            half: { height: '50%' },
         },
     },
 
     defaultVariants: {
         edgeStyle: 'solid',
+        span: 'full',
     },
 });
 
 /**
- * Vertical edge line for a single node's row.
- *
- * `edgeGuideContainer` wraps ONLY the row, so its height equals one row.
- * That lets the line be positioned with pure percentages, no row-height
- * variable needed:
- *  - `top: -50%` reaches half a row up — to the parent / previous-sibling
- *    row centre (the previous wrapper is exactly one row above).
- *  - `height: 100%` ends the line at this row's own centre.
- *  - `height: 150%` extends it to this row's bottom, where the
- *    `edgeChildLine` (drawn on the children group) takes over.
- *
- * `extendDown` is true only for an expanded parent that has a sibling
- * below it — the one case where the line must continue past the row.
+ * Horizontal connector running from a row's own guide column across to where
+ * its content begins. Width is supplied inline, because it depends on
+ * `indentSize` and on whether the row shows a chevron or only the spacer.
  */
-export const edgeVerticalLine = recipe({
+export const edgeGuideHorizontal = recipe({
     base: {
-        selectors: {
-            '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: '-50%',
-                left: 'var(--bk-tree-indent-center)',
-                width: 0,
-                borderLeftWidth: 'var(--bk-border-width-1)',
-                borderLeftColor: 'var(--bk-tree-edge-color)',
-            },
-        },
+        position: 'absolute',
+        top: '50%',
+        height: 0,
+        pointerEvents: 'none',
+        borderTopWidth: 'var(--bk-border-width-1)',
+        borderTopColor: 'var(--bk-tree-edge-color)',
     },
 
     variants: {
         edgeStyle: {
-            solid: {
-                selectors: {
-                    '&::before': {
-                        borderLeftStyle: 'solid',
-                    },
-                },
-            },
-            dashed: {
-                selectors: {
-                    '&::before': {
-                        borderLeftStyle: 'dashed',
-                    },
-                },
-            },
-            dotted: {
-                selectors: {
-                    '&::before': {
-                        borderLeftStyle: 'dotted',
-                    },
-                },
-            },
-            none: {
-                selectors: {
-                    '&::before': {
-                        display: 'none',
-                    },
-                },
-            },
-        },
-        extendDown: {
-            true: {
-                selectors: {
-                    // Reach this row's bottom to meet the children-group line
-                    '&::before': {
-                        height: '150%',
-                    },
-                },
-            },
-            false: {
-                selectors: {
-                    // Stop at this row's centre
-                    '&::before': {
-                        height: '100%',
-                    },
-                },
-            },
-        },
-    },
-
-    defaultVariants: {
-        edgeStyle: 'solid',
-        extendDown: false,
-    },
-});
-
-/**
- * Horizontal connector from the vertical line to the node row.
- * Drawn using an ::after pseudo-element.
- */
-export const edgeHorizontalLine = recipe({
-    base: {
-        selectors: {
-            '&::after': {
-                content: '""',
-                position: 'absolute',
-                top: '50%',
-                left: 'var(--bk-tree-indent-center)',
-                width: 'var(--bk-tree-branch-width)',
-                height: 0,
-                borderTopWidth: 'var(--bk-border-width-1)',
-                borderTopColor: 'var(--bk-tree-edge-color)',
-            },
-        },
-    },
-
-    variants: {
-        edgeStyle: {
-            solid: {
-                selectors: {
-                    '&::after': {
-                        borderTopStyle: 'solid',
-                    },
-                },
-            },
-            dashed: {
-                selectors: {
-                    '&::after': {
-                        borderTopStyle: 'dashed',
-                    },
-                },
-            },
-            dotted: {
-                selectors: {
-                    '&::after': {
-                        borderTopStyle: 'dotted',
-                    },
-                },
-            },
-            none: {
-                selectors: {
-                    '&::after': {
-                        display: 'none',
-                    },
-                },
-            },
-        },
-    },
-
-    defaultVariants: {
-        edgeStyle: 'solid',
-    },
-});
-
-/**
- * Vertical edge line drawn on a node's children group.
- *
- * `childrenContainer` spans the node's entire expanded subtree, so this
- * `::before` carries the guide line *through* that subtree — from the
- * node's row bottom down to its next sibling — keeping the line unbroken
- * when a folder is expanded. Applied only to non-last nodes (a last node
- * has no sibling below to connect to). Sits at the node's own indent
- * column, so it reuses the same `--bk-tree-indent-center` value as the row.
- */
-export const edgeChildLine = recipe({
-    base: {
-        selectors: {
-            '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                bottom: 0,
-                left: 'var(--bk-tree-indent-center)',
-                width: 0,
-                borderLeftWidth: 'var(--bk-border-width-1)',
-                borderLeftColor: 'var(--bk-tree-edge-color)',
-            },
-        },
-    },
-
-    variants: {
-        edgeStyle: {
-            solid: {
-                selectors: {
-                    '&::before': {
-                        borderLeftStyle: 'solid',
-                    },
-                },
-            },
-            dashed: {
-                selectors: {
-                    '&::before': {
-                        borderLeftStyle: 'dashed',
-                    },
-                },
-            },
-            dotted: {
-                selectors: {
-                    '&::before': {
-                        borderLeftStyle: 'dotted',
-                    },
-                },
-            },
-            none: {
-                selectors: {
-                    '&::before': {
-                        display: 'none',
-                    },
-                },
-            },
+            solid: { borderTopStyle: 'solid' },
+            dashed: { borderTopStyle: 'dashed' },
+            dotted: { borderTopStyle: 'dotted' },
+            none: { display: 'none' },
         },
     },
 

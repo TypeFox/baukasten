@@ -48,6 +48,38 @@ const meta = {
             description: 'Whether clicking the row toggles expansion',
             table: { defaultValue: { summary: 'true' } },
         },
+        maxHeight: {
+            control: 'text',
+            description:
+                'Maximum height of the scroll area. Giving the tree a bounded height is what ' +
+                'enables row windowing — only the rows in view are mounted.',
+            table: { defaultValue: { summary: 'undefined' } },
+        },
+        fillHeight: {
+            control: 'boolean',
+            description:
+                'Fill the parent instead of growing with content. Also enables windowing; the ' +
+                'parent must have a resolved height.',
+            table: { defaultValue: { summary: 'false' } },
+        },
+        estimatedRowHeight: {
+            control: 'number',
+            description:
+                'Height assumed for a row that has not been measured yet. Defaults to the height ' +
+                'implied by `size`; rows are measured once they mount, so this only affects how ' +
+                'accurate the scroll extent is ahead of the reader.',
+            table: { defaultValue: { summary: 'from size' } },
+        },
+        overscan: {
+            control: { type: 'range', min: 0, max: 40, step: 2 },
+            description: 'Rows rendered above and below the viewport',
+            table: { defaultValue: { summary: '8' } },
+        },
+        disableVirtualization: {
+            control: 'boolean',
+            description: 'Render every visible row instead of only the windowed slice',
+            table: { defaultValue: { summary: 'false' } },
+        },
     },
 } satisfies Meta<typeof Tree>;
 
@@ -718,6 +750,109 @@ export const WithActionButtons: Story = {
                     'Folder nodes with action buttons (add subfolder, add file, delete) in the badge slot. ' +
                     'Clicking an action button modifies the tree data without triggering node selection or expand. ' +
                     'This pattern works because `badge` accepts any `ReactNode` — buttons, dropdowns, or custom controls.',
+            },
+        },
+    },
+};
+
+/**
+ * A tree far larger than the screen, windowed.
+ */
+export const LargeTree: Story = {
+    render: () => {
+        const LargeTreeDemo = () => {
+            // 12 + 144 + 1,728 + 20,736 = 22,620 nodes, four levels deep.
+            const nodes = React.useMemo(() => {
+                const build = (depth: number, prefix: string): TreeNodeData[] =>
+                    depth === 0
+                        ? []
+                        : Array.from({ length: 12 }, (_, i) => {
+                              const id = `${prefix}/${i}`;
+                              const children = build(depth - 1, id);
+                              return {
+                                  id,
+                                  label: children.length ? `dir-${i}` : `file-${i}.ts`,
+                                  icon: <Icon name={children.length ? 'folder' : 'file'} />,
+                                  ...(children.length ? { children } : {}),
+                              };
+                          });
+                return build(4, 'root');
+            }, []);
+
+            const [expandedKeys, setExpandedKeys] = useState<string[]>([]);
+            const [mounted, setMounted] = useState(0);
+            const treeRef = React.useRef<HTMLDivElement>(null);
+
+            // Read straight from the DOM after each commit — the count is the
+            // whole point of this story, and it should stay flat no matter how
+            // many branches are open.
+            React.useEffect(() => {
+                setMounted(treeRef.current?.querySelectorAll('[data-tree-node-id]').length ?? 0);
+            }, [expandedKeys]);
+
+            const expandAll = useCallback(() => {
+                const keys: string[] = [];
+                const walk = (list: TreeNodeData[]) => {
+                    for (const node of list) {
+                        if (node.children?.length) {
+                            keys.push(node.id);
+                            walk(node.children);
+                        }
+                    }
+                };
+                walk(nodes);
+                setExpandedKeys(keys);
+            }, [nodes]);
+
+            return (
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 'var(--bk-spacing-3)',
+                        width: '420px',
+                    }}
+                >
+                    <div style={{ display: 'flex', gap: 'var(--bk-spacing-2)' }}>
+                        <IconButton
+                            icon={<Icon name="expand-all" />}
+                            aria-label="Expand all"
+                            onClick={expandAll}
+                        />
+                        <IconButton
+                            icon={<Icon name="collapse-all" />}
+                            aria-label="Collapse all"
+                            onClick={() => setExpandedKeys([])}
+                        />
+                        <Text size="sm">
+                            22,620 nodes · <strong>{mounted}</strong> rows in the DOM
+                        </Text>
+                    </div>
+
+                    <div ref={treeRef}>
+                        <Tree
+                            nodes={nodes}
+                            edgeStyle="solid"
+                            expandedKeys={expandedKeys}
+                            onExpandChange={setExpandedKeys}
+                            maxHeight={400}
+                            style={{ border: '1px solid var(--bk-color-border)' }}
+                        />
+                    </div>
+                </div>
+            );
+        };
+
+        return <LargeTreeDemo />;
+    },
+    parameters: {
+        docs: {
+            description: {
+                story:
+                    'Expand All opens every one of the 22,620 nodes. The row count in the DOM does ' +
+                    'not move, because `maxHeight` bounds the scroll area and only the rows inside ' +
+                    'it (plus `overscan`) are mounted. Without a bounded height the same tree would ' +
+                    'mount every expanded row, and the component warns once past 500 of them.',
             },
         },
     },
