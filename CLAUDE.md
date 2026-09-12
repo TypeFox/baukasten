@@ -230,7 +230,6 @@ Components are split across two entry points:
 
 **Data Display:**
 
-- **DataTable** - Advanced data table with virtualization, sorting, filtering
 - **Avatar** - User avatar with image/initials fallback
 
 **Navigation:**
@@ -251,6 +250,25 @@ Components are split across two entry points:
 - **StatusBar** - VSCode-style status bar
 - **Hero** - Hero section component
 
+### DataTable (`baukasten-ui/data-table`)
+
+- **DataTable** - Advanced data table with virtualization, sorting, filtering
+
+DataTable has its own entry point because it is the only component that needs
+`@tanstack/react-table`. Keeping it out of the `extra` and root barrels is what
+makes that peer dependency genuinely optional: Rollup resolves re-exported
+modules whether or not their exports are used, so a single re-export from a
+barrel would force every consumer of that barrel to install the package.
+
+```tsx
+import { DataTable, type ColumnDef } from 'baukasten-ui/data-table';
+```
+
+The related helpers and types — `createSelectColumn`, `useDataTable`,
+`useDataTableData`, `applyDataTransaction`, `mergeTransactions`, `ColumnDef`,
+`SortingState`, `PaginationState`, `RowSelectionState`, `ColumnResizeMode`,
+`Row` — are exported from the same entry.
+
 ## Key Technical Details
 
 ### Build System
@@ -262,18 +280,21 @@ Components are split across two entry points:
 
 ### Package Exports
 
-Main package (`baukasten-ui`) provides three entry points:
+Main package (`baukasten-ui`) provides four entry points:
 
-- `baukasten-ui` (`.`) — All components and types (re-exports core + extra)
+- `baukasten-ui` (`.`) — All components and types (re-exports core + extra; **not** DataTable)
 - `baukasten-ui/core` (`./core`) — Fundamental primitives (Button, Input, Icon, Typography, etc.)
-- `baukasten-ui/extra` (`./extra`) — Higher-level compositions (DataTable, Tabs, Menu, etc.)
+- `baukasten-ui/extra` (`./extra`) — Higher-level compositions (Tabs, Menu, Tree, etc.)
+- `baukasten-ui/data-table` (`./data-table`) — DataTable and its helpers/types
 - `baukasten-ui/styles` (`./styles`) — Design token utilities
 
 **Core components** (23 families): Icon, IconButton, Button, Input, TextArea, Checkbox, Radio/RadioGroup, Select, Slider, Label, FieldLabel, FormGroup, FormHelper, Typography (Heading/Text/Paragraph/Code/Link/Image), Badge, Tag, Table, Alert, Spinner, ProgressBar, Tooltip, Modal, Divider, Dropdown, PortalProvider, Styles, GlobalStyles
 
-**Extra components** (14 families): DataTable, Tabs, Breadcrumbs, Pagination, Menu, ContextMenu, ButtonGroup, FileUpload, Accordion, SplitPane, StatusBar, Hero, Avatar
+**Extra components**: Tabs, Breadcrumbs, Pagination, Menu, ContextMenu, ButtonGroup, FileUpload, Combobox, Drawer, Accordion, SplitPane, StatusBar, Hero, Avatar, Tree
 
-`@tanstack/react-table` is an **optional peer dependency** — only needed when importing DataTable from extra.
+`@tanstack/react-table` is a genuinely **optional peer dependency**, needed only if you import `baukasten-ui/data-table`. Nothing reachable from `.`, `./core` or `./extra` references it, so consumers who do not use DataTable never install it and never bundle it.
+
+**Do not re-export DataTable from `extra.ts` or `index.ts`.** Rollup resolves re-exported modules regardless of whether their exports are used, so one re-export makes the peer dependency mandatory for every consumer of that barrel — which is exactly the bug the separate entry point fixes.
 
 ### Core / Extra Split Criteria
 
@@ -281,7 +302,7 @@ Main package (`baukasten-ui`) provides three entry points:
 | ------------------------ | ----------------------------------------------------- | -------------------------------------------- |
 | **Usage frequency**      | Used in 80%+ of UIs                                   | Used in specific scenarios                   |
 | **Complexity**           | Atomic / molecular                                    | Composed from multiple core components       |
-| **External deps**        | Only `clsx`, `@floating-ui/react`, `@vscode/codicons` | `@tanstack/react-table` or future heavy deps |
+| **External deps**        | Only `clsx`, `@floating-ui/react`, `@vscode/codicons` | Same as core — a heavy optional dep earns its own entry point instead (see `./data-table`) |
 | **Cross-component deps** | May depend on Icon and styles only                    | May depend on any core component             |
 | **Self-contained**       | Can work alone with just styles                       | Needs core components at runtime             |
 

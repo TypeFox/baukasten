@@ -33,6 +33,11 @@
             "import": "./dist/extra.mjs",
             "require": "./dist/extra.js"
         },
+        "./data-table": {
+            "types": "./dist/data-table.d.ts",
+            "import": "./dist/data-table.mjs",
+            "require": "./dist/data-table.js"
+        },
         "./styles": {
             "import": "./dist/styles.mjs",
             "require": "./dist/styles.js"

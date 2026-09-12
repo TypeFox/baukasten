@@ -4,14 +4,14 @@ import { useState, useMemo, useRef } from 'react';
 import PageLayout from '@/components/PageLayout';
 import { Showcase, PropDefinition } from '@/components/ComponentShowcase';
 import { Badge, Button, Heading } from 'baukasten-ui/core';
-import { DataTable, createSelectColumn, useDataTableData } from 'baukasten-ui/extra';
+import { DataTable, createSelectColumn, useDataTableData } from 'baukasten-ui/data-table';
 import type {
     ColumnDef,
     SortingState,
     PaginationState,
     RowSelectionState,
     DataTableRef,
-} from 'baukasten-ui/extra';
+} from 'baukasten-ui/data-table';
 
 const dataTableProps: PropDefinition[] = [
     {
@@ -661,8 +661,8 @@ export default function DataTablePage() {
                 title="Basic Usage"
                 description="Define columns using TanStack Table's column definition format, then pass your data and columns to the DataTable component."
                 preview={<DataTable data={sampleData.slice(0, 10)} columns={basicColumns} />}
-                code={`import { DataTable } from 'baukasten-ui/extra';
-import type { ColumnDef } from 'baukasten-ui/extra';
+                code={`import { DataTable } from 'baukasten-ui/data-table';
+import type { ColumnDef } from 'baukasten-ui/data-table';
 
 interface User {
   id: number;
@@ -738,8 +738,8 @@ function App() {
                 description="Use createSelectColumn() to add a checkbox column for row selection. Track selected rows with rowSelection state."
                 preview={<RowSelectionExample />}
                 code={`import { useState, useMemo } from 'react';
-import { DataTable, createSelectColumn } from 'baukasten-ui/extra';
-import type { RowSelectionState } from 'baukasten-ui/extra';
+import { DataTable, createSelectColumn } from 'baukasten-ui/data-table';
+import type { RowSelectionState } from 'baukasten-ui/data-table';
 
 function App() {
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
@@ -797,8 +797,8 @@ function App() {
                 description="Control sorting state externally for integration with external state management or URL parameters."
                 preview={<ControlledSortingExample />}
                 code={`import { useState } from 'react';
-import { DataTable } from 'baukasten-ui/extra';
-import type { SortingState } from 'baukasten-ui/extra';
+import { DataTable } from 'baukasten-ui/data-table';
+import type { SortingState } from 'baukasten-ui/data-table';
 
 function App() {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -1137,8 +1137,8 @@ function App() {
                 description="Use initialData instead of data to enable managed mode. The table manages its own state and exposes a transaction API via ref. Use ref.applyTransaction() to add, update, or remove rows."
                 preview={<ManagedModeExample />}
                 code={`import { useRef } from 'react';
-import { DataTable } from 'baukasten-ui/extra';
-import type { DataTableRef } from 'baukasten-ui/extra';
+import { DataTable } from 'baukasten-ui/data-table';
+import type { DataTableRef } from 'baukasten-ui/data-table';
 
 function App() {
   const tableRef = useRef<DataTableRef<Person>>(null);
@@ -1237,7 +1237,7 @@ tableRef.current?.flushAsyncTransactions();
                 title="External Hook (useDataTableData)"
                 description="Use the useDataTableData hook externally when you need to share transaction state across multiple components, or prefer lifting state out of the table. Pass data as a prop for controlled mode."
                 preview={<ExternalHookExample />}
-                code={`import { DataTable, useDataTableData } from 'baukasten-ui/extra';
+                code={`import { DataTable, useDataTableData } from 'baukasten-ui/data-table';
 
 function App() {
   const { data, applyTransaction, applyTransactionAsync } = useDataTableData<Person>({
