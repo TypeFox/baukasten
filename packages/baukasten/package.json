@@ -38,10 +38,6 @@
             "import": "./dist/data-table.mjs",
             "require": "./dist/data-table.js"
         },
-        "./styles": {
-            "import": "./dist/styles.mjs",
-            "require": "./dist/styles.js"
-        },
         "./dist/baukasten-base.css": "./dist/baukasten-base.css",
         "./dist/baukasten-vscode.css": "./dist/baukasten-vscode.css",
         "./dist/baukasten-theia.css": "./dist/baukasten-theia.css",

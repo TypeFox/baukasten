@@ -37,8 +37,9 @@ import { DataTable } from 'baukasten-ui/data-table'; // Needs @tanstack/react-ta
 - `baukasten-ui/core` — fundamental primitives (no heavy deps)
 - `baukasten-ui/extra` — composed components, may depend on core
 - `baukasten-ui/data-table` — DataTable and its helpers/types; the only entry needing `@tanstack/react-table`
-- `baukasten-ui/styles` — design token utilities and types
 - `baukasten-ui` — re-exports core + extra (**not** DataTable)
+
+Design tokens and style utilities come from `baukasten-ui/core`. There is no `baukasten-ui/styles` subpath — it was declared but never built, and has now been removed.
 
 ### CSS Files
 

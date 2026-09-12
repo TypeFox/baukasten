@@ -286,7 +286,8 @@ Main package (`baukasten-ui`) provides four entry points:
 - `baukasten-ui/core` (`./core`) — Fundamental primitives (Button, Input, Icon, Typography, etc.)
 - `baukasten-ui/extra` (`./extra`) — Higher-level compositions (Tabs, Menu, Tree, etc.)
 - `baukasten-ui/data-table` (`./data-table`) — DataTable and its helpers/types
-- `baukasten-ui/styles` (`./styles`) — Design token utilities
+
+Design tokens and style utilities come from `baukasten-ui/core`, which re-exports all of `src/styles`. There is no separate `./styles` subpath — one was declared for a long time but never built, so it never resolved.
 
 **Core components** (23 families): Icon, IconButton, Button, Input, TextArea, Checkbox, Radio/RadioGroup, Select, Slider, Label, FieldLabel, FormGroup, FormHelper, Typography (Heading/Text/Paragraph/Code/Link/Image), Badge, Tag, Table, Alert, Spinner, ProgressBar, Tooltip, Modal, Divider, Dropdown, PortalProvider, Styles, GlobalStyles
 
