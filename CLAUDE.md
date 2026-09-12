@@ -299,13 +299,13 @@ Design tokens and style utilities come from `baukasten-ui/core`, which re-export
 
 ### Core / Extra Split Criteria
 
-| Criterion                | Core                                                  | Extra                                        |
-| ------------------------ | ----------------------------------------------------- | -------------------------------------------- |
-| **Usage frequency**      | Used in 80%+ of UIs                                   | Used in specific scenarios                   |
-| **Complexity**           | Atomic / molecular                                    | Composed from multiple core components       |
+| Criterion                | Core                                                  | Extra                                                                                      |
+| ------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Usage frequency**      | Used in 80%+ of UIs                                   | Used in specific scenarios                                                                 |
+| **Complexity**           | Atomic / molecular                                    | Composed from multiple core components                                                     |
 | **External deps**        | Only `clsx`, `@floating-ui/react`, `@vscode/codicons` | Same as core — a heavy optional dep earns its own entry point instead (see `./data-table`) |
-| **Cross-component deps** | May depend on Icon and styles only                    | May depend on any core component             |
-| **Self-contained**       | Can work alone with just styles                       | Needs core components at runtime             |
+| **Cross-component deps** | May depend on Icon and styles only                    | May depend on any core component                                                           |
+| **Self-contained**       | Can work alone with just styles                       | Needs core components at runtime                                                           |
 
 **Key rule**: Extra can import from Core. Core **never** imports from Extra.
 

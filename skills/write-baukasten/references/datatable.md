@@ -2,7 +2,7 @@
 
 `DataTable` is the library's most complex component — built on TanStack Table v8 with ~35 props across sorting, pagination, row selection, column resizing, global filtering, and loading/empty states. It lives in its own reference file because of its size.
 
-**Its own entry point:** `baukasten-ui/data-table`. It is deliberately *not* exported from `baukasten-ui` or `baukasten-ui/extra` — a re-export from either barrel would force every consumer of that barrel to install `@tanstack/react-table`, because Rollup resolves re-exported modules whether or not their exports are used.
+**Its own entry point:** `baukasten-ui/data-table`. It is deliberately _not_ exported from `baukasten-ui` or `baukasten-ui/extra` — a re-export from either barrel would force every consumer of that barrel to install `@tanstack/react-table`, because Rollup resolves re-exported modules whether or not their exports are used.
 
 **Optional peer dependency:** requires `@tanstack/react-table` (`npm install @tanstack/react-table`). Nothing else in the library needs it, so consumers who skip DataTable never install it.
 

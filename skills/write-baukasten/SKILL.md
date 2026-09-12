@@ -206,23 +206,23 @@ Full reference: [references/extra-components.md](./references/extra-components.m
 
 > `DataTable` is **not** in `extra`. It has its own entry point, `baukasten-ui/data-table`, so that `@tanstack/react-table` stays an optional peer dependency — see [references/datatable.md](./references/datatable.md).
 
-| Component                                                 | Role                                                                                                                             |
-| --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `Tabs` / `TabList` / `Tab` / `TabPanels` / `TabPanel`     | Tabbed interface; variants: `line` \| `lifted` \| `pills`.                                                                       |
-| `Breadcrumbs`                                             | Navigation breadcrumb with optional `pill` variant and `maxItems` collapsing.                                                    |
-| `Pagination`                                              | Page navigation; API is `totalItems` + `pageSize` (NOT totalPages).                                                              |
-| `Menu` / `MenuItem` / `MenuDivider` / `SubMenu`           | Menu primitives for use inside `Dropdown` or `ContextMenu`.                                                                      |
-| `ContextMenu`                                             | Right-click menu wrapper. Portal-aware.                                                                                          |
-| `ButtonGroup`                                             | Connected button group + `ButtonGroup.Dropdown` for split buttons (note: uses `content` prop, not children).                     |
-| `Combobox`                                                | Typeahead select with inline input, single/multi (discriminated union), chips, creatable, clearable, grouping, virtualization.   |
-| `FileUpload`                                              | Drag-and-drop file picker. Variants: `default` \| `primary` \| `dashed`.                                                         |
-| `Drawer` / `DrawerHeader` / `DrawerBody` / `DrawerFooter` | Slide-in panel from any edge.                                                                                                    |
-| `Accordion` / `AccordionItem`                             | Collapsible panels; optional `exclusive` mode.                                                                                   |
-| `Tree`                                                    | Hierarchical view with expand/collapse, selection, keyboard nav, edge guides.                                                    |
-| `SplitPane` / `SplitPane.Pane`                            | Resizable horizontal or vertical split.                                                                                          |
-| `StatusBar` / `StatusBarSection` / `StatusBarItem`        | VSCode-style bottom bar (variants live on `StatusBarItem`, not `StatusBar`).                                                     |
-| `Hero`                                                    | Top-of-page banner.                                                                                                              |
-| `Avatar`                                                  | User avatar (`circular` \| `square`) with image or initials fallback.                                                            |
+| Component                                                 | Role                                                                                                                           |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `Tabs` / `TabList` / `Tab` / `TabPanels` / `TabPanel`     | Tabbed interface; variants: `line` \| `lifted` \| `pills`.                                                                     |
+| `Breadcrumbs`                                             | Navigation breadcrumb with optional `pill` variant and `maxItems` collapsing.                                                  |
+| `Pagination`                                              | Page navigation; API is `totalItems` + `pageSize` (NOT totalPages).                                                            |
+| `Menu` / `MenuItem` / `MenuDivider` / `SubMenu`           | Menu primitives for use inside `Dropdown` or `ContextMenu`.                                                                    |
+| `ContextMenu`                                             | Right-click menu wrapper. Portal-aware.                                                                                        |
+| `ButtonGroup`                                             | Connected button group + `ButtonGroup.Dropdown` for split buttons (note: uses `content` prop, not children).                   |
+| `Combobox`                                                | Typeahead select with inline input, single/multi (discriminated union), chips, creatable, clearable, grouping, virtualization. |
+| `FileUpload`                                              | Drag-and-drop file picker. Variants: `default` \| `primary` \| `dashed`.                                                       |
+| `Drawer` / `DrawerHeader` / `DrawerBody` / `DrawerFooter` | Slide-in panel from any edge.                                                                                                  |
+| `Accordion` / `AccordionItem`                             | Collapsible panels; optional `exclusive` mode.                                                                                 |
+| `Tree`                                                    | Hierarchical view with expand/collapse, selection, keyboard nav, edge guides.                                                  |
+| `SplitPane` / `SplitPane.Pane`                            | Resizable horizontal or vertical split.                                                                                        |
+| `StatusBar` / `StatusBarSection` / `StatusBarItem`        | VSCode-style bottom bar (variants live on `StatusBarItem`, not `StatusBar`).                                                   |
+| `Hero`                                                    | Top-of-page banner.                                                                                                            |
+| `Avatar`                                                  | User avatar (`circular` \| `square`) with image or initials fallback.                                                          |
 
 ---
 
