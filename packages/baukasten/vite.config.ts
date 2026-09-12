@@ -55,7 +55,12 @@ export default defineConfig({
             },
             name: 'Baukasten',
             formats: ['es', 'cjs'],
-            fileName: (format, entryName) => `${entryName}.${format === 'es' ? 'mjs' : 'js'}`,
+            // `.cjs`, not `.js`: package.json sets "type": "module", so Node parses any
+            // `.js` file in this package as ESM.  Naming the CommonJS build `.js` made
+            // every require() of the package die with "exports is not defined" on its
+            // first statement.  Vite names the shared chunks `.cjs` itself — only these
+            // entry files go through this callback, which is why the build looked right.
+            fileName: (format, entryName) => `${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
             cssFileName: 'baukasten-base',
         },
         rollupOptions: {
