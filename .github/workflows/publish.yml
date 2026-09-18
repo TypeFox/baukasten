@@ -6,11 +6,8 @@ permissions:
 
 on:
     push:
-        branches:
-            - 'main'
-        paths:
-            - 'package.json'
-            - '**/package.json'
+        tags:
+            - 'v*.*.*'
 
 # Never let two publish runs race each other
 concurrency:
@@ -21,6 +18,7 @@ jobs:
     publish:
         name: Baukasten Publish
         runs-on: ubuntu-latest
+        environment: publish
         steps:
             - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
