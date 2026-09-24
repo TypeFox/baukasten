@@ -1,0 +1,21 @@
+{
+    "name": "@baukasten/example-preact",
+    "version": "0.3.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "baukasten-ui": "*",
+        "baukasten-ui-web-wrapper": "*",
+        "preact": "^10.24.0"
+    },
+    "devDependencies": {
+        "@preact/preset-vite": "^2.9.0",
+        "typescript": "^5.3.3",
+        "vite": "^6.0.0"
+    }
+}

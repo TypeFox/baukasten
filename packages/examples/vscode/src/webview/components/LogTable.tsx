@@ -10,27 +10,44 @@ interface LogTableProps {
     loading?: boolean;
 }
 
+const truncatedCellStyle: React.CSSProperties = {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    display: 'block',
+};
+
+const TruncatedCell: React.FC<{ text: string; style?: React.CSSProperties }> = ({
+    text,
+    style,
+}) => (
+    <span title={text} style={{ ...truncatedCellStyle, ...style }}>
+        {text}
+    </span>
+);
+
 export const LogTable: React.FC<LogTableProps> = ({ logs, onSelectLog, loading = false }) => {
     const columns = useMemo<ColumnDef<LogEntry>[]>(
         () => [
             {
                 accessorKey: 'timestamp',
                 header: 'Time',
-                size: 140,
+                size: 60,
                 cell: ({ getValue }) => {
                     const date = getValue() as Date;
-                    return date.toLocaleTimeString('en-US', {
+                    const text = date.toLocaleTimeString('en-US', {
                         hour12: false,
                         hour: '2-digit',
                         minute: '2-digit',
                         second: '2-digit',
                     });
+                    return <TruncatedCell text={text} />;
                 },
             },
             {
                 accessorKey: 'level',
                 header: 'Level',
-                size: 80,
+                size: 60,
                 cell: ({ getValue }) => {
                     const level = getValue() as LogEntry['level'];
                     return (
@@ -45,31 +62,19 @@ export const LogTable: React.FC<LogTableProps> = ({ logs, onSelectLog, loading =
                 header: 'Source',
                 size: 140,
                 cell: ({ getValue }) => (
-                    <span
+                    <TruncatedCell
+                        text={getValue() as string}
                         style={{
                             fontFamily: 'var(--bk-font-family-mono)',
                             fontSize: 'var(--bk-font-size-xs)',
                         }}
-                    >
-                        {getValue() as string}
-                    </span>
+                    />
                 ),
             },
             {
                 accessorKey: 'message',
                 header: 'Message',
-                cell: ({ getValue }) => (
-                    <span
-                        style={{
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            whiteSpace: 'nowrap',
-                            display: 'block',
-                        }}
-                    >
-                        {getValue() as string}
-                    </span>
-                ),
+                cell: ({ getValue }) => <TruncatedCell text={getValue() as string} />,
             },
         ],
         [],
@@ -84,6 +89,7 @@ export const LogTable: React.FC<LogTableProps> = ({ logs, onSelectLog, loading =
             data={logs}
             columns={columns}
             enableSorting
+            enableColumnResizing
             enablePagination
             initialPageSize={50}
             pageSizeOptions={[25, 50, 100, 200]}

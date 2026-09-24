@@ -7,7 +7,7 @@
         "packages/examples/*"
     ],
     "scripts": {
-        "build": "npm run build --workspaces",
+        "build": "npm run build:lib && npm run build:demos && npm run build:website && npm run build:examples",
         "build:web-wrapper": "npm run build --workspace=packages/web-wrapper",
         "build:baukasten": "npm run build --workspace=packages/baukasten",
         "build:website": "npm run build --workspace=packages/website",
@@ -20,6 +20,8 @@
         "example:web": "npm run dev --workspace=packages/examples/web-example",
         "example:vscode": "npm run watch --workspace=packages/examples/vscode",
         "build:vscode": "npm run build --workspace=packages/examples/vscode",
+        "example:db-explorer": "npm run watch --workspace=packages/examples/vscode-db-explorer",
+        "build:db-explorer": "npm run build --workspace=packages/examples/vscode-db-explorer",
         "lint": "npm run lint --workspace=packages/baukasten",
         "lint:fix": "npm run lint --workspace=packages/baukasten -- --fix",
         "test": "npm run test --workspaces --if-present",
@@ -28,8 +30,15 @@
         "publish-latest": "npm publish --tag latest --access public --workspaces",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
-        "example:electron": "npm run dev --workspace=packages/electron-demo",
-        "build:electron": "npm run build --workspace=packages/electron-demo"
+        "example:electron": "npm run dev --workspace=packages/examples/electron",
+        "build:electron": "npm run build --workspace=packages/examples/electron",
+        "example:agent-ide": "npm run dev --workspace=packages/examples/agent-ide",
+        "build:agent-ide": "npm run build --workspace=packages/examples/agent-ide",
+        "example:preact": "npm run dev --workspace=packages/examples/preact",
+        "build:preact": "npm run build --workspace=packages/examples/preact",
+        "build:lib": "npm run build:baukasten && npm run build:web-wrapper",
+        "build:demos": "npm run build:agent-ide && npm run build:preact",
+        "build:examples": "npm run build:vscode && npm run build:db-explorer && npm run build:electron && npm run build --workspace=packages/examples/web-example"
     },
     "devDependencies": {
         "@storybook/react-vite": "^8.6.15",

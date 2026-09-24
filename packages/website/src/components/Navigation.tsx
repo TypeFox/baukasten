@@ -64,6 +64,8 @@ const guides = [
     { name: 'Usage in Eclipse Theia', path: '/guides/theia' },
 ];
 
+const demos = [{ name: 'All Demos', path: '/demos' }];
+
 const recipes = [
     { name: 'Login Pages', path: '/recipes/login' },
     { name: 'Dashboard Layouts', path: '/recipes/dashboard' },
@@ -272,6 +274,36 @@ export default function Navigation() {
                         </Text>
                         <Menu size="md">
                             {foundations.map((item) => (
+                                <Link
+                                    key={item.path}
+                                    href={item.path}
+                                    style={{ textDecoration: 'none', color: 'inherit' }}
+                                >
+                                    <MenuItem selected={pathname === item.path}>
+                                        {item.name}
+                                    </MenuItem>
+                                </Link>
+                            ))}
+                        </Menu>
+                    </div>
+
+                    <div className="nav-section" style={{ marginBottom: 'var(--bk-spacing-6)' }}>
+                        <Text
+                            style={{
+                                display: 'block',
+                                fontSize: 'calc(var(--vscode-font-size) * 0.85)',
+                                fontWeight: 600,
+                                color: 'var(--vscode-descriptionForeground)',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.05em',
+                                marginBottom: 'var(--bk-spacing-3)',
+                                paddingLeft: 'var(--bk-spacing-4)',
+                            }}
+                        >
+                            Demos
+                        </Text>
+                        <Menu size="md">
+                            {demos.map((item) => (
                                 <Link
                                     key={item.path}
                                     href={item.path}

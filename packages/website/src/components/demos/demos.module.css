@@ -1,0 +1,225 @@
+/**
+ * Styles for the demos index and demo pages.
+ * Expressed in Baukasten semantic tokens (--bk-*) only.
+ */
+
+/* ─── Index page ─────────────────────────────────────────────────────────── */
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bk-spacing-5);
+    margin-bottom: var(--bk-spacing-10);
+}
+
+.prose {
+    max-width: 68ch;
+    line-height: var(--bk-line-height-relaxed);
+    color: var(--bk-color-foreground-muted);
+}
+
+.section {
+    margin-top: var(--bk-spacing-10);
+}
+
+/* ─── Card ───────────────────────────────────────────────────────────────── */
+
+.card {
+    display: flex;
+    gap: var(--bk-spacing-5);
+    padding: var(--bk-spacing-5);
+    background-color: var(--bk-color-background-secondary);
+    border: var(--bk-border-width-1) solid var(--bk-color-border);
+    border-radius: var(--bk-radius-lg);
+    transition: var(--bk-transition-colors);
+}
+
+.card:hover {
+    border-color: var(--bk-color-border-hover);
+}
+
+.cardPlanned {
+    opacity: var(--bk-opacity-70);
+}
+
+.cardIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--bk-spacing-12);
+    height: var(--bk-spacing-12);
+    background-color: var(--bk-color-background-elevated);
+    border: var(--bk-border-width-1) solid var(--bk-color-border);
+    border-radius: var(--bk-radius-md);
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bk-gap-md);
+    min-width: 0;
+    flex: 1;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--bk-gap-md);
+}
+
+.cardTitle {
+    margin: 0;
+}
+
+.cardDescription {
+    max-width: 78ch;
+    margin: 0;
+    line-height: var(--bk-line-height-relaxed);
+    color: var(--bk-color-foreground-muted);
+}
+
+/* What is and isn't real — a quiet aside, not a callout. */
+.cardNote {
+    display: flex;
+    align-items: center;
+    gap: var(--bk-gap-sm);
+    font-size: var(--bk-font-size-sm);
+    color: var(--bk-color-foreground-muted);
+}
+
+.cardTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bk-gap-sm);
+}
+
+.cardActions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--bk-gap-lg);
+    margin-top: var(--bk-spacing-1);
+}
+
+/*
+ * Anchors styled as buttons. Button always renders <button>, and these
+ * navigate — keeping them links preserves middle-click, "open in new tab"
+ * and the correct screen-reader role.
+ */
+.cardAction {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--bk-gap-sm);
+    padding: var(--bk-padding-md);
+    background-color: var(--bk-color-primary);
+    color: var(--bk-color-primary-foreground);
+    border-radius: var(--bk-radius-sm);
+    font-size: var(--bk-font-size-md);
+    font-weight: var(--bk-font-weight-medium);
+    text-decoration: none;
+    transition: var(--bk-transition-colors);
+}
+
+.cardAction:hover {
+    background-color: var(--bk-color-primary-hover);
+}
+
+.cardAction:focus-visible {
+    outline: var(--bk-border-width-2) solid var(--bk-color-focus);
+    outline-offset: var(--bk-border-width-2);
+}
+
+.cardActionSecondary {
+    background-color: var(--bk-color-secondary);
+    color: var(--bk-color-secondary-foreground);
+}
+
+.cardActionSecondary:hover {
+    background-color: var(--bk-color-secondary-hover);
+}
+
+.cardSecondaryLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--bk-spacing-1);
+    color: var(--bk-color-link);
+    font-size: var(--bk-font-size-sm);
+    text-decoration: none;
+}
+
+.cardSecondaryLink:hover {
+    color: var(--bk-color-link-hover);
+    text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+    .card {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        transition: none;
+    }
+}
+
+/* ─── Launch link ────────────────────────────────────────────────────────── */
+
+.launch {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--bk-gap-lg);
+    margin-bottom: var(--bk-spacing-10);
+    padding: var(--bk-spacing-6);
+    background-color: var(--bk-color-background-secondary);
+    border: var(--bk-border-width-1) solid var(--bk-color-border);
+    border-radius: var(--bk-radius-lg);
+}
+
+.launchNote {
+    flex: 1;
+    min-width: 260px;
+    font-size: var(--bk-font-size-sm);
+    line-height: var(--bk-line-height-relaxed);
+    color: var(--bk-color-foreground-muted);
+}
+
+/* ─── Demo detail page ───────────────────────────────────────────────────── */
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--bk-gap-sm);
+    margin-bottom: var(--bk-spacing-4);
+    color: var(--bk-color-link);
+    text-decoration: none;
+    font-size: var(--bk-font-size-sm);
+}
+
+.backLink:hover {
+    color: var(--bk-color-link-hover);
+}
+
+.pageHeader {
+    margin-bottom: var(--bk-spacing-6);
+}
+
+.pageTitle {
+    margin-bottom: var(--bk-spacing-3);
+}
+
+.pageLead {
+    max-width: 68ch;
+    margin: 0;
+    font-size: var(--bk-font-size-base);
+    line-height: var(--bk-line-height-relaxed);
+    color: var(--bk-color-foreground-muted);
+}
+
+.tableArea {
+    font-weight: var(--bk-font-weight-semibold);
+}

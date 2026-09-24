@@ -1,0 +1,34 @@
+/**
+ * Bridges the VS Code theme onto the standalone editor surface.
+ *
+ * The theme service publishes its palette as CSS custom properties scoped to
+ * `.monaco-workbench`, but with `viewsConfig: 'EditorService'` no workbench is
+ * mounted to consume them — the editor gets its `vs-dark` class and its token
+ * colours, yet nothing paints the editor chrome, so it renders on the page's
+ * default background.
+ *
+ * These rules wire the surface to the theme's own variables. No colour is
+ * hardcoded: whatever theme is active supplies the values.
+ */
+
+.monaco-workbench .monaco-editor,
+.monaco-workbench .monaco-editor .overflow-guard,
+.monaco-workbench .monaco-editor .monaco-editor-background,
+.monaco-workbench .monaco-diff-editor,
+.monaco-workbench .monaco-diff-editor .diffOverview {
+    background-color: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+}
+
+.monaco-workbench .monaco-editor .margin {
+    background-color: var(--vscode-editorGutter-background, var(--vscode-editor-background));
+}
+
+.monaco-workbench .monaco-editor .line-numbers {
+    color: var(--vscode-editorLineNumber-foreground);
+}
+
+.monaco-workbench .monaco-editor .current-line ~ .line-numbers,
+.monaco-workbench .monaco-editor .active-line-number {
+    color: var(--vscode-editorLineNumber-activeForeground);
+}

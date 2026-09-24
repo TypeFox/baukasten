@@ -1,0 +1,33 @@
+{
+    "name": "@baukasten/demo-agent-ide",
+    "version": "0.3.0",
+    "private": true,
+    "type": "module",
+    "description": "AI coding agent demo — Baukasten chrome around TypeFox's Monaco/VS Code editor stack, built with Vite and embedded in the docs site.",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@codingame/monaco-vscode-editor-service-override": "^25.1.2",
+        "@codingame/monaco-vscode-log-service-override": "^25.1.2",
+        "@codingame/monaco-vscode-textmate-service-override": "^25.1.2",
+        "@codingame/monaco-vscode-theme-defaults-default-extension": "^25.1.2",
+        "@codingame/monaco-vscode-theme-service-override": "^25.1.2",
+        "@codingame/monaco-vscode-typescript-basics-default-extension": "^25.1.2",
+        "@typefox/monaco-editor-react": "^7.7.0",
+        "baukasten-ui": "*",
+        "baukasten-ui-web-wrapper": "*",
+        "monaco-languageclient": "^10.7.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    },
+    "devDependencies": {
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "@vitejs/plugin-react": "^4.3.4",
+        "typescript": "^5.3.3",
+        "vite": "^6.0.0"
+    }
+}
