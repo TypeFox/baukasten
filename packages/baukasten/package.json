@@ -51,7 +51,7 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc --project tsconfig.build.json && vite build && npm run build:css",
-        "prepare:next": "npm --workspaces-update false --no-git-tag-version version \"$(semver $npm_package_version)-next.$(git rev-parse --short HEAD)\"",
+        "prepare:next": "npm --workspaces-update false --no-git-tag-version version \"$(semver $npm_package_version -i minor)-next.$(TZ=UTC git log -1 --format=%cd --date=format-local:%Y%m%d%H%M%S)\"",
         "build:css": "npx tsx scripts/generate-css.ts",
         "preview": "vite preview",
         "watch": "vite build --watch --mode development",

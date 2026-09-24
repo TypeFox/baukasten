@@ -5,11 +5,20 @@ name: Publish (next)
 #
 # Mirrors publish.yml (checkout/setup-node pins, npm upgrade, lint/format
 # checks, build, gh-publish-npm with OIDC trusted publishing), but first
-# bumps to a prerelease version via the existing root "prepare-next" script
-# and publishes under the `next` tag instead of `latest`.
+# bumps to a prerelease version via the root "prepare-next" script and
+# publishes under the `next` tag instead of `latest`.
+#
+# The prerelease version is <next minor>-next.<HEAD commit time, UTC>, e.g.
+# 0.4.0-next.20260924103000. It must sort above both `latest` and the current
+# `next`, otherwise gh-publish-npm treats the package as up to date and skips it.
 
 on:
-    workflow_dispatch: {}
+    workflow_dispatch:
+        inputs:
+            dry-run:
+                description: 'Run every step but only simulate the npm publish'
+                type: boolean
+                default: false
 
 permissions:
     contents: read
@@ -46,8 +55,8 @@ jobs:
               run: npm run build
 
             - name: Prepare next version
-              # Root script (already on master): bumps each workspace to a
-              # prerelease version via "prepare:next" where present.
+              # Bumps each workspace to a prerelease version via its
+              # "prepare:next" script where present.
               run: npm run prepare-next
 
             - name: Publish
@@ -55,6 +64,7 @@ jobs:
               uses: TypeFox/gh-publish-npm@7183224bef010236e419a2367208633ff284337a
               with:
                   npm-tag: next
+                  dry-run: ${{ inputs.dry-run }}
                   # Newline-separated. Only non-private, npm-published packages belong here.
                   npm-packages: |
                       packages/baukasten
