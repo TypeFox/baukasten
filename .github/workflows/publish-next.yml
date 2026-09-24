@@ -1,0 +1,61 @@
+name: Publish (next)
+
+# Publishes a "next" snapshot of the public baukasten packages to npm under
+# the `next` dist-tag. Manually triggered only.
+#
+# Mirrors publish.yml (checkout/setup-node pins, npm upgrade, lint/format
+# checks, build, gh-publish-npm with OIDC trusted publishing), but first
+# bumps to a prerelease version via the existing root "prepare-next" script
+# and publishes under the `next` tag instead of `latest`.
+
+on:
+    workflow_dispatch: {}
+
+permissions:
+    contents: read
+    id-token: write # Required for npm OIDC trusted publishing
+
+# Never let this race the regular publish workflow or another next-publish
+concurrency:
+    group: publish
+    cancel-in-progress: false
+
+jobs:
+    publish-next:
+        name: Baukasten Publish (next)
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+            - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+              with:
+                  node-version: '22'
+                  # Required by the publish action for --provenance
+                  registry-url: 'https://registry.npmjs.org'
+
+            - name: Upgrade npm
+              run: npm install -g npm@latest
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Run checks
+              run: npm run lint && npm run format:check
+
+            - name: Build all packages
+              run: npm run build
+
+            - name: Prepare next version
+              # Root script (already on master): bumps each workspace to a
+              # prerelease version via "prepare:next" where present.
+              run: npm run prepare-next
+
+            - name: Publish
+              # Pin the version to a full commit SHA for supply-chain safety
+              uses: TypeFox/gh-publish-npm@7183224bef010236e419a2367208633ff284337a
+              with:
+                  npm-tag: next
+                  # Newline-separated. Only non-private, npm-published packages belong here.
+                  npm-packages: |
+                      packages/baukasten
+                      packages/web-wrapper
