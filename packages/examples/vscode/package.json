@@ -41,6 +41,7 @@
         "vite": "^6.0.0"
     },
     "dependencies": {
+        "@tanstack/react-table": "^8.21.3",
         "baukasten-ui": "*",
         "react": "^19.0.0",
         "react-dom": "^19.0.0"

@@ -13,33 +13,13 @@
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
-export {
-    DataTable,
-    createSelectColumn,
-    useDataTable,
-    useDataTableData,
-    applyDataTransaction,
-    mergeTransactions,
-} from './components/DataTable';
-export type {
-    AsyncTransactionsFlushedEvent,
-    DataTableProps,
-    DataTableVariant,
-    DataTableColumnAlign,
-    DataTableRef,
-    DataTableTransaction,
-    DataTableTransactionResult,
-    DataTableTransactionWarning,
-    UndoableDataTableTransactionResult,
-    UseDataTableDataOptions,
-    UseDataTableDataReturn,
-    ColumnDef,
-    SortingState,
-    PaginationState,
-    RowSelectionState,
-    ColumnResizeMode,
-    Row,
-} from './components/DataTable';
+// DataTable lives at "baukasten-ui/data-table", not here.  It is the only
+// component that needs @tanstack/react-table, and a re-export from this barrel
+// forces every consumer of `extra` — or of the root entry, which re-exports
+// this file — to resolve that package whether or not they use the table.
+// Rollup resolves re-exported modules regardless of whether their exports are
+// used, so the separate entry point is what makes the peer dependency
+// genuinely optional.
 
 // ─── Navigation ─────────────────────────────────────────────────────────────
 

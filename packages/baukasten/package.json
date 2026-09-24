@@ -14,28 +14,29 @@
     ],
     "license": "MIT",
     "type": "module",
-    "main": "./dist/index.js",
+    "main": "./dist/index.cjs",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
             "import": "./dist/index.mjs",
-            "require": "./dist/index.js"
+            "require": "./dist/index.cjs"
         },
         "./core": {
             "types": "./dist/core.d.ts",
             "import": "./dist/core.mjs",
-            "require": "./dist/core.js"
+            "require": "./dist/core.cjs"
         },
         "./extra": {
             "types": "./dist/extra.d.ts",
             "import": "./dist/extra.mjs",
-            "require": "./dist/extra.js"
+            "require": "./dist/extra.cjs"
         },
-        "./styles": {
-            "import": "./dist/styles.mjs",
-            "require": "./dist/styles.js"
+        "./data-table": {
+            "types": "./dist/data-table.d.ts",
+            "import": "./dist/data-table.mjs",
+            "require": "./dist/data-table.cjs"
         },
         "./dist/baukasten-base.css": "./dist/baukasten-base.css",
         "./dist/baukasten-vscode.css": "./dist/baukasten-vscode.css",

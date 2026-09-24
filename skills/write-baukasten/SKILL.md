@@ -30,13 +30,16 @@ npm install @tanstack/react-table
 
 ```tsx
 import { Button, Input, Icon } from 'baukasten-ui/core'; // Core primitives
-import { Tabs, Menu, DataTable } from 'baukasten-ui/extra'; // Higher-level compositions
+import { Tabs, Menu, Tree } from 'baukasten-ui/extra'; // Higher-level compositions
+import { DataTable } from 'baukasten-ui/data-table'; // Needs @tanstack/react-table
 ```
 
 - `baukasten-ui/core` — fundamental primitives (no heavy deps)
 - `baukasten-ui/extra` — composed components, may depend on core
-- `baukasten-ui/styles` — design token utilities and types
-- `baukasten-ui` — re-exports everything from core + extra
+- `baukasten-ui/data-table` — DataTable and its helpers/types; the only entry needing `@tanstack/react-table`
+- `baukasten-ui` — re-exports core + extra (**not** DataTable)
+
+Design tokens and style utilities come from `baukasten-ui/core`. There is no `baukasten-ui/styles` subpath — it was declared but never built, and has now been removed.
 
 ### CSS Files
 
@@ -199,26 +202,27 @@ Full reference: [references/core-components.md](./references/core-components.md)
 
 ### Extra (`baukasten-ui/extra`)
 
-Full reference: [references/extra-components.md](./references/extra-components.md) (DataTable lives in [references/datatable.md](./references/datatable.md) due to its size.)
+Full reference: [references/extra-components.md](./references/extra-components.md)
 
-| Component                                                 | Role                                                                                                                             |
-| --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `DataTable`                                               | TanStack-Table-backed grid: sorting, pagination, row selection, column resize, global filter. Peer dep: `@tanstack/react-table`. |
-| `Tabs` / `TabList` / `Tab` / `TabPanels` / `TabPanel`     | Tabbed interface; variants: `line` \| `lifted` \| `pills`.                                                                       |
-| `Breadcrumbs`                                             | Navigation breadcrumb with optional `pill` variant and `maxItems` collapsing.                                                    |
-| `Pagination`                                              | Page navigation; API is `totalItems` + `pageSize` (NOT totalPages).                                                              |
-| `Menu` / `MenuItem` / `MenuDivider` / `SubMenu`           | Menu primitives for use inside `Dropdown` or `ContextMenu`.                                                                      |
-| `ContextMenu`                                             | Right-click menu wrapper. Portal-aware.                                                                                          |
-| `ButtonGroup`                                             | Connected button group + `ButtonGroup.Dropdown` for split buttons (note: uses `content` prop, not children).                     |
-| `Combobox`                                                | Typeahead select with inline input, single/multi (discriminated union), chips, creatable, clearable, grouping, virtualization.   |
-| `FileUpload`                                              | Drag-and-drop file picker. Variants: `default` \| `primary` \| `dashed`.                                                         |
-| `Drawer` / `DrawerHeader` / `DrawerBody` / `DrawerFooter` | Slide-in panel from any edge.                                                                                                    |
-| `Accordion` / `AccordionItem`                             | Collapsible panels; optional `exclusive` mode.                                                                                   |
-| `Tree`                                                    | Hierarchical view with expand/collapse, selection, keyboard nav, edge guides.                                                    |
-| `SplitPane` / `SplitPane.Pane`                            | Resizable horizontal or vertical split.                                                                                          |
-| `StatusBar` / `StatusBarSection` / `StatusBarItem`        | VSCode-style bottom bar (variants live on `StatusBarItem`, not `StatusBar`).                                                     |
-| `Hero`                                                    | Top-of-page banner.                                                                                                              |
-| `Avatar`                                                  | User avatar (`circular` \| `square`) with image or initials fallback.                                                            |
+> `DataTable` is **not** in `extra`. It has its own entry point, `baukasten-ui/data-table`, so that `@tanstack/react-table` stays an optional peer dependency — see [references/datatable.md](./references/datatable.md).
+
+| Component                                                 | Role                                                                                                                           |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `Tabs` / `TabList` / `Tab` / `TabPanels` / `TabPanel`     | Tabbed interface; variants: `line` \| `lifted` \| `pills`.                                                                     |
+| `Breadcrumbs`                                             | Navigation breadcrumb with optional `pill` variant and `maxItems` collapsing.                                                  |
+| `Pagination`                                              | Page navigation; API is `totalItems` + `pageSize` (NOT totalPages).                                                            |
+| `Menu` / `MenuItem` / `MenuDivider` / `SubMenu`           | Menu primitives for use inside `Dropdown` or `ContextMenu`.                                                                    |
+| `ContextMenu`                                             | Right-click menu wrapper. Portal-aware.                                                                                        |
+| `ButtonGroup`                                             | Connected button group + `ButtonGroup.Dropdown` for split buttons (note: uses `content` prop, not children).                   |
+| `Combobox`                                                | Typeahead select with inline input, single/multi (discriminated union), chips, creatable, clearable, grouping, virtualization. |
+| `FileUpload`                                              | Drag-and-drop file picker. Variants: `default` \| `primary` \| `dashed`.                                                       |
+| `Drawer` / `DrawerHeader` / `DrawerBody` / `DrawerFooter` | Slide-in panel from any edge.                                                                                                  |
+| `Accordion` / `AccordionItem`                             | Collapsible panels; optional `exclusive` mode.                                                                                 |
+| `Tree`                                                    | Hierarchical view with expand/collapse, selection, keyboard nav, edge guides.                                                  |
+| `SplitPane` / `SplitPane.Pane`                            | Resizable horizontal or vertical split.                                                                                        |
+| `StatusBar` / `StatusBarSection` / `StatusBarItem`        | VSCode-style bottom bar (variants live on `StatusBarItem`, not `StatusBar`).                                                   |
+| `Hero`                                                    | Top-of-page banner.                                                                                                            |
+| `Avatar`                                                  | User avatar (`circular` \| `square`) with image or initials fallback.                                                          |
 
 ---
 

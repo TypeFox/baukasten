@@ -14,11 +14,11 @@ import {
     Badge,
     Tag,
     Select,
-    DataTable,
     StatusBar,
     StatusBarSection,
     StatusBarItem,
 } from 'baukasten-ui';
+import { DataTable } from 'baukasten-ui/data-table';
 import './App.css';
 
 // ─── Mock data ───────────────────────────────────────────────────────────────

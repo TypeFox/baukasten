@@ -1,5 +1,6 @@
 import type { ColumnDef, Row } from '@tanstack/react-table';
-import { Badge, DataTable } from 'baukasten-ui';
+import { Badge } from 'baukasten-ui';
+import { DataTable } from 'baukasten-ui/data-table';
 import React, { useMemo } from 'react';
 import { LOG_LEVEL_COLORS, LogEntry } from '../types/log';
 

@@ -1,8 +1,10 @@
 # DataTable Reference
 
-`DataTable` is `baukasten-ui/extra`'s most complex component — built on TanStack Table v8 with ~35 props across sorting, pagination, row selection, column resizing, global filtering, and loading/empty states. It lives in its own reference file because of its size.
+`DataTable` is the library's most complex component — built on TanStack Table v8 with ~35 props across sorting, pagination, row selection, column resizing, global filtering, and loading/empty states. It lives in its own reference file because of its size.
 
-**Peer dependency:** requires `@tanstack/react-table` (`npm install @tanstack/react-table`).
+**Its own entry point:** `baukasten-ui/data-table`. It is deliberately _not_ exported from `baukasten-ui` or `baukasten-ui/extra` — a re-export from either barrel would force every consumer of that barrel to install `@tanstack/react-table`, because Rollup resolves re-exported modules whether or not their exports are used.
+
+**Optional peer dependency:** requires `@tanstack/react-table` (`npm install @tanstack/react-table`). Nothing else in the library needs it, so consumers who skip DataTable never install it.
 
 > **Always use semantic design tokens** (`var(--bk-*)`). See [./design-tokens.md](./design-tokens.md) for the catalog.
 
@@ -10,10 +12,10 @@
 
 ### DataTable
 
-Advanced data table built on TanStack Table v8 with sorting, pagination, row selection, column resizing, global filtering, and loading/empty states. Requires `@tanstack/react-table` as a peer dependency.
+Advanced data table built on TanStack Table v8 with sorting, pagination, row selection, column resizing, global filtering, and loading/empty states. Requires `@tanstack/react-table` as an optional peer dependency.
 
 ```tsx
-import { DataTable, createSelectColumn, useDataTable } from 'baukasten-ui/extra';
+import { DataTable, createSelectColumn, useDataTable } from 'baukasten-ui/data-table';
 import type {
     DataTableProps,
     DataTableVariant,
@@ -24,7 +26,7 @@ import type {
     RowSelectionState,
     ColumnResizeMode,
     Row,
-} from 'baukasten-ui/extra';
+} from 'baukasten-ui/data-table';
 
 // DataTable props (generic over row data type TData)
 interface DataTableProps<TData> {

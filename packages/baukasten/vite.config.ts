@@ -43,10 +43,24 @@ export default defineConfig({
                 index: resolve(__dirname, 'src/index.ts'),
                 core: resolve(__dirname, 'src/core.ts'),
                 extra: resolve(__dirname, 'src/extra.ts'),
+                /**
+                 * DataTable is the only code that touches @tanstack/react-table, and is
+                 * deliberately NOT re-exported from `extra` or the root barrel: Rollup
+                 * resolves re-exported modules whether or not their exports are used, so
+                 * a single re-export would force every consumer of those barrels to
+                 * install the package.  Keeping it to its own entry is what makes the
+                 * peer dependency genuinely optional.
+                 */
+                'data-table': resolve(__dirname, 'src/components/DataTable/index.ts'),
             },
             name: 'Baukasten',
             formats: ['es', 'cjs'],
-            fileName: (format, entryName) => `${entryName}.${format === 'es' ? 'mjs' : 'js'}`,
+            // `.cjs`, not `.js`: package.json sets "type": "module", so Node parses any
+            // `.js` file in this package as ESM.  Naming the CommonJS build `.js` made
+            // every require() of the package die with "exports is not defined" on its
+            // first statement.  Vite names the shared chunks `.cjs` itself — only these
+            // entry files go through this callback, which is why the build looked right.
+            fileName: (format, entryName) => `${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
             cssFileName: 'baukasten-base',
         },
         rollupOptions: {

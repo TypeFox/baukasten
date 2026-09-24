@@ -10,6 +10,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@tanstack/react-table": "^8.21.3",
         "@types/flexsearch": "^0.7.6",
         "baukasten-ui": "*",
         "baukasten-ui-web-wrapper": "*",
