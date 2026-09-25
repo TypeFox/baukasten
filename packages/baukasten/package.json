@@ -19,19 +19,38 @@
     "types": "./dist/index.d.ts",
     "exports": {
         ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.mjs",
-            "require": "./dist/index.js"
+            "import": { "types": "./dist/index.d.ts", "default": "./dist/index.mjs" },
+            "require": { "types": "./dist/index.d.cts", "default": "./dist/index.js" }
         },
         "./core": {
-            "types": "./dist/core.d.ts",
-            "import": "./dist/core.mjs",
-            "require": "./dist/core.js"
+            "import": { "types": "./dist/core.d.ts", "default": "./dist/core.mjs" },
+            "require": { "types": "./dist/core.d.cts", "default": "./dist/core.js" }
         },
         "./extra": {
-            "types": "./dist/extra.d.ts",
-            "import": "./dist/extra.mjs",
-            "require": "./dist/extra.js"
+            "import": { "types": "./dist/extra.d.ts", "default": "./dist/extra.mjs" },
+            "require": { "types": "./dist/extra.d.cts", "default": "./dist/extra.js" }
+        },
+        "./agent": {
+            "import": { "types": "./dist/agent.d.ts", "default": "./dist/agent.mjs" },
+            "require": { "types": "./dist/agent.d.cts", "default": "./dist/agent.js" }
+        },
+        "./agent/mcp": {
+            "import": { "types": "./dist/agent-mcp.d.ts", "default": "./dist/agent-mcp.mjs" },
+            "require": { "types": "./dist/agent-mcp.d.cts", "default": "./dist/agent-mcp.js" }
+        },
+        "./agent/acp": {
+            "import": { "types": "./dist/agent-acp.d.ts", "default": "./dist/agent-acp.mjs" },
+            "require": { "types": "./dist/agent-acp.d.cts", "default": "./dist/agent-acp.js" }
+        },
+        "./agent/testing": {
+            "import": {
+                "types": "./dist/agent-testing.d.ts",
+                "default": "./dist/agent-testing.mjs"
+            },
+            "require": {
+                "types": "./dist/agent-testing.d.cts",
+                "default": "./dist/agent-testing.js"
+            }
         },
         "./styles": {
             "import": "./dist/styles.mjs",
@@ -49,15 +68,19 @@
     "sideEffects": false,
     "scripts": {
         "dev": "vite",
-        "build": "tsc --project tsconfig.build.json && vite build && npm run build:css",
+        "build": "tsc --project tsconfig.build.json && vite build && npm run build:css && npm run build:cjs-types",
         "prepare:next": "npm --workspaces-update false --no-git-tag-version version \"$(semver $npm_package_version)-next.$(git rev-parse --short HEAD)\"",
         "build:css": "npx tsx scripts/generate-css.ts",
+        "build:cjs-types": "npx tsx scripts/emit-cjs-types.ts",
+        "check:package-types": "npx tsx scripts/check-package-types.ts",
+        "//check:protocol": "Type-level assertions are invisible to vitest, which transpiles rather than typechecks — so the conformance file needs a typecheck of its own or it passes vacuously. Its own config rather than the root one because `tsconfig.json` includes the stories, which have pre-existing errors and so cannot gate anything.",
+        "check:protocol": "tsc --noEmit -p tsconfig.conformance.json",
         "preview": "vite preview",
         "watch": "vite build --watch --mode development",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "test": "vitest run",
+        "test": "npm run check:protocol && vitest run",
         "test:ui": "vitest --ui",
         "test:watch": "vitest --watch",
         "test:coverage": "vitest --coverage"
@@ -74,12 +97,12 @@
     },
     "dependencies": {
         "@floating-ui/react": "^0.27.16",
+        "@tanstack/react-virtual": "^3.13.23",
         "@vscode/codicons": "^0.0.41",
         "clsx": "^2.1.1"
     },
     "devDependencies": {
         "@tanstack/react-table": "^8.21.3",
-        "@tanstack/react-virtual": "^3.13.23",
         "@storybook/addon-essentials": "^8.4.0",
         "@storybook/addon-interactions": "^8.4.0",
         "@storybook/addon-links": "^8.4.0",
@@ -87,6 +110,8 @@
         "@storybook/react": "^8.4.0",
         "@storybook/react-vite": "^8.4.0",
         "@storybook/test": "^8.4.0",
+        "@agentclientprotocol/sdk": "^1.4.0",
+        "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.9.1",
         "@testing-library/react": "^16.3.0",
         "@testing-library/user-event": "^14.6.1",

@@ -140,6 +140,37 @@ export const colorTokens = `
     --bk-color-code-foreground: var(--vscode-editor-foreground, #cccccc);
 
     /* ========================================================================
+     * DIFF COLORS
+     * Inserted and removed regions, for reviewing a proposed change
+     *
+     * Line backgrounds are the whole-row wash; text backgrounds are the
+     * narrower intra-line highlight and are deliberately stronger, which is
+     * how an editor distinguishes "this line changed" from "this is what
+     * changed in it".
+     * ======================================================================== */
+    --bk-color-diff-inserted-background: var(
+      --vscode-diffEditor-insertedLineBackground,
+      rgba(76, 175, 80, 0.16)
+    );
+    --bk-color-diff-inserted-text-background: var(
+      --vscode-diffEditor-insertedTextBackground,
+      rgba(76, 175, 80, 0.3)
+    );
+    --bk-color-diff-inserted-foreground: var(--vscode-testing-iconPassed, #4caf50);
+
+    --bk-color-diff-removed-background: var(
+      --vscode-diffEditor-removedLineBackground,
+      rgba(244, 67, 54, 0.16)
+    );
+    --bk-color-diff-removed-text-background: var(
+      --vscode-diffEditor-removedTextBackground,
+      rgba(244, 67, 54, 0.3)
+    );
+    --bk-color-diff-removed-foreground: var(--vscode-editorError-foreground, #f44336);
+
+    --bk-color-diff-gutter: var(--vscode-editorLineNumber-foreground, #858585);
+
+    /* ========================================================================
      * DROPDOWN COLORS
      * Dropdown menus and select elements
      * ======================================================================== */
@@ -279,6 +310,14 @@ export type ColorToken =
     // Code
     | 'code-background'
     | 'code-foreground'
+    // Diff
+    | 'diff-inserted-background'
+    | 'diff-inserted-text-background'
+    | 'diff-inserted-foreground'
+    | 'diff-removed-background'
+    | 'diff-removed-text-background'
+    | 'diff-removed-foreground'
+    | 'diff-gutter'
     // Dropdown
     | 'dropdown-background'
     | 'dropdown-foreground'

@@ -103,7 +103,7 @@ export { Alert } from './components/Alert';
 export type { AlertProps, AlertVariant } from './components/Alert';
 
 export { Spinner } from './components/Spinner';
-export type { SpinnerProps } from './components/Spinner';
+export type { SpinnerProps, SpinnerSize } from './components/Spinner';
 
 export { ProgressBar } from './components/ProgressBar';
 export type { ProgressBarProps, ProgressBarVariant } from './components/ProgressBar';

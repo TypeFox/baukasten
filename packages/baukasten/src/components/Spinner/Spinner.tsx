@@ -1,7 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
-import { type Size } from '../../styles';
 import { spinnerWrapper, spinner } from './Spinner.css';
+
+/**
+ * Spinner sizes, matching {@link IconSize} step for step.
+ *
+ * Deliberately the same scale as `Icon` rather than the shared `Size` type: a
+ * spinner is a glyph, and the two are constantly placed side by side as the
+ * running and settled states of the same thing. `Size` stops at `xl`, which
+ * left nothing large enough for a full-panel overlay once the scale was
+ * corrected downwards.
+ */
+export type SpinnerSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
 
 /**
  * Spinner component props
@@ -9,9 +19,14 @@ import { spinnerWrapper, spinner } from './Spinner.css';
 export interface SpinnerProps {
     /**
      * Size of the spinner
+     *
+     * Matches `Icon` at every step — `<Spinner size="sm" />` is the same size
+     * as `<Icon size="sm" />`, so swapping one for the other does not move
+     * anything around it.
+     *
      * @default 'md'
      */
-    size?: Size;
+    size?: SpinnerSize;
 
     /**
      * Custom color for the spinner (uses semantic token or CSS value)
@@ -52,8 +67,11 @@ export interface SpinnerProps {
  * // Small spinner
  * <Spinner size="sm" />
  *
- * // Large spinner
- * <Spinner size="lg" />
+ * // Large, for a full-panel overlay
+ * <Spinner size="3xl" />
+ *
+ * // Beside an icon, at a matching size
+ * <Spinner size="xs" /> <Icon name="check" size="xs" />
  *
  * // Custom color using semantic token
  * <Spinner color="var(--bk-color-success)" />
@@ -64,7 +82,7 @@ export interface SpinnerProps {
  * // With accessible label
  * <Spinner aria-label="Loading user data" />
  *
- * // In a button
+ * // In a button — matches the button's own font size, so it fits
  * <Button disabled>
  *   <Spinner size="sm" /> Loading...
  * </Button>

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Spinner } from './Spinner';
 import { Button } from '../Button';
+import { Icon } from '../Icon';
 
 const meta = {
     title: 'Components/Spinner',
@@ -520,6 +521,79 @@ export const UsageExamples: Story = {
         docs: {
             description: {
                 story: 'Common usage patterns: in buttons during async operations, standalone loading states, centered content placeholders, and inline with text.',
+            },
+        },
+    },
+};
+
+/**
+ * The comparison whose absence let the sizing drift.
+ */
+export const MatchesIcon: Story = {
+    render: () => (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--bk-gap-md)' }}>
+            {(['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'] as const).map((size) => (
+                <div
+                    key={size}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 'var(--bk-gap-md)',
+                        fontSize: 'var(--bk-font-size-sm)',
+                    }}
+                >
+                    <span
+                        style={{
+                            width: '3ch',
+                            color: 'var(--bk-color-foreground-muted)',
+                            fontFamily: 'var(--bk-font-family-mono)',
+                        }}
+                    >
+                        {size}
+                    </span>
+                    <Spinner size={size} />
+                    <Icon name="pass-filled" size={size} />
+                    <Icon name="loading" size={size} />
+                    <span style={{ color: 'var(--bk-color-foreground-muted)' }}>
+                        text at --bk-font-size-{size}
+                    </span>
+                </div>
+            ))}
+        </div>
+    ),
+    parameters: {
+        docs: {
+            description: {
+                story: 'Spinner and Icon at every matching size, beside text at the same token. They should line up exactly — a spinner and an icon are constantly used as the running and settled states of the same thing, so any mismatch makes a row jump when the state changes. Spinner previously sized itself from the *circular button diameter* scale, making every step roughly 2.3× the equivalent icon; the absence of this one story is why that survived.',
+            },
+        },
+    },
+};
+
+/**
+ * Inside a button, which the docstring has always claimed works.
+ */
+export const InsideButtons: Story = {
+    render: () => (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--bk-gap-md)' }}>
+            <Button size="xs" disabled>
+                <Spinner size="xs" /> Saving
+            </Button>
+            <Button size="sm" disabled>
+                <Spinner size="sm" /> Saving
+            </Button>
+            <Button size="md" disabled>
+                <Spinner size="md" /> Saving
+            </Button>
+            <Button size="lg" disabled>
+                <Spinner size="lg" /> Saving
+            </Button>
+        </div>
+    ),
+    parameters: {
+        docs: {
+            description: {
+                story: 'Each spinner matches its button\'s font size, so it sits inside the label rather than against the edges. Before the rescale, `<Spinner size="sm" />` was 28px inside a 28px `md` button — exactly filling it with no padding, despite being the example the component documented.',
             },
         },
     },

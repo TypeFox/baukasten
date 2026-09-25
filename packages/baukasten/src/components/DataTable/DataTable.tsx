@@ -783,7 +783,7 @@ function DataTableInner<TData>(
                 {/* Spinner overlay */}
                 {loading && (loadingIndicator === 'spinner' || loadingComponent) && (
                     <div className={styles.loadingOverlay}>
-                        {loadingComponent ?? <Spinner size="lg" />}
+                        {loadingComponent ?? <Spinner size="3xl" />}
                     </div>
                 )}
 
