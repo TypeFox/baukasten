@@ -3,6 +3,11 @@
     "version": "0.3.0",
     "type": "module",
     "description": "Theme wrapper for browser environments",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TypeFox/baukasten.git",
+        "directory": "packages/web-wrapper"
+    },
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",

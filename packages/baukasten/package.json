@@ -118,7 +118,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/typefox/baukasten.git",
+        "url": "git+https://github.com/TypeFox/baukasten.git",
         "directory": "packages/baukasten"
     },
     "bugs": "https://github.com/typefox/baukasten/issues",
