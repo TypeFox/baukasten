@@ -17,7 +17,8 @@ export default defineConfig({
             entry: resolve(__dirname, 'src/index.ts'),
             name: 'BaukastenWebWrapper',
             formats: ['es', 'cjs'],
-            fileName: (format) => `index.${format === 'es' ? 'mjs' : 'js'}`,
+            // The package is "type": "module", so a CommonJS file named .js would be loaded as ESM
+            fileName: (format) => `index.${format === 'es' ? 'mjs' : 'cjs'}`,
         },
         rollupOptions: {
             external: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
