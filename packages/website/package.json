@@ -11,20 +11,19 @@
     },
     "dependencies": {
         "@tanstack/react-table": "^8.21.3",
-        "@types/flexsearch": "^0.7.6",
         "baukasten-ui": "*",
         "baukasten-ui-web-wrapper": "*",
         "flexsearch": "^0.8.212",
-        "next": "^16.1.2",
+        "next": "^16.4.6",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
-        "react-shiki": "^0.9.1",
-        "shiki": "^3.15.0"
+        "react-shiki": "^0.11.3",
+        "shiki": "^4.6.0"
     },
     "devDependencies": {
-        "@types/node": "^20.11.0",
-        "@types/react": "^19.0.0",
-        "@types/react-dom": "^19.0.0",
-        "typescript": "^5.3.3"
+        "@types/node": "^24.19.4",
+        "@types/react": "^19.3.3",
+        "@types/react-dom": "^19.3.0",
+        "typescript": "^6.0.3"
     }
 }

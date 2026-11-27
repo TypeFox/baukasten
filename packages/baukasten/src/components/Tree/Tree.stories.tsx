@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tree, type TreeNodeData, type TreeEdgeStyle } from './';
 import { Icon } from '../Icon';
 import { IconButton } from '../IconButton';

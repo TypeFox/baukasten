@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/vitest';
 import { cleanup } from '@testing-library/react';
 import { afterEach } from 'vitest';
 
@@ -8,7 +8,7 @@ afterEach(() => {
 });
 
 // Mock IntersectionObserver (required for virtual scrolling)
-global.IntersectionObserver = class IntersectionObserver {
+globalThis.IntersectionObserver = class IntersectionObserver {
     constructor() {}
     disconnect() {}
     observe() {}
@@ -19,7 +19,7 @@ global.IntersectionObserver = class IntersectionObserver {
 } as unknown as typeof IntersectionObserver;
 
 // Mock ResizeObserver (required for column resizing)
-global.ResizeObserver = class ResizeObserver {
+globalThis.ResizeObserver = class ResizeObserver {
     constructor() {}
     disconnect() {}
     observe() {}
@@ -27,10 +27,10 @@ global.ResizeObserver = class ResizeObserver {
 } as unknown as typeof ResizeObserver;
 
 // Mock requestAnimationFrame
-global.requestAnimationFrame = (callback: FrameRequestCallback) => {
+globalThis.requestAnimationFrame = (callback: FrameRequestCallback) => {
     return setTimeout(callback, 0) as unknown as number;
 };
 
-global.cancelAnimationFrame = (id: number) => {
+globalThis.cancelAnimationFrame = (id: number) => {
     clearTimeout(id);
 };

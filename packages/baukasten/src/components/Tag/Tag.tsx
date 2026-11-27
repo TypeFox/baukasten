@@ -7,13 +7,7 @@ import { tag } from './Tag.css';
  * Tag variant types
  */
 export type TagVariant =
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'info';
+    'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
 
 /**
  * Tag component props

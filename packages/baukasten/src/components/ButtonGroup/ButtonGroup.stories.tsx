@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ButtonGroup } from './ButtonGroup';
 import { Button } from '../Button';
 import { Menu, MenuItem, MenuDivider } from '../Menu';

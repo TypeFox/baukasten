@@ -5,17 +5,10 @@ import { resolve } from 'path';
 
 const config: StorybookConfig = {
     stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-    addons: [
-        '@storybook/addon-links',
-        '@storybook/addon-essentials',
-        '@storybook/addon-interactions',
-    ],
+    addons: ['@storybook/addon-links', '@storybook/addon-docs'],
     framework: {
         name: '@storybook/react-vite',
         options: {},
-    },
-    docs: {
-        autodocs: 'tag',
     },
     async viteFinal(config) {
         return mergeConfig(config, {
@@ -24,7 +17,10 @@ const config: StorybookConfig = {
             resolve: {
                 alias: {
                     // Use source files directly for HMR instead of built dist
-                    'baukasten-ui-web-wrapper': resolve(__dirname, '../../web-wrapper/src'),
+                    'baukasten-ui-web-wrapper': resolve(
+                        import.meta.dirname,
+                        '../../web-wrapper/src',
+                    ),
                 },
             },
         });

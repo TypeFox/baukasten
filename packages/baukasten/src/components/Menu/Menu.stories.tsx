@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Menu, MenuItem, MenuDivider, SubMenu } from './Menu';
 import { Icon } from '../Icon';
 import { Badge } from '../Badge';

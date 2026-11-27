@@ -1,6 +1,6 @@
 import { defineConfig, Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
-import dts from 'vite-plugin-dts';
+import dts from 'unplugin-dts/vite';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { resolve } from 'path';
 
@@ -34,15 +34,15 @@ export default defineConfig({
         dts({
             insertTypesEntry: true,
             exclude: ['**/*.stories.tsx', '**/*.test.tsx', '**/*.test.ts'],
-            rollupTypes: true,
+            bundleTypes: true,
         }),
     ],
     build: {
         lib: {
             entry: {
-                index: resolve(__dirname, 'src/index.ts'),
-                core: resolve(__dirname, 'src/core.ts'),
-                extra: resolve(__dirname, 'src/extra.ts'),
+                index: resolve(import.meta.dirname, 'src/index.ts'),
+                core: resolve(import.meta.dirname, 'src/core.ts'),
+                extra: resolve(import.meta.dirname, 'src/extra.ts'),
                 /**
                  * DataTable is the only code that touches @tanstack/react-table, and is
                  * deliberately NOT re-exported from `extra` or the root barrel: Rollup
@@ -51,7 +51,7 @@ export default defineConfig({
                  * install the package.  Keeping it to its own entry is what makes the
                  * peer dependency genuinely optional.
                  */
-                'data-table': resolve(__dirname, 'src/components/DataTable/index.ts'),
+                'data-table': resolve(import.meta.dirname, 'src/components/DataTable/index.ts'),
             },
             name: 'Baukasten',
             formats: ['es', 'cjs'],

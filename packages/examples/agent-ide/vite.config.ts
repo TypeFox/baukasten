@@ -26,12 +26,6 @@ export default defineConfig({
         format: 'es',
     },
 
-    optimizeDeps: {
-        esbuildOptions: {
-            target: 'esnext',
-        },
-    },
-
     resolve: {
         // `vscode` is an alias for @codingame/monaco-vscode-extension-api; loading
         // two copies of it breaks the service registry.

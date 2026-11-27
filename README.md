@@ -31,8 +31,8 @@ baukasten/
 
 ### Prerequisites
 
-- Node.js >= 18.0.0
-- npm >= 9.0.0
+- Node.js >= 22.22.2
+- npm >= 10.0.0
 
 ### Installation
 
@@ -157,7 +157,7 @@ Example implementations showing how to use the component library in real applica
 - **TypeScript**: Type safety and developer experience
 - **VSCode CSS Variables**: Native VSCode styling
 - **Vite**: Fast build tool and dev server
-- **Storybook 8**: Component documentation and development
+- **Storybook 10**: Component documentation and development
 - **npm workspaces**: Monorepo management
 
 ## Features

@@ -46,7 +46,7 @@ vscode-db-explorer/
 │       ├── App.tsx            # Mockup UI + generated data
 │       └── App.css            # Layout styles
 ├── package.json               # Extension manifest
-└── vite.config.ts             # Webview bundler
+└── vite.config.mts            # Webview bundler
 ```
 
 ## Components Used
