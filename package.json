@@ -41,13 +41,18 @@
         "build:examples": "npm run build:vscode && npm run build:db-explorer && npm run build:electron && npm run build --workspace=packages/examples/web-example"
     },
     "devDependencies": {
-        "@storybook/react-vite": "^8.6.15",
-        "eslint-config-prettier": "^10.1.8",
-        "prettier": "^3.8.2",
-        "typescript": "^5.3.3"
+        "@storybook/react-vite": "^10.6.9",
+        "eslint-config-prettier": "^10.1.9",
+        "prettier": "^3.10.1",
+        "typescript": "^6.0.3"
     },
     "engines": {
-        "node": ">=18.0.0",
-        "npm": ">=9.0.0"
+        "node": ">=22.22.2",
+        "npm": ">=10.0.0"
+    },
+    "allowScripts": {
+        "esbuild": true,
+        "electron-winstaller": false,
+        "fsevents": false
     }
 }

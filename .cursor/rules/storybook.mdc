@@ -431,7 +431,7 @@ A well-structured component should have **7-10 stories**:
 ## Example: Complete Story File Structure
 
 ```tsx
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Component } from "./Component";
 
 const meta = {

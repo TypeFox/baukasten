@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import dts from 'vite-plugin-dts';
+import dts from 'unplugin-dts/vite';
 import { resolve } from 'path';
 
 export default defineConfig({
@@ -14,7 +14,7 @@ export default defineConfig({
     ],
     build: {
         lib: {
-            entry: resolve(__dirname, 'src/index.ts'),
+            entry: resolve(import.meta.dirname, 'src/index.ts'),
             name: 'BaukastenWebWrapper',
             formats: ['es', 'cjs'],
             fileName: (format) => `index.${format === 'es' ? 'mjs' : 'js'}`,

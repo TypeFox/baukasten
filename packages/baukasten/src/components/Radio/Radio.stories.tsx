@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Radio, RadioGroup } from './';
 import { Label } from '../Label';
 import { useState } from 'react';

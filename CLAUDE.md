@@ -276,7 +276,7 @@ The related helpers and types — `createSelectColumn`, `useDataTable`,
 - **Vite** - Build tool and dev server
 - **TypeScript** - Strict mode enabled
 - **vanilla-extract** - Zero-runtime CSS-in-TypeScript styling
-- **Storybook 8** - Component documentation
+- **Storybook 10** - Component documentation
 
 ### Package Exports
 
@@ -345,7 +345,7 @@ Design tokens and style utilities come from `baukasten-ui/core`, which re-export
 
 ## Notes
 
-- Node >= 18.0.0, npm >= 9.0.0 required
+- Node >= 22.22.2, npm >= 10.0.0 required
 - React 19 with vanilla-extract
 - All components are tree-shakeable
 - VSCode theme wrapper provides 5 theme presets for demos

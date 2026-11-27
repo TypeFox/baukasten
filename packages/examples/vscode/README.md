@@ -48,7 +48,7 @@ vscode/
 │           ├── LogDetailPanel.tsx
 │           └── StatusSummary.tsx
 ├── package.json               # Extension manifest
-└── vite.config.ts             # Webview bundler
+└── vite.config.mts            # Webview bundler
 ```
 
 ## Components Used

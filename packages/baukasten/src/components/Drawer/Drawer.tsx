@@ -25,7 +25,6 @@ export type DrawerPlacement = 'top' | 'right' | 'bottom' | 'left';
  * - fullscreen: Covers the entire viewport edge
  * - Custom CSS value: any valid CSS length (e.g. '400px', '70vh', '50vw')
  */
-// eslint-disable-next-line @typescript-eslint/ban-types
 export type DrawerSize = Size | 'fullscreen' | (string & {});
 
 /** Known preset size keys handled by the CSS recipe */

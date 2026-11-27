@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Heading, Text, Paragraph, Code, Link, Image } from './index';
 
 // Story-specific styles using a style tag

@@ -7,7 +7,7 @@ export default defineConfig({
     build: {
         outDir: 'dist/webview',
         rollupOptions: {
-            input: resolve(__dirname, 'src/webview/index.html'),
+            input: resolve(import.meta.dirname, 'src/webview/index.html'),
             output: {
                 entryFileNames: 'assets/[name].js',
                 chunkFileNames: 'assets/[name].js',
@@ -19,7 +19,7 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            '@': resolve(__dirname, 'src/webview'),
+            '@': resolve(import.meta.dirname, 'src/webview'),
         },
     },
 });
